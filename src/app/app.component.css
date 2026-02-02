@@ -1,0 +1,45 @@
+/* Professional Tech Gradient (No Image Needed) */
+.hero-gradient {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.grayscale {
+  filter: grayscale(100%);
+  transition: all 0.4s ease;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Hover Effects */
+.team-img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.cursor-pointer:hover .team-img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  border-color: #0d6efd !important;
+}
+
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.modal-content {
+  box-shadow: 0 1rem 3rem rgba(0,0,0,0.175);
+}

@@ -1,6 +1,7 @@
 import { Component, signal, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Title } from '@angular/platform-browser'; // <--- 1. Import Title Service
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -14,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrl: './app.component.css'
 })
 export class App implements AfterViewInit {
-  protected readonly title = signal('cloudcare-frontend');
+  protected readonly title = signal('ctrlshift-it-services');
 
   // --- Form State ---
   submitted = false;
@@ -24,22 +25,74 @@ export class App implements AfterViewInit {
   chatVisible = false;
   chatInput = '';
   messages: { text: string; isUser: boolean; isTyping?: boolean }[] = [
-    { text: "Hello! I'm the CloudCare Triage AI. Are you reporting an emergency outage in Ontario, or looking for a project quote?", isUser: false }
+    { text: "Hello! I'm the CtrlShift AI. Are you reporting an emergency outage in Ontario, or looking for a project quote?", isUser: false }
   ];
 
-  // 1. INJECT THE CHANGE DETECTOR
-  constructor(private cdr: ChangeDetectorRef) {}
+  // 2. Inject Title Service in Constructor
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private titleService: Title
+  ) {
+    // 3. Set the Browser Tab Title immediately
+    this.titleService.setTitle("CtrlShift IT Services | Managed IT & Web Solutions");
+  }
 
   ngAfterViewInit() {
-    // --- GSAP Animations ---
-    gsap.from(".hero-content", {
-      duration: 1.2,
-      y: 40,
-      opacity: 0,
-      stagger: 0.2,
-      ease: "power4.out"
+    // ---------------------------------------------------------
+    // 1. HERO & GLASS CARD ANIMATION
+    // ---------------------------------------------------------
+    const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+    const paths = document.querySelectorAll('.draw-path');
+    paths.forEach((path: any) => {
+      const length = path.getTotalLength();
+      gsap.set(path, {
+        strokeDasharray: length,
+        strokeDashoffset: length,
+        visibility: "visible"
+      });
     });
 
+    tl.from(".glass-card-interactive", {
+      scale: 0.7,
+      opacity: 0,
+      duration: 1.4,
+      ease: "elastic.out(1, 0.5)"
+    })
+      .to(".draw-path", {
+        strokeDashoffset: 0,
+        duration: 1.8,
+        stagger: 0.4,
+        ease: "power2.inOut"
+      }, "-=0.5")
+      .from(".hero-dark-modern h1, .hero-dark-modern p, .hero-dark-modern .btn", {
+        y: 30,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 1
+      }, "-=1");
+
+    // ---------------------------------------------------------
+    // 2. 3D MOUSE TILT EFFECT
+    // ---------------------------------------------------------
+    const card = document.querySelector('.glass-card-interactive');
+    if (card) {
+      document.addEventListener("mousemove", (e) => {
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 30;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
+
+        gsap.to(card, {
+          rotationY: xAxis,
+          rotationX: yAxis,
+          duration: 0.6,
+          ease: "power1.out"
+        });
+      });
+    }
+
+    // ---------------------------------------------------------
+    // 3. SCROLL TRIGGERS
+    // ---------------------------------------------------------
     gsap.utils.toArray('.reveal-card').forEach((card: any) => {
       gsap.from(card, {
         scrollTrigger: {
@@ -54,6 +107,9 @@ export class App implements AfterViewInit {
       });
     });
 
+    // ---------------------------------------------------------
+    // 4. MAGNETIC BUTTON
+    // ---------------------------------------------------------
     const magBtn = document.querySelector('.magnetic-btn') as HTMLElement;
     if (magBtn) {
       magBtn.addEventListener('mousemove', (e: MouseEvent) => {
@@ -68,7 +124,9 @@ export class App implements AfterViewInit {
     }
   }
 
-  // --- 2. UPDATED SUBMIT LOGIC ---
+  // ---------------------------------------------------------
+  // FORM LOGIC
+  // ---------------------------------------------------------
   async onSubmit(event: Event) {
     event.preventDefault();
     this.isLoading = true;
@@ -77,7 +135,6 @@ export class App implements AfterViewInit {
     const formData = new FormData(form);
 
     try {
-      // REPLACE THIS WITH YOUR REAL FORMSPREE ID
       const response = await fetch("https://formspree.io/f/mwvozjnn", {
         method: 'POST',
         body: formData,
@@ -85,10 +142,9 @@ export class App implements AfterViewInit {
       });
 
       if (response.ok) {
-        // 3. FORCE THE SCREEN UPDATE
         this.submitted = true;
         this.isLoading = false;
-        this.cdr.detectChanges(); // <--- This is the magic line that fixes the stickiness
+        this.cdr.detectChanges();
       } else {
         const errorData = await response.json();
         alert("Form error: " + (errorData.error || "Check your Formspree ID"));
@@ -103,7 +159,9 @@ export class App implements AfterViewInit {
     }
   }
 
-  // --- Chat Logic ---
+  // ---------------------------------------------------------
+  // CHAT LOGIC
+  // ---------------------------------------------------------
   toggleChat() {
     this.chatVisible = !this.chatVisible;
   }

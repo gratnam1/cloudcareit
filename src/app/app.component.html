@@ -1,7 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
   <div class="container">
-    <a class="navbar-brand fw-bold text-dark" href="#">
-      <i class="bi bi-hdd-network-fill me-2 text-primary"></i>CloudCare IT
+    <a class="navbar-brand fw-bold text-dark d-flex align-items-center" href="#">
+      <svg width="24" height="24" viewBox="0 0 100 100" class="me-2">
+        <rect x="10" y="10" width="80" height="80" rx="15" fill="none" stroke="#6366f1" stroke-width="10"/>
+        <path d="M50 30 L35 55 H42 V75 H58 V55 H70 L50 30 Z" fill="#6366f1"/>
+      </svg>
+      CTRL<span class="text-primary">SHIFT</span> <span class="ms-2 fw-normal text-muted small">IT Services</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -20,23 +24,35 @@
   </div>
 </nav>
 
-<header class="hero-gradient text-white py-5">
+<header class="hero-dark-modern py-5 position-relative overflow-hidden">
   <div class="container py-5">
-    <div class="row align-items-center">
+    <div class="row align-items-center g-5">
       <div class="col-lg-7">
-        <span class="badge bg-white text-primary mb-3 px-3 py-2 rounded-pill shadow-sm hero-content">Serving Ontario Small Businesses</span>
-        <h1 class="display-4 fw-bold mb-4 hero-content">The IT Department for<br>Growing Ontario Offices.</h1>
-        <p class="lead opacity-75 mb-5 hero-content">We specialize in managing the technology lifecycle for Law Firms, Medical Clinics, and Accounting Practices—from office setup to 24/7 security.</p>
-        <div class="d-flex gap-3 flex-wrap hero-content">
-          <a href="#consultation" class="btn btn-light btn-lg px-5 py-3 rounded-pill fw-bold text-primary shadow hover-scale magnetic-btn">
+        <span class="badge bg-primary-soft text-primary mb-3 px-3 py-2 rounded-pill shadow-sm">
+          Serving Ontario Small Businesses
+        </span>
+        <h1 class="display-3 fw-bold text-white mb-4">
+          The IT Department for <br><span class="text-gradient">Growing Offices.</span>
+        </h1>
+        <p class="lead text-white-50 mb-5">
+          We manage the technology lifecycle for Law Firms, Medical Clinics, and Accounting Practices—from office setup to 24/7 security.
+        </p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="#consultation" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow hover-scale">
             Get Started
           </a>
           <a href="#services" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">View Solutions</a>
         </div>
       </div>
-      <div class="col-lg-5 text-center d-none d-lg-block">
-        <div class="p-5">
-          <i class="bi bi-building-check display-1 opacity-50"></i>
+
+      <div class="col-lg-5">
+        <div class="glass-card-interactive">
+          <svg id="blueprint-svg" viewBox="0 0 100 100">
+            <rect class="draw-path" x="15" y="15" width="70" height="70" rx="12" />
+            <path class="draw-path" d="M50 30 L30 55 H42 V75 H58 V55 H70 L50 30 Z" />
+          </svg>
+          <h2 class="text-white fw-light mb-0">CTRL<b>SHIFT</b></h2>
+          <p class="text-primary-light small tracking-widest uppercase mt-2">IT SERVICES</p>
         </div>
       </div>
     </div>
@@ -77,7 +93,7 @@
   <div class="container py-5">
     <div class="text-center mb-5">
       <h2 class="fw-bold display-6">Core Competencies</h2>
-      <p class="text-muted lead">Comprehensive IT management for professional offices.</p>
+      <p class="text-muted lead">Comprehensive IT & Digital Growth management for professional offices.</p>
     </div>
 
     <div class="row g-4">
@@ -194,6 +210,64 @@
           </div>
         </div>
       </div>
+
+      <div class="col-lg-4 col-md-6 reveal-card" id="card-web">
+        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
+          <div class="card-body p-4 text-center">
+            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
+              <i class="bi bi-window-desktop text-info" style="font-size: 3.5rem;"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Web Development</h4>
+            <p class="text-muted mb-4">Fast, responsive, and secure websites built on modern frameworks (Angular/React) to drive conversions.</p>
+            <button class="btn btn-outline-info rounded-pill btn-sm fw-bold px-4" type="button" data-bs-toggle="collapse" data-bs-target="#webDetails">View Details <i class="bi bi-chevron-down ms-1"></i></button>
+            <div class="collapse mt-3 text-start bg-info bg-opacity-10 rounded-3 p-3" id="webDetails">
+              <ul class="list-unstyled small mb-0">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-info me-2"></i><strong>Performance:</strong> Optimized for Core Web Vitals.</li>
+                <li><i class="bi bi-check-circle-fill text-info me-2"></i><strong>Design:</strong> Mobile-first & accessible.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 reveal-card" id="card-seo">
+        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
+          <div class="card-body p-4 text-center">
+            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
+              <i class="bi bi-graph-up-arrow text-success" style="font-size: 3.5rem;"></i>
+            </div>
+            <h4 class="fw-bold mb-3">SEO & Visibility</h4>
+            <p class="text-muted mb-4">Increase visibility. We optimize your digital footprint to help Ontario firms rank higher on Google.</p>
+            <button class="btn btn-outline-success rounded-pill btn-sm fw-bold px-4" type="button" data-bs-toggle="collapse" data-bs-target="#seoDetails">View Details <i class="bi bi-chevron-down ms-1"></i></button>
+            <div class="collapse mt-3 text-start bg-success bg-opacity-10 rounded-3 p-3" id="seoDetails">
+              <ul class="list-unstyled small mb-0">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Local SEO:</strong> GMB & Maps Optimization.</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Rankings:</strong> High-intent keyword strategies.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 reveal-card" id="card-leads">
+        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
+          <div class="card-body p-4 text-center">
+            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
+              <i class="bi bi-people-fill text-primary" style="font-size: 3.5rem;"></i>
+            </div>
+            <h4 class="fw-bold mb-3">Lead Generation</h4>
+            <p class="text-muted mb-4">Turn traffic into revenue. Targeted campaigns to capture and nurture high-value prospects.</p>
+            <button class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" type="button" data-bs-toggle="collapse" data-bs-target="#leadDetails">View Details <i class="bi bi-chevron-down ms-1"></i></button>
+            <div class="collapse mt-3 text-start bg-light rounded-3 p-3" id="leadDetails">
+              <ul class="list-unstyled small mb-0">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Funnels:</strong> High-conversion landing pages.</li>
+                <li><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Analytics:</strong> ROI tracking & reporting.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -204,7 +278,7 @@
     <div class="row justify-content-center g-5">
       <div class="col-md-5">
         <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" class="rounded-circle mb-3 grayscale" width="120" height="120" style="object-fit: cover;">
+          <img src="https://ui-avatars.com/api/?name=Lead+Engineer&background=0D6EFD&color=fff&size=128" class="rounded-circle mb-3 shadow-sm" width="120" height="120" alt="Lead Engineer Avatar">
           <h5 class="fw-bold">Lead Systems Engineer</h5>
           <p class="text-primary small fw-bold">MCSE | Security+ | CCNA</p>
           <p class="text-muted small">Over 15 years of infrastructure design for Ontario professional offices.</p>
@@ -212,7 +286,7 @@
       </div>
       <div class="col-md-5">
         <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80" class="rounded-circle mb-3 grayscale" width="120" height="120" style="object-fit: cover;">
+          <img src="https://ui-avatars.com/api/?name=Cloud+Architect&background=6c757d&color=fff&size=128" class="rounded-circle mb-3 shadow-sm" width="120" height="120" alt="Cloud Architect Avatar">
           <h5 class="fw-bold">Cloud Solutions Architect</h5>
           <p class="text-primary small fw-bold">Google Certified | M365 Expert</p>
           <p class="text-muted small">Expert in hybrid workflows and secure remote access architecture.</p>
@@ -321,7 +395,7 @@
   </div>
 </section>
 
-<section id="consultation" class="hero-gradient text-white py-5">
+<section id="consultation" class="hero-dark-modern text-white py-5">
   <div class="container py-5">
     <div class="row align-items-center">
       <div class="col-lg-6 mb-5 mb-lg-0">
@@ -342,16 +416,42 @@
                 <select name="office_size" class="form-control bg-light border-0">
                   <option>1-5 Employees</option>
                   <option>5-20 Employees</option>
+                  <option>20+ Employees</option>
                 </select>
               </div>
-              <div class="col-12">
+
+              <div class="col-md-6">
                 <label class="form-label small fw-bold">Email</label>
                 <input type="email" name="email" class="form-control bg-light border-0" required>
               </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Phone Number</label>
+                <input type="tel" name="phone" class="form-control bg-light border-0">
+              </div>
+
+              <div class="col-12">
+                <label class="form-label small fw-bold d-block mb-2">Preferred Contact Method</label>
+                <div class="d-flex gap-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="contact_preference" id="prefEmail" value="Email" checked>
+                    <label class="form-check-label" for="prefEmail">
+                      Email Response
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="contact_preference" id="prefPhone" value="Call Back">
+                    <label class="form-check-label" for="prefPhone">
+                      Request Call Back
+                    </label>
+                  </div>
+                </div>
+              </div>
+
               <div class="col-12">
                 <label class="form-label small fw-bold">Challenge</label>
-                <textarea name="message" class="form-control bg-light border-0" rows="3" required></textarea>
+                <textarea name="message" class="form-control bg-light border-0" rows="3" required placeholder="Tell us about your IT needs..."></textarea>
               </div>
+
               <div class="col-12 mt-4">
                 <button type="submit" [disabled]="isLoading" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
                   {{ isLoading ? 'Sending...' : 'Request Roadmap' }}
@@ -365,7 +465,7 @@
               <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
             </div>
             <h2 class="fw-bold">Success!</h2>
-            <p class="text-muted lead">Your consultation request has been received. Our lead engineer will reach out within 24 business hours.</p>
+            <p class="text-muted lead">Your request has been received. Our team will contact you via your preferred method shortly.</p>
             <button class="btn btn-dark rounded-pill px-5 py-2 mt-4 fw-bold" (click)="submitted = false; isLoading = false;">
               Send Another Request
             </button>
@@ -376,14 +476,13 @@
     </div>
   </div>
 </section>
-
 <div id="ai-chat-bubble" (click)="toggleChat()" class="bg-primary text-white rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; cursor: pointer; z-index: 9999;">
   <i class="bi bi-robot fs-2"></i>
 </div>
 
 <div *ngIf="chatVisible" class="card shadow-lg border-0 rounded-4" style="position: fixed; bottom: 100px; right: 30px; width: 350px; z-index: 9999; overflow: hidden;">
   <div class="card-header bg-dark text-white p-3 d-flex justify-content-between align-items-center">
-    <h6 class="mb-0 fw-bold">CloudCare AI</h6>
+    <h6 class="mb-0 fw-bold">CtrlShift AI</h6>
     <button type="button" class="btn-close btn-close-white" (click)="toggleChat()"></button>
   </div>
   <div class="card-body bg-light scroll-y" style="height: 300px; overflow-y: auto;">
@@ -402,5 +501,5 @@
 </div>
 
 <footer class="bg-white py-4 border-top text-center">
-  <p class="text-muted small">© 2026 CloudCare IT. High-Performance IT Management for Ontario.</p>
+  <p class="text-muted small">© 2026 CtrlShift IT Services. High-Performance IT Management for Ontario.</p>
 </footer>

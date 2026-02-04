@@ -1,45 +1,59 @@
-/* Professional Tech Gradient (No Image Needed) */
-.hero-gradient {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+/* Dark Gradient Hero */
+.hero-dark-modern {
+  background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%);
+  color: white;
+  min-height: 85vh; /* Taller hero for drama */
+  display: flex;
+  align-items: center;
 }
 
-.grayscale {
-  filter: grayscale(100%);
-  transition: all 0.4s ease;
+/* Gradient Text for Headlines */
+.text-gradient {
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.cursor-pointer {
-  cursor: pointer;
+.bg-primary-soft {
+  background: rgba(99, 102, 241, 0.15);
 }
 
-/* Hover Effects */
-.team-img {
-  transition: transform 0.3s ease, filter 0.3s ease;
+/* Glass Card */
+.glass-card-interactive {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 60px 40px;
+  text-align: center;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out; /* Smooth follow effect */
 }
 
-.cursor-pointer:hover .team-img {
-  filter: grayscale(0%);
-  transform: scale(1.05);
+/* SVG Drawing Props */
+#blueprint-svg {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.6));
 }
 
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #fff;
+.draw-path {
+  fill: none;
+  stroke: #6366f1;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  visibility: hidden; /* GSAP reveals this */
 }
 
-.hover-lift:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  border-color: #0d6efd !important;
+.text-primary-light {
+  color: #818cf8;
+  letter-spacing: 4px;
 }
 
-.hover-scale {
-  transition: transform 0.2s ease;
-}
 .hover-scale:hover {
   transform: scale(1.05);
-}
-
-.modal-content {
-  box-shadow: 0 1rem 3rem rgba(0,0,0,0.175);
+  transition: 0.3s;
 }

@@ -1,490 +1,47 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
   <div class="container">
-    <a class="navbar-brand fw-bold text-dark d-flex align-items-center" href="#">
+    <a class="navbar-brand fw-bold text-dark d-flex align-items-center" routerLink="/">
       <svg width="24" height="24" viewBox="0 0 100 100" class="me-2">
         <rect x="10" y="10" width="80" height="80" rx="15" fill="none" stroke="#6366f1" stroke-width="10"/>
         <path d="M50 30 L35 55 H42 V75 H58 V55 H70 L50 30 Z" fill="#6366f1"/>
       </svg>
-      CTRL<span class="text-primary">SHIFT</span> <span class="ms-2 fw-normal text-muted small">IT Services</span>
+      CTRL<span class="text-primary">SHIFT</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item"><a class="nav-link px-3" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link px-3" href="#team">Engineers</a></li>
-        <li class="nav-item"><a class="nav-link px-3" href="#reviews">Reviews</a></li>
-        <li class="nav-item"><a class="nav-link px-3" href="#pricing">Pricing</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Locations</a>
+          <ul class="dropdown-menu border-0 shadow">
+            <li><a class="dropdown-item" routerLink="/it-support-vaughan">Vaughan</a></li>
+            <li><a class="dropdown-item" routerLink="/it-support-toronto">Toronto</a></li>
+            <li><a class="dropdown-item" routerLink="/it-support-mississauga">Mississauga</a></li>
+            <li><a class="dropdown-item" routerLink="/it-support-thornhill">Thornhill</a></li>
+            <li><a class="dropdown-item" routerLink="/it-support-richmond-hill">Richmond Hill</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link px-3" routerLink="/" fragment="services">Services</a></li>
         <li class="nav-item ms-lg-3">
-          <a class="btn btn-dark rounded-pill px-4 shadow-sm" href="#consultation">Free Consultation</a>
+          <a class="btn btn-dark rounded-pill px-4 shadow-sm" routerLink="/" fragment="consultation">Free Consultation</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<header class="hero-dark-modern py-5 position-relative overflow-hidden">
-  <div class="container py-5">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-7">
-        <span class="badge bg-primary-soft text-primary mb-3 px-3 py-2 rounded-pill shadow-sm">
-          Serving Ontario Small Businesses
-        </span>
-        <h1 class="display-3 fw-bold text-white mb-4">
-          The IT Department for <br><span class="text-gradient">Growing Offices.</span>
-        </h1>
-        <p class="lead text-white-50 mb-5">
-          We manage the technology lifecycle for Law Firms, Medical Clinics, and Accounting Practices—from office setup to 24/7 security.
-        </p>
-        <div class="d-flex gap-3 flex-wrap">
-          <a href="#consultation" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow hover-scale">
-            Get Started
-          </a>
-          <a href="#services" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">View Solutions</a>
-        </div>
-      </div>
+<router-outlet></router-outlet>
 
-      <div class="col-lg-5">
-        <div class="glass-card-interactive">
-          <svg id="blueprint-svg" viewBox="0 0 100 100">
-            <rect class="draw-path" x="15" y="15" width="70" height="70" rx="12" />
-            <path class="draw-path" d="M50 30 L30 55 H42 V75 H58 V55 H70 L50 30 Z" />
-          </svg>
-          <h2 class="text-white fw-light mb-0">CTRL<b>SHIFT</b></h2>
-          <p class="text-primary-light small tracking-widest uppercase mt-2">IT SERVICES</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+<footer class="bg-white py-4 border-top text-center mt-auto">
+  <p class="text-muted small">© 2026 CtrlShift IT Services. High-Performance IT Management for Ontario.</p>
+</footer>
 
-<section class="py-5 bg-light border-bottom">
-  <div class="container">
-    <p class="text-center text-muted small fw-bold text-uppercase tracking-wide mb-4">
-      Enterprise Platforms We Manage
-    </p>
-    <div class="row justify-content-center align-items-center text-center g-4 grayscale-wrapper">
-      <div class="col-4 col-md-2">
-        <i class="bi bi-microsoft display-6 opacity-50"></i>
-        <div class="small fw-bold mt-2 text-muted">Microsoft</div>
-      </div>
-      <div class="col-4 col-md-2">
-        <i class="bi bi-google display-6 opacity-50"></i>
-        <div class="small fw-bold mt-2 text-muted">Google</div>
-      </div>
-      <div class="col-4 col-md-2">
-        <i class="bi bi-amazon display-6 opacity-50"></i>
-        <div class="small fw-bold mt-2 text-muted">AWS</div>
-      </div>
-      <div class="col-4 col-md-2">
-        <i class="bi bi-router display-6 opacity-50"></i>
-        <div class="small fw-bold mt-2 text-muted">Cisco</div>
-      </div>
-      <div class="col-4 col-md-2">
-        <i class="bi bi-shield-check display-6 opacity-50"></i>
-        <div class="small fw-bold mt-2 text-muted">Fortinet</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services" class="py-5 bg-white">
-  <div class="container py-5">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold display-6">Core Competencies</h2>
-      <p class="text-muted lead">Comprehensive IT & Digital Growth management for professional offices.</p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-lg-4 col-md-6 reveal-card" id="card-google">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-google text-primary" style="font-size: 3.5rem;"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Google Workspace</h4>
-            <p class="text-muted mb-4">Certified administration for Gmail and Drive. We implement PIPEDA-compliant data retention policies.</p>
-            <button class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" type="button" data-bs-toggle="collapse" data-bs-target="#googleDetails">View Details <i class="bi bi-chevron-down ms-1"></i></button>
-            <div class="collapse mt-3 text-start bg-light rounded-3 p-3" id="googleDetails">
-              <ul class="list-unstyled small mb-0">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Migration:</strong> Moving teams from IMAP/POP3.</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Security:</strong> Advanced phishing protection.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 reveal-card" id="card-microsoft">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-microsoft text-primary" style="font-size: 3.5rem;"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Microsoft 365</h4>
-            <p class="text-muted mb-4">User lifecycle management. We procure, image, and deploy hardware while securing SharePoint data.</p>
-            <button class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" type="button" data-bs-toggle="collapse" data-bs-target="#msDetails">View Details <i class="bi bi-chevron-down ms-1"></i></button>
-            <div class="collapse mt-3 text-start bg-light rounded-3 p-3" id="msDetails">
-              <ul class="list-unstyled small mb-0">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Hardware:</strong> Procurement and lifecycle setup.</li>
-                <li><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Intune:</strong> Remote device management.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 reveal-card" id="card-cisco">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all border-top border-primary border-4">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-tools text-primary" style="font-size: 3.5rem;"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Office Networking</h4>
-            <p class="text-muted mb-4">Moving or expanding? We handle structured cabling, server rack installations, and mesh Wi-Fi.</p>
-            <button class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" type="button" data-bs-toggle="collapse" data-bs-target="#ciscoDetails">View Details <i class="bi bi-chevron-down ms-1"></i></button>
-            <div class="collapse mt-3 text-start bg-light rounded-3 p-3" id="ciscoDetails">
-              <ul class="list-unstyled small mb-0">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Office Moves:</strong> Teardown and setup.</li>
-                <li><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Cabling:</strong> Running CAT6 for professional offices.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 reveal-card" id="card-aws">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-amazon text-warning" style="font-size: 3.5rem;"></i>
-            </div>
-            <h4 class="fw-bold mb-3">AWS Infrastructure</h4>
-            <p class="text-muted mb-4">Securely hosting legal or medical databases in encrypted Canadian AWS regions.</p>
-            <button class="btn btn-outline-warning rounded-pill btn-sm fw-bold px-4 text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#awsDetails">View Details <i class="bi bi-chevron-down ms-1"></i></button>
-            <div class="collapse mt-3 text-start bg-warning bg-opacity-10 rounded-3 p-3" id="awsDetails">
-              <ul class="list-unstyled small mb-0">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Sovereignty:</strong> Canadian data hosting.</li>
-                <li><i class="bi bi-check-circle-fill text-warning me-2"></i><strong>Patching:</strong> Automated server maintenance.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 reveal-card" id="card-fortinet">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-shield-lock text-danger" style="font-size: 3.5rem;"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Security & Firewall</h4>
-            <p class="text-muted mb-4">Enterprise security. We secure your office perimeter and provide VPN access for remote partners.</p>
-            <button class="btn btn-outline-danger rounded-pill btn-sm fw-bold px-4" type="button" data-bs-toggle="collapse" data-bs-target="#fortinetDetails">View Details <i class="bi bi-chevron-down ms-1"></i></button>
-            <div class="collapse mt-3 text-start bg-danger bg-opacity-10 rounded-3 p-3" id="fortinetDetails">
-              <ul class="list-unstyled small mb-0">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-danger me-2"></i><strong>Home Office:</strong> Secure VPNs for partners.</li>
-                <li><i class="bi bi-check-circle-fill text-danger me-2"></i><strong>FortiGate:</strong> Perimeter threat detection.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 reveal-card" id="card-crisis">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-life-preserver text-dark" style="font-size: 3.5rem;"></i>
-            </div>
-            <h4 class="fw-bold mb-3 text-dark">Crisis Recovery</h4>
-            <p class="text-muted mb-4">Hardware failure or Ransomware? Immediate response to get your office back online.</p>
-            <button class="btn btn-outline-dark rounded-pill btn-sm fw-bold px-4" type="button" data-bs-toggle="collapse" data-bs-target="#crisisDetails">View Plan <i class="bi bi-chevron-down ms-1"></i></button>
-            <div class="collapse mt-3 text-start bg-secondary bg-opacity-10 rounded-3 p-3" id="crisisDetails">
-              <ul class="list-unstyled small mb-0 text-dark">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-dark me-2"></i><strong>Restoration:</strong> Rapid data recovery.</li>
-                <li><i class="bi bi-check-circle-fill text-dark me-2"></i><strong>Loaners:</strong> Emergency hardware available.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 reveal-card" id="card-web">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-window-desktop text-info" style="font-size: 3.5rem;"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Web Development</h4>
-            <p class="text-muted mb-4">Fast, responsive, and secure websites built on modern frameworks (Angular/React) to drive conversions.</p>
-            <button class="btn btn-outline-info rounded-pill btn-sm fw-bold px-4" type="button" data-bs-toggle="collapse" data-bs-target="#webDetails">View Details <i class="bi bi-chevron-down ms-1"></i></button>
-            <div class="collapse mt-3 text-start bg-info bg-opacity-10 rounded-3 p-3" id="webDetails">
-              <ul class="list-unstyled small mb-0">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-info me-2"></i><strong>Performance:</strong> Optimized for Core Web Vitals.</li>
-                <li><i class="bi bi-check-circle-fill text-info me-2"></i><strong>Design:</strong> Mobile-first & accessible.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 reveal-card" id="card-seo">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-graph-up-arrow text-success" style="font-size: 3.5rem;"></i>
-            </div>
-            <h4 class="fw-bold mb-3">SEO & Visibility</h4>
-            <p class="text-muted mb-4">Increase visibility. We optimize your digital footprint to help Ontario firms rank higher on Google.</p>
-            <button class="btn btn-outline-success rounded-pill btn-sm fw-bold px-4" type="button" data-bs-toggle="collapse" data-bs-target="#seoDetails">View Details <i class="bi bi-chevron-down ms-1"></i></button>
-            <div class="collapse mt-3 text-start bg-success bg-opacity-10 rounded-3 p-3" id="seoDetails">
-              <ul class="list-unstyled small mb-0">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Local SEO:</strong> GMB & Maps Optimization.</li>
-                <li><i class="bi bi-check-circle-fill text-success me-2"></i><strong>Rankings:</strong> High-intent keyword strategies.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 reveal-card" id="card-leads">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-people-fill text-primary" style="font-size: 3.5rem;"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Lead Generation</h4>
-            <p class="text-muted mb-4">Turn traffic into revenue. Targeted campaigns to capture and nurture high-value prospects.</p>
-            <button class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" type="button" data-bs-toggle="collapse" data-bs-target="#leadDetails">View Details <i class="bi bi-chevron-down ms-1"></i></button>
-            <div class="collapse mt-3 text-start bg-light rounded-3 p-3" id="leadDetails">
-              <ul class="list-unstyled small mb-0">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Funnels:</strong> High-conversion landing pages.</li>
-                <li><i class="bi bi-check-circle-fill text-primary me-2"></i><strong>Analytics:</strong> ROI tracking & reporting.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="team" class="py-5 bg-light">
-  <div class="container py-5 text-center">
-    <h2 class="fw-bold mb-5">Senior Engineering Team</h2>
-    <div class="row justify-content-center g-5">
-      <div class="col-md-5">
-        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-          <img src="https://ui-avatars.com/api/?name=Lead+Engineer&background=0D6EFD&color=fff&size=128" class="rounded-circle mb-3 shadow-sm" width="120" height="120" alt="Lead Engineer Avatar">
-          <h5 class="fw-bold">Lead Systems Engineer</h5>
-          <p class="text-primary small fw-bold">MCSE | Security+ | CCNA</p>
-          <p class="text-muted small">Over 15 years of infrastructure design for Ontario professional offices.</p>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-          <img src="https://ui-avatars.com/api/?name=Cloud+Architect&background=6c757d&color=fff&size=128" class="rounded-circle mb-3 shadow-sm" width="120" height="120" alt="Cloud Architect Avatar">
-          <h5 class="fw-bold">Cloud Solutions Architect</h5>
-          <p class="text-primary small fw-bold">Google Certified | M365 Expert</p>
-          <p class="text-muted small">Expert in hybrid workflows and secure remote access architecture.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="reviews" class="py-5 bg-white">
-  <div class="container py-5">
-    <div class="text-center mb-5"><h2 class="fw-bold">Client Feedback</h2></div>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="p-4 bg-light rounded-3 h-100 border-start border-4 border-primary shadow-sm">
-          <div class="mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-          <p class="fst-italic small text-muted">"Professional and knowledgeable. They fixed our server issues remotely in under an hour."</p>
-          <p class="fw-bold mb-0 text-dark">— Partner, Toronto Law Firm</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="p-4 bg-light rounded-3 h-100 border-start border-4 border-info shadow-sm">
-          <div class="mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-          <p class="fst-italic small text-muted">"Flawless Google Workspace migration. Highly recommended for accounting firms."</p>
-          <p class="fw-bold mb-0 text-dark">— CPA, Vaughan</p>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="p-4 bg-light rounded-3 h-100 border-start border-4 border-danger shadow-sm">
-          <div class="mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-          <p class="fst-italic small text-muted">"We sleep better knowing our patient data security is monitored 24/7."</p>
-          <p class="fw-bold mb-0 text-dark">— Clinic Manager, GTA</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="pricing" class="py-5 bg-light">
-  <div class="container py-5">
-    <div class="text-center mb-5">
-      <h2 class="fw-bold">Managed Support Plans</h2>
-      <p class="text-muted">Flexible IT power for the 5-25 employee sweet spot.</p>
-    </div>
-    <div class="row g-4 justify-content-center">
-      <div class="col-md-4 pricing-card">
-        <div class="card h-100 border-0 shadow-sm p-4">
-          <h5 class="fw-bold text-muted">Starter</h5>
-          <h2 class="display-5 fw-bold my-3">$99<span class="fs-6 text-muted">/mo</span></h2>
-          <ul class="list-unstyled text-muted small mb-4">
-            <li class="mb-2">2 Support Hours</li>
-            <li>Remote Maintenance</li>
-          </ul>
-          <a href="#consultation" class="btn btn-outline-dark rounded-pill mt-auto w-100">Inquire</a>
-        </div>
-      </div>
-      <div class="col-md-4 pricing-card">
-        <div class="card h-100 border-primary border-2 shadow p-4 position-relative overflow-hidden">
-          <div class="bg-primary text-white position-absolute top-0 end-0 px-3 py-1 small fw-bold rounded-bottom-start">Popular</div>
-          <h5 class="fw-bold text-primary">Growth</h5>
-          <h2 class="display-5 fw-bold my-3">$199<span class="fs-6 text-muted">/mo</span></h2>
-          <ul class="list-unstyled small mb-4">
-            <li class="mb-2 fw-bold">5 Support Hours</li>
-            <li class="mb-2">Priority Response</li>
-            <li>Backup Monitoring</li>
-          </ul>
-          <a href="#consultation" class="btn btn-primary rounded-pill mt-auto w-100">Inquire</a>
-        </div>
-      </div>
-      <div class="col-md-4 pricing-card">
-        <div class="card h-100 border-0 shadow-sm p-4">
-          <h5 class="fw-bold text-muted">Business</h5>
-          <h2 class="display-5 fw-bold my-3">$349<span class="fs-6 text-muted">/mo</span></h2>
-          <ul class="list-unstyled text-muted small mb-4">
-            <li class="mb-2">10 Support Hours</li>
-            <li>Hardware Procurement</li>
-          </ul>
-          <a href="#consultation" class="btn btn-outline-dark rounded-pill mt-auto w-100">Inquire</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="py-5 bg-white">
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="text-center mb-5"><h2 class="fw-bold">FAQ</h2></div>
-        <div class="accordion accordion-flush" id="faqAccordion">
-          <div class="accordion-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden">
-            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Office moves?</button></h2>
-            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body text-muted">Yes, we handle structured cabling and server rack migration.</div>
-            </div>
-          </div>
-          <div class="accordion-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden">
-            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Home Office?</button></h2>
-            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body text-muted">We provide secure VPNs specifically for executive home offices.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="consultation" class="hero-dark-modern text-white py-5">
-  <div class="container py-5">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <h2 class="display-5 fw-bold mb-4">Initialize Your Roadmap.</h2>
-        <p class="lead opacity-75">Speak directly to Senior Engineers. Ontario-based, PIPEDA compliant.</p>
-      </div>
-      <div class="col-lg-6">
-        <div class="bg-white text-dark p-4 p-md-5 rounded-4 shadow-lg min-vh-20">
-
-          <div *ngIf="!submitted">
-            <form (submit)="onSubmit($event)" class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label small fw-bold">Name</label>
-                <input type="text" name="name" class="form-control bg-light border-0" required>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label small fw-bold">Office Size</label>
-                <select name="office_size" class="form-control bg-light border-0">
-                  <option>1-5 Employees</option>
-                  <option>5-20 Employees</option>
-                  <option>20+ Employees</option>
-                </select>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label small fw-bold">Email</label>
-                <input type="email" name="email" class="form-control bg-light border-0" required>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label small fw-bold">Phone Number</label>
-                <input type="tel" name="phone" class="form-control bg-light border-0">
-              </div>
-
-              <div class="col-12">
-                <label class="form-label small fw-bold d-block mb-2">Preferred Contact Method</label>
-                <div class="d-flex gap-4">
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="contact_preference" id="prefEmail" value="Email" checked>
-                    <label class="form-check-label" for="prefEmail">
-                      Email Response
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="contact_preference" id="prefPhone" value="Call Back">
-                    <label class="form-check-label" for="prefPhone">
-                      Request Call Back
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-12">
-                <label class="form-label small fw-bold">Challenge</label>
-                <textarea name="message" class="form-control bg-light border-0" rows="3" required placeholder="Tell us about your IT needs..."></textarea>
-              </div>
-
-              <div class="col-12 mt-4">
-                <button type="submit" [disabled]="isLoading" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
-                  {{ isLoading ? 'Sending...' : 'Request Roadmap' }}
-                </button>
-              </div>
-            </form>
-          </div>
-
-          <div *ngIf="submitted" class="text-center py-5">
-            <div class="mb-4">
-              <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
-            </div>
-            <h2 class="fw-bold">Success!</h2>
-            <p class="text-muted lead">Your request has been received. Our team will contact you via your preferred method shortly.</p>
-            <button class="btn btn-dark rounded-pill px-5 py-2 mt-4 fw-bold" (click)="submitted = false; isLoading = false;">
-              Send Another Request
-            </button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <div id="ai-chat-bubble" (click)="toggleChat()" class="bg-primary text-white rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; cursor: pointer; z-index: 9999;">
   <i class="bi bi-robot fs-2"></i>
 </div>
 
 <div *ngIf="chatVisible" class="card shadow-lg border-0 rounded-4" style="position: fixed; bottom: 100px; right: 30px; width: 350px; z-index: 9999; overflow: hidden;">
-  <div class="card-header bg-dark text-white p-3 d-flex justify-content-between align-items-center">
-    <h6 class="mb-0 fw-bold">CtrlShift AI</h6>
-    <button type="button" class="btn-close btn-close-white" (click)="toggleChat()"></button>
-  </div>
   <div class="card-body bg-light scroll-y" style="height: 300px; overflow-y: auto;">
     <div *ngFor="let msg of messages" [ngClass]="{'text-end': msg.isUser}" class="mb-3">
       <div [ngClass]="msg.isUser ? 'bg-primary text-white' : 'bg-white text-dark shadow-sm'" class="p-2 rounded-3 d-inline-block" style="max-width: 80%;">
@@ -494,21 +51,8 @@
   </div>
   <div class="card-footer bg-white p-3">
     <div class="input-group">
-      <input type="text" [(ngModel)]="chatInput" (keyup.enter)="sendMessage()" class="form-control border-0 bg-light" placeholder="Ask a question...">
+      <input type="text" [(ngModel)]="chatInput" (keyup.enter)="sendMessage()" class="form-control border-0 bg-light" placeholder="Ask...">
       <button class="btn btn-primary" (click)="sendMessage()"><i class="bi bi-send-fill"></i></button>
     </div>
   </div>
 </div>
-
-<footer class="bg-white py-4 border-top text-center">
-  <p class="text-muted small">© 2026 CtrlShift IT Services. High-Performance IT Management for Ontario.</p>
-  <section class="py-4 bg-light border-top">
-    <div class="container text-center">
-      <h5 class="fw-bold mb-3">On-Site IT Support Near You:</h5>
-      <p class="text-muted mb-0">
-        <strong>York Region:</strong> Vaughan, Richmond Hill, Markham, Aurora <br>
-        <strong>Toronto & GTA:</strong> North York, Etobicoke, Scarborough, Mississauga
-      </p>
-    </div>
-  </section>
-</footer>

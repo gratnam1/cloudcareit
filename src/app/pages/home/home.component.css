@@ -1,0 +1,73 @@
+/* Dark Gradient Hero */
+.hero-dark-modern {
+  background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%);
+  color: white;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Gradient Text for Headlines */
+.text-gradient {
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* Added for standard compatibility */
+}
+
+.bg-primary-soft {
+  background: rgba(99, 102, 241, 0.15);
+}
+/* Glass Card */
+.glass-card-interactive {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 60px 40px;
+  text-align: center;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+
+  /* MOBILE ALIGNMENT FIX */
+  margin-right: auto;
+  margin-left: 0;
+  max-width: 100%; /* Prevents overflow */
+}
+
+/* DESKTOP ALIGNMENT FIX */
+@media (min-width: 992px) {
+  .glass-card-interactive {
+    margin-left: auto;
+    margin-right: 0;
+    max-width: 400px;
+  }
+}
+/* SVG Drawing Props */
+#blueprint-svg {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.6));
+}
+
+.draw-path {
+  fill: none;
+  stroke: #6366f1;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  visibility: hidden; /* GSAP reveals this */
+}
+
+.text-primary-light {
+  color: #818cf8;
+  letter-spacing: 4px;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}

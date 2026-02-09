@@ -1,24 +1,34 @@
-/* Dark Gradient Hero */
+/* =========================================
+   1. HERO & GSAP ELEMENTS (Must match your TS)
+   ========================================= */
+
 .hero-dark-modern {
-  background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%);
+  background: radial-gradient(circle at top right, #0f172a 0%, #020617 100%); /* Deep Navy/Black for contrast */
   color: white;
   min-height: 85vh;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
-/* Gradient Text for Headlines */
+/* Bright Text for Hero Paragraph (Fixes visibility issue) */
+.hero-text-bright {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Gradient Text */
 .text-gradient {
-  background: linear-gradient(90deg, #6366f1, #a855f7);
+  background: linear-gradient(90deg, #38bdf8 0%, #2dd4bf 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text; /* Added for standard compatibility */
+  background-clip: text;
+  font-weight: 800;
 }
 
-.bg-primary-soft {
-  background: rgba(99, 102, 241, 0.15);
-}
-/* Glass Card */
+/* Glass Card - Keeping original properties for GSAP */
 .glass-card-interactive {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(15px);
@@ -29,15 +39,14 @@
   text-align: center;
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
   transform-style: preserve-3d;
-  transition: transform 0.1s ease-out;
+  transition: transform 0.1s ease-out; /* Keeps mouse movement smooth */
 
-  /* MOBILE ALIGNMENT FIX */
+  /* Alignment Fixes */
   margin-right: auto;
   margin-left: 0;
-  max-width: 100%; /* Prevents overflow */
+  max-width: 100%;
 }
 
-/* DESKTOP ALIGNMENT FIX */
 @media (min-width: 992px) {
   .glass-card-interactive {
     margin-left: auto;
@@ -45,7 +54,8 @@
     max-width: 400px;
   }
 }
-/* SVG Drawing Props */
+
+/* SVG Props */
 #blueprint-svg {
   width: 120px;
   height: 120px;
@@ -59,7 +69,7 @@
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
-  visibility: hidden; /* GSAP reveals this */
+  /* visibility: hidden; <--- Uncomment if GSAP controls visibility */
 }
 
 .text-primary-light {
@@ -67,7 +77,90 @@
   letter-spacing: 4px;
 }
 
+/* =========================================
+   2. NEW ELEMENTS (30-Day Offer Styling)
+   ========================================= */
+
+/* The Neon Badge in Hero */
+.badge-neon {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399; /* Bright Neon Green */
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+
+/* The Green Ribbon in Pricing */
+.risk-free-ribbon {
+  background: #10b981;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 8px 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Pricing Card Pop Effect */
+.pricing-highlight {
+  transform: scale(1.05);
+  border: 2px solid #0d6efd;
+  box-shadow: 0 20px 40px rgba(13, 110, 253, 0.15);
+  z-index: 2;
+  background: white;
+  border-radius: 1rem;
+}
+
+/* General Card Hover */
 .hover-scale:hover {
   transform: scale(1.05);
   transition: 0.3s;
+}
+
+.pricing-card {
+  transition: all 0.3s ease;
+  background: white;
+  border-radius: 1rem;
+}
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+/* --- HERO BADGE (Now Electric Cyan instead of Green) --- */
+.badge-neon {
+  background: rgba(6, 182, 212, 0.1); /* Very subtle Cyan tint */
+  color: #22d3ee; /* Bright Electric Cyan text */
+  border: 1px solid rgba(34, 211, 238, 0.3); /* Subtle border */
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15); /* Soft Cyan Glow */
+}
+
+/* --- PRICING RIBBON (Now Royal Gradient) --- */
+.risk-free-ribbon {
+  /* Matches your brand's blue/purple vibe */
+  background: linear-gradient(90deg, #0d6efd 0%, #4f46e5 100%);
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 8px 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* --- INSIDE PRICING CARD HIGHLIGHT --- */
+/* Replaces the ugly light green bar inside the card */
+.highlight-blue {
+  background-color: rgba(13, 110, 253, 0.08); /* Very light blue background */
+  color: #0d6efd; /* Primary Blue Text */
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: block; /* Ensures spacing */
+  width: fit-content;
 }

@@ -1,4 +1,4 @@
-# CtrlShift Angular Blog Add-on (Drop-in)
+# CtrlShift IT Services Angular Blog Add-on (Drop-in)
 
 This adds:
 - `/blog` list page

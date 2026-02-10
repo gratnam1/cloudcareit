@@ -23,7 +23,7 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Managed IT Services Ontario | CtrlShift'
+    title: 'Managed IT Services Ontario | CtrlShift IT Services'
   },
 
   // ✅ CLEAN BLOG ROUTES (all under pages/blog)
@@ -33,7 +33,7 @@ export const routes: Routes = [
       {
         path: '',
         component: BlogListComponent,
-        title: 'Blog | CtrlShift'
+        title: 'Blog | CtrlShift IT Services'
       },
       {
         path: ':slug',
@@ -46,52 +46,52 @@ export const routes: Routes = [
   {
     path: 'managed-it',
     component: ManagedItComponent,
-    title: 'Managed IT Services | CtrlShift'
+    title: 'Managed IT Services | CtrlShift IT Services'
   },
   {
     path: 'google-workspace',
     component: GoogleWorkspaceComponent,
-    title: 'Google Workspace Support | CtrlShift'
+    title: 'Google Workspace Support | CtrlShift IT Services'
   },
   {
     path: 'microsoft-365',
     component: Microsoft365Component,
-    title: 'Microsoft 365 Support | CtrlShift'
+    title: 'Microsoft 365 Support | CtrlShift IT Services'
   },
   {
     path: 'office-networking',
     component: OfficeNetworkingComponent,
-    title: 'Office Networking & Wi-Fi | CtrlShift'
+    title: 'Office Networking & Wi-Fi | CtrlShift IT Services'
   },
   {
     path: 'aws-infrastructure',
     component: AwsInfrastructureComponent,
-    title: 'AWS Infrastructure Support | CtrlShift'
+    title: 'AWS Infrastructure Support | CtrlShift IT Services'
   },
   {
     path: 'security-firewall',
     component: SecurityFirewallComponent,
-    title: 'Security & Firewall | CtrlShift'
+    title: 'Security & Firewall | CtrlShift IT Services'
   },
   {
     path: 'crisis-recovery',
     component: CrisisRecoveryComponent,
-    title: 'Crisis Recovery | CtrlShift'
+    title: 'Crisis Recovery | CtrlShift IT Services'
   },
   {
     path: 'web-development',
     component: WebDevelopmentComponent,
-    title: 'Web Development | CtrlShift'
+    title: 'Web Development | CtrlShift IT Services'
   },
   {
     path: 'seo-visibility',
     component: SeoVisibilityComponent,
-    title: 'SEO & Visibility | CtrlShift'
+    title: 'SEO & Visibility | CtrlShift IT Services'
   },
   {
     path: 'lead-generation',
     component: LeadGenerationComponent,
-    title: 'Lead Generation | CtrlShift'
+    title: 'Lead Generation | CtrlShift IT Services'
   },
 
   // City pages

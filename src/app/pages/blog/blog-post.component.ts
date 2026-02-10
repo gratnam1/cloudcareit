@@ -7,9 +7,9 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Title, Meta } from '@angular/platform-browser';
 
 import { BLOG_POSTS } from './data/blog-posts.registry';
+import { SeoService } from '../../shared/seo/seo.service';
 
 @Component({
   selector: 'app-blog-post-page',
@@ -20,8 +20,7 @@ import { BLOG_POSTS } from './data/blog-posts.registry';
 })
 export class BlogPostComponent implements OnInit {
   private route = inject(ActivatedRoute);
-  private title = inject(Title);
-  private meta = inject(Meta);
+  private seo = inject(SeoService);
 
   @ViewChild('vc', { read: ViewContainerRef, static: true })
   vc!: ViewContainerRef;
@@ -34,16 +33,27 @@ export class BlogPostComponent implements OnInit {
 
     if (!post) {
       this.notFound = true;
-      this.title.setTitle('Blog post not found | CtrlShift IT Services');
+      this.seo.update({
+        title: 'Blog post not found | CtrlShift IT Services',
+        description: 'The blog post you are looking for could not be found.',
+        type: 'website',
+        canonicalPath: '/blog',
+        robots: 'noindex, nofollow'
+      });
       return;
     }
 
     // SSR-friendly SEO
-    this.title.setTitle(`${post.title} | CtrlShift IT Services`);
-    if (post.excerpt) this.meta.updateTag({ name: 'description', content: post.excerpt });
+    this.seo.update({
+      title: `${post.title} | CtrlShift IT Services`,
+      description: post.excerpt,
+      type: 'article',
+      canonicalPath: `/blog/${post.slug}`,
+      publishedTime: post.date
+    });
 
     this.vc.clear();
-    const cmp = await post.loadComponent();
-    this.vc.createComponent(cmp);
+    const componentType = await post.loadComponent();
+    this.vc.createComponent(componentType as any);
   }
 }

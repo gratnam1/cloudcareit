@@ -1,7 +1,7 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { Meta, Title } from '@angular/platform-browser';
+import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { SeoService } from '../../shared/seo/seo.service';
 
 type FaqItem = { q: string; a: string };
 
@@ -25,8 +25,10 @@ type LocationContent = {
 })
 export class LocationComponent implements OnInit {
   private route = inject(ActivatedRoute);
-  private meta = inject(Meta);
-  private title = inject(Title);
+  private router = inject(Router);
+  private document = inject(DOCUMENT);
+  private platformId = inject(PLATFORM_ID);
+  private seo = inject(SeoService);
 
   city = '';
   region = '';
@@ -236,11 +238,12 @@ export class LocationComponent implements OnInit {
     const pageTitle = `Managed IT Support in ${this.city} | CtrlShift IT Services`;
     const description = `${this.intro} Serving offices near ${this.landmark}. Managed IT, Microsoft 365/Google Workspace, security, and networking support.`;
 
-    this.title.setTitle(pageTitle);
-    this.meta.updateTag({ name: 'description', content: description });
-    this.meta.updateTag({ property: 'og:title', content: pageTitle });
-    this.meta.updateTag({ property: 'og:description', content: description });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.seo.update({
+      title: pageTitle,
+      description,
+      type: 'website',
+      canonicalPath: `/it-support-${this.normalizeCityKey(this.city).replace(/\s+/g, '-')}`
+    });
   }
 
   private normalizeCityKey(city: string): string {
@@ -281,5 +284,34 @@ export class LocationComponent implements OnInit {
         }
       ]
     };
+  }
+
+  goToPlans(event: Event) {
+    if (!isPlatformBrowser(this.platformId)) return;
+    event.preventDefault();
+
+    this.router.navigate(['/'], { fragment: 'pricing' }).then(() => {
+      this.scrollToPricing();
+    });
+  }
+
+  private scrollToPricing() {
+    const attemptScroll = () => {
+      const target = this.document.getElementById('pricing');
+      if (!target) return false;
+      target.scrollIntoView({ block: 'start' });
+      return true;
+    };
+
+    if (attemptScroll()) return;
+
+    let tries = 0;
+    const maxTries = 15;
+    const retry = () => {
+      if (attemptScroll() || tries >= maxTries) return;
+      tries += 1;
+      setTimeout(retry, 120);
+    };
+    retry();
   }
 }

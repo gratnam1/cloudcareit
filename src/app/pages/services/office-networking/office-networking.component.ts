@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Meta, Title } from '@angular/platform-browser';
+import { SeoService } from '../../../shared/seo/seo.service';
 
 @Component({
   standalone: true,
@@ -11,15 +11,16 @@ import { Meta, Title } from '@angular/platform-browser';
   styleUrls: ['./office-networking.component.css']
 })
 export class OfficeNetworkingComponent {
-  private meta = inject(Meta);
-  private title = inject(Title);
+  private seo = inject(SeoService);
 
   constructor() {
     const pageTitle = 'Office Networking & Wi‑Fi | CtrlShift IT Services';
-    this.title.setTitle(pageTitle);
-    this.meta.updateTag({ name: 'description', content: 'Moving or expanding? We handle structured cabling planning, network gear setup, and Wi‑Fi performance so your office stays connected.' });
-    this.meta.updateTag({ property: 'og:title', content: pageTitle });
-    this.meta.updateTag({ property: 'og:description', content: 'Moving or expanding? We handle structured cabling planning, network gear setup, and Wi‑Fi performance so your office stays connected.' });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    const description = 'Moving or expanding? We handle structured cabling planning, network gear setup, and Wi‑Fi performance so your office stays connected.';
+    this.seo.update({
+      title: pageTitle,
+      description,
+      type: 'website',
+      canonicalPath: '/office-networking'
+    });
   }
 }

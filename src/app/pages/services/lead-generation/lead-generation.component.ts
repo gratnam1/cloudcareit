@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Meta, Title } from '@angular/platform-browser';
+import { SeoService } from '../../../shared/seo/seo.service';
 
 @Component({
   standalone: true,
@@ -11,15 +11,16 @@ import { Meta, Title } from '@angular/platform-browser';
   styleUrls: ['./lead-generation.component.css']
 })
 export class LeadGenerationComponent {
-  private meta = inject(Meta);
-  private title = inject(Title);
+  private seo = inject(SeoService);
 
   constructor() {
     const pageTitle = 'Lead Generation | CtrlShift IT Services';
-    this.title.setTitle(pageTitle);
-    this.meta.updateTag({ name: 'description', content: 'Turn traffic into revenue with practical funnels. Capture, qualify, and follow up with leads—without annoying spam tactics.' });
-    this.meta.updateTag({ property: 'og:title', content: pageTitle });
-    this.meta.updateTag({ property: 'og:description', content: 'Turn traffic into revenue with practical funnels. Capture, qualify, and follow up with leads—without annoying spam tactics.' });
-    this.meta.updateTag({ property: 'og:type', content: 'website' });
+    const description = 'Turn traffic into revenue with practical funnels. Capture, qualify, and follow up with leads—without annoying spam tactics.';
+    this.seo.update({
+      title: pageTitle,
+      description,
+      type: 'website',
+      canonicalPath: '/lead-generation'
+    });
   }
 }

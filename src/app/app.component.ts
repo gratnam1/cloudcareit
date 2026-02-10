@@ -15,7 +15,7 @@ export class AppComponent {
   chatVisible = false;
   chatInput = '';
   messages: { text: string; isUser: boolean; isTyping?: boolean }[] = [
-    { text: "Hello! I'm the CtrlShift AI. Are you looking for IT support in a specific city?", isUser: false }
+    { text: "Hello! I'm the CtrlShift IT Services AI. Are you looking for IT support in a specific city?", isUser: false }
   ];
 
   toggleChat() {

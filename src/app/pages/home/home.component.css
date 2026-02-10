@@ -26,6 +26,20 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 800;
+  background-size: 200% 200%;
+  animation: gradient-sheen 6s ease-in-out infinite;
+}
+
+@keyframes gradient-sheen {
+  0% { background-position: 0 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-gradient {
+    animation: none;
+  }
 }
 
 /* Glass Card - Keeping original properties for GSAP */

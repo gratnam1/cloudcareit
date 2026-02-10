@@ -1,0 +1,12 @@
+<section class="post">
+  <div class="container">
+    <a class="back" routerLink="/blog">← Back to Blog</a>
+
+    <div *ngIf="notFound" class="notfound">
+      <h1>Post not found</h1>
+      <p>That article doesn’t exist (yet).</p>
+    </div>
+
+    <ng-template #vc></ng-template>
+  </div>
+</section>

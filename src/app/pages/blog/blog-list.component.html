@@ -1,0 +1,28 @@
+<section class="blog">
+  <div class="container">
+    <header class="header">
+      <h1>Blog</h1>
+      <p>Practical IT + security insights for growing offices.</p>
+    </header>
+
+    <div class="grid">
+      <a
+        class="card"
+        *ngFor="let post of posts; trackBy: trackBySlug"
+        [routerLink]="['/blog', post.slug]"
+      >
+        <div class="meta">
+          <span class="tag" *ngFor="let t of post.tags">{{ t }}</span>
+          <span class="date" *ngIf="post.date">{{ post.date }}</span>
+        </div>
+
+        <h3 class="title">{{ post.title }}</h3>
+        <p class="excerpt">{{ post.excerpt }}</p>
+
+        <div class="cta">
+          <span>Read article</span><span class="arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

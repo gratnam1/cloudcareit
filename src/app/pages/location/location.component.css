@@ -1,0 +1,42 @@
+/* Location page hero styles (self-contained so it works even if home styles aren't global) */
+
+.hero-dark-modern {
+  background:
+    radial-gradient(1200px circle at 20% 20%, rgba(59, 130, 246, 0.25), transparent 55%),
+    radial-gradient(900px circle at 80% 30%, rgba(34, 211, 238, 0.18), transparent 55%),
+    linear-gradient(180deg, #0b1220 0%, #070b14 100%);
+  color: #fff;
+}
+
+/* Gradient headline text */
+.text-gradient {
+  background: linear-gradient(90deg, #60a5fa, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Make the “glass” card readable */
+.hero-dark-modern .bg-white.bg-opacity-10 {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.hero-dark-modern .border-white.border-opacity-10 {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Make outline button visible on dark background */
+.hero-dark-modern .btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+
+.hero-dark-modern .btn-outline-light:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  color: #fff;
+}
+
+/* Keep accordion headings bold */
+.accordion-button {
+  font-weight: 600;
+}

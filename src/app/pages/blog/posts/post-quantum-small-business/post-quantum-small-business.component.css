@@ -1,0 +1,213 @@
+/* ===== ARTICLE PAGE (POLISHED) ===== */
+
+:host {
+  display: block;
+}
+
+/* ---------------- HERO SECTION ---------------- */
+
+.hero-dark-modern {
+  background: radial-gradient(1200px 700px at 25% 0%, rgba(59,130,246,.18), transparent 60%),
+  radial-gradient(900px 600px at 80% 25%, rgba(99,102,241,.14), transparent 55%),
+  #070b14;
+}
+
+/* Keep everything in a consistent column */
+.hero-dark-modern .container {
+  max-width: 1040px;
+}
+
+/* Make hero feel like a single “card” */
+.hero-card {
+  background: linear-gradient(135deg, rgba(30,41,59,.85), rgba(2,6,23,.85));
+  border-radius: 18px;
+  box-shadow: 0 26px 70px rgba(0,0,0,.45);
+  padding: 36px 34px;
+}
+
+/* 2-column hero layout (text + CTA) */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 0.85fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Headline tuning */
+.hero-card h1 {
+  font-size: 44px;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 10px 0 14px;
+}
+
+/* Subtitle readability */
+.hero-card .lead {
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 58ch;
+}
+
+/* Meta pills (date + read time) */
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+/* CTA card in hero */
+.hero-cta {
+  position: sticky;
+  top: 92px;
+  background: rgba(17,24,39,.72);
+  border: 1px solid rgba(148,163,184,.18);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+}
+
+/* ---------------- WHITE CONTENT SURFACE ---------------- */
+
+main {
+  background: #070b14; /* match dark background behind white card */
+  padding-bottom: 96px;
+}
+
+/* White “card” for article body */
+.content-surface {
+  background: rgba(255,255,255,.96);
+  border-radius: 18px;
+  padding: 34px;
+  margin-top: 18px;
+}
+
+/* Constrain width so it lines up with hero */
+.content-surface .container {
+  max-width: 1040px;
+}
+
+/* 2-column layout: article + sidebar */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Typography in white section */
+.content-surface p {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: rgba(11,18,32,.86);
+  margin: 0 0 18px;
+}
+
+.content-surface h2 {
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: rgba(11,18,32,.96);
+  margin: 34px 0 12px;
+}
+
+.content-surface h3 {
+  font-size: 19px;
+  line-height: 1.25;
+  color: rgba(11,18,32,.94);
+  margin: 22px 0 10px;
+}
+
+/* Callout / Key takeaway */
+.callout {
+  border-left: 4px solid #2563eb;
+  background: rgba(37, 99, 235, 0.06);
+  padding: 16px 18px;
+  border-radius: 12px;
+  margin: 24px 0;
+}
+
+/* Sidebar boxes */
+.sidebar-box {
+  background: #f4f7ff;
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+/* Related services buttons spacing */
+.related-services a {
+  margin-bottom: 6px;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 920px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    padding: 26px 18px;
+  }
+
+  .hero-card h1 {
+    font-size: 34px;
+  }
+
+  .hero-cta {
+    position: static;
+  }
+
+  .content-surface {
+    padding: 22px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* --- Fix: Bootstrap muted text is too light on white surface --- */
+.content-surface .text-muted,
+.content-surface .text-black-50,
+.content-surface .text-secondary,
+.content-surface .small {
+  color: rgba(11, 18, 32, 0.78) !important;
+}
+/* --- Fix: lists / headings visibility on white --- */
+.content-surface ul,
+.content-surface ol,
+.content-surface li {
+  color: rgba(11, 18, 32, 0.86) !important;
+}
+
+.content-surface .fw-bold,
+.content-surface .h5,
+.content-surface h2,
+.content-surface h3 {
+  color: rgba(11, 18, 32, 0.96) !important;
+}
+/* --- Fix: callout box text visibility --- */
+.callout {
+  color: rgba(11, 18, 32, 0.92) !important;
+}
+
+.callout .text-muted,
+.callout .small {
+  color: rgba(11, 18, 32, 0.78) !important;
+}
+/* --- Fix: sidebar boxes text --- */
+.sidebar-box,
+.sidebar-box * {
+  color: rgba(11, 18, 32, 0.88);
+}
+
+.sidebar-box .small {
+  color: rgba(11, 18, 32, 0.76) !important;
+}
+/* --- Fix: hero text too dim --- */
+.hero-card .text-white-50 {
+  color: rgba(229, 231, 235, 0.78) !important;
+}

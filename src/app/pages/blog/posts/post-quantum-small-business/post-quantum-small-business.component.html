@@ -1,0 +1,189 @@
+<header class="hero-dark-modern py-4">
+  <div class="container py-4">
+
+    <div class="hero-card">
+      <div class="hero-grid">
+
+        <!-- LEFT: Title + meta -->
+        <div>
+          <span class="badge bg-primary mb-3">Cybersecurity • Post-Quantum</span>
+
+          <h1 class="text-white mb-3">
+            Post-Quantum Cybersecurity: What Small Businesses Should Do Now
+          </h1>
+
+          <p class="lead text-white-50 mb-4">
+            Quantum computers aren’t powering everyday attacks yet, but the security transition is already underway.
+            Here’s the practical, non-hype plan for small businesses — and how to get help if you want a roadmap.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2 text-white-50 small">
+            <span class="meta-pill">
+              <i class="bi bi-calendar3 me-2"></i>{{publishedDate}}
+            </span>
+            <span class="meta-pill">
+              <i class="bi bi-clock me-2"></i>{{readingTime}}
+            </span>
+          </div>
+        </div>
+
+        <!-- RIGHT: CTA card -->
+        <aside class="hero-cta">
+          <div class="fw-bold mb-2 text-white">Want help doing this safely?</div>
+          <p class="text-white-50 small mb-3">
+            We’ll inventory where encryption lives in your business, assess risk, and build a practical migration plan.
+          </p>
+          <a class="btn btn-primary rounded-pill w-100 fw-bold"
+             routerLink="/"
+             fragment="consultation">
+            Book a Free Assessment
+          </a>
+          <div class="text-white-50 small mt-3">
+            <i class="bi bi-shield-check me-2"></i>
+            Security-first • Small business-friendly
+          </div>
+        </aside>
+
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<main>
+  <div class="content-surface">
+    <div class="container">
+
+      <div class="content-grid">
+
+        <!-- MAIN ARTICLE COLUMN -->
+        <article>
+
+          <h2 class="fw-bold">Why this matters (in plain English)</h2>
+          <p>
+            In early February 2026, Google called on governments and industry to prepare now for quantum-era cybersecurity,
+            warning that the shift to quantum-resistant protection takes time and coordination.
+            <a class="source-link" target="_blank" rel="noopener"
+               href="https://thequantuminsider.com/2026/02/06/google-calls-on-governments-and-industry-to-prepare-now-for-quantum-era-cybersecurity/">
+              Source
+            </a>.
+          </p>
+
+          <p>
+            Today’s widely used encryption (the stuff protecting logins, secure connections, signatures, and encrypted files)
+            is based on math problems that are very hard for normal computers. Large-enough quantum computers could solve
+            some of those problems much faster. That’s why the industry is moving toward
+            <strong>post-quantum cryptography (PQC)</strong>.
+          </p>
+
+          <div class="callout">
+            <div class="fw-bold mb-1">
+              <i class="bi bi-lightning-charge-fill me-2"></i>Key takeaway
+            </div>
+            <div>
+              You don’t need to “do PQC” everywhere today — but you <strong>do</strong> want a plan
+              so you’re not caught scrambling later.
+            </div>
+          </div>
+
+          <h2 class="fw-bold mt-5">What small businesses should do today</h2>
+          <p>
+            The best approach is <strong>crypto-agility</strong>: knowing where encryption is used and being able to upgrade
+            safely when tools and standards mature.
+          </p>
+
+          <h3 class="h5 fw-bold mt-4">1) Inventory where encryption exists</h3>
+          <ul>
+            <li>Microsoft 365 / Google Workspace security settings (MFA, conditional access, tenant protections)</li>
+            <li>VPNs and remote access (certificates, device trust)</li>
+            <li>Backups (encryption at rest + restore testing)</li>
+            <li>Servers / websites (TLS certificates)</li>
+            <li>Email or file encryption (GPG/PGP, S/MIME) if you use it</li>
+            <li>Code signing / scripts / automation keys</li>
+          </ul>
+
+          <h3 class="h5 fw-bold mt-4">2) Prioritize what must stay confidential for years</h3>
+          <p>
+            If you handle legal, medical, financial, or customer identity data, the “store now, decrypt later” risk is more relevant.
+            Your goal is to avoid long-term exposure by upgrading systems on a sensible timeline.
+          </p>
+
+          <h3 class="h5 fw-bold mt-4">3) Ask vendors about their post-quantum roadmap</h3>
+          <p>
+            You don’t need to switch everything overnight. You do want to know if the tools you depend on are planning for
+            quantum-resistant options (often via “hybrid” approaches during transition).
+          </p>
+
+          <h2 class="fw-bold mt-5">If you want help, here’s what we do</h2>
+          <p>
+            We’ll keep this practical. Most small businesses need a plan, not a cryptography lab.
+            If you want help, we can:
+          </p>
+
+          <ul>
+            <li>Inventory encryption across devices, cloud tools, VPNs, backups, and certificates</li>
+            <li>Harden the basics (MFA, patching, admin controls) while planning future upgrades</li>
+            <li>Create a phased migration strategy that avoids downtime and data loss</li>
+            <li>Document everything so you’re not dependent on tribal knowledge</li>
+          </ul>
+
+          <div class="callout">
+            <div class="row g-3 align-items-center">
+              <div class="col-md-8">
+                <div class="fw-bold">Want a simple, safe PQC readiness plan?</div>
+                <div class="small">We’ll assess your environment and recommend the next best steps—no hype.</div>
+              </div>
+              <div class="col-md-4">
+                <a class="btn btn-primary rounded-pill w-100 fw-bold"
+                   routerLink="/"
+                   fragment="consultation">
+                  Request Help
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-5">
+
+          <h3 class="h5 fw-bold">Sources</h3>
+          <ul>
+            <li>
+              The Quantum Insider (Feb 6, 2026): “Google Calls on Governments and Industry to Prepare Now for Quantum-Era Cybersecurity”
+              — <a target="_blank" rel="noopener"
+                   href="https://thequantuminsider.com/2026/02/06/google-calls-on-governments-and-industry-to-prepare-now-for-quantum-era-cybersecurity/">
+              link
+            </a>
+            </li>
+          </ul>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside>
+
+          <div class="sidebar-box mb-4">
+            <h3 class="h5 fw-bold">Quick checklist</h3>
+            <ul class="small mb-0">
+              <li>List where encryption is used</li>
+              <li>Confirm backups restore</li>
+              <li>Turn on MFA everywhere</li>
+              <li>Ask vendors about PQC plans</li>
+              <li>Create a phased migration roadmap</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-box related-services">
+            <h3 class="h5 fw-bold">Related services</h3>
+            <div class="d-grid gap-2">
+              <a class="btn btn-outline-dark rounded-pill" routerLink="/managed-it">Managed IT Support</a>
+              <a class="btn btn-outline-dark rounded-pill" routerLink="/security-firewall">Security & Firewall</a>
+              <a class="btn btn-outline-dark rounded-pill" routerLink="/microsoft-365">Microsoft 365 Support</a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { CommonModule, ViewportScroller } from '@angular/common';
+import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,19 @@ export class AppComponent {
   messages: { text: string; isUser: boolean; isTyping?: boolean }[] = [
     { text: "Hello! I'm the CtrlShift IT Services AI. Are you looking for IT support in a specific city?", isUser: false }
   ];
+
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        const fragment = this.router.parseUrl(this.router.url).fragment;
+        if (!fragment) return;
+
+        setTimeout(() => {
+          this.viewportScroller.scrollToAnchor(fragment);
+        }, 50);
+      });
+  }
 
   toggleChat() {
     this.chatVisible = !this.chatVisible;

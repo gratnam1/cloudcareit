@@ -1,16 +1,75 @@
-<header class="hero-dark-modern py-5">
-  <div class="container py-5">
-    <div class="row align-items-center">
-      <div class="col-lg-8">
+<header class="hero-dark-modern py-4">
+  <div class="container py-4">
+    <div class="row align-items-center g-5">
+
+      <!-- LEFT -->
+      <div class="col-lg-7">
         <span class="badge bg-primary mb-3">Serving {{region}} Businesses</span>
-        <h1 class="display-3 fw-bold text-white mb-4">
-          Reliable IT Support in <br><span class="text-gradient">{{city}}</span>
+
+        <h1 class="display-3 fw-bold text-white mb-3">
+          Managed IT Support in <br><span class="text-gradient">{{city}}</span>
         </h1>
-        <p class="lead text-white-50 mb-5">
-          Local technicians available for dispatch to offices near <strong>{{landmark}}</strong>.
+
+        <p class="lead text-white-50 mb-4">
+          {{intro}}
         </p>
-        <button class="btn btn-primary btn-lg rounded-pill px-5">Call {{city}} Team</button>
+
+        <ul class="text-white-50 small mb-4 ps-3">
+          <li *ngFor="let b of heroBullets">{{b}}</li>
+        </ul>
+
+        <div class="d-flex gap-3 flex-wrap">
+          <a class="btn btn-primary btn-lg rounded-pill px-5" routerLink="/" fragment="consultation">
+            Start 30-Day Trial
+          </a>
+          <a class="btn btn-outline-light btn-lg rounded-pill px-5" routerLink="/managed-it">
+            View Managed IT Plans
+          </a>
+        </div>
+
+        <div class="text-white-50 small mt-4">
+          Near <strong>{{landmark}}</strong> • Serving
+          <span *ngFor="let a of nearbyAreas; let last = last">{{a}}{{!last ? ', ' : ''}}</span>
+        </div>
       </div>
+
+      <!-- RIGHT -->
+      <div class="col-lg-5">
+        <div class="bg-white bg-opacity-10 border border-white border-opacity-10 rounded-4 p-4 p-lg-5 text-white">
+          <h3 class="h5 fw-bold mb-3">What you get with CtrlShift</h3>
+
+          <div class="d-grid gap-2 mb-4">
+            <div class="d-flex align-items-start gap-2">
+              <i class="bi bi-shield-check text-info"></i>
+              <div>
+                <div class="fw-bold">Security-first basics</div>
+                <div class="text-white-50 small">MFA, patching, and safer access by default.</div>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start gap-2">
+              <i class="bi bi-speedometer2 text-info"></i>
+              <div>
+                <div class="fw-bold">Fast support</div>
+                <div class="text-white-50 small">Remote-first with on-site help when needed.</div>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start gap-2">
+              <i class="bi bi-cloud-check text-info"></i>
+              <div>
+                <div class="fw-bold">Cloud ops</div>
+                <div class="text-white-50 small">Microsoft 365 / Google Workspace managed properly.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 border-top border-white border-opacity-10 text-white-50 small">
+            Typical fit: <strong class="text-white">5–50 users</strong> • Professional offices • Hybrid teams
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </header>
@@ -18,22 +77,70 @@
 <section class="py-5 bg-white">
   <div class="container">
     <div class="row g-5">
-      <div class="col-md-6">
-        <h2 class="fw-bold">Why we love {{city}}</h2>
-        <p class="text-muted">
-          Unlike remote-only helpdesks, CtrlShift has boots on the ground in {{city}}.
-          We provide on-site server repair, network cabling, and security audits specifically for
-          {{region}} compliance standards.
-        </p>
+      <div class="col-lg-6">
+        <h2 class="fw-bold">What {{city}} offices call us for</h2>
+        <p class="text-muted">{{localWorkStyle}}</p>
+
+        <h3 class="h5 fw-bold mt-4">Common issues we fix</h3>
+        <ul class="text-muted">
+          <li *ngFor="let p of painPoints">{{p}}</li>
+        </ul>
+
+        <h3 class="h5 fw-bold mt-4">Industries we support in {{city}}</h3>
+        <ul class="text-muted">
+          <li *ngFor="let i of industries">{{i}}</li>
+        </ul>
       </div>
-      <div class="col-md-6">
+
+      <div class="col-lg-6">
         <div class="bg-light p-4 rounded-4">
-          <h4 class="fw-bold">{{city}} Service Menu</h4>
+          <h4 class="fw-bold">{{city}} IT Services</h4>
+          <p class="text-muted small mb-3">Popular services for teams in {{city}}.</p>
+
           <ul class="list-unstyled mt-3">
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> {{city}} Network Cabling</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> On-Site Emergency Support</li>
-            <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Local Hardware Pickup</li>
+            <li class="mb-2" *ngFor="let s of services">
+              <i class="bi bi-check-circle-fill text-primary me-2"></i> {{s}}
+            </li>
           </ul>
+
+          <div class="d-grid gap-2 mt-4">
+            <a class="btn btn-dark rounded-pill" routerLink="/microsoft-365">Microsoft 365 Support</a>
+            <a class="btn btn-outline-dark rounded-pill" routerLink="/security-firewall">Security & Firewall</a>
+            <a class="btn btn-outline-dark rounded-pill" routerLink="/office-networking">Office Networking</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <h2 class="fw-bold">FAQ: IT support in {{city}}</h2>
+        <div class="accordion" id="faq">
+          <div class="accordion-item" *ngFor="let f of faq; let idx = index">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fw-bold" type="button"
+                      data-bs-toggle="collapse" [attr.data-bs-target]="'#f' + idx">
+                {{f.q}}
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" [id]="'f' + idx" data-bs-parent="#faq">
+              <div class="accordion-body text-muted">{{f.a}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="bg-white rounded-4 shadow-sm p-4">
+          <h3 class="fw-bold">Ready for fewer IT interruptions?</h3>
+          <p class="text-muted">Tell us your office size and your top IT pain points—we’ll recommend the right plan.</p>
+          <a class="btn btn-primary rounded-pill w-100 py-3 fw-bold" routerLink="/" fragment="consultation">
+            Book Free Assessment
+          </a>
         </div>
       </div>
     </div>

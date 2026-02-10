@@ -1,12 +1,24 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
+import {
+  provideRouter,
+  withComponentInputBinding,
+  withViewTransitions,
+  withInMemoryScrolling
+} from '@angular/router';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    // withComponentInputBinding allows us to pass Route Data to components easily
-    provideRouter(routes, withComponentInputBinding(), withViewTransitions()),
-    provideClientHydration(), provideClientHydration(withEventReplay())
+    provideRouter(
+      routes,
+      withComponentInputBinding(),
+      withViewTransitions(),
+      withInMemoryScrolling({
+        anchorScrolling: 'enabled',
+        scrollPositionRestoration: 'enabled'
+      })
+    ),
+    provideClientHydration(withEventReplay())
   ]
 };

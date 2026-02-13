@@ -65,6 +65,8 @@ export class LocationComponent implements OnInit, OnDestroy {
       title: 'Managed IT Support in Toronto | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-toronto',
       mainHeading: 'Managed IT Support in Toronto',
+      areasServedText:
+        'Our technicians provide on-site IT support throughout Toronto, including the Financial District, North York business hubs, Midtown offices, and the Downtown Core. Whether your team is near Bay Street towers or operating in mixed-use spaces across the city, we provide fast response for critical network and cloud outages.',
       intro:
         'Smart, secure managed IT for Toronto professional offices — we reduce downtime, harden Microsoft 365, and keep hybrid teams connected with dependable Wi-Fi, secure remote access, and fast support across the downtown core.',
       metaDescription:
@@ -111,6 +113,8 @@ export class LocationComponent implements OnInit, OnDestroy {
       title: 'Managed IT Support in Mississauga | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-mississauga',
       mainHeading: 'Managed IT Support in Mississauga',
+      areasServedText:
+        'Our technicians deliver on-site IT support across Mississauga, including Square One, Meadowvale, Airport Corporate Centre, and Heartland business districts. Whether your office is near Hurontario or operating close to Highway 401 and 403 corridors, we respond quickly to urgent network and productivity incidents.',
       intro:
         'Practical, secure, and responsive managed IT for Mississauga businesses — we keep your Wi-Fi reliable, your data protected, and your team productive with fast remote help and local on-site support when it matters.',
       metaDescription:
@@ -209,6 +213,8 @@ export class LocationComponent implements OnInit, OnDestroy {
       title: 'Managed IT Support in Thornhill | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-thornhill',
       mainHeading: 'Managed IT Support in Thornhill',
+      areasServedText:
+        'Our technicians provide on-site IT support across Thornhill, including offices near Promenade Shopping Centre, Yonge Street commercial corridors, and surrounding business plazas. Whether your team operates on the Vaughan side or Markham side of Thornhill, we provide rapid support for connectivity and security-critical failures.',
       intro:
         'Simple, dependable managed IT for Thornhill offices — we keep your email, Wi-Fi, and devices running smoothly with fast helpdesk support, practical security, and clear processes that reduce everyday IT friction.',
       metaDescription:
@@ -255,6 +261,8 @@ export class LocationComponent implements OnInit, OnDestroy {
       title: 'Managed IT Support in Richmond Hill | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-richmond-hill',
       mainHeading: 'Managed IT Support in Richmond Hill',
+      areasServedText:
+        'Our technicians provide on-site IT support across Richmond Hill, including the Hillcrest Mall area, Highway 7 corridor, and key office zones along Yonge Street and Leslie Street. Whether your business is in a medical, legal, or professional office cluster, we offer fast response for high-impact outages and recurring IT disruptions.',
       intro:
         'Managed IT support for Richmond Hill businesses — proactive maintenance, strong account security, and responsive helpdesk so your team can focus on work instead of fighting with technology.',
       metaDescription:

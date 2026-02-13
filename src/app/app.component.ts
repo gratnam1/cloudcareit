@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { filter } from 'rxjs/operators';
+import { SeoService } from './shared/seo/seo.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,9 @@ import { filter } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  private seo = inject(SeoService);
+
   // --- AI Chat State (Kept Global) ---
   chatVisible = false;
   chatInput = '';
@@ -30,6 +33,36 @@ export class AppComponent {
           this.viewportScroller.scrollToAnchor(fragment);
         }, 50);
       });
+  }
+
+  ngOnInit(): void {
+    this.seo.setStructuredData('global-organization', {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'CtrlShift IT Services',
+      url: 'https://ctrlshiftit.ca',
+      logo: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
+      telephone: '+1-647-503-5779',
+      areaServed: [
+        { '@type': 'City', name: 'Vaughan' },
+        { '@type': 'City', name: 'Toronto' },
+        { '@type': 'City', name: 'Mississauga' },
+        { '@type': 'City', name: 'Thornhill' },
+        { '@type': 'City', name: 'Richmond Hill' }
+      ]
+    });
+
+    this.seo.setStructuredData('global-website', {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'CtrlShift IT Services',
+      url: 'https://ctrlshiftit.ca',
+      inLanguage: 'en-CA',
+      publisher: {
+        '@type': 'Organization',
+        name: 'CtrlShift IT Services'
+      }
+    });
   }
 
   toggleChat() {

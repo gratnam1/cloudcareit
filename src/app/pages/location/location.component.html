@@ -6,9 +6,7 @@
       <div class="col-lg-7">
         <span class="badge bg-primary mb-3">Serving {{region}} Businesses</span>
 
-        <h1 class="display-3 fw-bold text-white mb-3">
-          Managed IT Support in <br><span class="text-gradient">{{city}}</span>
-        </h1>
+        <h1 class="display-3 fw-bold text-white mb-3">{{mainHeading}}</h1>
 
         <p class="lead text-white-50 mb-4">
           {{intro}}
@@ -74,6 +72,15 @@
   </div>
 </header>
 
+<section class="py-3 bg-white border-bottom">
+  <div class="container d-flex flex-wrap align-items-center gap-2 small">
+    <span class="text-muted">Managed IT Hub:</span>
+    <a class="fw-semibold text-decoration-none" [routerLink]="hubPagePath">{{hubPageLabel}}</a>
+    <span class="text-muted">/</span>
+    <span class="text-dark fw-semibold">Managed IT Services {{city}}</span>
+  </div>
+</section>
+
 <section class="py-5 bg-white">
   <div class="container">
     <div class="row g-5">
@@ -93,7 +100,7 @@
       </div>
 
       <div class="col-lg-6">
-        <div class="bg-light p-4 rounded-4">
+        <div class="services-panel p-4 rounded-4">
           <h4 class="fw-bold">{{city}} IT Services</h4>
           <p class="text-muted small mb-3">Popular services for teams in {{city}}.</p>
 
@@ -114,31 +121,54 @@
   </div>
 </section>
 
-<section class="py-5 bg-light">
+<section class="py-4 bg-white" *ngIf="areasServedText">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <h2 class="h4 fw-bold mb-3">Areas Served</h2>
+        <p class="text-muted mb-0">{{areasServedText}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-cta-section py-5">
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-8">
-        <h2 class="fw-bold">FAQ: IT support in {{city}}</h2>
-        <div class="accordion" id="faq">
-          <div class="accordion-item" *ngFor="let f of faq; let idx = index">
-            <h2 class="accordion-header">
-              <button class="accordion-button collapsed fw-bold" type="button"
-                      data-bs-toggle="collapse" [attr.data-bs-target]="'#f' + idx">
-                {{f.q}}
-              </button>
-            </h2>
-            <div class="accordion-collapse collapse" [id]="'f' + idx" data-bs-parent="#faq">
-              <div class="accordion-body text-muted">{{f.a}}</div>
+        <div class="faq-shell">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <span class="faq-badge">FAQ</span>
+            <span class="faq-subtitle">Fast answers for {{city}} businesses</span>
+          </div>
+          <h2 class="fw-bold mb-3">IT Support in {{city}}</h2>
+          <div class="accordion faq-accordion" id="faq">
+            <div class="accordion-item" *ngFor="let f of faq; let idx = index">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button"
+                        data-bs-toggle="collapse" [attr.data-bs-target]="'#f' + idx">
+                  {{f.q}}
+                </button>
+              </h2>
+              <div class="accordion-collapse collapse" [id]="'f' + idx" data-bs-parent="#faq">
+                <div class="accordion-body text-muted">{{f.a}}</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="col-lg-4">
-        <div class="bg-white rounded-4 shadow-sm p-4">
-          <h3 class="fw-bold">Ready for fewer IT interruptions?</h3>
-          <p class="text-muted">Tell us your office size and your top IT pain points—we’ll recommend the right plan.</p>
-          <a class="btn btn-primary rounded-pill w-100 py-3 fw-bold" routerLink="/" fragment="consultation">
+        <div class="cta-shell">
+          <div class="cta-label">Free IT Assessment</div>
+          <h3 class="fw-bold mb-2">Ready for fewer IT interruptions?</h3>
+          <p class="text-muted mb-4">Tell us your office size and your top IT pain points. We will recommend the right plan in one quick call.</p>
+          <ul class="cta-points list-unstyled mb-4">
+            <li><i class="bi bi-check-circle-fill"></i> 15-minute response target</li>
+            <li><i class="bi bi-check-circle-fill"></i> Remote + on-site support</li>
+            <li><i class="bi bi-check-circle-fill"></i> Security-first recommendations</li>
+          </ul>
+          <a class="btn btn-primary rounded-pill w-100 py-3 fw-bold cta-btn" routerLink="/" fragment="consultation">
             Book Free Assessment
           </a>
         </div>

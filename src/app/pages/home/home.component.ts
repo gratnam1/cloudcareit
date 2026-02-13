@@ -1,14 +1,8 @@
 import { Component, AfterViewInit, OnInit, OnDestroy, Inject, PLATFORM_ID, ChangeDetectorRef, NgZone } from '@angular/core';
 import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Router, RouterModule, NavigationEnd } from '@angular/router';
 import { SeoService } from '../../shared/seo/seo.service';
-
-
-// Register GSAP Plugin
-gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-home',
@@ -36,8 +30,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.seo.update({
-      title: 'Managed IT Services Vaughan & Toronto | 30-Day Risk-Free | CtrlShift IT Services',
-      description: 'Reliable business IT support for Vaughan & Toronto. CtrlShift IT Services offers a 30-day satisfaction guarantee for law firms & clinics. Get a 15-min response time.',
+      title: 'Managed IT Services GTA | Vaughan, Toronto, Mississauga, Thornhill, Richmond Hill | CtrlShift IT Services',
+      description: 'Reliable managed IT services for businesses across Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill. Proactive IT support, cybersecurity, and cloud management with fast response times.',
       type: 'website',
       canonicalPath: '/'
     });
@@ -64,7 +58,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       requestAnimationFrame(() => {
         this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         this.viewReady = true;
-        this.initAnimations(this.prefersReducedMotion);
+        void this.initAnimations(this.prefersReducedMotion);
 
         const fragment = this.pendingFragment ?? this.getCurrentFragment();
         if (fragment) {
@@ -80,7 +74,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.destroyCallbacks = [];
   }
 
-  initAnimations(prefersReducedMotion: boolean) {
+  async initAnimations(prefersReducedMotion: boolean) {
+    const [{ gsap }, { ScrollTrigger }] = await Promise.all([
+      import('gsap'),
+      import('gsap/ScrollTrigger')
+    ]);
+    gsap.registerPlugin(ScrollTrigger);
+
     if (prefersReducedMotion) {
       gsap.set('.badge-neon, .draw-path, .reveal-card, .glass-card-interactive, .hero-dark-modern h1, .hero-dark-modern p, .hero-dark-modern .btn', {
         clearProps: 'all'

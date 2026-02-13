@@ -2,6 +2,7 @@
   <div class="container">
     <a class="navbar-brand fw-bold text-dark d-flex align-items-center" routerLink="/">
       <svg width="24" height="24" viewBox="0 0 100 100" class="me-2">
+        <title>CtrlShift IT Logo</title>
         <rect x="10" y="10" width="80" height="80" rx="15" fill="none" stroke="#6366f1" stroke-width="10"/>
         <path d="M50 30 L35 55 H42 V75 H58 V55 H70 L50 30 Z" fill="#6366f1"/>
       </svg>
@@ -15,26 +16,44 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Locations</a>
           <ul class="dropdown-menu border-0 shadow">
-            <li><a class="dropdown-item" routerLink="/it-support-vaughan">Vaughan</a></li>
-            <li><a class="dropdown-item" routerLink="/it-support-toronto">Toronto</a></li>
-            <li><a class="dropdown-item" routerLink="/it-support-mississauga">Mississauga</a></li>
-            <li><a class="dropdown-item" routerLink="/it-support-thornhill">Thornhill</a></li>
-            <li><a class="dropdown-item" routerLink="/it-support-richmond-hill">Richmond Hill</a></li>
+            <li><a class="dropdown-item" routerLink="/managed-it-services-vaughan">Vaughan</a></li>
+            <li><a class="dropdown-item" routerLink="/managed-it-services-toronto">Toronto</a></li>
+            <li><a class="dropdown-item" routerLink="/managed-it-services-mississauga">Mississauga</a></li>
+            <li><a class="dropdown-item" routerLink="/managed-it-services-thornhill">Thornhill</a></li>
+            <li><a class="dropdown-item" routerLink="/managed-it-services-richmond-hill">Richmond Hill</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link px-3" routerLink="/" fragment="services">Services</a></li>
         <li class="nav-item ms-lg-3">
           <a class="btn btn-dark rounded-pill px-4 shadow-sm" routerLink="/" fragment="consultation">Free Consultation</a>
         </li>
-      </ul>``
+      </ul>
     </div>
   </div>
 </nav>
 
 <router-outlet></router-outlet>
 
-<footer class="bg-white py-4 border-top text-center mt-auto">
-  <p class="text-muted small">© 2026 CtrlShift IT Services. High-Performance IT Management for Ontario.</p>
+<footer class="site-footer border-top mt-auto">
+  <div class="container">
+    <div class="row g-3 align-items-center">
+      <div class="col-lg-6">
+        <p class="site-footer-copy mb-0">© 2026 CtrlShift IT Services. High-Performance IT Management for Ontario.</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="site-footer-links-wrap">
+          <h3 class="site-footer-heading mb-2">Service Areas</h3>
+          <div class="site-footer-links">
+            <a class="site-footer-link" routerLink="/managed-it-services-vaughan">Managed IT Services Vaughan</a>
+            <a class="site-footer-link" routerLink="/managed-it-services-toronto">Managed IT Services Toronto</a>
+            <a class="site-footer-link" routerLink="/managed-it-services-mississauga">Managed IT Services Mississauga</a>
+            <a class="site-footer-link" routerLink="/managed-it-services-thornhill">Managed IT Services Thornhill</a>
+            <a class="site-footer-link" routerLink="/managed-it-services-richmond-hill">Managed IT Services Richmond Hill</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <div id="ai-chat-bubble" (click)="toggleChat()" class="bg-primary text-white rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; cursor: pointer; z-index: 9999;">

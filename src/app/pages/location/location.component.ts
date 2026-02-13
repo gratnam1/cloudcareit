@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { SeoService } from '../../shared/seo/seo.service';
@@ -6,7 +6,12 @@ import { SeoService } from '../../shared/seo/seo.service';
 type FaqItem = { q: string; a: string };
 
 type LocationContent = {
+  title: string;
+  canonicalPath: string;
+  mainHeading: string;
+  areasServedText?: string;
   intro: string;
+  metaDescription: string;
   heroBullets: string[];
   localWorkStyle: string;
   nearbyAreas: string[];
@@ -14,6 +19,10 @@ type LocationContent = {
   industries: string[];
   services: string[];
   faq: FaqItem[];
+  geo?: {
+    latitude: number;
+    longitude: number;
+  };
 };
 
 @Component({
@@ -23,7 +32,7 @@ type LocationContent = {
   templateUrl: './location.component.html',
   styleUrl: './location.component.css'
 })
-export class LocationComponent implements OnInit {
+export class LocationComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private document = inject(DOCUMENT);
@@ -42,11 +51,24 @@ export class LocationComponent implements OnInit {
   industries: string[] = [];
   services: string[] = [];
   faq: FaqItem[] = [];
+  mainHeading = '';
+  areasServedText = '';
+  readonly hubPagePath = '/managed-it-services';
+  readonly hubPageLabel = 'Managed IT Services';
+
+  private readonly LOCAL_BUSINESS_SCHEMA_ID = 'local-business';
+  private readonly FAQ_SCHEMA_ID = 'faq';
+  private readonly BREADCRUMB_SCHEMA_ID = 'breadcrumb';
 
   private LOCATION_CONTENT: Record<string, LocationContent> = {
     toronto: {
+      title: 'Managed IT Support in Toronto | CtrlShift IT Services',
+      canonicalPath: '/managed-it-services-toronto',
+      mainHeading: 'Managed IT Support in Toronto',
       intro:
         'Smart, secure managed IT for Toronto professional offices — we reduce downtime, harden Microsoft 365, and keep hybrid teams connected with dependable Wi-Fi, secure remote access, and fast support across the downtown core.',
+      metaDescription:
+        'Smart, secure managed IT for Toronto professional offices. We reduce downtime, harden Microsoft 365, and keep hybrid teams connected with dependable Wi-Fi.',
       heroBullets: [
         'Hybrid-ready: secure remote access + device protection',
         'Microsoft 365 hardening + phishing protection',
@@ -73,13 +95,26 @@ export class LocationComponent implements OnInit {
         {
           q: 'Do you offer on-site support in Toronto?',
           a: 'Yes. We handle on-site visits when needed, but we resolve most issues quickly through secure remote support.'
+        },
+        {
+          q: 'Can you secure Microsoft 365 for legal and medical teams in Toronto?',
+          a: 'Yes. We implement MFA, conditional access, safer sharing rules, and mailbox protection policies tailored for compliance-sensitive offices.'
+        },
+        {
+          q: 'How quickly can you respond to urgent downtime in downtown Toronto?',
+          a: 'Critical incidents are triaged immediately through our helpdesk, with remote containment first and rapid on-site dispatch when physical intervention is required.'
         }
       ]
     },
 
     mississauga: {
+      title: 'Managed IT Support in Mississauga | CtrlShift IT Services',
+      canonicalPath: '/managed-it-services-mississauga',
+      mainHeading: 'Managed IT Support in Mississauga',
       intro:
         'Practical, secure, and responsive managed IT for Mississauga businesses — we keep your Wi-Fi reliable, your data protected, and your team productive with fast remote help and local on-site support when it matters.',
+      metaDescription:
+        'Practical, secure managed IT for Mississauga businesses. We keep your Wi-Fi reliable, data protected, and teams productive with fast remote & on-site support.',
       heroBullets: [
         'Local response across Peel Region and Square One',
         'Microsoft 365 / Google Workspace management',
@@ -106,13 +141,28 @@ export class LocationComponent implements OnInit {
         {
           q: 'Can you improve Wi-Fi coverage in our Mississauga office?',
           a: 'Yes. We diagnose coverage gaps, recommend access point placement, and configure guest/staff separation when needed.'
+        },
+        {
+          q: 'Do you support mixed Microsoft 365 and Google Workspace environments?',
+          a: 'Yes. We manage identity, email routing, file permissions, and device access controls across both platforms.'
+        },
+        {
+          q: 'Can you help standardize onboarding for fast-growing teams?',
+          a: 'Absolutely. We create repeatable onboarding and offboarding checklists so accounts, devices, security settings, and access rights are provisioned consistently.'
         }
       ]
     },
 
     vaughan: {
+      title: 'Managed IT Services Vaughan | 24/7 IT Support & Security | CtrlShift IT',
+      canonicalPath: '/managed-it-services-vaughan',
+      mainHeading: 'Managed IT Services & IT Support in Vaughan',
+      areasServedText:
+        'Our technicians provide on-site IT support across the City of Vaughan, including the Concord industrial park, Woodbridge business district, and the Vaughan Metropolitan Centre (VMC). Whether your office is located near Highway 7 and the 400 or up in Maple, we offer rapid response times for critical network failures.',
       intro:
         'Proactive managed IT for Vaughan and York Region — we stabilize your network, secure your cloud tools, and prevent outages with monitoring, patching, and clear documentation for growing professional offices.',
+      metaDescription:
+        'Reliable Managed IT Services in Vaughan. Proactive IT support, cybersecurity, and cloud solutions for businesses in Concord, Woodbridge, and Maple.',
       heroBullets: [
         'Reliable connectivity for clinics and professional services',
         'Microsoft 365 / Google Workspace administration',
@@ -137,15 +187,32 @@ export class LocationComponent implements OnInit {
       ],
       faq: [
         {
-          q: 'Do you support clinics and professional offices in Vaughan?',
-          a: 'Yes. We frequently work with professional offices and clinics that need stable systems and practical security.'
+          q: 'Do you offer on-site IT support in Vaughan?',
+          a: 'Yes, CtrlShift IT provides both remote helpdesk and on-site emergency support for businesses throughout Vaughan and York Region.'
+        },
+        {
+          q: 'Can you support businesses in Concord and Woodbridge with multi-site IT?',
+          a: 'Yes. We support multi-location offices with standardized network setups, shared security policies, and centralized monitoring.'
+        },
+        {
+          q: 'Do you handle after-hours maintenance for Vaughan offices?',
+          a: 'Yes. We can schedule patching, maintenance windows, and planned network changes outside business hours to minimize disruption.'
         }
-      ]
+      ],
+      geo: {
+        latitude: 43.8372,
+        longitude: -79.5083
+      }
     },
 
     thornhill: {
+      title: 'Managed IT Support in Thornhill | CtrlShift IT Services',
+      canonicalPath: '/managed-it-services-thornhill',
+      mainHeading: 'Managed IT Support in Thornhill',
       intro:
         'Simple, dependable managed IT for Thornhill offices — we keep your email, Wi-Fi, and devices running smoothly with fast helpdesk support, practical security, and clear processes that reduce everyday IT friction.',
+      metaDescription:
+        'Simple, dependable managed IT for Thornhill offices. We keep email, Wi-Fi, and devices running smoothly with fast helpdesk support and practical security.',
       heroBullets: [
         'Fast remote support for small offices',
         'Wi-Fi troubleshooting and upgrades',
@@ -172,13 +239,26 @@ export class LocationComponent implements OnInit {
         {
           q: 'Are you a good fit for smaller offices in Thornhill?',
           a: 'Yes. We specialize in small offices that want dependable IT without complexity.'
+        },
+        {
+          q: 'Can you fix recurring email and login issues for staff?',
+          a: 'Yes. We troubleshoot account lockouts, authentication failures, and profile issues, then harden policies to prevent repeats.'
+        },
+        {
+          q: 'Do you help with older networks that were never documented?',
+          a: 'Yes. We audit, map, and clean up legacy setups so future troubleshooting and upgrades are faster and safer.'
         }
       ]
     },
 
     'richmond hill': {
+      title: 'Managed IT Support in Richmond Hill | CtrlShift IT Services',
+      canonicalPath: '/managed-it-services-richmond-hill',
+      mainHeading: 'Managed IT Support in Richmond Hill',
       intro:
         'Managed IT support for Richmond Hill businesses — proactive maintenance, strong account security, and responsive helpdesk so your team can focus on work instead of fighting with technology.',
+      metaDescription:
+        'Managed IT support for Richmond Hill businesses. Proactive maintenance, strong account security, and responsive helpdesk so your team can focus on work.',
       heroBullets: [
         'Device maintenance and patching',
         'Microsoft 365 security (MFA + access control)',
@@ -205,6 +285,14 @@ export class LocationComponent implements OnInit {
         {
           q: 'Do you provide proactive monitoring?',
           a: 'Yes. Our managed plans focus on preventing problems before they disrupt your team.'
+        },
+        {
+          q: 'Can you improve endpoint performance for slow laptops and desktops?',
+          a: 'Yes. We tune startup load, patch operating systems, remove risky legacy software, and standardize device baselines for better stability.'
+        },
+        {
+          q: 'How do you test backups for Richmond Hill businesses?',
+          a: 'We run scheduled restore tests and document recovery steps so you know data can be recovered before an emergency happens.'
         }
       ]
     }
@@ -234,16 +322,52 @@ export class LocationComponent implements OnInit {
     this.industries = content.industries;
     this.services = content.services;
     this.faq = content.faq;
+    this.mainHeading = content.mainHeading;
+    this.areasServedText = content.areasServedText ?? '';
 
-    const pageTitle = `Managed IT Support in ${this.city} | CtrlShift IT Services`;
-    const description = `${this.intro} Serving offices near ${this.landmark}. Managed IT, Microsoft 365/Google Workspace, security, and networking support.`;
+    this.seo.removeStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID);
+    this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
+    this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
 
     this.seo.update({
-      title: pageTitle,
-      description,
+      title: content.title,
+      description: content.metaDescription,
+      imageUrl: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
       type: 'website',
-      canonicalPath: `/it-support-${this.normalizeCityKey(this.city).replace(/\s+/g, '-')}`
+      canonicalPath: content.canonicalPath
     });
+
+    if (content.geo) {
+      this.seo.setStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID, {
+        '@context': 'https://schema.org',
+        '@type': 'LocalBusiness',
+        name: 'CtrlShift IT Services',
+        image: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
+        url: `https://ctrlshiftit.ca${content.canonicalPath}`,
+        telephone: '6475035779',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: this.city,
+          addressRegion: 'ON',
+          addressCountry: 'CA'
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: content.geo.latitude,
+          longitude: content.geo.longitude
+        },
+        areaServed: content.nearbyAreas.map((name) => ({ '@type': 'City', name })),
+        openingHoursSpecification: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+          opens: '00:00',
+          closes: '23:59'
+        }
+      });
+    }
+
+    this.setFaqSchema();
+    this.setBreadcrumbSchema(content.canonicalPath);
   }
 
   private normalizeCityKey(city: string): string {
@@ -255,8 +379,13 @@ export class LocationComponent implements OnInit {
     region: string,
     landmark: string
   ): LocationContent {
+    const canonicalPath = `/managed-it-services-${this.normalizeCityKey(city).replace(/\s+/g, '-')}`;
     return {
+      title: `Managed IT Support in ${city} | CtrlShift IT Services`,
+      canonicalPath,
+      mainHeading: `Managed IT Support in ${city}`,
       intro: `Managed IT support for ${city} businesses — reliable systems, practical security, and responsive helpdesk.`,
+      metaDescription: `Managed IT support for ${city} businesses. Reliable systems, practical security, and responsive helpdesk to keep your team productive.`,
       heroBullets: [
         'Fast remote support',
         'Microsoft 365 / Google Workspace support',
@@ -281,6 +410,14 @@ export class LocationComponent implements OnInit {
         {
           q: `Do you provide IT support in ${city}?`,
           a: `Yes. We provide remote support and can arrange on-site visits for offices near ${landmark}.`
+        },
+        {
+          q: `Can you help improve Wi-Fi and cloud app reliability in ${city}?`,
+          a: 'Yes. We identify bottlenecks, clean up network configuration, and optimize connectivity for business-critical tools.'
+        },
+        {
+          q: 'Do you provide proactive maintenance, not just break-fix support?',
+          a: 'Yes. Our managed approach includes patching, monitoring, and preventive security controls to reduce recurring incidents.'
         }
       ]
     };
@@ -313,5 +450,54 @@ export class LocationComponent implements OnInit {
       setTimeout(retry, 120);
     };
     retry();
+  }
+
+  private setFaqSchema() {
+    this.seo.setStructuredData(this.FAQ_SCHEMA_ID, {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: this.faq.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a
+        }
+      }))
+    });
+  }
+
+  private setBreadcrumbSchema(path: string) {
+    const pageName = `Managed IT Services ${this.city}`;
+    this.seo.setStructuredData(this.BREADCRUMB_SCHEMA_ID, {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://ctrlshiftit.ca/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: this.hubPageLabel,
+          item: `https://ctrlshiftit.ca${this.hubPagePath}`
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: pageName,
+          item: `https://ctrlshiftit.ca${path}`
+        }
+      ]
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.seo.removeStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID);
+    this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
+    this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
   }
 }

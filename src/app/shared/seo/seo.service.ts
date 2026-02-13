@@ -41,9 +41,7 @@ export class SeoService {
       this.meta.updateTag({ name: 'description', content: description });
     }
 
-    if (robots) {
-      this.meta.updateTag({ name: 'robots', content: robots });
-    }
+    this.meta.updateTag({ name: 'robots', content: robots ?? 'index,follow' });
 
     this.meta.updateTag({ property: 'og:title', content: title });
     if (description) {
@@ -72,6 +70,31 @@ export class SeoService {
       this.meta.updateTag({ name: 'twitter:url', content: canonicalUrl });
       this.setCanonicalLink(canonicalUrl);
     }
+  }
+
+  setStructuredData(id: string, payload: unknown): void {
+    const head = this.document?.head;
+    if (!head) return;
+
+    let script = head.querySelector(
+      `script[type="application/ld+json"][data-seo-id="${id}"]`
+    ) as HTMLScriptElement | null;
+
+    if (!script) {
+      script = this.document.createElement('script');
+      script.type = 'application/ld+json';
+      script.setAttribute('data-seo-id', id);
+      head.appendChild(script);
+    }
+
+    script.textContent = JSON.stringify(payload);
+  }
+
+  removeStructuredData(id: string): void {
+    const script = this.document?.head?.querySelector(
+      `script[type="application/ld+json"][data-seo-id="${id}"]`
+    );
+    script?.remove();
   }
 
   private resolveCanonicalUrl(canonicalPath?: string): string | null {

@@ -189,17 +189,76 @@ body {
   }
 }
 
+/* Home page managed security case study */
+app-home #security-case-study {
+  background:
+    radial-gradient(1200px circle at 12% -20%, rgba(59, 130, 246, 0.22), transparent 46%),
+    radial-gradient(900px circle at 88% 115%, rgba(30, 64, 175, 0.24), transparent 52%),
+    #0b1630 !important;
+}
+
+app-home .security-case-intro,
+app-home .security-case-proof {
+  border: 1px solid rgba(147, 197, 253, 0.24);
+  background: #fff;
+  box-shadow: 0 24px 50px rgba(2, 6, 23, 0.34);
+}
+
+app-home .security-case-intro {
+  background: #fff;
+}
+
+app-home .security-case-proof {
+  background: #fff;
+}
+
+app-home .security-case-proof ul {
+  padding-left: 1.1rem;
+}
+
+app-home .security-case-proof li + li {
+  margin-top: 0.35rem;
+}
+
+app-home .security-case-metric {
+  height: 100%;
+  border: 1px solid rgba(99, 102, 241, 0.13);
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 0.9rem;
+}
+
+app-home .security-case-value {
+  color: #0f172a;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+app-home .security-case-label {
+  color: #475569;
+  font-size: 0.82rem;
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 767.98px) {
+  app-home .security-case-intro,
+  app-home .security-case-proof {
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+  }
+}
+
 /* Home page FAQ + consultation styles moved global to keep component CSS budget healthy */
 app-home .faq-section {
-  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 50%, #f8fafc 100%);
+  background: #ffffff;
 }
 
 app-home .faq-shell {
   border: 1px solid rgba(99, 102, 241, 0.14);
   border-radius: var(--radius-xl);
-  background:
-    radial-gradient(900px circle at 15% -30%, rgba(99, 102, 241, 0.08), transparent 55%),
-    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  background: #ffffff;
   padding: clamp(1.25rem, 3vw, 1.85rem);
 }
 
@@ -266,7 +325,7 @@ app-home #faqAccordion .faq-button {
 }
 
 app-home #faqAccordion .faq-button:not(.collapsed) {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(34, 211, 238, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.14) 0%, rgba(30, 64, 175, 0.08) 100%);
   color: var(--tech-indigo);
 }
 

@@ -1,7 +1,7 @@
 .hero-dark-modern {
   background:
-    radial-gradient(ellipse 120% 80% at 70% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 120% 80% at 70% 20%, rgba(37, 99, 235, 0.24) 0%, transparent 52%),
+    radial-gradient(ellipse 85% 65% at 20% 80%, rgba(30, 64, 175, 0.16) 0%, transparent 54%),
     var(--tech-bg);
   color: var(--tech-text);
   min-height: 90vh;
@@ -30,7 +30,7 @@
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--tech-cyan) 0%, var(--tech-indigo) 50%, var(--tech-violet) 100%);
+  background: linear-gradient(130deg, #bfdbfe 0%, #dbeafe 55%, #ffffff 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -45,22 +45,22 @@
 }
 
 .text-primary-light {
-  color: var(--tech-cyan);
+  color: #bfdbfe;
   letter-spacing: 0.25em;
   font-weight: 600;
 }
 
 .badge-neon {
-  background: rgba(34, 211, 238, 0.12);
-  color: var(--tech-cyan);
-  border: 1px solid rgba(34, 211, 238, 0.35);
+  background: rgba(59, 130, 246, 0.16);
+  color: #dbeafe;
+  border: 1px solid rgba(147, 197, 253, 0.45);
   font-weight: 600;
   letter-spacing: 0.05em;
-  box-shadow: 0 0 24px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 0 24px rgba(59, 130, 246, 0.24);
   transition: box-shadow var(--transition-smooth), transform var(--transition-smooth);
 }
 .badge-neon:hover {
-  box-shadow: 0 0 32px rgba(34, 211, 238, 0.35);
+  box-shadow: 0 0 32px rgba(59, 130, 246, 0.36);
   transform: scale(1.02);
 }
 
@@ -205,7 +205,7 @@
   align-items: center;
   border: 1px solid rgba(99, 102, 241, 0.15);
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(34, 211, 238, 0.04) 100%);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.06) 0%, rgba(59, 130, 246, 0.04) 100%);
   padding: 1.25rem 1.5rem;
   transition: box-shadow var(--transition-smooth), border-color var(--transition-smooth);
 }
@@ -243,7 +243,7 @@
   border-radius: 999px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, var(--tech-indigo), var(--tech-violet));
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
   color: #fff;
   font-weight: 700;
   font-size: 0.9rem;
@@ -289,7 +289,7 @@
 }
 
 .risk-free-ribbon {
-  background: linear-gradient(90deg, var(--tech-indigo) 0%, var(--tech-violet) 100%);
+  background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
   color: #fff;
   text-transform: uppercase;
   font-size: 0.7rem;

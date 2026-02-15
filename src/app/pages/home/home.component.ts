@@ -87,7 +87,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         itemListElement: [
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Support' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cybersecurity' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cloud Management' } }
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cloud Management' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tailscale Zero Trust Access' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Huntress AI-Assisted Managed Security' } }
         ]
       }
     });
@@ -154,7 +156,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     // --- 1. NEW: Risk-Free Badge Animation ---
     // Pulse: Continuous glowing effect
     gsap.to(".badge-neon", {
-      boxShadow: "0 0 25px rgba(34, 211, 238, 0.6)", // Electric Cyan Glow
+      boxShadow: "0 0 25px rgba(59, 130, 246, 0.58)", // Brand blue glow
       scale: 1.02,
       duration: 1.5,
       repeat: -1,

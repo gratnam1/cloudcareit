@@ -41,7 +41,7 @@
   </div>
 </header>
 
-<section class="py-5 bg-light border-bottom reveal-section tech-grid-bg" style="background-color: #f8fafc;">
+<section class="py-5 bg-white border-bottom reveal-section tech-grid-bg">
   <div class="container">
     <p class="text-center text-muted small fw-bold text-uppercase tracking-wide mb-4">
       Enterprise Platforms We Manage
@@ -107,11 +107,11 @@
         <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-scale transition-all">
           <div class="card-body p-4 text-center">
             <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-amazon text-warning" style="font-size: 3.5rem;"></i>
+              <i class="bi bi-amazon text-primary" style="font-size: 3.5rem;"></i>
             </div>
             <h4 class="fw-bold mb-3">AWS Infrastructure</h4>
             <p class="text-muted mb-4">Securely hosting legal or medical databases in encrypted Canadian AWS regions.</p>
-            <a class="btn btn-outline-warning rounded-pill btn-sm fw-bold px-4 text-dark" routerLink="/aws-infrastructure">View Details</a>
+            <a class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" routerLink="/aws-infrastructure">View Details</a>
           </div>
         </div>
       </div>
@@ -120,11 +120,11 @@
         <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-scale transition-all">
           <div class="card-body p-4 text-center">
             <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-shield-lock text-danger" style="font-size: 3.5rem;"></i>
+              <i class="bi bi-shield-lock text-primary" style="font-size: 3.5rem;"></i>
             </div>
-            <h4 class="fw-bold mb-3">Security & Firewall</h4>
-            <p class="text-muted mb-4">Enterprise security. We secure your office perimeter and provide VPN access for remote partners.</p>
-            <a class="btn btn-outline-danger rounded-pill btn-sm fw-bold px-4" routerLink="/security-firewall">View Details</a>
+            <h4 class="fw-bold mb-3">Managed Security & Firewall</h4>
+            <p class="text-muted mb-4">Managed security with Tailscale and Huntress AI-assisted detection. We protect endpoints, lock down remote access, and monitor threats 24/7.</p>
+            <a class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" routerLink="/security-firewall">View Details</a>
           </div>
         </div>
       </div>
@@ -133,11 +133,11 @@
         <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-scale transition-all">
           <div class="card-body p-4 text-center">
             <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-life-preserver text-dark" style="font-size: 3.5rem;"></i>
+              <i class="bi bi-life-preserver text-primary" style="font-size: 3.5rem;"></i>
             </div>
-            <h4 class="fw-bold mb-3 text-dark">Crisis Recovery</h4>
+            <h4 class="fw-bold mb-3">Crisis Recovery</h4>
             <p class="text-muted mb-4">Hardware failure or Ransomware? Immediate response to get your office back online.</p>
-            <a class="btn btn-outline-dark rounded-pill btn-sm fw-bold px-4" routerLink="/crisis-recovery">View Plan</a>
+            <a class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" routerLink="/crisis-recovery">View Plan</a>
           </div>
         </div>
       </div>
@@ -146,11 +146,11 @@
         <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-scale transition-all">
           <div class="card-body p-4 text-center">
             <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-window-desktop text-info" style="font-size: 3.5rem;"></i>
+              <i class="bi bi-window-desktop text-primary" style="font-size: 3.5rem;"></i>
             </div>
             <h4 class="fw-bold mb-3">Web Development</h4>
             <p class="text-muted mb-4">Fast, responsive, and secure websites built on modern frameworks (Angular/React) to drive conversions.</p>
-            <a class="btn btn-outline-info rounded-pill btn-sm fw-bold px-4" routerLink="/web-development">View Details</a>
+            <a class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" routerLink="/web-development">View Details</a>
           </div>
         </div>
       </div>
@@ -159,11 +159,11 @@
         <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-scale transition-all">
           <div class="card-body p-4 text-center">
             <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-graph-up-arrow text-success" style="font-size: 3.5rem;"></i>
+              <i class="bi bi-graph-up-arrow text-primary" style="font-size: 3.5rem;"></i>
             </div>
             <h4 class="fw-bold mb-3">SEO & Visibility</h4>
             <p class="text-muted mb-4">Increase visibility. We optimize your digital footprint to help Ontario firms rank higher on Google.</p>
-            <a class="btn btn-outline-success rounded-pill btn-sm fw-bold px-4" routerLink="/seo-visibility">View Details</a>
+            <a class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" routerLink="/seo-visibility">View Details</a>
           </div>
         </div>
       </div>
@@ -203,9 +203,69 @@
   </div>
 </section>
 
+<section id="security-case-study" class="py-5 reveal-section">
+  <div class="container py-5">
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-5 d-flex">
+        <div class="security-case-intro p-4 p-md-5 rounded-4 w-100">
+          <span class="badge rounded-pill text-bg-dark mb-3">Case Study</span>
+          <h2 class="fw-bold mb-3">Managed Security Case Study: Tailscale + Huntress</h2>
+          <p class="text-muted mb-4">
+            A recent GTA office rollout shows how we secure hybrid teams quickly using Huntress AI-assisted detection with managed response.
+          </p>
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="badge rounded-pill text-bg-primary">Tailscale Zero Trust Access</span>
+            <span class="badge rounded-pill text-bg-primary">Huntress Managed Security</span>
+            <span class="badge rounded-pill border border-primary text-primary bg-white">AI-Assisted Threat Monitoring</span>
+          </div>
+          <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/security-firewall">
+            View Managed Security Service
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-7 d-flex">
+        <article class="security-case-proof p-4 p-md-5 rounded-4 w-100 h-100">
+          <h3 class="h5 fw-bold mb-2">Vaughan Professional Office (22 Staff)</h3>
+          <p class="text-muted mb-4">
+            The client had unreliable legacy VPN access and no consistent endpoint detection. We replaced the remote access stack and added Huntress AI-assisted threat detection plus managed response across every device.
+          </p>
+
+          <div class="row g-3 mb-4">
+            <div class="col-sm-4">
+              <div class="security-case-metric">
+                <div class="security-case-value">100%</div>
+                <div class="security-case-label">Endpoints monitored by Huntress AI + analysts</div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="security-case-metric">
+                <div class="security-case-value">15 min</div>
+                <div class="security-case-label">Average secure onboarding time with Tailscale</div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="security-case-metric">
+                <div class="security-case-value">0</div>
+                <div class="security-case-label">Exposed RDP ports after remediation</div>
+              </div>
+            </div>
+          </div>
+
+          <ul class="text-muted mb-0">
+            <li>Tailscale deployed with role-based access for office and remote users.</li>
+            <li>Huntress agents installed for AI-assisted detection with managed analyst response.</li>
+            <li>No hidden fees: fixed managed security scope with clear monthly pricing.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- The rest of your page stays the same -->
 
-<section id="team" class="py-5 bg-light reveal-section" style="background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);">
+<section id="team" class="py-5 bg-white reveal-section">
   <div class="container py-5 text-center">
     <h2 class="fw-bold mb-5 team-head-reveal">Senior Engineering Team</h2>
     <div class="row justify-content-center g-5 team-cards-reveal">
@@ -293,7 +353,7 @@
   </div>
 </section>
 
-<section id="pricing" class="py-5 bg-light reveal-section" style="background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);">
+<section id="pricing" class="py-5 bg-white reveal-section">
   <div class="container py-5">
     <div class="text-center mb-5 pricing-head-reveal">
       <h2 class="fw-bold">Managed Support Plans</h2>
@@ -463,7 +523,7 @@
         <p class="hero-text-bright opacity-75 mb-4">Speak directly to Senior Engineers. Ontario-based, PIPEDA compliant.</p>
 
         <div class="p-3 bg-white bg-opacity-10 rounded-3 border border-light border-opacity-25">
-          <h5 class="fw-bold mb-2"><i class="bi bi-shield-check text-success me-2"></i>The CtrlShift IT Services Guarantee</h5>
+          <h5 class="fw-bold mb-2"><i class="bi bi-shield-check text-primary me-2"></i>The CtrlShift IT Services Guarantee</h5>
           <p class="small mb-0 opacity-75">Select the Growth or Business plan. If we do not improve your stability in the first 30 days, cancel with no penalty. No hidden fees. No surprise invoices.</p>
         </div>
       </div>
@@ -535,7 +595,7 @@
 
           <div *ngIf="submitted" class="text-center py-5">
             <div class="mb-4">
-              <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
+              <i class="bi bi-check-circle-fill text-primary" style="font-size: 5rem;"></i>
             </div>
             <h2 class="fw-bold">Request Received</h2>
             <p class="text-muted lead">We will review your office requirements and contact you shortly to set up your risk-free trial.</p>

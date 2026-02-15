@@ -17,6 +17,9 @@ export type SeoConfig = {
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
+  private readonly defaultDescription =
+    'Managed IT services in Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill. Proactive support, cybersecurity, and cloud management for growing offices.';
+
   constructor(
     private meta: Meta,
     private title: Title,
@@ -34,34 +37,35 @@ export class SeoService {
       robots,
       publishedTime
     } = config;
+    const effectiveDescription = description ?? this.defaultDescription;
 
     this.title.setTitle(title);
 
-    if (description) {
-      this.meta.updateTag({ name: 'description', content: description });
-    }
+    this.meta.updateTag({ name: 'description', content: effectiveDescription });
 
     this.meta.updateTag({ name: 'robots', content: robots ?? 'index,follow' });
 
     this.meta.updateTag({ property: 'og:title', content: title });
-    if (description) {
-      this.meta.updateTag({ property: 'og:description', content: description });
-    }
+    this.meta.updateTag({ property: 'og:description', content: effectiveDescription });
     this.meta.updateTag({ property: 'og:type', content: type });
     this.meta.updateTag({ property: 'og:site_name', content: SEO_SITE_NAME });
+    this.meta.updateTag({ property: 'og:locale', content: 'en_CA' });
     if (publishedTime) {
       this.meta.updateTag({ property: 'article:published_time', content: publishedTime });
+    } else {
+      this.meta.removeTag("property='article:published_time'");
     }
 
     this.meta.updateTag({ name: 'twitter:card', content: imageUrl ? 'summary_large_image' : 'summary' });
     this.meta.updateTag({ name: 'twitter:title', content: title });
-    if (description) {
-      this.meta.updateTag({ name: 'twitter:description', content: description });
-    }
+    this.meta.updateTag({ name: 'twitter:description', content: effectiveDescription });
 
     if (imageUrl) {
       this.meta.updateTag({ property: 'og:image', content: imageUrl });
       this.meta.updateTag({ name: 'twitter:image', content: imageUrl });
+    } else {
+      this.meta.removeTag("property='og:image'");
+      this.meta.removeTag("name='twitter:image'");
     }
 
     const canonicalUrl = this.resolveCanonicalUrl(canonicalPath);
@@ -103,8 +107,12 @@ export class SeoService {
     if (!baseUrl) return null;
 
     const path = canonicalPath ?? this.router.url ?? '/';
+    const [pathWithoutFragment] = path.split('#');
     try {
-      return new URL(path, baseUrl).toString();
+      const resolved = new URL(pathWithoutFragment, baseUrl);
+      resolved.hash = '';
+      resolved.search = '';
+      return resolved.toString();
     } catch {
       return null;
     }

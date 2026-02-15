@@ -5,6 +5,7 @@ import { SeoService } from '../../shared/seo/seo.service';
 import { ServiceAreaComponent } from './service-area.component';
 
 type FaqItem = { q: string; a: string };
+type LinkItem = { label: string; path: string };
 
 type LocationContent = {
   title: string;
@@ -54,13 +55,28 @@ export class LocationComponent implements OnInit, OnDestroy {
   industries: string[] = [];
   services: string[] = [];
   faq: FaqItem[] = [];
+  otherLocationLinks: LinkItem[] = [];
   mainHeading = '';
   areasServedText = '';
   mapImage = '';
   readonly hubPagePath = '/managed-it-services';
   readonly hubPageLabel = 'Managed IT Services';
+  readonly coreServiceLinks: LinkItem[] = [
+    { label: 'Microsoft 365 Support', path: '/microsoft-365' },
+    { label: 'Google Workspace Support', path: '/google-workspace' },
+    { label: 'Office Networking & Wi-Fi', path: '/office-networking' },
+    { label: 'Security & Firewall', path: '/security-firewall' },
+  ];
+  private readonly locationLinks: LinkItem[] = [
+    { label: 'Managed IT Services Vaughan', path: '/managed-it-services-vaughan' },
+    { label: 'Managed IT Services Toronto', path: '/managed-it-services-toronto' },
+    { label: 'Managed IT Services Mississauga', path: '/managed-it-services-mississauga' },
+    { label: 'Managed IT Services Thornhill', path: '/managed-it-services-thornhill' },
+    { label: 'Managed IT Services Richmond Hill', path: '/managed-it-services-richmond-hill' },
+  ];
 
   private readonly LOCAL_BUSINESS_SCHEMA_ID = 'local-business';
+  private readonly LOCATION_SERVICE_SCHEMA_ID = 'location-service';
   private readonly FAQ_SCHEMA_ID = 'faq';
   private readonly BREADCRUMB_SCHEMA_ID = 'breadcrumb';
 
@@ -374,11 +390,15 @@ export class LocationComponent implements OnInit, OnDestroy {
     this.industries = content.industries;
     this.services = content.services;
     this.faq = content.faq;
+    this.otherLocationLinks = this.locationLinks.filter(
+      (item) => item.path !== content.canonicalPath
+    );
     this.mainHeading = content.mainHeading;
     this.areasServedText = content.areasServedText ?? '';
     this.mapImage = content.mapImage ?? '';
 
     this.seo.removeStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID);
+    this.seo.removeStructuredData(this.LOCATION_SERVICE_SCHEMA_ID);
     this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
     this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
 
@@ -439,6 +459,35 @@ export class LocationComponent implements OnInit, OnDestroy {
     }
 
     this.seo.setStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID, localBusinessSchema);
+
+    this.seo.setStructuredData(this.LOCATION_SERVICE_SCHEMA_ID, {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: `Managed IT Services in ${this.city}`,
+      serviceType: 'Managed IT Services',
+      description: content.metaDescription,
+      url: `https://ctrlshiftit.ca${content.canonicalPath}`,
+      provider: {
+        '@type': 'Organization',
+        name: 'CtrlShift IT Services',
+        url: 'https://ctrlshiftit.ca'
+      },
+      areaServed: [
+        { '@type': 'City', name: this.city },
+        ...content.nearbyAreas.map((name) => ({ '@type': 'Place', name }))
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: `Managed IT Services ${this.city}`,
+        itemListElement: content.services.map((service) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: service
+          }
+        }))
+      }
+    });
 
     this.setFaqSchema();
     this.setBreadcrumbSchema(content.canonicalPath);
@@ -585,6 +634,7 @@ export class LocationComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.seo.removeStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID);
+    this.seo.removeStructuredData(this.LOCATION_SERVICE_SCHEMA_ID);
     this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
     this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
   }

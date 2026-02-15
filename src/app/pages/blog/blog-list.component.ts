@@ -1,8 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { BlogService, type BlogPost } from './blog.service';
 import { BLOG_POSTS } from './data/blog-posts.registry';
+import { SeoService } from '../../shared/seo/seo.service';
 
 @Component({
   selector: 'app-blog-list',
@@ -11,8 +12,10 @@ import { BLOG_POSTS } from './data/blog-posts.registry';
   templateUrl: './blog-list.component.html',
   styleUrl: './blog-list.component.css'
 })
-export class BlogListComponent implements OnInit {
+export class BlogListComponent implements OnInit, OnDestroy {
   private blogService = inject(BlogService);
+  private seo = inject(SeoService);
+  private readonly BLOG_LIST_SCHEMA_ID = 'blog-list';
 
   posts: BlogPost[] = [];
   filteredPosts: BlogPost[] = [];
@@ -23,6 +26,14 @@ export class BlogListComponent implements OnInit {
   activeTag = 'all';
 
   ngOnInit(): void {
+    this.seo.update({
+      title: 'IT Support Blog | Managed IT, Security & Cloud Insights',
+      description:
+        'Actionable IT guidance for Vaughan and GTA businesses: managed IT services, Microsoft 365, Google Workspace, networking, security, and continuity.',
+      canonicalPath: '/blog',
+      type: 'website'
+    });
+
     // Show fallback registry posts immediately.
     this.setPosts(BLOG_POSTS);
 
@@ -36,6 +47,10 @@ export class BlogListComponent implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.seo.removeStructuredData(this.BLOG_LIST_SCHEMA_ID);
   }
 
   onSearchInput(event: Event): void {
@@ -66,6 +81,7 @@ export class BlogListComponent implements OnInit {
     this.posts = this.sortPostsByDateDesc(posts);
     this.availableTags = this.extractTags(this.posts);
     this.applyFilters();
+    this.updateBlogListSchema(this.posts);
   }
 
   private applyFilters(): void {
@@ -110,5 +126,25 @@ export class BlogListComponent implements OnInit {
     }
 
     return Array.from(tags).sort((a, b) => a.localeCompare(b));
+  }
+
+  private updateBlogListSchema(posts: BlogPost[]): void {
+    this.seo.setStructuredData(this.BLOG_LIST_SCHEMA_ID, {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'CtrlShift IT Services Blog',
+      description:
+        'Managed IT, cybersecurity, cloud operations, and growth-focused IT strategy insights for GTA businesses.',
+      url: 'https://ctrlshiftit.ca/blog',
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: posts.map((post, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          url: `https://ctrlshiftit.ca/blog/${post.slug}`,
+          name: post.title
+        }))
+      }
+    });
   }
 }

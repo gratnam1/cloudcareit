@@ -13,10 +13,12 @@ import { SeoService } from '../../../shared/seo/seo.service';
 export class ManagedItComponent implements OnDestroy {
   private seo = inject(SeoService);
   private readonly HUB_ITEMLIST_SCHEMA_ID = 'managed-it-service-areas';
+  private readonly MANAGED_IT_SERVICE_SCHEMA_ID = 'managed-it-service-schema';
 
   constructor() {
-    const pageTitle = 'Managed IT Services | CtrlShift IT Services';
-    const description = 'Predictable, proactive IT for growing offices. Monitoring, patching, helpdesk support, backups, and security baselines—handled by senior engineers.';
+    const pageTitle = 'Managed IT Services in Vaughan & GTA | CtrlShift IT Services';
+    const description =
+      'Managed IT services for Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill. Predictable support, cybersecurity baselines, cloud administration, and fast incident response.';
     this.seo.update({
       title: pageTitle,
       description,
@@ -61,9 +63,31 @@ export class ManagedItComponent implements OnDestroy {
         }
       ]
     });
+
+    this.seo.setStructuredData(this.MANAGED_IT_SERVICE_SCHEMA_ID, {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Managed IT Services',
+      serviceType: 'Managed IT Services',
+      description,
+      url: 'https://ctrlshiftit.ca/managed-it-services',
+      provider: {
+        '@type': 'Organization',
+        name: 'CtrlShift IT Services',
+        url: 'https://ctrlshiftit.ca',
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Vaughan' },
+        { '@type': 'City', name: 'Toronto' },
+        { '@type': 'City', name: 'Mississauga' },
+        { '@type': 'City', name: 'Thornhill' },
+        { '@type': 'City', name: 'Richmond Hill' }
+      ]
+    });
   }
 
   ngOnDestroy(): void {
     this.seo.removeStructuredData(this.HUB_ITEMLIST_SCHEMA_ID);
+    this.seo.removeStructuredData(this.MANAGED_IT_SERVICE_SCHEMA_ID);
   }
 }

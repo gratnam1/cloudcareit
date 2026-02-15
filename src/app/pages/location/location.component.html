@@ -111,9 +111,29 @@
           </ul>
 
           <div class="d-grid gap-2 mt-4">
-            <a class="btn btn-dark rounded-pill" routerLink="/microsoft-365">Microsoft 365 Support</a>
-            <a class="btn btn-outline-dark rounded-pill" routerLink="/security-firewall">Security & Firewall</a>
-            <a class="btn btn-outline-dark rounded-pill" routerLink="/office-networking">Office Networking</a>
+            <a
+              *ngFor="let link of coreServiceLinks; let first = first"
+              class="btn rounded-pill"
+              [class.btn-dark]="first"
+              [class.btn-outline-dark]="!first"
+              [routerLink]="link.path"
+            >
+              {{link.label}}
+            </a>
+          </div>
+
+          <h5 class="fw-bold mt-4 mb-2">Nearby Service Areas</h5>
+          <p class="text-muted small mb-3">
+            Compare local coverage pages across nearby cities in the GTA.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a
+              *ngFor="let location of otherLocationLinks"
+              class="btn btn-outline-primary rounded-pill btn-sm"
+              [routerLink]="location.path"
+            >
+              {{location.label}}
+            </a>
           </div>
         </div>
       </div>
@@ -151,13 +171,24 @@
           <h2 class="fw-bold mb-3">IT Support in {{city}}</h2>
           <div class="accordion faq-accordion" id="faq">
             <div class="accordion-item" *ngFor="let f of faq; let idx = index">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed fw-bold" type="button"
-                        data-bs-toggle="collapse" [attr.data-bs-target]="'#f' + idx">
+              <h2 class="accordion-header" [attr.id]="'faq-h-' + idx">
+                <button
+                  class="accordion-button collapsed fw-bold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  [attr.data-bs-target]="'#f' + idx"
+                  aria-expanded="false"
+                  [attr.aria-controls]="'f' + idx"
+                >
                   {{f.q}}
                 </button>
               </h2>
-              <div class="accordion-collapse collapse" [id]="'f' + idx" data-bs-parent="#faq">
+              <div
+                class="accordion-collapse collapse"
+                [id]="'f' + idx"
+                [attr.aria-labelledby]="'faq-h-' + idx"
+                data-bs-parent="#faq"
+              >
                 <div class="accordion-body text-muted">{{f.a}}</div>
               </div>
             </div>

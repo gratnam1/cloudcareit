@@ -1,4 +1,6 @@
 .hero-dark-modern {
+  --pointer-x: 0px;
+  --pointer-y: 0px;
   background:
     radial-gradient(ellipse 120% 80% at 70% 20%, rgba(37, 99, 235, 0.24) 0%, transparent 52%),
     radial-gradient(ellipse 85% 65% at 20% 80%, rgba(30, 64, 175, 0.16) 0%, transparent 54%),
@@ -20,6 +22,51 @@
     linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 0;
+  transform: translate3d(calc(var(--pointer-x) * 0.35), calc(var(--pointer-y) * 0.35), 0);
+}
+
+.hero-orb-a {
+  width: clamp(220px, 34vw, 420px);
+  aspect-ratio: 1;
+  right: clamp(-120px, -7vw, -40px);
+  top: clamp(30px, 12vh, 120px);
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.42) 0%, rgba(37, 99, 235, 0.02) 70%);
+  animation: orb-float-a 10s ease-in-out infinite;
+  filter: blur(4px);
+}
+
+.hero-orb-b {
+  width: clamp(180px, 24vw, 300px);
+  aspect-ratio: 1;
+  left: clamp(-90px, -6vw, -20px);
+  bottom: clamp(20px, 8vh, 80px);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.34) 0%, rgba(30, 64, 175, 0.02) 68%);
+  animation: orb-float-b 13s ease-in-out infinite;
+  filter: blur(6px);
+}
+
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 60%, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px);
+  background-size: 140px 140px, 120px 120px;
+}
+
+.hero-dark-modern > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-text-bright {
@@ -77,6 +124,7 @@
     0 0 0 1px rgba(99, 102, 241, 0.1) inset;
   transform-style: preserve-3d;
   transition: box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+  will-change: transform;
 }
 .glass-card-interactive:hover {
   border-color: rgba(99, 102, 241, 0.3);
@@ -113,6 +161,10 @@
   border-color: rgba(255, 255, 255, 0.4);
 }
 
+.magnetic-btn {
+  will-change: transform;
+}
+
 @media (min-width: 992px) {
   .glass-card-interactive { max-width: 380px; margin-left: auto; margin-right: 0; }
 }
@@ -144,6 +196,7 @@
 .grayscale-wrapper .display-6 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
 
 .reveal-card .card {
+  position: relative;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -152,6 +205,27 @@
     box-shadow var(--transition-smooth),
     border-color var(--transition-fast);
   background: #fff;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.reveal-card .card::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -70%;
+  width: 40%;
+  height: 180%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.65) 48%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0;
+  transform: translateX(-120%) rotate(16deg);
+  transition: transform 0.9s ease, opacity 0.3s ease;
+  pointer-events: none;
 }
 .reveal-card .card:hover {
   transform: translateY(-8px) scale(1.02);
@@ -159,6 +233,10 @@
     0 24px 48px rgba(99, 102, 241, 0.12),
     0 0 0 1px rgba(99, 102, 241, 0.08);
   border-color: rgba(99, 102, 241, 0.2);
+}
+.reveal-card .card:hover::before {
+  opacity: 0.55;
+  transform: translateX(420%) rotate(16deg);
 }
 .reveal-card .card .card-body {
   transition: background var(--transition-fast);
@@ -359,6 +437,25 @@
 
 .hover-scale:hover { transform: scale(1.04); transition: transform var(--transition-spring); }
 
+.security-case-metric {
+  position: relative;
+  overflow: hidden;
+}
+
+.security-case-metric::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(37, 99, 235, 0), rgba(37, 99, 235, 0.5), rgba(37, 99, 235, 0));
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.security-case-proof:hover .security-case-metric::after {
+  transform: translateX(100%);
+}
+
 @media (max-width: 991.98px) {
   .pricing-highlight { transform: scale(1); }
   .pricing-card .col-md-4 { margin-bottom: 1rem; }
@@ -369,3 +466,13 @@
 
 .hero-title { font-size: clamp(2rem, 5vw, 3.5rem); }
 .display-6 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+
+@keyframes orb-float-a {
+  0%, 100% { transform: translate3d(calc(var(--pointer-x) * 0.35), calc(var(--pointer-y) * 0.35), 0); }
+  50% { transform: translate3d(calc(var(--pointer-x) * 0.35), calc(var(--pointer-y) * 0.35 - 14px), 0) scale(1.04); }
+}
+
+@keyframes orb-float-b {
+  0%, 100% { transform: translate3d(calc(var(--pointer-x) * 0.28), calc(var(--pointer-y) * 0.28), 0); }
+  50% { transform: translate3d(calc(var(--pointer-x) * 0.28), calc(var(--pointer-y) * 0.28 - 10px), 0) scale(0.98); }
+}

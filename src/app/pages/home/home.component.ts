@@ -159,10 +159,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     gsap.registerPlugin(ScrollTrigger);
 
     if (prefersReducedMotion) {
-      gsap.set('.badge-neon, .draw-path, .reveal-card, .glass-card-interactive, .hero-dark-modern h1, .hero-dark-modern p, .hero-dark-modern .btn, .reveal-section, .logo-reveal, .section-head-reveal, .team-head-reveal, .team-cards-reveal, .reviews-head-reveal, .review-cards-reveal, .pricing-head-reveal, .pricing-cards-reveal, .faq-head-reveal, .faq-reveal, .consultation-reveal', {
+      gsap.set('.badge-neon, .draw-path, .reveal-card, .glass-card-interactive, .hero-orb, .hero-noise, .hero-dark-modern h1, .hero-dark-modern p, .hero-dark-modern .btn, .reveal-section, .logo-reveal, .section-head-reveal, .team-head-reveal, .team-cards-reveal, .reviews-head-reveal, .review-cards-reveal, .pricing-head-reveal, .pricing-cards-reveal, .faq-head-reveal, .faq-reveal, .consultation-reveal', {
         clearProps: 'all'
       });
       document.querySelectorAll('.reveal-section').forEach(el => el.classList.add('revealed'));
+      this.setMetricCountersStatic();
       return;
     }
 
@@ -314,22 +315,187 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });
 
-    // --- 5. Mouse Tilt Effect (Hero Card) ---
-    const card = document.querySelector('.glass-card-interactive') as HTMLElement;
+    this.setupHeroParallax(gsap, prefersReducedMotion);
+    this.setupMagneticButtons(gsap, prefersReducedMotion);
+    this.setupServiceCardTilt(gsap, prefersReducedMotion);
+    this.setupMetricCounters(gsap, ScrollTrigger, prefersReducedMotion);
+  }
+
+  private setupHeroParallax(gsap: any, prefersReducedMotion: boolean): void {
+    if (prefersReducedMotion) return;
     const supportsHover = window.matchMedia('(hover: hover)').matches;
-    if (card && supportsHover) {
-      const rotateX = gsap.quickTo(card, 'rotationX', { duration: 0.4, ease: 'power2.out' });
-      const rotateY = gsap.quickTo(card, 'rotationY', { duration: 0.4, ease: 'power2.out' });
-      const onMove = (e: MouseEvent) => {
-        const xAxis = (window.innerWidth / 2 - e.pageX) / 30;
-        const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
-        rotateY(xAxis);
-        rotateX(yAxis);
+    if (!supportsHover) return;
+
+    const hero = this.document.querySelector('.hero-dark-modern') as HTMLElement | null;
+    const card = this.document.querySelector('.hero-parallax-target') as HTMLElement | null;
+    if (!hero || !card) return;
+
+    gsap.set(card, { transformPerspective: 900, transformOrigin: 'center center' });
+    const rotateX = gsap.quickTo(card, 'rotationX', { duration: 0.5, ease: 'power2.out' });
+    const rotateY = gsap.quickTo(card, 'rotationY', { duration: 0.5, ease: 'power2.out' });
+    const shiftX = gsap.quickTo(card, 'x', { duration: 0.6, ease: 'power2.out' });
+    const shiftY = gsap.quickTo(card, 'y', { duration: 0.6, ease: 'power2.out' });
+
+    const onMove = (event: MouseEvent) => {
+      const rect = hero.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+      gsap.to(hero, {
+        '--pointer-x': `${(x * 28).toFixed(2)}px`,
+        '--pointer-y': `${(y * 24).toFixed(2)}px`,
+        duration: 0.45,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+
+      rotateY(x * 8);
+      rotateX(-y * 8);
+      shiftX(x * 10);
+      shiftY(y * 8);
+    };
+
+    const onLeave = () => {
+      gsap.to(hero, {
+        '--pointer-x': '0px',
+        '--pointer-y': '0px',
+        duration: 0.7,
+        ease: 'power3.out'
+      });
+      rotateX(0);
+      rotateY(0);
+      shiftX(0);
+      shiftY(0);
+    };
+
+    hero.addEventListener('mousemove', onMove, { passive: true });
+    hero.addEventListener('mouseleave', onLeave);
+    this.destroyCallbacks.push(() => {
+      hero.removeEventListener('mousemove', onMove);
+      hero.removeEventListener('mouseleave', onLeave);
+    });
+  }
+
+  private setupMagneticButtons(gsap: any, prefersReducedMotion: boolean): void {
+    if (prefersReducedMotion) return;
+    const supportsHover = window.matchMedia('(hover: hover)').matches;
+    if (!supportsHover) return;
+
+    const buttons = Array.from(this.document.querySelectorAll<HTMLElement>('.magnetic-btn'));
+    buttons.forEach((button) => {
+      const xTo = gsap.quickTo(button, 'x', { duration: 0.35, ease: 'power2.out' });
+      const yTo = gsap.quickTo(button, 'y', { duration: 0.35, ease: 'power2.out' });
+
+      const onMove = (event: MouseEvent) => {
+        const rect = button.getBoundingClientRect();
+        const offsetX = event.clientX - (rect.left + rect.width / 2);
+        const offsetY = event.clientY - (rect.top + rect.height / 2);
+        xTo(offsetX * 0.18);
+        yTo(offsetY * 0.18);
       };
 
-      document.addEventListener('mousemove', onMove, { passive: true });
-      this.destroyCallbacks.push(() => document.removeEventListener('mousemove', onMove));
+      const onLeave = () => {
+        xTo(0);
+        yTo(0);
+      };
+
+      button.addEventListener('mousemove', onMove, { passive: true });
+      button.addEventListener('mouseleave', onLeave);
+      this.destroyCallbacks.push(() => {
+        button.removeEventListener('mousemove', onMove);
+        button.removeEventListener('mouseleave', onLeave);
+      });
+    });
+  }
+
+  private setupServiceCardTilt(gsap: any, prefersReducedMotion: boolean): void {
+    if (prefersReducedMotion) return;
+    const supportsHover = window.matchMedia('(hover: hover)').matches;
+    if (!supportsHover) return;
+
+    const cardBodies = Array.from(
+      this.document.querySelectorAll<HTMLElement>('.reveal-card .card .card-body')
+    );
+    cardBodies.forEach((cardBody) => {
+      gsap.set(cardBody, { transformPerspective: 800, transformOrigin: 'center center' });
+      const rotateX = gsap.quickTo(cardBody, 'rotationX', { duration: 0.4, ease: 'power2.out' });
+      const rotateY = gsap.quickTo(cardBody, 'rotationY', { duration: 0.4, ease: 'power2.out' });
+
+      const onMove = (event: MouseEvent) => {
+        const rect = cardBody.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+        rotateY(x * 5);
+        rotateX(-y * 5);
+      };
+
+      const onLeave = () => {
+        rotateX(0);
+        rotateY(0);
+      };
+
+      cardBody.addEventListener('mousemove', onMove, { passive: true });
+      cardBody.addEventListener('mouseleave', onLeave);
+      this.destroyCallbacks.push(() => {
+        cardBody.removeEventListener('mousemove', onMove);
+        cardBody.removeEventListener('mouseleave', onLeave);
+      });
+    });
+  }
+
+  private setupMetricCounters(gsap: any, ScrollTrigger: any, prefersReducedMotion: boolean): void {
+    const counters = Array.from(this.document.querySelectorAll<HTMLElement>('.metric-counter'));
+    if (counters.length === 0) return;
+
+    if (prefersReducedMotion) {
+      this.setMetricCountersStatic();
+      return;
     }
+
+    counters.forEach((counter) => {
+      const target = Number(counter.dataset['target'] ?? '0');
+      const suffix = counter.dataset['suffix'] ?? '';
+      const prefix = counter.dataset['prefix'] ?? '';
+
+      ScrollTrigger.create({
+        trigger: counter,
+        start: 'top 88%',
+        once: true,
+        onEnter: () => {
+          if (!Number.isFinite(target) || target <= 0) {
+            counter.textContent = `${prefix}0${suffix}`;
+            return;
+          }
+
+          const state = { value: 0 };
+          gsap.to(state, {
+            value: target,
+            duration: 1.25,
+            ease: 'power2.out',
+            onUpdate: () => {
+              counter.textContent = `${prefix}${Math.round(state.value)}${suffix}`;
+            },
+            onComplete: () => {
+              counter.textContent = `${prefix}${target}${suffix}`;
+            }
+          });
+        }
+      });
+    });
+  }
+
+  private setMetricCountersStatic(): void {
+    const counters = Array.from(this.document.querySelectorAll<HTMLElement>('.metric-counter'));
+    counters.forEach((counter) => {
+      const rawTarget = counter.dataset['target'];
+      const suffix = counter.dataset['suffix'] ?? '';
+      const prefix = counter.dataset['prefix'] ?? '';
+      const target = Number(rawTarget ?? '0');
+      const safeValue = Number.isFinite(target) ? target : 0;
+      counter.textContent = `${prefix}${safeValue}${suffix}`;
+    });
   }
 
   private getCurrentFragment(): string | null {

@@ -1,9 +1,12 @@
 <header class="hero-dark-modern py-5 position-relative overflow-hidden">
+  <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
+  <div class="hero-noise" aria-hidden="true"></div>
   <div class="container py-5">
     <div class="row align-items-center g-5">
 
       <div class="col-lg-5 order-1 order-lg-2">
-        <div class="glass-card-interactive ms-0 ms-lg-auto">
+        <div class="glass-card-interactive ms-0 ms-lg-auto hero-parallax-target">
           <svg id="blueprint-svg" viewBox="0 0 100 100">
             <title>Blueprint SVG</title>
             <rect class="draw-path" x="15" y="15" width="70" height="70" rx="12" />
@@ -29,11 +32,11 @@
         </p>
 
         <div class="d-flex gap-3 flex-wrap hero-cta">
-          <a routerLink="/" fragment="pricing" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow hover-scale">
+          <a routerLink="/" fragment="pricing" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow hover-scale magnetic-btn">
             Start 30-Day Trial
           </a>
-          <a routerLink="/" fragment="services" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">View Solutions</a>
-          <a routerLink="/blog" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">Read Blog</a>
+          <a routerLink="/" fragment="services" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill magnetic-btn">View Solutions</a>
+          <a routerLink="/blog" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill magnetic-btn">Read Blog</a>
         </div>
       </div>
 
@@ -242,19 +245,19 @@
           <div class="row g-3 mb-4">
             <div class="col-sm-4">
               <div class="security-case-metric">
-                <div class="security-case-value">100%</div>
+                <div class="security-case-value metric-counter" data-target="100" data-suffix="%">100%</div>
                 <div class="security-case-label">Endpoints monitored by Huntress AI + analysts</div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="security-case-metric">
-                <div class="security-case-value">15 min</div>
+                <div class="security-case-value metric-counter" data-target="15" data-suffix=" min">15 min</div>
                 <div class="security-case-label">Average secure onboarding time with Tailscale</div>
               </div>
             </div>
             <div class="col-sm-4">
               <div class="security-case-metric">
-                <div class="security-case-value">0</div>
+                <div class="security-case-value metric-counter" data-target="0">0</div>
                 <div class="security-case-label">Exposed RDP ports after remediation</div>
               </div>
             </div>
@@ -270,8 +273,6 @@
     </div>
   </div>
 </section>
-
-<!-- The rest of your page stays the same -->
 
 <section id="team" class="py-5 bg-white reveal-section">
   <div class="container py-5 text-center">
@@ -447,22 +448,26 @@
               <span class="faq-badge">FAQ</span>
               <span class="faq-subtitle">Fast answers for Vaughan & GTA businesses</span>
             </div>
-            <h2 class="fw-bold mb-0 faq-title">Managed IT Services FAQ</h2>
+            <h2 class="fw-bold mb-0 faq-title">Managed IT Services FAQ for Growing Offices</h2>
           </div>
           <div class="faq-list faq-reveal">
             <details class="faq-item" open>
               <summary class="faq-button fw-bold">How does the 30-Day Guarantee work?</summary>
               <div class="faq-content text-muted">
-                If you choose the Growth or Business plan and we do not deliver, cancel within the first 30 days with no penalty. No hidden fees, no surprise invoices, and no long-term lock-in.
+                For the Growth or Business plan, if the first 30 days do not deliver a clear stability improvement, you can cancel with no penalty. You get transparent monthly pricing, no hidden fees, and no surprise invoices.
               </div>
             </details>
             <details class="faq-item">
-              <summary class="faq-button fw-bold">Do you handle office moves?</summary>
-              <div class="faq-content text-muted">Yes, we handle structured cabling and server rack migration.</div>
+              <summary class="faq-button fw-bold">Can you take over from our current IT provider?</summary>
+              <div class="faq-content text-muted">
+                Yes. We run a structured transition covering credentials, tenant access, asset inventory, backup validation, and support handoff. The goal is a clean takeover with minimal disruption to your staff.
+              </div>
             </details>
             <details class="faq-item">
-              <summary class="faq-button fw-bold">Do you support executive home offices?</summary>
-              <div class="faq-content text-muted">We provide secure VPNs specifically for executive home offices.</div>
+              <summary class="faq-button fw-bold">How fast do you respond when something breaks?</summary>
+              <div class="faq-content text-muted">
+                Urgent production-impact incidents are triaged immediately, with remote-first response and on-site escalation when required. You also receive regular status updates until service is stable.
+              </div>
             </details>
           </div>
         </div>

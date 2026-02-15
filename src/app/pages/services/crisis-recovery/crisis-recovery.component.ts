@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../../shared/seo/seo.service';
+import { applyServicePageSeo } from '../service-page-seo';
 
 @Component({
   standalone: true,
@@ -10,17 +11,27 @@ import { SeoService } from '../../../shared/seo/seo.service';
   templateUrl: './crisis-recovery.component.html',
   styleUrls: ['./crisis-recovery.component.css']
 })
-export class CrisisRecoveryComponent {
+export class CrisisRecoveryComponent implements OnDestroy {
   private seo = inject(SeoService);
+  private readonly SERVICE_SCHEMA_ID = 'service-crisis-recovery';
+  private readonly BREADCRUMB_SCHEMA_ID = 'service-crisis-recovery-breadcrumb';
 
   constructor() {
-    const pageTitle = 'Crisis Recovery | CtrlShift IT Services';
-    const description = 'Hardware failure or ransomware? We respond fast to get your office back online and reduce future risk with a clean recovery plan.';
-    this.seo.update({
+    const pageTitle = 'IT Crisis Recovery in Vaughan & GTA | CtrlShift IT Services';
+    const description =
+      'Rapid crisis recovery for Vaughan and GTA offices. We contain incidents, restore critical systems, and harden your environment after outages, ransomware, or major failures.';
+    applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,
-      type: 'website',
-      canonicalPath: '/crisis-recovery'
+      canonicalPath: '/crisis-recovery',
+      serviceName: 'IT Crisis Recovery',
+      schemaId: this.SERVICE_SCHEMA_ID,
+      breadcrumbId: this.BREADCRUMB_SCHEMA_ID
     });
+  }
+
+  ngOnDestroy(): void {
+    this.seo.removeStructuredData(this.SERVICE_SCHEMA_ID);
+    this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
   }
 }

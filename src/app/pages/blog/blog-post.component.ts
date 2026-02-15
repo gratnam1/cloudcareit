@@ -1,5 +1,6 @@
 import {
   Component,
+  OnDestroy,
   OnInit,
   ViewEncapsulation,
   ViewChild,
@@ -27,10 +28,11 @@ type RelatedService = {
   styleUrl: './blog-post.component.css',
   encapsulation: ViewEncapsulation.None
 })
-export class BlogPostComponent implements OnInit {
+export class BlogPostComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private sanitizer = inject(DomSanitizer);
   private seo = inject(SeoService);
+  private readonly BLOG_POST_SCHEMA_ID = 'blog-post';
 
   @ViewChild('vc', { read: ViewContainerRef, static: true })
   private vc!: ViewContainerRef;
@@ -52,7 +54,13 @@ export class BlogPostComponent implements OnInit {
     if (!slug) {
       this.loading.set(false);
       this.notFound.set(true);
-      this.seo.update({ title: 'Post Not Found' });
+      this.seo.update({
+        title: 'Post Not Found | CtrlShift IT Services',
+        description: 'The requested blog article could not be found.',
+        canonicalPath: '/blog',
+        robots: 'noindex,nofollow'
+      });
+      this.seo.removeStructuredData(this.BLOG_POST_SCHEMA_ID);
       return;
     }
 
@@ -66,11 +74,17 @@ export class BlogPostComponent implements OnInit {
     }
 
     if (registryPost?.loadComponent) {
-      this.seo.update({
-        title: `${registryPost.title} | CtrlShift IT Services`,
-        canonicalPath: `/blog/${slug}`,
-        type: 'article'
-      });
+      const publishedIso = this.toIsoDate(registryPost.date);
+      const summary =
+        registryPost.excerpt ??
+        'Practical guidance from CtrlShift IT Services for secure, reliable, and scalable business operations.';
+      this.applyArticleSeo(
+        slug,
+        registryPost.title,
+        summary,
+        publishedIso,
+        registryPost.tags ?? []
+      );
 
       try {
         const componentType = await registryPost.loadComponent();
@@ -112,11 +126,16 @@ export class BlogPostComponent implements OnInit {
       }
       this.readingTime.set(this.estimateReadingTime(body));
 
-      this.seo.update({
-        title: `${effectiveTitle} | CtrlShift IT Services`,
-        canonicalPath: `/blog/${slug}`,
-        type: 'article'
-      });
+      const effectiveDescription = this.postSummary() || this.extractSummary(body);
+      const registryPost = BLOG_POSTS.find((post) => post.slug === slug);
+      const publishedIso = this.toIsoDate(registryPost?.date);
+      this.applyArticleSeo(
+        slug,
+        effectiveTitle,
+        effectiveDescription,
+        publishedIso,
+        this.postTags()
+      );
 
       try {
         const html = await marked.parse(body);
@@ -129,11 +148,21 @@ export class BlogPostComponent implements OnInit {
     } catch (error) {
       console.error(`Error loading markdown post for slug "${slug}":`, error);
       this.notFound.set(true);
-      this.seo.update({ title: 'Post Not Found' });
+      this.seo.update({
+        title: 'Post Not Found | CtrlShift IT Services',
+        description: 'The requested blog article could not be found.',
+        canonicalPath: '/blog',
+        robots: 'noindex,nofollow'
+      });
+      this.seo.removeStructuredData(this.BLOG_POST_SCHEMA_ID);
     } finally {
       clearTimeout(timeoutId);
       this.loading.set(false);
     }
+  }
+
+  ngOnDestroy(): void {
+    this.seo.removeStructuredData(this.BLOG_POST_SCHEMA_ID);
   }
 
   private extractPrimaryHeading(markdown: string): { title: string; body: string } {
@@ -197,6 +226,66 @@ export class BlogPostComponent implements OnInit {
       year: 'numeric',
       timeZone: 'UTC'
     }).format(parsed);
+  }
+
+  private toIsoDate(date?: string): string | undefined {
+    if (!date) return undefined;
+    const parsed = new Date(`${date}T12:00:00Z`);
+    return Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString();
+  }
+
+  private applyArticleSeo(
+    slug: string,
+    title: string,
+    description: string,
+    publishedIso?: string,
+    tags: string[] = []
+  ): void {
+    const canonicalPath = `/blog/${slug}`;
+    const canonicalUrl = `https://ctrlshiftit.ca${canonicalPath}`;
+    this.seo.update({
+      title: `${title} | CtrlShift IT Services`,
+      description,
+      canonicalPath,
+      type: 'article',
+      publishedTime: publishedIso
+    });
+
+    const schema: Record<string, unknown> = {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title,
+      description,
+      url: canonicalUrl,
+      mainEntityOfPage: canonicalUrl,
+      author: {
+        '@type': 'Organization',
+        name: 'CtrlShift IT Services'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'CtrlShift IT Services',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png'
+        }
+      }
+    };
+
+    if (publishedIso) {
+      schema['datePublished'] = publishedIso;
+      schema['dateModified'] = publishedIso;
+    }
+
+    if (tags.length > 0) {
+      schema['keywords'] = tags.join(', ');
+      schema['about'] = tags.map((tag) => ({
+        '@type': 'Thing',
+        name: tag
+      }));
+    }
+
+    this.seo.setStructuredData(this.BLOG_POST_SCHEMA_ID, schema);
   }
 
   private getRelatedService(slug: string): RelatedService | null {

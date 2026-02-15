@@ -27,7 +27,7 @@ export class BlogListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.seo.update({
-      title: 'IT Support Blog | Managed IT, Security & Cloud Insights',
+      title: 'Managed IT Services Blog for Vaughan & GTA | CtrlShift IT Services',
       description:
         'Actionable IT guidance for Vaughan and GTA businesses: managed IT services, Microsoft 365, Google Workspace, networking, security, and continuity.',
       canonicalPath: '/blog',

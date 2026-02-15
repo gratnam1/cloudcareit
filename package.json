@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:cloudcare-frontend": "node dist/cloudcare-frontend/server/server.mjs"
+    "serve:ssr:cloudcare-frontend": "node dist/cloudcare-frontend/server/server.mjs",
+    "sitemap": "node tools/generate-sitemap.js"
   },
   "prettier": {
     "printWidth": 100,

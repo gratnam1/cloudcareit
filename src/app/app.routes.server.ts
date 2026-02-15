@@ -5,7 +5,7 @@ export const serverRoutes: ServerRoute[] = [
   { path: '', renderMode: RenderMode.Prerender },
 
   // Blog
-  { path: 'blog', renderMode: RenderMode.Client },
+  { path: 'blog', renderMode: RenderMode.Prerender },
   { path: 'blog/:slug', renderMode: RenderMode.Client },
 
   // Services

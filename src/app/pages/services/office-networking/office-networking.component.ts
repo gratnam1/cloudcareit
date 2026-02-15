@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../../shared/seo/seo.service';
+import { applyServicePageSeo } from '../service-page-seo';
 
 @Component({
   standalone: true,
@@ -10,17 +11,27 @@ import { SeoService } from '../../../shared/seo/seo.service';
   templateUrl: './office-networking.component.html',
   styleUrls: ['./office-networking.component.css']
 })
-export class OfficeNetworkingComponent {
+export class OfficeNetworkingComponent implements OnDestroy {
   private seo = inject(SeoService);
+  private readonly SERVICE_SCHEMA_ID = 'service-office-networking';
+  private readonly BREADCRUMB_SCHEMA_ID = 'service-office-networking-breadcrumb';
 
   constructor() {
-    const pageTitle = 'Office Networking & Wi‑Fi | CtrlShift IT Services';
-    const description = 'Moving or expanding? We handle structured cabling planning, network gear setup, and Wi‑Fi performance so your office stays connected.';
-    this.seo.update({
+    const pageTitle = 'Office Networking & Wi-Fi in Vaughan & GTA | CtrlShift IT Services';
+    const description =
+      'Office networking and Wi-Fi support across Vaughan and GTA. We design reliable connectivity, optimize coverage, and stabilize network performance for growing teams.';
+    applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,
-      type: 'website',
-      canonicalPath: '/office-networking'
+      canonicalPath: '/office-networking',
+      serviceName: 'Office Networking and Wi-Fi',
+      schemaId: this.SERVICE_SCHEMA_ID,
+      breadcrumbId: this.BREADCRUMB_SCHEMA_ID
     });
+  }
+
+  ngOnDestroy(): void {
+    this.seo.removeStructuredData(this.SERVICE_SCHEMA_ID);
+    this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
   }
 }

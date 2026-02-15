@@ -82,9 +82,9 @@ export class LocationComponent implements OnInit, OnDestroy {
 
   private LOCATION_CONTENT: Record<string, LocationContent> = {
     toronto: {
-      title: 'Managed IT Support in Toronto | CtrlShift IT Services',
+      title: 'Managed IT Services in Toronto | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-toronto',
-      mainHeading: 'Managed IT Support in Toronto',
+      mainHeading: 'Managed IT Services in Toronto',
       areasServedText:
         'Our technicians provide on-site IT support throughout Toronto, including the Financial District, North York business hubs, Midtown offices, and the Downtown Core. Whether your team is near Bay Street towers or operating in mixed-use spaces across the city, we provide fast response for critical network and cloud outages.',
       intro:
@@ -142,9 +142,9 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     mississauga: {
-      title: 'Managed IT Support in Mississauga | CtrlShift IT Services',
+      title: 'Managed IT Services in Mississauga | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-mississauga',
-      mainHeading: 'Managed IT Support in Mississauga',
+      mainHeading: 'Managed IT Services in Mississauga',
       areasServedText:
         'Our technicians deliver on-site IT support across Mississauga, including Square One, Meadowvale, Airport Corporate Centre, and Heartland business districts. Whether your office is near Hurontario or operating close to Highway 401 and 403 corridors, we respond quickly to urgent network and productivity incidents.',
       intro:
@@ -254,9 +254,9 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     thornhill: {
-      title: 'Managed IT Support in Thornhill | CtrlShift IT Services',
+      title: 'Managed IT Services in Thornhill | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-thornhill',
-      mainHeading: 'Managed IT Support in Thornhill',
+      mainHeading: 'Managed IT Services in Thornhill',
       areasServedText:
         'Our technicians provide on-site IT support across Thornhill, including offices near Promenade Shopping Centre, Yonge Street commercial corridors, and surrounding business plazas. Whether your team operates on the Vaughan side or Markham side of Thornhill, we provide rapid support for connectivity and security-critical failures.',
       intro:
@@ -310,9 +310,9 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     'richmond hill': {
-      title: 'Managed IT Support in Richmond Hill | CtrlShift IT Services',
+      title: 'Managed IT Services in Richmond Hill | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-richmond-hill',
-      mainHeading: 'Managed IT Support in Richmond Hill',
+      mainHeading: 'Managed IT Services in Richmond Hill',
       areasServedText:
         'Our technicians provide on-site IT support across Richmond Hill, including the Hillcrest Mall area, Highway 7 corridor, and key office zones along Yonge Street and Leslie Street. Whether your business is in a medical, legal, or professional office cluster, we offer fast response for high-impact outages and recurring IT disruptions.',
       intro:
@@ -504,11 +504,11 @@ export class LocationComponent implements OnInit, OnDestroy {
   ): LocationContent {
     const canonicalPath = `/managed-it-services-${this.normalizeCityKey(city).replace(/\s+/g, '-')}`;
     return {
-      title: `Managed IT Support in ${city} | CtrlShift IT Services`,
+      title: `Managed IT Services in ${city} | CtrlShift IT Services`,
       canonicalPath,
-      mainHeading: `Managed IT Support in ${city}`,
-      intro: `Managed IT support for ${city} businesses — reliable systems, practical security, and responsive helpdesk.`,
-      metaDescription: `Managed IT support for ${city} businesses. Reliable systems, practical security, and responsive helpdesk to keep your team productive.`,
+      mainHeading: `Managed IT Services in ${city}`,
+      intro: `Managed IT services for ${city} businesses — reliable systems, practical security, and responsive helpdesk.`,
+      metaDescription: `Managed IT services for ${city} businesses. Reliable systems, practical security, and responsive helpdesk to keep your team productive.`,
       heroBullets: [
         'Fast remote support',
         'Microsoft 365 / Google Workspace support',

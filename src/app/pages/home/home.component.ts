@@ -88,8 +88,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         name: 'Managed IT Services',
         itemListElement: [
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Support' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Services Vaughan' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Services Toronto' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Services Mississauga' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cybersecurity' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cloud Management' } }
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cloud Management' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Microsoft 365 Support' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Google Workspace Support' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Office Networking and Wi-Fi' } }
         ]
       }
     });

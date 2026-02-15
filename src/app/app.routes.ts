@@ -6,7 +6,7 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Managed IT Services Ontario | CtrlShift IT Services'
+    title: 'Managed IT Services Vaughan, Toronto & GTA | CtrlShift IT Services'
   },
 
   // ✅ CLEAN BLOG ROUTES (all under pages/blog)
@@ -32,7 +32,7 @@ export const routes: Routes = [
     path: 'managed-it-services',
     loadComponent: () =>
       import('./pages/services/managed-it/managed-it.component').then((m) => m.ManagedItComponent),
-    title: 'Managed IT Services | CtrlShift IT Services'
+    title: 'Managed IT Services in Vaughan & GTA | CtrlShift IT Services'
   },
   {
     path: 'managed-it',
@@ -45,7 +45,7 @@ export const routes: Routes = [
       import('./pages/services/google-workspace/google-workspace.component').then(
         (m) => m.GoogleWorkspaceComponent
       ),
-    title: 'Google Workspace Support | CtrlShift IT Services'
+    title: 'Google Workspace Support in Vaughan & GTA | CtrlShift IT Services'
   },
   {
     path: 'microsoft-365',
@@ -53,7 +53,7 @@ export const routes: Routes = [
       import('./pages/services/microsoft-365/microsoft-365.component').then(
         (m) => m.Microsoft365Component
       ),
-    title: 'Microsoft 365 Support | CtrlShift IT Services'
+    title: 'Microsoft 365 Support in Vaughan & GTA | CtrlShift IT Services'
   },
   {
     path: 'office-networking',
@@ -61,7 +61,7 @@ export const routes: Routes = [
       import('./pages/services/office-networking/office-networking.component').then(
         (m) => m.OfficeNetworkingComponent
       ),
-    title: 'Office Networking & Wi-Fi | CtrlShift IT Services'
+    title: 'Office Networking & Wi-Fi in Vaughan & GTA | CtrlShift IT Services'
   },
   {
     path: 'aws-infrastructure',
@@ -69,7 +69,7 @@ export const routes: Routes = [
       import('./pages/services/aws-infrastructure/aws-infrastructure.component').then(
         (m) => m.AwsInfrastructureComponent
       ),
-    title: 'AWS Infrastructure Support | CtrlShift IT Services'
+    title: 'AWS Infrastructure Support in Vaughan & GTA | CtrlShift IT Services'
   },
   {
     path: 'security-firewall',
@@ -77,7 +77,7 @@ export const routes: Routes = [
       import('./pages/services/security-firewall/security-firewall.component').then(
         (m) => m.SecurityFirewallComponent
       ),
-    title: 'Security & Firewall | CtrlShift IT Services'
+    title: 'Security & Firewall Services in Vaughan & GTA | CtrlShift IT Services'
   },
   {
     path: 'crisis-recovery',
@@ -85,7 +85,7 @@ export const routes: Routes = [
       import('./pages/services/crisis-recovery/crisis-recovery.component').then(
         (m) => m.CrisisRecoveryComponent
       ),
-    title: 'Crisis Recovery | CtrlShift IT Services'
+    title: 'IT Crisis Recovery in Vaughan & GTA | CtrlShift IT Services'
   },
   {
     path: 'web-development',
@@ -93,7 +93,7 @@ export const routes: Routes = [
       import('./pages/services/web-development/web-development.component').then(
         (m) => m.WebDevelopmentComponent
       ),
-    title: 'Web Development | CtrlShift IT Services'
+    title: 'Web Development in Vaughan & GTA | CtrlShift IT Services'
   },
   {
     path: 'seo-visibility',
@@ -101,7 +101,7 @@ export const routes: Routes = [
       import('./pages/services/seo-visibility/seo-visibility.component').then(
         (m) => m.SeoVisibilityComponent
       ),
-    title: 'SEO & Visibility | CtrlShift IT Services'
+    title: 'SEO Services in Vaughan & GTA | CtrlShift IT Services'
   },
   {
     path: 'lead-generation',
@@ -109,7 +109,7 @@ export const routes: Routes = [
       import('./pages/services/lead-generation/lead-generation.component').then(
         (m) => m.LeadGenerationComponent
       ),
-    title: 'Lead Generation | CtrlShift IT Services'
+    title: 'B2B Lead Generation in Vaughan & GTA | CtrlShift IT Services'
   },
 
   // City pages
@@ -117,6 +117,7 @@ export const routes: Routes = [
     path: 'managed-it-services-vaughan',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
+    title: 'Managed IT Services in Vaughan | CtrlShift IT Services',
     data: {
       city: 'Vaughan',
       region: 'York Region',
@@ -132,6 +133,7 @@ export const routes: Routes = [
     path: 'managed-it-services-toronto',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
+    title: 'Managed IT Services in Toronto | CtrlShift IT Services',
     data: {
       city: 'Toronto',
       region: 'GTA',
@@ -147,6 +149,7 @@ export const routes: Routes = [
     path: 'managed-it-services-mississauga',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
+    title: 'Managed IT Services in Mississauga | CtrlShift IT Services',
     data: {
       city: 'Mississauga',
       region: 'Peel Region',
@@ -162,6 +165,7 @@ export const routes: Routes = [
     path: 'managed-it-services-thornhill',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
+    title: 'Managed IT Services in Thornhill | CtrlShift IT Services',
     data: {
       city: 'Thornhill',
       region: 'York Region',
@@ -177,6 +181,7 @@ export const routes: Routes = [
     path: 'managed-it-services-richmond-hill',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
+    title: 'Managed IT Services in Richmond Hill | CtrlShift IT Services',
     data: {
       city: 'Richmond Hill',
       region: 'York Region',

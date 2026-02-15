@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Host: ctrlshiftit.ca
 Sitemap: https://ctrlshiftit.ca/sitemap.xml

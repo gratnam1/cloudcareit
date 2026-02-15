@@ -1,0 +1,63 @@
+# Canonical host
+https://www.ctrlshiftit.ca/* https://ctrlshiftit.ca/:splat 301
+
+# Legacy service/location roots
+/managed-it /managed-it-services 301
+/it-support /managed-it-services 301
+/it-services /managed-it-services 301
+/location /managed-it-services 301
+/locations /managed-it-services 301
+
+# Legacy nested city formats
+/managed-it-services/vaughan /managed-it-services-vaughan 301
+/managed-it-services/toronto /managed-it-services-toronto 301
+/managed-it-services/mississauga /managed-it-services-mississauga 301
+/managed-it-services/thornhill /managed-it-services-thornhill 301
+/managed-it-services/richmond-hill /managed-it-services-richmond-hill 301
+
+/it-support-vaughan /managed-it-services-vaughan 301
+/it-support-vaughan/ /managed-it-services-vaughan 301
+/it-support-toronto /managed-it-services-toronto 301
+/it-support-mississauga /managed-it-services-mississauga 301
+/it-support-mississauga/ /managed-it-services-mississauga 301
+/it-support-thornhill /managed-it-services-thornhill 301
+/it-support-richmond-hill /managed-it-services-richmond-hill 301
+/it-support-richmond-hill/ /managed-it-services-richmond-hill 301
+
+/location/vaughan /managed-it-services-vaughan 301
+/location/toronto /managed-it-services-toronto 301
+/location/mississauga /managed-it-services-mississauga 301
+/location/thornhill /managed-it-services-thornhill 301
+/location/richmond-hill /managed-it-services-richmond-hill 301
+
+/locations/vaughan /managed-it-services-vaughan 301
+/locations/toronto /managed-it-services-toronto 301
+/locations/mississauga /managed-it-services-mississauga 301
+/locations/thornhill /managed-it-services-thornhill 301
+/locations/richmond-hill /managed-it-services-richmond-hill 301
+
+# Legacy /services namespace
+/services/managed-it /managed-it-services 301
+/services/google-workspace /google-workspace 301
+/services/microsoft-365 /microsoft-365 301
+/services/office-networking /office-networking 301
+/services/aws-infrastructure /aws-infrastructure 301
+/services/security-firewall /security-firewall 301
+/services/crisis-recovery /crisis-recovery 301
+/services/web-development /web-development 301
+/services/seo-visibility /seo-visibility 301
+/services/lead-generation /lead-generation 301
+
+# Legacy blog slug redirects
+/blog/managed-it-vs-break-fix /blog/managed-it-benefits 301
+/blog/microsoft-365-security-basics /blog/microsoft-365-tips 301
+/blog/wifi-office-slow /blog/office-networking-basics 301
+/managed-it-vs-break-fix /blog/managed-it-benefits 301
+/microsoft-365-security-basics /blog/microsoft-365-tips 301
+/wifi-office-slow /blog/office-networking-basics 301
+
+# Legacy blog namespaces
+/post/* /blog/:splat 301
+/posts/* /blog/:splat 301
+/article/* /blog/:splat 301
+/articles/* /blog/:splat 301

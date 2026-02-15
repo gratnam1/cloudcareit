@@ -19,6 +19,22 @@ export const routes: Routes = [
           import('./pages/blog/blog-list.component').then((m) => m.BlogListComponent),
         title: 'Blog | CtrlShift IT Services'
       },
+      // Legacy blog slugs
+      {
+        path: 'managed-it-vs-break-fix',
+        redirectTo: 'managed-it-benefits',
+        pathMatch: 'full'
+      },
+      {
+        path: 'microsoft-365-security-basics',
+        redirectTo: 'microsoft-365-tips',
+        pathMatch: 'full'
+      },
+      {
+        path: 'wifi-office-slow',
+        redirectTo: 'office-networking-basics',
+        pathMatch: 'full'
+      },
       {
         path: ':slug',
         loadComponent: () =>
@@ -37,6 +53,136 @@ export const routes: Routes = [
   {
     path: 'managed-it',
     redirectTo: 'managed-it-services',
+    pathMatch: 'full'
+  },
+  {
+    path: 'it-support',
+    redirectTo: 'managed-it-services',
+    pathMatch: 'full'
+  },
+  {
+    path: 'it-services',
+    redirectTo: 'managed-it-services',
+    pathMatch: 'full'
+  },
+  {
+    path: 'locations',
+    redirectTo: 'managed-it-services',
+    pathMatch: 'full'
+  },
+  {
+    path: 'location',
+    redirectTo: 'managed-it-services',
+    pathMatch: 'full'
+  },
+  {
+    path: 'managed-it-services/vaughan',
+    redirectTo: 'managed-it-services-vaughan',
+    pathMatch: 'full'
+  },
+  {
+    path: 'managed-it-services/toronto',
+    redirectTo: 'managed-it-services-toronto',
+    pathMatch: 'full'
+  },
+  {
+    path: 'managed-it-services/mississauga',
+    redirectTo: 'managed-it-services-mississauga',
+    pathMatch: 'full'
+  },
+  {
+    path: 'managed-it-services/thornhill',
+    redirectTo: 'managed-it-services-thornhill',
+    pathMatch: 'full'
+  },
+  {
+    path: 'managed-it-services/richmond-hill',
+    redirectTo: 'managed-it-services-richmond-hill',
+    pathMatch: 'full'
+  },
+  {
+    path: 'services/managed-it',
+    redirectTo: 'managed-it-services',
+    pathMatch: 'full'
+  },
+  {
+    path: 'services/google-workspace',
+    redirectTo: 'google-workspace',
+    pathMatch: 'full'
+  },
+  {
+    path: 'services/microsoft-365',
+    redirectTo: 'microsoft-365',
+    pathMatch: 'full'
+  },
+  {
+    path: 'services/office-networking',
+    redirectTo: 'office-networking',
+    pathMatch: 'full'
+  },
+  {
+    path: 'services/aws-infrastructure',
+    redirectTo: 'aws-infrastructure',
+    pathMatch: 'full'
+  },
+  {
+    path: 'services/security-firewall',
+    redirectTo: 'security-firewall',
+    pathMatch: 'full'
+  },
+  {
+    path: 'services/crisis-recovery',
+    redirectTo: 'crisis-recovery',
+    pathMatch: 'full'
+  },
+  {
+    path: 'services/web-development',
+    redirectTo: 'web-development',
+    pathMatch: 'full'
+  },
+  {
+    path: 'services/seo-visibility',
+    redirectTo: 'seo-visibility',
+    pathMatch: 'full'
+  },
+  {
+    path: 'services/lead-generation',
+    redirectTo: 'lead-generation',
+    pathMatch: 'full'
+  },
+  {
+    path: 'post/:slug',
+    redirectTo: 'blog/:slug',
+    pathMatch: 'full'
+  },
+  {
+    path: 'posts/:slug',
+    redirectTo: 'blog/:slug',
+    pathMatch: 'full'
+  },
+  {
+    path: 'article/:slug',
+    redirectTo: 'blog/:slug',
+    pathMatch: 'full'
+  },
+  {
+    path: 'articles/:slug',
+    redirectTo: 'blog/:slug',
+    pathMatch: 'full'
+  },
+  {
+    path: 'managed-it-vs-break-fix',
+    redirectTo: 'blog/managed-it-benefits',
+    pathMatch: 'full'
+  },
+  {
+    path: 'microsoft-365-security-basics',
+    redirectTo: 'blog/microsoft-365-tips',
+    pathMatch: 'full'
+  },
+  {
+    path: 'wifi-office-slow',
+    redirectTo: 'blog/office-networking-basics',
     pathMatch: 'full'
   },
   {
@@ -130,6 +276,16 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'locations/vaughan',
+    redirectTo: 'managed-it-services-vaughan',
+    pathMatch: 'full'
+  },
+  {
+    path: 'location/vaughan',
+    redirectTo: 'managed-it-services-vaughan',
+    pathMatch: 'full'
+  },
+  {
     path: 'managed-it-services-toronto',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
@@ -142,6 +298,16 @@ export const routes: Routes = [
   },
   {
     path: 'it-support-toronto',
+    redirectTo: 'managed-it-services-toronto',
+    pathMatch: 'full'
+  },
+  {
+    path: 'locations/toronto',
+    redirectTo: 'managed-it-services-toronto',
+    pathMatch: 'full'
+  },
+  {
+    path: 'location/toronto',
     redirectTo: 'managed-it-services-toronto',
     pathMatch: 'full'
   },
@@ -162,6 +328,16 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'locations/mississauga',
+    redirectTo: 'managed-it-services-mississauga',
+    pathMatch: 'full'
+  },
+  {
+    path: 'location/mississauga',
+    redirectTo: 'managed-it-services-mississauga',
+    pathMatch: 'full'
+  },
+  {
     path: 'managed-it-services-thornhill',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
@@ -178,6 +354,16 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'locations/thornhill',
+    redirectTo: 'managed-it-services-thornhill',
+    pathMatch: 'full'
+  },
+  {
+    path: 'location/thornhill',
+    redirectTo: 'managed-it-services-thornhill',
+    pathMatch: 'full'
+  },
+  {
     path: 'managed-it-services-richmond-hill',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
@@ -190,6 +376,16 @@ export const routes: Routes = [
   },
   {
     path: 'it-support-richmond-hill',
+    redirectTo: 'managed-it-services-richmond-hill',
+    pathMatch: 'full'
+  },
+  {
+    path: 'locations/richmond-hill',
+    redirectTo: 'managed-it-services-richmond-hill',
+    pathMatch: 'full'
+  },
+  {
+    path: 'location/richmond-hill',
     redirectTo: 'managed-it-services-richmond-hill',
     pathMatch: 'full'
   },

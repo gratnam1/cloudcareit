@@ -17,6 +17,55 @@ const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
+const LEGACY_REDIRECTS: Record<string, string> = {
+  '/managed-it': '/managed-it-services',
+  '/it-support': '/managed-it-services',
+  '/it-services': '/managed-it-services',
+  '/location': '/managed-it-services',
+  '/locations': '/managed-it-services',
+
+  '/managed-it-services/vaughan': '/managed-it-services-vaughan',
+  '/managed-it-services/toronto': '/managed-it-services-toronto',
+  '/managed-it-services/mississauga': '/managed-it-services-mississauga',
+  '/managed-it-services/thornhill': '/managed-it-services-thornhill',
+  '/managed-it-services/richmond-hill': '/managed-it-services-richmond-hill',
+
+  '/it-support-vaughan': '/managed-it-services-vaughan',
+  '/it-support-toronto': '/managed-it-services-toronto',
+  '/it-support-mississauga': '/managed-it-services-mississauga',
+  '/it-support-thornhill': '/managed-it-services-thornhill',
+  '/it-support-richmond-hill': '/managed-it-services-richmond-hill',
+
+  '/location/vaughan': '/managed-it-services-vaughan',
+  '/location/toronto': '/managed-it-services-toronto',
+  '/location/mississauga': '/managed-it-services-mississauga',
+  '/location/thornhill': '/managed-it-services-thornhill',
+  '/location/richmond-hill': '/managed-it-services-richmond-hill',
+
+  '/locations/vaughan': '/managed-it-services-vaughan',
+  '/locations/toronto': '/managed-it-services-toronto',
+  '/locations/mississauga': '/managed-it-services-mississauga',
+  '/locations/thornhill': '/managed-it-services-thornhill',
+  '/locations/richmond-hill': '/managed-it-services-richmond-hill',
+
+  '/services/managed-it': '/managed-it-services',
+  '/services/google-workspace': '/google-workspace',
+  '/services/microsoft-365': '/microsoft-365',
+  '/services/office-networking': '/office-networking',
+  '/services/aws-infrastructure': '/aws-infrastructure',
+  '/services/security-firewall': '/security-firewall',
+  '/services/crisis-recovery': '/crisis-recovery',
+  '/services/web-development': '/web-development',
+  '/services/seo-visibility': '/seo-visibility',
+  '/services/lead-generation': '/lead-generation',
+
+  '/blog/managed-it-vs-break-fix': '/blog/managed-it-benefits',
+  '/blog/microsoft-365-security-basics': '/blog/microsoft-365-tips',
+  '/blog/wifi-office-slow': '/blog/office-networking-basics',
+  '/managed-it-vs-break-fix': '/blog/managed-it-benefits',
+  '/microsoft-365-security-basics': '/blog/microsoft-365-tips',
+  '/wifi-office-slow': '/blog/office-networking-basics',
+};
 
 type GooglePlaceReview = {
   author_name?: string;
@@ -929,6 +978,26 @@ app.get('/api/google-reviews', async (_req, res) => {
 
   res.setHeader('Cache-Control', cacheHeader);
   res.json(payload);
+});
+
+app.use((req, res, next) => {
+  const normalizedPath = req.path.replace(/\/+$/, '') || '/';
+  const queryIndex = req.originalUrl.indexOf('?');
+  const query = queryIndex >= 0 ? req.originalUrl.slice(queryIndex) : '';
+
+  const directTarget = LEGACY_REDIRECTS[normalizedPath];
+  if (directTarget) {
+    res.redirect(301, `${directTarget}${query}`);
+    return;
+  }
+
+  const legacyBlogMatch = normalizedPath.match(/^\/(?:post|posts|article|articles)\/([^/?#]+)$/);
+  if (legacyBlogMatch) {
+    res.redirect(301, `/blog/${legacyBlogMatch[1]}${query}`);
+    return;
+  }
+
+  next();
 });
 
 /**

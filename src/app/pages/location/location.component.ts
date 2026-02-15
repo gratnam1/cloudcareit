@@ -119,7 +119,6 @@ export class LocationComponent implements OnInit, OnDestroy {
         latitude: 43.6532,
         longitude: -79.3832
       },
-      mapImage: 'https://ctrlshiftit.ca/assets/maps/map-toronto.png',
       sameAs: [
         'https://www.linkedin.com/company/ctrlshift-it-services',
         'https://www.facebook.com/ctrlshiftit'
@@ -180,7 +179,6 @@ export class LocationComponent implements OnInit, OnDestroy {
         latitude: 43.5890,
         longitude: -79.6441
       },
-      mapImage: 'https://ctrlshiftit.ca/assets/maps/map-mississauga.png'
     },
 
     vaughan: {
@@ -237,7 +235,6 @@ export class LocationComponent implements OnInit, OnDestroy {
         latitude: 43.8372,
         longitude: -79.5083
       },
-      mapImage: 'https://ctrlshiftit.ca/assets/maps/map-vaughan.png'
     },
 
     thornhill: {
@@ -294,7 +291,6 @@ export class LocationComponent implements OnInit, OnDestroy {
         latitude: 43.8161,
         longitude: -79.4246
       },
-      mapImage: 'https://ctrlshiftit.ca/assets/maps/map-thornhill.png'
     },
 
     'richmond hill': {
@@ -351,7 +347,6 @@ export class LocationComponent implements OnInit, OnDestroy {
         latitude: 43.8828,
         longitude: -79.4403
       },
-      mapImage: 'https://ctrlshiftit.ca/assets/maps/map-richmond-hill.png'
     }
   };
 

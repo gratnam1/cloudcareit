@@ -188,3 +188,74 @@ body {
     max-width: 680px;
   }
 }
+
+/* Home page FAQ + consultation styles moved global to keep component CSS budget healthy */
+app-home .faq-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 50%, #f8fafc 100%);
+}
+
+app-home .faq-shell {
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.05) 0%, rgba(255, 255, 255, 0.95) 100%);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+app-home #faqAccordion .faq-item {
+  border: 1px solid rgba(99, 102, 241, 0.12) !important;
+  background: #fff;
+  transition: box-shadow var(--transition-smooth), transform var(--transition-fast);
+}
+
+app-home #faqAccordion .faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(99, 102, 241, 0.08);
+}
+
+app-home #faqAccordion .faq-button {
+  border-radius: var(--radius-md) !important;
+  background: #fff;
+  color: #0f172a;
+  box-shadow: none;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+app-home #faqAccordion .faq-button:not(.collapsed) {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(34, 211, 238, 0.08) 100%);
+  color: var(--tech-indigo);
+}
+
+app-home #faqAccordion .faq-button:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+
+app-home #faqAccordion .accordion-body {
+  background: #fff;
+  line-height: 1.7;
+}
+
+app-home #consultation.hero-dark-modern {
+  min-height: auto;
+  padding: 4rem 0;
+}
+
+app-home #consultation .bg-white {
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: box-shadow var(--transition-smooth);
+}
+
+app-home #consultation .bg-white:hover {
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.3);
+}
+
+app-home #consultation .form-control,
+app-home #consultation .form-select {
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+app-home #consultation .form-control:focus,
+app-home #consultation .form-select:focus {
+  border-color: var(--tech-indigo);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}

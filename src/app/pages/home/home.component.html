@@ -356,28 +356,80 @@
   </div>
 </section>
 
-<section class="py-5 bg-white reveal-section">
+<section id="faq" class="py-5 faq-section reveal-section">
   <div class="container py-5">
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <div class="text-center mb-5 faq-head-reveal"><h2 class="fw-bold">FAQ</h2></div>
-        <div class="accordion accordion-flush faq-reveal" id="faqAccordion">
-          <div class="accordion-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden">
-            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqRisk">How does the 30-Day Guarantee work?</button></h2>
-            <div id="faqRisk" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body text-muted">If you select the Growth or Business plan, you can cancel your contract within the first 30 days if you are not satisfied with our response times or service quality. You only pay for the first month's service fee—no long-term lock-in.</div>
+        <div class="faq-shell">
+          <div class="text-center mb-4 faq-head-reveal"><h2 class="fw-bold mb-0">FAQ</h2></div>
+          <div class="accordion faq-reveal" id="faqAccordion">
+            <div class="accordion-item faq-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden">
+              <h2 class="accordion-header" id="faqRiskHeader">
+                <button
+                  class="accordion-button faq-button collapsed fw-bold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faqRisk"
+                  aria-expanded="false"
+                  aria-controls="faqRisk"
+                >
+                  How does the 30-Day Guarantee work?
+                </button>
+              </h2>
+              <div
+                id="faqRisk"
+                class="accordion-collapse collapse"
+                aria-labelledby="faqRiskHeader"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body text-muted">
+                  If you select the Growth or Business plan, you can cancel your contract within the first 30 days if you are not satisfied with our response times or service quality. You only pay for the first month's service fee—no long-term lock-in.
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="accordion-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden">
-            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Office moves?</button></h2>
-            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body text-muted">Yes, we handle structured cabling and server rack migration.</div>
+            <div class="accordion-item faq-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden">
+              <h2 class="accordion-header" id="faqOneHeader">
+                <button
+                  class="accordion-button faq-button collapsed fw-bold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq1"
+                  aria-expanded="false"
+                  aria-controls="faq1"
+                >
+                  Office moves?
+                </button>
+              </h2>
+              <div
+                id="faq1"
+                class="accordion-collapse collapse"
+                aria-labelledby="faqOneHeader"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body text-muted">Yes, we handle structured cabling and server rack migration.</div>
+              </div>
             </div>
-          </div>
-          <div class="accordion-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden">
-            <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Home Office?</button></h2>
-            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body text-muted">We provide secure VPNs specifically for executive home offices.</div>
+            <div class="accordion-item faq-item border-0 mb-0 shadow-sm rounded-3 overflow-hidden">
+              <h2 class="accordion-header" id="faqThreeHeader">
+                <button
+                  class="accordion-button faq-button collapsed fw-bold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq3"
+                  aria-expanded="false"
+                  aria-controls="faq3"
+                >
+                  Home Office?
+                </button>
+              </h2>
+              <div
+                id="faq3"
+                class="accordion-collapse collapse"
+                aria-labelledby="faqThreeHeader"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body text-muted">We provide secure VPNs specifically for executive home offices.</div>
+              </div>
             </div>
           </div>
         </div>
@@ -430,7 +482,7 @@
 
               <div class="col-md-6">
                 <label class="form-label small fw-bold">Office Size</label>
-                <select name="office_size" class="form-control bg-light border-0">
+                <select name="office_size" class="form-select bg-light border-0">
                   <option>1-5 Employees</option>
                   <option>5-20 Employees</option>
                   <option>20+ Employees</option>

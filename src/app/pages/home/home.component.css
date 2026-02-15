@@ -335,49 +335,10 @@
   .pricing-card .col-md-4 { margin-bottom: 1rem; }
 }
 
-/* ---- 7. FAQ ACCORDION ---- */
-#faqAccordion .accordion-button {
-  border-radius: var(--radius-md) !important;
-  transition: background var(--transition-fast), color var(--transition-fast);
-}
-#faqAccordion .accordion-button:not(.collapsed) {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(34, 211, 238, 0.06) 100%) !important;
-  color: var(--tech-indigo);
-}
-#faqAccordion .accordion-item {
-  transition: transform var(--transition-fast);
-}
-#faqAccordion .accordion-item:hover {
-  transform: translateX(4px);
-}
-
-/* ---- 8. CONSULTATION (HERO DARK) ---- */
-#consultation.hero-dark-modern {
-  min-height: auto;
-  padding: 4rem 0;
-}
-#consultation .bg-white {
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: box-shadow var(--transition-smooth);
-}
-#consultation .bg-white:hover {
-  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.3);
-}
-#consultation .form-control,
-#consultation .form-select {
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-#consultation .form-control:focus,
-#consultation .form-select:focus {
-  border-color: var(--tech-indigo);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
-
-/* ---- 9. SECTION REVEAL (for GSAP) ---- */
+/* ---- 7. SECTION REVEAL (for GSAP) ---- */
 .reveal-section { opacity: 0; }
 .reveal-section.revealed { opacity: 1; }
 
-/* ---- 10. RESPONSIVE TYPOGRAPHY ---- */
+/* ---- 8. RESPONSIVE TYPOGRAPHY ---- */
 .hero-title { font-size: clamp(2rem, 5vw, 3.5rem); }
 .display-6 { font-size: clamp(1.5rem, 3.5vw, 2rem); }

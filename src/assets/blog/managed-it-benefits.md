@@ -16,11 +16,11 @@ A managed plan shifts work left. Monitoring and maintenance happen before the in
 
 ## The core components of a mature managed IT service
 
-### 1) Monitoring and alerting
+### Monitoring and alerting
 
 Good monitoring is not "more alerts." It is useful signal. Critical services (internet edge, line-of-business servers, backup jobs, endpoint health) should trigger actionable notifications tied to runbooks.
 
-### 2) Patch and vulnerability management
+### Patch and vulnerability management
 
 A practical cadence includes:
 
@@ -29,11 +29,11 @@ A practical cadence includes:
 - Emergency patch process for high-severity vulnerabilities.
 - Exception tracking when business apps block updates.
 
-### 3) Helpdesk with clear ownership
+### Helpdesk with clear ownership
 
 Tickets should map to categories (identity, endpoint, network, SaaS, application) and each category should have response targets. Offices need one accountable team coordinating vendors, not finger-pointing between ISP, software support, and internal staff.
 
-### 4) Identity and access lifecycle
+### Identity and access lifecycle
 
 Joiners, movers, and leavers are high-risk moments. Account provisioning and deprovisioning should be checklist-driven:
 
@@ -42,7 +42,7 @@ Joiners, movers, and leavers are high-risk moments. Account provisioning and dep
 - Shared mailbox and file permissions reviewed.
 - Departed user access removed on time.
 
-### 5) Backup and restore readiness
+### Backup and restore readiness
 
 A backup policy without restore tests is incomplete. Managed IT should include test restores for critical systems so you know recovery is real, not theoretical.
 

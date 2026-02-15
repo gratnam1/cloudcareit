@@ -151,6 +151,26 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'services/cyber-insurance-readiness',
+    redirectTo: 'cyber-insurance-readiness-vaughan',
+    pathMatch: 'full'
+  },
+  {
+    path: 'services/managed-it-for-medical-clinics',
+    redirectTo: 'managed-it-for-medical-clinics-vaughan',
+    pathMatch: 'full'
+  },
+  {
+    path: 'cyber-insurance-readiness',
+    redirectTo: 'cyber-insurance-readiness-vaughan',
+    pathMatch: 'full'
+  },
+  {
+    path: 'managed-it-for-medical-clinics',
+    redirectTo: 'managed-it-for-medical-clinics-vaughan',
+    pathMatch: 'full'
+  },
+  {
     path: 'post/:slug',
     redirectTo: 'blog/:slug',
     pathMatch: 'full'
@@ -256,6 +276,22 @@ export const routes: Routes = [
         (m) => m.LeadGenerationComponent
       ),
     title: 'B2B Lead Generation in Vaughan & GTA | CtrlShift IT Services'
+  },
+  {
+    path: 'cyber-insurance-readiness-vaughan',
+    loadComponent: () =>
+      import('./pages/services/cyber-insurance-readiness/cyber-insurance-readiness.component').then(
+        (m) => m.CyberInsuranceReadinessComponent
+      ),
+    title: 'Cyber Insurance Readiness in Vaughan | CtrlShift IT Services'
+  },
+  {
+    path: 'managed-it-for-medical-clinics-vaughan',
+    loadComponent: () =>
+      import('./pages/services/medical-clinic-it/medical-clinic-it.component').then(
+        (m) => m.MedicalClinicItComponent
+      ),
+    title: 'Managed IT for Medical Clinics in Vaughan | CtrlShift IT Services'
   },
 
   // City pages

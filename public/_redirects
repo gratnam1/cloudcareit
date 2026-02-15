@@ -44,6 +44,11 @@
 /services/web-development /web-development 301
 /services/seo-visibility /seo-visibility 301
 /services/lead-generation /lead-generation 301
+/services/cyber-insurance-readiness /cyber-insurance-readiness-vaughan 301
+/services/managed-it-for-medical-clinics /managed-it-for-medical-clinics-vaughan 301
+
+/cyber-insurance-readiness /cyber-insurance-readiness-vaughan 301
+/managed-it-for-medical-clinics /managed-it-for-medical-clinics-vaughan 301
 
 # Legacy blog slug redirects
 /blog/managed-it-vs-break-fix /blog/managed-it-benefits 301

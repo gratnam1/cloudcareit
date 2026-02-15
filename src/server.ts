@@ -58,6 +58,11 @@ const LEGACY_REDIRECTS: Record<string, string> = {
   '/services/web-development': '/web-development',
   '/services/seo-visibility': '/seo-visibility',
   '/services/lead-generation': '/lead-generation',
+  '/services/cyber-insurance-readiness': '/cyber-insurance-readiness-vaughan',
+  '/services/managed-it-for-medical-clinics': '/managed-it-for-medical-clinics-vaughan',
+
+  '/cyber-insurance-readiness': '/cyber-insurance-readiness-vaughan',
+  '/managed-it-for-medical-clinics': '/managed-it-for-medical-clinics-vaughan',
 
   '/blog/managed-it-vs-break-fix': '/blog/managed-it-benefits',
   '/blog/microsoft-365-security-basics': '/blog/microsoft-365-tips',

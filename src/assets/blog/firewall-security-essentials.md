@@ -2,7 +2,7 @@
 
 Small offices face the same threat classes as large organizations: phishing, credential theft, ransomware, and exposed services. The difference is usually staffing depth, not attacker interest.
 
-A strong security baseline combines edge controls, endpoint controls, and operational discipline.
+A strong security baseline combines edge controls, endpoint controls, and operational discipline. For many SMBs, that means a practical stack of firewall policy, Tailscale for zero-trust access, and Huntress AI-assisted detection with managed response.
 
 ## Role of the firewall in a layered defense
 
@@ -17,18 +17,18 @@ A practical baseline includes:
 
 Policy quality matters more than feature count.
 
-## VPN and remote access hygiene
+## Remote access hygiene: move beyond legacy VPNs
 
 Remote connectivity should not be an unmanaged exception path.
 
 Minimum expectations:
 
-1. MFA-protected VPN access.
+1. MFA-protected remote access.
 2. User-based authorization, not shared credentials.
 3. Endpoint posture requirements for sensitive access.
 4. Removal of stale remote accounts.
 
-Remote access is often the quiet backdoor in incident investigations.
+Remote access is often the quiet backdoor in incident investigations. A zero-trust overlay such as Tailscale helps reduce exposed services and simplify access control by identity and device posture.
 
 ## Endpoint detection and response alignment
 
@@ -39,6 +39,16 @@ Firewall visibility alone misses endpoint behavior. Pair perimeter controls with
 - Patch compliance and vulnerability remediation.
 
 The fastest containment wins in real incidents.
+
+## Huntress AI-assisted monitoring in an SMB stack
+
+Huntress fits well for SMB teams that need faster detection without building a full in-house SOC.
+
+- AI-assisted detection helps surface suspicious endpoint behavior earlier.
+- Managed analyst response helps validate and prioritize real threats.
+- Escalation guidance shortens detection-to-containment time.
+
+AI-assisted does not replace process. It improves triage speed when paired with clear response ownership.
 
 ## Email and identity controls are part of firewall strategy
 
@@ -85,6 +95,6 @@ Security tools succeed only when paired with repeatable operations.
 
 ## Final takeaway
 
-Effective SMB security is not about enterprise complexity. It is about clear controls, ownership, and routine verification. A tuned firewall, strong identity controls, and tested recovery plan provide meaningful protection against common threats.
+Effective SMB security is not about enterprise complexity. It is about clear controls, ownership, and routine verification. A tuned firewall, strong identity controls, Tailscale zero-trust access, Huntress AI-assisted monitoring, and tested recovery plans provide meaningful protection against common threats.
 
 If your current setup is mostly reactive, start with an external exposure review, MFA enforcement, and firewall rule rationalization.

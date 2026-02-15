@@ -18,7 +18,7 @@ export class ManagedItComponent implements OnDestroy {
   constructor() {
     const pageTitle = 'Managed IT Services in Vaughan & GTA | CtrlShift IT Services';
     const description =
-      'Managed IT services for Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill. Predictable support, cybersecurity baselines, cloud administration, and fast incident response.';
+      'Managed IT services for Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill. Predictable support, cybersecurity baselines, free quarterly vulnerability scans, cloud administration, and fast incident response.';
     this.seo.update({
       title: pageTitle,
       description,

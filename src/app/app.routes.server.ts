@@ -19,6 +19,8 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'web-development', renderMode: RenderMode.Prerender },
   { path: 'seo-visibility', renderMode: RenderMode.Prerender },
   { path: 'lead-generation', renderMode: RenderMode.Prerender },
+  { path: 'cyber-insurance-readiness-vaughan', renderMode: RenderMode.Prerender },
+  { path: 'managed-it-for-medical-clinics-vaughan', renderMode: RenderMode.Prerender },
 
   // City pages (your existing ones)
   { path: 'managed-it-services-vaughan', renderMode: RenderMode.Prerender },

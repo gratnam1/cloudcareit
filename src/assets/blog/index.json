@@ -33,7 +33,7 @@
     "slug": "firewall-security-essentials",
     "title": "Firewall and Security Baselines for SMB Offices: Practical Defense Without Hype",
     "date": "2026-02-14",
-    "excerpt": "How to combine firewall policy, endpoint controls, MFA, and incident readiness into one usable security baseline."
+    "excerpt": "How to combine firewall policy, Tailscale zero-trust access, Huntress AI-assisted detection, MFA, and incident readiness into one usable security baseline."
   },
   {
     "slug": "crisis-recovery-plan",

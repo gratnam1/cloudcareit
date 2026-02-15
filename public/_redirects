@@ -1,6 +1,3 @@
-# Canonical host
-https://www.ctrlshiftit.ca/* https://ctrlshiftit.ca/:splat 301
-
 # Legacy service/location roots
 /managed-it /managed-it-services 301
 /it-support /managed-it-services 301

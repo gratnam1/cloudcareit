@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private viewReady = false;
   private pendingFragment: string | null = null;
   private readonly LOCAL_BUSINESS_SCHEMA_ID = 'local-business-home';
-  private readonly FAQ_SCHEMA_ID = 'home-faq';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -44,9 +43,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.seo.update({
-      title: 'Managed IT Services Vaughan, Toronto & GTA | CtrlShift IT Services',
-      description:
-        'Managed IT services for Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill. Proactive IT support, cybersecurity, cloud management, and fast response for growing offices.',
+      title: 'Managed IT Services GTA & Toronto | CtrlShift IT Services',
+      description: 'Reliable managed IT services for businesses in Vaughan, Toronto & GTA. Proactive IT support, cybersecurity, and cloud management with fast response times.',
       type: 'website',
       canonicalPath: '/'
     });
@@ -88,47 +86,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         name: 'Managed IT Services',
         itemListElement: [
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Support' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Services Vaughan' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Services Toronto' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Services Mississauga' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cybersecurity' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cloud Management' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Microsoft 365 Support' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Google Workspace Support' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Office Networking and Wi-Fi' } }
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cloud Management' } }
         ]
       }
-    });
-
-    this.seo.setStructuredData(this.FAQ_SCHEMA_ID, {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'How does the 30-Day Guarantee work?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'If you select the Growth or Business plan, you can cancel within the first 30 days if service quality is not meeting expectations. You only pay for the first month and there is no long-term lock-in.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: 'Do you handle office moves?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes. We handle structured cabling planning, server rack migration, and network cutover support for office moves.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: 'Do you support executive home offices?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Yes. We provide secure remote access and VPN support for executive and hybrid home-office setups.'
-          }
-        }
-      ]
     });
 
     if (isPlatformBrowser(this.platformId)) {
@@ -168,7 +129,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.seo.removeStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID);
-    this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
     this.destroyCallbacks.forEach(fn => fn());
     this.destroyCallbacks = [];
   }
@@ -317,7 +277,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     ScrollTrigger.batch('.faq-reveal .accordion-item', {
       start: 'top 80%',
       onEnter: batch => {
-        gsap.from(batch, { x: -20, opacity: 0, duration: 0.45, ease: 'power2.out', stagger: 0.06 });
+        gsap.from(batch, { y: 20, opacity: 0, duration: 0.45, ease: 'power2.out', stagger: 0.06 });
       }
     });
     ScrollTrigger.batch('.consultation-reveal', {

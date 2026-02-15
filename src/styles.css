@@ -197,8 +197,50 @@ app-home .faq-section {
 app-home .faq-shell {
   border: 1px solid rgba(99, 102, 241, 0.14);
   border-radius: var(--radius-xl);
-  background: linear-gradient(180deg, rgba(99, 102, 241, 0.05) 0%, rgba(255, 255, 255, 0.95) 100%);
-  padding: clamp(1rem, 3vw, 1.5rem);
+  background:
+    radial-gradient(900px circle at 15% -30%, rgba(99, 102, 241, 0.08), transparent 55%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+  padding: clamp(1.25rem, 3vw, 1.85rem);
+}
+
+app-home .faq-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+app-home .faq-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+app-home .faq-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+}
+
+app-home .faq-title {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+app-home .faq-subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
 }
 
 app-home #faqAccordion .faq-item {
@@ -217,6 +259,9 @@ app-home #faqAccordion .faq-button {
   background: #fff;
   color: #0f172a;
   box-shadow: none;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  padding: 1.15rem 1.25rem;
   transition: background var(--transition-fast), color var(--transition-fast);
 }
 
@@ -225,13 +270,38 @@ app-home #faqAccordion .faq-button:not(.collapsed) {
   color: var(--tech-indigo);
 }
 
+app-home #faqAccordion .faq-button::after {
+  transform: scale(0.9);
+}
+
 app-home #faqAccordion .faq-button:focus {
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
 }
 
 app-home #faqAccordion .accordion-body {
   background: #fff;
+  color: #334155;
+  padding: 1.05rem 1.25rem 1.2rem;
   line-height: 1.7;
+}
+
+@media (max-width: 767.98px) {
+  app-home .faq-shell {
+    padding: 1rem;
+  }
+
+  app-home .faq-head {
+    align-items: flex-start;
+  }
+
+  app-home .faq-title {
+    font-size: 1.45rem;
+    line-height: 1.25;
+  }
+
+  app-home .faq-subtitle {
+    font-size: 0.9rem;
+  }
 }
 
 app-home #consultation.hero-dark-modern {

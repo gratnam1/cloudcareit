@@ -41,12 +41,12 @@
   </div>
 </header>
 
-<section class="py-5 bg-light border-bottom">
+<section class="py-5 bg-light border-bottom reveal-section tech-grid-bg" style="background-color: #f8fafc;">
   <div class="container">
     <p class="text-center text-muted small fw-bold text-uppercase tracking-wide mb-4">
       Enterprise Platforms We Manage
     </p>
-    <div class="row justify-content-center align-items-center text-center g-4 grayscale-wrapper">
+    <div class="row justify-content-center align-items-center text-center g-4 grayscale-wrapper logo-reveal">
       <div class="col-4 col-md-2"><i class="bi bi-microsoft display-6 opacity-50"></i><div class="small fw-bold mt-2 text-muted">Microsoft</div></div>
       <div class="col-4 col-md-2"><i class="bi bi-google display-6 opacity-50"></i><div class="small fw-bold mt-2 text-muted">Google</div></div>
       <div class="col-4 col-md-2"><i class="bi bi-amazon display-6 opacity-50"></i><div class="small fw-bold mt-2 text-muted">AWS</div></div>
@@ -56,9 +56,9 @@
   </div>
 </section>
 
-<section id="services" class="py-5 bg-white">
+<section id="services" class="py-5 bg-white reveal-section">
   <div class="container py-5">
-    <div class="text-center mb-5">
+    <div class="text-center mb-5 section-head-reveal">
       <h2 class="fw-bold display-6">Core Competencies</h2>
       <p class="text-muted lead">Comprehensive IT & Digital Growth management for professional offices.</p>
     </div>
@@ -194,10 +194,10 @@
 
 <!-- The rest of your page stays the same -->
 
-<section id="team" class="py-5 bg-light">
+<section id="team" class="py-5 bg-light reveal-section" style="background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);">
   <div class="container py-5 text-center">
-    <h2 class="fw-bold mb-5">Senior Engineering Team</h2>
-    <div class="row justify-content-center g-5">
+    <h2 class="fw-bold mb-5 team-head-reveal">Senior Engineering Team</h2>
+    <div class="row justify-content-center g-5 team-cards-reveal">
       <div class="col-md-5">
         <div class="p-4 bg-white rounded-4 shadow-sm h-100">
           <img src="https://ui-avatars.com/api/?name=Lead+Engineer&background=0D6EFD&color=fff&size=128" class="rounded-circle mb-3 shadow-sm" width="120" height="120" alt="Lead Engineer Avatar">
@@ -218,48 +218,83 @@
   </div>
 </section>
 
-<section id="reviews" class="py-5 bg-white">
+<section id="reviews" class="py-5 bg-white reveal-section">
   <div class="container py-5">
-    <div class="text-center mb-5"><h2 class="fw-bold">Client Feedback</h2></div>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="p-4 bg-light rounded-3 h-100 border-start border-4 border-primary shadow-sm">
-          <div class="mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-          <p class="fst-italic small text-muted">"Professional and knowledgeable. They fixed our server issues remotely in under an hour."</p>
-          <p class="fw-bold mb-0 text-dark">— Partner, Toronto Law Firm</p>
-        </div>
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-4 mb-5 reviews-head-reveal">
+      <div>
+        <h2 class="fw-bold mb-2">Google Reviews</h2>
+        <p class="text-muted mb-0">Live social proof from your Google Business Profile.</p>
       </div>
-      <div class="col-md-4">
-        <div class="p-4 bg-light rounded-3 h-100 border-start border-4 border-info shadow-sm">
-          <div class="mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-          <p class="fst-italic small text-muted">"Flawless Google Workspace migration. Highly recommended for accounting firms."</p>
-          <p class="fw-bold mb-0 text-dark">— CPA, Vaughan</p>
-        </div>
+      <a [href]="reviewLink" target="_blank" rel="noopener noreferrer"
+         class="btn btn-outline-dark rounded-pill px-4 fw-bold">
+        See All on Google
+      </a>
+    </div>
+
+    <div class="reviews-summary-card mb-4">
+      <div class="summary-score">
+        {{ reviewAggregateRating | number:'1.1-1' }}
       </div>
-      <div class="col-md-4">
-        <div class="p-4 bg-light rounded-3 h-100 border-start border-4 border-danger shadow-sm">
-          <div class="mb-3 text-warning"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-          <p class="fst-italic small text-muted">"We sleep better knowing our patient data security is monitored 24/7."</p>
-          <p class="fw-bold mb-0 text-dark">— Clinic Manager, GTA</p>
+      <div class="summary-meta">
+        <div class="d-flex align-items-center gap-1 text-warning mb-1">
+          <i class="bi bi-star-fill"
+             *ngFor="let star of starScale"
+             [class.opacity-25]="star > reviewAggregateRating"></i>
         </div>
+        <div class="fw-bold" *ngIf="reviewAggregateCount > 0">
+          {{ reviewAggregateCount }}+ Google reviews for {{ reviewPlaceName }}
+        </div>
+        <div class="fw-bold" *ngIf="reviewAggregateCount === 0">
+          Live Google review data is currently unavailable
+        </div>
+        <div class="small text-muted" *ngIf="reviewsSource === 'google'">Verified from Google Places API</div>
+        <div class="small text-muted" *ngIf="!reviewsConfigured && reviewItems.length > 0">Showing sample reviews. See all on Google.</div>
+        <div class="small text-muted" *ngIf="reviewsConfigured && reviewsSource !== 'google' && reviewItems.length > 0">See all our reviews on Google</div>
+        <div class="small text-muted" *ngIf="reviewsConfigured && reviewsSource !== 'google' && reviewItems.length === 0">Google reviews are configured but the business listing could not be resolved</div>
       </div>
+    </div>
+
+    <div class="row g-4 review-cards-reveal">
+      <div class="col-lg-4 col-md-6" *ngFor="let review of reviewItems; trackBy: trackReview">
+        <article class="review-card h-100">
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <div class="d-flex align-items-center gap-2">
+              <div class="review-avatar">{{ getReviewerInitial(review) }}</div>
+              <div>
+                <div class="fw-bold review-author">{{ review.authorName }}</div>
+                <div class="small text-muted">{{ review.relativeTimeDescription }}</div>
+              </div>
+            </div>
+            <div class="d-flex gap-1 text-warning">
+              <i class="bi bi-star-fill"
+                 *ngFor="let star of starScale"
+                 [class.opacity-25]="star > review.rating"></i>
+            </div>
+          </div>
+          <p class="review-text mb-0">"{{ review.text }}"</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="small text-muted mt-3" *ngIf="reviewsError && reviewItems.length === 0">
+      {{ reviewsError }}
     </div>
   </div>
 </section>
 
-<section id="pricing" class="py-5 bg-light">
+<section id="pricing" class="py-5 bg-light reveal-section" style="background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);">
   <div class="container py-5">
-    <div class="text-center mb-5">
+    <div class="text-center mb-5 pricing-head-reveal">
       <h2 class="fw-bold">Managed Support Plans</h2>
       <p class="text-muted">Flexible IT power. Try our <strong>Growth</strong> or <strong>Business</strong> tiers risk-free.</p>
     </div>
 
-    <div class="row g-4 justify-content-center align-items-center">
+    <div class="row g-4 justify-content-center align-items-center pricing-cards-reveal">
 
       <div class="col-md-4 pricing-card">
         <div class="card h-100 border-0 shadow-sm p-4 bg-white opacity-75">
           <h5 class="fw-bold text-muted">Starter</h5>
-          <h2 class="display-5 fw-bold my-3">$99<span class="fs-6 text-muted">/mo</span></h2>
+          <h2 class="display-5 fw-bold my-3">$249<span class="fs-6 text-muted">/mo</span></h2>
           <p class="small text-muted mb-4">Basic maintenance for stable offices.</p>
           <ul class="list-unstyled text-muted small mb-4">
             <li class="mb-2"><i class="bi bi-check2 me-2"></i>2 Support Hours</li>
@@ -281,7 +316,7 @@
               <h5 class="fw-bold text-primary">Growth</h5>
               <span class="badge bg-primary-subtle text-primary rounded-pill">Popular</span>
             </div>
-            <h2 class="display-5 fw-bold my-3">$199<span class="fs-6 text-muted">/mo</span></h2>
+            <h2 class="display-5 fw-bold my-3">$499<span class="fs-6 text-muted">/mo</span></h2>
             <p class="small text-muted mb-4">The sweet spot for growing teams.</p>
 
             <ul class="list-unstyled small mb-4">
@@ -302,7 +337,7 @@
           <div class="bg-primary text-white position-absolute top-0 end-0 px-3 py-1 small fw-bold rounded-bottom-start">Risk-Free</div>
 
           <h5 class="fw-bold text-muted mt-2">Business</h5>
-          <h2 class="display-5 fw-bold my-3">$349<span class="fs-6 text-muted">/mo</span></h2>
+          <h2 class="display-5 fw-bold my-3">$899<span class="fs-6 text-muted">/mo</span></h2>
           <p class="small text-muted mb-4">Full IT Department outsourcing.</p>
           <ul class="list-unstyled text-muted small mb-4">
             <li class="mb-2 fw-bold text-primary"><i class="bi bi-check-circle-fill me-2"></i>Risk-Free Trial Eligible</li>
@@ -321,12 +356,12 @@
   </div>
 </section>
 
-<section class="py-5 bg-white">
+<section class="py-5 bg-white reveal-section">
   <div class="container py-5">
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <div class="text-center mb-5"><h2 class="fw-bold">FAQ</h2></div>
-        <div class="accordion accordion-flush" id="faqAccordion">
+        <div class="text-center mb-5 faq-head-reveal"><h2 class="fw-bold">FAQ</h2></div>
+        <div class="accordion accordion-flush faq-reveal" id="faqAccordion">
           <div class="accordion-item border-0 mb-3 shadow-sm rounded-3 overflow-hidden">
             <h2 class="accordion-header"><button class="accordion-button collapsed fw-bold bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#faqRisk">How does the 30-Day Guarantee work?</button></h2>
             <div id="faqRisk" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
@@ -351,9 +386,9 @@
   </div>
 </section>
 
-<section id="consultation" class="hero-dark-modern text-white py-5">
+<section id="consultation" class="hero-dark-modern text-white py-5 reveal-section">
   <div class="container py-5">
-    <div class="row align-items-center">
+    <div class="row align-items-center consultation-reveal">
       <div class="col-lg-6 mb-5 mb-lg-0">
         <h2 class="display-5 fw-bold mb-4">Initialize Your Roadmap.</h2>
         <p class="hero-text-bright opacity-75 mb-4">Speak directly to Senior Engineers. Ontario-based, PIPEDA compliant.</p>
@@ -378,9 +413,9 @@
                 <label class="form-label small fw-bold">Interested Plan</label>
                 <select name="plan_interest" class="form-select bg-light border-0 fw-bold text-primary">
                   <option value="Not Sure">I need a recommendation</option>
-                  <option value="Growth">Growth ($199) - 30 Day Risk-Free</option>
-                  <option value="Business">Business ($349) - 30 Day Risk-Free</option>
-                  <option value="Starter">Starter ($99)</option>
+                  <option value="Growth">Growth ($499) - 30 Day Risk-Free</option>
+                  <option value="Business">Business ($899) - 30 Day Risk-Free</option>
+                  <option value="Starter">Starter ($249)</option>
                 </select>
               </div>
 

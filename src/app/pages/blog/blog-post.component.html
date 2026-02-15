@@ -2,10 +2,88 @@
   <div class="container">
     <a class="back" routerLink="/blog">← Back to Blog</a>
 
-    <div *ngIf="notFound" class="notfound">
+    <div *ngIf="loading()" class="notfound">
+      <h1>Loading post...</h1>
+    </div>
+
+    <div *ngIf="notFound() && !loading()" class="notfound">
       <h1>Post not found</h1>
       <p>That article doesn’t exist (yet).</p>
     </div>
+
+    <section *ngIf="markdownContent() && !loading()" class="markdown-shell">
+      <header class="hero-dark-modern py-4">
+        <div class="hero-card">
+          <div class="hero-grid">
+            <div>
+              <span class="badge bg-primary mb-3">{{ postTags()[0] || 'Insights' }}</span>
+
+              <h1 class="text-white mb-3">{{ postTitle() }}</h1>
+
+              <p *ngIf="postSummary()" class="lead text-white-50 mb-4">
+                {{ postSummary() }}
+              </p>
+
+              <div class="d-flex flex-wrap gap-2 text-white-50 small">
+                <span *ngIf="publishedDate()" class="meta-pill">
+                  <i class="bi bi-calendar3 me-2"></i>{{ publishedDate() }}
+                </span>
+                <span *ngIf="readingTime()" class="meta-pill">
+                  <i class="bi bi-clock me-2"></i>{{ readingTime() }}
+                </span>
+              </div>
+            </div>
+
+            <aside class="hero-cta">
+              <div class="fw-bold mb-2 text-white">Need help applying this?</div>
+              <p class="text-white-50 small mb-3">
+                We can map these recommendations to your environment and implement them safely.
+              </p>
+              <a class="btn btn-primary rounded-pill w-100 fw-bold" routerLink="/" fragment="consultation">
+                Book a Free Consultation
+              </a>
+              <div class="text-white-50 small mt-3">
+                <i class="bi bi-shield-check me-2"></i>
+                Practical, business-first execution
+              </div>
+            </aside>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="content-surface">
+          <div class="content-grid">
+            <article class="legacy-markdown" [innerHTML]="markdownContent()"></article>
+
+            <aside>
+              <div *ngIf="postTags().length > 0" class="sidebar-box mb-4">
+                <h3 class="h5 fw-bold">Topics</h3>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="topic-pill" *ngFor="let tag of postTags()">{{ tag }}</span>
+                </div>
+              </div>
+
+              <div class="sidebar-box related-services">
+                <h3 class="h5 fw-bold">Related services</h3>
+                <div class="d-grid gap-2">
+                  <a
+                    *ngIf="relatedService() as service"
+                    class="btn btn-outline-dark rounded-pill"
+                    [routerLink]="service.path"
+                  >
+                    {{ service.label }}
+                  </a>
+                  <a class="btn btn-outline-dark rounded-pill" routerLink="/blog">
+                    All Blog Posts
+                  </a>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </main>
+    </section>
 
     <ng-template #vc></ng-template>
   </div>

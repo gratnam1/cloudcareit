@@ -1,180 +1,383 @@
-/* =========================================
-   1. HERO & GSAP ELEMENTS (Must match your TS)
-   ========================================= */
+/* ===== HIGH-TECH HOME: Responsive, Animation-Heavy, Interactive ===== */
 
+/* ---- 1. HERO ---- */
 .hero-dark-modern {
-  background: radial-gradient(circle at top right, #0f172a 0%, #020617 100%); /* Deep Navy/Black for contrast */
-  color: white;
-  min-height: 85vh;
+  background:
+    radial-gradient(ellipse 120% 80% at 70% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 20% 80%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+    var(--tech-bg);
+  color: var(--tech-text);
+  min-height: 90vh;
   display: flex;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
-/* Bright Text for Hero Paragraph (Fixes visibility issue) */
+.hero-dark-modern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
 .hero-text-bright {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.25rem;
-  font-weight: 300;
-  line-height: 1.6;
+  color: rgba(241, 245, 249, 0.85);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.7;
 }
 
-/* Gradient Text */
 .text-gradient {
-  background: linear-gradient(90deg, #38bdf8 0%, #2dd4bf 100%);
+  background: linear-gradient(135deg, var(--tech-cyan) 0%, var(--tech-indigo) 50%, var(--tech-violet) 100%);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 800;
-  background-size: 200% 200%;
-  animation: gradient-sheen 6s ease-in-out infinite;
+  animation: gradient-shift 8s ease-in-out infinite;
 }
 
-@keyframes gradient-sheen {
-  0% { background-position: 0 50%; }
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
-  100% { background-position: 0 50%; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .text-gradient {
-    animation: none;
-  }
+.text-primary-light {
+  color: var(--tech-cyan);
+  letter-spacing: 0.25em;
+  font-weight: 600;
 }
 
-/* Glass Card - Keeping original properties for GSAP */
+/* Badge neon */
+.badge-neon {
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--tech-cyan);
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 24px rgba(34, 211, 238, 0.2);
+  transition: box-shadow var(--transition-smooth), transform var(--transition-smooth);
+}
+.badge-neon:hover {
+  box-shadow: 0 0 32px rgba(34, 211, 238, 0.35);
+  transform: scale(1.02);
+}
+
+/* Glass card interactive */
 .glass-card-interactive {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 30px;
-  padding: 60px 40px;
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 5vw, 3.5rem);
   text-align: center;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(99, 102, 241, 0.1) inset;
   transform-style: preserve-3d;
-  transition: transform 0.1s ease-out; /* Keeps mouse movement smooth */
-
-  /* Alignment Fixes */
-  margin-right: auto;
-  margin-left: 0;
-  max-width: 100%;
+  transition: box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+.glass-card-interactive:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(99, 102, 241, 0.15),
+    0 0 0 1px rgba(99, 102, 241, 0.2) inset;
 }
 
-@media (min-width: 992px) {
-  .glass-card-interactive {
-    margin-left: auto;
-    margin-right: 0;
-    max-width: 400px;
-  }
-}
-
-/* SVG Props */
 #blueprint-svg {
-  width: 120px;
-  height: 120px;
-  margin-bottom: 25px;
-  filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.6));
+  width: clamp(80px, 18vw, 120px);
+  height: clamp(80px, 18vw, 120px);
+  margin-bottom: 1.25rem;
+  filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.5));
 }
 
 .draw-path {
   fill: none;
-  stroke: #6366f1;
-  stroke-width: 3;
+  stroke: var(--tech-indigo);
+  stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  /* visibility: hidden; <--- Uncomment if GSAP controls visibility */
 }
 
-.text-primary-light {
-  color: #818cf8;
-  letter-spacing: 4px;
+/* Hero CTA buttons */
+.hero-dark-modern .btn {
+  transition: transform var(--transition-fast), box-shadow var(--transition-smooth);
+}
+.hero-dark-modern .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.35);
+}
+.hero-dark-modern .btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* =========================================
-   2. NEW ELEMENTS (30-Day Offer Styling)
-   ========================================= */
-
-/* The Neon Badge in Hero */
-.badge-neon {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399; /* Bright Neon Green */
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+@media (min-width: 992px) {
+  .glass-card-interactive { max-width: 380px; margin-left: auto; margin-right: 0; }
+}
+@media (max-width: 991.98px) {
+  .hero-dark-modern { min-height: auto; padding: 3rem 0; }
+  .hero-dark-modern .hero-cta { flex-direction: column; align-items: stretch; }
+  .hero-dark-modern .hero-cta .btn { width: 100%; }
 }
 
-/* The Green Ribbon in Pricing */
-.risk-free-ribbon {
-  background: #10b981;
-  color: white;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  padding: 8px 0;
-  text-align: center;
-  width: 100%;
+/* ---- 2. LOGOS STRIP ---- */
+.grayscale-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 2rem);
+}
+.grayscale-wrapper .col-4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  filter: grayscale(1) opacity(0.6);
+  transition: filter var(--transition-smooth), transform var(--transition-smooth);
+}
+.grayscale-wrapper .col-4:hover {
+  filter: grayscale(0) opacity(1);
+  transform: scale(1.08);
+}
+.grayscale-wrapper .display-6 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+
+/* ---- 3. SERVICE CARDS ---- */
+.reveal-card .card {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition:
+    transform var(--transition-spring),
+    box-shadow var(--transition-smooth),
+    border-color var(--transition-fast);
+  background: #fff;
+}
+.reveal-card .card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 24px 48px rgba(99, 102, 241, 0.12),
+    0 0 0 1px rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+.reveal-card .card .card-body {
+  transition: background var(--transition-fast);
+}
+.reveal-card .card:hover .card-body {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.02) 0%, transparent 100%);
+}
+.reveal-card .card .bi {
+  transition: transform var(--transition-spring);
+}
+.reveal-card .card:hover .bi {
+  transform: scale(1.15);
+}
+.reveal-card .btn {
+  transition: all var(--transition-fast);
+}
+.reveal-card .card:hover .btn {
+  transform: translateY(-1px);
 }
 
-/* Pricing Card Pop Effect */
-.pricing-highlight {
+@media (max-width: 767.98px) {
+  .reveal-card .card:hover { transform: translateY(-4px); }
+}
+
+/* ---- 4. TEAM SECTION ---- */
+#team .p-4 {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+#team .p-4:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+}
+#team .rounded-circle {
+  transition: transform var(--transition-spring);
+}
+#team .p-4:hover .rounded-circle {
   transform: scale(1.05);
-  border: 2px solid #0d6efd;
-  box-shadow: 0 20px 40px rgba(13, 110, 253, 0.15);
-  z-index: 2;
-  background: white;
-  border-radius: 1rem;
 }
 
-/* General Card Hover */
-.hover-scale:hover {
-  transform: scale(1.05);
-  transition: 0.3s;
+/* ---- 5. REVIEWS ---- */
+.reviews-summary-card {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(34, 211, 238, 0.04) 100%);
+  padding: 1.25rem 1.5rem;
+  transition: box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+.reviews-summary-card:hover {
+  border-color: rgba(99, 102, 241, 0.25);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.08);
 }
 
-.pricing-card {
-  transition: all 0.3s ease;
-  background: white;
-  border-radius: 1rem;
-}
-.pricing-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-/* --- HERO BADGE (Now Electric Cyan instead of Green) --- */
-.badge-neon {
-  background: rgba(6, 182, 212, 0.1); /* Very subtle Cyan tint */
-  color: #22d3ee; /* Bright Electric Cyan text */
-  border: 1px solid rgba(34, 211, 238, 0.3); /* Subtle border */
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15); /* Soft Cyan Glow */
-}
-
-/* --- PRICING RIBBON (Now Royal Gradient) --- */
-.risk-free-ribbon {
-  /* Matches your brand's blue/purple vibe */
-  background: linear-gradient(90deg, #0d6efd 0%, #4f46e5 100%);
-  color: white;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  padding: 8px 0;
+.summary-score {
+  min-width: 72px;
   text-align: center;
-  width: 100%;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--tech-surface);
 }
 
-/* --- INSIDE PRICING CARD HIGHLIGHT --- */
-/* Replaces the ugly light green bar inside the card */
-.highlight-blue {
-  background-color: rgba(13, 110, 253, 0.08); /* Very light blue background */
-  color: #0d6efd; /* Primary Blue Text */
+.review-card {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+  background: #fff;
+  padding: 1.25rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-fast);
+}
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.12);
+}
+
+.review-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--tech-indigo), var(--tech-violet));
+  color: #fff;
   font-weight: 700;
-  padding: 8px 12px;
-  border-radius: 6px;
-  display: block; /* Ensures spacing */
-  width: fit-content;
+  font-size: 0.9rem;
+  transition: transform var(--transition-spring);
 }
+.review-card:hover .review-avatar {
+  transform: scale(1.08);
+}
+
+@media (max-width: 767.98px) {
+  .reviews-summary-card { flex-direction: column; align-items: flex-start; }
+  .summary-score { min-width: 60px; font-size: 1.6rem; }
+}
+
+/* ---- 6. PRICING ---- */
+.pricing-card {
+  transition: transform var(--transition-spring), box-shadow var(--transition-smooth);
+  border-radius: var(--radius-lg);
+}
+.pricing-card .card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+.pricing-card:hover .card {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 48px rgba(99, 102, 241, 0.15);
+}
+
+.pricing-highlight {
+  transform: scale(1.03);
+  border: 2px solid var(--tech-indigo);
+  box-shadow:
+    0 24px 48px rgba(99, 102, 241, 0.2),
+    0 0 0 1px rgba(99, 102, 241, 0.1) inset;
+  z-index: 2;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  animation: pricing-glow 4s ease-in-out infinite;
+}
+@keyframes pricing-glow {
+  0%, 100% { box-shadow: 0 24px 48px rgba(99, 102, 241, 0.2), 0 0 0 1px rgba(99, 102, 241, 0.1) inset; }
+  50% { box-shadow: 0 28px 56px rgba(99, 102, 241, 0.25), 0 0 40px rgba(99, 102, 241, 0.08), 0 0 0 1px rgba(99, 102, 241, 0.15) inset; }
+}
+
+.risk-free-ribbon {
+  background: linear-gradient(90deg, var(--tech-indigo) 0%, var(--tech-violet) 100%);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.highlight-blue {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--tech-indigo);
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+.pricing-card .btn {
+  transition: transform var(--transition-fast), box-shadow var(--transition-smooth);
+}
+.pricing-card .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.3);
+}
+
+.hover-scale:hover { transform: scale(1.04); transition: transform var(--transition-spring); }
+
+@media (max-width: 991.98px) {
+  .pricing-highlight { transform: scale(1); }
+  .pricing-card .col-md-4 { margin-bottom: 1rem; }
+}
+
+/* ---- 7. FAQ ACCORDION ---- */
+#faqAccordion .accordion-button {
+  border-radius: var(--radius-md) !important;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+#faqAccordion .accordion-button:not(.collapsed) {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(34, 211, 238, 0.06) 100%) !important;
+  color: var(--tech-indigo);
+}
+#faqAccordion .accordion-item {
+  transition: transform var(--transition-fast);
+}
+#faqAccordion .accordion-item:hover {
+  transform: translateX(4px);
+}
+
+/* ---- 8. CONSULTATION (HERO DARK) ---- */
+#consultation.hero-dark-modern {
+  min-height: auto;
+  padding: 4rem 0;
+}
+#consultation .bg-white {
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: box-shadow var(--transition-smooth);
+}
+#consultation .bg-white:hover {
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.3);
+}
+#consultation .form-control,
+#consultation .form-select {
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+#consultation .form-control:focus,
+#consultation .form-select:focus {
+  border-color: var(--tech-indigo);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+/* ---- 9. SECTION REVEAL (for GSAP) ---- */
+.reveal-section { opacity: 0; }
+.reveal-section.revealed { opacity: 1; }
+
+/* ---- 10. RESPONSIVE TYPOGRAPHY ---- */
+.hero-title { font-size: clamp(2rem, 5vw, 3.5rem); }
+.display-6 { font-size: clamp(1.5rem, 3.5vw, 2rem); }

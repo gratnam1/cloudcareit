@@ -5,19 +5,71 @@
       <p>Practical IT + security insights for growing offices.</p>
     </header>
 
-    <div class="grid">
+    <div *ngIf="loading" class="empty-state">
+      Loading posts...
+    </div>
+
+    <div *ngIf="!loading && posts.length > 0" class="tools">
+      <div class="search-wrap">
+        <input
+          type="search"
+          class="search-input"
+          placeholder="Search posts by title, topic, or keyword"
+          [value]="searchTerm"
+          (input)="onSearchInput($event)"
+        >
+      </div>
+
+      <div class="filter-wrap">
+        <label class="visually-hidden" for="topicFilter">Filter by topic</label>
+        <select
+          id="topicFilter"
+          class="topic-select"
+          [value]="activeTag"
+          (change)="onTagChange($event)"
+        >
+          <option value="all">All topics</option>
+          <option *ngFor="let tag of availableTags" [value]="tag">{{ tag }}</option>
+        </select>
+
+        <button
+          type="button"
+          class="reset-btn"
+          *ngIf="hasActiveFilters()"
+          (click)="clearFilters()"
+        >
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="!loading && posts.length > 0" class="results-line">
+      {{ filteredPosts.length }} post{{ filteredPosts.length === 1 ? '' : 's' }}
+    </div>
+
+    <div *ngIf="!loading && posts.length === 0" class="empty-state">
+      No posts available right now.
+    </div>
+
+    <div *ngIf="!loading && posts.length > 0 && filteredPosts.length === 0" class="empty-state">
+      No matching posts. Try a different keyword or topic.
+    </div>
+
+    <div class="rows" *ngIf="!loading && filteredPosts.length > 0">
       <a
         class="card"
-        *ngFor="let post of posts; trackBy: trackBySlug"
+        *ngFor="let post of filteredPosts; trackBy: trackBySlug"
         [routerLink]="['/blog', post.slug]"
       >
-        <div class="meta">
-          <span class="tag" *ngFor="let t of post.tags">{{ t }}</span>
-          <span class="date" *ngIf="post.date">{{ post.date }}</span>
-        </div>
+        <div class="row-main">
+          <div class="meta">
+            <span class="tag" *ngFor="let t of post.tags">{{ t }}</span>
+            <span class="date" *ngIf="post.date">{{ post.date }}</span>
+          </div>
 
-        <h3 class="title">{{ post.title }}</h3>
-        <p class="excerpt">{{ post.excerpt }}</p>
+          <h3 class="title">{{ post.title }}</h3>
+          <p class="excerpt">{{ post.excerpt }}</p>
+        </div>
 
         <div class="cta">
           <span>Read article</span><span class="arrow">→</span>

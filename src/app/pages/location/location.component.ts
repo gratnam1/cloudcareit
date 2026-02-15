@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, inject, PLATFORM_ID } from '@angular/core
 import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { SeoService } from '../../shared/seo/seo.service';
+import { ServiceAreaComponent } from './service-area.component';
 
 type FaqItem = { q: string; a: string };
 
@@ -23,14 +24,16 @@ type LocationContent = {
     latitude: number;
     longitude: number;
   };
+  mapImage?: string;
+  sameAs?: string[];
 };
 
 @Component({
   selector: 'app-location',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ServiceAreaComponent],
   templateUrl: './location.component.html',
-  styleUrl: './location.component.css'
+  styleUrls: ['./location.component.css']
 })
 export class LocationComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
@@ -53,6 +56,7 @@ export class LocationComponent implements OnInit, OnDestroy {
   faq: FaqItem[] = [];
   mainHeading = '';
   areasServedText = '';
+  mapImage = '';
   readonly hubPagePath = '/managed-it-services';
   readonly hubPageLabel = 'Managed IT Services';
 
@@ -95,6 +99,10 @@ export class LocationComponent implements OnInit, OnDestroy {
       ],
       faq: [
         {
+          q: 'What are the hourly rates for IT support in the GTA?',
+          a: 'Our managed IT plans are flat-rate to ensure predictable budgeting. For specific projects or ad-hoc support, we offer competitive hourly rates. Contact us for a detailed quote.'
+        },
+        {
           q: 'Do you offer on-site support in Toronto?',
           a: 'Yes. We handle on-site visits when needed, but we resolve most issues quickly through secure remote support.'
         },
@@ -106,6 +114,15 @@ export class LocationComponent implements OnInit, OnDestroy {
           q: 'How quickly can you respond to urgent downtime in downtown Toronto?',
           a: 'Critical incidents are triaged immediately through our helpdesk, with remote containment first and rapid on-site dispatch when physical intervention is required.'
         }
+      ],
+      geo: {
+        latitude: 43.6532,
+        longitude: -79.3832
+      },
+      mapImage: 'https://ctrlshiftit.ca/assets/maps/map-toronto.png',
+      sameAs: [
+        'https://www.linkedin.com/company/ctrlshift-it-services',
+        'https://www.facebook.com/ctrlshiftit'
       ]
     },
 
@@ -143,6 +160,10 @@ export class LocationComponent implements OnInit, OnDestroy {
       ],
       faq: [
         {
+          q: 'What are the hourly rates for IT support in the GTA?',
+          a: 'Our managed IT plans are flat-rate to ensure predictable budgeting. For specific projects or ad-hoc support, we offer competitive hourly rates. Contact us for a detailed quote.'
+        },
+        {
           q: 'Can you improve Wi-Fi coverage in our Mississauga office?',
           a: 'Yes. We diagnose coverage gaps, recommend access point placement, and configure guest/staff separation when needed.'
         },
@@ -154,7 +175,12 @@ export class LocationComponent implements OnInit, OnDestroy {
           q: 'Can you help standardize onboarding for fast-growing teams?',
           a: 'Absolutely. We create repeatable onboarding and offboarding checklists so accounts, devices, security settings, and access rights are provisioned consistently.'
         }
-      ]
+      ],
+      geo: {
+        latitude: 43.5890,
+        longitude: -79.6441
+      },
+      mapImage: 'https://ctrlshiftit.ca/assets/maps/map-mississauga.png'
     },
 
     vaughan: {
@@ -191,6 +217,10 @@ export class LocationComponent implements OnInit, OnDestroy {
       ],
       faq: [
         {
+          q: 'What are the hourly rates for IT support in the GTA?',
+          a: 'Our managed IT plans are flat-rate to ensure predictable budgeting. For specific projects or ad-hoc support, we offer competitive hourly rates. Contact us for a detailed quote.'
+        },
+        {
           q: 'Do you offer on-site IT support in Vaughan?',
           a: 'Yes, CtrlShift IT provides both remote helpdesk and on-site emergency support for businesses throughout Vaughan and York Region.'
         },
@@ -206,7 +236,8 @@ export class LocationComponent implements OnInit, OnDestroy {
       geo: {
         latitude: 43.8372,
         longitude: -79.5083
-      }
+      },
+      mapImage: 'https://ctrlshiftit.ca/assets/maps/map-vaughan.png'
     },
 
     thornhill: {
@@ -243,6 +274,10 @@ export class LocationComponent implements OnInit, OnDestroy {
       ],
       faq: [
         {
+          q: 'What are the hourly rates for IT support in the GTA?',
+          a: 'Our managed IT plans are flat-rate to ensure predictable budgeting. For specific projects or ad-hoc support, we offer competitive hourly rates. Contact us for a detailed quote.'
+        },
+        {
           q: 'Are you a good fit for smaller offices in Thornhill?',
           a: 'Yes. We specialize in small offices that want dependable IT without complexity.'
         },
@@ -254,7 +289,12 @@ export class LocationComponent implements OnInit, OnDestroy {
           q: 'Do you help with older networks that were never documented?',
           a: 'Yes. We audit, map, and clean up legacy setups so future troubleshooting and upgrades are faster and safer.'
         }
-      ]
+      ],
+      geo: {
+        latitude: 43.8161,
+        longitude: -79.4246
+      },
+      mapImage: 'https://ctrlshiftit.ca/assets/maps/map-thornhill.png'
     },
 
     'richmond hill': {
@@ -291,6 +331,10 @@ export class LocationComponent implements OnInit, OnDestroy {
       ],
       faq: [
         {
+          q: 'What are the hourly rates for IT support in the GTA?',
+          a: 'Our managed IT plans are flat-rate to ensure predictable budgeting. For specific projects or ad-hoc support, we offer competitive hourly rates. Contact us for a detailed quote.'
+        },
+        {
           q: 'Do you provide proactive monitoring?',
           a: 'Yes. Our managed plans focus on preventing problems before they disrupt your team.'
         },
@@ -302,7 +346,12 @@ export class LocationComponent implements OnInit, OnDestroy {
           q: 'How do you test backups for Richmond Hill businesses?',
           a: 'We run scheduled restore tests and document recovery steps so you know data can be recovered before an emergency happens.'
         }
-      ]
+      ],
+      geo: {
+        latitude: 43.8828,
+        longitude: -79.4403
+      },
+      mapImage: 'https://ctrlshiftit.ca/assets/maps/map-richmond-hill.png'
     }
   };
 
@@ -332,6 +381,7 @@ export class LocationComponent implements OnInit, OnDestroy {
     this.faq = content.faq;
     this.mainHeading = content.mainHeading;
     this.areasServedText = content.areasServedText ?? '';
+    this.mapImage = content.mapImage ?? '';
 
     this.seo.removeStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID);
     this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
@@ -345,34 +395,55 @@ export class LocationComponent implements OnInit, OnDestroy {
       canonicalPath: content.canonicalPath
     });
 
+    const localBusinessSchema: any = {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: 'CtrlShift IT Services',
+      image: content.mapImage
+        ? ['https://ctrlshiftit.ca/wp-content/uploads/logo.png', content.mapImage]
+        : 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
+      url: `https://ctrlshiftit.ca${content.canonicalPath}`,
+      telephone: '6475035779',
+      priceRange: '$$',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: this.city,
+        addressRegion: 'ON',
+        addressCountry: 'CA'
+      },
+      areaServed: content.nearbyAreas.map((name) => ({ '@type': 'City', name })),
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '08:00',
+        closes: '18:00'
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Managed IT Services',
+        itemListElement: content.services.map((service) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: service
+          }
+        }))
+      }
+    };
+
     if (content.geo) {
-      this.seo.setStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID, {
-        '@context': 'https://schema.org',
-        '@type': 'LocalBusiness',
-        name: 'CtrlShift IT Services',
-        image: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
-        url: `https://ctrlshiftit.ca${content.canonicalPath}`,
-        telephone: '6475035779',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: this.city,
-          addressRegion: 'ON',
-          addressCountry: 'CA'
-        },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: content.geo.latitude,
-          longitude: content.geo.longitude
-        },
-        areaServed: content.nearbyAreas.map((name) => ({ '@type': 'City', name })),
-        openingHoursSpecification: {
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-          opens: '00:00',
-          closes: '23:59'
-        }
-      });
+      localBusinessSchema.geo = {
+        '@type': 'GeoCoordinates',
+        latitude: content.geo.latitude,
+        longitude: content.geo.longitude
+      };
     }
+
+    if (content.sameAs) {
+      localBusinessSchema.sameAs = content.sameAs;
+    }
+
+    this.seo.setStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID, localBusinessSchema);
 
     this.setFaqSchema();
     this.setBreadcrumbSchema(content.canonicalPath);
@@ -416,6 +487,10 @@ export class LocationComponent implements OnInit, OnDestroy {
       ],
       faq: [
         {
+          q: 'What are the hourly rates for IT support in the GTA?',
+          a: 'Our managed IT plans are flat-rate to ensure predictable budgeting. For specific projects or ad-hoc support, we offer competitive hourly rates. Contact us for a detailed quote.'
+        },
+        {
           q: `Do you provide IT support in ${city}?`,
           a: `Yes. We provide remote support and can arrange on-site visits for offices near ${landmark}.`
         },
@@ -441,10 +516,20 @@ export class LocationComponent implements OnInit, OnDestroy {
   }
 
   private scrollToPricing() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     const attemptScroll = () => {
       const target = this.document.getElementById('pricing');
       if (!target) return false;
-      target.scrollIntoView({ block: 'start' });
+
+      const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const behavior = !mediaQuery || mediaQuery.matches ? 'instant' : 'smooth';
+      target.scrollIntoView({ behavior, block: 'start' });
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+
       return true;
     };
 

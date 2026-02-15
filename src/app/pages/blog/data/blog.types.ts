@@ -6,5 +6,5 @@ export type BlogPostMeta = {
   excerpt?: string;
   date?: string; // YYYY-MM-DD
   tags?: string[];
-  loadComponent: () => Promise<Type<unknown>>;
+  loadComponent?: () => Promise<Type<unknown>>;
 };

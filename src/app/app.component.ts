@@ -1,5 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, ViewportScroller } from '@angular/common';
+import { Component, OnInit, inject, Inject } from '@angular/core';
+import { CommonModule, ViewportScroller, DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { filter } from 'rxjs/operators';
@@ -22,7 +22,11 @@ export class AppComponent implements OnInit {
     { text: "Hello! I'm the CtrlShift IT Services AI. Are you looking for IT support in a specific city?", isUser: false }
   ];
 
-  constructor(private router: Router, private viewportScroller: ViewportScroller) {
+  constructor(
+    private router: Router,
+    private viewportScroller: ViewportScroller,
+    @Inject(DOCUMENT) private document: Document
+  ) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
@@ -31,11 +35,17 @@ export class AppComponent implements OnInit {
 
         setTimeout(() => {
           this.viewportScroller.scrollToAnchor(fragment);
+          const el = this.document.getElementById(fragment);
+          if (el) {
+            el.setAttribute('tabindex', '-1');
+            el.focus({ preventScroll: true });
+          }
         }, 50);
       });
   }
 
   ngOnInit(): void {
+    this.setupNavbarScroll();
     this.seo.setStructuredData('global-organization', {
       '@context': 'https://schema.org',
       '@type': 'Organization',
@@ -43,6 +53,11 @@ export class AppComponent implements OnInit {
       url: 'https://ctrlshiftit.ca',
       logo: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
       telephone: '+1-647-503-5779',
+      sameAs: [
+        'https://www.linkedin.com/company/ctrlshift-it-services',
+        'https://www.facebook.com/ctrlshiftit',
+        'https://clutch.co/profile/ctrlshift-it-services'
+      ],
       areaServed: [
         { '@type': 'City', name: 'Vaughan' },
         { '@type': 'City', name: 'Toronto' },
@@ -67,6 +82,18 @@ export class AppComponent implements OnInit {
 
   toggleChat() {
     this.chatVisible = !this.chatVisible;
+  }
+
+  private setupNavbarScroll(): void {
+    if (typeof this.document.defaultView === 'undefined') return;
+    const nav = this.document.querySelector('.navbar');
+    if (!nav) return;
+    const onScroll = (): void => {
+      const scrolled = (this.document.defaultView?.scrollY ?? 0) > 20;
+      nav.classList.toggle('scrolled', scrolled);
+    };
+    this.document.defaultView?.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
   sendMessage() {

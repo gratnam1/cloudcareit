@@ -42,3 +42,12 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Local secrets
+.env*
+.dev.vars
+.dev.vars.*
+.wrangler/
+!.env.example
+!.env.local.example
+!.env.*.example

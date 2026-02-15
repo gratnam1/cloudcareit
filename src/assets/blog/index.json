@@ -1,23 +1,62 @@
 [
   {
-    "slug": "managed-it-vs-break-fix",
-    "title": "Managed IT vs Break/Fix: What Small Businesses Really Pay",
-    "excerpt": "A simple cost and risk comparison for 5\u201350 user teams in the GTA.",
-    "date": "2026-02-09",
-    "tags": [
-      "managed-it",
-      "pricing",
-      "small-business"
-    ]
+    "slug": "managed-it-benefits",
+    "title": "Managed IT Services for Growing Offices: A Practical Operating Model",
+    "date": "2026-02-14",
+    "excerpt": "A practical framework for reducing downtime, improving security posture, and making IT costs predictable with managed operations."
   },
   {
-    "slug": "microsoft-365-security-basics",
-    "title": "Microsoft 365 Security Basics: MFA, Phishing, and Backups",
-    "excerpt": "The practical checklist that prevents most small-business incidents.",
-    "date": "2026-02-09",
-    "tags": [
-      "microsoft-365",
-      "security"
-    ]
+    "slug": "google-workspace-guide",
+    "title": "Google Workspace Administration for SMBs: Security, Structure, and Scale",
+    "date": "2026-02-14",
+    "excerpt": "How to structure Shared Drives, enforce identity controls, and keep Gmail/Drive governance clean as your team grows."
+  },
+  {
+    "slug": "microsoft-365-tips",
+    "title": "Microsoft 365 Security and Operations: The Baseline Every Office Needs",
+    "date": "2026-02-14",
+    "excerpt": "A step-by-step tenant baseline covering MFA, Conditional Access, email protection, and SharePoint governance."
+  },
+  {
+    "slug": "office-networking-basics",
+    "title": "Office Networking and Wi-Fi: How to Design for Reliability, Not Just Speed",
+    "date": "2026-02-14",
+    "excerpt": "Coverage planning, VLAN segmentation, switching hygiene, and monitoring practices that keep office networks stable."
+  },
+  {
+    "slug": "aws-infrastructure-best-practices",
+    "title": "AWS Infrastructure for SMBs: Security, Cost Control, and Operational Discipline",
+    "date": "2026-02-14",
+    "excerpt": "A pragmatic AWS playbook for account baselines, exposure reduction, recovery readiness, and spend control."
+  },
+  {
+    "slug": "firewall-security-essentials",
+    "title": "Firewall and Security Baselines for SMB Offices: Practical Defense Without Hype",
+    "date": "2026-02-14",
+    "excerpt": "How to combine firewall policy, endpoint controls, MFA, and incident readiness into one usable security baseline."
+  },
+  {
+    "slug": "crisis-recovery-plan",
+    "title": "Crisis Recovery for SMBs: How to Restore Operations After a Major IT Incident",
+    "date": "2026-02-14",
+    "excerpt": "Business-first recovery planning with clear RTO/RPO targets, containment flow, tested restores, and communication discipline."
+  },
+  {
+    "slug": "web-development-trends",
+    "title": "Web Development for Service Businesses: Performance, Trust, and Conversion",
+    "date": "2026-02-14",
+    "excerpt": "Why modern business sites should prioritize speed, mobile UX, security, and measurable conversion paths."
+  },
+  {
+    "slug": "seo-visibility-guide",
+    "title": "Local SEO for IT Service Firms: A Practical Playbook for Sustainable Visibility",
+    "date": "2026-02-14",
+    "excerpt": "A local SEO system covering technical hygiene, service/location relevance, GBP optimization, and lead-focused reporting."
+  },
+  {
+    "slug": "lead-generation-strategies",
+    "title": "B2B Lead Generation for IT Services: Building a Funnel That Produces Qualified Opportunities",
+    "date": "2026-02-14",
+    "excerpt": "How to align qualification, offers, landing pages, CRM attribution, and response SLAs for better pipeline quality."
   }
 ]

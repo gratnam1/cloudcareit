@@ -1,22 +1,17 @@
-<header class="hero-dark-modern py-4">
+<header class="location-hero py-5">
   <div class="container py-4">
     <div class="row align-items-center g-5">
-
-      <!-- LEFT -->
       <div class="col-lg-7">
-        <span class="badge bg-primary mb-3">Serving {{region}} Businesses</span>
-
+        <p class="hero-kicker mb-3">Managed IT Services for {{region}}</p>
         <h1 class="display-3 fw-bold text-white mb-3">{{mainHeading}}</h1>
 
-        <p class="lead text-white-50 mb-4">
-          {{intro}}
-        </p>
+        <p class="hero-lead mb-4">{{intro}}</p>
 
-        <ul class="text-white-50 small mb-4 ps-3">
-          <li *ngFor="let b of heroBullets">{{b}}</li>
-        </ul>
+        <div class="hero-chip-wrap mb-4">
+          <span *ngFor="let b of heroBullets" class="hero-chip">{{b}}</span>
+        </div>
 
-        <div class="d-flex gap-3 flex-wrap">
+        <div class="d-flex gap-3 flex-wrap hero-actions">
           <a class="btn btn-primary btn-lg rounded-pill px-5" routerLink="/" fragment="pricing">
             Start 30-Day Trial
           </a>
@@ -25,54 +20,50 @@
           </a>
         </div>
 
-        <div class="text-white-50 small mt-4">
+        <p class="hero-meta small mt-4 mb-0">
           Near <strong>{{landmark}}</strong> • Serving
           <span *ngFor="let a of nearbyAreas; let last = last">{{a}}{{!last ? ', ' : ''}}</span>
-        </div>
+        </p>
       </div>
 
-      <!-- RIGHT -->
       <div class="col-lg-5">
-        <div class="bg-white bg-opacity-10 border border-white border-opacity-10 rounded-4 p-4 p-lg-5 text-white">
-          <h3 class="h5 fw-bold mb-3">What you get with CtrlShift IT Services</h3>
+        <aside class="hero-proof p-4 p-lg-5 h-100">
+          <h2 class="h5 fw-bold mb-3 text-white">What You Get With CtrlShift IT Services</h2>
 
-          <div class="d-grid gap-2 mb-4">
-            <div class="d-flex align-items-start gap-2">
-              <i class="bi bi-shield-check text-info"></i>
+          <ul class="list-unstyled mb-4 hero-proof-list">
+            <li>
+              <i class="bi bi-shield-check"></i>
               <div>
-                <div class="fw-bold">Security-first basics</div>
-                <div class="text-white-50 small">MFA, patching, and safer access by default.</div>
+                <div class="fw-bold text-white">Security-first basics</div>
+                <div class="small text-white-50">MFA, patching, and safer access by default.</div>
               </div>
-            </div>
-
-            <div class="d-flex align-items-start gap-2">
-              <i class="bi bi-speedometer2 text-info"></i>
+            </li>
+            <li>
+              <i class="bi bi-speedometer2"></i>
               <div>
-                <div class="fw-bold">Fast support</div>
-                <div class="text-white-50 small">Remote-first with on-site help when needed.</div>
+                <div class="fw-bold text-white">Fast support</div>
+                <div class="small text-white-50">Remote-first with on-site help when needed.</div>
               </div>
-            </div>
-
-            <div class="d-flex align-items-start gap-2">
-              <i class="bi bi-cloud-check text-info"></i>
+            </li>
+            <li>
+              <i class="bi bi-cloud-check"></i>
               <div>
-                <div class="fw-bold">Cloud ops</div>
-                <div class="text-white-50 small">Microsoft 365 / Google Workspace managed properly.</div>
+                <div class="fw-bold text-white">Cloud ops</div>
+                <div class="small text-white-50">Microsoft 365 / Google Workspace managed properly.</div>
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
 
-          <div class="pt-3 border-top border-white border-opacity-10 text-white-50 small">
-            Typical fit: <strong class="text-white">5–50 users</strong> • Professional offices • Hybrid teams
-          </div>
-        </div>
+          <p class="hero-meta small mb-0 pt-3 border-top border-white border-opacity-10">
+            Typical fit: <strong class="text-white">5-50 users</strong> • Professional offices • Hybrid teams
+          </p>
+        </aside>
       </div>
-
     </div>
   </div>
 </header>
 
-<section class="py-3 bg-white border-bottom">
+<section class="location-crumb-strip py-3">
   <div class="container d-flex flex-wrap align-items-center gap-2 small">
     <span class="text-muted">Managed IT Hub:</span>
     <a class="fw-semibold text-decoration-none" [routerLink]="hubPagePath">{{hubPageLabel}}</a>
@@ -81,32 +72,36 @@
   </div>
 </section>
 
-<section class="py-5 bg-white">
+<section class="location-overview py-5">
   <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-6">
-        <h2 class="fw-bold">What {{city}} offices call us for</h2>
-        <p class="text-muted">{{localWorkStyle}}</p>
+    <div class="overview-head mb-4">
+      <h2 class="fw-bold mb-2">Built For {{city}} Teams</h2>
+      <p class="text-muted mb-0">{{localWorkStyle}}</p>
+    </div>
 
-        <h3 class="h5 fw-bold mt-4">Common issues we fix</h3>
-        <ul class="text-muted">
-          <li *ngFor="let p of painPoints">{{p}}</li>
-        </ul>
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-6 d-flex">
+        <article class="surface-card p-4 p-lg-5 w-100 h-100">
+          <h3 class="h4 fw-bold mb-3">Common Issues We Fix</h3>
+          <ul class="content-list mb-0">
+            <li *ngFor="let p of painPoints">{{p}}</li>
+          </ul>
 
-        <h3 class="h5 fw-bold mt-4">Industries we support in {{city}}</h3>
-        <ul class="text-muted">
-          <li *ngFor="let i of industries">{{i}}</li>
-        </ul>
+          <h4 class="h5 fw-bold mt-4 mb-3">Industries We Support In {{city}}</h4>
+          <ul class="content-list compact mb-0">
+            <li *ngFor="let i of industries">{{i}}</li>
+          </ul>
+        </article>
       </div>
 
-      <div class="col-lg-6">
-        <div class="services-panel p-4 rounded-4">
-          <h4 class="fw-bold">{{city}} IT Services</h4>
-          <p class="text-muted small mb-3">Popular services for teams in {{city}}.</p>
+      <div class="col-lg-6 d-flex">
+        <article class="surface-card p-4 p-lg-5 w-100 h-100">
+          <h3 class="h4 fw-bold mb-2">{{city}} IT Services</h3>
+          <p class="text-muted mb-3">Popular managed services for growing offices.</p>
 
-          <ul class="list-unstyled mt-3">
+          <ul class="service-checks list-unstyled mt-3 mb-0">
             <li class="mb-2" *ngFor="let s of services">
-              <i class="bi bi-check-circle-fill text-primary me-2"></i> {{s}}
+              <i class="bi bi-check-circle-fill text-primary me-2"></i>{{s}}
             </li>
           </ul>
 
@@ -122,10 +117,8 @@
             </a>
           </div>
 
-          <h5 class="fw-bold mt-4 mb-2">Nearby Service Areas</h5>
-          <p class="text-muted small mb-3">
-            Compare local coverage pages across nearby cities in the GTA.
-          </p>
+          <h4 class="h6 fw-bold mt-4 mb-2">Nearby Service Areas</h4>
+          <p class="text-muted small mb-3">Compare local coverage pages across nearby cities in the GTA.</p>
           <div class="d-flex flex-wrap gap-2">
             <a
               *ngFor="let location of otherLocationLinks"
@@ -135,72 +128,52 @@
               {{location.label}}
             </a>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </div>
 </section>
 
-<section class="py-4 bg-white" *ngIf="areasServedText">
+<section class="location-map-section py-5">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-10">
-        <h2 class="h4 fw-bold mb-3">Areas Served</h2>
-        <p class="text-muted mb-0">{{areasServedText}}</p>
-      </div>
-    </div>
+    <app-service-area
+      [city]="city"
+      [region]="region"
+      [nearbyAreas]="nearbyAreas"
+      [areasServedText]="areasServedText"
+      [mapImage]="mapImage">
+    </app-service-area>
   </div>
 </section>
 
-<app-service-area
-  [city]="city"
-  [region]="region"
-  [nearbyAreas]="nearbyAreas"
-  [mapImage]="mapImage">
-</app-service-area>
-
-<section class="faq-cta-section py-5">
+<section class="location-faq py-5">
   <div class="container">
-    <div class="row g-4">
-      <div class="col-lg-8">
-        <div class="faq-shell">
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-8 d-flex">
+        <div class="faq-shell w-100 h-100">
           <div class="d-flex align-items-center gap-2 mb-3">
             <span class="faq-badge">FAQ</span>
             <span class="faq-subtitle">Fast answers for {{city}} businesses</span>
           </div>
+
           <h2 class="fw-bold mb-3">Managed IT Services in {{city}}: FAQ</h2>
-          <div class="accordion faq-accordion" id="faq">
-            <div class="accordion-item" *ngFor="let f of faq; let idx = index">
-              <h2 class="accordion-header" [attr.id]="'faq-h-' + idx">
-                <button
-                  class="accordion-button collapsed fw-bold"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  [attr.data-bs-target]="'#f' + idx"
-                  aria-expanded="false"
-                  [attr.aria-controls]="'f' + idx"
-                >
-                  {{f.q}}
-                </button>
-              </h2>
-              <div
-                class="accordion-collapse collapse"
-                [id]="'f' + idx"
-                [attr.aria-labelledby]="'faq-h-' + idx"
-                data-bs-parent="#faq"
-              >
-                <div class="accordion-body text-muted">{{f.a}}</div>
-              </div>
-            </div>
+
+          <div class="faq-list">
+            <details class="faq-item" *ngFor="let f of faq; let idx = index" [attr.open]="idx === 0 ? '' : null">
+              <summary class="faq-button fw-bold">{{f.q}}</summary>
+              <div class="faq-content text-muted">{{f.a}}</div>
+            </details>
           </div>
         </div>
       </div>
 
-      <div class="col-lg-4">
-        <div class="cta-shell">
+      <div class="col-lg-4 d-flex">
+        <aside class="cta-shell w-100 h-100">
           <div class="cta-label">Free IT Assessment</div>
           <h3 class="fw-bold mb-2">Ready for fewer IT interruptions?</h3>
-          <p class="text-muted mb-4">Tell us your office size and your top IT pain points. We will recommend the right plan in one quick call.</p>
+          <p class="text-muted mb-4">
+            Tell us your office size and your top IT pain points. We will recommend the right plan in one quick call.
+          </p>
           <ul class="cta-points list-unstyled mb-4">
             <li><i class="bi bi-check-circle-fill"></i> 15-minute response target</li>
             <li><i class="bi bi-check-circle-fill"></i> Remote + on-site support</li>
@@ -209,7 +182,7 @@
           <a class="btn btn-primary rounded-pill w-100 py-3 fw-bold cta-btn" routerLink="/" fragment="consultation">
             Book Free Assessment
           </a>
-        </div>
+        </aside>
       </div>
     </div>
   </div>

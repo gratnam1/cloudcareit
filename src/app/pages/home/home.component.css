@@ -172,6 +172,46 @@
 .reveal-card .card:hover .bi {
   transform: scale(1.15);
 }
+
+.service-icon {
+  font-size: 3.5rem;
+}
+
+.service-icon-google {
+  color: #4285f4;
+}
+
+.service-icon-microsoft {
+  color: #00a4ef;
+}
+
+.service-icon-networking {
+  color: #2563eb;
+}
+
+.service-icon-aws {
+  color: #ff9900;
+}
+
+.service-icon-security {
+  color: #dc2626;
+}
+
+.service-icon-crisis {
+  color: #f97316;
+}
+
+.service-icon-web {
+  color: #7c3aed;
+}
+
+.service-icon-seo {
+  color: #059669;
+}
+
+.service-icon-leads {
+  color: #0ea5e9;
+}
 .reveal-card .btn {
   transition: all var(--transition-fast);
 }

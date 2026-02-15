@@ -8,24 +8,39 @@
       </svg>
       CTRL<span class="text-primary">SHIFT</span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button
+      class="navbar-toggler"
+      type="button"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="navbarNav"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-collapse collapse" id="navbarNav" [class.show]="menuOpen">
       <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Locations</a>
-          <ul class="dropdown-menu border-0 shadow">
-            <li><a class="dropdown-item" routerLink="/managed-it-services-vaughan">Vaughan</a></li>
-            <li><a class="dropdown-item" routerLink="/managed-it-services-toronto">Toronto</a></li>
-            <li><a class="dropdown-item" routerLink="/managed-it-services-mississauga">Mississauga</a></li>
-            <li><a class="dropdown-item" routerLink="/managed-it-services-thornhill">Thornhill</a></li>
-            <li><a class="dropdown-item" routerLink="/managed-it-services-richmond-hill">Richmond Hill</a></li>
+        <li class="nav-item dropdown" [class.show]="locationsOpen">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            [attr.aria-expanded]="locationsOpen"
+            (click)="toggleLocations($event)"
+          >
+            Locations
+          </a>
+          <ul class="dropdown-menu border-0 shadow" [class.show]="locationsOpen">
+            <li><a class="dropdown-item" routerLink="/managed-it-services-vaughan" (click)="closeNavMenus()">Vaughan</a></li>
+            <li><a class="dropdown-item" routerLink="/managed-it-services-toronto" (click)="closeNavMenus()">Toronto</a></li>
+            <li><a class="dropdown-item" routerLink="/managed-it-services-mississauga" (click)="closeNavMenus()">Mississauga</a></li>
+            <li><a class="dropdown-item" routerLink="/managed-it-services-thornhill" (click)="closeNavMenus()">Thornhill</a></li>
+            <li><a class="dropdown-item" routerLink="/managed-it-services-richmond-hill" (click)="closeNavMenus()">Richmond Hill</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a class="nav-link px-3" routerLink="/" fragment="services">Services</a></li>
+        <li class="nav-item"><a class="nav-link px-3" routerLink="/" fragment="services" (click)="closeNavMenus()">Services</a></li>
         <li class="nav-item ms-lg-3">
-          <a class="btn btn-dark rounded-pill px-4 shadow-sm" routerLink="/" fragment="consultation">Free Consultation</a>
+          <a class="btn btn-dark rounded-pill px-4 shadow-sm" routerLink="/" fragment="consultation" (click)="closeNavMenus()">Free Consultation</a>
         </li>
       </ul>
     </div>

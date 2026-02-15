@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, Inject } from '@angular/core';
+import { Component, OnInit, inject, Inject, HostListener } from '@angular/core';
 import { CommonModule, ViewportScroller, DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +14,8 @@ import { SeoService } from './shared/seo/seo.service';
 })
 export class AppComponent implements OnInit {
   private seo = inject(SeoService);
+  menuOpen = false;
+  locationsOpen = false;
 
   // --- AI Chat State (Kept Global) ---
   chatVisible = false;
@@ -30,6 +32,7 @@ export class AppComponent implements OnInit {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
+        this.closeNavMenus();
         const fragment = this.router.parseUrl(this.router.url).fragment;
         if (!fragment) return;
 
@@ -82,6 +85,38 @@ export class AppComponent implements OnInit {
 
   toggleChat() {
     this.chatVisible = !this.chatVisible;
+  }
+
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+    if (!this.menuOpen) {
+      this.locationsOpen = false;
+    }
+  }
+
+  toggleLocations(event: Event): void {
+    event.preventDefault();
+    this.locationsOpen = !this.locationsOpen;
+  }
+
+  closeNavMenus(): void {
+    this.menuOpen = false;
+    this.locationsOpen = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as Node | null;
+    const nav = this.document.querySelector('.navbar');
+    if (!target || !nav) return;
+    if (!nav.contains(target)) {
+      this.closeNavMenus();
+    }
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscapeKey(): void {
+    this.closeNavMenus();
   }
 
   private setupNavbarScroll(): void {

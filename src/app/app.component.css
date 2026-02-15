@@ -59,6 +59,9 @@
   box-shadow: 0 12px 40px rgba(99, 102, 241, 0.12);
   padding: 0.5rem;
 }
+.dropdown-menu.show {
+  display: block;
+}
 .dropdown-item {
   border-radius: 8px;
   transition: background 0.2s ease, color 0.2s ease;
@@ -71,6 +74,11 @@
 @media (max-width: 991.98px) {
   .navbar-collapse {
     padding: 1rem 0;
+  }
+  .dropdown-menu {
+    border: 0;
+    box-shadow: none;
+    padding: 0.35rem 0 0.35rem 1rem;
   }
   .nav-item { margin: 0.25rem 0; }
 }

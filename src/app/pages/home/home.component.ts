@@ -118,7 +118,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       requestAnimationFrame(() => {
         this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         this.viewReady = true;
-        void this.initAnimations(this.prefersReducedMotion);
+        this.scheduleIdleTask(() => {
+          void this.initAnimations(this.prefersReducedMotion);
+        }, 1500);
 
         const fragment = this.pendingFragment ?? this.getCurrentFragment();
         if (fragment) {
@@ -127,6 +129,20 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         this.pendingFragment = null;
       });
     }
+  }
+
+  private scheduleIdleTask(task: () => void, timeout = 1200): void {
+    const anyWindow = window as any;
+    if (typeof anyWindow.requestIdleCallback === 'function') {
+      const idleId = anyWindow.requestIdleCallback(task, { timeout });
+      if (typeof anyWindow.cancelIdleCallback === 'function') {
+        this.destroyCallbacks.push(() => anyWindow.cancelIdleCallback(idleId));
+      }
+      return;
+    }
+
+    const timerId = window.setTimeout(task, 180);
+    this.destroyCallbacks.push(() => window.clearTimeout(timerId));
   }
 
   ngOnDestroy() {
@@ -276,7 +292,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         gsap.from(batch, { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' });
       }
     });
-    ScrollTrigger.batch('.faq-reveal .accordion-item', {
+    ScrollTrigger.batch('.faq-reveal .faq-item', {
       start: 'top 80%',
       onEnter: batch => {
         gsap.from(batch, { y: 20, opacity: 0, duration: 0.45, ease: 'power2.out', stagger: 0.06 });

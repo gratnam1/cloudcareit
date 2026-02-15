@@ -2,8 +2,6 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
-
 :root {
   --tech-bg: #0a0e17;
   --tech-surface: #111827;
@@ -302,45 +300,77 @@ app-home .faq-subtitle {
   font-size: 0.95rem;
 }
 
-app-home #faqAccordion .faq-item {
-  border: 1px solid rgba(99, 102, 241, 0.12) !important;
-  background: #fff;
-  transition: box-shadow var(--transition-smooth), transform var(--transition-fast);
+app-home .faq-list {
+  display: grid;
+  gap: 0.75rem;
 }
 
-app-home #faqAccordion .faq-item:hover {
+app-home .faq-list .faq-item {
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  border-radius: var(--radius-md);
+  background: #fff;
+  transition: box-shadow var(--transition-smooth), transform var(--transition-fast);
+  overflow: hidden;
+}
+
+app-home .faq-list .faq-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(99, 102, 241, 0.08);
 }
 
-app-home #faqAccordion .faq-button {
-  border-radius: var(--radius-md) !important;
+app-home .faq-list .faq-item[open] {
+  box-shadow: 0 16px 32px rgba(99, 102, 241, 0.12);
+}
+
+app-home .faq-list .faq-button {
+  list-style: none;
+  cursor: pointer;
   background: #fff;
   color: #0f172a;
-  box-shadow: none;
   font-size: 1.05rem;
   letter-spacing: -0.01em;
   padding: 1.15rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   transition: background var(--transition-fast), color var(--transition-fast);
 }
 
-app-home #faqAccordion .faq-button:not(.collapsed) {
+app-home .faq-list .faq-button::-webkit-details-marker {
+  display: none;
+}
+
+app-home .faq-list .faq-button::after {
+  content: '';
+  width: 0.62rem;
+  height: 0.62rem;
+  border-right: 2px solid #334155;
+  border-bottom: 2px solid #334155;
+  transform: rotate(45deg);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+app-home .faq-list .faq-item[open] > .faq-button {
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.14) 0%, rgba(30, 64, 175, 0.08) 100%);
   color: var(--tech-indigo);
 }
 
-app-home #faqAccordion .faq-button::after {
-  transform: scale(0.9);
+app-home .faq-list .faq-item[open] > .faq-button::after {
+  transform: rotate(-135deg);
+  border-color: var(--tech-indigo);
 }
 
-app-home #faqAccordion .faq-button:focus {
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+app-home .faq-list .faq-button:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 3px rgba(99, 102, 241, 0.18);
 }
 
-app-home #faqAccordion .accordion-body {
+app-home .faq-list .faq-content {
   background: #fff;
   color: #334155;
-  padding: 1.05rem 1.25rem 1.2rem;
+  padding: 0 1.25rem 1.2rem;
   line-height: 1.7;
 }
 

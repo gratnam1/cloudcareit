@@ -79,6 +79,7 @@ export class LocationComponent implements OnInit, OnDestroy {
   private readonly LOCATION_SERVICE_SCHEMA_ID = 'location-service';
   private readonly FAQ_SCHEMA_ID = 'faq';
   private readonly BREADCRUMB_SCHEMA_ID = 'breadcrumb';
+  private readonly SPEAKABLE_SCHEMA_ID = 'speakable-location';
 
   private LOCATION_CONTENT: Record<string, LocationContent> = {
     toronto: {
@@ -491,6 +492,18 @@ export class LocationComponent implements OnInit, OnDestroy {
 
     this.setFaqSchema();
     this.setBreadcrumbSchema(content.canonicalPath);
+
+    // Speakable schema for voice assistants and AI engines
+    this.seo.setStructuredData(this.SPEAKABLE_SCHEMA_ID, {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: content.title,
+      url: `https://ctrlshiftit.ca${content.canonicalPath}`,
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['.hero-lead', '.faq-content']
+      }
+    });
   }
 
   private normalizeCityKey(city: string): string {
@@ -637,5 +650,6 @@ export class LocationComponent implements OnInit, OnDestroy {
     this.seo.removeStructuredData(this.LOCATION_SERVICE_SCHEMA_ID);
     this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
     this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
+    this.seo.removeStructuredData(this.SPEAKABLE_SCHEMA_ID);
   }
 }

@@ -79,6 +79,14 @@ export class AppComponent implements OnInit {
       publisher: {
         '@type': 'Organization',
         name: 'CtrlShift IT Services'
+      },
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://ctrlshiftit.ca/?q={search_term_string}'
+        },
+        'query-input': 'required name=search_term_string'
       }
     });
   }

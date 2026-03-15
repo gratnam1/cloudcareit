@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
       name: 'CtrlShift IT Services',
       url: 'https://ctrlshiftit.ca',
       logo: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
-      telephone: '+1-647-503-5779',
+      telephone: '+1-416-624-4841',
       sameAs: [
         'https://www.linkedin.com/company/ctrlshift-it-services',
         'https://www.facebook.com/ctrlshiftit',

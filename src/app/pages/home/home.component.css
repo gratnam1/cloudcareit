@@ -174,23 +174,21 @@
   .hero-dark-modern .hero-cta .btn { width: 100%; }
 }
 
-.grayscale-wrapper {
+.platform-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: clamp(1rem, 4vw, 2rem);
 }
-.grayscale-wrapper .col-4 {
+.platform-wrapper > div {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  filter: grayscale(1) opacity(0.6);
-  transition: filter var(--transition-smooth), transform var(--transition-smooth);
+  transition: transform var(--transition-smooth);
 }
-.grayscale-wrapper .col-4:hover {
-  filter: grayscale(0) opacity(1);
+.platform-wrapper > div:hover {
   transform: scale(1.08);
 }
 .grayscale-wrapper .display-6 { font-size: clamp(1.75rem, 4vw, 2.5rem); }

@@ -102,8 +102,7 @@ export class SeoService {
   }
 
   private resolveCanonicalUrl(canonicalPath?: string): string | null {
-    const origin = this.document?.location?.origin;
-    const baseUrl = origin && origin !== 'null' ? origin : SEO_BASE_URL;
+    const baseUrl = SEO_BASE_URL;
     if (!baseUrl) return null;
 
     const path = canonicalPath ?? this.router.url ?? '/';

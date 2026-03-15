@@ -418,7 +418,7 @@ export class LocationComponent implements OnInit, OnDestroy {
         ? ['https://ctrlshiftit.ca/wp-content/uploads/logo.png', content.mapImage]
         : 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
       url: `https://ctrlshiftit.ca${content.canonicalPath}`,
-      telephone: '6475035779',
+      telephone: '4166244841',
       priceRange: '$$',
       address: {
         '@type': 'PostalAddress',

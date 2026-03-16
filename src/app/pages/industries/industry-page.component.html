@@ -1,0 +1,109 @@
+<div *ngIf="page">
+  <!-- Hero -->
+  <section class="industry-hero py-5 text-white">
+    <div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <span class="badge bg-white bg-opacity-10 text-white border border-white border-opacity-25 rounded-pill px-3 mb-4 fw-semibold">
+            <i class="bi bi-shield-check me-1"></i>{{ page.badge }}
+          </span>
+          <h1 class="display-4 fw-bold mb-4">{{ page.headline }}</h1>
+          <p class="lead opacity-75 mb-5">{{ page.subheadline }}</p>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a routerLink="/free-security-assessment" class="btn btn-light rounded-pill px-5 fw-bold">
+              <i class="bi bi-shield-check me-2"></i>Book Free IT Assessment
+            </a>
+            <a routerLink="/" fragment="pricing" class="btn btn-outline-light rounded-pill px-5">View Pricing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold display-6">The IT Challenges Your Industry Faces</h2>
+        <p class="text-muted">Common problems we solve for {{ page.badge.replace(' Specialists', '') }} every day.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6" *ngFor="let pain of page.painPoints">
+          <div class="pain-card p-4 rounded-4 h-100">
+            <div class="pain-icon mb-3"><i class="bi {{ pain.icon }}"></i></div>
+            <h5 class="fw-bold mb-2">{{ pain.title }}</h5>
+            <p class="text-muted mb-0">{{ pain.detail }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance -->
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold display-6">Compliance &amp; Security Requirements We Cover</h2>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4" *ngFor="let comp of page.compliance">
+          <div class="compliance-card p-4 rounded-4 text-center h-100">
+            <div class="compliance-icon mx-auto mb-3"><i class="bi {{ comp.icon }}"></i></div>
+            <h6 class="fw-bold mb-2">{{ comp.title }}</h6>
+            <p class="text-muted small mb-0">{{ comp.detail }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="badge bg-primary-subtle text-primary rounded-pill px-3 mb-3 fw-semibold">Real Results</span>
+        <h2 class="fw-bold display-6">Case Study</h2>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-10">
+          <div class="case-study-detail p-4 p-md-5 rounded-4">
+            <div class="row g-4">
+              <div class="col-md-4">
+                <h6 class="case-study-label">Problem</h6>
+                <p class="text-muted">{{ page.caseStudy.problem }}</p>
+              </div>
+              <div class="col-md-4">
+                <h6 class="case-study-label">Solution</h6>
+                <p class="text-muted">{{ page.caseStudy.solution }}</p>
+              </div>
+              <div class="col-md-4">
+                <h6 class="case-study-label">Result</h6>
+                <p class="text-muted">{{ page.caseStudy.result }}</p>
+              </div>
+            </div>
+            <div class="row g-3 mt-2 case-metrics-row">
+              <div class="col text-center" *ngFor="let metric of page.caseStudy.metrics">
+                <div class="case-metric-big-value">{{ metric.value }}</div>
+                <div class="case-metric-big-label">{{ metric.label }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5 industry-cta text-white">
+    <div class="container py-4 text-center">
+      <h2 class="fw-bold display-6 mb-4">Ready to Solve Your IT Problems?</h2>
+      <p class="lead opacity-75 mb-5">Book a free IT security assessment — no cost, no commitment. A senior engineer will identify your top risks and recommend a plan.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a routerLink="/free-security-assessment" class="btn btn-light btn-lg rounded-pill px-5 fw-bold">
+          <i class="bi bi-shield-check me-2"></i>Book Free IT Assessment
+        </a>
+        <a routerLink="/" fragment="consultation" class="btn btn-outline-light btn-lg rounded-pill px-5">Talk to an Engineer</a>
+      </div>
+    </div>
+  </section>
+</div>

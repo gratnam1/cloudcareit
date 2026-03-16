@@ -426,6 +426,61 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
 
+  // About page
+  {
+    path: 'about',
+    loadComponent: () =>
+      import('./pages/about/about.component').then((m) => m.AboutComponent),
+    title: 'About CtrlShift IT Services | Founder Story | GTA Managed IT'
+  },
+
+  // Lead Magnet
+  {
+    path: 'free-security-assessment',
+    loadComponent: () =>
+      import('./pages/free-security-assessment/free-security-assessment.component').then(
+        (m) => m.FreeSecurityAssessmentComponent
+      ),
+    title: 'Free IT Security Assessment for GTA Businesses | CtrlShift IT'
+  },
+
+  // Industry Pages
+  {
+    path: 'it-support-law-firms-toronto',
+    loadComponent: () =>
+      import('./pages/industries/industry-page.component').then((m) => m.IndustryPageComponent),
+    title: 'IT Support for Law Firms Toronto | CtrlShift IT Services',
+    data: { industry: 'law-firms' }
+  },
+  {
+    path: 'it-support-accounting-firms-gta',
+    loadComponent: () =>
+      import('./pages/industries/industry-page.component').then((m) => m.IndustryPageComponent),
+    title: 'IT Support for Accounting Firms GTA | CtrlShift IT Services',
+    data: { industry: 'accounting-firms' }
+  },
+  {
+    path: 'it-support-medical-clinics-ontario',
+    loadComponent: () =>
+      import('./pages/industries/industry-page.component').then((m) => m.IndustryPageComponent),
+    title: 'IT Support for Medical Clinics Ontario | CtrlShift IT Services',
+    data: { industry: 'medical-clinics' }
+  },
+  {
+    path: 'it-support-engineering-firms-toronto',
+    loadComponent: () =>
+      import('./pages/industries/industry-page.component').then((m) => m.IndustryPageComponent),
+    title: 'IT Support for Engineering Firms Toronto | CtrlShift IT Services',
+    data: { industry: 'engineering-firms' }
+  },
+  {
+    path: 'it-support-small-businesses-gta',
+    loadComponent: () =>
+      import('./pages/industries/industry-page.component').then((m) => m.IndustryPageComponent),
+    title: 'IT Support for Small Businesses GTA | CtrlShift IT Services',
+    data: { industry: 'small-businesses' }
+  },
+
   // Catch-all
   { path: '**', redirectTo: '' }
 ];

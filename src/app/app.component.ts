@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   private seo = inject(SeoService);
   menuOpen = false;
   locationsOpen = false;
+  industriesOpen = false;
 
   // --- AI Chat State (Kept Global) ---
   chatVisible = false;
@@ -99,17 +100,26 @@ export class AppComponent implements OnInit {
     this.menuOpen = !this.menuOpen;
     if (!this.menuOpen) {
       this.locationsOpen = false;
+      this.industriesOpen = false;
     }
   }
 
   toggleLocations(event: Event): void {
     event.preventDefault();
     this.locationsOpen = !this.locationsOpen;
+    this.industriesOpen = false;
+  }
+
+  toggleIndustries(event: Event): void {
+    event.preventDefault();
+    this.industriesOpen = !this.industriesOpen;
+    this.locationsOpen = false;
   }
 
   closeNavMenus(): void {
     this.menuOpen = false;
     this.locationsOpen = false;
+    this.industriesOpen = false;
   }
 
   @HostListener('document:click', ['$event'])

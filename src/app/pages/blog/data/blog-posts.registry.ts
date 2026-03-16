@@ -80,5 +80,40 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     loadComponent: () =>
       import('../posts/post-quantum-small-business/post-quantum-small-business.component')
         .then((m) => m.PostQuantumSmallBusinessComponent)
+  },
+  {
+    slug: 'managed-it-cost-toronto',
+    title: 'How Much Does Managed IT Cost in Toronto? (2026 Guide)',
+    excerpt: 'A clear, honest breakdown of managed IT pricing in Toronto and the GTA — what you should pay, what\'s included, and what red flags to watch for.',
+    date: '2026-03-10',
+    tags: ['Managed IT', 'Pricing', 'Toronto']
+  },
+  {
+    slug: 'cyber-insurance-requirements-canada',
+    title: 'Cyber Insurance Requirements for Canadian Businesses in 2026',
+    excerpt: 'What your insurer now requires before issuing a policy: MFA, endpoint detection, backup verification, and more — explained in plain English.',
+    date: '2026-03-11',
+    tags: ['Cyber Insurance', 'Security', 'Canada']
+  },
+  {
+    slug: 'it-support-law-firms-toronto-guide',
+    title: 'Best IT Support for Law Firms in Toronto: What to Look For',
+    excerpt: 'How to evaluate managed IT providers for a law firm — Law Society compliance, confidentiality controls, and why cybersecurity-first matters.',
+    date: '2026-03-12',
+    tags: ['Law Firms', 'Managed IT', 'Toronto']
+  },
+  {
+    slug: 'ransomware-protection-toronto',
+    title: 'How to Protect Your GTA Business from Ransomware in 2026',
+    excerpt: 'The top ransomware entry vectors targeting Ontario SMBs and the exact controls that stop them — endpoint detection, zero-trust access, and tested backups.',
+    date: '2026-03-13',
+    tags: ['Ransomware', 'Security', 'GTA']
+  },
+  {
+    slug: 'managed-it-vs-break-fix-gta',
+    title: 'Managed IT vs Break-Fix IT: Which Is Right for Your GTA Business?',
+    excerpt: 'A clear comparison of proactive managed IT versus reactive break-fix support — costs, risks, response times, and which model makes sense for 5–50 person offices.',
+    date: '2026-03-14',
+    tags: ['Managed IT', 'Break-Fix', 'GTA']
   }
 ];

@@ -1,0 +1,179 @@
+<section class="assessment-hero py-5 text-white">
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <span class="badge bg-danger bg-opacity-20 text-white border border-danger border-opacity-50 rounded-pill px-3 mb-4 fw-semibold">
+          <i class="bi bi-shield-exclamation me-1"></i>Free · No Commitment · GTA Businesses Only
+        </span>
+        <h1 class="display-4 fw-bold mb-4">Free IT Security Assessment for Your GTA Business</h1>
+        <p class="lead opacity-75 mb-5">Get a full picture of your cybersecurity posture — at no cost. We'll identify your biggest risks, check your compliance readiness, and give you a prioritized action list.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mb-2">
+          <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill"><i class="bi bi-check2 me-1 text-info"></i>Network Vulnerability Scan</span>
+          <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill"><i class="bi bi-check2 me-1 text-info"></i>Microsoft 365 Security Review</span>
+          <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill"><i class="bi bi-check2 me-1 text-info"></i>Ransomware Risk Analysis</span>
+          <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill"><i class="bi bi-check2 me-1 text-info"></i>Backup Verification</span>
+          <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill"><i class="bi bi-check2 me-1 text-info"></i>Cyber Insurance Readiness</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white">
+  <div class="container py-4">
+    <div class="row g-5 align-items-start">
+
+      <!-- Left: What's Included -->
+      <div class="col-lg-5">
+        <h2 class="fw-bold mb-4">What Your Free Assessment Includes</h2>
+
+        <div class="assessment-item d-flex gap-3 mb-4">
+          <div class="assessment-icon"><i class="bi bi-wifi text-primary"></i></div>
+          <div>
+            <h6 class="fw-bold mb-1">Network Vulnerability Scan</h6>
+            <p class="text-muted small mb-0">We identify exposed ports, misconfigured services, and unpatched network devices that attackers actively exploit.</p>
+          </div>
+        </div>
+
+        <div class="assessment-item d-flex gap-3 mb-4">
+          <div class="assessment-icon"><i class="bi bi-microsoft text-primary"></i></div>
+          <div>
+            <h6 class="fw-bold mb-1">Microsoft 365 Security Review</h6>
+            <p class="text-muted small mb-0">Review of MFA status, conditional access policies, email filtering, admin privileges, and SharePoint permissions across your tenant.</p>
+          </div>
+        </div>
+
+        <div class="assessment-item d-flex gap-3 mb-4">
+          <div class="assessment-icon"><i class="bi bi-bug-fill text-primary"></i></div>
+          <div>
+            <h6 class="fw-bold mb-1">Ransomware Risk Analysis</h6>
+            <p class="text-muted small mb-0">We score your organization against the top ransomware entry vectors — phishing, RDP exposure, unpatched endpoints, and weak credentials.</p>
+          </div>
+        </div>
+
+        <div class="assessment-item d-flex gap-3 mb-4">
+          <div class="assessment-icon"><i class="bi bi-cloud-check-fill text-primary"></i></div>
+          <div>
+            <h6 class="fw-bold mb-1">Backup Verification</h6>
+            <p class="text-muted small mb-0">We check your backup strategy — frequency, encryption, offsite storage, and whether your backups have actually been tested for restore.</p>
+          </div>
+        </div>
+
+        <div class="assessment-item d-flex gap-3 mb-4">
+          <div class="assessment-icon"><i class="bi bi-file-earmark-check-fill text-primary"></i></div>
+          <div>
+            <h6 class="fw-bold mb-1">Cyber Insurance Readiness</h6>
+            <p class="text-muted small mb-0">We map your current controls against common cyber insurance requirements — MFA, EDR, backup, access controls — so you know your coverage risk.</p>
+          </div>
+        </div>
+
+        <div class="p-4 bg-light rounded-4 mt-4">
+          <h6 class="fw-bold mb-2"><i class="bi bi-people-fill text-primary me-2"></i>Who This Is For</h6>
+          <ul class="text-muted small mb-0">
+            <li>Professional offices with 5–50 employees</li>
+            <li>Law firms, accounting firms, medical clinics, engineering companies</li>
+            <li>Businesses reviewing their cyber insurance coverage</li>
+            <li>Companies switching IT providers or reviewing their IT posture</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="col-lg-7">
+        <div class="assessment-form-card p-4 p-md-5 rounded-4 shadow">
+          <div *ngIf="!submitted">
+            <h3 class="fw-bold mb-2">Book Your Free Assessment</h3>
+            <p class="text-muted mb-4">Fill out the form below and a senior engineer will reach out within one business day to schedule your assessment.</p>
+
+            <form (submit)="onSubmit($event)" class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Full Name *</label>
+                <input type="text" name="name" class="form-control bg-light border-0" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Company Name *</label>
+                <input type="text" name="company" class="form-control bg-light border-0" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Business Email *</label>
+                <input type="email" name="email" class="form-control bg-light border-0" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Phone Number</label>
+                <input type="tel" name="phone" class="form-control bg-light border-0">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Number of Employees</label>
+                <select name="office_size" class="form-select bg-light border-0">
+                  <option>1–5</option>
+                  <option>5–20</option>
+                  <option>20–50</option>
+                  <option>50+</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Industry</label>
+                <select name="industry" class="form-select bg-light border-0">
+                  <option>Professional Services</option>
+                  <option>Law Firm</option>
+                  <option>Accounting / Finance</option>
+                  <option>Medical / Healthcare</option>
+                  <option>Engineering</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-bold">Current IT Situation</label>
+                <textarea name="message" class="form-control bg-light border-0" rows="3" placeholder="Describe your current IT setup, biggest concerns, or what prompted this request..."></textarea>
+              </div>
+              <div class="col-12 mt-3">
+                <button type="submit" [disabled]="isLoading" class="btn btn-primary w-100 py-3 rounded-pill fw-bold fs-5">
+                  <i class="bi bi-shield-check me-2"></i>{{ isLoading ? 'Sending...' : 'Book My Free IT Security Assessment' }}
+                </button>
+                <p class="small text-muted text-center mt-3 mb-0"><i class="bi bi-lock me-1"></i>No commitment. No sales pressure. Results delivered in plain English.</p>
+              </div>
+            </form>
+          </div>
+
+          <div *ngIf="submitted" class="text-center py-5">
+            <i class="bi bi-check-circle-fill text-primary" style="font-size: 4rem;"></i>
+            <h3 class="fw-bold mt-4 mb-3">You're All Set!</h3>
+            <p class="text-muted">A senior engineer will contact you within one business day to schedule your free IT security assessment.</p>
+            <a routerLink="/" class="btn btn-outline-primary rounded-pill px-4 mt-3">Back to Home</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">What Happens After Your Assessment</h2>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-3 text-center">
+        <div class="step-circle mx-auto mb-3">1</div>
+        <h6 class="fw-bold mb-2">Book</h6>
+        <p class="text-muted small">Submit the form above. We'll confirm within 1 business day.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="step-circle mx-auto mb-3">2</div>
+        <h6 class="fw-bold mb-2">Assess</h6>
+        <p class="text-muted small">A senior engineer conducts a remote review of your IT environment.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="step-circle mx-auto mb-3">3</div>
+        <h6 class="fw-bold mb-2">Report</h6>
+        <p class="text-muted small">You receive a clear, prioritized report of risks and recommended fixes.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="step-circle mx-auto mb-3">4</div>
+        <h6 class="fw-bold mb-2">Decide</h6>
+        <p class="text-muted small">No pressure. You choose what to do next — we're here to help either way.</p>
+      </div>
+    </div>
+  </div>
+</section>

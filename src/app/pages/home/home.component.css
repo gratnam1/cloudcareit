@@ -536,3 +536,162 @@
   0%, 100% { transform: translate3d(calc(var(--pointer-x) * 0.28), calc(var(--pointer-y) * 0.28), 0); }
   50% { transform: translate3d(calc(var(--pointer-x) * 0.28), calc(var(--pointer-y) * 0.28 - 10px), 0) scale(0.98); }
 }
+
+/* ===== Hero Bullets ===== */
+.hero-bullets { list-style: none; padding: 0; }
+.hero-bullet {
+  padding: 0.5rem 0;
+  font-size: 1.05rem;
+  color: rgba(241, 245, 249, 0.88);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero-bullet:last-child { border-bottom: none; }
+
+/* ===== Why Switch Section ===== */
+.why-switch-section {
+  background: linear-gradient(135deg, #f8faff 0%, #fff 60%, #f0f4ff 100%);
+}
+.why-card {
+  background: #fff;
+  border: 1px solid rgba(99,102,241,0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
+}
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(99,102,241,0.12);
+  border-color: rgba(99,102,241,0.25);
+}
+.why-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(59,130,246,0.08));
+  display: flex; align-items: center; justify-content: center;
+}
+.why-icon i {
+  font-size: 1.5rem;
+  color: #6366f1;
+}
+
+/* ===== Cybersecurity Authority Section ===== */
+.cyber-authority-section {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #f1f5f9;
+}
+.cyber-authority-section h2,
+.cyber-authority-section h5,
+.cyber-authority-section p.text-muted {
+  color: rgba(241,245,249,0.7) !important;
+}
+.cyber-authority-section h2 { color: #f1f5f9 !important; }
+.cyber-stack-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.25s ease, background 0.2s ease;
+}
+.cyber-stack-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.09);
+}
+.cyber-stack-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(59,130,246,0.2));
+  display: flex; align-items: center; justify-content: center;
+}
+.cyber-stack-icon i { font-size: 1.3rem; color: #93c5fd; }
+.cyber-authority-section .badge { font-size: 0.72rem; }
+
+/* ===== Case Studies ===== */
+.case-study-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.case-study-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(99,102,241,0.1);
+}
+.case-section { border-left: 3px solid rgba(99,102,241,0.2); padding-left: 0.75rem; }
+.case-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6366f1;
+  margin-bottom: 0.35rem;
+}
+.case-metrics {
+  background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+.case-metric-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e3a8a;
+}
+.case-metric-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* ===== Pricing Comparison Table ===== */
+.pricing-table-wrap {
+  border: 1px solid rgba(99,102,241,0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(99,102,241,0.08);
+}
+.pricing-compare-table {
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.pricing-compare-table thead tr {
+  background: #f8faff;
+}
+.pricing-compare-table th { border: none; border-bottom: 2px solid rgba(99,102,241,0.12); }
+.pricing-compare-table td { border: none; border-bottom: 1px solid rgba(0,0,0,0.05); padding: 0.85rem 1rem; }
+.pricing-compare-table tbody tr:last-child td { border-bottom: none; background: #f8faff; }
+.pricing-compare-table tbody tr:hover td:not(.pricing-col-popular) { background: rgba(99,102,241,0.02); }
+.pricing-col-popular {
+  background: rgba(99,102,241,0.05);
+  border-left: 2px solid rgba(99,102,241,0.2) !important;
+  border-right: 2px solid rgba(99,102,241,0.2) !important;
+}
+.popular-badge {
+  display: inline-block;
+  background: linear-gradient(90deg, #6366f1, #3b82f6);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+}
+
+/* ===== Floating CTA / Exit Popup ===== */
+.floating-cta-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1050;
+  box-shadow: 0 8px 24px rgba(99,102,241,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.floating-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(99,102,241,0.45);
+}
+
+@media (max-width: 575.98px) {
+  .pricing-table-wrap { border-radius: 10px; }
+  .pricing-compare-table th, .pricing-compare-table td { padding: 0.6rem 0.5rem; font-size: 0.8rem; }
+  .case-study-card { padding: 1.25rem !important; }
+  .why-card { padding: 1.25rem !important; }
+}

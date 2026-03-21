@@ -1,0 +1,185 @@
+/* ===== SECTION BACKGROUNDS ===== */
+.ia-section     { background: #050810; }
+.ia-section-alt { background: #080d1a; }
+
+/* ===== HERO ===== */
+.ia-hero {
+  position: relative;
+  overflow: hidden;
+  background: #030712;
+  min-height: 44vh;
+  display: flex;
+  align-items: center;
+}
+
+.ia-hero-aurora {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 100% 80% at 50% -10%, rgba(99, 102, 241, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 15% 110%, rgba(139, 92, 246, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+  animation: ia-aurora 10s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes ia-aurora {
+  0%   { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1.05); }
+}
+.ia-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.ia-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 0.3rem 0.85rem;
+  border-radius: 99px;
+}
+
+.ia-lead {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ia-section-title {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.ia-desc { color: rgba(255,255,255,0.6); }
+
+/* ===== CHECK PILLS ===== */
+.ia-check-pill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.82);
+  background: rgba(99,102,241,0.1);
+  border: 1px solid rgba(99,102,241,0.22);
+  padding: 0.35rem 0.9rem;
+  border-radius: 99px;
+}
+
+/* ===== ASSESSMENT ITEMS ===== */
+.ia-item { align-items: flex-start; }
+
+.ia-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  border-radius: 10px;
+  background: rgba(99,102,241,0.13);
+  border: 1px solid rgba(99,102,241,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #a5b4fc;
+}
+
+/* ===== WHO PANEL ===== */
+.ia-who-panel {
+  background: rgba(99,102,241,0.07);
+  border: 1px solid rgba(99,102,241,0.18);
+}
+.ia-who-panel li { color: rgba(255,255,255,0.65); }
+
+/* ===== FORM CARD ===== */
+.ia-form-card {
+  background: rgba(15,18,30,0.95);
+  border: 1px solid rgba(99,102,241,0.2);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+}
+
+.ia-label { color: rgba(255,255,255,0.75); }
+
+.ia-input {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(99,102,241,0.25) !important;
+  color: #fff !important;
+  transition: border-color 0.2s;
+}
+.ia-input::placeholder { color: rgba(255,255,255,0.3) !important; }
+.ia-input:focus {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(99,102,241,0.6) !important;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.12) !important;
+  outline: none;
+}
+.ia-input option { background: #12152a; color: #fff; }
+
+/* ===== SUBMIT BUTTON ===== */
+.ia-submit-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+  color: #fff;
+  border: none;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.ia-submit-btn:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  color: #fff;
+}
+.ia-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ===== OUTLINE BUTTON ===== */
+.ia-btn-outline {
+  color: #a5b4fc;
+  border: 1px solid rgba(99,102,241,0.45);
+  background: transparent;
+  transition: background 0.2s;
+}
+.ia-btn-outline:hover {
+  background: rgba(99,102,241,0.1);
+  color: #a5b4fc;
+}
+
+/* ===== ALERT ===== */
+.ia-alert {
+  background: rgba(99,102,241,0.08);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 10px;
+  color: rgba(255,255,255,0.7);
+}
+.ia-alert-danger {
+  background: rgba(239,68,68,0.08);
+  border-color: rgba(239,68,68,0.25);
+  color: #fca5a5;
+}
+
+/* ===== STEP CIRCLES ===== */
+.ia-step-circle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(99,102,241,0.15);
+  border: 1px solid rgba(99,102,241,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #a5b4fc;
+}

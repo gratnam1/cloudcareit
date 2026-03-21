@@ -1,5 +1,6 @@
 <!-- ========== HERO ========== -->
 <header class="hero-dark-modern py-5 position-relative overflow-hidden">
+  <div class="hero-aurora" aria-hidden="true"></div>
   <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
   <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
   <div class="hero-noise" aria-hidden="true"></div>
@@ -15,6 +16,22 @@
           </svg>
           <h2 class="text-white fw-light mb-0">CTRL<b>SHIFT</b></h2>
           <p class="text-primary-light small tracking-widest uppercase mt-2">IT SERVICES</p>
+          <div class="glass-stats mt-4">
+            <div class="glass-stat">
+              <span class="glass-stat-val">15+</span>
+              <span class="glass-stat-lbl">Yrs Exp</span>
+            </div>
+            <div class="glass-stat-divider"></div>
+            <div class="glass-stat">
+              <span class="glass-stat-val">&lt;15m</span>
+              <span class="glass-stat-lbl">Response</span>
+            </div>
+            <div class="glass-stat-divider"></div>
+            <div class="glass-stat">
+              <span class="glass-stat-val">24/7</span>
+              <span class="glass-stat-lbl">Monitor</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -32,16 +49,16 @@
         </p>
 
         <ul class="list-unstyled mb-5 hero-bullets">
-          <li class="hero-bullet"><i class="bi bi-check-circle-fill text-info me-2"></i>Cybersecurity-first approach — Huntress, Fortinet &amp; Tailscale</li>
-          <li class="hero-bullet"><i class="bi bi-check-circle-fill text-info me-2"></i>24/7 monitoring and rapid response (&lt;15 min SLA)</li>
-          <li class="hero-bullet"><i class="bi bi-check-circle-fill text-info me-2"></i>30-day risk-free guarantee — cancel with no penalty</li>
+          <li class="hero-bullet"><i class="bi bi-check-circle-fill text-indigo me-2"></i>Cybersecurity-first approach — Huntress, Fortinet &amp; Tailscale</li>
+          <li class="hero-bullet"><i class="bi bi-check-circle-fill text-indigo me-2"></i>24/7 monitoring and rapid response (&lt;15 min SLA)</li>
+          <li class="hero-bullet"><i class="bi bi-check-circle-fill text-indigo me-2"></i>30-day risk-free guarantee — cancel with no penalty</li>
         </ul>
 
         <div class="d-flex flex-column flex-sm-row gap-3 flex-wrap hero-cta">
-          <a routerLink="/free-security-assessment" class="btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold shadow hover-scale magnetic-btn">
-            <i class="bi bi-shield-check me-2"></i>Book Free IT Security Assessment
+          <a routerLink="/it-assessment" class="btn btn-hero-primary btn-lg px-5 py-3 rounded-pill fw-bold magnetic-btn">
+            <i class="bi bi-clipboard2-check me-2"></i>Book Free IT Assessment
           </a>
-          <a routerLink="/" fragment="pricing" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill magnetic-btn">Start 30-Day Trial</a>
+          <a routerLink="/" fragment="pricing" class="btn btn-hero-ghost btn-lg px-5 py-3 rounded-pill magnetic-btn">View Plans</a>
         </div>
       </div>
 
@@ -49,64 +66,182 @@
   </div>
 </header>
 
-<!-- ========== TECHNOLOGY PARTNERS ========== -->
-<section class="py-4 py-md-5 bg-white border-bottom reveal-section tech-grid-bg" aria-label="Technology Partners">
+<!-- ========== MARQUEE LOGOS ========== -->
+<div class="marquee-section overflow-hidden" aria-label="Technology Partners">
+  <p class="marquee-label text-center">Trusted Partner Stack</p>
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <div class="marquee-item"><i class="bi bi-microsoft marquee-icon" style="color:#00a4ef"></i><span>Microsoft</span></div>
+      <div class="marquee-item"><i class="bi bi-google marquee-icon" style="color:#4285f4"></i><span>Google</span></div>
+      <div class="marquee-item"><i class="bi bi-amazon marquee-icon" style="color:#ff9900"></i><span>AWS</span></div>
+      <div class="marquee-item"><i class="bi bi-router marquee-icon" style="color:#ee3124"></i><span>Fortinet</span></div>
+      <div class="marquee-item"><i class="bi bi-shield-check marquee-icon" style="color:#6366f1"></i><span>Huntress</span></div>
+      <div class="marquee-item"><i class="bi bi-lock-fill marquee-icon" style="color:#8b5cf6"></i><span>Tailscale</span></div>
+      <div class="marquee-item"><i class="bi bi-windows marquee-icon" style="color:#00a4ef"></i><span>Intune</span></div>
+      <div class="marquee-item"><i class="bi bi-cloud-fill marquee-icon" style="color:#6366f1"></i><span>Azure AD</span></div>
+      <div class="marquee-item" aria-hidden="true"><i class="bi bi-microsoft marquee-icon" style="color:#00a4ef"></i><span>Microsoft</span></div>
+      <div class="marquee-item" aria-hidden="true"><i class="bi bi-google marquee-icon" style="color:#4285f4"></i><span>Google</span></div>
+      <div class="marquee-item" aria-hidden="true"><i class="bi bi-amazon marquee-icon" style="color:#ff9900"></i><span>AWS</span></div>
+      <div class="marquee-item" aria-hidden="true"><i class="bi bi-router marquee-icon" style="color:#ee3124"></i><span>Fortinet</span></div>
+      <div class="marquee-item" aria-hidden="true"><i class="bi bi-shield-check marquee-icon" style="color:#6366f1"></i><span>Huntress</span></div>
+      <div class="marquee-item" aria-hidden="true"><i class="bi bi-lock-fill marquee-icon" style="color:#8b5cf6"></i><span>Tailscale</span></div>
+      <div class="marquee-item" aria-hidden="true"><i class="bi bi-windows marquee-icon" style="color:#00a4ef"></i><span>Intune</span></div>
+      <div class="marquee-item" aria-hidden="true"><i class="bi bi-cloud-fill marquee-icon" style="color:#6366f1"></i><span>Azure AD</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== STATS STRIP ========== -->
+<section class="stats-strip reveal-section" aria-label="Key Metrics">
   <div class="container">
-    <p class="text-center text-muted small fw-bold text-uppercase tracking-wide mb-4">
-      Technology Partners &amp; Security Stack
-    </p>
-    <div class="row justify-content-center align-items-center text-center g-4 platform-wrapper logo-reveal">
-      <div class="col-4 col-md-4 col-lg-2"><i class="bi bi-microsoft display-6 service-icon-microsoft"></i><div class="small fw-bold mt-2 text-muted">Microsoft</div></div>
-      <div class="col-4 col-md-4 col-lg-2"><i class="bi bi-google display-6 service-icon-google"></i><div class="small fw-bold mt-2 text-muted">Google</div></div>
-      <div class="col-4 col-md-4 col-lg-2"><i class="bi bi-amazon display-6 service-icon-aws"></i><div class="small fw-bold mt-2 text-muted">AWS</div></div>
-      <div class="col-4 col-md-4 col-lg-2"><i class="bi bi-router display-6 service-icon-networking"></i><div class="small fw-bold mt-2 text-muted">Fortinet</div></div>
-      <div class="col-4 col-md-4 col-lg-2"><i class="bi bi-shield-check display-6 service-icon-security"></i><div class="small fw-bold mt-2 text-muted">Huntress</div></div>
-      <div class="col-4 col-md-4 col-lg-2"><i class="bi bi-lock-fill display-6" style="color:#6366f1"></i><div class="small fw-bold mt-2 text-muted">Tailscale</div></div>
+    <div class="stats-grid">
+      <div class="stat-item consultation-reveal">
+        <span class="stat-value metric-counter" data-target="15">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Years in GTA IT</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item consultation-reveal">
+        <span class="stat-value">&lt;15</span><span class="stat-suffix">min</span>
+        <span class="stat-label">Guaranteed Response</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item consultation-reveal">
+        <span class="stat-value metric-counter" data-target="100">0</span><span class="stat-suffix">%</span>
+        <span class="stat-label">Uptime SLA Target</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item consultation-reveal">
+        <span class="stat-value">30</span><span class="stat-suffix">day</span>
+        <span class="stat-label">Risk-Free Trial</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES — BENTO GRID ========== -->
+<section id="services" class="section-dark py-5 reveal-section" aria-label="Core Services">
+  <div class="container py-4 py-md-5">
+    <div class="section-header mb-5 section-head-reveal">
+      <span class="section-kicker">What We Do</span>
+      <h2 class="section-title">Managed IT Services for <span class="text-gradient">GTA Businesses</span></h2>
+      <p class="section-subtitle">Complete IT management from cybersecurity to cloud infrastructure.</p>
+    </div>
+
+    <div class="bento-grid">
+      <div class="bento-card bento-featured reveal-card" id="card-managed-it">
+        <div class="bento-glow bento-glow-indigo"></div>
+        <div class="bento-content">
+          <div class="bento-icon-wrap bento-icon-indigo"><i class="bi bi-hdd-network-fill"></i></div>
+          <h3 class="bento-title">Managed IT Support</h3>
+          <p class="bento-desc">Full-service IT department outsourcing. Helpdesk, endpoint management, patch deployment, and 24/7 proactive monitoring — all under one flat monthly rate.</p>
+          <div class="bento-tags">
+            <span class="bento-tag">Helpdesk</span>
+            <span class="bento-tag">Patch Management</span>
+            <span class="bento-tag">24/7 Monitoring</span>
+          </div>
+          <a class="bento-link" routerLink="/managed-it-services">View Plans <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+        <div class="bento-art"><i class="bi bi-hdd-network bento-art-icon"></i></div>
+      </div>
+
+      <div class="bento-card bento-md reveal-card" id="card-security">
+        <div class="bento-glow bento-glow-red"></div>
+        <div class="bento-icon-wrap bento-icon-red"><i class="bi bi-shield-lock"></i></div>
+        <h3 class="bento-title-sm">Managed Security &amp; Firewall</h3>
+        <p class="bento-desc-sm">Huntress EDR, Fortinet NGFW, Tailscale zero-trust — protecting your team 24/7.</p>
+        <a class="bento-link-sm" routerLink="/security-firewall">Learn more <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+
+      <div class="bento-card bento-sm reveal-card" id="card-microsoft">
+        <div class="bento-glow bento-glow-purple"></div>
+        <div class="bento-icon-wrap bento-icon-purple"><i class="bi bi-microsoft"></i></div>
+        <h3 class="bento-title-sm">Microsoft 365</h3>
+        <p class="bento-desc-sm">User lifecycle, SharePoint governance, email hardening, Intune device policy.</p>
+        <a class="bento-link-sm" routerLink="/microsoft-365">Details <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+
+      <div class="bento-card bento-sm reveal-card" id="card-aws">
+        <div class="bento-glow bento-glow-amber"></div>
+        <div class="bento-icon-wrap bento-icon-amber"><i class="bi bi-cloud-fill"></i></div>
+        <h3 class="bento-title-sm">Cloud Infrastructure</h3>
+        <p class="bento-desc-sm">Canadian-region AWS hosting with compliance-ready controls for regulated industries.</p>
+        <a class="bento-link-sm" routerLink="/aws-infrastructure">Details <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+
+      <div class="bento-card bento-sm reveal-card" id="card-networking">
+        <div class="bento-glow bento-glow-cyan"></div>
+        <div class="bento-icon-wrap bento-icon-cyan"><i class="bi bi-diagram-3-fill"></i></div>
+        <h3 class="bento-title-sm">Network Management</h3>
+        <p class="bento-desc-sm">Structured cabling, mesh Wi-Fi, VLAN segmentation, and ongoing monitoring.</p>
+        <a class="bento-link-sm" routerLink="/office-networking">Details <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+
+      <div class="bento-card bento-sm reveal-card" id="card-crisis">
+        <div class="bento-glow bento-glow-orange"></div>
+        <div class="bento-icon-wrap bento-icon-orange"><i class="bi bi-life-preserver"></i></div>
+        <h3 class="bento-title-sm">Disaster Recovery</h3>
+        <p class="bento-desc-sm">Ransomware or hardware failure? Immediate response with zero data loss goal.</p>
+        <a class="bento-link-sm" routerLink="/crisis-recovery">Details <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a class="btn btn-outline-indigo btn-lg rounded-pill px-5 fw-bold magnetic-btn" routerLink="/managed-it-services">
+        Explore All Plans <i class="bi bi-arrow-right ms-2"></i>
+      </a>
+    </div>
+    <div class="industries-strip mt-4 text-center">
+      <span class="industries-label">Industries we serve:</span>
+      <a class="industry-pill" routerLink="/it-support-law-firms-toronto">Law Firms</a>
+      <a class="industry-pill" routerLink="/it-support-accounting-firms-gta">Accounting</a>
+      <a class="industry-pill" routerLink="/it-support-medical-clinics-ontario">Medical Clinics</a>
+      <a class="industry-pill" routerLink="/it-support-engineering-firms-toronto">Engineering</a>
+      <a class="industry-pill" routerLink="/it-support-small-businesses-gta">SMBs</a>
     </div>
   </div>
 </section>
 
 <!-- ========== WHY SWITCH ========== -->
-<section class="py-4 py-md-5 why-switch-section reveal-section" aria-label="Why Businesses Switch to CtrlShift IT">
+<section class="section-dark-alt py-5 why-switch-section reveal-section" aria-label="Why Businesses Switch to CtrlShift IT">
   <div class="container py-4 py-md-5">
-    <div class="text-center mb-5 section-head-reveal">
-      <span class="badge bg-primary-subtle text-primary rounded-pill px-3 mb-3 fw-semibold">Why GTA Businesses Switch to Us</span>
-      <h2 class="fw-bold display-6">What Makes CtrlShift IT Different</h2>
-      <p class="text-muted lead">We're not a generic help desk. We're your dedicated IT department.</p>
+    <div class="section-header mb-5 section-head-reveal">
+      <span class="section-kicker">Why We're Different</span>
+      <h2 class="section-title">What Makes CtrlShift IT <span class="text-gradient">Stand Out</span></h2>
+      <p class="section-subtitle">We're not a generic help desk. We're your dedicated IT department.</p>
     </div>
     <div class="row g-4 justify-content-center">
       <div class="col-md-6 col-lg-4 reveal-card">
         <div class="why-card h-100 p-4 rounded-4">
           <div class="why-icon mb-3"><i class="bi bi-lightning-charge-fill"></i></div>
-          <h5 class="fw-bold mb-2">Under 15-Minute Response</h5>
+          <h5 class="fw-bold mb-2 text-white">Under 15-Minute Response</h5>
           <p class="text-muted mb-0">Production-down issues get an engineer on the phone within 15 minutes — not a ticket queue.</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-4 reveal-card">
         <div class="why-card h-100 p-4 rounded-4">
           <div class="why-icon mb-3"><i class="bi bi-eye-fill"></i></div>
-          <h5 class="fw-bold mb-2">Proactive, Not Reactive</h5>
+          <h5 class="fw-bold mb-2 text-white">Proactive, Not Reactive</h5>
           <p class="text-muted mb-0">We catch and fix issues before they become outages. 24/7 monitoring catches problems while your staff sleeps.</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-4 reveal-card">
         <div class="why-card h-100 p-4 rounded-4">
           <div class="why-icon mb-3"><i class="bi bi-shield-lock-fill"></i></div>
-          <h5 class="fw-bold mb-2">Cybersecurity-First</h5>
+          <h5 class="fw-bold mb-2 text-white">Cybersecurity-First</h5>
           <p class="text-muted mb-0">Every client gets enterprise-grade endpoint detection, zero-trust access, and ransomware protection built in.</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-4 reveal-card">
         <div class="why-card h-100 p-4 rounded-4">
           <div class="why-icon mb-3"><i class="bi bi-receipt-cutoff"></i></div>
-          <h5 class="fw-bold mb-2">Transparent, Flat-Rate Pricing</h5>
+          <h5 class="fw-bold mb-2 text-white">Transparent, Flat-Rate Pricing</h5>
           <p class="text-muted mb-0">One monthly price. No hidden fees, no surprise invoices. Hardware and projects are scoped and approved in advance.</p>
         </div>
       </div>
       <div class="col-md-6 col-lg-4 reveal-card">
         <div class="why-card h-100 p-4 rounded-4">
           <div class="why-icon mb-3"><i class="bi bi-patch-check-fill"></i></div>
-          <h5 class="fw-bold mb-2">30-Day Risk-Free Guarantee</h5>
+          <h5 class="fw-bold mb-2 text-white">30-Day Risk-Free Guarantee</h5>
           <p class="text-muted mb-0">Start your Growth or Business plan. If we don't deliver clear improvements in 30 days, cancel with zero penalty.</p>
         </div>
       </div>
@@ -114,159 +249,50 @@
   </div>
 </section>
 
-<!-- ========== SERVICES ========== -->
-<section id="services" class="py-4 py-md-5 bg-white reveal-section" aria-label="Core Services">
-  <div class="container py-4 py-md-5">
-    <div class="text-center mb-5 section-head-reveal">
-      <h2 class="fw-bold display-6">Managed IT Services for GTA Businesses</h2>
-      <p class="text-muted lead">Complete IT management from cybersecurity to cloud infrastructure.</p>
-    </div>
-
-    <div class="row g-4">
-      <div class="col-12 col-md-6 col-lg-4 reveal-card" id="card-managed-it">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-scale transition-all border-top border-primary border-4">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-hdd-network-fill service-icon service-icon-networking"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Managed IT Support</h4>
-            <p class="text-muted mb-4">Full-service IT department outsourcing. Helpdesk, endpoint management, patch deployment, and 24/7 proactive monitoring.</p>
-            <a class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" routerLink="/managed-it-services">View Plans</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4 reveal-card" id="card-security">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-scale transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-shield-lock service-icon service-icon-security"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Managed Security &amp; Firewall</h4>
-            <p class="text-muted mb-4">Huntress AI-assisted endpoint detection, Fortinet network security, and Tailscale zero-trust access — protecting your team 24/7.</p>
-            <a class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" routerLink="/security-firewall">View Details</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4 reveal-card" id="card-microsoft">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-scale transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-microsoft service-icon service-icon-microsoft"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Microsoft 365</h4>
-            <p class="text-muted mb-4">User lifecycle management, SharePoint governance, email security hardening, and device policy enforcement.</p>
-            <a class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" routerLink="/microsoft-365">View Details</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4 reveal-card" id="card-aws">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-scale transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-amazon service-icon service-icon-aws"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Cloud Infrastructure (AWS)</h4>
-            <p class="text-muted mb-4">Encrypted Canadian-region AWS hosting for legal, medical, and financial databases with compliance-ready controls.</p>
-            <a class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" routerLink="/aws-infrastructure">View Details</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4 reveal-card" id="card-cisco">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-scale transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-tools service-icon service-icon-networking"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Network Management</h4>
-            <p class="text-muted mb-4">Structured cabling, mesh Wi-Fi, VLAN segmentation, and ongoing network monitoring for your office infrastructure.</p>
-            <a class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" routerLink="/office-networking">View Details</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4 reveal-card" id="card-crisis">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-scale transition-all">
-          <div class="card-body p-4 text-center">
-            <div class="mb-4 d-flex justify-content-center align-items-center" style="height: 80px;">
-              <i class="bi bi-life-preserver service-icon service-icon-crisis"></i>
-            </div>
-            <h4 class="fw-bold mb-3">Disaster Recovery</h4>
-            <p class="text-muted mb-4">Ransomware or hardware failure? Immediate incident response to get your office back online with zero data loss.</p>
-            <a class="btn btn-outline-primary rounded-pill btn-sm fw-bold px-4" routerLink="/crisis-recovery">View Plan</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="text-center mt-5">
-      <a class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow hover-scale" routerLink="/managed-it-services">
-        Explore All Managed IT Plans
-      </a>
-    </div>
-
-    <div class="text-center mt-4">
-      <p class="text-muted mb-3 small">Also serving:</p>
-      <div class="d-flex flex-wrap justify-content-center gap-2">
-        <a class="btn btn-outline-secondary btn-sm rounded-pill px-3" routerLink="/it-support-law-firms-toronto">Law Firms</a>
-        <a class="btn btn-outline-secondary btn-sm rounded-pill px-3" routerLink="/it-support-accounting-firms-gta">Accounting Firms</a>
-        <a class="btn btn-outline-secondary btn-sm rounded-pill px-3" routerLink="/it-support-medical-clinics-ontario">Medical Clinics</a>
-        <a class="btn btn-outline-secondary btn-sm rounded-pill px-3" routerLink="/it-support-engineering-firms-toronto">Engineering Firms</a>
-        <a class="btn btn-outline-secondary btn-sm rounded-pill px-3" routerLink="/it-support-small-businesses-gta">Small Businesses</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== CYBERSECURITY-FIRST SECTION ========== -->
-<section class="py-4 py-md-5 cyber-authority-section reveal-section" aria-label="Cybersecurity-First IT">
+<!-- ========== CYBERSECURITY ========== -->
+<section class="section-dark py-5 cyber-authority-section reveal-section" aria-label="Cybersecurity-First IT">
   <div class="container py-4 py-md-5">
     <div class="row align-items-center g-5">
       <div class="col-lg-5 section-head-reveal">
-        <span class="badge bg-danger bg-opacity-10 text-danger rounded-pill px-3 mb-3 fw-semibold border border-danger border-opacity-25">
-          <i class="bi bi-shield-exclamation me-1"></i> Cybersecurity Authority
-        </span>
-        <h2 class="fw-bold display-6 mb-4">Cybersecurity-First IT</h2>
+        <span class="section-kicker section-kicker-red"><i class="bi bi-shield-exclamation me-1"></i>Cybersecurity Authority</span>
+        <h2 class="section-title mt-3">Your Security <span class="text-gradient-red">Can't Wait.</span></h2>
         <p class="text-muted mb-4">Ransomware attacks on small businesses have tripled in the past three years. We build your entire IT stack with security as the foundation — not an afterthought.</p>
-        <a routerLink="/free-security-assessment" class="btn btn-danger rounded-pill px-4 fw-bold">
-          <i class="bi bi-shield-check me-2"></i>Get Free Security Assessment
+        <a routerLink="/it-assessment" class="btn btn-danger-glow rounded-pill px-4 py-3 fw-bold magnetic-btn">
+          <i class="bi bi-clipboard2-check me-2"></i>Book Free IT Assessment
         </a>
       </div>
       <div class="col-lg-7">
         <div class="row g-3">
-          <div class="col-sm-6">
+          <div class="col-sm-6 reveal-card">
             <div class="cyber-stack-card p-4 rounded-4 h-100">
               <div class="cyber-stack-icon mb-3"><i class="bi bi-cpu-fill"></i></div>
-              <h6 class="fw-bold mb-2">Endpoint Detection</h6>
-              <p class="small text-muted mb-0">Huntress AI-assisted EDR with managed analyst response. Every endpoint monitored and defended 24/7.</p>
-              <span class="badge bg-primary-subtle text-primary mt-2 rounded-pill">Huntress EDR</span>
+              <h6 class="fw-bold mb-2 text-white">Endpoint Detection</h6>
+              <p class="small text-muted mb-2">Huntress AI-assisted EDR with managed analyst response. Every endpoint monitored and defended 24/7.</p>
+              <span class="cyber-badge">Huntress EDR</span>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 reveal-card">
             <div class="cyber-stack-card p-4 rounded-4 h-100">
               <div class="cyber-stack-icon mb-3"><i class="bi bi-diagram-3-fill"></i></div>
-              <h6 class="fw-bold mb-2">Network Security</h6>
-              <p class="small text-muted mb-0">Fortinet firewall with IPS, deep packet inspection, web filtering, and threat intelligence feeds.</p>
-              <span class="badge bg-danger-subtle text-danger mt-2 rounded-pill">Fortinet NGFW</span>
+              <h6 class="fw-bold mb-2 text-white">Network Security</h6>
+              <p class="small text-muted mb-2">Fortinet firewall with IPS, deep packet inspection, web filtering, and threat intelligence feeds.</p>
+              <span class="cyber-badge cyber-badge-red">Fortinet NGFW</span>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 reveal-card">
             <div class="cyber-stack-card p-4 rounded-4 h-100">
               <div class="cyber-stack-icon mb-3"><i class="bi bi-lock-fill"></i></div>
-              <h6 class="fw-bold mb-2">Zero-Trust Access</h6>
-              <p class="small text-muted mb-0">Tailscale eliminates exposed RDP ports. Secure, encrypted remote access for your entire team.</p>
-              <span class="badge bg-success-subtle text-success mt-2 rounded-pill">Tailscale</span>
+              <h6 class="fw-bold mb-2 text-white">Zero-Trust Access</h6>
+              <p class="small text-muted mb-2">Tailscale eliminates exposed RDP ports. Secure, encrypted remote access for your entire team.</p>
+              <span class="cyber-badge cyber-badge-green">Tailscale</span>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 reveal-card">
             <div class="cyber-stack-card p-4 rounded-4 h-100">
               <div class="cyber-stack-icon mb-3"><i class="bi bi-cloud-check-fill"></i></div>
-              <h6 class="fw-bold mb-2">Cloud Security</h6>
-              <p class="small text-muted mb-0">AWS + Microsoft 365 with conditional access, DLP policies, and encrypted backups in Canadian regions.</p>
-              <span class="badge bg-warning-subtle text-warning mt-2 rounded-pill">AWS + M365</span>
+              <h6 class="fw-bold mb-2 text-white">Cloud Security</h6>
+              <p class="small text-muted mb-2">AWS + Microsoft 365 with conditional access, DLP policies, and encrypted backups in Canadian regions.</p>
+              <span class="cyber-badge cyber-badge-amber">AWS + M365</span>
             </div>
           </div>
         </div>
@@ -276,112 +302,94 @@
 </section>
 
 <!-- ========== CASE STUDIES ========== -->
-<section id="security-case-study" class="py-4 py-md-5 bg-white reveal-section">
+<section id="security-case-study" class="section-dark-alt py-5 reveal-section">
   <div class="container py-4 py-md-5">
-    <div class="text-center mb-5 section-head-reveal">
-      <span class="badge bg-primary-subtle text-primary rounded-pill px-3 mb-3 fw-semibold">Real Results</span>
-      <h2 class="fw-bold display-6">Client Success Stories</h2>
-      <p class="text-muted lead">How GTA businesses eliminated IT chaos and secured their operations.</p>
+    <div class="section-header mb-5 section-head-reveal">
+      <span class="section-kicker">Real Results</span>
+      <h2 class="section-title">Client <span class="text-gradient">Success Stories</span></h2>
+      <p class="section-subtitle">How GTA businesses eliminated IT chaos and secured their operations.</p>
     </div>
 
     <div class="row g-4">
-      <!-- Case Study 1 -->
       <div class="col-lg-4 reveal-card">
-        <article class="case-study-card p-4 rounded-4 h-100">
-          <div class="case-tag mb-3"><span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 rounded-pill px-3">Ransomware Risk</span></div>
-          <h5 class="fw-bold mb-3">Downtown Toronto Law Firm — 18 Staff</h5>
-          <div class="case-section mb-3">
-            <p class="case-label">Problem</p>
-            <p class="text-muted small mb-0">Firm had no endpoint protection, shared admin credentials, and an unmonitored legacy VPN. Cyber insurance renewal denied due to critical gaps.</p>
+        <article class="case-card h-100">
+          <div class="case-card-top case-card-top-red">
+            <span class="case-tag-pill">Ransomware Risk</span>
+            <h5 class="fw-bold text-white mt-3">Downtown Toronto Law Firm — 18 Staff</h5>
           </div>
-          <div class="case-section mb-3">
-            <p class="case-label">Solution</p>
-            <p class="text-muted small mb-0">Deployed Huntress EDR on all endpoints, replaced legacy VPN with Tailscale, enforced MFA, and implemented encrypted daily backups.</p>
-          </div>
-          <div class="case-section mb-4">
-            <p class="case-label">Result</p>
-            <p class="text-muted small mb-0">Cyber insurance reinstated within 30 days. Zero successful intrusion attempts in 12 months of continuous monitoring.</p>
-          </div>
-          <div class="row g-2 case-metrics">
-            <div class="col-4 text-center">
-              <div class="case-metric-value">100%</div>
-              <div class="case-metric-label">Endpoints Secured</div>
+          <div class="case-card-body">
+            <div class="case-section mb-3">
+              <p class="case-label">Problem</p>
+              <p class="text-muted small mb-0">No endpoint protection, shared admin credentials, unmonitored legacy VPN. Cyber insurance renewal denied.</p>
             </div>
-            <div class="col-4 text-center">
-              <div class="case-metric-value">30d</div>
-              <div class="case-metric-label">Insurance Reinstated</div>
+            <div class="case-section mb-3">
+              <p class="case-label">Solution</p>
+              <p class="text-muted small mb-0">Deployed Huntress EDR, replaced VPN with Tailscale, enforced MFA, encrypted daily backups.</p>
             </div>
-            <div class="col-4 text-center">
-              <div class="case-metric-value">$0</div>
-              <div class="case-metric-label">Breach Losses</div>
+            <div class="case-section mb-4">
+              <p class="case-label">Result</p>
+              <p class="text-muted small mb-0">Cyber insurance reinstated in 30 days. Zero intrusions in 12 months of monitoring.</p>
+            </div>
+            <div class="case-metrics-dark">
+              <div class="case-metric-dark"><span class="case-metric-val">100%</span><span class="case-metric-lbl">Endpoints Secured</span></div>
+              <div class="case-metric-dark"><span class="case-metric-val">30d</span><span class="case-metric-lbl">Insurance Back</span></div>
+              <div class="case-metric-dark"><span class="case-metric-val">$0</span><span class="case-metric-lbl">Breach Losses</span></div>
             </div>
           </div>
         </article>
       </div>
 
-      <!-- Case Study 2 -->
       <div class="col-lg-4 reveal-card">
-        <article class="case-study-card p-4 rounded-4 h-100">
-          <div class="case-tag mb-3"><span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 rounded-pill px-3">Compliance Gap</span></div>
-          <h5 class="fw-bold mb-3">Vaughan Accounting Firm — 12 Staff</h5>
-          <div class="case-section mb-3">
-            <p class="case-label">Problem</p>
-            <p class="text-muted small mb-0">CRA compliance audit revealed unencrypted client files on personal laptops, no patch management, and staff sharing passwords.</p>
+        <article class="case-card h-100">
+          <div class="case-card-top case-card-top-amber">
+            <span class="case-tag-pill case-tag-amber">Compliance Gap</span>
+            <h5 class="fw-bold text-white mt-3">Vaughan Accounting Firm — 12 Staff</h5>
           </div>
-          <div class="case-section mb-3">
-            <p class="case-label">Solution</p>
-            <p class="text-muted small mb-0">Microsoft 365 Business Premium deployment with BitLocker encryption, Intune device management, and password manager rollout across all staff.</p>
-          </div>
-          <div class="case-section mb-4">
-            <p class="case-label">Result</p>
-            <p class="text-muted small mb-0">Full compliance achieved within 45 days. 87% reduction in support tickets. Staff productivity measurably improved.</p>
-          </div>
-          <div class="row g-2 case-metrics">
-            <div class="col-4 text-center">
-              <div class="case-metric-value">87%</div>
-              <div class="case-metric-label">Fewer Tickets</div>
+          <div class="case-card-body">
+            <div class="case-section mb-3">
+              <p class="case-label">Problem</p>
+              <p class="text-muted small mb-0">CRA audit revealed unencrypted client files on personal laptops, no patch management, staff sharing passwords.</p>
             </div>
-            <div class="col-4 text-center">
-              <div class="case-metric-value">45d</div>
-              <div class="case-metric-label">Full Compliance</div>
+            <div class="case-section mb-3">
+              <p class="case-label">Solution</p>
+              <p class="text-muted small mb-0">Microsoft 365 Business Premium with BitLocker, Intune device management, password manager rollout.</p>
             </div>
-            <div class="col-4 text-center">
-              <div class="case-metric-value">12</div>
-              <div class="case-metric-label">Devices Secured</div>
+            <div class="case-section mb-4">
+              <p class="case-label">Result</p>
+              <p class="text-muted small mb-0">Full compliance within 45 days. 87% fewer support tickets in the first quarter. Measurably improved staff productivity.</p>
+            </div>
+            <div class="case-metrics-dark">
+              <div class="case-metric-dark"><span class="case-metric-val">87%</span><span class="case-metric-lbl">Fewer Tickets</span></div>
+              <div class="case-metric-dark"><span class="case-metric-val">45d</span><span class="case-metric-lbl">Full Compliance</span></div>
+              <div class="case-metric-dark"><span class="case-metric-val">12</span><span class="case-metric-lbl">Devices Secured</span></div>
             </div>
           </div>
         </article>
       </div>
 
-      <!-- Case Study 3 -->
       <div class="col-lg-4 reveal-card">
-        <article class="case-study-card p-4 rounded-4 h-100">
-          <div class="case-tag mb-3"><span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 rounded-pill px-3">Zero Downtime</span></div>
-          <h5 class="fw-bold mb-3">Richmond Hill Medical Clinic — 8 Staff</h5>
-          <div class="case-section mb-3">
-            <p class="case-label">Problem</p>
-            <p class="text-muted small mb-0">EMR system crashed twice in one quarter causing appointment cancellations. No backup strategy, no PHIPA-compliant data handling.</p>
+        <article class="case-card h-100">
+          <div class="case-card-top case-card-top-green">
+            <span class="case-tag-pill case-tag-green">Zero Downtime</span>
+            <h5 class="fw-bold text-white mt-3">Richmond Hill Medical Clinic — 8 Staff</h5>
           </div>
-          <div class="case-section mb-3">
-            <p class="case-label">Solution</p>
-            <p class="text-muted small mb-0">Implemented encrypted cloud backups with 4-hour RTO, migrated EMR to AWS Canadian region, and established 24/7 uptime monitoring.</p>
-          </div>
-          <div class="case-section mb-4">
-            <p class="case-label">Result</p>
-            <p class="text-muted small mb-0">Zero unplanned downtime in 10 months. PHIPA compliance achieved. Clinic recovered $15,000+ in previously lost appointment revenue annually.</p>
-          </div>
-          <div class="row g-2 case-metrics">
-            <div class="col-4 text-center">
-              <div class="case-metric-value">0</div>
-              <div class="case-metric-label">Downtime Events</div>
+          <div class="case-card-body">
+            <div class="case-section mb-3">
+              <p class="case-label">Problem</p>
+              <p class="text-muted small mb-0">EMR crashed twice in one quarter. No backup strategy, no PHIPA-compliant data handling.</p>
             </div>
-            <div class="col-4 text-center">
-              <div class="case-metric-value">4hr</div>
-              <div class="case-metric-label">Recovery Time</div>
+            <div class="case-section mb-3">
+              <p class="case-label">Solution</p>
+              <p class="text-muted small mb-0">Encrypted cloud backups with 4-hour RTO, migrated EMR to AWS Canadian region, 24/7 uptime monitoring.</p>
             </div>
-            <div class="col-4 text-center">
-              <div class="case-metric-value">$15K</div>
-              <div class="case-metric-label">Revenue Saved/yr</div>
+            <div class="case-section mb-4">
+              <p class="case-label">Result</p>
+              <p class="text-muted small mb-0">Zero unplanned downtime in the first 10 months. PHIPA compliant. Estimated $15K+ in recovered appointment revenue in year one.</p>
+            </div>
+            <div class="case-metrics-dark">
+              <div class="case-metric-dark"><span class="case-metric-val">0</span><span class="case-metric-lbl">Downtime Events</span></div>
+              <div class="case-metric-dark"><span class="case-metric-val">4hr</span><span class="case-metric-lbl">Recovery Time</span></div>
+              <div class="case-metric-dark"><span class="case-metric-val">$15K</span><span class="case-metric-lbl">Revenue Saved/yr</span></div>
             </div>
           </div>
         </article>
@@ -389,271 +397,233 @@
     </div>
 
     <div class="text-center mt-5">
-      <a routerLink="/free-security-assessment" class="btn btn-primary rounded-pill px-5 fw-bold shadow hover-scale">
-        <i class="bi bi-shield-check me-2"></i>Book Your Free IT Assessment
+      <a routerLink="/it-assessment" class="btn btn-hero-primary rounded-pill px-5 py-3 fw-bold magnetic-btn">
+        <i class="bi bi-clipboard2-check me-2"></i>Book Your Free IT Assessment
       </a>
     </div>
   </div>
 </section>
 
-<!-- ========== TEAM ========== -->
-<section id="team" class="py-4 py-md-5 bg-white reveal-section">
-  <div class="container py-4 py-md-5 text-center">
-    <h2 class="fw-bold mb-5 team-head-reveal">Senior Engineering Team</h2>
-    <div class="row justify-content-center g-5 team-cards-reveal">
-      <div class="col-md-5">
-        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-          <img src="https://ui-avatars.com/api/?name=Lead+Engineer&background=0D6EFD&color=fff&size=128" class="rounded-circle mb-3 shadow-sm" width="120" height="120" alt="Lead Engineer Avatar" loading="lazy" decoding="async" fetchpriority="low">
-          <h5 class="fw-bold">Lead Systems Engineer</h5>
-          <p class="text-primary small fw-bold">MCSE | Security+ | CCNA</p>
-          <p class="text-muted small">Over 15 years of infrastructure design for Ontario professional offices.</p>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-          <img src="https://ui-avatars.com/api/?name=Cloud+Architect&background=6c757d&color=fff&size=128" class="rounded-circle mb-3 shadow-sm" width="120" height="120" alt="Cloud Architect Avatar" loading="lazy" decoding="async" fetchpriority="low">
-          <h5 class="fw-bold">Cloud Solutions Architect</h5>
-          <p class="text-primary small fw-bold">Google Certified | M365 Expert</p>
-          <p class="text-muted small">Expert in hybrid workflows and secure remote access architecture.</p>
-        </div>
-      </div>
-    </div>
-    <div class="mt-4">
-      <a routerLink="/about" class="btn btn-outline-primary rounded-pill px-4 fw-bold">Meet Our Full Team &amp; Story</a>
-    </div>
-  </div>
-</section>
-
-<!-- ========== GOOGLE REVIEWS ========== -->
-<section id="reviews" class="py-4 py-md-5 bg-white reveal-section">
+<!-- ========== REVIEWS ========== -->
+<section id="reviews" class="section-dark py-5 reveal-section">
   <div class="container py-4 py-md-5">
     <div class="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-4 mb-5 reviews-head-reveal">
       <div>
-        <h2 class="fw-bold mb-2">Google Reviews</h2>
-        <p class="text-muted mb-0">Live social proof from our Google Business Profile.</p>
+        <span class="section-kicker">Social Proof</span>
+        <h2 class="section-title mt-2">What Our Clients <span class="text-gradient">Are Saying</span></h2>
+        <p class="text-muted mb-0">Live from our Google Business Profile.</p>
       </div>
-      <a [href]="reviewLink" target="_blank" rel="noopener noreferrer"
-         class="btn btn-outline-dark rounded-pill px-4 fw-bold">
-        See All on Google
-      </a>
-    </div>
-
-    <div class="reviews-summary-card mb-4">
-      <div class="summary-score">
-        {{ reviewAggregateRating | number:'1.1-1' }}
-      </div>
-      <div class="summary-meta">
-        <div class="d-flex align-items-center gap-1 text-warning mb-1">
-          <i class="bi bi-star-fill"
-             *ngFor="let star of starScale"
-             [class.opacity-25]="star > reviewAggregateRating"></i>
+      <div class="d-flex align-items-center gap-3 flex-shrink-0 mt-3 mt-lg-0">
+        <div class="reviews-score-wrap">
+          <span class="reviews-score">{{ reviewAggregateRating | number:'1.1-1' }}</span>
+          <div class="d-flex gap-1 text-warning">
+            <i class="bi bi-star-fill" *ngFor="let star of starScale" [class.opacity-25]="star > reviewAggregateRating"></i>
+          </div>
+          <span class="text-muted small" *ngIf="reviewAggregateCount > 0">{{ reviewAggregateCount }}+ reviews</span>
         </div>
-        <div class="fw-bold" *ngIf="reviewAggregateCount > 0">
-          {{ reviewAggregateCount }}+ Google reviews for {{ reviewPlaceName }}
-        </div>
-        <div class="fw-bold" *ngIf="reviewAggregateCount === 0">
-          Live Google review data is currently unavailable
-        </div>
-        <div class="small text-muted" *ngIf="reviewsSource === 'google'">Verified from Google Places API</div>
-        <div class="small text-muted" *ngIf="!reviewsConfigured && reviewItems.length > 0">Showing sample reviews. See all on Google.</div>
-        <div class="small text-muted" *ngIf="reviewsConfigured && reviewsSource !== 'google' && reviewItems.length > 0">See all our reviews on Google</div>
-        <div class="small text-muted" *ngIf="reviewsConfigured && reviewsSource !== 'google' && reviewItems.length === 0">Google reviews are configured but the business listing could not be resolved</div>
+        <a [href]="reviewLink" target="_blank" rel="noopener noreferrer" class="btn btn-outline-indigo rounded-pill px-4 fw-bold">
+          See All on Google
+        </a>
       </div>
     </div>
 
-    <div class="row g-4 review-cards-reveal">
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let review of reviewItems; trackBy: trackReview">
-        <article class="review-card h-100">
-          <div class="d-flex align-items-center justify-content-between mb-3">
-            <div class="d-flex align-items-center gap-2">
-              <div class="review-avatar">{{ getReviewerInitial(review) }}</div>
-              <div>
-                <div class="fw-bold review-author">{{ review.authorName }}</div>
-                <div class="small text-muted">{{ review.relativeTimeDescription }}</div>
-              </div>
-            </div>
-            <div class="d-flex gap-1 text-warning">
-              <i class="bi bi-star-fill"
-                 *ngFor="let star of starScale"
-                 [class.opacity-25]="star > review.rating"></i>
+    <div class="reviews-marquee-wrapper overflow-hidden review-cards-reveal">
+      <div class="reviews-marquee-track">
+        <article class="review-card-dark" *ngFor="let review of reviewItems; trackBy: trackReview">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="review-avatar-dark">{{ getReviewerInitial(review) }}</div>
+            <div>
+              <div class="fw-bold text-white small review-author">{{ review.authorName }}</div>
+              <div class="text-muted" style="font-size:0.72rem">{{ review.relativeTimeDescription }}</div>
             </div>
           </div>
-          <p class="review-text mb-0">"{{ review.text }}"</p>
+          <div class="d-flex gap-1 text-warning mb-2">
+            <i class="bi bi-star-fill small" *ngFor="let star of starScale" [class.opacity-25]="star > review.rating"></i>
+          </div>
+          <p class="review-text-dark mb-0">"{{ review.text }}"</p>
+        </article>
+        <article class="review-card-dark" *ngFor="let review of reviewItems; trackBy: trackReview" aria-hidden="true">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="review-avatar-dark">{{ getReviewerInitial(review) }}</div>
+            <div>
+              <div class="fw-bold text-white small">{{ review.authorName }}</div>
+              <div class="text-muted" style="font-size:0.72rem">{{ review.relativeTimeDescription }}</div>
+            </div>
+          </div>
+          <div class="d-flex gap-1 text-warning mb-2">
+            <i class="bi bi-star-fill small" *ngFor="let star of starScale" [class.opacity-25]="star > review.rating"></i>
+          </div>
+          <p class="review-text-dark mb-0">"{{ review.text }}"</p>
         </article>
       </div>
     </div>
-
-    <div class="small text-muted mt-3" *ngIf="reviewsError && reviewItems.length === 0">
-      {{ reviewsError }}
-    </div>
+    <div class="small text-muted mt-3 text-center" *ngIf="reviewsError && reviewItems.length === 0">{{ reviewsError }}</div>
   </div>
 </section>
 
 <!-- ========== PRICING ========== -->
-<section id="pricing" class="py-4 py-md-5 bg-white reveal-section">
+<section id="pricing" class="section-dark-alt py-5 reveal-section">
   <div class="container py-4 py-md-5">
-    <div class="text-center mb-5 pricing-head-reveal">
-      <span class="badge bg-primary-subtle text-primary rounded-pill px-3 mb-3 fw-semibold">Transparent Pricing</span>
-      <h2 class="fw-bold">Managed IT Support Plans</h2>
-      <p class="text-muted">Flat-rate monthly pricing. No hidden fees, no surprise invoices.</p>
+    <div class="section-header mb-5 pricing-head-reveal">
+      <span class="section-kicker">Transparent Pricing</span>
+      <h2 class="section-title">Managed IT Support <span class="text-gradient">Plans</span></h2>
+      <p class="section-subtitle">Flat-rate monthly pricing. No hidden fees, no surprise invoices.</p>
     </div>
 
-    <!-- Feature Comparison Table -->
-    <div class="pricing-table-wrap mb-5 pricing-cards-reveal">
-      <div class="table-responsive">
-        <table class="table pricing-compare-table text-center align-middle">
-          <thead>
-            <tr>
-              <th class="text-start ps-4 py-4">Features</th>
-              <th class="py-4">
-                <div class="fw-bold text-muted">Starter</div>
-                <div class="display-6 fw-bold my-2">$249<span class="fs-6 text-muted fw-normal">/mo</span></div>
-                <div class="small text-muted">Basic maintenance</div>
-              </th>
-              <th class="py-4 pricing-col-popular">
-                <div class="popular-badge">⭐ Most Popular</div>
-                <div class="fw-bold text-primary">Growth</div>
-                <div class="display-6 fw-bold text-primary my-2">$499<span class="fs-6 text-muted fw-normal">/mo</span></div>
-                <div class="small text-muted">Growing teams</div>
-              </th>
-              <th class="py-4">
-                <div class="fw-bold text-muted">Business</div>
-                <div class="display-6 fw-bold my-2">$899<span class="fs-6 text-muted fw-normal">/mo</span></div>
-                <div class="small text-muted">Full IT outsourcing</div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td class="text-start ps-4 fw-semibold">Support Hours/mo</td><td class="text-muted">2 hrs</td><td class="pricing-col-popular fw-bold">5 hrs</td><td class="fw-bold">10 hrs</td></tr>
-            <tr><td class="text-start ps-4 fw-semibold">24/7 Monitoring</td><td><i class="bi bi-x-circle text-muted"></i></td><td class="pricing-col-popular"><i class="bi bi-check-circle-fill text-primary"></i></td><td><i class="bi bi-check-circle-fill text-primary"></i></td></tr>
-            <tr><td class="text-start ps-4 fw-semibold">Endpoint Protection</td><td><i class="bi bi-x-circle text-muted"></i></td><td class="pricing-col-popular"><i class="bi bi-check-circle-fill text-primary"></i></td><td><i class="bi bi-check-circle-fill text-primary"></i></td></tr>
-            <tr><td class="text-start ps-4 fw-semibold">Backup Monitoring</td><td><i class="bi bi-x-circle text-muted"></i></td><td class="pricing-col-popular"><i class="bi bi-check-circle-fill text-primary"></i></td><td><i class="bi bi-check-circle-fill text-primary"></i></td></tr>
-            <tr><td class="text-start ps-4 fw-semibold">Patch Management</td><td><i class="bi bi-dash-circle text-muted opacity-50"></i></td><td class="pricing-col-popular"><i class="bi bi-check-circle-fill text-primary"></i></td><td><i class="bi bi-check-circle-fill text-primary"></i></td></tr>
-            <tr><td class="text-start ps-4 fw-semibold">Microsoft 365 Support</td><td><i class="bi bi-dash-circle text-muted opacity-50"></i></td><td class="pricing-col-popular"><i class="bi bi-check-circle-fill text-primary"></i></td><td><i class="bi bi-check-circle-fill text-primary"></i></td></tr>
-            <tr><td class="text-start ps-4 fw-semibold">Network Monitoring</td><td><i class="bi bi-x-circle text-muted"></i></td><td class="pricing-col-popular"><i class="bi bi-check-circle-fill text-primary"></i></td><td><i class="bi bi-check-circle-fill text-primary"></i></td></tr>
-            <tr><td class="text-start ps-4 fw-semibold">Priority Response (&lt;15 min)</td><td><i class="bi bi-x-circle text-muted"></i></td><td class="pricing-col-popular"><i class="bi bi-check-circle-fill text-primary"></i></td><td><i class="bi bi-check-circle-fill text-primary"></i></td></tr>
-            <tr><td class="text-start ps-4 fw-semibold">Quarterly Vulnerability Scan</td><td><i class="bi bi-x-circle text-muted"></i></td><td class="pricing-col-popular"><i class="bi bi-check-circle-fill text-primary"></i></td><td><i class="bi bi-check-circle-fill text-primary"></i></td></tr>
-            <tr><td class="text-start ps-4 fw-semibold">Hardware Procurement</td><td><i class="bi bi-x-circle text-muted"></i></td><td class="pricing-col-popular"><i class="bi bi-x-circle text-muted"></i></td><td><i class="bi bi-check-circle-fill text-primary"></i></td></tr>
-            <tr><td class="text-start ps-4 fw-semibold">Vendor Management</td><td><i class="bi bi-x-circle text-muted"></i></td><td class="pricing-col-popular"><i class="bi bi-x-circle text-muted"></i></td><td><i class="bi bi-check-circle-fill text-primary"></i></td></tr>
-            <tr><td class="text-start ps-4 fw-semibold">30-Day Risk-Free Trial</td><td><i class="bi bi-x-circle text-muted"></i></td><td class="pricing-col-popular"><i class="bi bi-check-circle-fill text-primary"></i></td><td><i class="bi bi-check-circle-fill text-primary"></i></td></tr>
-            <tr>
-              <td class="text-start ps-4"></td>
-              <td class="py-4"><a routerLink="/" fragment="consultation" class="btn btn-outline-dark rounded-pill w-100 fw-bold">Inquire</a></td>
-              <td class="pricing-col-popular py-4"><a routerLink="/" fragment="consultation" class="btn btn-primary rounded-pill w-100 fw-bold shadow">Start 30-Day Trial</a></td>
-              <td class="py-4"><a routerLink="/" fragment="consultation" class="btn btn-outline-dark rounded-pill w-100 fw-bold">Try Risk-Free</a></td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="row g-4 align-items-stretch justify-content-center pricing-cards-reveal">
+      <div class="col-md-6 col-lg-4 pricing-card">
+        <div class="pricing-dark-card h-100">
+          <div class="pricing-tier-label">Starter</div>
+          <div class="pricing-amount">$249<span class="pricing-period">/mo</span></div>
+          <p class="pricing-tagline">Basic maintenance for small offices.</p>
+          <ul class="pricing-features">
+            <li class="feature-yes">2 support hours/month</li>
+            <li class="feature-no">24/7 Monitoring</li>
+            <li class="feature-no">Endpoint Protection</li>
+            <li class="feature-no">Backup Monitoring</li>
+            <li class="feature-no">Priority Response</li>
+            <li class="feature-no">30-Day Risk-Free Trial</li>
+          </ul>
+          <a routerLink="/" fragment="consultation" class="btn btn-pricing-ghost w-100 rounded-pill fw-bold mt-auto">Get Started</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 pricing-card pricing-featured">
+        <div class="pricing-dark-card pricing-dark-card-featured h-100">
+          <div class="pricing-popular-badge">⭐ Most Popular</div>
+          <div class="pricing-tier-label pricing-tier-indigo">Growth</div>
+          <div class="pricing-amount pricing-amount-indigo">$499<span class="pricing-period">/mo</span></div>
+          <p class="pricing-tagline">Full managed IT for growing teams.</p>
+          <ul class="pricing-features">
+            <li class="feature-yes">5 support hours/month</li>
+            <li class="feature-yes">24/7 Monitoring</li>
+            <li class="feature-yes">Endpoint Protection</li>
+            <li class="feature-yes">Backup Monitoring</li>
+            <li class="feature-yes">Priority Response &lt;15 min</li>
+            <li class="feature-yes">30-Day Risk-Free Trial</li>
+          </ul>
+          <a routerLink="/" fragment="consultation" class="btn btn-pricing-primary w-100 rounded-pill fw-bold mt-auto magnetic-btn">Start Risk-Free — 30 Days</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 pricing-card">
+        <div class="pricing-dark-card h-100">
+          <div class="pricing-tier-label">Business</div>
+          <div class="pricing-amount">$899<span class="pricing-period">/mo</span></div>
+          <p class="pricing-tagline">Full IT department outsourcing.</p>
+          <ul class="pricing-features">
+            <li class="feature-yes">10 support hours/month</li>
+            <li class="feature-yes">24/7 Monitoring</li>
+            <li class="feature-yes">Endpoint Protection</li>
+            <li class="feature-yes">Backup Monitoring</li>
+            <li class="feature-yes">Priority Response &lt;15 min</li>
+            <li class="feature-yes">Hardware Procurement</li>
+            <li class="feature-yes">Vendor Management</li>
+            <li class="feature-yes">30-Day Risk-Free Trial</li>
+          </ul>
+          <a routerLink="/" fragment="consultation" class="btn btn-pricing-ghost w-100 rounded-pill fw-bold mt-auto">Try Risk-Free</a>
+        </div>
       </div>
     </div>
+    <p class="text-center small text-muted mt-4 opacity-75 fst-italic">No hidden fees. No surprise invoices. Hardware and one-time project work scoped and approved before we start.</p>
+  </div>
+</section>
 
-    <div class="text-center">
-      <p class="small text-muted fst-italic opacity-75">* No hidden fees. No surprise invoices. Hardware and one-time project work are scoped and approved before we start.</p>
+<!-- ========== TEAM ========== -->
+<section id="team" class="section-dark py-5 reveal-section">
+  <div class="container py-4 py-md-5 text-center">
+    <div class="section-header mb-5 team-head-reveal">
+      <span class="section-kicker">The Team</span>
+      <h2 class="section-title">Senior <span class="text-gradient">Engineering Team</span></h2>
+    </div>
+    <div class="row justify-content-center align-items-start g-4 team-cards-reveal">
+      <div class="col-md-5">
+        <div class="team-card p-4 rounded-4">
+          <div class="team-avatar team-avatar-indigo">LE</div>
+          <h5 class="fw-bold text-white mt-3">Lead Systems Engineer</h5>
+          <p class="text-indigo-light small fw-bold mb-2">MCSE · Security+ · CCNA</p>
+          <p class="text-muted small mb-0">Over 15 years of infrastructure design for Ontario professional offices.</p>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="team-card p-4 rounded-4">
+          <div class="team-avatar team-avatar-purple">CA</div>
+          <h5 class="fw-bold text-white mt-3">Cloud Solutions Architect</h5>
+          <p class="text-purple-light small fw-bold mb-2">Google Certified · M365 Expert</p>
+          <p class="text-muted small mb-0">Expert in hybrid workflows and secure remote access architecture.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4">
+      <a routerLink="/about" class="btn btn-outline-indigo rounded-pill px-4 fw-bold">Meet Our Full Team &amp; Story</a>
     </div>
   </div>
 </section>
 
 <!-- ========== ABOUT ========== -->
-<section id="about" class="py-4 py-md-5 bg-light reveal-section" aria-label="About CtrlShift IT Services">
+<section id="about" class="section-dark-alt py-5 reveal-section" aria-label="About CtrlShift IT Services">
   <div class="container py-4 py-md-5">
     <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <h2 class="fw-bold mb-4">About CtrlShift IT Services</h2>
-        <p class="lead mb-4" id="speakable-about">CtrlShift IT Services is a managed IT provider based in Vaughan, Ontario, serving professional offices across the Greater Toronto Area including Toronto, Mississauga, Thornhill, and Richmond Hill. We specialize in proactive IT support, cybersecurity, Microsoft 365 and Google Workspace administration, office networking, and cloud infrastructure management.</p>
-        <p class="text-muted mb-4">Founded by senior engineers with over 15 years of infrastructure experience, CtrlShift IT provides flat-rate managed support plans starting at $249 per month. Our team holds MCSE, Security+, CCNA, and Google Cloud certifications. We serve industries including law firms, medical clinics, accounting practices, and engineering firms throughout York Region and Peel Region.</p>
-        <div class="row g-3 text-center mb-4">
-          <div class="col-4">
-            <div class="fw-bold display-6 text-primary">5</div>
-            <div class="small text-muted">Cities Served</div>
-          </div>
-          <div class="col-4">
-            <div class="fw-bold display-6 text-primary">15+</div>
-            <div class="small text-muted">Years Experience</div>
-          </div>
-          <div class="col-4">
-            <div class="fw-bold display-6 text-primary">24/7</div>
-            <div class="small text-muted">Monitoring</div>
-          </div>
+      <div class="col-lg-8 text-center section-head-reveal">
+        <span class="section-kicker">Our Story</span>
+        <h2 class="section-title mt-3">About <span class="text-gradient">CtrlShift IT Services</span></h2>
+        <p class="lead text-muted mt-3 mb-4" id="speakable-about">CtrlShift IT Services is a managed IT provider based in Vaughan, Ontario, serving professional offices across the Greater Toronto Area. We specialize in proactive IT support, cybersecurity, Microsoft 365 and Google Workspace administration, office networking, and cloud infrastructure management.</p>
+        <p class="text-muted mb-5">Founded by senior engineers with 15+ years of infrastructure experience. Flat-rate plans from $249/month. MCSE, Security+, CCNA, and Google Cloud certified.</p>
+        <div class="about-stats-row mb-5 consultation-reveal">
+          <div class="about-stat"><span class="about-stat-val text-gradient">5</span><span class="about-stat-lbl">Cities Served</span></div>
+          <div class="about-stat-div"></div>
+          <div class="about-stat"><span class="about-stat-val text-gradient">15+</span><span class="about-stat-lbl">Years Experience</span></div>
+          <div class="about-stat-div"></div>
+          <div class="about-stat"><span class="about-stat-val text-gradient">24/7</span><span class="about-stat-lbl">Monitoring</span></div>
         </div>
-        <a routerLink="/about" class="btn btn-outline-primary rounded-pill fw-bold px-4">Read Our Full Story</a>
+        <a routerLink="/about" class="btn btn-outline-indigo rounded-pill fw-bold px-4">Read Our Full Story</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ========== FAQ ========== -->
-<section id="faq" class="py-4 py-md-5 faq-section reveal-section" aria-label="Frequently Asked Questions">
+<section id="faq" class="section-dark py-5 faq-section reveal-section" aria-label="Frequently Asked Questions">
   <div class="container py-4 py-md-5">
     <div class="row justify-content-center">
       <div class="col-lg-8">
         <div class="faq-shell">
-          <div class="mb-4 faq-head faq-head-reveal">
-            <div class="faq-kicker">
-              <span class="faq-badge">FAQ</span>
-              <span class="faq-subtitle">Fast answers for Vaughan &amp; GTA businesses</span>
-            </div>
-            <h2 class="fw-bold mb-0 faq-title">Managed IT Services FAQ for Growing Offices</h2>
+          <div class="mb-5 faq-head faq-head-reveal text-center">
+            <span class="section-kicker">FAQ</span>
+            <h2 class="section-title mt-3">Common Questions from <span class="text-gradient">GTA Businesses</span></h2>
           </div>
           <div class="faq-list faq-reveal">
             <details class="faq-item" open>
               <summary class="faq-button fw-bold">How does the 30-Day Guarantee work?</summary>
-              <div class="faq-content text-muted">
-                For the Growth or Business plan, if the first 30 days do not deliver a clear stability improvement, you can cancel with no penalty. You get transparent monthly pricing, no hidden fees, and no surprise invoices.
-              </div>
+              <div class="faq-content text-muted">For the Growth or Business plan, if the first 30 days do not deliver a clear stability improvement, you can cancel with no penalty. Transparent monthly pricing, no hidden fees, no surprise invoices.</div>
             </details>
             <details class="faq-item">
               <summary class="faq-button fw-bold">Can you take over from our current IT provider?</summary>
-              <div class="faq-content text-muted">
-                Yes. We run a structured transition covering credentials, tenant access, asset inventory, backup validation, and support handoff. The goal is a clean takeover with minimal disruption to your staff.
-              </div>
+              <div class="faq-content text-muted">Yes. We run a structured transition covering credentials, tenant access, asset inventory, backup validation, and support handoff. Clean takeover with minimal disruption to your staff.</div>
             </details>
             <details class="faq-item">
               <summary class="faq-button fw-bold">How fast do you respond when something breaks?</summary>
-              <div class="faq-content text-muted">
-                Urgent production-impact incidents are triaged immediately, with remote-first response and on-site escalation when required. Growth and Business clients receive response within 15 minutes.
-              </div>
+              <div class="faq-content text-muted">Urgent production-impact incidents are triaged immediately. Growth and Business clients receive response within 15 minutes, with remote-first response and on-site escalation when required.</div>
             </details>
             <details class="faq-item">
               <summary class="faq-button fw-bold">How much does managed IT support cost in Vaughan?</summary>
-              <div class="faq-content text-muted">
-                CtrlShift IT offers three flat-rate plans: Starter at $249/month with 2 support hours, Growth at $499/month with 5 hours and priority response, and Business at $899/month with 10 hours and full IT department outsourcing. All pricing is transparent with no hidden fees.
-              </div>
+              <div class="faq-content text-muted">Three flat-rate plans: Starter at $249/month, Growth at $499/month with priority response, and Business at $899/month with full IT department outsourcing. All transparent — no hidden fees.</div>
             </details>
             <details class="faq-item">
               <summary class="faq-button fw-bold">What cities do you provide IT support in?</summary>
-              <div class="faq-content text-muted">
-                We provide managed IT services across the Greater Toronto Area: Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill. Our technicians offer both remote support and on-site visits throughout York Region, Peel Region, and the downtown Toronto core.
-              </div>
+              <div class="faq-content text-muted">We serve Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill with both remote support and on-site visits throughout York Region, Peel Region, and the downtown Toronto core.</div>
             </details>
             <details class="faq-item">
               <summary class="faq-button fw-bold">Do you support both Google Workspace and Microsoft 365?</summary>
-              <div class="faq-content text-muted">
-                Yes. We are certified administrators for both platforms. We manage user accounts, email security, shared drive permissions, data retention policies, and device access controls for Google Workspace and Microsoft 365 environments.
-              </div>
+              <div class="faq-content text-muted">Yes. Certified administrators for both platforms — user accounts, email security, shared drive permissions, data retention policies, and device access controls.</div>
             </details>
             <details class="faq-item">
               <summary class="faq-button fw-bold">What cybersecurity tools do you use?</summary>
-              <div class="faq-content text-muted">
-                We deploy Huntress for AI-assisted endpoint detection with managed analyst response, Tailscale for zero-trust network access, and enforce multi-factor authentication, conditional access policies, and regular vulnerability scanning across all managed endpoints.
-              </div>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-button fw-bold">How does the onboarding process work?</summary>
-              <div class="faq-content text-muted">
-                Our onboarding follows four steps: First, we audit your current IT environment including credentials, devices, and network. Second, we secure accounts with MFA and access policies. Third, we configure monitoring, backups, and patching. Fourth, we hand off documentation and train your team on the helpdesk workflow. Most onboardings complete within 5 business days.
-              </div>
+              <div class="faq-content text-muted">We deploy Huntress for AI-assisted endpoint detection, Tailscale for zero-trust network access, and enforce MFA, conditional access policies, and regular vulnerability scanning across all managed endpoints.</div>
             </details>
             <details class="faq-item">
               <summary class="faq-button fw-bold">Do you support law firms, medical clinics, and accounting firms?</summary>
-              <div class="faq-content text-muted">
-                Yes. We have dedicated expertise in regulated industries. For law firms we handle Law Society compliance and confidentiality requirements. For medical clinics we support PHIPA-compliant infrastructure. For accounting firms we ensure CRA-compliant data handling and encryption standards.
-              </div>
-            </details>
-            <details class="faq-item">
-              <summary class="faq-button fw-bold">Are your IT services compliant with Canadian privacy laws?</summary>
-              <div class="faq-content text-muted">
-                Yes. All our managed IT services are designed to support PIPEDA compliance. We implement data retention policies, encrypted backups, access controls, and audit trails. For medical clinics and legal offices, we apply additional safeguards aligned with provincial health information and professional conduct requirements.
-              </div>
+              <div class="faq-content text-muted">Yes. Dedicated expertise in regulated industries — Law Society compliance for law firms, PHIPA-compliant infrastructure for medical clinics, CRA-compliant data handling for accounting firms.</div>
             </details>
           </div>
         </div>
@@ -662,119 +632,30 @@
   </div>
 </section>
 
-<!-- ========== CONSULTATION FORM ========== -->
-<section id="consultation" class="hero-dark-modern text-white py-4 py-md-5 reveal-section">
-  <div class="container py-4 py-md-5">
-    <div class="row align-items-center consultation-reveal">
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <h2 class="display-5 fw-bold mb-4">Book Your Free IT Security Assessment.</h2>
-        <p class="hero-text-bright opacity-75 mb-4">Speak directly to Senior Engineers. Ontario-based, PIPEDA compliant. We'll identify your top security risks at no cost.</p>
-
-        <div class="p-3 bg-white bg-opacity-10 rounded-3 border border-light border-opacity-25 mb-4">
-          <h5 class="fw-bold mb-2"><i class="bi bi-shield-check text-primary me-2"></i>What Your Free Assessment Includes</h5>
-          <ul class="list-unstyled small mb-0 opacity-75">
-            <li class="mb-1"><i class="bi bi-check2 me-2 text-info"></i>Network vulnerability scan</li>
-            <li class="mb-1"><i class="bi bi-check2 me-2 text-info"></i>Microsoft 365 security review</li>
-            <li class="mb-1"><i class="bi bi-check2 me-2 text-info"></i>Ransomware risk analysis</li>
-            <li class="mb-1"><i class="bi bi-check2 me-2 text-info"></i>Backup verification</li>
-            <li><i class="bi bi-check2 me-2 text-info"></i>Cyber insurance readiness check</li>
-          </ul>
-        </div>
-
-        <div class="p-3 bg-white bg-opacity-10 rounded-3 border border-light border-opacity-25">
-          <h5 class="fw-bold mb-2"><i class="bi bi-shield-check text-primary me-2"></i>The CtrlShift IT Services Guarantee</h5>
-          <p class="small mb-0 opacity-75">Select the Growth or Business plan. If we do not improve your stability in the first 30 days, cancel with no penalty. No hidden fees. No surprise invoices.</p>
-        </div>
-      </div>
-
-      <div class="col-lg-6">
-        <div class="bg-white text-dark p-3 p-md-5 rounded-4 shadow-lg min-vh-20">
-
-          <div *ngIf="!submitted">
-            <form (submit)="onSubmit($event)" class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label small fw-bold">Name</label>
-                <input type="text" name="name" class="form-control bg-light border-0" required>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label small fw-bold">Company Name</label>
-                <input type="text" name="company" class="form-control bg-light border-0" required>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label small fw-bold">Email</label>
-                <input type="email" name="email" class="form-control bg-light border-0" required>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label small fw-bold">Phone Number</label>
-                <input type="tel" name="phone" class="form-control bg-light border-0">
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label small fw-bold">Company Size</label>
-                <select name="office_size" class="form-select bg-light border-0">
-                  <option>1–5 Employees</option>
-                  <option>5–20 Employees</option>
-                  <option>20–50 Employees</option>
-                  <option>50+ Employees</option>
-                </select>
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label small fw-bold">Industry</label>
-                <select name="industry" class="form-select bg-light border-0">
-                  <option>Professional Services</option>
-                  <option>Law Firm</option>
-                  <option>Accounting / Finance</option>
-                  <option>Medical / Healthcare</option>
-                  <option>Engineering</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              <div class="col-12">
-                <label class="form-label small fw-bold">Biggest IT Challenge</label>
-                <textarea name="message" class="form-control bg-light border-0" rows="3" required placeholder="Describe your current IT situation or biggest challenge..."></textarea>
-              </div>
-
-              <div class="col-12 mt-4">
-                <button type="submit" [disabled]="isLoading" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
-                  {{ isLoading ? 'Processing...' : 'Book My Free IT Security Assessment' }}
-                </button>
-              </div>
-            </form>
-          </div>
-
-          <div *ngIf="submitted" class="text-center py-5">
-            <div class="mb-4">
-              <i class="bi bi-check-circle-fill text-primary" style="font-size: 5rem;"></i>
-            </div>
-            <h2 class="fw-bold">Request Received</h2>
-            <p class="text-muted lead">We will review your office requirements and contact you shortly to schedule your free IT security assessment.</p>
-            <button class="btn btn-dark rounded-pill px-5 py-2 mt-4 fw-bold" (click)="submitted = false; isLoading = false;">
-              Send Another Request
-            </button>
-          </div>
-
-        </div>
-      </div>
+<!-- ========== CTA ========== -->
+<section id="consultation" class="cta-section py-5 reveal-section">
+  <div class="container py-4 py-md-5 text-center">
+    <span class="section-kicker">Get Started</span>
+    <h2 class="section-title mt-3 mb-4">Ready to Secure Your Business?</h2>
+    <p class="section-subtitle mb-5 mx-auto" style="max-width:560px">Ontario-based, PIPEDA compliant. Speak directly to Senior Engineers — we'll identify your top security risks at no cost.</p>
+    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+      <a routerLink="/it-assessment" class="btn btn-hero-primary btn-lg px-5 py-3 rounded-pill fw-bold magnetic-btn">
+        <i class="bi bi-clipboard2-check me-2"></i>Book Free IT Assessment
+      </a>
+      <a routerLink="/" fragment="pricing" class="btn btn-hero-ghost btn-lg px-5 py-3 rounded-pill magnetic-btn">View Plans</a>
     </div>
   </div>
 </section>
 
-<!-- ========== LOCAL SEO LINKS ========== -->
-<section class="py-3 bg-light border-top">
+<!-- ========== SEO LINKS ========== -->
+<section class="seo-links-strip py-3">
   <div class="container">
-    <div class="text-center">
-      <p class="text-muted small mb-3 fw-semibold text-uppercase tracking-wide">Local Service Areas</p>
-      <div class="d-flex flex-wrap justify-content-center gap-2">
-        <a class="btn btn-outline-secondary btn-sm rounded-pill px-3" routerLink="/managed-it-services-vaughan">IT Support Vaughan</a>
-        <a class="btn btn-outline-secondary btn-sm rounded-pill px-3" routerLink="/managed-it-services-toronto">IT Support Toronto</a>
-        <a class="btn btn-outline-secondary btn-sm rounded-pill px-3" routerLink="/managed-it-services-richmond-hill">IT Support Richmond Hill</a>
-        <a class="btn btn-outline-secondary btn-sm rounded-pill px-3" routerLink="/managed-it-services-mississauga">IT Support Mississauga</a>
-        <a class="btn btn-outline-secondary btn-sm rounded-pill px-3" routerLink="/managed-it-services-thornhill">IT Support Thornhill</a>
-      </div>
+    <div class="d-flex flex-wrap justify-content-center gap-2">
+      <a class="seo-pill" routerLink="/managed-it-services-vaughan">IT Support Vaughan</a>
+      <a class="seo-pill" routerLink="/managed-it-services-toronto">IT Support Toronto</a>
+      <a class="seo-pill" routerLink="/managed-it-services-richmond-hill">IT Support Richmond Hill</a>
+      <a class="seo-pill" routerLink="/managed-it-services-mississauga">IT Support Mississauga</a>
+      <a class="seo-pill" routerLink="/managed-it-services-thornhill">IT Support Thornhill</a>
     </div>
   </div>
 </section>

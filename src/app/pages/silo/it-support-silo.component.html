@@ -1,0 +1,101 @@
+<div *ngIf="page">
+  <header class="silo-hero py-5">
+    <div class="container py-4">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8 anim-fade-up">
+          <span class="badge text-bg-light rounded-pill mb-3">
+            IT Support in {{ page.city }} for {{ page.industry }}
+          </span>
+          <h1 class="display-5 fw-bold text-white mb-3" style="letter-spacing:-0.02em">
+            IT Support in {{ page.city }} for {{ page.industry }} Teams
+          </h1>
+          <p class="lead text-white-50 mb-3">{{ page.heroAnswer }}</p>
+          <p class="text-white-50 mb-4">{{ page.heroDetail }}</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a class="btn btn-lg rounded-pill px-5 fw-bold" routerLink="/it-assessment"
+              style="background:linear-gradient(135deg,#6366f1 0%,#8b5cf6 100%);color:#fff;border:none;box-shadow:0 8px 24px rgba(99,102,241,0.35)">
+              Book Free IT Assessment
+            </a>
+            <a class="btn btn-lg rounded-pill px-5" routerLink="/" fragment="pricing"
+              style="background:rgba(255,255,255,0.06);color:#f8fafc;border:1px solid rgba(255,255,255,0.15)">
+              View Plans
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="silo-section-dark py-5">
+    <div class="container">
+      <div class="section-card p-4 p-lg-5">
+        <span class="silo-kicker silo-kicker-emerald">Core Features</span>
+        <h2 class="fw-bold mb-3">Core Features for {{ page.city }} {{ page.industry }} Operations</h2>
+        <p class="text-muted mb-4">{{ page.featureAnswer }}</p>
+        <div class="row g-3">
+          <div class="col-md-6" *ngFor="let feature of page.features">
+            <div class="feature-item h-100 p-3 rounded-3">
+              <i class="bi bi-check-circle-fill me-2"></i>
+              <span>{{ feature }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="silo-section-dark-alt py-5">
+    <div class="container">
+      <div class="section-card p-4 p-lg-5">
+        <span class="silo-kicker silo-kicker-cyan">Compliance</span>
+        <h2 class="fw-bold mb-3">Localized and Industry Compliance</h2>
+        <p class="text-muted mb-4">{{ page.complianceAnswer }}</p>
+        <h3 class="h5 fw-bold mb-3">{{ page.complianceTitle }}</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-transparent px-0" *ngFor="let point of page.compliancePoints">
+            <i class="bi bi-shield-check me-2"></i>{{ point }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="silo-section-dark py-5">
+    <div class="container">
+      <div class="section-card p-4 p-lg-5">
+        <span class="silo-kicker silo-kicker-amber">Pricing</span>
+        <h2 class="fw-bold mb-3">Pricing Built for Predictable Operations</h2>
+        <p class="text-muted mb-2">{{ page.pricingAnswer }}</p>
+        <p class="text-muted mb-4">{{ page.pricingIntro }}</p>
+        <div class="row g-3">
+          <div class="col-md-4" *ngFor="let plan of plans">
+            <article class="plan-card h-100 p-4 rounded-4">
+              <h3 class="h5 fw-bold mb-2">{{ plan.name }}</h3>
+              <p class="price-tag mb-2">{{ plan.price }}</p>
+              <p class="small text-muted mb-0">{{ plan.summary }}</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="silo-section-dark-alt py-5">
+    <div class="container">
+      <div class="section-card p-4 p-lg-5">
+        <span class="silo-kicker silo-kicker-rose">Testimonials</span>
+        <h2 class="fw-bold mb-3">Testimonials and Outcomes</h2>
+        <p class="text-muted mb-4">{{ page.testimonialAnswer }}</p>
+        <div class="row g-3">
+          <div class="col-md-6" *ngFor="let item of page.testimonials">
+            <article class="testimonial-card p-4 rounded-4 h-100">
+              <p class="mb-3">"{{ item.quote }}"</p>
+              <p class="small text-primary fw-semibold mb-1">{{ item.outcome }}</p>
+              <p class="small text-muted mb-0">{{ item.company }}</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

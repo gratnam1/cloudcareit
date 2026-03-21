@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top py-3">
   <div class="container">
-    <a class="navbar-brand fw-bold text-dark d-flex align-items-center" routerLink="/">
+    <a class="navbar-brand fw-bold text-white d-flex align-items-center" routerLink="/">
       <svg width="24" height="24" viewBox="0 0 100 100" class="me-2">
         <title>CtrlShift IT Logo</title>
         <rect x="10" y="10" width="80" height="80" rx="15" fill="none" stroke="#6366f1" stroke-width="10"/>
@@ -62,8 +62,8 @@
         <li class="nav-item"><a class="nav-link px-3" routerLink="/about" (click)="closeNavMenus()">About</a></li>
         <li class="nav-item"><a class="nav-link px-3" routerLink="/blog" (click)="closeNavMenus()">Blog</a></li>
         <li class="nav-item ms-lg-3">
-          <a class="btn btn-primary rounded-pill px-4 shadow-sm fw-bold" routerLink="/free-security-assessment" (click)="closeNavMenus()">
-            <i class="bi bi-shield-check me-1"></i>Free Assessment
+          <a class="nav-cta-btn rounded-pill px-4 fw-bold" routerLink="/it-assessment" (click)="closeNavMenus()">
+            <i class="bi bi-clipboard2-check me-1"></i>Free IT Assessment
           </a>
         </li>
       </ul>
@@ -73,7 +73,7 @@
 
 <router-outlet></router-outlet>
 
-<footer class="site-footer border-top mt-auto">
+<footer class="site-footer mt-auto">
   <div class="container">
     <div class="row g-3 align-items-start">
       <div class="col-lg-3">
@@ -116,7 +116,7 @@
             <a class="site-footer-link" routerLink="/it-support-small-businesses-gta">IT for Small Businesses</a>
             <a class="site-footer-link" routerLink="/about">About Us</a>
             <a class="site-footer-link" routerLink="/blog">Blog</a>
-            <a class="site-footer-link" routerLink="/free-security-assessment">Free Security Assessment</a>
+            <a class="site-footer-link" routerLink="/it-assessment">Free IT Assessment</a>
           </div>
         </div>
       </div>
@@ -124,29 +124,22 @@
   </div>
 </footer>
 
-<!-- Floating Assessment CTA -->
-<a routerLink="/free-security-assessment"
-   class="btn btn-primary rounded-pill px-4 py-2 fw-bold floating-cta-btn d-none d-md-flex align-items-center gap-2"
-   aria-label="Book Free IT Security Assessment">
-  <i class="bi bi-shield-check"></i>Free Assessment
-</a>
-
 <!-- AI Chat Bubble -->
-<div id="ai-chat-bubble" (click)="toggleChat()" class="bg-primary text-white rounded-circle shadow-lg d-flex align-items-center justify-content-center" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; cursor: pointer; z-index: 9999;">
+<div id="ai-chat-bubble" (click)="toggleChat()" class="bg-primary text-white rounded-circle shadow-lg d-flex align-items-center justify-content-center">
   <i class="bi bi-robot fs-2"></i>
 </div>
 
-<div *ngIf="chatVisible" class="card shadow-lg border-0 rounded-4" style="position: fixed; bottom: 90px; right: 20px; width: 350px; max-width: calc(100vw - 40px); z-index: 9999; overflow: hidden;">
-  <div class="card-body bg-light scroll-y" style="height: 300px; overflow-y: auto;">
+<div *ngIf="chatVisible" class="card shadow-lg border-0 rounded-4 ai-chat-panel">
+  <div class="card-body scroll-y ai-chat-body" style="background:rgba(8,13,26,0.98)">
     <div *ngFor="let msg of messages" [ngClass]="{'text-end': msg.isUser}" class="mb-3">
-      <div [ngClass]="msg.isUser ? 'bg-primary text-white' : 'bg-white text-dark shadow-sm'" class="p-2 rounded-3 d-inline-block" style="max-width: 80%;">
+      <div [ngClass]="msg.isUser ? 'bg-primary text-white' : 'text-light shadow-sm'" class="p-2 rounded-3 d-inline-block ai-chat-message" style="background:rgba(30,41,59,0.9)">
         {{ msg.text }}
       </div>
     </div>
   </div>
-  <div class="card-footer bg-white p-3">
+  <div class="card-footer p-3" style="background:rgba(5,8,16,0.98);border-top:1px solid rgba(99,102,241,0.2)">
     <div class="input-group">
-      <input type="text" [(ngModel)]="chatInput" (keyup.enter)="sendMessage()" class="form-control border-0 bg-light" placeholder="Ask...">
+      <input type="text" [(ngModel)]="chatInput" (keyup.enter)="sendMessage()" class="form-control border-0" style="background:rgba(30,41,59,0.8);color:#f8fafc" placeholder="Ask...">
       <button class="btn btn-primary" (click)="sendMessage()"><i class="bi bi-send-fill"></i></button>
     </div>
   </div>

@@ -416,6 +416,12 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'it-support-in/:city/:industry',
+    loadComponent: () =>
+      import('./pages/silo/it-support-silo.component').then((m) => m.ItSupportSiloComponent),
+    title: 'IT Support in City and Industry | CtrlShift IT Services'
+  },
+  {
     path: 'locations/richmond-hill',
     redirectTo: 'managed-it-services-richmond-hill',
     pathMatch: 'full'
@@ -434,7 +440,17 @@ export const routes: Routes = [
     title: 'About CtrlShift IT Services | Founder Story | GTA Managed IT'
   },
 
-  // Lead Magnet
+  // IT Assessment request page
+  {
+    path: 'it-assessment',
+    loadComponent: () =>
+      import('./pages/it-assessment/it-assessment.component').then(
+        (m) => m.ItAssessmentComponent
+      ),
+    title: 'Book a Free IT Assessment | CtrlShift IT Services'
+  },
+
+  // Lead Magnet (security scan)
   {
     path: 'free-security-assessment',
     loadComponent: () =>

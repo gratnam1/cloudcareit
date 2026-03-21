@@ -1,0 +1,261 @@
+/* ===== SILO PAGE — Dark Tech Theme ===== */
+
+/* ---- Hero ---- */
+.silo-hero {
+  position: relative;
+  overflow: hidden;
+  background: #030712;
+  min-height: 44vh;
+  display: flex;
+  align-items: center;
+}
+
+.silo-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 110% 70% at 65% -10%, rgba(99, 102, 241, 0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 15% 110%, rgba(139, 92, 246, 0.14) 0%, transparent 55%);
+  animation: silo-aurora 10s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes silo-aurora {
+  0%   { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1.06); }
+}
+
+.silo-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.035) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.silo-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---- Section backgrounds ---- */
+.silo-section-dark {
+  background: #050810;
+  position: relative;
+}
+
+.silo-section-dark-alt {
+  background: #080d1a;
+}
+
+.silo-section-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.025) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* ---- Section card (main content panels) ---- */
+.section-card {
+  background: rgba(8, 13, 26, 0.7);
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  border-radius: 1.1rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.section-card h2,
+.section-card h3 {
+  color: #f8fafc;
+  font-weight: 800;
+}
+
+.section-card .text-muted,
+.section-card p.text-muted {
+  color: rgba(148, 163, 184, 0.82) !important;
+}
+
+/* ---- Feature items ---- */
+.feature-item {
+  border: 1px solid rgba(16, 185, 129, 0.14);
+  background: rgba(16, 185, 129, 0.05);
+  color: rgba(203, 213, 225, 0.9);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-item:hover {
+  border-color: rgba(16, 185, 129, 0.32);
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.1);
+}
+
+.feature-item .bi-check-circle-fill {
+  color: #6ee7b7 !important;
+}
+
+/* ---- Compliance list ---- */
+.list-group-item {
+  color: rgba(203, 213, 225, 0.9) !important;
+  border-color: rgba(6, 182, 212, 0.14) !important;
+  background: rgba(6, 182, 212, 0.03) !important;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.list-group-item:hover {
+  background: rgba(6, 182, 212, 0.07) !important;
+  border-color: rgba(6, 182, 212, 0.25) !important;
+}
+
+.list-group-item .bi-shield-check {
+  color: #67e8f9 !important;
+}
+
+/* ---- Plan cards ---- */
+.plan-card {
+  border: 1px solid rgba(99, 102, 241, 0.16);
+  background: rgba(5, 8, 16, 0.8);
+  transition: border-color 0.28s ease, box-shadow 0.28s ease, transform 0.28s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.plan-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.07) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.plan-card:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 16px 40px rgba(99, 102, 241, 0.15);
+  transform: translateY(-4px);
+}
+
+.plan-card:hover::before {
+  opacity: 1;
+}
+
+.plan-card h3 {
+  color: #f1f5f9;
+  font-weight: 700;
+}
+
+.plan-card .text-muted {
+  color: rgba(148, 163, 184, 0.75) !important;
+}
+
+.price-tag {
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: linear-gradient(130deg, #fcd34d 0%, #f59e0b 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Testimonial cards ---- */
+.testimonial-card {
+  border: 1px solid rgba(244, 63, 94, 0.14);
+  background: rgba(8, 13, 26, 0.65);
+  transition: border-color 0.28s ease, box-shadow 0.28s ease, transform 0.28s ease;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '\201C';
+  position: absolute;
+  top: -0.5rem;
+  left: 1rem;
+  font-size: 4rem;
+  line-height: 1;
+  color: rgba(244, 63, 94, 0.35);
+  font-family: Georgia, serif;
+  pointer-events: none;
+}
+
+.testimonial-card:hover {
+  border-color: rgba(244, 63, 94, 0.3);
+  box-shadow: 0 12px 32px rgba(244, 63, 94, 0.1);
+  transform: translateY(-3px);
+}
+
+.testimonial-card p {
+  color: rgba(203, 213, 225, 0.9);
+  line-height: 1.65;
+}
+
+.testimonial-card .text-primary {
+  color: #fda4af !important;
+}
+
+.testimonial-card .text-muted {
+  color: rgba(148, 163, 184, 0.7) !important;
+}
+
+/* ---- Hero badge ---- */
+.silo-hero .text-bg-light {
+  background: rgba(99, 102, 241, 0.12) !important;
+  color: #a5b4fc !important;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+
+/* ---- Section title kicker ---- */
+.silo-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+.silo-kicker-emerald {
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.28);
+}
+.silo-kicker-cyan {
+  color: #67e8f9;
+  background: rgba(6, 182, 212, 0.1);
+  border-color: rgba(6, 182, 212, 0.28);
+}
+.silo-kicker-amber {
+  color: #fcd34d;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.28);
+}
+.silo-kicker-rose {
+  color: #fda4af;
+  background: rgba(244, 63, 94, 0.1);
+  border-color: rgba(244, 63, 94, 0.25);
+}
+
+/* ---- Animations ---- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim-fade-up { animation: fade-up 0.55s ease both; }

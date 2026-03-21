@@ -116,20 +116,20 @@ export class LocationComponent implements OnInit, OnDestroy {
       ],
       faq: [
         {
-          q: 'What are the hourly rates for IT support in the GTA?',
-          a: 'Our managed IT plans are flat-rate to ensure predictable budgeting. For specific projects or ad-hoc support, we offer competitive hourly rates. Contact us for a detailed quote.'
+          q: 'How much does managed IT support cost for a Toronto business?',
+          a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. All pricing is transparent with no hidden fees or surprise invoices.'
         },
         {
-          q: 'Do you offer on-site support in Toronto?',
-          a: 'Yes. We handle on-site visits when needed, but we resolve most issues quickly through secure remote support.'
+          q: 'Do you offer on-site IT support in Toronto?',
+          a: 'Yes. We provide on-site visits across the Financial District, North York, Midtown, and the downtown core. Most issues are resolved faster through secure remote support, but we dispatch on-site whenever physical intervention is needed.'
         },
         {
           q: 'Can you secure Microsoft 365 for legal and medical teams in Toronto?',
-          a: 'Yes. We implement MFA, conditional access, safer sharing rules, and mailbox protection policies tailored for compliance-sensitive offices.'
+          a: 'Yes. We implement MFA, conditional access policies, safer sharing rules, and mailbox protection tailored for compliance-sensitive offices — including law firms and medical clinics.'
         },
         {
-          q: 'How quickly can you respond to urgent downtime in downtown Toronto?',
-          a: 'Critical incidents are triaged immediately through our helpdesk, with remote containment first and rapid on-site dispatch when physical intervention is required.'
+          q: 'How quickly can you respond to urgent downtime in Toronto?',
+          a: 'Growth and Business plan clients receive a response within 15 minutes for production-critical incidents. We triage remotely first and dispatch on-site when required.'
         }
       ],
       geo: {
@@ -176,26 +176,30 @@ export class LocationComponent implements OnInit, OnDestroy {
       ],
       faq: [
         {
-          q: 'What are the hourly rates for IT support in the GTA?',
-          a: 'Our managed IT plans are flat-rate to ensure predictable budgeting. For specific projects or ad-hoc support, we offer competitive hourly rates. Contact us for a detailed quote.'
+          q: 'How much does managed IT support cost for a Mississauga business?',
+          a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. All pricing is transparent — no hidden fees, no surprise invoices.'
         },
         {
-          q: 'Can you improve Wi-Fi coverage in our Mississauga office?',
-          a: 'Yes. We diagnose coverage gaps, recommend access point placement, and configure guest/staff separation when needed.'
+          q: 'Can you improve Wi-Fi coverage across our Mississauga office?',
+          a: 'Yes. We survey for dead zones, recommend access point placement across large floorplans, and configure separate guest and staff networks when needed.'
         },
         {
           q: 'Do you support mixed Microsoft 365 and Google Workspace environments?',
-          a: 'Yes. We manage identity, email routing, file permissions, and device access controls across both platforms.'
+          a: 'Yes. We manage identity, email routing, file permissions, and device access controls across both platforms from a single point of contact.'
         },
         {
-          q: 'Can you help standardize onboarding for fast-growing teams?',
-          a: 'Absolutely. We create repeatable onboarding and offboarding checklists so accounts, devices, security settings, and access rights are provisioned consistently.'
+          q: 'Can you help standardize IT onboarding for fast-growing teams?',
+          a: 'Yes. We create repeatable onboarding and offboarding checklists so accounts, devices, security settings, and access rights are provisioned consistently every time — no gaps, no forgotten steps.'
         }
       ],
       geo: {
         latitude: 43.5890,
         longitude: -79.6441
       },
+      sameAs: [
+        'https://www.linkedin.com/company/ctrlshift-it-services',
+        'https://www.facebook.com/ctrlshiftit'
+      ]
     },
 
     vaughan: {
@@ -232,26 +236,30 @@ export class LocationComponent implements OnInit, OnDestroy {
       ],
       faq: [
         {
-          q: 'What are the hourly rates for IT support in the GTA?',
-          a: 'Our managed IT plans are flat-rate to ensure predictable budgeting. For specific projects or ad-hoc support, we offer competitive hourly rates. Contact us for a detailed quote.'
+          q: 'How much does managed IT support cost for a Vaughan business?',
+          a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and under-15-minute priority response, and $899/month for complete IT department outsourcing. All plans are month-to-month with no hidden fees.'
         },
         {
           q: 'Do you offer on-site IT support in Vaughan?',
-          a: 'Yes, CtrlShift IT provides both remote helpdesk and on-site emergency support for businesses throughout Vaughan and York Region.'
+          a: 'Yes. We provide on-site support across Vaughan, including Concord, Woodbridge, Maple, and the Vaughan Metropolitan Centre. Most issues are resolved remotely within minutes, but we dispatch on-site whenever hands-on work is required.'
         },
         {
           q: 'Can you support businesses in Concord and Woodbridge with multi-site IT?',
-          a: 'Yes. We support multi-location offices with standardized network setups, shared security policies, and centralized monitoring.'
+          a: 'Yes. We manage multi-location offices with standardized network setups, shared security policies, and centralized monitoring so every site runs consistently.'
         },
         {
           q: 'Do you handle after-hours maintenance for Vaughan offices?',
-          a: 'Yes. We can schedule patching, maintenance windows, and planned network changes outside business hours to minimize disruption.'
+          a: 'Yes. We schedule patching, maintenance windows, and planned network changes outside business hours to avoid disrupting your team during the workday.'
         }
       ],
       geo: {
         latitude: 43.8372,
         longitude: -79.5083
       },
+      sameAs: [
+        'https://www.linkedin.com/company/ctrlshift-it-services',
+        'https://www.facebook.com/ctrlshiftit'
+      ]
     },
 
     thornhill: {
@@ -288,26 +296,30 @@ export class LocationComponent implements OnInit, OnDestroy {
       ],
       faq: [
         {
-          q: 'What are the hourly rates for IT support in the GTA?',
-          a: 'Our managed IT plans are flat-rate to ensure predictable budgeting. For specific projects or ad-hoc support, we offer competitive hourly rates. Contact us for a detailed quote.'
+          q: 'How much does managed IT support cost for a Thornhill business?',
+          a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. There are no hidden fees and no surprise invoices.'
         },
         {
           q: 'Are you a good fit for smaller offices in Thornhill?',
-          a: 'Yes. We specialize in small offices that want dependable IT without complexity.'
+          a: 'Yes. Many of our clients are small offices — 5 to 20 staff — that want dependable IT without the complexity or cost of a full in-house team. We scale to fit your size.'
         },
         {
-          q: 'Can you fix recurring email and login issues for staff?',
-          a: 'Yes. We troubleshoot account lockouts, authentication failures, and profile issues, then harden policies to prevent repeats.'
+          q: 'Can you fix recurring email and login issues for our staff?',
+          a: 'Yes. We troubleshoot account lockouts, MFA failures, and profile sync issues, then tighten policies so the same problems don\'t keep coming back.'
         },
         {
-          q: 'Do you help with older networks that were never documented?',
-          a: 'Yes. We audit, map, and clean up legacy setups so future troubleshooting and upgrades are faster and safer.'
+          q: 'Do you help with older networks that were never properly set up?',
+          a: 'Yes. We audit, document, and clean up legacy network setups so future troubleshooting and upgrades are faster, safer, and less disruptive.'
         }
       ],
       geo: {
         latitude: 43.8161,
         longitude: -79.4246
       },
+      sameAs: [
+        'https://www.linkedin.com/company/ctrlshift-it-services',
+        'https://www.facebook.com/ctrlshiftit'
+      ]
     },
 
     'richmond hill': {
@@ -344,26 +356,30 @@ export class LocationComponent implements OnInit, OnDestroy {
       ],
       faq: [
         {
-          q: 'What are the hourly rates for IT support in the GTA?',
-          a: 'Our managed IT plans are flat-rate to ensure predictable budgeting. For specific projects or ad-hoc support, we offer competitive hourly rates. Contact us for a detailed quote.'
+          q: 'How much does managed IT support cost for a Richmond Hill business?',
+          a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. All plans are month-to-month with no hidden fees.'
         },
         {
-          q: 'Do you provide proactive monitoring?',
-          a: 'Yes. Our managed plans focus on preventing problems before they disrupt your team.'
+          q: 'Do you provide proactive monitoring for Richmond Hill offices?',
+          a: 'Yes. Our managed plans include 24/7 endpoint and network monitoring. We catch and address issues before they turn into downtime — so your team rarely needs to call us with an emergency.'
         },
         {
-          q: 'Can you improve endpoint performance for slow laptops and desktops?',
-          a: 'Yes. We tune startup load, patch operating systems, remove risky legacy software, and standardize device baselines for better stability.'
+          q: 'Can you speed up slow laptops and desktops for our Richmond Hill team?',
+          a: 'Yes. We tune startup processes, apply OS patches, remove risky legacy software, and standardize device configurations for better day-to-day performance.'
         },
         {
-          q: 'How do you test backups for Richmond Hill businesses?',
-          a: 'We run scheduled restore tests and document recovery steps so you know data can be recovered before an emergency happens.'
+          q: 'How do you verify backups actually work for Richmond Hill businesses?',
+          a: 'We run scheduled restore tests on a regular basis and document the recovery steps so you have proof your data is recoverable before an emergency ever happens.'
         }
       ],
       geo: {
         latitude: 43.8828,
         longitude: -79.4403
       },
+      sameAs: [
+        'https://www.linkedin.com/company/ctrlshift-it-services',
+        'https://www.facebook.com/ctrlshiftit'
+      ]
     }
   };
 

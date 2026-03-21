@@ -1,78 +1,81 @@
-<section class="assessment-hero py-5 text-white">
-  <div class="container py-4">
+<!-- ========== HERO ========== -->
+<section class="fsa-hero py-5">
+  <div class="fsa-hero-aurora" aria-hidden="true"></div>
+  <div class="container py-4 position-relative" style="z-index:1">
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center">
-        <span class="badge bg-danger bg-opacity-20 text-white border border-danger border-opacity-50 rounded-pill px-3 mb-4 fw-semibold">
+        <span class="fsa-kicker mb-4">
           <i class="bi bi-shield-exclamation me-1"></i>Free · No Commitment · GTA Businesses Only
         </span>
-        <h1 class="display-4 fw-bold mb-4">Free IT Security Assessment for Your GTA Business</h1>
-        <p class="lead opacity-75 mb-5">Get a full picture of your cybersecurity posture — at no cost. We'll identify your biggest risks, check your compliance readiness, and give you a prioritized action list.</p>
-        <div class="d-flex flex-wrap justify-content-center gap-3 mb-2">
-          <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill"><i class="bi bi-check2 me-1 text-info"></i>Network Vulnerability Scan</span>
-          <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill"><i class="bi bi-check2 me-1 text-info"></i>Microsoft 365 Security Review</span>
-          <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill"><i class="bi bi-check2 me-1 text-info"></i>Ransomware Risk Analysis</span>
-          <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill"><i class="bi bi-check2 me-1 text-info"></i>Backup Verification</span>
-          <span class="badge bg-white bg-opacity-10 text-white px-3 py-2 rounded-pill"><i class="bi bi-check2 me-1 text-info"></i>Cyber Insurance Readiness</span>
+        <h1 class="display-4 fw-bold text-white mb-4">Free IT Security Assessment<br class="d-none d-md-block"> for Your GTA Business</h1>
+        <p class="fsa-lead mb-5">Get a full picture of your cybersecurity posture at no cost. We run safe, external checks first, then provide a prioritized action plan based on your exposure and business context.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-2">
+          <span class="fsa-check-pill"><i class="bi bi-check2-circle me-1"></i>External DNS Health Check</span>
+          <span class="fsa-check-pill"><i class="bi bi-check2-circle me-1"></i>TLS &amp; Certificate Posture</span>
+          <span class="fsa-check-pill"><i class="bi bi-check2-circle me-1"></i>Security Headers Review</span>
+          <span class="fsa-check-pill"><i class="bi bi-check2-circle me-1"></i>Email Domain Baseline (MX)</span>
+          <span class="fsa-check-pill"><i class="bi bi-check2-circle me-1"></i>Risk Summary &amp; Next Steps</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="py-5 bg-white">
+<!-- ========== MAIN CONTENT ========== -->
+<section class="fsa-section py-5">
   <div class="container py-4">
     <div class="row g-5 align-items-start">
 
       <!-- Left: What's Included -->
       <div class="col-lg-5">
-        <h2 class="fw-bold mb-4">What Your Free Assessment Includes</h2>
+        <h2 class="fsa-section-title mb-5">What Your Free Assessment Includes</h2>
 
-        <div class="assessment-item d-flex gap-3 mb-4">
-          <div class="assessment-icon"><i class="bi bi-wifi text-primary"></i></div>
+        <div class="fsa-assessment-item d-flex gap-3 mb-4">
+          <div class="fsa-icon"><i class="bi bi-wifi"></i></div>
           <div>
-            <h6 class="fw-bold mb-1">Network Vulnerability Scan</h6>
-            <p class="text-muted small mb-0">We identify exposed ports, misconfigured services, and unpatched network devices that attackers actively exploit.</p>
+            <h6 class="fw-bold mb-1 text-white">External Surface Review</h6>
+            <p class="fsa-desc small mb-0">We review public-facing endpoints and domain records for common security gaps without intrusive penetration testing.</p>
           </div>
         </div>
 
-        <div class="assessment-item d-flex gap-3 mb-4">
-          <div class="assessment-icon"><i class="bi bi-microsoft text-primary"></i></div>
+        <div class="fsa-assessment-item d-flex gap-3 mb-4">
+          <div class="fsa-icon"><i class="bi bi-lock-fill"></i></div>
           <div>
-            <h6 class="fw-bold mb-1">Microsoft 365 Security Review</h6>
-            <p class="text-muted small mb-0">Review of MFA status, conditional access policies, email filtering, admin privileges, and SharePoint permissions across your tenant.</p>
+            <h6 class="fw-bold mb-1 text-white">TLS &amp; Certificate Checks</h6>
+            <p class="fsa-desc small mb-0">We validate HTTPS behavior, certificate validity windows, and protocol-level hardening signals visible from the public internet.</p>
           </div>
         </div>
 
-        <div class="assessment-item d-flex gap-3 mb-4">
-          <div class="assessment-icon"><i class="bi bi-bug-fill text-primary"></i></div>
+        <div class="fsa-assessment-item d-flex gap-3 mb-4">
+          <div class="fsa-icon"><i class="bi bi-bug-fill"></i></div>
           <div>
-            <h6 class="fw-bold mb-1">Ransomware Risk Analysis</h6>
-            <p class="text-muted small mb-0">We score your organization against the top ransomware entry vectors — phishing, RDP exposure, unpatched endpoints, and weak credentials.</p>
+            <h6 class="fw-bold mb-1 text-white">Security Header Baseline</h6>
+            <p class="fsa-desc small mb-0">We check for high-impact HTTP security headers and identify practical improvements that reduce browser-side attack exposure.</p>
           </div>
         </div>
 
-        <div class="assessment-item d-flex gap-3 mb-4">
-          <div class="assessment-icon"><i class="bi bi-cloud-check-fill text-primary"></i></div>
+        <div class="fsa-assessment-item d-flex gap-3 mb-4">
+          <div class="fsa-icon"><i class="bi bi-cloud-check-fill"></i></div>
           <div>
-            <h6 class="fw-bold mb-1">Backup Verification</h6>
-            <p class="text-muted small mb-0">We check your backup strategy — frequency, encryption, offsite storage, and whether your backups have actually been tested for restore.</p>
+            <h6 class="fw-bold mb-1 text-white">DNS &amp; Email Baseline</h6>
+            <p class="fsa-desc small mb-0">We verify foundational DNS and mail routing signals, helping you catch misconfigurations that can affect resilience and trust.</p>
           </div>
         </div>
 
-        <div class="assessment-item d-flex gap-3 mb-4">
-          <div class="assessment-icon"><i class="bi bi-file-earmark-check-fill text-primary"></i></div>
+        <div class="fsa-assessment-item d-flex gap-3 mb-4">
+          <div class="fsa-icon"><i class="bi bi-file-earmark-check-fill"></i></div>
           <div>
-            <h6 class="fw-bold mb-1">Cyber Insurance Readiness</h6>
-            <p class="text-muted small mb-0">We map your current controls against common cyber insurance requirements — MFA, EDR, backup, access controls — so you know your coverage risk.</p>
+            <h6 class="fw-bold mb-1 text-white">Actionable Risk Summary</h6>
+            <p class="fsa-desc small mb-0">You get a short report with priorities, quick wins, and recommended next steps aligned to your business risk tolerance.</p>
           </div>
         </div>
 
-        <div class="p-4 bg-light rounded-4 mt-4">
-          <h6 class="fw-bold mb-2"><i class="bi bi-people-fill text-primary me-2"></i>Who This Is For</h6>
-          <ul class="text-muted small mb-0">
-            <li>Professional offices with 5–50 employees</li>
-            <li>Law firms, accounting firms, medical clinics, engineering companies</li>
-            <li>Businesses reviewing their cyber insurance coverage</li>
+        <div class="fsa-who-panel p-4 rounded-4 mt-4">
+          <h6 class="fw-bold mb-3 text-white"><i class="bi bi-people-fill me-2" style="color:#a5b4fc"></i>Who This Is For</h6>
+          <ul class="fsa-desc small mb-0 ps-3">
+            <li class="mb-1">Professional offices with 5–50 employees</li>
+            <li class="mb-1">Law firms, accounting firms, medical clinics, engineering companies</li>
+            <li class="mb-1">Businesses reviewing their cyber insurance coverage</li>
             <li>Companies switching IT providers or reviewing their IT posture</li>
           </ul>
         </div>
@@ -80,31 +83,36 @@
 
       <!-- Right: Form -->
       <div class="col-lg-7">
-        <div class="assessment-form-card p-4 p-md-5 rounded-4 shadow">
+        <div class="fsa-form-card p-4 p-md-5 rounded-4">
           <div *ngIf="!submitted">
-            <h3 class="fw-bold mb-2">Book Your Free Assessment</h3>
-            <p class="text-muted mb-4">Fill out the form below and a senior engineer will reach out within one business day to schedule your assessment.</p>
+            <h3 class="fw-bold mb-2 text-white">Request Your Free Security Scan</h3>
+            <p class="fsa-desc mb-4">Submit your details and authorized domain. We run non-intrusive external checks first and follow up with your summary.</p>
+
+            <div class="fsa-alert mb-4">
+              <i class="bi bi-info-circle me-2" style="color:#a5b4fc"></i>
+              This free scan is limited to passive, external checks. Internal network testing is only performed with explicit scoped authorization.
+            </div>
 
             <form (submit)="onSubmit($event)" class="row g-3">
               <div class="col-md-6">
-                <label class="form-label small fw-bold">Full Name *</label>
-                <input type="text" name="name" class="form-control bg-light border-0" required>
+                <label class="form-label small fw-semibold fsa-label">Full Name *</label>
+                <input type="text" name="name" class="fsa-input form-control" required placeholder="Jane Smith">
               </div>
               <div class="col-md-6">
-                <label class="form-label small fw-bold">Company Name *</label>
-                <input type="text" name="company" class="form-control bg-light border-0" required>
+                <label class="form-label small fw-semibold fsa-label">Company Name *</label>
+                <input type="text" name="company" class="fsa-input form-control" required placeholder="Acme Corp">
               </div>
               <div class="col-md-6">
-                <label class="form-label small fw-bold">Business Email *</label>
-                <input type="email" name="email" class="form-control bg-light border-0" required>
+                <label class="form-label small fw-semibold fsa-label">Business Email *</label>
+                <input type="email" name="email" class="fsa-input form-control" required placeholder="you@company.com">
               </div>
               <div class="col-md-6">
-                <label class="form-label small fw-bold">Phone Number</label>
-                <input type="tel" name="phone" class="form-control bg-light border-0">
+                <label class="form-label small fw-semibold fsa-label">Phone Number</label>
+                <input type="tel" name="phone" class="fsa-input form-control" placeholder="(416) 555-0100">
               </div>
               <div class="col-md-6">
-                <label class="form-label small fw-bold">Number of Employees</label>
-                <select name="office_size" class="form-select bg-light border-0">
+                <label class="form-label small fw-semibold fsa-label">Number of Employees</label>
+                <select name="office_size" class="fsa-input form-select">
                   <option>1–5</option>
                   <option>5–20</option>
                   <option>20–50</option>
@@ -112,8 +120,8 @@
                 </select>
               </div>
               <div class="col-md-6">
-                <label class="form-label small fw-bold">Industry</label>
-                <select name="industry" class="form-select bg-light border-0">
+                <label class="form-label small fw-semibold fsa-label">Industry</label>
+                <select name="industry" class="fsa-input form-select">
                   <option>Professional Services</option>
                   <option>Law Firm</option>
                   <option>Accounting / Finance</option>
@@ -123,23 +131,112 @@
                 </select>
               </div>
               <div class="col-12">
-                <label class="form-label small fw-bold">Current IT Situation</label>
-                <textarea name="message" class="form-control bg-light border-0" rows="3" placeholder="Describe your current IT setup, biggest concerns, or what prompted this request..."></textarea>
+                <label class="form-label small fw-semibold fsa-label">Primary Business Domain *</label>
+                <input type="text" name="target_domain" class="fsa-input form-control" placeholder="example.com" required>
               </div>
-              <div class="col-12 mt-3">
-                <button type="submit" [disabled]="isLoading" class="btn btn-primary w-100 py-3 rounded-pill fw-bold fs-5">
-                  <i class="bi bi-shield-check me-2"></i>{{ isLoading ? 'Sending...' : 'Book My Free IT Security Assessment' }}
+              <div class="col-12">
+                <label class="form-label small fw-semibold fsa-label">Current IT Situation</label>
+                <textarea name="message" class="fsa-input form-control" rows="3" placeholder="Describe your current IT setup, biggest concerns, or what prompted this request..."></textarea>
+              </div>
+              <input type="text" name="website" class="visually-hidden" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="captcha_token" value="">
+              <div class="col-12">
+                <div class="form-check mb-2">
+                  <input id="consent_authorized" class="form-check-input fsa-check" name="consent_authorized" type="checkbox" required>
+                  <label for="consent_authorized" class="form-check-label small fsa-desc">
+                    I confirm I am authorized to request security checks for this domain.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input id="consent_terms" class="form-check-input fsa-check" name="consent_terms" type="checkbox" required>
+                  <label for="consent_terms" class="form-check-label small fsa-desc">
+                    I agree that this request is for a limited external security scan and not a full penetration test.
+                  </label>
+                </div>
+              </div>
+              <div *ngIf="errorMessage" class="col-12">
+                <div class="fsa-alert fsa-alert-danger py-2 px-3 small mb-0">{{ errorMessage }}</div>
+              </div>
+              <div class="col-12 mt-2">
+                <button type="submit" [disabled]="isLoading" class="btn fsa-submit-btn w-100 py-3 rounded-pill fw-bold fs-5">
+                  <i class="bi bi-shield-check me-2"></i>{{ isLoading ? 'Submitting...' : 'Request My Free Security Scan' }}
                 </button>
-                <p class="small text-muted text-center mt-3 mb-0"><i class="bi bi-lock me-1"></i>No commitment. No sales pressure. Results delivered in plain English.</p>
+                <div *ngIf="isLoading" class="fsa-progress-wrap mt-3" aria-live="polite">
+                  <div class="d-flex justify-content-between mb-2">
+                    <span class="small fw-semibold" style="color:#a5b4fc">{{ submitStatusMessage }}</span>
+                    <span class="small fsa-desc">{{ submitProgress }}%</span>
+                  </div>
+                  <div class="progress fsa-progress-bar" role="progressbar" [attr.aria-valuenow]="submitProgress" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" [style.width.%]="submitProgress"></div>
+                  </div>
+                  <p class="small fsa-desc mb-0 mt-2">This can take up to 20–40 seconds depending on external checks.</p>
+                </div>
+                <p class="small fsa-desc text-center mt-3 mb-0"><i class="bi bi-lock me-1"></i>No commitment. No sales pressure. Scope-safe checks only.</p>
               </div>
             </form>
           </div>
 
           <div *ngIf="submitted" class="text-center py-5">
-            <i class="bi bi-check-circle-fill text-primary" style="font-size: 4rem;"></i>
-            <h3 class="fw-bold mt-4 mb-3">You're All Set!</h3>
-            <p class="text-muted">A senior engineer will contact you within one business day to schedule your free IT security assessment.</p>
-            <a routerLink="/" class="btn btn-outline-primary rounded-pill px-4 mt-3">Back to Home</a>
+            <i *ngIf="scanStatus === 'completed'" class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+            <div *ngIf="scanStatus !== 'completed' && scanStatus !== 'failed'" class="spinner-border" style="width:4rem;height:4rem;color:#a5b4fc" role="status"></div>
+            <i *ngIf="scanStatus === 'failed'" class="bi bi-x-circle-fill text-danger" style="font-size: 4rem;"></i>
+
+            <h3 class="fw-bold mt-4 mb-3 text-white">{{ scanStatus === 'completed' ? 'Scan Completed' : (scanStatus === 'failed' ? 'Scan Failed' : 'Scan in Progress') }}</h3>
+            <p class="fsa-desc">{{ scanStatus === 'completed' ? 'Your external assessment is complete. See the summary below.' : 'We are running your initial checks. This will only take a moment.' }}</p>
+
+            <div *ngIf="scanStatus === 'completed'" class="fsa-step2-panel text-start mt-4 mb-3 p-4 rounded-4">
+              <div class="d-flex align-items-start gap-3">
+                <i class="bi bi-shield-lock-fill" style="font-size:2rem;color:#a5b4fc"></i>
+                <div class="flex-grow-1">
+                  <h5 class="fw-bold text-white mb-2">Step 2: Run a Deep Local Scan <span *ngIf="osType === 'mobile'" class="badge bg-danger text-white ms-2 text-uppercase" style="font-size:0.65rem;vertical-align:middle">Requires Desktop PC</span></h5>
+                  <p class="small fsa-desc mb-3">External checks can't see your local security posture. Download and run our safe local audit script to check your Firewall, Antivirus, and Administrator privileges. Results appear below once completed.</p>
+                  <div class="d-flex flex-wrap gap-2 mb-3">
+                    <a [href]="'/api/security-scans/' + scanRequestId + '/download-agent'"
+                       class="btn btn-sm rounded-pill px-3 fw-bold"
+                       [ngClass]="(osType === 'windows' || osType === 'unknown') ? 'btn-primary' : 'btn-outline-primary'">
+                      <i class="bi bi-windows me-2"></i>Download for Windows (.ps1)
+                    </a>
+                    <a [href]="'/api/security-scans/' + scanRequestId + '/download-agent-sh'"
+                       class="btn btn-sm rounded-pill px-3 fw-bold fsa-btn-ghost">
+                      Download for Mac/Linux (.sh)
+                    </a>
+                  </div>
+                  <div class="fsa-code-hint small rounded p-2" style="font-size:0.75rem">
+                    <div *ngIf="osType === 'windows' || osType === 'unknown'" class="mb-1"><strong class="text-white">Windows:</strong> Requires PowerShell. You may need to "Run anyway" if prompted by SmartScreen.</div>
+                    <div *ngIf="osType !== 'windows'"><strong class="text-white">Mac/Linux:</strong> Requires Terminal. Run <code>chmod +x</code> and execute the script directly.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="fsa-scan-status text-start p-4 rounded-4 mt-4 mb-3">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <p class="small mb-0 text-white"><strong>Request ID:</strong> {{ scanRequestId }}</p>
+                <button *ngIf="scanStatus === 'completed' && !pollTimer" (click)="loadScanStatus()" class="btn btn-sm fsa-btn-ghost rounded-pill px-3 fw-semibold">
+                  <i class="bi bi-arrow-clockwise me-1"></i>Refresh
+                </button>
+              </div>
+              <p class="small mb-2 text-capitalize text-white"><strong>Status:</strong>
+                <span [ngClass]="{'text-success fw-bold': scanStatus === 'completed', 'text-danger fw-bold': scanStatus === 'failed'}" style="color:{{scanStatus === 'running' ? '#a5b4fc' : ''}}">{{ scanStatus || 'queued' }}</span>
+              </p>
+              <p *ngIf="scanSummary" class="small mb-0 fsa-desc"><strong class="text-white">Summary:</strong> {{ scanSummary }}</p>
+
+              <div *ngIf="scanChecks && scanChecks.length > 0" class="mt-4 pt-3" style="border-top:1px solid rgba(99,102,241,0.2)">
+                <h6 class="fw-bold mb-3 small text-uppercase fsa-desc">Detailed Checks</h6>
+                <div *ngFor="let check of scanChecks" class="d-flex gap-3 mb-3 p-3 fsa-check-row rounded-3">
+                  <div class="mt-1">
+                    <i *ngIf="check.status === 'pass'" class="bi bi-check-circle-fill text-success fs-5"></i>
+                    <i *ngIf="check.status === 'warn'" class="bi bi-exclamation-triangle-fill text-warning fs-5"></i>
+                    <i *ngIf="check.status === 'fail'" class="bi bi-x-circle-fill text-danger fs-5"></i>
+                  </div>
+                  <div>
+                    <div class="fw-bold small text-white">{{ check.label }}</div>
+                    <div class="small fsa-desc mt-1">{{ check.detail }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a routerLink="/" class="btn fsa-btn-outline-indigo rounded-pill px-4 mt-3">Back to Home</a>
           </div>
         </div>
       </div>
@@ -148,31 +245,33 @@
   </div>
 </section>
 
-<section class="py-5 bg-light">
+<!-- ========== HOW IT WORKS ========== -->
+<section class="fsa-section-alt py-5">
   <div class="container py-4">
     <div class="text-center mb-5">
-      <h2 class="fw-bold">What Happens After Your Assessment</h2>
+      <span class="fsa-kicker mb-3">The Process</span>
+      <h2 class="fsa-section-title mt-3">What Happens After Your Assessment</h2>
     </div>
     <div class="row g-4 justify-content-center">
       <div class="col-md-3 text-center">
-        <div class="step-circle mx-auto mb-3">1</div>
-        <h6 class="fw-bold mb-2">Book</h6>
-        <p class="text-muted small">Submit the form above. We'll confirm within 1 business day.</p>
+        <div class="fsa-step-circle mx-auto mb-3">1</div>
+        <h6 class="fw-bold mb-2 text-white">Book</h6>
+        <p class="fsa-desc small">Submit the form above. We'll confirm within 1 business day.</p>
       </div>
       <div class="col-md-3 text-center">
-        <div class="step-circle mx-auto mb-3">2</div>
-        <h6 class="fw-bold mb-2">Assess</h6>
-        <p class="text-muted small">A senior engineer conducts a remote review of your IT environment.</p>
+        <div class="fsa-step-circle mx-auto mb-3">2</div>
+        <h6 class="fw-bold mb-2 text-white">Assess</h6>
+        <p class="fsa-desc small">A senior engineer conducts a remote review of your IT environment.</p>
       </div>
       <div class="col-md-3 text-center">
-        <div class="step-circle mx-auto mb-3">3</div>
-        <h6 class="fw-bold mb-2">Report</h6>
-        <p class="text-muted small">You receive a clear, prioritized report of risks and recommended fixes.</p>
+        <div class="fsa-step-circle mx-auto mb-3">3</div>
+        <h6 class="fw-bold mb-2 text-white">Report</h6>
+        <p class="fsa-desc small">You receive a clear, prioritized report of risks and recommended fixes.</p>
       </div>
       <div class="col-md-3 text-center">
-        <div class="step-circle mx-auto mb-3">4</div>
-        <h6 class="fw-bold mb-2">Decide</h6>
-        <p class="text-muted small">No pressure. You choose what to do next — we're here to help either way.</p>
+        <div class="fsa-step-circle mx-auto mb-3">4</div>
+        <h6 class="fw-bold mb-2 text-white">Decide</h6>
+        <p class="fsa-desc small">No pressure. You choose what to do next — we're here to help either way.</p>
       </div>
     </div>
   </div>

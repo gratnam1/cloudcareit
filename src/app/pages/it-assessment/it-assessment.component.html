@@ -1,0 +1,184 @@
+<!-- ========== HERO ========== -->
+<section class="ia-hero py-5">
+  <div class="ia-hero-aurora" aria-hidden="true"></div>
+  <div class="container py-4 position-relative" style="z-index:1">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <span class="ia-kicker mb-4">
+          <i class="bi bi-clipboard2-check me-1"></i>Free · No Commitment · GTA Businesses Only
+        </span>
+        <h1 class="display-4 fw-bold text-white mb-4">Book Your Free<br class="d-none d-md-block"> IT Assessment</h1>
+        <p class="ia-lead mb-5">Tell us about your business and IT situation. A senior engineer will follow up to schedule a no-pressure review of your environment and provide a clear, prioritized action plan.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-2">
+          <span class="ia-check-pill"><i class="bi bi-check2-circle me-1"></i>Network &amp; Security Review</span>
+          <span class="ia-check-pill"><i class="bi bi-check2-circle me-1"></i>Microsoft 365 Audit</span>
+          <span class="ia-check-pill"><i class="bi bi-check2-circle me-1"></i>Backup Verification</span>
+          <span class="ia-check-pill"><i class="bi bi-check2-circle me-1"></i>Risk Prioritization Report</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MAIN CONTENT ========== -->
+<section class="ia-section py-5">
+  <div class="container py-4">
+    <div class="row g-5 align-items-start justify-content-center">
+
+      <!-- Left: What's Included -->
+      <div class="col-lg-5">
+        <h2 class="ia-section-title mb-5">What Your Free Assessment Includes</h2>
+
+        <div class="ia-item d-flex gap-3 mb-4">
+          <div class="ia-icon"><i class="bi bi-shield-check"></i></div>
+          <div>
+            <h6 class="fw-bold mb-1 text-white">Security Posture Review</h6>
+            <p class="ia-desc small mb-0">We review your current security controls, identify gaps, and flag the highest-risk exposures for your business type.</p>
+          </div>
+        </div>
+
+        <div class="ia-item d-flex gap-3 mb-4">
+          <div class="ia-icon"><i class="bi bi-microsoft"></i></div>
+          <div>
+            <h6 class="fw-bold mb-1 text-white">Microsoft 365 / Google Workspace Audit</h6>
+            <p class="ia-desc small mb-0">We check your cloud collaboration setup for misconfigured sharing, MFA gaps, and licensing inefficiencies.</p>
+          </div>
+        </div>
+
+        <div class="ia-item d-flex gap-3 mb-4">
+          <div class="ia-icon"><i class="bi bi-hdd-stack-fill"></i></div>
+          <div>
+            <h6 class="fw-bold mb-1 text-white">Backup &amp; Recovery Check</h6>
+            <p class="ia-desc small mb-0">We verify your backup coverage and test recovery readiness — so you know if your data is actually protected.</p>
+          </div>
+        </div>
+
+        <div class="ia-item d-flex gap-3 mb-4">
+          <div class="ia-icon"><i class="bi bi-file-earmark-check-fill"></i></div>
+          <div>
+            <h6 class="fw-bold mb-1 text-white">Prioritized Action Plan</h6>
+            <p class="ia-desc small mb-0">You receive a clear report with quick wins and longer-term fixes, ranked by risk and aligned to your budget.</p>
+          </div>
+        </div>
+
+        <div class="ia-who-panel p-4 rounded-4 mt-4">
+          <h6 class="fw-bold mb-3 text-white"><i class="bi bi-people-fill me-2" style="color:#a5b4fc"></i>Who This Is For</h6>
+          <ul class="ia-desc small mb-0 ps-3">
+            <li class="mb-1">Professional offices with 5–50 employees</li>
+            <li class="mb-1">Law firms, accounting firms, medical clinics, engineering companies</li>
+            <li class="mb-1">Businesses reviewing their cyber insurance coverage</li>
+            <li>Companies switching IT providers or evaluating their IT posture</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="col-lg-7">
+        <div class="ia-form-card p-4 p-md-5 rounded-4">
+
+          <div *ngIf="!submitted">
+            <h3 class="fw-bold mb-2 text-white">Request Your Free IT Assessment</h3>
+            <p class="ia-desc mb-4">Fill in your details and we'll be in touch within 1 business day to schedule your review.</p>
+
+            <form (submit)="onSubmit($event)" class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold ia-label">Full Name *</label>
+                <input type="text" name="name" class="ia-input form-control" required placeholder="Jane Smith">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold ia-label">Company Name *</label>
+                <input type="text" name="company" class="ia-input form-control" required placeholder="Acme Corp">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold ia-label">Business Email *</label>
+                <input type="email" name="email" class="ia-input form-control" required placeholder="you@company.com">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold ia-label">Phone Number</label>
+                <input type="tel" name="phone" class="ia-input form-control" placeholder="(416) 555-0100">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold ia-label">Number of Employees</label>
+                <select name="office_size" class="ia-input form-select">
+                  <option>1–5</option>
+                  <option>5–20</option>
+                  <option>20–50</option>
+                  <option>50+</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-semibold ia-label">Industry</label>
+                <select name="industry" class="ia-input form-select">
+                  <option>Professional Services</option>
+                  <option>Law Firm</option>
+                  <option>Accounting / Finance</option>
+                  <option>Medical / Healthcare</option>
+                  <option>Engineering</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-semibold ia-label">Tell Us About Your IT Situation</label>
+                <textarea name="message" class="ia-input form-control" rows="4" placeholder="Describe your current setup, biggest pain points, or what's prompting this request..."></textarea>
+              </div>
+              <!-- Honeypot -->
+              <input type="text" name="website" class="visually-hidden" tabindex="-1" autocomplete="off">
+
+              <div *ngIf="errorMessage" class="col-12">
+                <div class="ia-alert ia-alert-danger py-2 px-3 small mb-0">{{ errorMessage }}</div>
+              </div>
+
+              <div class="col-12 mt-2">
+                <button type="submit" [disabled]="isLoading" class="btn ia-submit-btn w-100 py-3 rounded-pill fw-bold fs-5">
+                  <i class="bi bi-clipboard2-check me-2"></i>{{ isLoading ? 'Sending...' : 'Request My Free Assessment' }}
+                </button>
+                <p class="small ia-desc text-center mt-3 mb-0"><i class="bi bi-lock me-1"></i>No commitment. No sales pressure. We'll follow up within 1 business day.</p>
+              </div>
+            </form>
+          </div>
+
+          <div *ngIf="submitted" class="text-center py-5">
+            <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+            <h3 class="fw-bold mt-4 mb-3 text-white">Request Received!</h3>
+            <p class="ia-desc mb-4">Thanks! We've received your assessment request and will be in touch within 1 business day to schedule your review.</p>
+            <a routerLink="/" class="btn ia-btn-outline rounded-pill px-4">Back to Home</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOW IT WORKS ========== -->
+<section class="ia-section-alt py-5">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <span class="ia-kicker mb-3">The Process</span>
+      <h2 class="ia-section-title mt-3">What Happens Next</h2>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-3 text-center">
+        <div class="ia-step-circle mx-auto mb-3">1</div>
+        <h6 class="fw-bold mb-2 text-white">Request</h6>
+        <p class="ia-desc small">Submit the form above. We'll confirm within 1 business day.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="ia-step-circle mx-auto mb-3">2</div>
+        <h6 class="fw-bold mb-2 text-white">Schedule</h6>
+        <p class="ia-desc small">We'll reach out to find a time that works for a 30-minute call.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="ia-step-circle mx-auto mb-3">3</div>
+        <h6 class="fw-bold mb-2 text-white">Assess</h6>
+        <p class="ia-desc small">A senior engineer reviews your IT environment remotely or on-site.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="ia-step-circle mx-auto mb-3">4</div>
+        <h6 class="fw-bold mb-2 text-white">Report</h6>
+        <p class="ia-desc small">You receive a prioritized action plan. No pressure — you decide what happens next.</p>
+      </div>
+    </div>
+  </div>
+</section>

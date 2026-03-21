@@ -3,18 +3,46 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
 :root {
-  --tech-bg: #0a0e17;
-  --tech-surface: #111827;
-  --tech-surface-elevated: #1a2332;
-  --tech-border: rgba(99, 102, 241, 0.2);
-  --tech-cyan: #22d3ee;
+  /* Core Backgrounds */
+  --tech-bg: #030712;
+  --tech-surface: #050810;
+  --tech-surface-elevated: #080d1a;
+
+  /* Accent Colors — indigo/purple */
   --tech-indigo: #6366f1;
-  --tech-violet: #8b5cf6;
-  --tech-glow-cyan: rgba(34, 211, 238, 0.4);
-  --tech-glow-indigo: rgba(99, 102, 241, 0.4);
-  --tech-text: #f1f5f9;
+  --tech-purple: #8b5cf6;
+  --tech-violet: #7c3aed;
+
+  /* Accent Colors — multi-color palette */
+  --tech-emerald: #10b981;
+  --tech-cyan: #06b6d4;
+  --tech-amber: #f59e0b;
+  --tech-rose: #f43f5e;
+  --tech-sky: #0ea5e9;
+
+  /* Gradients */
+  --tech-gradient-primary: linear-gradient(135deg, var(--tech-indigo) 0%, var(--tech-purple) 100%);
+  --tech-gradient-border: linear-gradient(135deg, rgba(99, 102, 241, 0.5) 0%, rgba(139, 92, 246, 0.5) 100%);
+  --tech-gradient-emerald: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --tech-gradient-cyan: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%);
+  --tech-gradient-amber: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --tech-gradient-rose: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
+
+  /* Glows */
+  --tech-glow-primary: rgba(99, 102, 241, 0.35);
+  --tech-glow-emerald: rgba(16, 185, 129, 0.35);
+  --tech-glow-cyan: rgba(6, 182, 212, 0.35);
+  --tech-glow-amber: rgba(245, 158, 11, 0.35);
+  --tech-glow-rose: rgba(244, 63, 94, 0.35);
+
+  /* Text */
+  --tech-text: #f8fafc;
   --tech-muted: #94a3b8;
-  --tech-grid: rgba(99, 102, 241, 0.06);
+
+  /* Layout */
+  --tech-border: rgba(99, 102, 241, 0.12);
+  --tech-grid: rgba(255, 255, 255, 0.03);
+
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
@@ -22,27 +50,74 @@
   --transition-fast: 0.2s ease;
   --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Bootstrap primary → indigo/violet */
+  --bs-primary: #6366f1;
+  --bs-primary-rgb: 99, 102, 241;
+  --bs-link-color: #818cf8;
+  --bs-link-hover-color: #a5b4fc;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: var(--tech-bg);
+  color: var(--tech-text);
+}
+
+/* Override Bootstrap text utilities for dark theme */
+.text-muted {
+  color: rgba(148, 163, 184, 0.8) !important;
+}
+.text-dark {
+  color: #f1f5f9 !important;
+}
+.form-label.text-muted {
+  color: rgba(148, 163, 184, 0.7) !important;
+}
+
+/* Force dark bg on all app-home sections that previously used bg-white */
+app-home section, app-home header, app-home .why-switch-section,
+app-home .cyber-authority-section, app-home .faq-section {
+  background-color: transparent;
+}
+app-home .bg-white, app-home .bg-light { background: transparent !important; }
+
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-html, body { height: 100%; margin: 0; }
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   color: #0f172a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
 }
 
 /* Focus for accessibility */
@@ -64,11 +139,57 @@ body {
   text-shadow: 0 0 20px var(--tech-glow-cyan);
 }
 
+/* Section kicker color variants */
+.section-kicker-emerald {
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.28);
+}
+.section-kicker-cyan {
+  color: #67e8f9;
+  background: rgba(6, 182, 212, 0.1);
+  border-color: rgba(6, 182, 212, 0.28);
+}
+.section-kicker-amber {
+  color: #fcd34d;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.28);
+}
+
+/* Global animations */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99,102,241,0.2); }
+  50% { box-shadow: 0 0 35px rgba(99,102,241,0.4), 0 0 60px rgba(99,102,241,0.1); }
+}
+
+@keyframes border-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 0.4; }
+  90% { opacity: 0.4; }
+  100% { transform: translateY(400%); opacity: 0; }
+}
+
 /* Responsive containers */
-.container { max-width: 1200px; }
+.container {
+  max-width: 1200px;
+}
 
 @media (max-width: 575.98px) {
-  .container { padding-left: 1rem; padding-right: 1rem; }
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 /* Service detail pages: align visual tone with blog detail layout */
@@ -135,7 +256,7 @@ body {
   line-height: 1.7;
 }
 
-.service-detail-page li + li {
+.service-detail-page li+li {
   margin-top: 0.3rem;
 }
 
@@ -189,10 +310,7 @@ body {
 
 /* Home page managed security case study */
 app-home #security-case-study {
-  background:
-    radial-gradient(1200px circle at 12% -20%, rgba(59, 130, 246, 0.22), transparent 46%),
-    radial-gradient(900px circle at 88% 115%, rgba(30, 64, 175, 0.24), transparent 52%),
-    #0b1630 !important;
+  background: #080d1a !important;
 }
 
 app-home .security-case-intro,
@@ -214,7 +332,7 @@ app-home .security-case-proof ul {
   padding-left: 1.1rem;
 }
 
-app-home .security-case-proof li + li {
+app-home .security-case-proof li+li {
   margin-top: 0.35rem;
 }
 
@@ -242,179 +360,13 @@ app-home .security-case-label {
 }
 
 @media (max-width: 767.98px) {
+
   app-home .security-case-intro,
   app-home .security-case-proof {
     box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
   }
 }
 
-/* Home page FAQ + consultation styles moved global to keep component CSS budget healthy */
-app-home .faq-section {
-  background: #ffffff;
-}
-
-app-home .faq-shell {
-  border: 1px solid rgba(99, 102, 241, 0.14);
-  border-radius: var(--radius-xl);
-  background: #ffffff;
-  padding: clamp(1.25rem, 3vw, 1.85rem);
-}
-
-app-home .faq-head {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.65rem;
-}
-
-app-home .faq-kicker {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-
-app-home .faq-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: #0f172a;
-  color: #ffffff;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.65rem;
-}
-
-app-home .faq-title {
-  font-size: clamp(1.45rem, 3vw, 2rem);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: #0f172a;
-}
-
-app-home .faq-subtitle {
-  color: #64748b;
-  font-size: 0.95rem;
-}
-
-app-home .faq-list {
-  display: grid;
-  gap: 0.75rem;
-}
-
-app-home .faq-list .faq-item {
-  border: 1px solid rgba(99, 102, 241, 0.12);
-  border-radius: var(--radius-md);
-  background: #fff;
-  transition: box-shadow var(--transition-smooth), transform var(--transition-fast);
-  overflow: hidden;
-}
-
-app-home .faq-list .faq-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(99, 102, 241, 0.08);
-}
-
-app-home .faq-list .faq-item[open] {
-  box-shadow: 0 16px 32px rgba(99, 102, 241, 0.12);
-}
-
-app-home .faq-list .faq-button {
-  list-style: none;
-  cursor: pointer;
-  background: #fff;
-  color: #0f172a;
-  font-size: 1.05rem;
-  letter-spacing: -0.01em;
-  padding: 1.15rem 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  transition: background var(--transition-fast), color var(--transition-fast);
-}
-
-app-home .faq-list .faq-button::-webkit-details-marker {
-  display: none;
-}
-
-app-home .faq-list .faq-button::after {
-  content: '';
-  width: 0.62rem;
-  height: 0.62rem;
-  border-right: 2px solid #334155;
-  border-bottom: 2px solid #334155;
-  transform: rotate(45deg);
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
-  flex-shrink: 0;
-}
-
-app-home .faq-list .faq-item[open] > .faq-button {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.14) 0%, rgba(30, 64, 175, 0.08) 100%);
-  color: var(--tech-indigo);
-}
-
-app-home .faq-list .faq-item[open] > .faq-button::after {
-  transform: rotate(-135deg);
-  border-color: var(--tech-indigo);
-}
-
-app-home .faq-list .faq-button:focus-visible {
-  outline: none;
-  box-shadow: inset 0 0 0 3px rgba(99, 102, 241, 0.18);
-}
-
-app-home .faq-list .faq-content {
-  background: #fff;
-  color: #334155;
-  padding: 0 1.25rem 1.2rem;
-  line-height: 1.7;
-}
-
-@media (max-width: 767.98px) {
-  app-home .faq-shell {
-    padding: 1rem;
-  }
-
-  app-home .faq-head {
-    align-items: flex-start;
-  }
-
-  app-home .faq-title {
-    font-size: 1.45rem;
-    line-height: 1.25;
-  }
-
-  app-home .faq-subtitle {
-    font-size: 0.9rem;
-  }
-}
-
-app-home #consultation.hero-dark-modern {
-  min-height: auto;
-  padding: 4rem 0;
-}
-
-app-home #consultation .bg-white {
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: box-shadow var(--transition-smooth);
-}
-
-app-home #consultation .bg-white:hover {
-  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.3);
-}
-
-app-home #consultation .form-control,
-app-home #consultation .form-select {
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-app-home #consultation .form-control:focus,
-app-home #consultation .form-select:focus {
-  border-color: var(--tech-indigo);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-}
+/* Home page FAQ/consultation — dark overrides */
+app-home .faq-section { background: transparent; }
+app-home .faq-shell { background: transparent; border: none; padding: 0; }

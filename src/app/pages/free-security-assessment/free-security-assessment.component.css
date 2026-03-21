@@ -1,29 +1,276 @@
-.assessment-hero {
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1e293b 100%);
-  min-height: 40vh;
+/* ===== SECTION BACKGROUNDS ===== */
+.fsa-section     { background: #050810; }
+.fsa-section-alt { background: #080d1a; }
+
+/* ===== HERO ===== */
+.fsa-hero {
+  position: relative;
+  overflow: hidden;
+  background: #030712;
+  min-height: 44vh;
   display: flex;
   align-items: center;
 }
-.assessment-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  background: rgba(99,102,241,0.1);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem;
-  flex-shrink: 0;
+
+.fsa-hero-aurora {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 100% 80% at 50% -10%, rgba(239, 68, 68, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 15% 110%, rgba(99, 102, 241, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+  animation: fsa-aurora 10s ease-in-out infinite alternate;
+  pointer-events: none;
 }
-.assessment-form-card {
-  background: #fff;
-  border: 1px solid rgba(99,102,241,0.12);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+@keyframes fsa-aurora {
+  0%   { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1.05); }
 }
-.step-circle {
-  width: 52px; height: 52px;
+.fsa-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.fsa-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  padding: 0.3rem 0.85rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  margin-bottom: 1rem;
+}
+
+.fsa-lead {
+  color: rgba(248, 250, 252, 0.72);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.fsa-section-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.fsa-desc {
+  color: rgba(148, 163, 184, 0.82);
+  line-height: 1.65;
+}
+
+.fsa-label {
+  color: rgba(148, 163, 184, 0.8);
+}
+
+/* ===== CHECK PILLS (hero badges) ===== */
+.fsa-check-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(248, 250, 252, 0.85);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+.fsa-check-pill .bi { color: #a5b4fc; }
+
+/* ===== ASSESSMENT LIST ===== */
+.fsa-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: #a5b4fc;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+.fsa-assessment-item:hover .fsa-icon {
+  background: rgba(99, 102, 241, 0.2);
+}
+
+/* ===== WHO PANEL ===== */
+.fsa-who-panel {
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+}
+
+/* ===== FORM CARD ===== */
+.fsa-form-card {
+  background: rgba(8, 13, 26, 0.85);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ===== INPUTS ===== */
+.fsa-input {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+  color: #f1f5f9 !important;
+  border-radius: 10px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.fsa-input::placeholder { color: rgba(148, 163, 184, 0.45); }
+.fsa-input:focus {
+  border-color: rgba(99, 102, 241, 0.55) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12) !important;
+  background: rgba(20, 30, 55, 0.9) !important;
+}
+.fsa-input option { background: #0f172a; color: #f1f5f9; }
+
+/* Checkbox */
+.fsa-check { accent-color: #6366f1; }
+
+/* ===== ALERT ===== */
+.fsa-alert {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  color: rgba(165, 180, 252, 0.9);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+.fsa-alert-danger {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.fsa-submit-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff !important;
+  border: none;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.fsa-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(99, 102, 241, 0.5);
+}
+.fsa-submit-btn:disabled {
+  opacity: 0.65;
+  transform: none;
+}
+
+/* ===== PROGRESS ===== */
+.fsa-progress-wrap {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  padding: 0.75rem 0.9rem;
+}
+.fsa-progress-bar {
+  height: 0.6rem;
+  background: rgba(99, 102, 241, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.fsa-progress-bar .progress-bar {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+}
+
+/* ===== SCAN STATUS ===== */
+.fsa-scan-status {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+}
+
+.fsa-check-row {
+  background: rgba(99, 102, 241, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+}
+
+/* ===== STEP 2 PANEL ===== */
+.fsa-step2-panel {
+  background: rgba(99, 102, 241, 0.07);
+  border: 1px solid rgba(99, 102, 241, 0.22);
+}
+
+.fsa-code-hint {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  color: rgba(148, 163, 184, 0.85);
+}
+
+/* ===== GHOST BUTTON ===== */
+.fsa-btn-ghost {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(248, 250, 252, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.fsa-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.fsa-btn-outline-indigo {
+  background: transparent;
+  color: #a5b4fc !important;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.fsa-btn-outline-indigo:hover {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.6);
+}
+
+/* ===== STEPS ===== */
+.fsa-step-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: #fff;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.25rem;
   font-weight: 800;
-  box-shadow: 0 8px 20px rgba(99,102,241,0.3);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 420px) {
+  .fsa-hero h1 {
+    font-size: clamp(1.85rem, 9vw, 2.3rem);
+    line-height: 1.2;
+  }
+  .fsa-lead { font-size: 1rem; }
+  .fsa-form-card { padding: 1rem !important; }
+  .fsa-form-card .fsa-submit-btn { font-size: 1rem !important; }
+}
+
+@media (max-width: 360px) {
+  .fsa-kicker {
+    white-space: normal;
+    line-height: 1.35;
+    text-align: center;
+  }
+  .fsa-assessment-item { gap: 0.6rem !important; }
+  .fsa-icon { width: 34px; height: 34px; font-size: 1rem; }
 }

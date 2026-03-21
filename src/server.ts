@@ -5,6 +5,10 @@ import {
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
 import express from 'express';
+import crypto from 'node:crypto';
+import { appendFile } from 'node:fs/promises';
+import { promises as dns } from 'node:dns';
+import net from 'node:net';
 import { join } from 'node:path';
 import {
   DEFAULT_PLACE_NAME,
@@ -16,6 +20,7 @@ import {
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
+app.use(express.json({ limit: '100kb' }));
 const angularApp = new AngularNodeAppEngine();
 const LEGACY_REDIRECTS: Record<string, string> = {
   '/managed-it': '/managed-it-services',
@@ -132,6 +137,361 @@ type MapContext = {
 };
 
 const CACHE_TTL_MS = 10 * 60 * 1000;
+const SECURITY_SCAN_RETENTION_MS = 48 * 60 * 60 * 1000;
+const SECURITY_SCAN_RATE_WINDOW_MS = 15 * 60 * 1000;
+const MAX_SCANS_PER_IP_WINDOW = 5;
+const MAX_SCANS_PER_EMAIL_WINDOW = 3;
+const MAX_SCANS_PER_DOMAIN_WINDOW = 3;
+const MAX_SCAN_WORKERS = 2;
+const SECURITY_SCAN_DNS_TIMEOUT_MS = 5000;
+const SECURITY_SCAN_DEBUG_LOG = join(process.cwd(), 'security-scan-debug.log');
+
+async function writeSecurityScanDebugLog(event: string, detail: Record<string, unknown> = {}) {
+  const entry = JSON.stringify({
+    timestamp: new Date().toISOString(),
+    event,
+    ...detail,
+  });
+  await appendFile(SECURITY_SCAN_DEBUG_LOG, `${entry}\n`, 'utf8').catch(() => undefined);
+}
+
+type SecurityScanStatus =
+  | 'queued'
+  | 'running'
+  | 'completed'
+  | 'failed'
+  | 'review_required';
+
+type SecurityScanRequestPayload = {
+  fullName: string;
+  companyName: string;
+  email: string;
+  phone?: string;
+  officeSize?: string;
+  industry?: string;
+  targetDomain: string;
+  message?: string;
+  consentAuthorized: boolean;
+  consentTerms: boolean;
+  captchaToken?: string;
+  website?: string;
+};
+
+type SecurityScanReport = {
+  scannedDomain: string;
+  checks: Array<{
+    id: string;
+    label: string;
+    status: 'pass' | 'warn' | 'fail';
+    detail: string;
+  }>;
+  riskSummary: string;
+};
+
+type SecurityScanJob = {
+  requestId: string;
+  createdAt: string;
+  updatedAt: string;
+  status: SecurityScanStatus;
+  requesterIp: string;
+  payload: SecurityScanRequestPayload;
+  reportSummary?: string;
+  report?: SecurityScanReport;
+  error?: string;
+};
+
+const securityScanJobs = new Map<string, SecurityScanJob>();
+const securityScanQueue: string[] = [];
+const ipRateBuckets = new Map<string, number[]>();
+const emailRateBuckets = new Map<string, number[]>();
+const domainRateBuckets = new Map<string, number[]>();
+let activeScanWorkers = 0;
+
+const PRIVATE_IPV4_PREFIXES = [
+  '10.',
+  '127.',
+  '169.254.',
+  '172.16.',
+  '172.17.',
+  '172.18.',
+  '172.19.',
+  '172.20.',
+  '172.21.',
+  '172.22.',
+  '172.23.',
+  '172.24.',
+  '172.25.',
+  '172.26.',
+  '172.27.',
+  '172.28.',
+  '172.29.',
+  '172.30.',
+  '172.31.',
+  '192.168.',
+];
+
+function cleanRateBucket(bucketMap: Map<string, number[]>, key: string, now: number): number[] {
+  const existing = bucketMap.get(key) || [];
+  const fresh = existing.filter((timestamp) => now - timestamp < SECURITY_SCAN_RATE_WINDOW_MS);
+  if (fresh.length > 0) {
+    bucketMap.set(key, fresh);
+  } else {
+    bucketMap.delete(key);
+  }
+  return fresh;
+}
+
+function consumeRateLimit(
+  bucketMap: Map<string, number[]>,
+  key: string,
+  maxRequests: number,
+): boolean {
+  const now = Date.now();
+  const fresh = cleanRateBucket(bucketMap, key, now);
+  if (fresh.length >= maxRequests) return false;
+  fresh.push(now);
+  bucketMap.set(key, fresh);
+  return true;
+}
+
+function sanitizeDomain(input: string): string | null {
+  const normalized = input.trim().toLowerCase().replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+  if (!normalized || normalized.length > 253) return null;
+  if (!/^[a-z0-9.-]+$/.test(normalized)) return null;
+  if (!normalized.includes('.')) return null;
+  if (normalized.startsWith('.') || normalized.endsWith('.')) return null;
+  return normalized;
+}
+
+function isForbiddenHost(host: string): boolean {
+  const lower = host.toLowerCase();
+  if (lower === 'localhost' || lower.endsWith('.local') || lower.endsWith('.internal')) {
+    return true;
+  }
+
+  if (net.isIP(lower) === 4) {
+    return PRIVATE_IPV4_PREFIXES.some((prefix) => lower.startsWith(prefix));
+  }
+
+  if (net.isIP(lower) === 6) {
+    return lower === '::1' || lower.startsWith('fd') || lower.startsWith('fc');
+  }
+
+  return false;
+}
+
+function withTimeout<T>(promise: Promise<T>, ms: number, errorMessage: string): Promise<T> {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    timeoutId = setTimeout(() => reject(new Error(errorMessage)), ms);
+  });
+  return Promise.race([promise, timeoutPromise]).finally(() => clearTimeout(timeoutId));
+}
+
+async function resolvesToPrivateAddress(host: string): Promise<boolean> {
+  try {
+    const resolution = await withTimeout(
+      dns.lookup(host, { all: true }),
+      SECURITY_SCAN_DNS_TIMEOUT_MS,
+      'dns_lookup_timeout'
+    );
+    return resolution.some((entry) => isForbiddenHost(entry.address));
+  } catch {
+    return true;
+  }
+}
+
+function emailDomainMatchesTarget(email: string, targetDomain: string): boolean {
+  const at = email.lastIndexOf('@');
+  if (at <= 0) return false;
+  const emailDomain = email.slice(at + 1).toLowerCase().trim();
+  return emailDomain === targetDomain || emailDomain.endsWith(`.${targetDomain}`);
+}
+
+async function verifyCaptchaToken(token: string | undefined): Promise<boolean> {
+  const secret = process.env['SECURITY_SCAN_CAPTCHA_SECRET']?.trim();
+  if (!secret) return true;
+  if (!token?.trim()) return false;
+
+  try {
+    const body = new URLSearchParams({ secret, response: token.trim() });
+    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body,
+    });
+    if (!response.ok) return false;
+    const payload = (await response.json()) as { success?: boolean; score?: number };
+    return Boolean(payload.success) && (payload.score === undefined || payload.score >= 0.5);
+  } catch {
+    return false;
+  }
+}
+
+async function runExternalScan(targetDomain: string): Promise<SecurityScanReport> {
+  const checks: SecurityScanReport['checks'] = [];
+  console.log(`[SecurityScan] [${targetDomain}] Running initial HTTP/TLS checks...`);
+
+  let httpsStatus = 0;
+  let hasHsts = false;
+  let hasCsp = false;
+  let hasXFrame = false;
+
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    try {
+      const response = await fetch(`https://${targetDomain}`, {
+        method: 'GET',
+        redirect: 'follow',
+        signal: controller.signal,
+      });
+      httpsStatus = response.status;
+      hasHsts = Boolean(response.headers.get('strict-transport-security'));
+      hasCsp = Boolean(response.headers.get('content-security-policy'));
+      hasXFrame = Boolean(response.headers.get('x-frame-options'));
+    } finally {
+      clearTimeout(timeout);
+    }
+  } catch {
+    httpsStatus = 0;
+  }
+
+  checks.push({
+    id: 'https',
+    label: 'HTTPS Reachability',
+    status: httpsStatus > 0 && httpsStatus < 500 ? 'pass' : 'fail',
+    detail:
+      httpsStatus > 0
+        ? `HTTPS responded with status ${httpsStatus}.`
+        : 'Unable to connect over HTTPS.',
+  });
+
+  const missingHeaders = [
+    hasHsts ? null : 'HSTS',
+    hasCsp ? null : 'CSP',
+    hasXFrame ? null : 'X-Frame-Options',
+  ].filter((value): value is string => Boolean(value));
+
+  checks.push({
+    id: 'http-headers',
+    label: 'Security Headers',
+    status: missingHeaders.length === 0 ? 'pass' : 'warn',
+    detail:
+      missingHeaders.length === 0
+        ? 'Core security headers were detected.'
+        : `Missing or weak header coverage: ${missingHeaders.join(', ')}.`,
+  });
+
+  console.log(`[SecurityScan] [${targetDomain}] Checking MX records...`);
+  try {
+    const mxRecords = await withTimeout(
+      dns.resolveMx(targetDomain),
+      SECURITY_SCAN_DNS_TIMEOUT_MS,
+      'dns_mx_timeout'
+    );
+    checks.push({
+      id: 'dns-mx',
+      label: 'MX Record Baseline',
+      status: mxRecords.length > 0 ? 'pass' : 'warn',
+      detail:
+        mxRecords.length > 0
+          ? `${mxRecords.length} MX record(s) detected.`
+          : 'No MX records detected.',
+    });
+  } catch {
+    checks.push({
+      id: 'dns-mx',
+      label: 'MX Record Baseline',
+      status: 'warn',
+      detail: 'Unable to resolve MX records.',
+    });
+  }
+
+  console.log(`[SecurityScan] [${targetDomain}] Checking NS delegation...`);
+  try {
+    const nsRecords = await withTimeout(
+      dns.resolveNs(targetDomain),
+      SECURITY_SCAN_DNS_TIMEOUT_MS,
+      'dns_ns_timeout'
+    );
+    checks.push({
+      id: 'dns-ns',
+      label: 'NS Delegation Check',
+      status: nsRecords.length >= 2 ? 'pass' : 'warn',
+      detail:
+        nsRecords.length >= 2
+          ? `${nsRecords.length} NS record(s) detected.`
+          : 'Low NS redundancy detected.',
+    });
+  } catch {
+    checks.push({
+      id: 'dns-ns',
+      label: 'NS Delegation Check',
+      status: 'warn',
+      detail: 'Unable to resolve NS records.',
+    });
+  }
+
+  console.log(`[SecurityScan] [${targetDomain}] Finalizing report.`);
+  const failedChecks = checks.filter((check) => check.status === 'fail').length;
+  const warningChecks = checks.filter((check) => check.status === 'warn').length;
+  const riskSummary =
+    failedChecks > 0
+      ? `High priority: ${failedChecks} critical issue(s) found, plus ${warningChecks} warning(s).`
+      : warningChecks > 0
+        ? `Moderate priority: ${warningChecks} warning(s) found in baseline checks.`
+        : 'Low priority: no major issues found in this external baseline scan.';
+
+  return {
+    scannedDomain: targetDomain,
+    checks,
+    riskSummary,
+  };
+}
+
+function cleanupExpiredSecurityScans() {
+  const cutoff = Date.now() - SECURITY_SCAN_RETENTION_MS;
+  for (const [requestId, job] of securityScanJobs.entries()) {
+    if (new Date(job.createdAt).getTime() < cutoff) {
+      securityScanJobs.delete(requestId);
+    }
+  }
+}
+
+function maybeStartSecurityScanWorker() {
+  while (activeScanWorkers < MAX_SCAN_WORKERS && securityScanQueue.length > 0) {
+    const requestId = securityScanQueue.shift();
+    if (!requestId) return;
+    const job = securityScanJobs.get(requestId);
+    if (!job || job.status !== 'queued') continue;
+
+    activeScanWorkers += 1;
+    void (async () => {
+      job.status = 'running';
+      job.updatedAt = new Date().toISOString();
+      console.log(`[SecurityScan Worker] Starting scan for ${job.payload.targetDomain} (req: ${requestId})`);
+
+      try {
+        const report = await runExternalScan(job.payload.targetDomain);
+        job.status = 'completed';
+        job.report = report;
+        job.reportSummary = report.riskSummary;
+        job.updatedAt = new Date().toISOString();
+        console.log(`[SecurityScan Worker] Completed scan for ${job.payload.targetDomain}. Risk Summary: ${report.riskSummary}`);
+      } catch (error) {
+        job.status = 'failed';
+        job.error = error instanceof Error ? error.message : 'Unexpected scanning error.';
+        job.reportSummary = 'Unable to complete automated checks. Manual review required.';
+        job.updatedAt = new Date().toISOString();
+        console.error(`[SecurityScan Worker] Failed scan for ${job.payload.targetDomain}:`, error);
+      } finally {
+        activeScanWorkers -= 1;
+        maybeStartSecurityScanWorker();
+      }
+    })();
+  }
+}
 
 const FALLBACK_REVIEWS: PublicReview[] = [
   {
@@ -973,6 +1333,537 @@ async function loadGoogleReviews(): Promise<PublicReviewsPayload> {
     );
   }
 }
+
+// ===== IT Assessment request endpoint =====
+app.post('/api/it-assessment', async (req, res) => {
+  const body = req.body as {
+    fullName?: string;
+    companyName?: string;
+    email?: string;
+    phone?: string;
+    officeSize?: string;
+    industry?: string;
+    message?: string;
+    website?: string;
+  };
+
+  // Honeypot
+  if (body.website) {
+    res.status(200).json({ ok: true });
+    return;
+  }
+
+  const fullName = String(body.fullName || '').trim();
+  const companyName = String(body.companyName || '').trim();
+  const email = String(body.email || '').trim();
+  const phone = String(body.phone || '').trim();
+  const officeSize = String(body.officeSize || '').trim();
+  const industry = String(body.industry || '').trim();
+  const message = String(body.message || '').trim();
+
+  if (!fullName || !email) {
+    res.status(400).json({ error: 'Name and email are required.' });
+    return;
+  }
+
+  const RESEND_API_KEY = process.env['RESEND_API_KEY'] || '';
+  const NOTIFY_EMAIL = process.env['ASSESSMENT_NOTIFY_EMAIL'] || 'kannan@ctrlshiftit.ca';
+
+  if (!RESEND_API_KEY) {
+    console.error('[it-assessment] RESEND_API_KEY not set');
+    res.status(500).json({ error: 'Email service not configured.' });
+    return;
+  }
+
+  const htmlBody = `
+    <h2>New IT Assessment Request</h2>
+    <table style="border-collapse:collapse;width:100%;font-family:sans-serif;font-size:14px">
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Name</td><td style="padding:8px;border:1px solid #ddd">${fullName}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Company</td><td style="padding:8px;border:1px solid #ddd">${companyName}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Email</td><td style="padding:8px;border:1px solid #ddd"><a href="mailto:${email}">${email}</a></td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Phone</td><td style="padding:8px;border:1px solid #ddd">${phone || '—'}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Employees</td><td style="padding:8px;border:1px solid #ddd">${officeSize || '—'}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Industry</td><td style="padding:8px;border:1px solid #ddd">${industry || '—'}</td></tr>
+      <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Message</td><td style="padding:8px;border:1px solid #ddd;white-space:pre-wrap">${message || '—'}</td></tr>
+    </table>
+  `;
+
+  try {
+    const resendRes = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'CtrlShift IT <noreply@ctrlshiftit.ca>',
+        to: [NOTIFY_EMAIL],
+        subject: `New IT Assessment Request — ${fullName} (${companyName || email})`,
+        html: htmlBody,
+        reply_to: email,
+      }),
+    });
+
+    if (!resendRes.ok) {
+      const errText = await resendRes.text().catch(() => '');
+      console.error('[it-assessment] Resend error:', resendRes.status, errText);
+      res.status(500).json({ error: 'Failed to send email notification.' });
+      return;
+    }
+
+    res.status(200).json({ ok: true });
+  } catch (err) {
+    console.error('[it-assessment] Unexpected error:', err);
+    res.status(500).json({ error: 'Unexpected server error.' });
+  }
+});
+
+app.post('/api/security-scans/request', async (req, res) => {
+  cleanupExpiredSecurityScans();
+
+  const payload = (req.body ?? {}) as Partial<SecurityScanRequestPayload>;
+  const requesterIp = (req.ip || req.socket.remoteAddress || 'unknown').toString();
+  const normalizedPayload: SecurityScanRequestPayload = {
+    fullName: String(payload.fullName || '').trim(),
+    companyName: String(payload.companyName || '').trim(),
+    email: String(payload.email || '').trim().toLowerCase(),
+    phone: String(payload.phone || '').trim(),
+    officeSize: String(payload.officeSize || '').trim(),
+    industry: String(payload.industry || '').trim(),
+    targetDomain: String(payload.targetDomain || '').trim().toLowerCase(),
+    message: String(payload.message || '').trim(),
+    consentAuthorized: Boolean(payload.consentAuthorized),
+    consentTerms: Boolean(payload.consentTerms),
+    captchaToken: String(payload.captchaToken || '').trim(),
+    website: String(payload.website || '').trim(),
+  };
+
+  const requestStartedAt = Date.now();
+  await writeSecurityScanDebugLog('request_received', {
+    requesterIp,
+    email: normalizedPayload.email,
+    targetDomain: normalizedPayload.targetDomain,
+  });
+
+  if (normalizedPayload.website) {
+    res.status(202).json({ accepted: true });
+    return;
+  }
+
+  const targetDomain = sanitizeDomain(normalizedPayload.targetDomain);
+  if (
+    !normalizedPayload.fullName ||
+    !normalizedPayload.companyName ||
+    !normalizedPayload.email ||
+    !targetDomain
+  ) {
+    res.status(400).json({ error: 'Please complete all required fields.' });
+    return;
+  }
+
+  if (!normalizedPayload.consentAuthorized || !normalizedPayload.consentTerms) {
+    res.status(400).json({ error: 'Authorization and consent are required.' });
+    return;
+  }
+
+  await writeSecurityScanDebugLog('dns_guard_start', { targetDomain });
+  const privateResolution = await resolvesToPrivateAddress(targetDomain);
+  await writeSecurityScanDebugLog('dns_guard_done', { targetDomain, privateResolution });
+  if (isForbiddenHost(targetDomain) || privateResolution) {
+    res.status(400).json({ error: 'This request target is not allowed.' });
+    return;
+  }
+
+  if (!emailDomainMatchesTarget(normalizedPayload.email, targetDomain)) {
+    res.status(403).json({
+      error:
+        'Ownership verification failed. Use a business email matching the requested domain.',
+    });
+    return;
+  }
+
+  const captchaValid = await verifyCaptchaToken(normalizedPayload.captchaToken);
+  await writeSecurityScanDebugLog('captcha_validated', { targetDomain, captchaValid });
+  if (!captchaValid) {
+    res.status(400).json({ error: 'Captcha validation failed.' });
+    return;
+  }
+
+  const canProceed =
+    consumeRateLimit(ipRateBuckets, requesterIp, MAX_SCANS_PER_IP_WINDOW) &&
+    consumeRateLimit(emailRateBuckets, normalizedPayload.email, MAX_SCANS_PER_EMAIL_WINDOW) &&
+    consumeRateLimit(domainRateBuckets, targetDomain, MAX_SCANS_PER_DOMAIN_WINDOW);
+  if (!canProceed) {
+    res.status(429).json({ error: 'Too many scan requests. Please try again later.' });
+    return;
+  }
+
+  normalizedPayload.targetDomain = targetDomain;
+  const requestId = crypto.randomUUID();
+  const now = new Date().toISOString();
+  const job: SecurityScanJob = {
+    requestId,
+    createdAt: now,
+    updatedAt: now,
+    status: 'queued',
+    requesterIp,
+    payload: normalizedPayload,
+    reportSummary: 'Scan queued for external baseline checks.',
+  };
+  securityScanJobs.set(requestId, job);
+  securityScanQueue.push(requestId);
+  maybeStartSecurityScanWorker();
+  await writeSecurityScanDebugLog('request_accepted', {
+    requestId,
+    targetDomain,
+    elapsedMs: Date.now() - requestStartedAt,
+  });
+
+  console.log(
+    '[SecurityScan] request_created',
+    JSON.stringify({
+      requestId,
+      requesterIp,
+      email: normalizedPayload.email,
+      targetDomain,
+      companyName: normalizedPayload.companyName,
+    }),
+  );
+
+  res.status(202).json({
+    requestId,
+    status: job.status,
+  });
+});
+
+app.post('/api/security-scans/client-debug', async (req, res) => {
+  const payload = (req.body ?? {}) as {
+    stage?: string;
+    detail?: Record<string, unknown>;
+  };
+  await writeSecurityScanDebugLog('client_stage', {
+    stage: String(payload.stage || '').trim() || 'unknown',
+    detail: payload.detail ?? {},
+  });
+  res.status(202).json({ accepted: true });
+});
+
+app.get('/api/security-scans/:requestId', (req, res) => {
+  cleanupExpiredSecurityScans();
+  const requestId = String(req.params['requestId'] || '').trim();
+  const job = securityScanJobs.get(requestId);
+  if (!job) {
+    res.status(404).json({ error: 'Scan request not found.' });
+    return;
+  }
+
+  res.json({
+    requestId: job.requestId,
+    status: job.status,
+    createdAt: job.createdAt,
+    updatedAt: job.updatedAt,
+    reportSummary: job.reportSummary,
+    checks:
+      job.status === 'completed'
+        ? job.report?.checks.map((check) => ({
+            id: check.id,
+            label: check.label,
+            status: check.status,
+            detail: check.detail,
+          }))
+        : [],
+  });
+});
+
+app.get('/api/security-scans/:requestId/report', (req, res) => {
+  cleanupExpiredSecurityScans();
+  const requestId = String(req.params['requestId'] || '').trim();
+  const job = securityScanJobs.get(requestId);
+  if (!job) {
+    res.status(404).json({ error: 'Scan request not found.' });
+    return;
+  }
+
+  res.json({
+    requestId: job.requestId,
+    status: job.status,
+    scannedDomain: job.report?.scannedDomain || job.payload.targetDomain,
+    summary: job.reportSummary || '',
+    checks: job.report?.checks || [],
+    error: job.error,
+  });
+});
+
+app.get('/api/security-scans/:requestId/download-agent', (req, res) => {
+  const requestId = String(req.params['requestId'] || '').trim();
+  const job = securityScanJobs.get(requestId);
+  if (!job) {
+    res.status(404).send('Scan request not found.');
+    return;
+  }
+
+  const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+  const host = req.get('host');
+  const apiUrl = `${protocol}://${host}/api/security-scans/agent-report`;
+
+  const scriptContent = [
+    '$ErrorActionPreference = "SilentlyContinue"',
+    '$ProgressPreference = "SilentlyContinue"',
+    '',
+    `$RequestId = "${requestId}"`,
+    `$ApiUrl = "${apiUrl}"`,
+    '',
+    'Write-Host "Starting CtrlShift IT Deep Local Scan..." -ForegroundColor Cyan',
+    '',
+    '$Result = @{',
+    '    RequestId = $RequestId',
+    '    Checks = @()',
+    '}',
+    '',
+    '# 1. OS Info',
+    'Write-Host "Checking Operating System..."',
+    '$Os = Get-CimInstance Win32_OperatingSystem',
+    '$Status = "fail"',
+    'if ($Os.Caption -match "Windows 11") { $Status = "pass" } elseif ($Os.Caption -match "Windows 10") { $Status = "warn" }',
+    '$Result.Checks += @{',
+    '    Id = "agent-os-version"',
+    '    Label = "Operating System"',
+    '    Status = $Status',
+    '    Detail = $Os.Caption',
+    '}',
+    '',
+    '# 2. Antivirus',
+    'Write-Host "Checking Antivirus Status..."',
+    '$AvCount = 0',
+    'try {',
+    '    $Av = Get-CimInstance -Namespace root\\\\SecurityCenter2 -ClassName AntivirusProduct',
+    '    $AvCount = if ($null -eq $Av) { 0 } elseif ($Av -is [array]) { $Av.Count } else { 1 }',
+    '    $AvNames = if ($AvCount -gt 0) { ($Av | Select-Object -ExpandProperty displayName) -join ", " } else { "None detected" }',
+    '    $Result.Checks += @{',
+    '        Id = "agent-antivirus"',
+    '        Label = "Local Antivirus"',
+    '        Status = if ($AvCount -gt 0) { "pass" } else { "fail" }',
+    '        Detail = if ($AvCount -gt 0) { "Active: $AvNames" } else { "No recognized AV detected in SecurityCenter." }',
+    '    }',
+    '} catch {',
+    '    $Result.Checks += @{ Id = "agent-antivirus"; Label = "Local Antivirus"; Status = "warn"; Detail = "Unable to query SecurityCenter." }',
+    '}',
+    '',
+    '# 3. Firewall',
+    'Write-Host "Checking Windows Firewall..."',
+    'try {',
+    '    $Fw = Get-NetFirewallProfile -Name Domain,Private,Public',
+    '    $EnabledCount = ($Fw | Where-Object { $_.Enabled -eq "True" }).Count',
+    '    $Result.Checks += @{',
+    '        Id = "agent-firewall"',
+    '        Label = "Windows Firewall"',
+    '        Status = if ($EnabledCount -eq 3) { "pass" } elseif ($EnabledCount -eq 0) { "fail" } else { "warn" }',
+    '        Detail = "$EnabledCount of 3 profiles enabled."',
+    '    }',
+    '} catch {',
+    '    $Result.Checks += @{ Id = "agent-firewall"; Label = "Windows Firewall"; Status = "warn"; Detail = "Unable to query Firewall." }',
+    '}',
+    '',
+    '# 4. Local Admins',
+    'Write-Host "Checking Local Administrators..."',
+    'try {',
+    '    $Admins = Get-LocalGroupMember -Group "Administrators"',
+    '    $AdminCount = if ($null -eq $Admins) { 0 } elseif ($Admins -is [array]) { $Admins.Count } else { 1 }',
+    '    $Result.Checks += @{',
+    '        Id = "agent-local-admins"',
+    '        Label = "Local Administrators"',
+    '        Status = if ($AdminCount -gt 3) { "warn" } else { "pass" }',
+    '        Detail = "$AdminCount users/groups in Administrators."',
+    '    }',
+    '} catch {',
+    '    $Result.Checks += @{ Id = "agent-local-admins"; Label = "Local Administrators"; Status = "warn"; Detail = "Unable to query local groups." }',
+    '}',
+    '',
+    'Write-Host "Sending results to CtrlShift IT..."',
+    '$JsonPayload = $Result | ConvertTo-Json -Depth 5 -Compress',
+    '',
+    'try {',
+    '    Invoke-RestMethod -Uri $ApiUrl -Method Post -Body $JsonPayload -ContentType "application/json"',
+    '    Write-Host "Audit complete. The results have been securely sent. Please check your browser." -ForegroundColor Green',
+    '} catch {',
+    '    Write-Host "Failed to send results back to the server: $_" -ForegroundColor Red',
+    '}',
+    '',
+    'Start-Sleep -Seconds 5'
+  ].join('\\n');
+
+  res.setHeader('Content-disposition', `attachment; filename="ctrlshift-audit-${requestId.substring(0, 8)}.ps1"`);
+  res.setHeader('Content-type', 'application/octet-stream');
+  res.send(scriptContent);
+});
+
+app.get('/api/security-scans/:requestId/download-agent-sh', (req, res) => {
+  const requestId = String(req.params['requestId'] || '').trim();
+  const job = securityScanJobs.get(requestId);
+  if (!job) {
+    res.status(404).send('Scan request not found.');
+    return;
+  }
+
+  const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+  const host = req.get('host');
+  const apiUrl = `${protocol}://${host}/api/security-scans/agent-report`;
+
+  const scriptContent = [
+    '#!/usr/bin/env bash',
+    '',
+    `REQUEST_ID="${requestId}"`,
+    `API_URL="${apiUrl}"`,
+    '',
+    'echo "Starting CtrlShift IT Deep Local Scan (Mac/Linux)..."',
+    '',
+    'OS_NAME=$(uname -s)',
+    'OS_VERSION=$(uname -r)',
+    '',
+    'FIREWALL_STATUS="fail"',
+    'FIREWALL_DETAIL="Disabled or Unknown"',
+    'ADMINS_COUNT=0',
+    'AV_STATUS="warn"',
+    'AV_DETAIL="AV checks require root or are OS-specific."',
+    '',
+    'if [ "$OS_NAME" = "Darwin" ]; then',
+    '    OS_INFO="macOS $(sw_vers -productVersion 2>/dev/null || echo $OS_VERSION)"',
+    '    ',
+    '    ALF=$(defaults read /Library/Preferences/com.apple.alf globalstate 2>/dev/null || echo "0")',
+    '    if [ "$ALF" = "1" ] || [ "$ALF" = "2" ]; then',
+    '        FIREWALL_STATUS="pass"',
+    '        FIREWALL_DETAIL="macOS Application Firewall is Enabled."',
+    '    fi',
+    '',
+    '    ADMIN_MSG=$(dscl . -read /Groups/admin GroupMembership 2>/dev/null)',
+    '    ADMINS_COUNT=$(echo "$ADMIN_MSG" | wc -w)',
+    'else',
+    '    if [ -f /etc/os-release ]; then',
+    '        OS_INFO=$(grep PRETTY_NAME /etc/os-release | cut -d\'"\' -f2)',
+    '    else',
+    '        OS_INFO="Linux $OS_VERSION"',
+    '    fi',
+    '',
+    '    if command -v ufw >/dev/null 2>&1; then',
+    '        UFW_STATUS=$(ufw status 2>/dev/null | grep -i active)',
+    '        if [ -n "$UFW_STATUS" ]; then',
+    '            FIREWALL_STATUS="pass"',
+    '            FIREWALL_DETAIL="UFW is Active."',
+    '        fi',
+    '    fi',
+    '',
+    '    if grep -q "^sudo:" /etc/group 2>/dev/null; then',
+    '        ADMINS=$(grep "^sudo:" /etc/group | cut -d: -f4)',
+    '        ADMINS_COUNT=$(echo "$ADMINS" | tr "," "\\n" | grep -v "^$" | wc -l)',
+    '    elif grep -q "^wheel:" /etc/group 2>/dev/null; then',
+    '        ADMINS=$(grep "^wheel:" /etc/group | cut -d: -f4)',
+    '        ADMINS_COUNT=$(echo "$ADMINS" | tr "," "\\n" | grep -v "^$" | wc -l)',
+    '    fi',
+    'fi',
+    '',
+    'OS_STATUS="pass"',
+    'if [ "$OS_NAME" != "Darwin" ] && [ "$OS_NAME" != "Linux" ]; then',
+    '    OS_STATUS="warn"',
+    'fi',
+    '',
+    'ADMIN_STATUS="pass"',
+    'if [ "$ADMINS_COUNT" -gt 3 ]; then',
+    '    ADMIN_STATUS="warn"',
+    'fi',
+    '',
+    'JSON_PAYLOAD=$(cat <<EOF',
+    '{',
+    '  "RequestId": "$REQUEST_ID",',
+    '  "Checks": [',
+    '    {',
+    '      "Id": "agent-os-version",',
+    '      "Label": "Operating System",',
+    '      "Status": "$OS_STATUS",',
+    '      "Detail": "$OS_INFO"',
+    '    },',
+    '    {',
+    '      "Id": "agent-antivirus",',
+    '      "Label": "Local Antivirus",',
+    '      "Status": "$AV_STATUS",',
+    '      "Detail": "$AV_DETAIL"',
+    '    },',
+    '    {',
+    '      "Id": "agent-firewall",',
+    '      "Label": "Local Firewall",',
+    '      "Status": "$FIREWALL_STATUS",',
+    '      "Detail": "$FIREWALL_DETAIL"',
+    '    },',
+    '    {',
+    '      "Id": "agent-local-admins",',
+    '      "Label": "Local Administrators",',
+    '      "Status": "$ADMIN_STATUS",',
+    '      "Detail": "$ADMINS_COUNT users/groups with admin privileges."',
+    '    }',
+    '  ]',
+    '}',
+    'EOF',
+    ')',
+    '',
+    'echo "Sending results to CtrlShift IT..."',
+    'curl -s -X POST -H "Content-Type: application/json" -d "$JSON_PAYLOAD" "$API_URL" > /dev/null',
+    '',
+    'echo "Audit complete. The results have been securely sent. Please check your browser."',
+    'sleep 3'
+  ].join('\n');
+
+  res.setHeader('Content-disposition', `attachment; filename="ctrlshift-audit-${requestId.substring(0, 8)}.sh"`);
+  res.setHeader('Content-type', 'application/x-sh');
+  res.send(scriptContent);
+});
+
+app.post('/api/security-scans/agent-report', (req, res) => {
+  const payload = req.body as { RequestId?: string; Checks?: any[] };
+  const requestId = payload.RequestId;
+  if (!requestId) {
+    res.status(400).json({ error: 'Missing RequestId' });
+    return;
+  }
+  const job = securityScanJobs.get(requestId);
+  if (!job) {
+    res.status(404).json({ error: 'Scan request not found.' });
+    return;
+  }
+
+  if (!job.report) {
+    job.report = {
+      scannedDomain: job.payload.targetDomain,
+      checks: [],
+      riskSummary: job.reportSummary || 'Combined scan in progress.',
+    };
+  }
+
+  if (Array.isArray(payload.Checks)) {
+    for (const remoteCheck of payload.Checks) {
+      if (remoteCheck.Id && remoteCheck.Label && remoteCheck.Status && remoteCheck.Detail) {
+        job.report.checks = job.report.checks.filter(c => c.id !== remoteCheck.Id);
+        job.report.checks.push({
+          id: remoteCheck.Id,
+          label: remoteCheck.Label,
+          status: remoteCheck.Status as any,
+          detail: remoteCheck.Detail,
+        });
+      }
+    }
+    
+    // Update summary string if there are agent checks
+    const failCount = job.report.checks.filter(c => c.status === 'fail').length;
+    const warnCount = job.report.checks.filter(c => c.status === 'warn').length;
+    job.reportSummary = failCount > 0 
+      ? `High priority: ${failCount} critical issue(s) and ${warnCount} warning(s) found across external and local scans.`
+      : warnCount > 0 
+        ? `Moderate priority: ${warnCount} warning(s) found across external and local scans.`
+        : 'Low priority: No major issues found in external and local scans.';
+    job.report.riskSummary = job.reportSummary;
+  }
+
+  job.updatedAt = new Date().toISOString();
+  res.status(200).json({ received: true });
+});
 
 app.get('/api/google-reviews', async (_req, res) => {
   const payload = await loadGoogleReviews();

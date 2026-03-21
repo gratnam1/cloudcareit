@@ -70,29 +70,43 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
     .service-copy-card,
     .service-map-card {
       border-radius: 1.1rem;
-      border: 1px solid #e2e8f0;
-      background: #ffffff;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.16);
+      background: rgba(8, 13, 26, 0.7);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+      color: #e2e8f0;
+    }
+
+    .service-copy-card h2 {
+      color: #f8fafc;
+      font-weight: 800;
+    }
+
+    .service-copy-card .lead {
+      color: rgba(148, 163, 184, 0.85) !important;
+    }
+
+    .service-copy-card .text-muted {
+      color: rgba(148, 163, 184, 0.8) !important;
     }
 
     .area-chip {
       font-weight: 500;
       font-size: 0.9rem;
-      background: #ffffff;
-      color: #1e293b;
-      border: 1px solid #d5dbe3;
+      background: rgba(99, 102, 241, 0.1);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.28);
     }
 
     .area-chip .bi {
-      color: #2563eb;
+      color: #a5b4fc;
     }
 
     .map-media {
       aspect-ratio: 16 / 10;
       min-height: 280px;
-      border-color: #d5dbe3 !important;
-      background: #ffffff;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+      border-color: rgba(99, 102, 241, 0.2) !important;
+      background: rgba(5, 8, 16, 0.8);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
     }
 
     .map-frame {
@@ -100,7 +114,19 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
       width: 100%;
       height: 100%;
       border: 0;
-      background: #ffffff;
+      background: rgba(5, 8, 16, 0.8);
+    }
+
+    .btn-outline-primary {
+      color: #a5b4fc !important;
+      border-color: rgba(99, 102, 241, 0.4) !important;
+      background: rgba(99, 102, 241, 0.08) !important;
+    }
+
+    .btn-outline-primary:hover {
+      background: rgba(99, 102, 241, 0.16) !important;
+      border-color: rgba(99, 102, 241, 0.6) !important;
+      color: #c7d2fe !important;
     }
 
     @media (max-width: 991.98px) {

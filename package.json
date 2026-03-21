@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "dev": "ng serve",
+    "start": "npm run build && npm run serve:ssr:cloudcare-frontend",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -37,6 +38,7 @@
     "express": "^5.1.0",
     "gsap": "^3.14.2",
     "marked": "^17.0.1",
+    "resend": "^6.9.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

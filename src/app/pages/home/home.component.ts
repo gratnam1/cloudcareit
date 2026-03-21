@@ -13,6 +13,7 @@ import { GoogleReview, GoogleReviewsService } from './google-reviews.service';
   styleUrl: './home.component.css' // Note: Angular 17+ uses 'styleUrl' (singular)
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  private readonly formSubmitTimeoutMs = 20000;
   submitted = false;
   isLoading = false;
   errorMessage: string | null = null;
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private viewReady = false;
   private pendingFragment: string | null = null;
   private readonly LOCAL_BUSINESS_SCHEMA_ID = 'local-business-home';
+  private readonly OFFER_CATALOG_SCHEMA_ID = 'offer-catalog-home';
   private readonly FAQ_SCHEMA_ID = 'faq-home';
   private readonly AGGREGATE_RATING_SCHEMA_ID = 'aggregate-rating-home';
   private readonly SPEAKABLE_SCHEMA_ID = 'speakable-home';
@@ -47,8 +49,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.seo.update({
-      title: 'Managed IT Services GTA & Toronto | CtrlShift IT Services',
-      description: 'Reliable managed IT services for businesses in Vaughan, Toronto & GTA. Proactive IT support, cybersecurity, and cloud management with fast response times.',
+      title: 'Managed IT Services Vaughan, Toronto & GTA | CtrlShift IT Services',
+      description: 'Cybersecurity-first managed IT services for Vaughan, Toronto & GTA businesses. Flat-rate plans from $249/mo, under 15-minute response, 24/7 monitoring, and a 30-day guarantee.',
       type: 'website',
       canonicalPath: '/'
     });
@@ -56,6 +58,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.seo.setStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID, {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
+      '@id': 'https://ctrlshiftit.ca/#localbusiness',
       name: 'CtrlShift IT Services',
       image: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
       url: 'https://ctrlshiftit.ca/',
@@ -83,34 +86,123 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         { '@type': 'City', name: 'Toronto' },
         { '@type': 'City', name: 'Mississauga' },
         { '@type': 'City', name: 'Thornhill' },
-        { '@type': 'City', name: 'Richmond Hill' },
-        {
-          '@type': 'GeoCircle',
-          geoMidpoint: {
-            '@type': 'GeoCoordinates',
-            latitude: 43.8372,
-            longitude: -79.5083
-          },
-          geoRadius: '40000'
-        }
+        { '@type': 'City', name: 'Richmond Hill' }
+      ],
+      sameAs: [
+        'https://www.linkedin.com/company/ctrlshift-it-services',
+        'https://www.facebook.com/ctrlshiftit'
+      ],
+      knowsAbout: [
+        'Managed IT services',
+        'Cybersecurity',
+        'Endpoint detection and response',
+        'Network firewall security',
+        'Zero-trust remote access',
+        'Microsoft 365 administration',
+        'Google Workspace administration',
+        'AWS cloud infrastructure',
+        'Huntress',
+        'Fortinet',
+        'Tailscale'
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
-        name: 'Managed IT Services',
+        name: 'Managed IT Services for B2B Professional Offices',
         itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Support' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cybersecurity' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cloud Management' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tailscale Zero Trust Access' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Huntress AI-Assisted Managed Security' } }
+          {
+            '@type': 'OfferCatalog',
+            name: 'Industries Served',
+            itemListElement: [
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'IT Support for Law Firms' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'IT Support for Accounting Firms' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'IT Support for Medical Clinics' } }
+            ]
+          },
+          {
+            '@type': 'OfferCatalog',
+            name: 'Core Security Stack',
+            itemListElement: [
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Huntress AI-assisted endpoint detection' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Fortinet network firewall security' } },
+              { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tailscale zero-trust secure access' } }
+            ]
+          }
         ]
       }
     });
 
-    // FAQPage structured data for home page FAQs
+    this.seo.setStructuredData(this.OFFER_CATALOG_SCHEMA_ID, {
+      '@context': 'https://schema.org',
+      '@type': 'OfferCatalog',
+      '@id': 'https://ctrlshiftit.ca/#managed-it-pricing',
+      name: 'Managed IT Support Plans',
+      url: 'https://ctrlshiftit.ca/#pricing',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          name: 'Starter',
+          url: 'https://ctrlshiftit.ca/#pricing',
+          category: 'Managed IT Support Plan',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            price: '249',
+            priceCurrency: 'CAD',
+            billingDuration: 1,
+            billingIncrement: 1,
+            unitCode: 'MON'
+          },
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Starter Managed IT Support',
+            description: '2 support hours per month, basic maintenance. Does not include 24/7 monitoring, endpoint protection, backup monitoring, network monitoring, priority response, or 30-day risk-free trial.'
+          }
+        },
+        {
+          '@type': 'Offer',
+          name: 'Growth',
+          url: 'https://ctrlshiftit.ca/#pricing',
+          category: 'Managed IT Support Plan',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            price: '499',
+            priceCurrency: 'CAD',
+            billingDuration: 1,
+            billingIncrement: 1,
+            unitCode: 'MON'
+          },
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Growth Managed IT Support',
+            description: '5 support hours per month, 24/7 monitoring, endpoint protection, backup monitoring, patch management, Microsoft 365 support, network monitoring, priority response under 15 minutes, quarterly vulnerability scan, and 30-day risk-free trial.'
+          }
+        },
+        {
+          '@type': 'Offer',
+          name: 'Business',
+          url: 'https://ctrlshiftit.ca/#pricing',
+          category: 'Managed IT Support Plan',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            price: '899',
+            priceCurrency: 'CAD',
+            billingDuration: 1,
+            billingIncrement: 1,
+            unitCode: 'MON'
+          },
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Business Managed IT Support',
+            description: '10 support hours per month, full IT department outsourcing, 24/7 monitoring, endpoint protection, backup monitoring, patch management, Microsoft 365 support, network monitoring, priority response under 15 minutes, quarterly vulnerability scan, hardware procurement, vendor management, and 30-day risk-free trial.'
+          }
+        }
+      ]
+    });
+
+    // FAQPage structured data for home page FAQs (exactly from visible FAQ copy)
     this.seo.setStructuredData(this.FAQ_SCHEMA_ID, {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
+      '@id': 'https://ctrlshiftit.ca/#faq',
       mainEntity: [
         {
           '@type': 'Question',
@@ -133,7 +225,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
           name: 'How fast do you respond when something breaks?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Urgent production-impact incidents are triaged immediately, with remote-first response and on-site escalation when required. You also receive regular status updates until service is stable.'
+            text: 'Urgent production-impact incidents are triaged immediately, with remote-first response and on-site escalation when required. Growth and Business clients receive response within 15 minutes.'
           }
         },
         {
@@ -149,7 +241,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
           name: 'What cities do you provide IT support in?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'We provide managed IT services across five cities in the Greater Toronto Area: Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill. Our technicians offer both remote support and on-site visits throughout York Region, Peel Region, and the downtown Toronto core.'
+            text: 'We provide managed IT services across the Greater Toronto Area: Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill. Our technicians offer both remote support and on-site visits throughout York Region, Peel Region, and the downtown Toronto core.'
           }
         },
         {
@@ -178,10 +270,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         },
         {
           '@type': 'Question',
-          name: 'Do you offer on-site IT support or only remote?',
+          name: 'Do you support law firms, medical clinics, and accounting firms?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'We offer both. Most issues are resolved quickly through secure remote support, but we dispatch technicians on-site for network installations, hardware failures, server rack work, and any situation that requires physical intervention. On-site response is available across all five service cities.'
+            text: 'Yes. We have dedicated expertise in regulated industries. For law firms we handle Law Society compliance and confidentiality requirements. For medical clinics we support PHIPA-compliant infrastructure. For accounting firms we ensure CRA-compliant data handling and encryption standards.'
           }
         },
         {
@@ -199,7 +291,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.seo.setStructuredData(this.SPEAKABLE_SCHEMA_ID, {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: 'Managed IT Services GTA & Toronto | CtrlShift IT Services',
+      name: 'Managed IT Services Vaughan, Toronto & GTA | CtrlShift IT Services',
       url: 'https://ctrlshiftit.ca/',
       speakable: {
         '@type': 'SpeakableSpecification',
@@ -295,6 +387,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.seo.removeStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID);
+    this.seo.removeStructuredData(this.OFFER_CATALOG_SCHEMA_ID);
     this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
     this.seo.removeStructuredData(this.AGGREGATE_RATING_SCHEMA_ID);
     this.seo.removeStructuredData(this.SPEAKABLE_SCHEMA_ID);
@@ -311,7 +404,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     gsap.registerPlugin(ScrollTrigger);
 
     if (prefersReducedMotion) {
-      gsap.set('.badge-neon, .draw-path, .reveal-card, .glass-card-interactive, .hero-orb, .hero-noise, .hero-dark-modern h1, .hero-dark-modern p, .hero-dark-modern .btn, .reveal-section, .logo-reveal, .section-head-reveal, .team-head-reveal, .team-cards-reveal, .reviews-head-reveal, .review-cards-reveal, .pricing-head-reveal, .pricing-cards-reveal, .faq-head-reveal, .faq-reveal, .consultation-reveal', {
+      gsap.set('.badge-neon, .draw-path, .reveal-card, .glass-card-interactive, .hero-orb, .hero-noise, .hero-title, .hero-subtitle, .hero-cta .btn, .reveal-section, .marquee-section, .section-head-reveal, .team-head-reveal, .team-cards-reveal, .reviews-head-reveal, .review-cards-reveal, .pricing-head-reveal, .pricing-cards-reveal, .faq-head-reveal, .faq-reveal, .consultation-reveal', {
         clearProps: 'all'
       });
       document.querySelectorAll('.reveal-section').forEach(el => el.classList.add('revealed'));
@@ -382,17 +475,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });
 
-    // --- 4b. Logos strip ---
-    ScrollTrigger.batch('.logo-reveal .col-4', {
-      start: 'top 88%',
+    // --- 4b. Marquee logo items (first set only, aria-hidden duplicates skipped) ---
+    ScrollTrigger.batch('.marquee-section', {
+      start: 'top 90%',
+      once: true,
       onEnter: batch => {
-        gsap.from(batch, {
-          y: 24,
-          opacity: 0,
-          duration: 0.5,
-          ease: 'power2.out',
-          stagger: 0.06
-        });
+        gsap.from(batch, { opacity: 0, y: 16, duration: 0.5, ease: 'power2.out' });
       }
     });
 
@@ -409,10 +497,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         gsap.from(batch, { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' });
       }
     });
-    ScrollTrigger.batch('.team-cards-reveal .p-4', {
+    ScrollTrigger.batch('.team-cards-reveal .team-card', {
       start: 'top 82%',
       onEnter: batch => {
-        gsap.from(batch, { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out', stagger: 0.12 });
+        gsap.from(batch, { opacity: 0, duration: 0.6, ease: 'power2.out' });
       }
     });
     ScrollTrigger.batch('.reviews-head-reveal', {
@@ -421,10 +509,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         gsap.from(batch, { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' });
       }
     });
-    ScrollTrigger.batch('.review-cards-reveal .review-card', {
-      start: 'top 82%',
+    ScrollTrigger.batch('.review-cards-reveal', {
+      start: 'top 85%',
+      once: true,
       onEnter: batch => {
-        gsap.from(batch, { y: 28, opacity: 0, duration: 0.55, ease: 'power2.out', stagger: 0.08 });
+        gsap.from(batch, { opacity: 0, y: 20, duration: 0.5, ease: 'power2.out' });
       }
     });
     ScrollTrigger.batch('.pricing-head-reveal', {
@@ -433,7 +522,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         gsap.from(batch, { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' });
       }
     });
-    ScrollTrigger.batch('.pricing-cards-reveal .pricing-card', {
+    ScrollTrigger.batch('.pricing-cards-reveal .pricing-dark-card', {
       start: 'top 80%',
       onEnter: batch => {
         gsap.from(batch, { y: 36, opacity: 0, duration: 0.6, ease: 'power2.out', stagger: 0.1 });
@@ -740,13 +829,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   async onSubmit(event: Event) {
     event.preventDefault();
     this.isLoading = true;
+    this.errorMessage = null;
 
     const form = event.target as HTMLFormElement;
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch("https://formspree.io/f/mwvozjnn", {
+      const response = await this.fetchWithTimeout('https://formspree.io/f/mwvozjnn', {
         method: 'POST',
         body: JSON.stringify(payload),
         headers: {
@@ -769,9 +859,29 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     } catch (error) {
       console.error("Error:", error);
-      this.errorMessage = "Network error. Please try again.";
+      this.errorMessage =
+        error instanceof DOMException && error.name === 'AbortError'
+          ? 'This is taking longer than expected. Please try again.'
+          : 'Network error. Please try again.';
       this.isLoading = false;
       this.cdr.detectChanges();
+    } finally {
+      if (this.isLoading && !this.submitted) {
+        this.isLoading = false;
+        this.errorMessage = this.errorMessage || 'Submission was interrupted. Please try again.';
+        this.cdr.detectChanges();
+      }
+    }
+  }
+
+  private async fetchWithTimeout(input: string, init: RequestInit): Promise<Response> {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), this.formSubmitTimeoutMs);
+
+    try {
+      return await fetch(input, { ...init, signal: controller.signal });
+    } finally {
+      clearTimeout(timeoutId);
     }
   }
 }

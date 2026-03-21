@@ -1,66 +1,332 @@
+/* ===== INDUSTRY PAGE — Dark Tech Theme ===== */
+
+/* ---- Hero ---- */
 .industry-hero {
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #1e293b 100%);
-  min-height: 45vh;
+  position: relative;
+  overflow: hidden;
+  background: #030712;
+  min-height: 50vh;
   display: flex;
   align-items: center;
 }
-.pain-card {
-  background: #fff;
-  border: 1px solid rgba(99,102,241,0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+.industry-hero-aurora {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 110% 70% at 65% -10%, rgba(99, 102, 241, 0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 15% 110%, rgba(139, 92, 246, 0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 70%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+  animation: industry-aurora 10s ease-in-out infinite alternate;
+  pointer-events: none;
 }
+@keyframes industry-aurora {
+  0%   { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1.06); }
+}
+
+.industry-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.035) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* ---- Pain Points section ---- */
+.pain-section {
+  background: #050810;
+  position: relative;
+}
+
+.pain-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.025) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.pain-section-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.pain-section-subtitle {
+  color: rgba(148, 163, 184, 0.82);
+  font-size: 1.05rem;
+}
+
+.pain-card {
+  background: rgba(8, 13, 26, 0.7);
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  border-radius: 1rem;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pain-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
 .pain-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 16px 40px rgba(99,102,241,0.1);
+  box-shadow: 0 16px 44px rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.3);
 }
+
+.pain-card:hover::before {
+  opacity: 1;
+}
+
+.pain-card h5 {
+  color: #f1f5f9;
+  font-weight: 700;
+}
+
+.pain-card p {
+  color: rgba(148, 163, 184, 0.82);
+}
+
 .pain-icon {
-  width: 48px; height: 48px;
+  width: 48px;
+  height: 48px;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(59,130,246,0.08));
-  display: flex; align-items: center; justify-content: center;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
-.pain-icon i { font-size: 1.3rem; color: #6366f1; }
+
+.pain-card:hover .pain-icon {
+  background: rgba(245, 158, 11, 0.2);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+}
+
+.pain-icon i {
+  font-size: 1.3rem;
+  color: #fcd34d;
+}
+
+.pain-card:hover {
+  box-shadow: 0 16px 44px rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+/* ---- Compliance section ---- */
+.compliance-section {
+  background: #080d1a;
+}
+
+.compliance-section-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
 .compliance-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  background: rgba(5, 8, 16, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  border-radius: 1rem;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
+
+.compliance-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.32);
+}
+
+.compliance-card h5 {
+  color: #f1f5f9;
+  font-weight: 700;
+}
+
+.compliance-card p {
+  color: rgba(148, 163, 184, 0.8);
+}
+
 .compliance-icon {
-  width: 52px; height: 52px;
+  width: 52px;
+  height: 52px;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(59,130,246,0.1));
-  display: flex; align-items: center; justify-content: center;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
-.compliance-icon i { font-size: 1.4rem; color: #6366f1; }
+
+.compliance-card:hover .compliance-icon {
+  background: rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 18px rgba(16, 185, 129, 0.2);
+}
+
+.compliance-icon i {
+  font-size: 1.4rem;
+  color: #6ee7b7;
+}
+
+/* ---- Case Study section ---- */
+.case-study-section {
+  background: #050810;
+  position: relative;
+}
+
+.case-study-section-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
 .case-study-detail {
-  background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
-  border: 1px solid rgba(99,102,241,0.12);
+  background: rgba(8, 13, 26, 0.85);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  border-radius: 1.1rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
+
 .case-study-label {
   font-size: 0.7rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #6366f1;
+  color: #a5b4fc;
   margin-bottom: 0.5rem;
 }
+
+.case-study-detail h3 {
+  color: #f8fafc;
+  font-weight: 800;
+}
+
+.case-study-detail p {
+  color: rgba(148, 163, 184, 0.85);
+  line-height: 1.65;
+}
+
 .case-metrics-row {
-  border-top: 1px solid rgba(99,102,241,0.15);
+  border-top: 1px solid rgba(99, 102, 241, 0.18);
   padding-top: 1.25rem;
   margin-top: 0.5rem;
 }
+
 .case-metric-big-value {
   font-size: 2rem;
   font-weight: 800;
-  color: #1e3a8a;
+  background: linear-gradient(130deg, #67e8f9 0%, #06b6d4 50%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
+
 .case-metric-big-label {
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #6b7280;
+  color: rgba(148, 163, 184, 0.75);
+  overflow-wrap: anywhere;
 }
+
+/* ---- CTA section ---- */
 .industry-cta {
-  background: linear-gradient(135deg, #1e3a8a 0%, #6366f1 100%);
+  position: relative;
+  overflow: hidden;
+  background: #030712;
+}
+
+.industry-cta-aurora {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 10% 90%, rgba(139, 92, 246, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 85% 15%, rgba(244, 63, 94, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 20% 30%, rgba(244, 63, 94, 0.07) 0%, transparent 50%);
+  animation: cta-pulse 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes cta-pulse {
+  0%   { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.industry-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* ---- Scan-in animation ---- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.anim-fade-up {
+  animation: fade-up 0.55s ease both;
+}
+
+@media (max-width: 420px) {
+  .industry-hero h1 {
+    font-size: clamp(1.85rem, 9vw, 2.35rem);
+    line-height: 1.2;
+  }
+
+  .industry-hero .lead {
+    font-size: 1rem;
+  }
+
+  .industry-hero .btn,
+  .industry-cta .btn {
+    width: 100%;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .case-metric-big-value {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .industry-hero {
+    min-height: auto;
+  }
+
+  .industry-hero .badge {
+    font-size: 0.72rem;
+    white-space: normal;
+    line-height: 1.35;
+  }
 }

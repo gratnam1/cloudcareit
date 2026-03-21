@@ -33,7 +33,7 @@ export class IndustryPageComponent implements OnInit {
       headline: 'Managed IT for Toronto Law Firms',
       subheadline: 'PIPEDA-compliant IT support, client confidentiality protection, and cybersecurity-first infrastructure for law firms across the GTA.',
       painPoints: [
-        { icon: 'bi-lock-fill', title: 'Client Confidentiality at Risk', detail: 'A breach of client data can end your firm. Unencrypted files on laptops, shared passwords, and unsecured remote access are the top vectors we see in legal offices.' },
+        { icon: 'bi-lock-fill', title: 'Client Confidentiality at Risk', detail: 'A breach of client data can trigger Law Society disciplinary action, mandatory client notifications, and significant legal liability. Unencrypted files on laptops, shared passwords, and unsecured remote access are the top vectors we see in legal offices.' },
         { icon: 'bi-clock-fill', title: 'Downtime Means Missed Deadlines', detail: 'Court filings and client deliverables don\'t wait for your IT to come back online. You need infrastructure that simply doesn\'t fail.' },
         { icon: 'bi-file-earmark-x-fill', title: 'Compliance Getting Harder', detail: 'The Law Society of Ontario increasingly expects firms to demonstrate data governance. Cyber insurance underwriters now require MFA, EDR, and backup verification.' },
         { icon: 'bi-people-fill', title: 'Staff Working from Multiple Locations', detail: 'Remote lawyers accessing files over unsecured connections is a major liability. Zero-trust access solves this without the VPN complexity.' }
@@ -71,8 +71,8 @@ export class IndustryPageComponent implements OnInit {
       caseStudy: {
         problem: 'A Vaughan accounting firm with 12 staff had client files on unencrypted personal laptops, no patch management, staff sharing passwords, and a CRA audit flagging unacceptable digital record-keeping.',
         solution: 'Microsoft 365 Business Premium rollout with BitLocker encryption on all devices, Intune device management, password manager across all staff, automated patching, and PIPEDA-aligned retention policies.',
-        result: 'Full compliance achieved within 45 days. 87% reduction in helpdesk tickets. Cyber insurance renewed with better coverage. CRA audit passed without issue.',
-        metrics: [{ value: '87%', label: 'Fewer Tickets' }, { value: '45d', label: 'Full Compliance' }, { value: '$0', label: 'Compliance Fines' }]
+        result: 'Full compliance achieved within 45 days. 87% fewer helpdesk tickets in the first quarter after rollout. Cyber insurance renewed with better coverage. CRA audit passed without issue.',
+        metrics: [{ value: '87%', label: 'Fewer Tickets (Q1)' }, { value: '45d', label: 'Full Compliance' }, { value: '$0', label: 'Compliance Fines' }]
       },
       seoTitle: 'IT Support for Accounting Firms GTA | CtrlShift IT Services',
       seoDescription: 'Managed IT for GTA accounting firms. CRA-compliant infrastructure, encrypted client data handling, Microsoft 365, and 24/7 security monitoring. Vaughan-based IT team.'
@@ -96,8 +96,8 @@ export class IndustryPageComponent implements OnInit {
       caseStudy: {
         problem: 'A Richmond Hill medical clinic had their EMR system crash twice in one quarter, causing appointment cancellations and a locum revenue loss. They had no backup strategy and no PHIPA-compliant data handling.',
         solution: 'CtrlShift IT implemented encrypted cloud backups with 4-hour RTO, migrated EMR to AWS Canadian region, established 24/7 uptime monitoring, and documented a full business continuity plan.',
-        result: 'Zero unplanned downtime in 10 months. PHIPA compliance achieved. The clinic recovered over $15,000 in annual appointment revenue previously lost to system failures.',
-        metrics: [{ value: '0', label: 'Downtime Events' }, { value: '4hr', label: 'Recovery Time' }, { value: '$15K+', label: 'Revenue Recovered/yr' }]
+        result: 'Zero unplanned downtime in the first 10 months. PHIPA compliance achieved. Estimated $15,000+ in recovered appointment revenue in year one — based on prior cancellation rates.',
+        metrics: [{ value: '0', label: 'Downtime Events' }, { value: '4hr', label: 'Recovery Time' }, { value: '$15K+', label: 'Est. Revenue Recovered' }]
       },
       seoTitle: 'IT Support for Medical Clinics Ontario | CtrlShift IT',
       seoDescription: 'PHIPA-compliant managed IT for medical clinics and healthcare practices in Ontario. EMR security, Canadian cloud hosting, 24/7 monitoring, and disaster recovery. GTA-based.'

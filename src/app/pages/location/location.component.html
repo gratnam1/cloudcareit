@@ -1,5 +1,12 @@
 <header class="location-hero py-5">
   <div class="container py-4">
+    <!-- Breadcrumb inside hero -->
+    <nav class="hero-crumb d-flex flex-wrap align-items-center gap-2 small mb-4">
+      <a class="fw-semibold text-decoration-none" [routerLink]="hubPagePath">{{hubPageLabel}}</a>
+      <span class="hero-crumb-sep">/</span>
+      <span>Managed IT Services {{city}}</span>
+    </nav>
+
     <div class="row align-items-center g-5">
       <div class="col-lg-7">
         <p class="hero-kicker mb-3">Managed IT Services for {{region}}</p>
@@ -62,15 +69,6 @@
     </div>
   </div>
 </header>
-
-<section class="location-crumb-strip py-3">
-  <div class="container d-flex flex-wrap align-items-center gap-2 small">
-    <span class="text-muted">Managed IT Hub:</span>
-    <a class="fw-semibold text-decoration-none" [routerLink]="hubPagePath">{{hubPageLabel}}</a>
-    <span class="text-muted">/</span>
-    <span class="text-dark fw-semibold">Managed IT Services {{city}}</span>
-  </div>
-</section>
 
 <section class="location-overview py-5">
   <div class="container">

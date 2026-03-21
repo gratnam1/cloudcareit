@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   errorMessage: string | null = null;
   readonly starScale = [1, 2, 3, 4, 5];
   reviewPlaceName = 'CtrlShift IT Services';
-  reviewLink = 'https://www.google.com/search?q=CtrlShift+IT+Services+reviews';
+  reviewLink = 'https://share.google/cqXMO05MSN5gKLdCT';
   reviewAggregateRating = 5;
   reviewAggregateCount = 0;
   reviewItems: GoogleReview[] = [];
@@ -64,12 +64,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       url: 'https://ctrlshiftit.ca/',
       telephone: '+1-416-624-4841',
       priceRange: '$$',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Vaughan',
-        addressRegion: 'ON',
-        addressCountry: 'CA'
-      },
+      address: [
+        {
+          '@type': 'PostalAddress',
+          streetAddress: '46 Ohr Maneachem Way',
+          addressLocality: 'Vaughan',
+          addressRegion: 'ON',
+          addressCountry: 'CA'
+        },
+        {
+          '@type': 'PostalAddress',
+          streetAddress: '27 Carisbrooke Sq',
+          addressLocality: 'Scarborough',
+          addressRegion: 'ON',
+          addressCountry: 'CA'
+        }
+      ],
       geo: {
         '@type': 'GeoCoordinates',
         latitude: 43.8372,
@@ -83,6 +93,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       },
       areaServed: [
         { '@type': 'City', name: 'Vaughan' },
+        { '@type': 'City', name: 'Scarborough' },
         { '@type': 'City', name: 'Toronto' },
         { '@type': 'City', name: 'Mississauga' },
         { '@type': 'City', name: 'Thornhill' },

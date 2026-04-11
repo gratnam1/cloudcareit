@@ -1367,7 +1367,7 @@ app.post('/api/it-assessment', async (req, res) => {
   }
 
   const RESEND_API_KEY = process.env['RESEND_API_KEY'] || '';
-  const NOTIFY_EMAIL = process.env['ASSESSMENT_NOTIFY_EMAIL'] || 'kannan@ctrlshiftit.ca';
+  const NOTIFY_EMAIL = process.env['ASSESSMENT_NOTIFY_EMAIL'] || 'info@ctrlshiftit.ca';
 
   if (!RESEND_API_KEY) {
     console.error('[it-assessment] RESEND_API_KEY not set');

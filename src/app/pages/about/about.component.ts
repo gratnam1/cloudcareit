@@ -31,6 +31,7 @@ export class AboutComponent implements OnInit, OnDestroy {
       url: 'https://ctrlshiftit.ca',
       logo: 'https://ctrlshiftit.ca/favicon.svg',
       telephone: '+1-416-624-4841',
+      email: 'info@ctrlshiftit.ca',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Vaughan',

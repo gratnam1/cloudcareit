@@ -27,9 +27,7 @@ function jsonResponse(body, status = 200) {
   return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
 }
 
-export async function onRequestPost(context) {
-  const { request, env } = context;
-
+async function handleChat(request, env) {
   let body;
   try {
     body = await request.json();
@@ -53,7 +51,6 @@ export async function onRequestPost(context) {
   };
 
   try {
-    // Prefer native Workers AI binding (no token needed)
     if (env && env.AI) {
       const result = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', payload);
       const reply = result && result.response && result.response.trim();
@@ -61,7 +58,6 @@ export async function onRequestPost(context) {
       return jsonResponse({ reply });
     }
 
-    // Fallback: REST API with account ID + token
     const accountId = env && env.CF_ACCOUNT_ID && env.CF_ACCOUNT_ID.trim();
     const apiToken = env && env.CF_AI_API_TOKEN && env.CF_AI_API_TOKEN.trim();
     if (!accountId || !apiToken) {
@@ -81,17 +77,32 @@ export async function onRequestPost(context) {
     );
 
     if (!cfRes.ok) {
+      const text = await cfRes.text().catch(() => '');
+      console.error('[chat] Cloudflare AI error:', cfRes.status, text);
       return jsonResponse({ error: 'AI service unavailable.' }, 502);
     }
 
     const data = await cfRes.json();
     const reply = data && data.result && data.result.response && data.result.response.trim();
     if (!reply) return jsonResponse({ error: 'Empty response from AI.' }, 502);
-
     return jsonResponse({ reply });
-
   } catch (err) {
     console.error('[chat] Error:', err);
     return jsonResponse({ error: 'Internal error.' }, 500);
   }
 }
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+
+    if (url.pathname === '/api/chat') {
+      if (request.method !== 'POST') {
+        return new Response('Method Not Allowed', { status: 405, headers: { Allow: 'POST' } });
+      }
+      return handleChat(request, env);
+    }
+
+    return env.ASSETS.fetch(request);
+  },
+};

@@ -21,41 +21,29 @@ Rules:
 - Do not make up specific prices beyond what is listed above
 - Stay on topic: CtrlShift IT Services and IT support topics only`;
 
-interface Env {
-  CF_ACCOUNT_ID: string;
-  CF_AI_API_TOKEN: string;
-  AI?: {
-    run: (model: string, payload: unknown) => Promise<{ response?: string }>;
-  };
+const JSON_HEADERS = { 'Content-Type': 'application/json' };
+
+function jsonResponse(body, status = 200) {
+  return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
 }
 
-interface Message {
-  role: string;
-  content: string;
-}
-
-export const onRequestPost: PagesFunction<Env> = async (context) => {
+export async function onRequestPost(context) {
   const { request, env } = context;
 
-  const corsHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Content-Type': 'application/json',
-  };
-
-  let body: { messages?: Message[] };
+  let body;
   try {
-    body = await request.json() as { messages?: Message[] };
+    body = await request.json();
   } catch {
-    return new Response(JSON.stringify({ error: 'Invalid JSON body.' }), { status: 400, headers: corsHeaders });
+    return jsonResponse({ error: 'Invalid JSON body.' }, 400);
   }
 
-  const { messages } = body;
+  const messages = body && body.messages;
   if (!Array.isArray(messages) || messages.length === 0) {
-    return new Response(JSON.stringify({ error: 'messages array is required.' }), { status: 400, headers: corsHeaders });
+    return jsonResponse({ error: 'messages array is required.' }, 400);
   }
 
   const safeMsgs = messages
-    .filter((m) => ['user', 'assistant'].includes(m.role) && typeof m.content === 'string')
+    .filter((m) => (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
     .slice(-10)
     .map((m) => ({ role: m.role, content: String(m.content).slice(0, 1000) }));
 
@@ -65,21 +53,19 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
   };
 
   try {
-    // Prefer Workers AI binding (no token needed, faster)
-    if (env.AI) {
+    // Prefer native Workers AI binding (no token needed)
+    if (env && env.AI) {
       const result = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', payload);
-      const reply = result?.response?.trim();
-      if (!reply) {
-        return new Response(JSON.stringify({ error: 'Empty response from AI.' }), { status: 502, headers: corsHeaders });
-      }
-      return new Response(JSON.stringify({ reply }), { headers: corsHeaders });
+      const reply = result && result.response && result.response.trim();
+      if (!reply) return jsonResponse({ error: 'Empty response from AI.' }, 502);
+      return jsonResponse({ reply });
     }
 
-    // Fallback: REST API with token
-    const accountId = env.CF_ACCOUNT_ID?.trim();
-    const apiToken = env.CF_AI_API_TOKEN?.trim();
+    // Fallback: REST API with account ID + token
+    const accountId = env && env.CF_ACCOUNT_ID && env.CF_ACCOUNT_ID.trim();
+    const apiToken = env && env.CF_AI_API_TOKEN && env.CF_AI_API_TOKEN.trim();
     if (!accountId || !apiToken) {
-      return new Response(JSON.stringify({ error: 'AI service not configured.' }), { status: 503, headers: corsHeaders });
+      return jsonResponse({ error: 'AI service not configured.' }, 503);
     }
 
     const cfRes = await fetch(
@@ -95,19 +81,17 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
     );
 
     if (!cfRes.ok) {
-      return new Response(JSON.stringify({ error: 'AI service unavailable.' }), { status: 502, headers: corsHeaders });
+      return jsonResponse({ error: 'AI service unavailable.' }, 502);
     }
 
-    const data = await cfRes.json() as { result?: { response?: string } };
-    const reply = data?.result?.response?.trim();
-    if (!reply) {
-      return new Response(JSON.stringify({ error: 'Empty response from AI.' }), { status: 502, headers: corsHeaders });
-    }
+    const data = await cfRes.json();
+    const reply = data && data.result && data.result.response && data.result.response.trim();
+    if (!reply) return jsonResponse({ error: 'Empty response from AI.' }, 502);
 
-    return new Response(JSON.stringify({ reply }), { headers: corsHeaders });
+    return jsonResponse({ reply });
 
   } catch (err) {
     console.error('[chat] Error:', err);
-    return new Response(JSON.stringify({ error: 'Internal error.' }), { status: 500, headers: corsHeaders });
+    return jsonResponse({ error: 'Internal error.' }, 500);
   }
-};
+}

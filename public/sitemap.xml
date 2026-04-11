@@ -110,6 +110,48 @@
     <priority>0.82</priority>
   </url>
   <url>
+    <loc>https://ctrlshiftit.ca/about</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/it-assessment</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/it-support-law-firms-toronto</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/it-support-accounting-firms-gta</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/it-support-medical-clinics-ontario</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/it-support-engineering-firms-toronto</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/it-support-small-businesses-gta</loc>
+    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
     <loc>https://ctrlshiftit.ca/blog</loc>
     <lastmod>2026-03-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>

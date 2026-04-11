@@ -267,7 +267,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
         name: 'CtrlShift IT Services',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png'
+          url: 'https://ctrlshiftit.ca/favicon.svg'
         }
       }
     };

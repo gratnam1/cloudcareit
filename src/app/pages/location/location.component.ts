@@ -422,7 +422,7 @@ export class LocationComponent implements OnInit, OnDestroy {
     this.seo.update({
       title: content.title,
       description: content.metaDescription,
-      imageUrl: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
+      imageUrl: 'https://ctrlshiftit.ca/favicon.svg',
       type: 'website',
       canonicalPath: content.canonicalPath
     });
@@ -432,8 +432,8 @@ export class LocationComponent implements OnInit, OnDestroy {
       '@type': 'LocalBusiness',
       name: 'CtrlShift IT Services',
       image: content.mapImage
-        ? ['https://ctrlshiftit.ca/wp-content/uploads/logo.png', content.mapImage]
-        : 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
+        ? ['https://ctrlshiftit.ca/favicon.svg', content.mapImage]
+        : 'https://ctrlshiftit.ca/favicon.svg',
       url: `https://ctrlshiftit.ca${content.canonicalPath}`,
       telephone: '4166244841',
       priceRange: '$$',

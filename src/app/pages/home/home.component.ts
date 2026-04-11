@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       '@type': 'LocalBusiness',
       '@id': 'https://ctrlshiftit.ca/#localbusiness',
       name: 'CtrlShift IT Services',
-      image: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
+      image: 'https://ctrlshiftit.ca/favicon.svg',
       url: 'https://ctrlshiftit.ca/',
       telephone: '+1-416-624-4841',
       priceRange: '$$',

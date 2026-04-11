@@ -27,6 +27,15 @@ const staticRoutes = [
   { path: '/web-development', priority: '0.80', changefreq: 'monthly' },
   { path: '/seo-visibility', priority: '0.80', changefreq: 'monthly' },
   { path: '/lead-generation', priority: '0.80', changefreq: 'monthly' },
+  { path: '/cyber-insurance-readiness-vaughan', priority: '0.82', changefreq: 'monthly' },
+  { path: '/managed-it-for-medical-clinics-vaughan', priority: '0.82', changefreq: 'monthly' },
+  { path: '/it-support-law-firms-toronto', priority: '0.82', changefreq: 'monthly' },
+  { path: '/it-support-accounting-firms-gta', priority: '0.82', changefreq: 'monthly' },
+  { path: '/it-support-medical-clinics-ontario', priority: '0.82', changefreq: 'monthly' },
+  { path: '/it-support-engineering-firms-toronto', priority: '0.82', changefreq: 'monthly' },
+  { path: '/it-support-small-businesses-gta', priority: '0.82', changefreq: 'monthly' },
+  { path: '/about', priority: '0.70', changefreq: 'monthly' },
+  { path: '/it-assessment', priority: '0.75', changefreq: 'monthly' },
   { path: '/blog', priority: '0.75', changefreq: 'weekly' },
 ];
 

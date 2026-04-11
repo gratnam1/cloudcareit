@@ -29,7 +29,7 @@ export class AboutComponent implements OnInit, OnDestroy {
       '@type': 'Organization',
       name: 'CtrlShift IT Services',
       url: 'https://ctrlshiftit.ca',
-      logo: 'https://ctrlshiftit.ca/wp-content/uploads/logo.png',
+      logo: 'https://ctrlshiftit.ca/favicon.svg',
       telephone: '+1-416-624-4841',
       address: {
         '@type': 'PostalAddress',

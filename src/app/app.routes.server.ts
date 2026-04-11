@@ -6,7 +6,7 @@ export const serverRoutes: ServerRoute[] = [
 
   // Blog
   { path: 'blog', renderMode: RenderMode.Prerender },
-  { path: 'blog/:slug', renderMode: RenderMode.Client },
+  { path: 'blog/:slug', renderMode: RenderMode.Server },
 
   // Services
   { path: 'managed-it-services', renderMode: RenderMode.Prerender },
@@ -28,6 +28,17 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'managed-it-services-mississauga', renderMode: RenderMode.Prerender },
   { path: 'managed-it-services-thornhill', renderMode: RenderMode.Prerender },
   { path: 'managed-it-services-richmond-hill', renderMode: RenderMode.Prerender },
+
+  // About & utility pages
+  { path: 'about', renderMode: RenderMode.Prerender },
+  { path: 'it-assessment', renderMode: RenderMode.Prerender },
+
+  // Industry pages
+  { path: 'it-support-law-firms-toronto', renderMode: RenderMode.Prerender },
+  { path: 'it-support-accounting-firms-gta', renderMode: RenderMode.Prerender },
+  { path: 'it-support-medical-clinics-ontario', renderMode: RenderMode.Prerender },
+  { path: 'it-support-engineering-firms-toronto', renderMode: RenderMode.Prerender },
+  { path: 'it-support-small-businesses-gta', renderMode: RenderMode.Prerender },
 
   // Fallback (keep last)
   { path: '**', renderMode: RenderMode.Server }

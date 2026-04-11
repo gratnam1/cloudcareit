@@ -21,8 +21,9 @@ export class AppComponent implements OnInit {
   // --- AI Chat State (Kept Global) ---
   chatVisible = false;
   chatInput = '';
+  chatLoading = false;
   messages: { text: string; isUser: boolean; isTyping?: boolean }[] = [
-    { text: "Hello! I'm the CtrlShift IT Services AI. Are you looking for IT support in a specific city?", isUser: false }
+    { text: "Hi! I'm the CtrlShift IT assistant. Ask me anything about our IT services, pricing, or coverage areas.", isUser: false }
   ];
 
   constructor(
@@ -150,17 +151,39 @@ export class AppComponent implements OnInit {
     onScroll();
   }
 
-  sendMessage() {
-    if (!this.chatInput.trim()) return;
-    this.messages.push({ text: this.chatInput, isUser: true });
+  async sendMessage() {
+    const text = this.chatInput.trim();
+    if (!text || this.chatLoading) return;
 
-    // Simulate thinking
+    this.messages.push({ text, isUser: true });
+    this.chatInput = '';
+    this.chatLoading = true;
     this.messages.push({ text: '...', isUser: false, isTyping: true });
 
-    setTimeout(() => {
+    const history = this.messages
+      .filter(m => !m.isTyping)
+      .map(m => ({ role: m.isUser ? 'user' : 'assistant', content: m.text }));
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: history }),
+      });
+      const data = await res.json() as { reply?: string; error?: string };
       this.messages = this.messages.filter(m => !m.isTyping);
-      this.messages.push({ text: "I've logged your request. Please check our Locations menu for local support teams.", isUser: false });
-      this.chatInput = '';
-    }, 1500);
+      this.messages.push({
+        text: data.reply ?? "Sorry, I'm having trouble connecting. Please call us at (416) 624-4841 or email info@ctrlshiftit.ca.",
+        isUser: false,
+      });
+    } catch {
+      this.messages = this.messages.filter(m => !m.isTyping);
+      this.messages.push({
+        text: "Sorry, I couldn't reach the server. Please call (416) 624-4841 or email info@ctrlshiftit.ca.",
+        isUser: false,
+      });
+    } finally {
+      this.chatLoading = false;
+    }
   }
 }

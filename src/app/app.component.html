@@ -142,7 +142,10 @@
   <div class="card-body scroll-y ai-chat-body" style="background:rgba(8,13,26,0.98)">
     <div *ngFor="let msg of messages" [ngClass]="{'text-end': msg.isUser}" class="mb-3">
       <div [ngClass]="msg.isUser ? 'bg-primary text-white' : 'text-light shadow-sm'" class="p-2 rounded-3 d-inline-block ai-chat-message" style="background:rgba(30,41,59,0.9)">
-        {{ msg.text }}
+        <span *ngIf="msg.isTyping; else msgText" class="typing-indicator">
+          <span></span><span></span><span></span>
+        </span>
+        <ng-template #msgText>{{ msg.text }}</ng-template>
       </div>
     </div>
   </div>

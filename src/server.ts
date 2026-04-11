@@ -1367,7 +1367,7 @@ app.post('/api/it-assessment', async (req, res) => {
   }
 
   const RESEND_API_KEY = process.env['RESEND_API_KEY'] || '';
-  const NOTIFY_EMAIL = process.env['ASSESSMENT_NOTIFY_EMAIL'] || 'kannan@ctrlshiftit.ca';
+  const NOTIFY_EMAIL = process.env['ASSESSMENT_NOTIFY_EMAIL'] || 'info@ctrlshiftit.ca';
 
   if (!RESEND_API_KEY) {
     console.error('[it-assessment] RESEND_API_KEY not set');
@@ -1863,6 +1863,85 @@ app.post('/api/security-scans/agent-report', (req, res) => {
 
   job.updatedAt = new Date().toISOString();
   res.status(200).json({ received: true });
+});
+
+const CHAT_SYSTEM_PROMPT = `You are the AI assistant for CtrlShift IT Services, a managed IT company serving businesses in Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill, Ontario, Canada.
+
+Your role is to answer questions about CtrlShift IT Services clearly and helpfully, and encourage visitors to book a free IT assessment or call.
+
+Key facts:
+- Services: Managed IT, cybersecurity, Microsoft 365, Google Workspace, AWS cloud, office networking & Wi-Fi, crisis recovery, web development, SEO, lead generation
+- Service areas: Vaughan, Toronto, Mississauga, Thornhill, Richmond Hill (GTA)
+- Response time: under 15 minutes for production-down issues
+- Monitoring: 24/7
+- Guarantee: 30-day satisfaction guarantee
+- Pricing: flat-rate plans starting from $249/month per user
+- Phone: (416) 624-4841
+- Email: info@ctrlshiftit.ca
+- Free IT assessment available at /it-assessment
+
+Rules:
+- Keep answers concise (2–4 sentences max)
+- Always end with a CTA: suggest calling (416) 624-4841, emailing info@ctrlshiftit.ca, or booking a free assessment at /it-assessment
+- If asked about pricing, give the starting price and suggest a call for a custom quote
+- If you don't know something specific, say so honestly and direct them to call or email
+- Do not make up specific prices beyond what is listed above
+- Stay on topic: CtrlShift IT Services and IT support topics only`;
+
+app.post('/api/chat', async (req, res) => {
+  const CF_ACCOUNT_ID = process.env['CF_ACCOUNT_ID']?.trim();
+  const CF_AI_API_TOKEN = process.env['CF_AI_API_TOKEN']?.trim();
+
+  if (!CF_ACCOUNT_ID || !CF_AI_API_TOKEN) {
+    res.status(503).json({ error: 'AI service not configured.' });
+    return;
+  }
+
+  const { messages } = req.body as { messages?: { role: string; content: string }[] };
+  if (!Array.isArray(messages) || messages.length === 0) {
+    res.status(400).json({ error: 'messages array is required.' });
+    return;
+  }
+
+  const safeMsgs = messages
+    .filter(m => ['user', 'assistant'].includes(m.role) && typeof m.content === 'string')
+    .slice(-10)
+    .map(m => ({ role: m.role, content: String(m.content).slice(0, 1000) }));
+
+  try {
+    const cfRes = await fetch(
+      `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/ai/run/@cf/meta/llama-3.1-8b-instruct`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${CF_AI_API_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messages: [{ role: 'system', content: CHAT_SYSTEM_PROMPT }, ...safeMsgs],
+          max_tokens: 200,
+        }),
+      }
+    );
+
+    if (!cfRes.ok) {
+      console.error('[chat] Cloudflare AI error:', cfRes.status, await cfRes.text());
+      res.status(502).json({ error: 'AI service unavailable.' });
+      return;
+    }
+
+    const data = await cfRes.json() as { result?: { response?: string } };
+    const reply = data?.result?.response?.trim();
+    if (!reply) {
+      res.status(502).json({ error: 'Empty response from AI.' });
+      return;
+    }
+
+    res.json({ reply });
+  } catch (err) {
+    console.error('[chat] Error calling Cloudflare AI:', err);
+    res.status(500).json({ error: 'Internal error.' });
+  }
 });
 
 app.get('/api/google-reviews', async (_req, res) => {

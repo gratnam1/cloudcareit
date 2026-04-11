@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, Inject, HostListener } from '@angular/core';
+import { Component, OnInit, inject, Inject, HostListener, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, ViewportScroller, DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -29,7 +29,8 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private viewportScroller: ViewportScroller,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private cdr: ChangeDetectorRef
   ) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -159,6 +160,7 @@ export class AppComponent implements OnInit {
     this.chatInput = '';
     this.chatLoading = true;
     this.messages.push({ text: '...', isUser: false, isTyping: true });
+    this.cdr.detectChanges();
 
     const history = this.messages
       .filter(m => !m.isTyping)
@@ -184,6 +186,7 @@ export class AppComponent implements OnInit {
       });
     } finally {
       this.chatLoading = false;
+      this.cdr.detectChanges();
     }
   }
 }

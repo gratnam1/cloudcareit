@@ -1,12 +1,31 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
 
+const BLOG_SLUGS = [
+  'managed-it-benefits',
+  'google-workspace-guide',
+  'microsoft-365-tips',
+  'office-networking-basics',
+  'aws-infrastructure-best-practices',
+  'firewall-security-essentials',
+  'crisis-recovery-plan',
+  'web-development-trends',
+  'seo-visibility-guide',
+  'lead-generation-strategies',
+];
+
 export const serverRoutes: ServerRoute[] = [
   // Home
   { path: '', renderMode: RenderMode.Prerender },
 
   // Blog
   { path: 'blog', renderMode: RenderMode.Prerender },
-  { path: 'blog/:slug', renderMode: RenderMode.Server },
+  {
+    path: 'blog/:slug',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      return BLOG_SLUGS.map((slug) => ({ slug }));
+    },
+  },
 
   // Services
   { path: 'managed-it-services', renderMode: RenderMode.Prerender },
@@ -41,5 +60,5 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'it-support-small-businesses-gta', renderMode: RenderMode.Prerender },
 
   // Fallback (keep last)
-  { path: '**', renderMode: RenderMode.Server }
+  { path: '**', renderMode: RenderMode.Client }
 ];

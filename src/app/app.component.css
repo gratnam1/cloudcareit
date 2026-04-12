@@ -208,10 +208,14 @@
   max-height: min(78vh, 560px);
   z-index: 9999;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .ai-chat-body {
-  height: min(450px, 60vh);
+  min-height: 120px;
+  max-height: min(450px, 60vh);
+  flex: 1 1 auto;
   overflow-y: auto;
 }
 
@@ -299,6 +303,7 @@
   }
 
   .ai-chat-body {
-    height: min(44vh, 260px);
+    min-height: 100px;
+    max-height: min(44vh, 260px);
   }
 }

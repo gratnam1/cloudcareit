@@ -23,8 +23,107 @@ Rules:
 
 const JSON_HEADERS = { 'Content-Type': 'application/json' };
 
-function jsonResponse(body, status = 200) {
-  return new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
+function jsonResponse(body, status = 200, extraHeaders = {}) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { ...JSON_HEADERS, ...extraHeaders },
+  });
+}
+
+const REVIEWS_FALLBACK = {
+  source: 'fallback',
+  configured: false,
+  placeName: 'CtrlShift IT Services',
+  placeId: '',
+  rating: 5,
+  userRatingsTotal: 3,
+  googleMapsUrl: 'https://www.google.com/search?q=CtrlShift+IT+Services+reviews',
+  reviews: [
+    {
+      authorName: 'Toronto Law Office',
+      rating: 5,
+      text: 'Professional and knowledgeable team. They resolved our server incident quickly and documented every step clearly.',
+      relativeTimeDescription: 'recently',
+    },
+    {
+      authorName: 'Vaughan Accounting Practice',
+      rating: 5,
+      text: 'Excellent Microsoft 365 and endpoint rollout. Migration was organized, downtime was minimal, and staff adoption was smooth.',
+      relativeTimeDescription: 'recently',
+    },
+    {
+      authorName: 'GTA Medical Clinic',
+      rating: 5,
+      text: 'Reliable support and practical security guidance. Their team improved our backup confidence and daily IT stability.',
+      relativeTimeDescription: 'recently',
+    },
+  ],
+};
+
+async function handleGoogleReviews(env) {
+  const apiKey = (env.GOOGLE_PLACES_API_KEY || env.GOOGLE_MAPS_API_KEY || '').trim();
+  const placeId = (env.GOOGLE_PLACE_ID || env.GOOGLE_BUSINESS_PLACE_ID || '').trim();
+  const fetchedAt = new Date().toISOString();
+
+  if (!apiKey || !placeId) {
+    return jsonResponse(
+      { ...REVIEWS_FALLBACK, fetchedAt, error: 'Google Reviews API is not configured.' },
+      200,
+      { 'Cache-Control': 'public, max-age=60' }
+    );
+  }
+
+  try {
+    const fields = 'name,rating,user_ratings_total,reviews,url';
+    const apiUrl =
+      `https://maps.googleapis.com/maps/api/place/details/json` +
+      `?place_id=${encodeURIComponent(placeId)}&fields=${fields}&reviews_sort=newest&key=${apiKey}`;
+
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+
+    if (data.status !== 'OK') {
+      console.error('[google-reviews] Places API status:', data.status);
+      return jsonResponse(
+        { ...REVIEWS_FALLBACK, fetchedAt, error: `Google Places API: ${data.status}` },
+        200,
+        { 'Cache-Control': 'public, max-age=60' }
+      );
+    }
+
+    const place = data.result;
+    const reviews = (place.reviews || []).map((r) => ({
+      authorName: r.author_name,
+      rating: r.rating,
+      text: r.text,
+      relativeTimeDescription: r.relative_time_description,
+      time: r.time,
+      profilePhotoUrl: r.profile_photo_url,
+    }));
+
+    return jsonResponse(
+      {
+        source: 'google',
+        configured: true,
+        placeName: place.name || REVIEWS_FALLBACK.placeName,
+        placeId,
+        rating: place.rating ?? REVIEWS_FALLBACK.rating,
+        userRatingsTotal: place.user_ratings_total ?? reviews.length,
+        googleMapsUrl: place.url || REVIEWS_FALLBACK.googleMapsUrl,
+        fetchedAt,
+        reviews: reviews.length > 0 ? reviews : REVIEWS_FALLBACK.reviews,
+      },
+      200,
+      { 'Cache-Control': 'public, max-age=300, s-maxage=600, stale-while-revalidate=600' }
+    );
+  } catch (err) {
+    console.error('[google-reviews] Error:', err);
+    return jsonResponse(
+      { ...REVIEWS_FALLBACK, fetchedAt, error: 'Failed to fetch reviews.' },
+      200,
+      { 'Cache-Control': 'public, max-age=60' }
+    );
+  }
 }
 
 async function handleChat(request, env) {
@@ -101,6 +200,13 @@ export default {
         return new Response('Method Not Allowed', { status: 405, headers: { Allow: 'POST' } });
       }
       return handleChat(request, env);
+    }
+
+    if (url.pathname === '/api/google-reviews') {
+      if (request.method !== 'GET') {
+        return new Response('Method Not Allowed', { status: 405, headers: { Allow: 'GET' } });
+      }
+      return handleGoogleReviews(env);
     }
 
     return env.ASSETS.fetch(request);

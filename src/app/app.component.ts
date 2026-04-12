@@ -1,7 +1,8 @@
-import { Component, OnInit, inject, Inject, HostListener, NgZone, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, inject, Inject, HostListener } from '@angular/core';
 import { CommonModule, ViewportScroller, DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { filter } from 'rxjs/operators';
 import { SeoService } from './shared/seo/seo.service';
 
@@ -30,8 +31,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     private viewportScroller: ViewportScroller,
     @Inject(DOCUMENT) private document: Document,
-    private ngZone: NgZone,
-    private cdr: ChangeDetectorRef
+    private http: HttpClient
   ) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -153,7 +153,7 @@ export class AppComponent implements OnInit {
     onScroll();
   }
 
-  async sendMessage() {
+  sendMessage() {
     const text = this.chatInput.trim();
     if (!text || this.chatLoading) return;
 
@@ -166,32 +166,23 @@ export class AppComponent implements OnInit {
       .filter(m => !m.isTyping)
       .map(m => ({ role: m.isUser ? 'user' : 'assistant', content: m.text }));
 
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history }),
-      });
-      const data = await res.json() as { reply?: string; error?: string };
-      this.ngZone.run(() => {
+    this.http.post<{ reply?: string; error?: string }>('/api/chat', { messages: history }).subscribe({
+      next: (data) => {
         this.messages = this.messages.filter(m => !m.isTyping);
         this.messages.push({
           text: data.reply ?? "Sorry, I'm having trouble connecting. Please call us at (416) 624-4841 or email info@ctrlshiftit.ca.",
           isUser: false,
         });
         this.chatLoading = false;
-        this.cdr.detectChanges();
-      });
-    } catch {
-      this.ngZone.run(() => {
+      },
+      error: () => {
         this.messages = this.messages.filter(m => !m.isTyping);
         this.messages.push({
           text: "Sorry, I couldn't reach the server. Please call (416) 624-4841 or email info@ctrlshiftit.ca.",
           isUser: false,
         });
         this.chatLoading = false;
-        this.cdr.detectChanges();
-      });
-    }
+      },
+    });
   }
 }

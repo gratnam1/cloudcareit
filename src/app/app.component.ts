@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, Inject, HostListener, signal, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, inject, Inject, HostListener, ViewChild, ElementRef, AfterViewChecked, ApplicationRef } from '@angular/core';
 import { CommonModule, ViewportScroller, DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -22,11 +22,12 @@ export class AppComponent implements OnInit, AfterViewChecked {
   // --- AI Chat State (Kept Global) ---
   chatVisible = false;
   chatInput = '';
-  chatLoading = signal(false);
-  messages = signal<{ text: string; isUser: boolean; isTyping?: boolean }[]>([
+  chatLoading = false;
+  messages: { text: string; isUser: boolean; isTyping?: boolean }[] = [
     { text: "Hi! I'm the CtrlShift IT assistant. Ask me anything about our IT services, pricing, or coverage areas.", isUser: false }
-  ]);
+  ];
   @ViewChild('chatBody') private chatBodyRef?: ElementRef<HTMLDivElement>;
+  private appRef = inject(ApplicationRef);
 
   constructor(
     private router: Router,
@@ -167,37 +168,35 @@ export class AppComponent implements OnInit, AfterViewChecked {
 
   sendMessage() {
     const text = this.chatInput.trim();
-    if (!text || this.chatLoading()) return;
+    if (!text || this.chatLoading) return;
 
-    this.messages.update(msgs => [...msgs, { text, isUser: true }]);
+    this.messages.push({ text, isUser: true });
     this.chatInput = '';
-    this.chatLoading.set(true);
-    this.messages.update(msgs => [...msgs, { text: '...', isUser: false, isTyping: true }]);
+    this.chatLoading = true;
+    this.messages.push({ text: '...', isUser: false, isTyping: true });
 
-    const history = this.messages()
+    const history = this.messages
       .filter(m => !m.isTyping)
       .map(m => ({ role: m.isUser ? 'user' : 'assistant', content: m.text }));
 
     this.http.post<{ reply?: string; error?: string }>('/api/chat', { messages: history }).subscribe({
       next: (data) => {
-        this.messages.update(msgs => [
-          ...msgs.filter(m => !m.isTyping),
-          {
-            text: data.reply ?? "Sorry, I'm having trouble connecting. Please call us at (416) 624-4841 or email info@ctrlshiftit.ca.",
-            isUser: false,
-          },
-        ]);
-        this.chatLoading.set(false);
+        this.messages = this.messages.filter(m => !m.isTyping);
+        this.messages.push({
+          text: data.reply ?? "Sorry, I'm having trouble connecting. Please call us at (416) 624-4841 or email info@ctrlshiftit.ca.",
+          isUser: false,
+        });
+        this.chatLoading = false;
+        this.appRef.tick();
       },
       error: () => {
-        this.messages.update(msgs => [
-          ...msgs.filter(m => !m.isTyping),
-          {
-            text: "Sorry, I couldn't reach the server. Please call (416) 624-4841 or email info@ctrlshiftit.ca.",
-            isUser: false,
-          },
-        ]);
-        this.chatLoading.set(false);
+        this.messages = this.messages.filter(m => !m.isTyping);
+        this.messages.push({
+          text: "Sorry, I couldn't reach the server. Please call (416) 624-4841 or email info@ctrlshiftit.ca.",
+          isUser: false,
+        });
+        this.chatLoading = false;
+        this.appRef.tick();
       },
     });
   }

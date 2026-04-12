@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, Inject, HostListener } from '@angular/core';
+import { Component, OnInit, inject, Inject, HostListener, NgZone } from '@angular/core';
 import { CommonModule, ViewportScroller, DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -29,7 +29,8 @@ export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     private viewportScroller: ViewportScroller,
-    @Inject(DOCUMENT) private document: Document
+    @Inject(DOCUMENT) private document: Document,
+    private ngZone: NgZone
   ) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -171,19 +172,23 @@ export class AppComponent implements OnInit {
         body: JSON.stringify({ messages: history }),
       });
       const data = await res.json() as { reply?: string; error?: string };
-      this.messages = this.messages.filter(m => !m.isTyping);
-      this.messages.push({
-        text: data.reply ?? "Sorry, I'm having trouble connecting. Please call us at (416) 624-4841 or email info@ctrlshiftit.ca.",
-        isUser: false,
+      this.ngZone.run(() => {
+        this.messages = this.messages.filter(m => !m.isTyping);
+        this.messages.push({
+          text: data.reply ?? "Sorry, I'm having trouble connecting. Please call us at (416) 624-4841 or email info@ctrlshiftit.ca.",
+          isUser: false,
+        });
+        this.chatLoading = false;
       });
     } catch {
-      this.messages = this.messages.filter(m => !m.isTyping);
-      this.messages.push({
-        text: "Sorry, I couldn't reach the server. Please call (416) 624-4841 or email info@ctrlshiftit.ca.",
-        isUser: false,
+      this.ngZone.run(() => {
+        this.messages = this.messages.filter(m => !m.isTyping);
+        this.messages.push({
+          text: "Sorry, I couldn't reach the server. Please call (416) 624-4841 or email info@ctrlshiftit.ca.",
+          isUser: false,
+        });
+        this.chatLoading = false;
       });
-    } finally {
-      this.chatLoading = false;
     }
   }
 }

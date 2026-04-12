@@ -140,7 +140,7 @@
 
 <div *ngIf="chatVisible" class="card shadow-lg border-0 rounded-4 ai-chat-panel">
   <div class="card-body scroll-y ai-chat-body" style="background:rgba(8,13,26,0.98)">
-    <div *ngFor="let msg of messages" [ngClass]="{'text-end': msg.isUser}" class="mb-3">
+    <div *ngFor="let msg of messages()" [ngClass]="{'text-end': msg.isUser}" class="mb-3">
       <div [ngClass]="msg.isUser ? 'bg-primary text-white' : 'text-light shadow-sm'" class="p-2 rounded-3 d-inline-block ai-chat-message" style="background:rgba(30,41,59,0.9)">
         <span *ngIf="msg.isTyping; else msgText" class="typing-indicator">
           <span></span><span></span><span></span>
@@ -151,9 +151,9 @@
   </div>
   <div class="card-footer p-3" style="background:rgba(5,8,16,0.98);border-top:1px solid rgba(99,102,241,0.2)">
     <div class="input-group">
-      <input type="text" [(ngModel)]="chatInput" (keyup.enter)="sendMessage()" [disabled]="chatLoading" class="form-control border-0" style="background:rgba(30,41,59,0.8);color:#f8fafc" placeholder="Ask anything...">
-      <button class="btn btn-primary" (click)="sendMessage()" [disabled]="chatLoading">
-        <i [class]="chatLoading ? 'bi bi-hourglass-split' : 'bi bi-send-fill'"></i>
+      <input type="text" [(ngModel)]="chatInput" (keyup.enter)="sendMessage()" [disabled]="chatLoading()" class="form-control border-0" style="background:rgba(30,41,59,0.8);color:#f8fafc" placeholder="Ask anything...">
+      <button class="btn btn-primary" (click)="sendMessage()" [disabled]="chatLoading()">
+        <i [class]="chatLoading() ? 'bi bi-hourglass-split' : 'bi bi-send-fill'"></i>
       </button>
     </div>
   </div>

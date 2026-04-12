@@ -211,7 +211,7 @@
 }
 
 .ai-chat-body {
-  height: min(300px, 52vh);
+  height: min(450px, 60vh);
   overflow-y: auto;
 }
 

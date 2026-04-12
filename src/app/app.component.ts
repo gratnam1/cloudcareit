@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, Inject, HostListener, NgZone } from '@angular/core';
+import { Component, OnInit, inject, Inject, HostListener, NgZone, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, ViewportScroller, DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -30,7 +30,8 @@ export class AppComponent implements OnInit {
     private router: Router,
     private viewportScroller: ViewportScroller,
     @Inject(DOCUMENT) private document: Document,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef
   ) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -179,6 +180,7 @@ export class AppComponent implements OnInit {
           isUser: false,
         });
         this.chatLoading = false;
+        this.cdr.detectChanges();
       });
     } catch {
       this.ngZone.run(() => {
@@ -188,6 +190,7 @@ export class AppComponent implements OnInit {
           isUser: false,
         });
         this.chatLoading = false;
+        this.cdr.detectChanges();
       });
     }
   }

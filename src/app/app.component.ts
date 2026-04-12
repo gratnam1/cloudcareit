@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, Inject, HostListener, signal } from '@angular/core';
+import { Component, OnInit, inject, Inject, HostListener, signal, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
 import { CommonModule, ViewportScroller, DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +13,7 @@ import { SeoService } from './shared/seo/seo.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewChecked {
   private seo = inject(SeoService);
   menuOpen = false;
   locationsOpen = false;
@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
   messages = signal<{ text: string; isUser: boolean; isTyping?: boolean }[]>([
     { text: "Hi! I'm the CtrlShift IT assistant. Ask me anything about our IT services, pricing, or coverage areas.", isUser: false }
   ]);
+  @ViewChild('chatBody') private chatBodyRef?: ElementRef<HTMLDivElement>;
 
   constructor(
     private router: Router,
@@ -94,6 +95,17 @@ export class AppComponent implements OnInit {
         'query-input': 'required name=search_term_string'
       }
     });
+  }
+
+  ngAfterViewChecked(): void {
+    this.scrollChatToBottom();
+  }
+
+  private scrollChatToBottom(): void {
+    const el = this.chatBodyRef?.nativeElement;
+    if (el) {
+      el.scrollTop = el.scrollHeight;
+    }
   }
 
   toggleChat() {

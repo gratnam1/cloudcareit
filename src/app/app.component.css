@@ -217,6 +217,10 @@
   max-height: min(450px, 60vh);
   flex: 1 1 auto;
   overflow-y: auto;
+  scrollbar-width: none;
+}
+.ai-chat-body::-webkit-scrollbar {
+  display: none;
 }
 
 .ai-chat-message {

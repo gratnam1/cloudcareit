@@ -1,8 +1,7 @@
-import { Component, OnInit, inject, Inject, HostListener, ViewChild, ElementRef, AfterViewChecked, ApplicationRef } from '@angular/core';
+import { Component, OnInit, inject, Inject, HostListener, ViewChild, ElementRef, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, ViewportScroller, DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { filter } from 'rxjs/operators';
 import { SeoService } from './shared/seo/seo.service';
 
@@ -27,13 +26,12 @@ export class AppComponent implements OnInit, AfterViewChecked {
     { text: "Hi! I'm the CtrlShift IT assistant. Ask me anything about our IT services, pricing, or coverage areas.", isUser: false }
   ];
   @ViewChild('chatBody') private chatBodyRef?: ElementRef<HTMLDivElement>;
-  private appRef = inject(ApplicationRef);
 
   constructor(
     private router: Router,
     private viewportScroller: ViewportScroller,
     @Inject(DOCUMENT) private document: Document,
-    private http: HttpClient
+    private cdr: ChangeDetectorRef
   ) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -179,25 +177,29 @@ export class AppComponent implements OnInit, AfterViewChecked {
       .filter(m => !m.isTyping)
       .map(m => ({ role: m.isUser ? 'user' : 'assistant', content: m.text }));
 
-    this.http.post<{ reply?: string; error?: string }>('/api/chat', { messages: history }).subscribe({
-      next: (data) => {
+    fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: history }),
+    })
+      .then(res => res.json())
+      .then((data: { reply?: string; error?: string }) => {
         this.messages = this.messages.filter(m => !m.isTyping);
         this.messages.push({
           text: data.reply ?? "Sorry, I'm having trouble connecting. Please call us at (416) 624-4841 or email info@ctrlshiftit.ca.",
           isUser: false,
         });
         this.chatLoading = false;
-        this.appRef.tick();
-      },
-      error: () => {
+        setTimeout(() => this.cdr.detectChanges());
+      })
+      .catch(() => {
         this.messages = this.messages.filter(m => !m.isTyping);
         this.messages.push({
           text: "Sorry, I couldn't reach the server. Please call (416) 624-4841 or email info@ctrlshiftit.ca.",
           isUser: false,
         });
         this.chatLoading = false;
-        this.appRef.tick();
-      },
-    });
+        setTimeout(() => this.cdr.detectChanges());
+      });
   }
 }

@@ -205,7 +205,7 @@
   right: 1.25rem;
   bottom: 5.5rem;
   width: min(350px, calc(100vw - 2rem));
-  max-height: min(78vh, 560px);
+  max-height: min(85vh, 700px);
   z-index: 9999;
   overflow: hidden;
   display: flex;
@@ -214,9 +214,13 @@
 
 .ai-chat-body {
   min-height: 120px;
-  max-height: min(450px, 60vh);
+  max-height: min(600px, 75vh);
   flex: 1 1 auto;
   overflow-y: auto;
+  scrollbar-width: none;
+}
+.ai-chat-body::-webkit-scrollbar {
+  display: none;
 }
 
 .ai-chat-message {
@@ -299,11 +303,11 @@
     left: 0.75rem;
     bottom: calc(max(0.75rem, env(safe-area-inset-bottom)) + 3.5rem);
     width: auto;
-    max-height: min(72vh, 500px);
+    max-height: min(80vh, 600px);
   }
 
   .ai-chat-body {
     min-height: 100px;
-    max-height: min(44vh, 260px);
+    max-height: min(70vh, 500px);
   }
 }

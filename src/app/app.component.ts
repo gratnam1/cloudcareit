@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, Inject, HostListener, NgZone } from '@angular/core';
+import { Component, OnInit, inject, Inject, HostListener, ViewChild, ElementRef, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, ViewportScroller, DOCUMENT } from '@angular/common';
 import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ import { SeoService } from './shared/seo/seo.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewChecked {
   private seo = inject(SeoService);
   menuOpen = false;
   locationsOpen = false;
@@ -25,12 +25,13 @@ export class AppComponent implements OnInit {
   messages: { text: string; isUser: boolean; isTyping?: boolean }[] = [
     { text: "Hi! I'm the CtrlShift IT assistant. Ask me anything about our IT services, pricing, or coverage areas.", isUser: false }
   ];
+  @ViewChild('chatBody') private chatBodyRef?: ElementRef<HTMLDivElement>;
 
   constructor(
     private router: Router,
     private viewportScroller: ViewportScroller,
     @Inject(DOCUMENT) private document: Document,
-    private ngZone: NgZone
+    private cdr: ChangeDetectorRef
   ) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
@@ -95,6 +96,17 @@ export class AppComponent implements OnInit {
     });
   }
 
+  ngAfterViewChecked(): void {
+    this.scrollChatToBottom();
+  }
+
+  private scrollChatToBottom(): void {
+    const el = this.chatBodyRef?.nativeElement;
+    if (el) {
+      el.scrollTop = el.scrollHeight;
+    }
+  }
+
   toggleChat() {
     this.chatVisible = !this.chatVisible;
   }
@@ -152,7 +164,7 @@ export class AppComponent implements OnInit {
     onScroll();
   }
 
-  async sendMessage() {
+  sendMessage() {
     const text = this.chatInput.trim();
     if (!text || this.chatLoading) return;
 
@@ -165,30 +177,29 @@ export class AppComponent implements OnInit {
       .filter(m => !m.isTyping)
       .map(m => ({ role: m.isUser ? 'user' : 'assistant', content: m.text }));
 
-    try {
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history }),
-      });
-      const data = await res.json() as { reply?: string; error?: string };
-      this.ngZone.run(() => {
+    fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: history }),
+    })
+      .then(res => res.json())
+      .then((data: { reply?: string; error?: string }) => {
         this.messages = this.messages.filter(m => !m.isTyping);
         this.messages.push({
           text: data.reply ?? "Sorry, I'm having trouble connecting. Please call us at (416) 624-4841 or email info@ctrlshiftit.ca.",
           isUser: false,
         });
         this.chatLoading = false;
-      });
-    } catch {
-      this.ngZone.run(() => {
+        setTimeout(() => this.cdr.detectChanges());
+      })
+      .catch(() => {
         this.messages = this.messages.filter(m => !m.isTyping);
         this.messages.push({
           text: "Sorry, I couldn't reach the server. Please call (416) 624-4841 or email info@ctrlshiftit.ca.",
           isUser: false,
         });
         this.chatLoading = false;
+        setTimeout(() => this.cdr.detectChanges());
       });
-    }
   }
 }

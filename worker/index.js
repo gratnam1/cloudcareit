@@ -168,7 +168,7 @@ async function handleChat(request, env) {
     if (env && env.AI) {
 
       // const result = await env.AI.run('@cf/meta/llama-3.1-8b-instruct', payload);
-      const result = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast');
+      const result = await env.AI.run('@cf/meta/llama-3.3-70b-instruct-fp8-fast', payload);
       const reply = result && result.response && result.response.trim();
       if (!reply) return jsonResponse({ error: 'Empty response from AI.' }, 502);
       return jsonResponse({ reply });

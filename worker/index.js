@@ -89,42 +89,45 @@ async function handleGoogleReviews(env) {
   }
 
   try {
-    const fields = 'name,rating,user_ratings_total,reviews,url';
-    const apiUrl =
-      `https://maps.googleapis.com/maps/api/place/details/json` +
-      `?place_id=${encodeURIComponent(placeId)}&fields=${fields}&reviews_sort=newest&key=${apiKey}`;
+    // Use Places API v1 (new) — required for service-area businesses
+    const fieldMask = 'id,displayName,rating,userRatingCount,googleMapsUri,reviews';
+    const apiUrl = `https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}`;
 
-    const res = await fetch(apiUrl);
-    const data = await res.json();
+    const res = await fetch(apiUrl, {
+      headers: {
+        'X-Goog-Api-Key': apiKey,
+        'X-Goog-FieldMask': fieldMask,
+      },
+    });
+    const place = await res.json();
 
-    if (data.status !== 'OK') {
-      console.error('[google-reviews] Places API status:', data.status);
+    if (place.error) {
+      console.error('[google-reviews] Places API v1 error:', place.error);
       return jsonResponse(
-        { ...REVIEWS_FALLBACK, fetchedAt, error: `Google Places API: ${data.status}` },
+        { ...REVIEWS_FALLBACK, fetchedAt, error: `Google Places API: ${place.error.status}` },
         200,
         { 'Cache-Control': 'public, max-age=60' }
       );
     }
 
-    const place = data.result;
     const reviews = (place.reviews || []).map((r) => ({
-      authorName: r.author_name,
+      authorName: r.authorAttribution?.displayName,
       rating: r.rating,
-      text: r.text,
-      relativeTimeDescription: r.relative_time_description,
-      time: r.time,
-      profilePhotoUrl: r.profile_photo_url,
+      text: r.text?.text,
+      relativeTimeDescription: r.relativePublishTimeDescription,
+      time: r.publishTime,
+      profilePhotoUrl: r.authorAttribution?.photoUri,
     }));
 
     return jsonResponse(
       {
         source: 'google',
         configured: true,
-        placeName: place.name || REVIEWS_FALLBACK.placeName,
+        placeName: place.displayName?.text || REVIEWS_FALLBACK.placeName,
         placeId,
         rating: place.rating ?? REVIEWS_FALLBACK.rating,
-        userRatingsTotal: place.user_ratings_total ?? reviews.length,
-        googleMapsUrl: place.url || REVIEWS_FALLBACK.googleMapsUrl,
+        userRatingsTotal: place.userRatingCount ?? reviews.length,
+        googleMapsUrl: place.googleMapsUri || REVIEWS_FALLBACK.googleMapsUrl,
         fetchedAt,
         reviews: reviews.length > 0 ? reviews : REVIEWS_FALLBACK.reviews,
       },

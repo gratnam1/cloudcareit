@@ -213,7 +213,7 @@
 }
 
 .ai-chat-body {
-  min-height: 120px;
+  min-height: 220px;
   flex: 1 1 0;
   overflow-y: auto;
   scrollbar-width: none;
@@ -306,6 +306,6 @@
   }
 
   .ai-chat-body {
-    min-height: 100px;
+    min-height: 180px;
   }
 }

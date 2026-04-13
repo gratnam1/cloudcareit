@@ -109,6 +109,9 @@ export class AppComponent implements OnInit, AfterViewChecked {
 
   toggleChat() {
     this.chatVisible = !this.chatVisible;
+    if (this.chatVisible) {
+      setTimeout(() => this.scrollChatToBottom());
+    }
   }
 
   toggleMenu(): void {
@@ -190,7 +193,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
           isUser: false,
         });
         this.chatLoading = false;
-        setTimeout(() => this.cdr.detectChanges());
+        setTimeout(() => { this.cdr.detectChanges(); this.scrollChatToBottom(); });
       })
       .catch(() => {
         this.messages = this.messages.filter(m => !m.isTyping);
@@ -199,7 +202,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
           isUser: false,
         });
         this.chatLoading = false;
-        setTimeout(() => this.cdr.detectChanges());
+        setTimeout(() => { this.cdr.detectChanges(); this.scrollChatToBottom(); });
       });
   }
 }

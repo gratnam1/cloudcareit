@@ -294,6 +294,22 @@ export const routes: Routes = [
     title: 'Managed IT for Medical Clinics in Vaughan | CtrlShift IT Services'
   },
 
+  // Service + location pages (spoke pages)
+  {
+    path: 'cybersecurity-services-vaughan',
+    loadComponent: () =>
+      import('./pages/service-location/service-location.component').then((m) => m.ServiceLocationComponent),
+    title: 'Cybersecurity Services Vaughan | Threat Protection for GTA Businesses | CtrlShift IT',
+    data: { contentKey: 'cybersecurity-vaughan' }
+  },
+  {
+    path: 'cloud-services-vaughan',
+    loadComponent: () =>
+      import('./pages/service-location/service-location.component').then((m) => m.ServiceLocationComponent),
+    title: 'Cloud Services Vaughan | Microsoft 365, AWS & Google Workspace | CtrlShift IT',
+    data: { contentKey: 'cloud-vaughan' }
+  },
+
   // City pages
   {
     path: 'managed-it-services-vaughan',
@@ -308,8 +324,10 @@ export const routes: Routes = [
   },
   {
     path: 'it-support-vaughan',
-    redirectTo: 'managed-it-services-vaughan',
-    pathMatch: 'full'
+    loadComponent: () =>
+      import('./pages/it-support/it-support-location.component').then((m) => m.ItSupportLocationComponent),
+    title: 'IT Support Vaughan | Fast Remote & On-Site IT Help | CtrlShift IT',
+    data: { cityKey: 'vaughan' }
   },
   {
     path: 'locations/vaughan',
@@ -360,8 +378,10 @@ export const routes: Routes = [
   },
   {
     path: 'it-support-mississauga',
-    redirectTo: 'managed-it-services-mississauga',
-    pathMatch: 'full'
+    loadComponent: () =>
+      import('./pages/it-support/it-support-location.component').then((m) => m.ItSupportLocationComponent),
+    title: 'IT Support Mississauga | Fast Remote & On-Site IT Help | CtrlShift IT',
+    data: { cityKey: 'mississauga' }
   },
   {
     path: 'locations/mississauga',

@@ -758,6 +758,17 @@
 /* ===== CTA ===== */
 .cta-section { background: #080d1a; }
 
+/* ===== LOCATION LINKS STRIP ===== */
+.location-links-strip { background: #050810; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.location-links-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.location-pill {
+  font-size: 0.78rem; font-weight: 600; color: rgba(165,180,252,0.7);
+  border: 1px solid rgba(99,102,241,0.2); border-radius: 999px;
+  padding: 0.3rem 0.9rem; text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.location-pill:hover { color: #a5b4fc; border-color: rgba(99,102,241,0.5); background: rgba(99,102,241,0.07); }
+
 /* ===== SEO LINKS ===== */
 .seo-links-strip { background: #050810; border-top: none; }
 .seo-pill {

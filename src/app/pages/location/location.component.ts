@@ -56,6 +56,7 @@ export class LocationComponent implements OnInit, OnDestroy {
   services: string[] = [];
   faq: FaqItem[] = [];
   otherLocationLinks: LinkItem[] = [];
+  cityServiceLinks: (LinkItem & { icon: string })[] = [];
   mainHeading = '';
   areasServedText = '';
   mapImage = '';
@@ -411,6 +412,14 @@ export class LocationComponent implements OnInit, OnDestroy {
       (item) => item.path !== content.canonicalPath
     );
     this.mainHeading = content.mainHeading;
+
+    const citySlug = this.normalizeCityKey(this.city).replace(/\s+/g, '-');
+    this.cityServiceLinks = [
+      { label: `IT Support ${this.city}`, path: `/it-support-${citySlug}`, icon: 'bi-headset' },
+      { label: `Cybersecurity Services ${this.city}`, path: `/cybersecurity-services-${citySlug}`, icon: 'bi-shield-lock' },
+      { label: `Cloud Services ${this.city}`, path: `/cloud-services-${citySlug}`, icon: 'bi-cloud-check' },
+      { label: `Microsoft 365 Support`, path: '/microsoft-365', icon: 'bi-microsoft' },
+    ];
     this.areasServedText = content.areasServedText ?? '';
     this.mapImage = content.mapImage ?? '';
 

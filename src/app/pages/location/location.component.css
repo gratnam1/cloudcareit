@@ -500,3 +500,22 @@
 
   .hero-chip { font-size: 0.75rem; }
 }
+
+/* ===== RELATED SERVICES ===== */
+.location-related-services { background: #f8f9fb; }
+.related-services-head h2 { color: #0f172a; font-size: 1.4rem; }
+.related-service-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+.related-service-card:hover {
+  border-color: #6366f1;
+  box-shadow: 0 4px 16px rgba(99,102,241,0.12);
+  color: #4f46e5;
+}
+.related-service-icon {
+  font-size: 1.4rem;
+  color: #6366f1;
+}

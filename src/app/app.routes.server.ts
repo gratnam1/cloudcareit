@@ -11,6 +11,7 @@ const BLOG_SLUGS = [
   'web-development-trends',
   'seo-visibility-guide',
   'lead-generation-strategies',
+  'post-quantum-small-business',
 ];
 
 export const serverRoutes: ServerRoute[] = [
@@ -48,9 +49,18 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'managed-it-services-thornhill', renderMode: RenderMode.Prerender },
   { path: 'managed-it-services-richmond-hill', renderMode: RenderMode.Prerender },
 
+  // IT Support spoke pages
+  { path: 'it-support-vaughan', renderMode: RenderMode.Prerender },
+  { path: 'it-support-mississauga', renderMode: RenderMode.Prerender },
+
+  // Service + location pages
+  { path: 'cybersecurity-services-vaughan', renderMode: RenderMode.Prerender },
+  { path: 'cloud-services-vaughan', renderMode: RenderMode.Prerender },
+
   // About & utility pages
   { path: 'about', renderMode: RenderMode.Prerender },
   { path: 'it-assessment', renderMode: RenderMode.Prerender },
+  { path: 'free-security-assessment', renderMode: RenderMode.Prerender },
 
   // Industry pages
   { path: 'it-support-law-firms-toronto', renderMode: RenderMode.Prerender },

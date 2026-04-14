@@ -15,9 +15,27 @@
   </url>
   <url>
     <loc>https://ctrlshiftit.ca/managed-it-services-vaughan</loc>
-    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/it-support-vaughan</loc>
+    <lastmod>2026-04-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/cybersecurity-services-vaughan</loc>
+    <lastmod>2026-04-14T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/cloud-services-vaughan</loc>
+    <lastmod>2026-04-14T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
   </url>
   <url>
     <loc>https://ctrlshiftit.ca/managed-it-services-toronto</loc>
@@ -27,7 +45,13 @@
   </url>
   <url>
     <loc>https://ctrlshiftit.ca/managed-it-services-mississauga</loc>
-    <lastmod>2026-03-15T00:00:00+00:00</lastmod>
+    <lastmod>2026-04-14T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/it-support-mississauga</loc>
+    <lastmod>2026-04-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>

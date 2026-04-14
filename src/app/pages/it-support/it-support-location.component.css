@@ -1,0 +1,56 @@
+/* ===== HERO ===== */
+.it-support-hero {
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d1433 60%, #0a1628 100%);
+  border-bottom: 1px solid rgba(99,102,241,0.15);
+}
+.it-support-crumb a { color: rgba(255,255,255,0.5); }
+.it-support-crumb a:hover { color: #a5b4fc; }
+.it-support-kicker {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: #818cf8;
+}
+.it-support-lead { font-size: 1.1rem; color: rgba(255,255,255,0.75); line-height: 1.7; }
+.it-support-proof {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1rem;
+}
+
+/* ===== SERVICES ===== */
+.it-support-services { background: #f8f9fb; }
+.it-support-service-card {
+  background: #fff; border: 1px solid #e2e8f0; color: #1e293b; font-size: 0.92rem;
+}
+
+/* ===== HUB LINK ===== */
+.it-support-hub-link { background: #fff; }
+.hub-link-card {
+  background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+  border: 1px solid rgba(99,102,241,0.2);
+}
+.hub-link-card a.text-decoration-underline { color: #4f46e5; }
+
+/* ===== FAQ ===== */
+.it-support-faq { background: #f8f9fb; }
+.faq-shell { background: #fff; border: 1px solid #e2e8f0; }
+.faq-badge {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  background: #eef2ff; color: #4f46e5; padding: 0.25rem 0.75rem; border-radius: 999px;
+}
+.faq-item { border-bottom: 1px solid #f1f5f9; }
+.faq-item:last-child { border-bottom: none; }
+.faq-button {
+  display: block; width: 100%; padding: 1rem 0;
+  background: none; border: none; text-align: left; cursor: pointer;
+  font-size: 0.95rem; color: #0f172a; list-style: none;
+}
+.faq-button::-webkit-details-marker { display: none; }
+.faq-content { padding: 0 0 1rem; font-size: 0.92rem; line-height: 1.7; }
+.cta-shell {
+  background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+  border: 1px solid rgba(99,102,241,0.2); color: #f8fafc;
+}
+.cta-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #818cf8; }
+.cta-shell h3 { color: #f8fafc; }
+.cta-shell .text-muted { color: rgba(248,250,252,0.6) !important; }
+.cta-shell li { color: rgba(248,250,252,0.85); font-size: 0.9rem; }

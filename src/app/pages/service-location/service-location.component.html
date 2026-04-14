@@ -1,0 +1,114 @@
+<ng-container *ngIf="content">
+
+<!-- ===== HERO ===== -->
+<header class="sl-hero py-5">
+  <div class="container py-4">
+    <nav class="sl-crumb d-flex flex-wrap align-items-center gap-2 small mb-4">
+      <a routerLink="/" class="fw-semibold text-decoration-none text-white-50">Home</a>
+      <span class="text-white-50">/</span>
+      <a [routerLink]="content.hubPath" class="fw-semibold text-decoration-none text-white-50">{{content.hubLabel}}</a>
+      <span class="text-white-50">/</span>
+      <span class="text-white">{{content.serviceType}} {{content.city}}</span>
+    </nav>
+
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <p class="sl-kicker mb-3">{{content.kicker}}</p>
+        <h1 class="display-3 fw-bold text-white mb-3">{{content.mainHeading}}</h1>
+        <p class="sl-lead mb-5">{{content.intro}}</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a class="btn btn-primary btn-lg rounded-pill px-5" routerLink="/it-assessment">
+            Book Free Assessment
+          </a>
+          <a class="btn btn-outline-light btn-lg rounded-pill px-5" [routerLink]="content.hubPath">
+            View Managed IT Plans
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <aside class="sl-features-card p-4 p-lg-5">
+          <h2 class="h5 fw-bold text-white mb-3">What's Included</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="d-flex gap-2 mb-2" *ngFor="let f of content.features">
+              <i class="bi bi-check-circle-fill text-primary flex-shrink-0 mt-1"></i>
+              <span class="text-white-50 small">{{f}}</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== CONTENT SECTIONS ===== -->
+<section class="sl-sections py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6" *ngFor="let s of content.sections">
+        <article class="sl-section-card p-4 p-lg-5 h-100 rounded-4">
+          <h2 class="h4 fw-bold mb-3">{{s.heading}}</h2>
+          <p class="text-muted mb-0">{{s.body}}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HUB LINK (spoke→hub) ===== -->
+<section class="sl-hub-link py-5">
+  <div class="container">
+    <div class="hub-link-card p-4 p-lg-5 rounded-4 d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-4">
+      <div class="flex-grow-1">
+        <h2 class="h4 fw-bold mb-2">Need Full IT Management in {{content.city}}?</h2>
+        <p class="text-muted mb-0">
+          Pair {{content.serviceType}} with our
+          <a [routerLink]="content.hubPath" class="fw-semibold text-decoration-underline">{{content.hubLabel}}</a>
+          for complete IT coverage — proactive monitoring, helpdesk support, patching, and cloud administration
+          under one flat monthly rate. No surprise invoices.
+        </p>
+      </div>
+      <a [routerLink]="content.hubPath" class="btn btn-primary rounded-pill px-5 py-3 fw-bold flex-shrink-0">
+        {{content.hubLabel}} <i class="bi bi-arrow-right ms-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sl-faq py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="faq-shell p-4 p-lg-5 rounded-4">
+          <span class="faq-badge mb-3 d-inline-block">FAQ</span>
+          <h2 class="fw-bold mb-4">{{content.serviceType}} {{content.city}}: Common Questions</h2>
+          <div class="faq-list">
+            <details class="faq-item" *ngFor="let f of content.faq; let idx = index" [attr.open]="idx === 0 ? '' : null">
+              <summary class="faq-button fw-bold">{{f.q}}</summary>
+              <div class="faq-content text-muted">{{f.a}}</div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <aside class="cta-shell p-4 p-lg-5 rounded-4 h-100">
+          <div class="cta-label mb-2">Free Assessment</div>
+          <h3 class="fw-bold mb-2">{{content.serviceType}} in {{content.city}}</h3>
+          <p class="mb-4">Tell us your current setup and your top security or cloud challenge — we'll recommend the right solution in one quick call.</p>
+          <ul class="list-unstyled mb-4">
+            <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-primary"></i> Security-first approach</li>
+            <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-primary"></i> Flat-rate, no surprise invoices</li>
+            <li class="d-flex gap-2"><i class="bi bi-check-circle-fill text-primary"></i> 30-day risk-free trial</li>
+          </ul>
+          <a class="btn btn-primary rounded-pill w-100 py-3 fw-bold" routerLink="/it-assessment">
+            Book Free Assessment
+          </a>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+</ng-container>

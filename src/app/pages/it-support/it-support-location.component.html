@@ -1,0 +1,133 @@
+<ng-container *ngIf="content">
+
+<!-- ===== HERO ===== -->
+<header class="it-support-hero py-5">
+  <div class="container py-4">
+    <nav class="it-support-crumb d-flex flex-wrap align-items-center gap-2 small mb-4">
+      <a routerLink="/" class="fw-semibold text-decoration-none text-white-50">Home</a>
+      <span class="text-white-50">/</span>
+      <a [routerLink]="content.hubPath" class="fw-semibold text-decoration-none text-white-50">{{content.hubLabel}}</a>
+      <span class="text-white-50">/</span>
+      <span class="text-white">IT Support {{content.city}}</span>
+    </nav>
+
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <p class="it-support-kicker mb-3">IT Support for {{content.region}} Businesses</p>
+        <h1 class="display-3 fw-bold text-white mb-3">{{content.mainHeading}}</h1>
+        <p class="it-support-lead mb-5">{{content.intro}}</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a class="btn btn-primary btn-lg rounded-pill px-5" routerLink="/it-assessment">
+            Book Free IT Assessment
+          </a>
+          <a class="btn btn-outline-light btn-lg rounded-pill px-5" [routerLink]="content.hubPath">
+            View Managed IT Plans
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <aside class="it-support-proof p-4 p-lg-5">
+          <h2 class="h5 fw-bold text-white mb-3">Fast Response. Real Fixes.</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="d-flex gap-3 mb-3">
+              <i class="bi bi-clock-history text-primary fs-5 flex-shrink-0 mt-1"></i>
+              <div>
+                <div class="fw-bold text-white small">Under 15-minute response</div>
+                <div class="text-white-50 small">Remote triage starts immediately on all tickets.</div>
+              </div>
+            </li>
+            <li class="d-flex gap-3 mb-3">
+              <i class="bi bi-geo-alt text-primary fs-5 flex-shrink-0 mt-1"></i>
+              <div>
+                <div class="fw-bold text-white small">On-site when needed</div>
+                <div class="text-white-50 small">Technicians dispatched to {{content.city}} offices same day.</div>
+              </div>
+            </li>
+            <li class="d-flex gap-3">
+              <i class="bi bi-shield-check text-primary fs-5 flex-shrink-0 mt-1"></i>
+              <div>
+                <div class="fw-bold text-white small">Security-first approach</div>
+                <div class="text-white-50 small">Every fix includes a quick security check.</div>
+              </div>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== SERVICES ===== -->
+<section class="it-support-services py-5">
+  <div class="container">
+    <h2 class="fw-bold mb-2">IT Support Services in {{content.city}}</h2>
+    <p class="text-muted mb-4">Common requests we handle fast — remote and on-site.</p>
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-4" *ngFor="let svc of content.services">
+        <div class="it-support-service-card p-3 rounded-3 h-100 d-flex align-items-start gap-3">
+          <i class="bi bi-check-circle-fill text-primary flex-shrink-0 mt-1"></i>
+          <span>{{svc}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HUB LINK (spoke→hub) ===== -->
+<section class="it-support-hub-link py-5">
+  <div class="container">
+    <div class="hub-link-card p-4 p-lg-5 rounded-4 d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-4">
+      <div class="flex-grow-1">
+        <h2 class="h4 fw-bold mb-2">Need Proactive IT Management?</h2>
+        <p class="text-muted mb-0">
+          Businesses needing proactive monitoring, patching, and 24/7 system oversight should explore our
+          <a [routerLink]="content.hubPath" class="fw-semibold text-decoration-underline">{{content.hubLabel}}</a>.
+          Our fully managed plan prevents issues before they interrupt your team — at a flat monthly rate with no surprise invoices.
+        </p>
+        <p class="text-muted mt-2 mb-0">{{content.whatIsSection}}</p>
+      </div>
+      <a [routerLink]="content.hubPath" class="btn btn-primary rounded-pill px-5 py-3 fw-bold flex-shrink-0">
+        {{content.hubLabel}} <i class="bi bi-arrow-right ms-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="it-support-faq py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="faq-shell p-4 p-lg-5 rounded-4">
+          <span class="faq-badge mb-3 d-inline-block">FAQ</span>
+          <h2 class="fw-bold mb-4">IT Support {{content.city}}: Common Questions</h2>
+          <div class="faq-list">
+            <details class="faq-item" *ngFor="let f of content.faq; let idx = index" [attr.open]="idx === 0 ? '' : null">
+              <summary class="faq-button fw-bold">{{f.q}}</summary>
+              <div class="faq-content text-muted">{{f.a}}</div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <aside class="cta-shell p-4 p-lg-5 rounded-4 h-100">
+          <div class="cta-label mb-2">Free IT Assessment</div>
+          <h3 class="fw-bold mb-2">Get IT Help in {{content.city}}</h3>
+          <p class="text-muted mb-4">Tell us your biggest IT headache and we'll show you how to fix it in one quick call.</p>
+          <ul class="list-unstyled mb-4">
+            <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-primary"></i> Remote support starts immediately</li>
+            <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-primary"></i> On-site visits available</li>
+            <li class="d-flex gap-2"><i class="bi bi-check-circle-fill text-primary"></i> Flat-rate, no surprise invoices</li>
+          </ul>
+          <a class="btn btn-primary rounded-pill w-100 py-3 fw-bold" routerLink="/it-assessment">
+            Book Free Assessment
+          </a>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+</ng-container>

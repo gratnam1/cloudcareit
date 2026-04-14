@@ -59,3 +59,6 @@
 /posts/* /blog/:splat 301
 /article/* /blog/:splat 301
 /articles/* /blog/:splat 301
+
+# SPA fallback — serve index.html for any unmatched path so Angular router handles it client-side
+/* /index.html 200

@@ -413,12 +413,29 @@ export class LocationComponent implements OnInit, OnDestroy {
     );
     this.mainHeading = content.mainHeading;
 
-    const citySlug = this.normalizeCityKey(this.city).replace(/\s+/g, '-');
-    this.cityServiceLinks = [
-      { label: `IT Support ${this.city}`, path: `/it-support-${citySlug}`, icon: 'bi-headset' },
-      { label: `Cybersecurity Services ${this.city}`, path: `/cybersecurity-services-${citySlug}`, icon: 'bi-shield-lock' },
-      { label: `Cloud Services ${this.city}`, path: `/cloud-services-${citySlug}`, icon: 'bi-cloud-check' },
-      { label: `Microsoft 365 Support`, path: '/microsoft-365', icon: 'bi-microsoft' },
+    // Only include spoke links where a real dedicated page actually exists.
+    // Do not generate dynamic paths for cities without published service pages — those
+    // would fall through to the catch-all and redirect home.
+    const CITY_SERVICE_PAGES: Record<string, (LinkItem & { icon: string })[]> = {
+      vaughan: [
+        { label: 'IT Support Vaughan',            path: '/it-support-vaughan',            icon: 'bi-headset' },
+        { label: 'Cybersecurity Services Vaughan', path: '/cybersecurity-services-vaughan', icon: 'bi-shield-lock' },
+        { label: 'Cloud Services Vaughan',         path: '/cloud-services-vaughan',         icon: 'bi-cloud-check' },
+        { label: 'Microsoft 365 Support',          path: '/microsoft-365',                  icon: 'bi-microsoft' },
+      ],
+      mississauga: [
+        { label: 'IT Support Mississauga', path: '/it-support-mississauga', icon: 'bi-headset' },
+        { label: 'Microsoft 365 Support',   path: '/microsoft-365',          icon: 'bi-microsoft' },
+        { label: 'Google Workspace',        path: '/google-workspace',       icon: 'bi-google' },
+        { label: 'Office Networking',       path: '/office-networking',      icon: 'bi-router' },
+      ],
+    };
+    const cityKey = this.normalizeCityKey(this.city);
+    this.cityServiceLinks = CITY_SERVICE_PAGES[cityKey] ?? [
+      { label: 'Managed IT Services',  path: '/managed-it-services', icon: 'bi-hdd-network' },
+      { label: 'Microsoft 365 Support', path: '/microsoft-365',       icon: 'bi-microsoft' },
+      { label: 'Google Workspace',      path: '/google-workspace',    icon: 'bi-google' },
+      { label: 'Office Networking',     path: '/office-networking',   icon: 'bi-router' },
     ];
     this.areasServedText = content.areasServedText ?? '';
     this.mapImage = content.mapImage ?? '';

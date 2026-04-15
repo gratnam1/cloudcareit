@@ -1,0 +1,114 @@
+<section class="service-detail-page py-5">
+  <div class="container py-5">
+    <div class="mb-4">
+      <a class="service-back-link text-decoration-none" routerLink="/">← Back to Home</a>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <!-- Left: Main content -->
+      <div class="col-lg-7">
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 h-100">
+          <h1 class="fw-bold display-6 mb-3">AI Integration for Real Business Operations</h1>
+          <p class="text-muted lead mb-4">
+            We build production-grade AI workflows — intelligent voice agents, booking assistants, multi-channel automation, and tool-calling pipelines — that connect directly to your existing systems.
+          </p>
+          <p class="text-muted mb-4">
+            Not prototypes. Not demos. Working software deployed at scale on your infrastructure, integrated with your databases, payment systems, and communication channels.
+          </p>
+
+          <h2 class="h5 fw-bold mb-3">What We Build</h2>
+          <ul class="text-muted mb-4">
+            <li><strong>AI voice agents</strong> — phone-based booking, triage, and support that understands natural speech (no press-1 menus)</li>
+            <li><strong>Intelligent chat interfaces</strong> — conversational interfaces that extract structured data, calculate pricing, and trigger backend actions</li>
+            <li><strong>Tool-calling workflows</strong> — AI that can create records, look up data, update bookings, and escalate to humans — autonomously</li>
+            <li><strong>Multi-channel automation</strong> — same AI logic driving web chat, phone IVR, and SMS from a single backend</li>
+            <li><strong>System prompt engineering</strong> — production system prompts with dynamic context injection, tone calibration, and business-rule embedding</li>
+            <li><strong>Cost-optimized hybrid architectures</strong> — canned responses for common queries, LLM for complex ones — avoiding unnecessary API spend</li>
+          </ul>
+
+          <h2 class="h5 fw-bold mt-4 mb-3">How an Engagement Works</h2>
+          <ol class="text-muted ps-3 mb-4">
+            <li>Discovery call to map your current workflows and identify the highest-value automation targets.</li>
+            <li>Architecture proposal: which model, which channels, how it connects to your systems.</li>
+            <li>Iterative build with weekly demos — you see working software from week one.</li>
+            <li>Deployment, monitoring, and handoff documentation so your team can own it.</li>
+          </ol>
+
+          <div class="d-flex gap-3 flex-wrap mt-4">
+            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/it-assessment">
+              Book a Discovery Call
+            </a>
+            <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/web-development">
+              See Web Development
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Case study + capabilities -->
+      <div class="col-lg-5">
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 h-100 d-flex flex-column gap-4">
+
+          <!-- Case study -->
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge rounded-pill px-3 py-2" style="background:var(--tech-emerald,#10b981);color:#fff;font-size:0.75rem;font-weight:600;letter-spacing:0.04em;">LIVE CASE STUDY</span>
+            </div>
+            <h3 class="fw-bold mb-2" style="font-size:1.1rem;">AI-Powered Chauffeur Booking Platform</h3>
+            <p class="text-muted small mb-3">
+              A Toronto-based private chauffeur service needed customers to book, modify, and cancel rides without staff involvement — over both web and phone.
+            </p>
+
+            <div class="border rounded-3 p-3 bg-light mb-3">
+              <div class="fw-semibold mb-2" style="font-size:0.85rem;">Voice IVR Agent</div>
+              <ul class="text-muted small mb-0">
+                <li>Answers calls, understands natural speech — no menus</li>
+                <li>Creates, looks up, updates, and cancels bookings via AI tool calls</li>
+                <li>Detects caller frustration and auto-escalates to a human</li>
+                <li>Handles silence gracefully with interim TTS during processing</li>
+              </ul>
+            </div>
+
+            <div class="border rounded-3 p-3 bg-light mb-3">
+              <div class="fw-semibold mb-2" style="font-size:0.85rem;">Intelligent Chat Booking</div>
+              <ul class="text-muted small mb-0">
+                <li>Customers describe trips in plain language</li>
+                <li>AI extracts pickup, destination, date, time, and package</li>
+                <li>Live Google Maps call for accurate distance-based pricing</li>
+                <li>Returns structured booking summary with fare estimate</li>
+              </ul>
+            </div>
+
+            <div class="border rounded-3 p-3 bg-light">
+              <div class="fw-semibold mb-2" style="font-size:0.85rem;">Stack Used</div>
+              <div class="text-muted small">Claude (Anthropic) · Twilio ConversationRelay · Cloudflare Workers · Supabase · Stripe · Google Maps · ElevenLabs TTS</div>
+            </div>
+          </div>
+
+          <!-- Tech capabilities summary -->
+          <div>
+            <h3 class="fw-bold mb-3" style="font-size:1rem;">Integration Capabilities</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2" style="font-size:0.75rem;">Claude API</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2" style="font-size:0.75rem;">Tool Use / Function Calling</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2" style="font-size:0.75rem;">Voice AI (Twilio)</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2" style="font-size:0.75rem;">WebSocket Streaming</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2" style="font-size:0.75rem;">Prompt Engineering</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2" style="font-size:0.75rem;">Session Management</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2" style="font-size:0.75rem;">Cloudflare Workers</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2" style="font-size:0.75rem;">Stripe Payments</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2" style="font-size:0.75rem;">Google Maps API</span>
+              <span class="badge rounded-pill bg-light text-dark border px-3 py-2" style="font-size:0.75rem;">Rate Limiting</span>
+            </div>
+          </div>
+
+          <div class="mt-auto">
+            <a class="btn btn-dark rounded-pill w-100 py-3 fw-bold" routerLink="/it-assessment">
+              Discuss Your AI Project
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,4 @@
 /* ===== High-Tech Design System ===== */
-@import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
 /* Override bootstrap-icons font-display: block → swap to avoid render-blocking */

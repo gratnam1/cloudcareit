@@ -5,7 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home/home.component').then((m) => m.HomeComponent),
-    title: 'Managed IT Services Vaughan, Toronto & GTA | CtrlShift IT Services'
+    title: 'Managed IT Services & Cloud Support | CtrlShift IT Services'
   },
 
   // ✅ CLEAN BLOG ROUTES (all under pages/blog)
@@ -306,14 +306,14 @@ export const routes: Routes = [
     path: 'cybersecurity-services-vaughan',
     loadComponent: () =>
       import('./pages/service-location/service-location.component').then((m) => m.ServiceLocationComponent),
-    title: 'Cybersecurity Services Vaughan | Threat Protection for GTA Businesses | CtrlShift IT',
+    title: 'Cybersecurity Services Vaughan | CtrlShift IT Services',
     data: { contentKey: 'cybersecurity-vaughan' }
   },
   {
     path: 'cloud-services-vaughan',
     loadComponent: () =>
       import('./pages/service-location/service-location.component').then((m) => m.ServiceLocationComponent),
-    title: 'Cloud Services Vaughan | Microsoft 365, AWS & Google Workspace | CtrlShift IT',
+    title: 'Cloud Services Vaughan | CtrlShift IT Services',
     data: { contentKey: 'cloud-vaughan' }
   },
 
@@ -333,7 +333,7 @@ export const routes: Routes = [
     path: 'it-support-vaughan',
     loadComponent: () =>
       import('./pages/it-support/it-support-location.component').then((m) => m.ItSupportLocationComponent),
-    title: 'IT Support Vaughan | Fast Remote & On-Site IT Help | CtrlShift IT',
+    title: 'IT Support Vaughan | CtrlShift IT Services',
     data: { cityKey: 'vaughan' }
   },
   {
@@ -387,7 +387,7 @@ export const routes: Routes = [
     path: 'it-support-mississauga',
     loadComponent: () =>
       import('./pages/it-support/it-support-location.component').then((m) => m.ItSupportLocationComponent),
-    title: 'IT Support Mississauga | Fast Remote & On-Site IT Help | CtrlShift IT',
+    title: 'IT Support Mississauga | CtrlShift IT Services',
     data: { cityKey: 'mississauga' }
   },
   {
@@ -484,7 +484,7 @@ export const routes: Routes = [
       import('./pages/free-security-assessment/free-security-assessment.component').then(
         (m) => m.FreeSecurityAssessmentComponent
       ),
-    title: 'Free IT Security Assessment for GTA Businesses | CtrlShift IT'
+    title: 'Free IT Security Assessment for GTA Businesses | CtrlShift IT Services'
   },
 
   // Industry Pages

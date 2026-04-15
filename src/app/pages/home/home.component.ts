@@ -36,6 +36,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly AGGREGATE_RATING_SCHEMA_ID = 'aggregate-rating-home';
   private readonly SPEAKABLE_SCHEMA_ID = 'speakable-home';
   private readonly HOWTO_SCHEMA_ID = 'howto-onboarding';
+  private readonly ORGANIZATION_SCHEMA_ID = 'organization-home';
+  private readonly SERVICE_AREA_SCHEMA_ID = 'service-area-home';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -49,8 +51,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.seo.update({
-      title: 'Managed IT Services Vaughan, Toronto & GTA | CtrlShift IT Services',
-      description: 'Cybersecurity-first managed IT services for Vaughan, Toronto & GTA businesses. Flat-rate plans from $249/mo, under 15-minute response, 24/7 monitoring, and a 30-day guarantee.',
+      title: 'Managed IT Services & Cloud Support | CtrlShift IT Services',
+      description: 'Cybersecurity-first managed IT services for Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill businesses. Flat-rate plans from $249/mo, under 15-minute response, 24/7 monitoring.',
       type: 'website',
       canonicalPath: '/'
     });
@@ -245,7 +247,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
           name: 'How much does managed IT support cost in Vaughan?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'CtrlShift IT offers three flat-rate plans: Starter at $249/month with 2 support hours, Growth at $499/month with 5 hours and priority response, and Business at $899/month with 10 hours and full IT department outsourcing. All pricing is transparent with no hidden fees.'
+            text: 'CtrlShift IT Services offers three flat-rate plans: Starter at $249/month with 2 support hours, Growth at $499/month with 5 hours and priority response, and Business at $899/month with 10 hours and full IT department outsourcing. All pricing is transparent with no hidden fees.'
           }
         },
         {
@@ -303,7 +305,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.seo.setStructuredData(this.SPEAKABLE_SCHEMA_ID, {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: 'Managed IT Services Vaughan, Toronto & GTA | CtrlShift IT Services',
+      name: 'Managed IT Services & Cloud Support | CtrlShift IT Services',
       url: 'https://ctrlshiftit.ca/',
       speakable: {
         '@type': 'SpeakableSpecification',
@@ -315,8 +317,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.seo.setStructuredData(this.HOWTO_SCHEMA_ID, {
       '@context': 'https://schema.org',
       '@type': 'HowTo',
-      name: 'How to Onboard with CtrlShift IT Managed Services',
-      description: 'The CtrlShift IT onboarding process for new managed IT clients in the Greater Toronto Area takes approximately 5 business days.',
+      name: 'How to Onboard with CtrlShift IT Services Managed IT',
+      description: 'The CtrlShift IT Services onboarding process for new managed IT clients in the Greater Toronto Area takes approximately 5 business days.',
       totalTime: 'P5D',
       step: [
         {
@@ -343,6 +345,93 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
           name: 'Documentation & Handoff',
           text: 'We deliver complete IT documentation and train your team on the helpdesk workflow for ongoing support requests.'
         }
+      ]
+    });
+
+    // Organization schema — entity identity for Google Knowledge Graph
+    this.seo.setStructuredData(this.ORGANIZATION_SCHEMA_ID, {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      '@id': 'https://ctrlshiftit.ca/#organization',
+      name: 'CtrlShift IT Services',
+      url: 'https://ctrlshiftit.ca',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://ctrlshiftit.ca/favicon.svg',
+        caption: 'CtrlShift IT Services logo'
+      },
+      telephone: '+1-416-624-4841',
+      email: 'info@ctrlshiftit.ca',
+      description: 'CtrlShift IT Services is a managed IT provider serving Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill businesses with proactive IT support, cybersecurity, and cloud services.',
+      foundingLocation: {
+        '@type': 'Place',
+        name: 'Vaughan, Ontario, Canada'
+      },
+      areaServed: [
+        {
+          '@type': 'AdministrativeArea',
+          name: 'Vaughan',
+          containedInPlace: { '@type': 'AdministrativeArea', name: 'York Region, Ontario, Canada' }
+        },
+        {
+          '@type': 'AdministrativeArea',
+          name: 'Toronto',
+          containedInPlace: { '@type': 'AdministrativeArea', name: 'Greater Toronto Area, Ontario, Canada' }
+        },
+        {
+          '@type': 'AdministrativeArea',
+          name: 'Mississauga',
+          containedInPlace: { '@type': 'AdministrativeArea', name: 'Peel Region, Ontario, Canada' }
+        },
+        {
+          '@type': 'AdministrativeArea',
+          name: 'Thornhill',
+          containedInPlace: { '@type': 'AdministrativeArea', name: 'York Region, Ontario, Canada' }
+        },
+        {
+          '@type': 'AdministrativeArea',
+          name: 'Richmond Hill',
+          containedInPlace: { '@type': 'AdministrativeArea', name: 'York Region, Ontario, Canada' }
+        }
+      ],
+      sameAs: [
+        'https://www.linkedin.com/company/ctrlshift-it-services',
+        'https://www.facebook.com/ctrlshiftit'
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Managed IT Services',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Services' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cybersecurity Services' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Microsoft 365 Administration' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Google Workspace Administration' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cloud & AWS Infrastructure' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Office Networking & Wi-Fi' } }
+        ]
+      }
+    });
+
+    // ServiceArea schema — explicit geographic targeting for map-pack eligibility
+    this.seo.setStructuredData(this.SERVICE_AREA_SCHEMA_ID, {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      '@id': 'https://ctrlshiftit.ca/#managed-it-service',
+      name: 'Managed IT Services',
+      serviceType: 'Managed IT Services',
+      description: 'Proactive managed IT support, cybersecurity, and cloud services for businesses in Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill.',
+      url: 'https://ctrlshiftit.ca/managed-it-services',
+      provider: {
+        '@type': 'Organization',
+        '@id': 'https://ctrlshiftit.ca/#organization',
+        name: 'CtrlShift IT Services'
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Vaughan', containedInPlace: { '@type': 'State', name: 'Ontario' } },
+        { '@type': 'City', name: 'Toronto', containedInPlace: { '@type': 'State', name: 'Ontario' } },
+        { '@type': 'City', name: 'Mississauga', containedInPlace: { '@type': 'State', name: 'Ontario' } },
+        { '@type': 'City', name: 'Thornhill', containedInPlace: { '@type': 'State', name: 'Ontario' } },
+        { '@type': 'City', name: 'Richmond Hill', containedInPlace: { '@type': 'State', name: 'Ontario' } }
       ]
     });
 
@@ -404,6 +493,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.seo.removeStructuredData(this.AGGREGATE_RATING_SCHEMA_ID);
     this.seo.removeStructuredData(this.SPEAKABLE_SCHEMA_ID);
     this.seo.removeStructuredData(this.HOWTO_SCHEMA_ID);
+    this.seo.removeStructuredData(this.ORGANIZATION_SCHEMA_ID);
+    this.seo.removeStructuredData(this.SERVICE_AREA_SCHEMA_ID);
     this.destroyCallbacks.forEach(fn => fn());
     this.destroyCallbacks = [];
   }

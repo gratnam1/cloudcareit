@@ -34,7 +34,7 @@ export class FreeSecurityAssessmentComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.seo.update({
-      title: 'Free IT Security Assessment for GTA Businesses | CtrlShift IT',
+      title: 'Free IT Security Assessment for GTA Businesses | CtrlShift IT Services',
       description: 'Request a free external IT security assessment for your GTA business. We run safe, non-intrusive checks on DNS health, TLS certificates, security headers, and email configuration — then deliver a prioritized risk summary.',
       type: 'website',
       canonicalPath: '/free-security-assessment'

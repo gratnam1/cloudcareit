@@ -22,7 +22,7 @@ type ItSupportContent = {
 
 const CONTENT: Record<string, ItSupportContent> = {
   vaughan: {
-    title: 'IT Support Vaughan | Fast On-Site & Remote Help | CtrlShift IT',
+    title: 'IT Support Vaughan | CtrlShift IT Services',
     canonicalPath: '/it-support-vaughan',
     hubPath: '/managed-it-services-vaughan',
     hubLabel: 'Managed IT Services Vaughan',
@@ -32,7 +32,7 @@ const CONTENT: Record<string, ItSupportContent> = {
     intro:
       'Fast, reliable IT support for Vaughan businesses — remote-first with on-site dispatch when you need it. We keep your staff productive, your systems secure, and your network running smoothly across Concord, Woodbridge, and the Vaughan Metropolitan Centre.',
     metaDescription:
-      'IT Support in Vaughan — fast remote and on-site help for businesses in Concord, Woodbridge, and Maple. Responsive, flat-rate IT support from CtrlShift IT.',
+      'IT support for Vaughan businesses — fast remote and on-site help in Concord, Woodbridge, and Maple. Security-first, flat-rate support from CtrlShift IT Services.',
     whatIsSection:
       'IT support covers day-to-day helpdesk requests, break-fix troubleshooting, and user account management. Businesses needing proactive monitoring and strategic IT management should explore our Managed IT Services in Vaughan — a fully managed plan that prevents issues before they interrupt your team.',
     services: [
@@ -62,8 +62,50 @@ const CONTENT: Record<string, ItSupportContent> = {
       },
     ],
   },
+  toronto: {
+    title: 'IT Support Toronto | CtrlShift IT Services',
+    canonicalPath: '/managed-it-services-toronto',
+    hubPath: '/managed-it-services-toronto',
+    hubLabel: 'Managed IT Services Toronto',
+    city: 'Toronto',
+    region: 'GTA',
+    mainHeading: 'IT Support in Toronto',
+    intro:
+      'Responsive IT support for Toronto businesses — remote-first resolution for hybrid offices in the Financial District, North York, Midtown, and downtown core. We keep your Microsoft 365 secure, your Wi-Fi reliable, and your team productive.',
+    metaDescription:
+      'IT support for Toronto businesses — fast remote and on-site help for hybrid offices across the Financial District, North York, and Midtown. CtrlShift IT Services.',
+    whatIsSection:
+      'IT support covers day-to-day helpdesk requests, break-fix troubleshooting, and user account management. Toronto businesses needing proactive monitoring and strategic IT management should explore our Managed IT Services in Toronto — a fully managed plan that prevents issues before they interrupt your team.',
+    services: [
+      'Helpdesk support — password resets, account issues, device problems',
+      'Remote support for Microsoft 365 and Google Workspace',
+      'On-site visits for hardware, networking, and printer issues',
+      'VPN and secure remote access for hybrid Toronto teams',
+      'Virus removal and endpoint cleanup',
+      'Microsoft 365 security hardening for law firms and medical practices',
+    ],
+    faq: [
+      {
+        q: 'Do you offer on-site IT support in Toronto?',
+        a: 'Yes. We provide on-site visits across the Financial District, North York, Midtown, and the downtown core. Most issues are resolved faster through secure remote support, but we dispatch on-site whenever physical intervention is needed.',
+      },
+      {
+        q: 'Can you support hybrid Toronto offices with both remote and in-office staff?',
+        a: 'Yes. We configure and support secure remote access via Tailscale zero-trust VPN, manage Microsoft 365 conditional access policies, and ensure consistent endpoint protection whether your staff are in the office or working from home.',
+      },
+      {
+        q: 'How quickly can you respond to IT emergencies in Toronto?',
+        a: 'Remote support starts immediately via our ticketing system. Growth and Business plan clients receive a response within 15 minutes for production-critical incidents. We triage remotely first and dispatch on-site when required.',
+      },
+      {
+        q: 'Can you secure Microsoft 365 for law firms and medical offices in Toronto?',
+        a: 'Yes. We implement MFA, conditional access policies, safer sharing rules, and mailbox protection tailored for compliance-sensitive offices — including Law Society requirements for legal practices and PHIPA standards for medical clinics.',
+      },
+    ],
+  },
+
   mississauga: {
-    title: 'IT Support Mississauga | Fast Remote & On-Site Help | CtrlShift IT',
+    title: 'IT Support Mississauga | CtrlShift IT Services',
     canonicalPath: '/it-support-mississauga',
     hubPath: '/managed-it-services-mississauga',
     hubLabel: 'Managed IT Services Mississauga',
@@ -73,7 +115,7 @@ const CONTENT: Record<string, ItSupportContent> = {
     intro:
       'Responsive IT support for Mississauga businesses — remote resolution within minutes and on-site technicians available across Square One, Meadowvale, Airport Corporate Centre, and Heartland. We fix issues fast and follow up to prevent them from recurring.',
     metaDescription:
-      'IT Support in Mississauga — fast remote and on-site help for Square One, Meadowvale, and Airport Corporate Centre businesses. CtrlShift IT.',
+      'IT support for Mississauga businesses — fast remote and on-site help at Square One, Meadowvale, and Airport Corporate Centre. Responsive support from CtrlShift IT Services.',
     whatIsSection:
       'IT support handles day-to-day helpdesk requests, break-fix incidents, and user account management. Businesses needing proactive monitoring and ongoing IT management should explore our Managed IT Services in Mississauga — a fully managed plan that reduces downtime before it starts.',
     services: [
@@ -100,6 +142,90 @@ const CONTENT: Record<string, ItSupportContent> = {
       {
         q: 'Do you offer on-site IT support near Square One in Mississauga?',
         a: 'Yes. We dispatch on-site technicians throughout Mississauga including the Square One area, Hurontario corridor, Meadowvale, and the Highway 401/403 business districts.',
+      },
+    ],
+  },
+
+  thornhill: {
+    title: 'IT Support Thornhill | CtrlShift IT Services',
+    canonicalPath: '/managed-it-services-thornhill',
+    hubPath: '/managed-it-services-thornhill',
+    hubLabel: 'Managed IT Services Thornhill',
+    city: 'Thornhill',
+    region: 'York Region',
+    mainHeading: 'IT Support in Thornhill',
+    intro:
+      'Simple, dependable IT support for Thornhill offices — fast remote help and on-site technicians available near Promenade, Yonge Street, and the Bathurst corridor. We fix what is broken and help you prevent the same issues from recurring.',
+    metaDescription:
+      'IT support for Thornhill businesses — fast remote and on-site help near Promenade, Yonge Street, and the Bathurst corridor. Dependable support from CtrlShift IT Services.',
+    whatIsSection:
+      'IT support handles day-to-day helpdesk requests, device problems, and user account management. Thornhill businesses needing ongoing maintenance and proactive monitoring should explore our Managed IT Services in Thornhill — a flat-rate managed plan that reduces recurring IT friction.',
+    services: [
+      'Helpdesk support — password resets, account issues, device problems',
+      'Wi-Fi troubleshooting and coverage improvements',
+      'Microsoft 365 and Google Workspace support',
+      'User onboarding and offboarding for small Thornhill offices',
+      'Patch management and device cleanup',
+      'Shared file permission reviews and cleanup',
+    ],
+    faq: [
+      {
+        q: 'Are you a good fit for small offices in Thornhill?',
+        a: 'Yes. Many of our clients are small offices — 5 to 20 staff — that want dependable IT without the complexity or cost of a full in-house team. We scale to fit your size and budget.',
+      },
+      {
+        q: 'How quickly can you respond to IT issues in Thornhill?',
+        a: 'Remote support starts immediately via our ticketing system. On-site visits to offices near Promenade, Yonge Street, Bathurst, and the Steeles corridor are typically same-day or next-business-day depending on issue severity.',
+      },
+      {
+        q: 'Can you fix recurring Wi-Fi problems at our Thornhill office?',
+        a: 'Yes. We survey your office layout, identify dead zones and interference sources, recommend access point placement, and configure separate guest and staff networks where needed — so your Wi-Fi stays reliable.',
+      },
+      {
+        q: 'Do you help with email and login issues for Thornhill accounting and medical offices?',
+        a: 'Yes. We troubleshoot account lockouts, MFA failures, and Outlook sync issues, then tighten security policies so the same problems stop repeating for your team.',
+      },
+    ],
+  },
+
+  'richmond hill': {
+    title: 'IT Support Richmond Hill | CtrlShift IT Services',
+    canonicalPath: '/managed-it-services-richmond-hill',
+    hubPath: '/managed-it-services-richmond-hill',
+    hubLabel: 'Managed IT Services Richmond Hill',
+    city: 'Richmond Hill',
+    region: 'York Region',
+    mainHeading: 'IT Support in Richmond Hill',
+    intro:
+      'Proactive IT support for Richmond Hill businesses — fast remote help and on-site technicians serving the Hillcrest Mall area, Yonge Street business strip, and Leslie Street office parks. We maintain your devices, secure your accounts, and prevent downtime before it starts.',
+    metaDescription:
+      'IT support for Richmond Hill businesses — proactive maintenance, account security, and responsive helpdesk for Hillcrest, Yonge Street, and Leslie Street offices. CtrlShift IT Services.',
+    whatIsSection:
+      'IT support covers day-to-day helpdesk requests, device maintenance, and user account management. Richmond Hill businesses that want proactive monitoring and strategic IT oversight should explore our Managed IT Services in Richmond Hill — a fully managed plan that catches issues before your team notices them.',
+    services: [
+      'Helpdesk support — password resets, account issues, device problems',
+      'Device maintenance, patching, and performance tuning',
+      'Microsoft 365 security (MFA + conditional access)',
+      'Backup strategy and scheduled restore testing',
+      'Network reliability troubleshooting for calls and meetings',
+      'User onboarding and offboarding',
+    ],
+    faq: [
+      {
+        q: 'Do you provide proactive IT support for Richmond Hill businesses?',
+        a: 'Yes. Our managed plans include 24/7 endpoint and network monitoring. We catch and address issues before they turn into downtime — so your team rarely needs to call us with an emergency.',
+      },
+      {
+        q: 'How quickly can you respond to IT issues in Richmond Hill?',
+        a: 'Remote support starts immediately via our ticketing system. On-site dispatch to the Hillcrest Mall area, Yonge Street, Elgin Mills, and the Leslie Street corridor is typically same-day for critical issues.',
+      },
+      {
+        q: 'Can you speed up slow laptops for our Richmond Hill team?',
+        a: 'Yes. We tune startup processes, apply OS patches, remove legacy software, and standardize device configurations for better day-to-day performance — without replacing hardware prematurely.',
+      },
+      {
+        q: 'How do you verify backups actually work for Richmond Hill businesses?',
+        a: 'We run scheduled restore tests on a regular basis and document the recovery steps so you have proof your data is recoverable before an emergency ever happens.',
       },
     ],
   },

@@ -519,3 +519,9 @@
   font-size: 1.4rem;
   color: #6366f1;
 }
+
+/* ===== SUPPORT CONTEXT ===== */
+.location-support-context { background: #fff; }
+.location-support-context h2 { color: #0f172a; }
+.location-support-context .text-muted { color: #475569 !important; line-height: 1.7; }
+.support-context-list li { color: #1e293b; font-size: 0.95rem; }

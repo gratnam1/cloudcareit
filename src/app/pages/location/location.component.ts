@@ -27,6 +27,8 @@ type LocationContent = {
   };
   mapImage?: string;
   sameAs?: string[];
+  supportContext?: string;
+  supportContextPoints?: string[];
 };
 
 @Component({
@@ -60,6 +62,8 @@ export class LocationComponent implements OnInit, OnDestroy {
   mainHeading = '';
   areasServedText = '';
   mapImage = '';
+  supportContext = '';
+  supportContextPoints: string[] = [];
   readonly hubPagePath = '/managed-it-services';
   readonly hubPageLabel = 'Managed IT Services';
   readonly coreServiceLinks: LinkItem[] = [
@@ -140,6 +144,14 @@ export class LocationComponent implements OnInit, OnDestroy {
       sameAs: [
         'https://www.linkedin.com/company/ctrlshift-it-services',
         'https://www.facebook.com/ctrlshiftit'
+      ],
+      supportContext: 'Toronto professional offices — law firms in the Financial District, medical clinics in Midtown, accounting practices in North York, and boutique consulting firms across the downtown core — face unique IT challenges. Dense office buildings cause Wi-Fi interference, hybrid work creates VPN and remote access complexity, and compliance requirements for legal and medical data demand careful security controls.',
+      supportContextPoints: [
+        'Hybrid workforce support — secure remote access for office and home workers',
+        'Wi-Fi optimization for high-density downtown and Midtown buildings',
+        'Microsoft 365 security hardening for law firms and medical practices',
+        'Multi-location IT management for Toronto businesses with satellite offices',
+        'Fast on-site dispatch to Financial District, North York, and Midtown'
       ]
     },
 
@@ -200,11 +212,19 @@ export class LocationComponent implements OnInit, OnDestroy {
       sameAs: [
         'https://www.linkedin.com/company/ctrlshift-it-services',
         'https://www.facebook.com/ctrlshiftit'
+      ],
+      supportContext: 'Mississauga businesses at Airport Corporate Centre, Meadowvale business parks, and the Hurontario corridor often operate in large open-plan offices with complex networking needs and growing hybrid teams. Dental clinics, real estate brokerages, and professional services firms in Peel Region depend on stable connectivity, fast device onboarding, and clean Wi-Fi coverage across expansive floorplans.',
+      supportContextPoints: [
+        'Large-footprint office Wi-Fi surveys and access point planning',
+        'Device onboarding and offboarding for fast-growing Mississauga teams',
+        'Support for multi-department environments with complex printer and scanner setups',
+        'Microsoft 365 and Google Workspace administration from a single point of contact',
+        'On-site dispatch across Square One, Meadowvale, Airport Corporate Centre, and Heartland'
       ]
     },
 
     vaughan: {
-      title: 'Managed IT Services Vaughan | 24/7 IT Support & Security | CtrlShift IT',
+      title: 'Managed IT Services Vaughan | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-vaughan',
       mainHeading: 'Managed IT Services & IT Support in Vaughan',
       areasServedText:
@@ -260,6 +280,14 @@ export class LocationComponent implements OnInit, OnDestroy {
       sameAs: [
         'https://www.linkedin.com/company/ctrlshift-it-services',
         'https://www.facebook.com/ctrlshiftit'
+      ],
+      supportContext: 'Vaughan businesses in Woodbridge, Maple, Concord, and along the Highway 7 corridor often expand rapidly and find their IT infrastructure lagging behind growth. Medical practices, engineering firms, and professional offices in York Region need dependable connectivity for cloud tools, predictable IT costs, and a partner who can be on-site in the Vaughan Metropolitan Centre quickly when issues escalate.',
+      supportContextPoints: [
+        'Network cleanup and documentation for offices that have outgrown their original IT setup',
+        'Security baseline (MFA, device hardening) for expanding Vaughan professional offices',
+        'Backup and restore testing to protect data across Woodbridge and Concord locations',
+        'Microsoft 365 and Google Workspace admin for multi-location Vaughan businesses',
+        'Rapid on-site response to the Vaughan Metropolitan Centre and Highway 7 corridor'
       ]
     },
 
@@ -320,6 +348,14 @@ export class LocationComponent implements OnInit, OnDestroy {
       sameAs: [
         'https://www.linkedin.com/company/ctrlshift-it-services',
         'https://www.facebook.com/ctrlshiftit'
+      ],
+      supportContext: 'Thornhill offices — from Promenade Shopping Centre area businesses to mixed-use professional offices along the Yonge Street and Bathurst corridors — tend to be smaller practices with 5 to 20 staff. Accounting practices, medical offices, and local retail service businesses in Thornhill need simple, dependable IT: email that just works, Wi-Fi that stays connected, and a support team that picks up the phone.',
+      supportContextPoints: [
+        'Practical Wi-Fi troubleshooting and upgrades for small Thornhill office environments',
+        'Email and login issue resolution for Thornhill accounting and medical practices',
+        'Shared file permission cleanup for teams that have grown over time',
+        'Patch management and device security for Thornhill retail and service businesses',
+        'On-site support for offices near Promenade, Yonge Street, and the Steeles corridor'
       ]
     },
 
@@ -380,6 +416,14 @@ export class LocationComponent implements OnInit, OnDestroy {
       sameAs: [
         'https://www.linkedin.com/company/ctrlshift-it-services',
         'https://www.facebook.com/ctrlshiftit'
+      ],
+      supportContext: 'Richmond Hill businesses along the Hillcrest Mall area, the Yonge Street business strip, and the Leslie Street office parks tend to rely heavily on Microsoft 365, cloud-based file access, and multi-device setups. Professional services firms, clinics, and growing local offices in York Region need proactive maintenance to prevent slow devices, phishing incidents, and backup gaps before they become emergencies.',
+      supportContextPoints: [
+        'Device maintenance and patch management for Richmond Hill professional offices',
+        'Microsoft 365 security hardening (MFA, conditional access) for Yonge Street businesses',
+        'Backup strategy and scheduled restore testing for Leslie Street and Hillcrest area offices',
+        'Network reliability troubleshooting for offices experiencing call and meeting drops',
+        'Proactive 24/7 monitoring to prevent downtime for Richmond Hill clinics and law practices'
       ]
     }
   };
@@ -439,6 +483,8 @@ export class LocationComponent implements OnInit, OnDestroy {
     ];
     this.areasServedText = content.areasServedText ?? '';
     this.mapImage = content.mapImage ?? '';
+    this.supportContext = content.supportContext ?? '';
+    this.supportContextPoints = content.supportContextPoints ?? [];
 
     this.seo.removeStructuredData(this.LOCAL_BUSINESS_SCHEMA_ID);
     this.seo.removeStructuredData(this.LOCATION_SERVICE_SCHEMA_ID);

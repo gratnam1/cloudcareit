@@ -25,7 +25,7 @@ export type ServiceLocationContent = {
 
 export const SERVICE_LOCATION_CONTENT: Record<string, ServiceLocationContent> = {
   'cybersecurity-vaughan': {
-    title: 'Cybersecurity Services Vaughan | Threat Protection for GTA Businesses | CtrlShift IT',
+    title: 'Cybersecurity Services Vaughan | CtrlShift IT Services',
     canonicalPath: '/cybersecurity-services-vaughan',
     city: 'Vaughan',
     region: 'York Region',
@@ -35,7 +35,7 @@ export const SERVICE_LOCATION_CONTENT: Record<string, ServiceLocationContent> = 
     intro:
       'Security-first protection for Vaughan businesses — Huntress EDR, Fortinet firewall, MFA enforcement, and 24/7 threat monitoring so your team can work without worrying about breaches or ransomware.',
     metaDescription:
-      'Cybersecurity Services in Vaughan — endpoint protection, firewall management, MFA enforcement, and email security for Vaughan businesses. CtrlShift IT.',
+      'Security-first cybersecurity for Vaughan businesses — Huntress EDR, Fortinet firewall, MFA enforcement, and email protection. CtrlShift IT Services.',
     sections: [
       {
         heading: 'Threat Protection for Vaughan Businesses',
@@ -54,7 +54,7 @@ export const SERVICE_LOCATION_CONTENT: Record<string, ServiceLocationContent> = 
         body: 'We help Vaughan businesses meet PIPEDA requirements and industry-specific frameworks. Law firms, medical clinics, and accounting practices get security controls mapped to their compliance obligations — documented and audit-ready.',
       },
       {
-        heading: 'Why Choose CtrlShift IT in Vaughan',
+        heading: 'Why Choose CtrlShift IT Services in Vaughan',
         body: 'We are a local York Region team with 15+ years of experience. Our security-first managed IT approach means cybersecurity isn\'t an add-on — it\'s built into every plan. Flat-rate pricing, no surprise invoices, and a 30-day risk-free guarantee.',
       },
     ],
@@ -95,7 +95,7 @@ export const SERVICE_LOCATION_CONTENT: Record<string, ServiceLocationContent> = 
   },
 
   'cloud-vaughan': {
-    title: 'Cloud Services Vaughan | Microsoft 365, AWS & Google Workspace | CtrlShift IT',
+    title: 'Cloud Services Vaughan | CtrlShift IT Services',
     canonicalPath: '/cloud-services-vaughan',
     city: 'Vaughan',
     region: 'York Region',
@@ -105,7 +105,7 @@ export const SERVICE_LOCATION_CONTENT: Record<string, ServiceLocationContent> = 
     intro:
       'Practical cloud services for Vaughan businesses — Microsoft 365, Google Workspace, and AWS infrastructure managed properly, secured, and optimized for your team size and workflow.',
     metaDescription:
-      'Cloud Services in Vaughan — Microsoft 365, Google Workspace, and AWS management for Vaughan businesses. Secure setup, migration, and ongoing support from CtrlShift IT.',
+      'Cloud services for Vaughan businesses — Microsoft 365, Google Workspace, and AWS management with secure setup, migration, and ongoing support from CtrlShift IT Services.',
     sections: [
       {
         heading: 'Cloud Migration for Vaughan Businesses',
@@ -124,7 +124,7 @@ export const SERVICE_LOCATION_CONTENT: Record<string, ServiceLocationContent> = 
         body: 'Growing Vaughan businesses using AWS benefit from properly configured VPCs, IAM policies, backup strategies, and cost optimization. We set up and maintain AWS environments aligned to your business requirements and security standards.',
       },
       {
-        heading: 'Why Choose CtrlShift IT for Cloud Services in Vaughan',
+        heading: 'Why Choose CtrlShift IT Services for Cloud in Vaughan',
         body: 'We are a local York Region team who understands the day-to-day cloud needs of professional offices. No overengineered solutions — just reliable cloud setups, secure access controls, and responsive support when your team needs help.',
       },
     ],

@@ -253,6 +253,14 @@ export const routes: Routes = [
     title: 'IT Crisis Recovery in Vaughan & GTA | CtrlShift IT Services'
   },
   {
+    path: 'ai-integration',
+    loadComponent: () =>
+      import('./pages/services/ai-integration/ai-integration.component').then(
+        (m) => m.AiIntegrationComponent
+      ),
+    title: 'AI Integration Services for GTA Businesses | CtrlShift IT Services'
+  },
+  {
     path: 'web-development',
     loadComponent: () =>
       import('./pages/services/web-development/web-development.component').then(

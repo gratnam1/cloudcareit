@@ -439,7 +439,8 @@
 .bento-icon-purple { background: rgba(139,92,246,0.12); color: #ddd6fe; border: 1px solid rgba(139,92,246,0.22); }
 .bento-icon-amber  { background: rgba(245,158,11,0.12); color: #fde68a; border: 1px solid rgba(245,158,11,0.22); }
 .bento-icon-cyan   { background: rgba(34,211,238,0.1); color: #a5f3fc; border: 1px solid rgba(34,211,238,0.2); }
-.bento-icon-orange { background: rgba(249,115,22,0.12); color: #fed7aa; border: 1px solid rgba(249,115,22,0.22); }
+.bento-icon-orange  { background: rgba(249,115,22,0.12); color: #fed7aa; border: 1px solid rgba(249,115,22,0.22); }
+.bento-icon-emerald { background: rgba(16,185,129,0.12); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.22); }
 
 .bento-content { flex: 1; display: flex; flex-direction: column; }
 .bento-title { font-size: 1.4rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.75rem; margin-top: 0; }

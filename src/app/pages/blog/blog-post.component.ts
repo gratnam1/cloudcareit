@@ -91,6 +91,12 @@ export class BlogPostComponent implements OnInit, OnDestroy {
         registryPost.tags ?? []
       );
 
+      // Dynamic component creation destroys the injector during SSR prerender (NG0205) — browser only
+      if (!isPlatformBrowser(this.platformId)) {
+        this.loading.set(false);
+        return;
+      }
+
       try {
         const componentType = await registryPost.loadComponent();
         this.vc.clear();

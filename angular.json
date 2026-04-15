@@ -34,6 +34,11 @@
               "src/bootstrap-custom.scss",
               "src/styles.css"
             ],
+            "stylePreprocessorOptions": {
+              "sass": {
+                "silenceDeprecations": ["import"]
+              }
+            },
             "server": "src/main.server.ts",
             "outputMode": "static",
             "ssr": {

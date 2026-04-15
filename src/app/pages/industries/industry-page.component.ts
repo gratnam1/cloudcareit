@@ -99,7 +99,7 @@ export class IndustryPageComponent implements OnInit {
         result: 'Zero unplanned downtime in the first 10 months. PHIPA compliance achieved. Estimated $15,000+ in recovered appointment revenue in year one — based on prior cancellation rates.',
         metrics: [{ value: '0', label: 'Downtime Events' }, { value: '4hr', label: 'Recovery Time' }, { value: '$15K+', label: 'Est. Revenue Recovered' }]
       },
-      seoTitle: 'IT Support for Medical Clinics Ontario | CtrlShift IT',
+      seoTitle: 'Managed IT for Medical Clinics Ontario | CtrlShift IT Services',
       seoDescription: 'PHIPA-compliant managed IT for medical clinics and healthcare practices in Ontario. EMR security, Canadian cloud hosting, 24/7 monitoring, and disaster recovery. GTA-based.'
     },
     'engineering-firms': {
@@ -124,7 +124,7 @@ export class IndustryPageComponent implements OnInit {
         result: 'No data loss events in 18 months. SharePoint version control recovered a critical file overwrite that would have cost 40+ hours of rework. Insurance renewed at preferred rates.',
         metrics: [{ value: '0', label: 'Data Loss Events' }, { value: '40hrs', label: 'Rework Avoided' }, { value: '100%', label: 'Endpoints Protected' }]
       },
-      seoTitle: 'IT Support for Engineering Firms Toronto | CtrlShift IT',
+      seoTitle: 'IT Support for Engineering Firms Toronto | CtrlShift IT Services',
       seoDescription: 'Managed IT for engineering firms in Toronto and GTA. IP protection, CAD file security, secure remote access, and 24/7 monitoring. Vaughan-based senior IT engineers.'
     },
     'small-businesses': {

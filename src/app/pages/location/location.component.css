@@ -502,22 +502,27 @@
 }
 
 /* ===== RELATED SERVICES ===== */
-.location-related-services { background: #f8f9fb; }
-.related-services-head h2 { color: #0f172a; font-size: 1.4rem; }
+.location-related-services {
+  background: #080d1a;
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+.related-services-head h2 { color: #f8fafc; font-size: 1.4rem; }
+.related-services-head p { color: rgba(148, 163, 184, 0.8) !important; }
 .related-service-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  color: #1e293b;
+  background: rgba(8, 13, 26, 0.7);
+  border: 1px solid rgba(99, 102, 241, 0.16);
+  color: #e2e8f0;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 .related-service-card:hover {
-  border-color: #6366f1;
-  box-shadow: 0 4px 16px rgba(99,102,241,0.12);
-  color: #4f46e5;
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.15);
+  color: #c7d2fe;
 }
 .related-service-icon {
   font-size: 1.4rem;
-  color: #6366f1;
+  color: #a5b4fc;
 }
 
 /* ===== SUPPORT CONTEXT ===== */

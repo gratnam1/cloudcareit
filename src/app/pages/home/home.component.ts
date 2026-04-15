@@ -474,17 +474,25 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       .to(".draw-path", { strokeDashoffset: 0, duration: 1.5, stagger: 0.3, ease: "power2.inOut" }, 'heroStart+=0.15');
 
     // --- 4. Scroll Triggers (Service Cards) ---
-    ScrollTrigger.batch('.reveal-card', {
-      start: 'top 85%',
-      onEnter: batch => {
-        gsap.from(batch, {
-          y: 40,
-          opacity: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-          stagger: 0.08
-        });
-      }
+    // Animate each bento row together so cards within a row enter simultaneously
+    const bentoRows = [
+      ['#card-managed-it', '#card-security'],
+      ['#card-microsoft', '#card-aws', '#card-networking'],
+      ['#card-crisis', '#card-ai-integration'],
+    ];
+    bentoRows.forEach(ids => {
+      ScrollTrigger.batch(ids.join(', '), {
+        start: 'top 85%',
+        onEnter: batch => {
+          gsap.from(batch, {
+            y: 30,
+            opacity: 0,
+            duration: 0.55,
+            ease: 'power2.out',
+            stagger: 0,
+          });
+        },
+      });
     });
 
     // --- 4b. Marquee logo items (first set only, aria-hidden duplicates skipped) ---

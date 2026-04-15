@@ -13,17 +13,27 @@
   <meta name="geo.position" content="43.8372;-79.5083">
   <meta name="ICBM" content="43.8372, -79.5083">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BCR9C9JZZ5"></script>
+  <!-- Google tag (gtag.js) — loaded after first interaction to avoid blocking LCP/FCP -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    const startAnalytics = () => gtag('config', 'G-BCR9C9JZZ5');
+    function _loadGTM() {
+      if (window._gtmLoaded) return;
+      window._gtmLoaded = true;
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-BCR9C9JZZ5';
+      s.async = true;
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-BCR9C9JZZ5');
+    }
+    ['click', 'scroll', 'keydown', 'touchstart'].forEach(function(ev) {
+      window.addEventListener(ev, _loadGTM, { once: true, passive: true });
+    });
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(startAnalytics, { timeout: 2000 });
+      requestIdleCallback(function() { setTimeout(_loadGTM, 4000); }, { timeout: 6000 });
     } else {
-      window.addEventListener('load', () => setTimeout(startAnalytics, 800), { once: true });
+      setTimeout(_loadGTM, 5000);
     }
   </script>
 

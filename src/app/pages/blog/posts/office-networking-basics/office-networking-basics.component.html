@@ -1,0 +1,311 @@
+<header class="hero-dark-modern py-4">
+  <div class="container py-4">
+    <div class="hero-card">
+      <div class="hero-grid">
+
+        <!-- LEFT: Title + meta -->
+        <div>
+          <span class="badge bg-primary mb-3">Networking • Wi-Fi</span>
+
+          <h1 class="text-white mb-3">
+            Office Networking and Wi-Fi: How to Design for Reliability, Not Just Speed
+          </h1>
+
+          <p class="lead text-white-50 mb-4">
+            Most office Wi-Fi problems aren't your ISP's fault. They're caused by poor access-point
+            placement, no traffic segmentation, and switches that can't handle real load. Here's how
+            to build a network your business can actually depend on.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2 text-white-50 small">
+            <span class="meta-pill">
+              <i class="bi bi-calendar3 me-2"></i>{{publishedDate}}
+            </span>
+            <span class="meta-pill">
+              <i class="bi bi-clock me-2"></i>{{readingTime}}
+            </span>
+          </div>
+        </div>
+
+        <!-- RIGHT: CTA card -->
+        <aside class="hero-cta">
+          <div class="fw-bold mb-2 text-white">Network issues costing you time?</div>
+          <p class="text-white-50 small mb-3">
+            We'll assess your current setup, identify weak points, and give you a clear remediation
+            plan — no upselling, no guesswork.
+          </p>
+          <a class="btn btn-primary rounded-pill w-100 fw-bold"
+             routerLink="/"
+             fragment="consultation">
+            Book a Free Assessment
+          </a>
+          <div class="text-white-50 small mt-3">
+            <i class="bi bi-shield-check me-2"></i>
+            GTA-based • Same-day response
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="content-surface">
+    <div class="container">
+      <div class="content-grid">
+
+        <!-- MAIN ARTICLE COLUMN -->
+        <article>
+
+          <h2 class="fw-bold">The real reason your office Wi-Fi underperforms</h2>
+          <p>
+            When employees complain about slow internet, the instinct is to call the ISP. Most of the
+            time, the ISP isn't the problem. The bottleneck is local: a single router mounted in the
+            back room, unmanaged switches daisy-chained together, and no traffic separation between
+            staff laptops, VoIP phones, security cameras, and the visitor Wi-Fi.
+          </p>
+          <p>
+            That setup cannot support 20 people running simultaneous video calls, syncing files to
+            OneDrive, and printing over the network — regardless of how fast your internet connection
+            is. The problem is network design, not bandwidth.
+          </p>
+
+          <div class="callout">
+            <div class="fw-bold mb-1">
+              <i class="bi bi-lightning-charge-fill me-2"></i>Key insight
+            </div>
+            <div>
+              Local network design — not internet speed — determines whether your office stays
+              productive during peak hours.
+            </div>
+          </div>
+
+          <h2 class="fw-bold mt-5">Start with real demand, not hardware specs</h2>
+          <p>
+            Before buying any equipment, understand what the network actually needs to carry.
+            Most businesses skip this step and end up with a $3,000 firewall and $80 access points.
+          </p>
+          <p>Map your real demand:</p>
+          <ul>
+            <li><strong>Peak concurrent users</strong> — how many people are on the network during your busiest two hours?</li>
+            <li><strong>Video call density</strong> — how many simultaneous Teams or Zoom sessions run per zone?</li>
+            <li><strong>Cloud-heavy workflows</strong> — M365, Workspace, Salesforce, hosted ERP, and line-of-business SaaS all compete for the same uplink</li>
+            <li><strong>High-throughput devices</strong> — NAS servers, security cameras, and large file transfer workflows can saturate shared links</li>
+            <li><strong>VoIP phones</strong> — voice is sensitive to latency and jitter, not just bandwidth; it needs its own path</li>
+          </ul>
+          <p>
+            This inventory shapes every decision: how many APs, what switch capacity, whether you
+            need QoS policies, and how large your firewall's session table needs to be.
+          </p>
+
+          <h2 class="fw-bold mt-5">Wi-Fi design: where most offices get it wrong</h2>
+          <p>
+            A single high-powered router does not solve dead zones — it creates new problems. High
+            transmit power causes client devices to connect from distances they can't reliably
+            maintain, resulting in dropped handoffs, low signal quality, and inconsistent performance.
+            The fix isn't a stronger router. It's more access points, placed correctly.
+          </p>
+
+          <h3 class="h5 fw-bold mt-4">Access point placement</h3>
+          <p>
+            APs should be placed based on your floor plan and building materials. Concrete, metal
+            studs, and glass all degrade signal differently. A proper site survey — or at minimum a
+            heat map from a Wi-Fi analysis tool — tells you where signal drops before you mount
+            hardware you'll have to move.
+          </p>
+          <p>
+            Design for coverage overlap, not maximum range. APs should overlap slightly so devices
+            roam smoothly between them. A gap forces devices to cling to a distant AP with a weak
+            signal, which degrades throughput for that device and everyone sharing the same AP.
+          </p>
+
+          <h3 class="h5 fw-bold mt-4">Band strategy: 2.4 GHz, 5 GHz, and 6 GHz</h3>
+          <p>
+            2.4 GHz travels farther but is slower and congested — every microwave, Bluetooth device,
+            and neighbouring office is competing on the same channels. Use it as a fallback for
+            older devices, not as your primary band. 5 GHz is faster and less congested; it should
+            carry most corporate workloads. 6 GHz (Wi-Fi 6E) is cleanest but limited to newer hardware.
+          </p>
+          <p>
+            Most enterprise APs handle band steering automatically, pushing capable devices to the
+            better band. Consumer mesh systems typically lack the controller software to do this
+            reliably across a multi-AP deployment.
+          </p>
+
+          <h3 class="h5 fw-bold mt-4">Equipment tier matters</h3>
+          <p>
+            For 10+ users, enterprise-grade access points — Cisco Meraki, Ubiquiti UniFi, Aruba
+            Instant On — make a measurable difference over consumer hardware. The difference isn't
+            raw speed; it's client management, roaming intelligence, channel coordination, and
+            visibility into what's actually happening on the network.
+          </p>
+
+          <h2 class="fw-bold mt-5">Segment your traffic with VLANs</h2>
+          <p>
+            A flat network — where every device can reach every other device — is both a security
+            risk and a performance problem. A compromised printer on a flat network can scan every
+            workstation. Broadcast traffic from printers and IoT devices pollutes segments used by
+            staff computers.
+          </p>
+          <p>VLANs (Virtual Local Area Networks) fix this. A properly segmented office typically separates:</p>
+          <ul>
+            <li><strong>Corporate endpoints</strong> — staff laptops and desktops with access to internal resources</li>
+            <li><strong>Voice/VoIP</strong> — phones need low-latency, prioritized paths; mixing them with general traffic causes call quality issues</li>
+            <li><strong>Printers and IoT</strong> — these devices often have poor security posture; isolating them limits the blast radius of a compromise</li>
+            <li><strong>Guest Wi-Fi</strong> — should have zero visibility into any internal system, ever</li>
+            <li><strong>Management VLAN</strong> — switch and AP admin interfaces on a locked-down segment not reachable from user networks</li>
+          </ul>
+          <p>
+            VLANs require managed switches (not unmanaged) and a firewall capable of applying
+            inter-VLAN routing rules. This is the setup most small offices skip — and the gap that
+            turns a single compromised device into a network-wide incident.
+          </p>
+
+          <h2 class="fw-bold mt-5">Wired backbone quality determines wireless quality</h2>
+          <p>
+            Wi-Fi throughput is bounded by the wired infrastructure feeding the access points. If
+            your AP connects to the switch over a 100 Mbps port running Cat5e, Wi-Fi 6 speeds won't
+            help you. The bottleneck moves from wireless to wired.
+          </p>
+          <p>Minimum wired standards for an office supporting 10+ users:</p>
+          <ul>
+            <li>Managed PoE+ switches with adequate power budget for APs — check the spec sheet, not just port count</li>
+            <li>Gigabit uplinks between access and distribution switches</li>
+            <li>Cat6 or better for new cabling runs; Cat5e is acceptable for existing runs in good condition</li>
+            <li>Labeled patch panels with clear cable documentation — messy cabling creates unnecessary troubleshooting delays</li>
+            <li>No daisy-chained unmanaged switches — they eliminate visibility and create unpredictable bottlenecks</li>
+          </ul>
+          <p>
+            Many reported "Wi-Fi problems" are actually switch or cabling problems. Replacing access
+            points before addressing the wired backbone wastes money and doesn't fix anything.
+          </p>
+
+          <h2 class="fw-bold mt-5">Security at the edge and inside the LAN</h2>
+          <p>
+            Network security for an SMB doesn't require a security operations centre. It requires
+            consistent baseline controls applied correctly:
+          </p>
+          <ul>
+            <li><strong>WPA3 or WPA2-Enterprise on corporate SSIDs</strong> — shared WPA2-Personal passwords don't expire and can't be revoked per user</li>
+            <li><strong>Firewall rules blocking unnecessary lateral traffic</strong> — guest Wi-Fi should never reach internal file servers or management consoles</li>
+            <li><strong>DNS filtering</strong> to block known malicious domains before they resolve — this stops a class of phishing and malware delivery that endpoint tools miss</li>
+            <li><strong>Admin interfaces on isolated VLANs</strong> — your switch management portal shouldn't be reachable from the guest network or a contractor's laptop</li>
+            <li><strong>Firmware updates on a regular schedule</strong> — most SMB routers and APs are never updated after installation, leaving known vulnerabilities open indefinitely</li>
+          </ul>
+
+          <h2 class="fw-bold mt-5">Add visibility so you can diagnose problems before they escalate</h2>
+          <p>
+            Most office network problems are discovered only when someone complains. With basic
+            monitoring in place, you can detect issues before they affect productivity — and resolve
+            them faster when they do.
+          </p>
+          <p>At minimum, track:</p>
+          <ul>
+            <li>WAN uptime and latency — circuit health from the ISP handoff</li>
+            <li>AP client counts and retry rates — high retry rates signal coverage gaps or interference</li>
+            <li>Switch port utilization — identifies physical bottlenecks</li>
+            <li>DHCP pool exhaustion — prevents devices from obtaining addresses</li>
+            <li>Abnormal traffic by device — early indicator of compromise or misconfiguration</li>
+          </ul>
+          <p>
+            Simple tools like PRTG, UniFi's management dashboard, or Meraki's cloud controller
+            surface this data without requiring a network operations centre. Email alerts on critical
+            events let a small IT team or managed provider catch most issues before they become
+            outages.
+          </p>
+
+          <h2 class="fw-bold mt-5">Office moves and expansions: plan these before you're in a rush</h2>
+          <p>
+            A network cutover done under time pressure is a network cutover with problems. For office
+            relocations or growth phases, build a structured plan:
+          </p>
+          <ol>
+            <li>Confirm ISP handoff timelines and have a backup link option identified</li>
+            <li>Validate cabling map and patch panel labeling in the new space before move day</li>
+            <li>Pre-stage firewall and switch configuration in the lab — not on-site under pressure</li>
+            <li>Define a cutover window and a rollback path if critical systems don't come up</li>
+            <li>Run acceptance tests covering voice, video conferencing rooms, printers, VPN, and cloud apps before declaring the move complete</li>
+          </ol>
+          <p>
+            Structured cutovers prevent the first-day chaos that gives network redesigns a bad reputation.
+          </p>
+
+          <h2 class="fw-bold mt-5">When to call in a professional</h2>
+          <p>
+            DIY networking works for a two-person office. Once you're past 10 users, or operating
+            in a sector where downtime has direct cost consequences (healthcare, legal, financial,
+            professional services), the economics shift. A professional network assessment and
+            installation typically pays back in avoided downtime within the first year.
+          </p>
+          <p>Clear signals you need outside expertise:</p>
+          <ul>
+            <li>Recurring Wi-Fi complaints from multiple staff, not isolated to one device</li>
+            <li>Unexplained slowdowns during peak hours that don't correlate with ISP issues</li>
+            <li>No documented network topology — you're not sure what connects to what</li>
+            <li>Upcoming office move or significant headcount growth</li>
+            <li>A security incident or compliance audit finding related to network segmentation</li>
+          </ul>
+
+          <div class="callout">
+            <div class="row g-3 align-items-center">
+              <div class="col-md-8">
+                <div class="fw-bold">Ready to fix your office network properly?</div>
+                <div class="small">
+                  We'll audit your current setup, identify the specific gaps, and scope a remediation
+                  plan — straightforward, no vendor fluff.
+                </div>
+              </div>
+              <div class="col-md-4">
+                <a class="btn btn-primary rounded-pill w-100 fw-bold"
+                   routerLink="/"
+                   fragment="consultation">
+                  Book an Assessment
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside>
+
+          <div class="sidebar-box mb-4">
+            <h3 class="h5 fw-bold">Topics</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="topic-pill">Networking</span>
+              <span class="topic-pill">Wi-Fi</span>
+              <span class="topic-pill">Security</span>
+            </div>
+          </div>
+
+          <div class="sidebar-box mb-4">
+            <h3 class="h5 fw-bold">Quick checklist</h3>
+            <ul class="small mb-0">
+              <li>Map peak concurrent users and device types</li>
+              <li>Plan AP placement with coverage overlap</li>
+              <li>Use managed switches — never unmanaged</li>
+              <li>Segment with VLANs (corp, voice, IoT, guest)</li>
+              <li>Apply WPA3 or WPA2-Enterprise on corp SSIDs</li>
+              <li>Enable DNS filtering at the perimeter</li>
+              <li>Monitor WAN health and AP retry rates</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-box related-services">
+            <h3 class="h5 fw-bold">Related services</h3>
+            <div class="d-grid gap-2">
+              <a class="btn btn-outline-dark rounded-pill" routerLink="/office-networking">Office Networking & Wi-Fi</a>
+              <a class="btn btn-outline-dark rounded-pill" routerLink="/security-firewall">Security & Firewall</a>
+              <a class="btn btn-outline-dark rounded-pill" routerLink="/managed-it-services">Managed IT Support</a>
+              <a class="btn btn-outline-dark rounded-pill" routerLink="/blog">All Blog Posts</a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </div>
+</main>

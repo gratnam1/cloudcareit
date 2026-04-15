@@ -34,6 +34,28 @@ export const routes: Routes = [
         redirectTo: 'office-networking-basics',
         pathMatch: 'full'
       },
+      // Inline blog posts — prerendered as dedicated route components
+      {
+        path: 'office-networking-basics',
+        loadComponent: () =>
+          import('./pages/blog/posts/office-networking-basics/office-networking-basics.component')
+            .then((m) => m.OfficeNetworkingBasicsComponent),
+        title: 'Office Networking and Wi-Fi: Design for Reliability | CtrlShift IT Services'
+      },
+      {
+        path: 'seo-visibility-guide',
+        loadComponent: () =>
+          import('./pages/blog/posts/seo-visibility-guide/seo-visibility-guide.component')
+            .then((m) => m.SeoVisibilityGuideComponent),
+        title: 'Local SEO for Small Businesses: A No-Nonsense Playbook | CtrlShift IT Services'
+      },
+      {
+        path: 'web-development-trends',
+        loadComponent: () =>
+          import('./pages/blog/posts/web-development-trends/web-development-trends.component')
+            .then((m) => m.WebDevelopmentTrendsComponent),
+        title: 'What Makes a Service Business Website Actually Work | CtrlShift IT Services'
+      },
       {
         path: ':slug',
         loadComponent: () =>

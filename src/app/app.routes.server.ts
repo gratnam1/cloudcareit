@@ -36,6 +36,7 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'aws-infrastructure', renderMode: RenderMode.Prerender },
   { path: 'security-firewall', renderMode: RenderMode.Prerender },
   { path: 'crisis-recovery', renderMode: RenderMode.Prerender },
+  { path: 'ai-integration', renderMode: RenderMode.Prerender },
   { path: 'web-development', renderMode: RenderMode.Prerender },
   { path: 'seo-visibility', renderMode: RenderMode.Prerender },
   { path: 'lead-generation', renderMode: RenderMode.Prerender },

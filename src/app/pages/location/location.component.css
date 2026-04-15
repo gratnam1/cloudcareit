@@ -521,7 +521,24 @@
 }
 
 /* ===== SUPPORT CONTEXT ===== */
-.location-support-context { background: #fff; }
-.location-support-context h2 { color: #0f172a; }
-.location-support-context .text-muted { color: #475569 !important; line-height: 1.7; }
-.support-context-list li { color: #1e293b; font-size: 0.95rem; }
+.location-support-context {
+  background:
+    radial-gradient(900px circle at 80% 50%, rgba(99, 102, 241, 0.1), transparent 60%),
+    #080d1a;
+  position: relative;
+}
+
+.location-support-context::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.025) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+.location-support-context h2 { color: #f8fafc; }
+.location-support-context .text-muted { color: rgba(148, 163, 184, 0.85) !important; line-height: 1.7; }
+.support-context-list li { color: rgba(203, 213, 225, 0.9); font-size: 0.95rem; }

@@ -229,6 +229,15 @@ export default {
       return handleGoogleReviews(env);
     }
 
+    // Cloudflare refuses Speculation Rules prefetch requests for Worker deployments.
+    // Strip sec-purpose so ASSETS serves the page normally for prefetch requests.
+    if (request.headers.has('sec-purpose')) {
+      const headers = new Headers(request.headers);
+      headers.delete('sec-purpose');
+      headers.delete('sec-speculation-tags');
+      return env.ASSETS.fetch(new Request(request.url, { headers, method: request.method }));
+    }
+
     return env.ASSETS.fetch(request);
   },
 };

@@ -5,9 +5,12 @@ import {
   ViewEncapsulation,
   ViewChild,
   ViewContainerRef,
+  EnvironmentInjector,
+  PLATFORM_ID,
   inject,
   signal,
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -32,6 +35,8 @@ export class BlogPostComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private sanitizer = inject(DomSanitizer);
   private seo = inject(SeoService);
+  private envInjector = inject(EnvironmentInjector);
+  private platformId = inject(PLATFORM_ID);
   private readonly BLOG_POST_SCHEMA_ID = 'blog-post';
 
   @ViewChild('vc', { read: ViewContainerRef, static: true })
@@ -89,12 +94,18 @@ export class BlogPostComponent implements OnInit, OnDestroy {
       try {
         const componentType = await registryPost.loadComponent();
         this.vc.clear();
-        this.vc.createComponent(componentType);
+        this.vc.createComponent(componentType, { environmentInjector: this.envInjector });
         this.loading.set(false);
         return;
       } catch (error) {
         console.error('Error loading registry blog post component:', error);
       }
+    }
+
+    // Markdown loading requires an absolute URL in SSR — skip on server, load in browser only
+    if (!isPlatformBrowser(this.platformId)) {
+      this.loading.set(false);
+      return;
     }
 
     void this.loadMarkdownPost(slug);

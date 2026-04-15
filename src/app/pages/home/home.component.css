@@ -467,17 +467,17 @@
 }
 .bento-link-sm:hover { color: #a5b4fc; }
 .bento-md, .bento-sm { display: flex; flex-direction: column; }
-#card-ai-integration { grid-column: span 8; }
+#card-crisis, #card-ai-integration { grid-column: span 6; }
 
 @media (max-width: 991.98px) {
-  .bento-featured      { grid-column: span 12; flex-direction: column; }
-  .bento-md            { grid-column: span 6; }
-  .bento-sm            { grid-column: span 6; }
-  #card-ai-integration { grid-column: span 6; }
-  .bento-art           { display: none; }
+  .bento-featured                    { grid-column: span 12; flex-direction: column; }
+  .bento-md                          { grid-column: span 6; }
+  .bento-sm                          { grid-column: span 6; }
+  .bento-art                         { display: none; }
 }
 @media (max-width: 575.98px) {
-  .bento-md, .bento-sm { grid-column: span 12; }
+  .bento-md, .bento-sm               { grid-column: span 12; }
+  #card-crisis, #card-ai-integration { grid-column: span 12; }
 }
 
 .industries-strip { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.5rem; }

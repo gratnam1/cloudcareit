@@ -57,6 +57,13 @@ export const routes: Routes = [
         title: 'What Makes a Service Business Website Actually Work | CtrlShift IT Services'
       },
       {
+        path: 'post-quantum-small-business',
+        loadComponent: () =>
+          import('./pages/blog/posts/post-quantum-small-business/post-quantum-small-business.component')
+            .then((m) => m.PostQuantumSmallBusinessComponent),
+        title: 'Post-Quantum Security for Small Businesses | CtrlShift IT Services'
+      },
+      {
         path: ':slug',
         loadComponent: () =>
           import('./pages/blog/blog-post.component').then((m) => m.BlogPostComponent)

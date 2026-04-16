@@ -229,6 +229,15 @@ export default {
       return handleGoogleReviews(env);
     }
 
+    // Cloudflare Static Assets issues a 307 redirect when a path without a trailing
+    // slash matches a directory (e.g. /about → /about/). Rewrite internally so the
+    // client never sees the redirect — better for SEO and latency.
+    if (!url.pathname.endsWith('/') && !/\.[a-zA-Z0-9]+$/.test(url.pathname)) {
+      const rewritten = new URL(request.url);
+      rewritten.pathname = url.pathname + '/';
+      return env.ASSETS.fetch(new Request(rewritten.toString(), request));
+    }
+
     return env.ASSETS.fetch(request);
   },
 };

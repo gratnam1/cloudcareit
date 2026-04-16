@@ -1,0 +1,292 @@
+<header class="hero-dark-modern py-4">
+  <div class="container py-4">
+    <div class="hero-card">
+      <div class="hero-grid">
+
+        <!-- LEFT: Title + meta -->
+        <div>
+          <span class="badge bg-primary mb-3">Web Development • Performance</span>
+
+          <h1 class="text-white mb-3">
+            What Makes a Service Business Website Actually Work: Performance, Trust, and Conversion
+          </h1>
+
+          <p class="lead text-white-50 mb-4">
+            Most small business websites get traffic but generate few leads. The gap between
+            visits and inquiries is almost never the design — it's speed, clarity, and whether
+            the site earns trust fast enough to keep someone from leaving.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2 text-white-50 small">
+            <span class="meta-pill">
+              <i class="bi bi-calendar3 me-2"></i>{{publishedDate}}
+            </span>
+            <span class="meta-pill">
+              <i class="bi bi-clock me-2"></i>{{readingTime}}
+            </span>
+          </div>
+        </div>
+
+        <!-- RIGHT: CTA card -->
+        <aside class="hero-cta">
+          <div class="fw-bold mb-2 text-white">Website not generating enough leads?</div>
+          <p class="text-white-50 small mb-3">
+            We'll audit your site for speed, conversion gaps, and technical issues — and tell you
+            exactly what to fix first.
+          </p>
+          <a class="btn btn-primary rounded-pill w-100 fw-bold"
+             routerLink="/"
+             fragment="consultation">
+            Book a Free Website Review
+          </a>
+          <div class="text-white-50 small mt-3">
+            <i class="bi bi-shield-check me-2"></i>
+            GTA-based • Practical recommendations
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="content-surface">
+    <div class="container">
+      <div class="content-grid">
+
+        <!-- MAIN ARTICLE COLUMN -->
+        <article>
+
+          <h2 class="fw-bold">A website has three jobs — most small business sites fail at all three</h2>
+          <p>
+            A service business website needs to do three things: get found, build trust quickly,
+            and make it easy for the right person to contact you. Most small business sites are
+            built to look good at launch and then left untouched. They're not designed for how
+            people actually search, evaluate, and decide.
+          </p>
+          <p>
+            The result is a site that gets some traffic, generates almost no inquiries, and sits
+            there costing hosting fees while business development happens through referrals alone.
+            This article covers the specific issues that cause this and what to fix.
+          </p>
+
+          <h2 class="fw-bold mt-5">Performance is a revenue problem, not a technical one</h2>
+          <p>
+            Slow pages lose leads before those leads ever read a word of your content. Google's
+            own data shows that as page load time increases from 1 second to 3 seconds, the
+            probability of a mobile visitor bouncing increases by 32%. At 5 seconds, it's 90%.
+          </p>
+          <p>
+            For service businesses, most of that traffic is local mobile search — someone on
+            their phone looking for an IT provider, a contractor, or a law firm while they have
+            a specific problem. If your site takes 4 seconds to load, they're already looking
+            at your competitor.
+          </p>
+
+          <div class="callout">
+            <div class="fw-bold mb-1">
+              <i class="bi bi-lightning-charge-fill me-2"></i>What Google measures
+            </div>
+            <div>
+              Core Web Vitals — Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS),
+              and Interaction to Next Paint (INP) — are ranking signals and user experience
+              benchmarks. A site that fails Core Web Vitals loses both rankings and conversions.
+            </div>
+          </div>
+
+          <h3 class="h5 fw-bold mt-4">The highest-impact performance fixes for service sites</h3>
+          <ul>
+            <li><strong>Image optimization</strong> — oversized images are the single most common cause of slow load times on small business sites. Use WebP format, compress to the display size (not larger), and lazy-load images below the fold.</li>
+            <li><strong>Remove unused scripts</strong> — every third-party script (chat widgets, analytics, ad pixels, booking tools) adds load time. Audit what's actually being used and remove what isn't. Defer what can be deferred.</li>
+            <li><strong>Prioritize above-the-fold rendering</strong> — the content a visitor sees first should load immediately. Don't block it with scripts or stylesheets that load synchronously.</li>
+            <li><strong>Use a CDN</strong> — content delivery networks serve your files from servers close to the visitor. For most small businesses using modern hosting (Cloudflare, Vercel, Netlify), this is built in.</li>
+            <li><strong>Cache aggressively</strong> — static assets that don't change should be cached with long expiry times. Every repeat visitor loading those assets from the network is a missed opportunity.</li>
+          </ul>
+          <p>
+            Measure your current performance at Google PageSpeed Insights (free) before and after
+            any changes. Target LCP under 2.5 seconds on mobile on a real 4G connection — not a
+            lab test on a fast Wi-Fi connection.
+          </p>
+
+          <h2 class="fw-bold mt-5">Mobile-first design: not a trend, a requirement</h2>
+          <p>
+            More than 60% of local search traffic is mobile. Google indexes the mobile version
+            of your site first. A site that works well on desktop but poorly on mobile has a
+            fundamental SEO and conversion problem.
+          </p>
+          <p>Mobile usability for service sites means more than "it works on a phone." It means:</p>
+          <ul>
+            <li><strong>Tap targets sized for thumbs</strong> — buttons and links need at least 44px × 44px touch area. Small text links that are easy to miss on desktop are impossible to tap accurately on mobile.</li>
+            <li><strong>Your phone number is one tap away, above the fold</strong> — on mobile, a click-to-call button in the header converts significantly better than a phone number buried in the footer.</li>
+            <li><strong>Forms that minimize typing</strong> — a 10-field form is abandoned on mobile. Ask for name, email, and the problem. That's enough to follow up.</li>
+            <li><strong>Service and location pages load fast</strong> — these are the pages most likely to rank in local search. They need to be among your fastest pages, not your slowest.</li>
+          </ul>
+
+          <h2 class="fw-bold mt-5">Information architecture: structure content around what visitors are looking for</h2>
+          <p>
+            Most visitors arrive at your site with a specific intent. They're not browsing — they're
+            looking for confirmation that you handle their specific problem and that you're credible
+            enough to contact. Your site structure needs to match this.
+          </p>
+          <p>
+            For a service business, this means:
+          </p>
+          <ul>
+            <li><strong>Dedicated pages per service</strong> — not one "Services" page with everything on it. Someone searching "managed IT for law firms" should land on a page that speaks directly to them, not a page about every service you offer.</li>
+            <li><strong>Service pages that describe outcomes, not process</strong> — clients buy results. "We manage your IT infrastructure so your team never deals with downtime" is clearer than "We provide proactive monitoring and management."</li>
+            <li><strong>Clear navigation hierarchy</strong> — visitors should be able to find any service page from the homepage in two clicks or fewer. Complex navigation menus with five dropdowns lose people.</li>
+            <li><strong>Trust signals positioned where decisions happen</strong> — client logos, industry certifications, and specific response-time guarantees should appear on service pages, not just the About page.</li>
+          </ul>
+
+          <h2 class="fw-bold mt-5">What trust actually looks like online</h2>
+          <p>
+            For service businesses, trust is built through specificity, not polish. A beautifully
+            designed site with generic copy ("we're passionate about IT") loses to a plain site
+            with specific, verifiable claims.
+          </p>
+          <p>Trust signals that work for service businesses:</p>
+          <ul>
+            <li><strong>Named clients or industries served</strong> — "We support law firms, accounting practices, and medical clinics in the GTA" is more credible than "We serve businesses of all sizes."</li>
+            <li><strong>Specific response-time commitments</strong> — if your SLA is 2-hour response, say that. Don't say "fast response times."</li>
+            <li><strong>Real reviews with names</strong> — Google Reviews embedded or screenshot on your site, with client names and business context, outperform anonymous testimonials every time.</li>
+            <li><strong>Certifications and partnerships</strong> — Microsoft Partner, Google Workspace reseller, AWS certification — display these on relevant service pages, not just the homepage.</li>
+            <li><strong>A clear explanation of how you work</strong> — "We respond within 2 hours, assign a dedicated technician, and send a written summary after every service call" answers the anxiety most small business owners have about committing to an IT provider.</li>
+          </ul>
+
+          <h2 class="fw-bold mt-5">Conversion design: one action per page section</h2>
+          <p>
+            Conversion failures are almost always a clarity problem, not a persuasion problem.
+            Visitors who can't quickly understand what to do next — or who see three competing
+            calls to action — do nothing.
+          </p>
+          <p>Principles that apply directly to service business sites:</p>
+          <ul>
+            <li><strong>One primary CTA per page section</strong> — on your homepage, that's one of: book a call, request a quote, or contact us. Not all three. Pick the one that matches where visitors are in their decision process.</li>
+            <li><strong>Short forms with a clear next step</strong> — "Submit your information and we'll get back to you" is worse than "We'll respond within 2 hours during business hours." Set the expectation.</li>
+            <li><strong>No dead ends</strong> — every page should have a clear path forward, whether that's to a related service page, a contact form, or a resource that answers the next obvious question.</li>
+            <li><strong>CTA copy that describes the outcome</strong> — "Book a Free Assessment" converts better than "Contact Us" because it tells the visitor what they're getting, not just what they're doing.</li>
+          </ul>
+
+          <h2 class="fw-bold mt-5">Security fundamentals: non-negotiable for lead collection</h2>
+          <p>
+            A business site collecting contact information has a legal and reputational obligation
+            to protect it. This isn't about compliance checkbox-ticking — it's about not being the
+            kind of business that leaks client data from a forgotten contact form.
+          </p>
+          <ul>
+            <li><strong>HTTPS everywhere</strong> — any page served over HTTP is flagged by browsers and penalized by Google. There's no reason not to have this in 2026.</li>
+            <li><strong>Form anti-spam controls</strong> — honeypot fields and rate limiting stop the majority of automated spam submissions without degrading user experience with CAPTCHAs.</li>
+            <li><strong>Dependency updates on schedule</strong> — WordPress sites with outdated plugins are one of the most common breach vectors for small businesses. If you can't maintain it, use a managed platform.</li>
+            <li><strong>Principle of least privilege for admin accounts</strong> — your web developer doesn't need permanent admin access to your site after the build is done. Revoke it.</li>
+          </ul>
+
+          <h2 class="fw-bold mt-5">Analytics: track outcomes, not vanity metrics</h2>
+          <p>
+            Pageviews and sessions tell you your site exists. They don't tell you if it's working.
+            The metrics that matter for a service business:
+          </p>
+          <ul>
+            <li><strong>Form submissions by page and source</strong> — which pages generate inquiries? Which traffic sources convert?</li>
+            <li><strong>Phone click events</strong> — on mobile, tap-to-call is often the primary conversion action. If you're not tracking it, you're missing your most common lead path.</li>
+            <li><strong>CTA click-through rate by page</strong> — which CTAs are being clicked and which are being ignored?</li>
+            <li><strong>Scroll depth on key pages</strong> — are visitors reading your service pages or leaving after the hero section?</li>
+          </ul>
+          <p>
+            Set this up in Google Analytics 4 before making any content or design changes. You
+            can't improve what you're not measuring, and most small business site redesigns are
+            based on the owner's aesthetic preferences, not evidence.
+          </p>
+
+          <h2 class="fw-bold mt-5">Release discipline for small teams</h2>
+          <p>
+            Even small websites benefit from a basic change management process. A broken contact
+            form costs you leads. A broken payment widget costs you revenue. A script error that
+            prevents pages from loading costs you both.
+          </p>
+          <p>Minimum controls for any site collecting business leads:</p>
+          <ul>
+            <li>Test changes in a staging environment before pushing to production — most modern hosting platforms make this straightforward</li>
+            <li>Verify forms, phone links, and key CTAs after every significant update</li>
+            <li>Have a rollback process — know how to revert a bad deployment before you need to</li>
+            <li>Monitor uptime — tools like Better Uptime or UptimeRobot notify you within minutes of an outage</li>
+          </ul>
+
+          <h2 class="fw-bold mt-5">The right tech stack for a service business</h2>
+          <p>
+            The technology that powers your site matters less than how it's built and maintained.
+            That said, some platforms are substantially better choices for service businesses:
+          </p>
+          <ul>
+            <li><strong>For marketing sites</strong> — a static site generator (Astro, Eleventy, Next.js) or a well-structured Angular/React app served via a CDN is more secure, faster, and cheaper to run than a WordPress installation that needs constant maintenance.</li>
+            <li><strong>For sites needing a CMS</strong> — headless CMS (Sanity, Contentful, Prismic) paired with a static frontend gives you content flexibility without the attack surface of a traditional CMS.</li>
+            <li><strong>For hosting</strong> — Cloudflare Pages/Workers, Vercel, or Netlify serve static sites globally with near-zero maintenance overhead. For most service businesses, these are far better choices than a VPS running a LAMP stack.</li>
+          </ul>
+          <p>
+            If your current site is a 2019 WordPress installation on shared hosting that nobody
+            updates — that's not a design problem. It's an infrastructure problem that will
+            eventually bite you.
+          </p>
+
+          <div class="callout">
+            <div class="row g-3 align-items-center">
+              <div class="col-md-8">
+                <div class="fw-bold">Getting traffic but not enough inquiries?</div>
+                <div class="small">
+                  We'll review your site for performance, conversion gaps, and technical issues,
+                  and give you a specific list of improvements ranked by impact.
+                </div>
+              </div>
+              <div class="col-md-4">
+                <a class="btn btn-primary rounded-pill w-100 fw-bold"
+                   routerLink="/"
+                   fragment="consultation">
+                  Book a Free Review
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside>
+
+          <div class="sidebar-box mb-4">
+            <h3 class="h5 fw-bold">Topics</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="topic-pill">Web Development</span>
+              <span class="topic-pill">Performance</span>
+              <span class="topic-pill">Conversion</span>
+            </div>
+          </div>
+
+          <div class="sidebar-box mb-4">
+            <h3 class="h5 fw-bold">Quick checklist</h3>
+            <ul class="small mb-0">
+              <li>Run PageSpeed Insights on your top pages</li>
+              <li>Optimize images to WebP at display size</li>
+              <li>Add click-to-call button above the fold on mobile</li>
+              <li>Create dedicated pages per service</li>
+              <li>Reduce forms to 3 fields max</li>
+              <li>Track form submissions and phone clicks</li>
+              <li>Verify HTTPS and test forms after every update</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-box related-services">
+            <h3 class="h5 fw-bold">Related services</h3>
+            <div class="d-grid gap-2">
+              <a class="btn btn-outline-dark rounded-pill" routerLink="/web-development">Web Development</a>
+              <a class="btn btn-outline-dark rounded-pill" routerLink="/seo-visibility">SEO &amp; Visibility</a>
+              <a class="btn btn-outline-dark rounded-pill" routerLink="/lead-generation">Lead Generation</a>
+              <a class="btn btn-outline-dark rounded-pill" routerLink="/blog">All Blog Posts</a>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </div>
+</main>

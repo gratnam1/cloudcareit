@@ -24,8 +24,8 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   },
   {
     slug: 'office-networking-basics',
-    title: 'Office Networking and Wi-Fi: How to Design for Reliability, Not Just Speed',
-    excerpt: 'Coverage, segmentation, switching, and monitoring patterns for dependable office connectivity.',
+    title: 'Office Network & Wi-Fi Design Guide',
+    excerpt: 'Learn how to design a reliable office network with proper segmentation, managed switches, and access-point placement. Practical guidance for GTA businesses from CtrlShift IT Services.',
     date: '2026-02-14',
     tags: ['Networking', 'Wi-Fi']
   },
@@ -52,15 +52,15 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   },
   {
     slug: 'web-development-trends',
-    title: 'Web Development for Service Businesses: Performance, Trust, and Conversion',
-    excerpt: 'A practical build strategy centered on speed, mobile UX, trust signals, and conversion outcomes.',
+    title: 'Web Development for GTA Businesses',
+    excerpt: 'How service businesses in the GTA can build faster, higher-converting websites — covering Core Web Vitals, mobile UX, trust signals, and page structure that turns visitors into leads.',
     date: '2026-02-14',
     tags: ['Web Development', 'Performance']
   },
   {
     slug: 'seo-visibility-guide',
-    title: 'Local SEO for IT Service Firms: A Practical Playbook for Sustainable Visibility',
-    excerpt: 'Technical SEO + local relevance + content architecture for compounding organic visibility.',
+    title: 'Local SEO Playbook for GTA IT Firms',
+    excerpt: 'A local SEO playbook for IT service companies in Vaughan, Toronto, and the GTA — covering technical fixes, Google Business Profile, content architecture, and citation building.',
     date: '2026-02-14',
     tags: ['SEO', 'Local Search']
   },

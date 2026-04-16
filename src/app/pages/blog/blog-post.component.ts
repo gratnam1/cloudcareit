@@ -76,21 +76,18 @@ export class BlogPostComponent implements OnInit, OnDestroy {
       this.publishedDate.set(this.formatPublishedDate(registryPost.date));
       this.postTags.set(registryPost.tags ?? []);
       this.relatedService.set(this.getRelatedService(slug));
-    }
 
-    if (registryPost?.loadComponent) {
+      // Apply SEO from registry data immediately — ensures each blog post gets its
+      // unique title even if markdown loading fails during prerendering.
+      // applyMarkdownContent() will override title/description once the H1 is parsed.
       const publishedIso = this.toIsoDate(registryPost.date);
       const summary =
         registryPost.excerpt ??
         'Practical guidance from CtrlShift IT Services for secure, reliable, and scalable business operations.';
-      this.applyArticleSeo(
-        slug,
-        registryPost.title,
-        summary,
-        publishedIso,
-        registryPost.tags ?? []
-      );
+      this.applyArticleSeo(slug, registryPost.title, summary, publishedIso, registryPost.tags ?? []);
+    }
 
+    if (registryPost?.loadComponent) {
       // Dynamic component creation destroys the injector during SSR prerender (NG0205) — browser only
       if (!isPlatformBrowser(this.platformId)) {
         this.loading.set(false);

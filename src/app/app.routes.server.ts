@@ -12,6 +12,11 @@ const BLOG_SLUGS = [
   'seo-visibility-guide',
   'lead-generation-strategies',
   'post-quantum-small-business',
+  'managed-it-cost-toronto',
+  'cyber-insurance-requirements-canada',
+  'it-support-law-firms-toronto-guide',
+  'ransomware-protection-toronto',
+  'managed-it-vs-break-fix-gta',
 ];
 
 export const serverRoutes: ServerRoute[] = [

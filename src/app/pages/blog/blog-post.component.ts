@@ -108,13 +108,28 @@ export class BlogPostComponent implements OnInit, OnDestroy {
       }
     }
 
-    // Markdown loading requires an absolute URL in SSR — skip on server, load in browser only
     if (!isPlatformBrowser(this.platformId)) {
-      this.loading.set(false);
+      // During static prerendering (ng build), read markdown from the filesystem
+      // so the prerendered HTML contains the full article content for SEO.
+      await this.loadMarkdownFromFilesystem(slug);
       return;
     }
 
     void this.loadMarkdownPost(slug);
+  }
+
+  private async loadMarkdownFromFilesystem(slug: string): Promise<void> {
+    try {
+      const { readFileSync } = await import('fs');
+      const { join } = await import('path');
+      // process.cwd() is the project root during `ng build`; assets are at src/assets/blog/
+      const filePath = join(process.cwd(), 'src/assets/blog', `${slug}.md`);
+      const rawMarkdown = readFileSync(filePath, 'utf-8');
+      await this.applyMarkdownContent(slug, rawMarkdown);
+    } catch (error) {
+      console.error(`SSR: could not read markdown for "${slug}":`, error);
+      this.loading.set(false);
+    }
   }
 
   private async loadMarkdownPost(slug: string): Promise<void> {
@@ -134,37 +149,11 @@ export class BlogPostComponent implements OnInit, OnDestroy {
       }
 
       const rawMarkdown = await response.text();
-      const { title, body } = this.extractPrimaryHeading(rawMarkdown);
-      const effectiveTitle = title || this.postTitle() || 'Blog Post';
-
-      this.postTitle.set(effectiveTitle);
-      if (!this.postSummary()) {
-        this.postSummary.set(this.extractSummary(body));
-      }
-      this.readingTime.set(this.estimateReadingTime(body));
-
-      const effectiveDescription = this.postSummary() || this.extractSummary(body);
-      const registryPost = BLOG_POSTS.find((post) => post.slug === slug);
-      const publishedIso = this.toIsoDate(registryPost?.date);
-      this.applyArticleSeo(
-        slug,
-        effectiveTitle,
-        effectiveDescription,
-        publishedIso,
-        this.postTags()
-      );
-
-      try {
-        const html = await marked.parse(body);
-        this.markdownContent.set(this.sanitizer.bypassSecurityTrustHtml(html));
-        this.notFound.set(false);
-      } catch (error) {
-        console.error('Markdown parsing error:', error);
-        this.notFound.set(true);
-      }
+      await this.applyMarkdownContent(slug, rawMarkdown);
     } catch (error) {
       console.error(`Error loading markdown post for slug "${slug}":`, error);
       this.notFound.set(true);
+      this.loading.set(false);
       this.seo.update({
         title: 'Post Not Found | CtrlShift IT Services',
         description: 'The requested blog article could not be found.',
@@ -174,6 +163,38 @@ export class BlogPostComponent implements OnInit, OnDestroy {
       this.seo.removeStructuredData(this.BLOG_POST_SCHEMA_ID);
     } finally {
       clearTimeout(timeoutId);
+    }
+  }
+
+  private async applyMarkdownContent(slug: string, rawMarkdown: string): Promise<void> {
+    const { title, body } = this.extractPrimaryHeading(rawMarkdown);
+    const effectiveTitle = title || this.postTitle() || 'Blog Post';
+
+    this.postTitle.set(effectiveTitle);
+    if (!this.postSummary()) {
+      this.postSummary.set(this.extractSummary(body));
+    }
+    this.readingTime.set(this.estimateReadingTime(body));
+
+    const effectiveDescription = this.postSummary() || this.extractSummary(body);
+    const registryPost = BLOG_POSTS.find((post) => post.slug === slug);
+    const publishedIso = this.toIsoDate(registryPost?.date);
+    this.applyArticleSeo(
+      slug,
+      effectiveTitle,
+      effectiveDescription,
+      publishedIso,
+      this.postTags()
+    );
+
+    try {
+      const html = await marked.parse(body);
+      this.markdownContent.set(this.sanitizer.bypassSecurityTrustHtml(html));
+      this.notFound.set(false);
+    } catch (error) {
+      console.error('Markdown parsing error:', error);
+      this.notFound.set(true);
+    } finally {
       this.loading.set(false);
     }
   }

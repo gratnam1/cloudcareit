@@ -14,8 +14,12 @@ const staticRoutes = [
   { path: '/', priority: '1.00', changefreq: 'weekly' },
   { path: '/managed-it-services', priority: '0.90', changefreq: 'weekly' },
   { path: '/managed-it-services-vaughan', priority: '0.90', changefreq: 'weekly' },
+  { path: '/it-support-vaughan', priority: '0.88', changefreq: 'weekly' },
+  { path: '/cybersecurity-services-vaughan', priority: '0.87', changefreq: 'monthly' },
+  { path: '/cloud-services-vaughan', priority: '0.87', changefreq: 'monthly' },
   { path: '/managed-it-services-toronto', priority: '0.85', changefreq: 'weekly' },
   { path: '/managed-it-services-mississauga', priority: '0.85', changefreq: 'weekly' },
+  { path: '/it-support-mississauga', priority: '0.85', changefreq: 'weekly' },
   { path: '/managed-it-services-thornhill', priority: '0.85', changefreq: 'weekly' },
   { path: '/managed-it-services-richmond-hill', priority: '0.85', changefreq: 'weekly' },
   { path: '/google-workspace', priority: '0.80', changefreq: 'monthly' },
@@ -36,6 +40,7 @@ const staticRoutes = [
   { path: '/it-support-small-businesses-gta', priority: '0.82', changefreq: 'monthly' },
   { path: '/about', priority: '0.70', changefreq: 'monthly' },
   { path: '/it-assessment', priority: '0.75', changefreq: 'monthly' },
+  { path: '/free-security-assessment', priority: '0.73', changefreq: 'monthly' },
   { path: '/blog', priority: '0.75', changefreq: 'weekly' },
 ];
 

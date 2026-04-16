@@ -1,4 +1,4 @@
-# Local SEO for IT Service Firms: A Practical Playbook for Sustainable Visibility
+# Local SEO Playbook for GTA IT Firms
 
 Local SEO succeeds when technical foundations, local relevance, and content depth work together. Rankings are rarely fixed by one tactic. They improve through consistent execution across site health, entity signals, and demand-focused content.
 

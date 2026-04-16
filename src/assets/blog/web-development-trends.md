@@ -1,4 +1,4 @@
-# Web Development for Service Businesses: Performance, Trust, and Conversion
+# Web Development for GTA Businesses
 
 A business website has three jobs: load fast, build trust quickly, and move the right visitor to contact. Many sites miss because they over-focus on visual polish and under-invest in technical quality and content architecture.
 

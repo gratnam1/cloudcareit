@@ -1,4 +1,4 @@
-# Office Networking and Wi-Fi: How to Design for Reliability, Not Just Speed
+# Office Network & Wi-Fi Design Guide
 
 Office network issues are usually blamed on internet speed, but many problems come from local design: poor access-point placement, flat networks with no segmentation, unmanaged switch bottlenecks, and no visibility into congestion.
 

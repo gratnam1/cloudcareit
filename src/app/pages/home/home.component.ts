@@ -598,63 +598,72 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     // --- 4c. Section headings and content ---
     ScrollTrigger.batch('.section-head-reveal', {
       start: 'top 85%',
+      once: true,
       onEnter: batch => {
-        gsap.from(batch, { y: 20, opacity: 0, duration: 0.6, ease: 'power2.out' });
+        gsap.fromTo(batch, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' });
       }
     });
     ScrollTrigger.batch('.team-head-reveal', {
       start: 'top 85%',
+      once: true,
       onEnter: batch => {
-        gsap.from(batch, { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' });
+        gsap.fromTo(batch, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
       }
     });
     ScrollTrigger.batch('.team-cards-reveal .team-card', {
       start: 'top 82%',
+      once: true,
       onEnter: batch => {
-        gsap.from(batch, { opacity: 0, duration: 0.6, ease: 'power2.out' });
+        gsap.fromTo(batch, { opacity: 0 }, { opacity: 1, duration: 0.6, ease: 'power2.out' });
       }
     });
     ScrollTrigger.batch('.reviews-head-reveal', {
       start: 'top 85%',
+      once: true,
       onEnter: batch => {
-        gsap.from(batch, { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' });
+        gsap.fromTo(batch, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
       }
     });
     ScrollTrigger.batch('.review-cards-reveal', {
       start: 'top 85%',
       once: true,
       onEnter: batch => {
-        gsap.from(batch, { opacity: 0, y: 20, duration: 0.5, ease: 'power2.out' });
+        gsap.fromTo(batch, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' });
       }
     });
     ScrollTrigger.batch('.pricing-head-reveal', {
       start: 'top 85%',
+      once: true,
       onEnter: batch => {
-        gsap.from(batch, { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' });
+        gsap.fromTo(batch, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
       }
     });
     ScrollTrigger.batch('.pricing-cards-reveal .pricing-dark-card', {
       start: 'top 80%',
+      once: true,
       onEnter: batch => {
-        gsap.from(batch, { y: 36, opacity: 0, duration: 0.6, ease: 'power2.out', stagger: 0.1 });
+        gsap.fromTo(batch, { y: 36, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out', stagger: 0.1 });
       }
     });
     ScrollTrigger.batch('.faq-head-reveal', {
       start: 'top 85%',
+      once: true,
       onEnter: batch => {
-        gsap.from(batch, { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' });
+        gsap.fromTo(batch, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
       }
     });
     ScrollTrigger.batch('.faq-reveal .faq-item', {
       start: 'top 80%',
+      once: true,
       onEnter: batch => {
-        gsap.from(batch, { y: 20, opacity: 0, duration: 0.45, ease: 'power2.out', stagger: 0.06 });
+        gsap.fromTo(batch, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: 'power2.out', stagger: 0.06 });
       }
     });
     ScrollTrigger.batch('.consultation-reveal', {
       start: 'top 82%',
+      once: true,
       onEnter: batch => {
-        gsap.from(batch, { y: 24, opacity: 0, duration: 0.65, ease: 'power2.out', stagger: 0.08 });
+        gsap.fromTo(batch, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.65, ease: 'power2.out', stagger: 0.08 });
       }
     });
 

@@ -798,6 +798,21 @@
 /* ===== PULSE GLOW ===== */
 .pulse-glow-indigo { animation: pulse-glow 3s ease-in-out infinite; }
 
+/* ===== LOCATION CARDS (Managed IT Services by Location) ===== */
+.location-card {
+  background: rgba(255,255,255,0.028);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  color: #f8fafc;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.location-card:hover {
+  border-color: rgba(99,102,241,0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.32);
+  color: #f8fafc;
+}
+
 /* ===== GENERAL MOBILE ===== */
 @media (max-width: 575.98px) {
   section { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }

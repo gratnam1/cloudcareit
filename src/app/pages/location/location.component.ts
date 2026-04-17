@@ -88,15 +88,15 @@ export class LocationComponent implements OnInit, OnDestroy {
 
   private LOCATION_CONTENT: Record<string, LocationContent> = {
     toronto: {
-      title: 'Managed IT Services in Toronto | CtrlShift IT Services',
+      title: 'Managed IT Services Toronto | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-toronto',
-      mainHeading: 'Managed IT Services in Toronto',
+      mainHeading: 'Managed IT Services & IT Support in Toronto',
       areasServedText:
         'Our technicians provide on-site IT support throughout Toronto, including the Financial District, North York business hubs, Midtown offices, and the Downtown Core. Whether your team is near Bay Street towers or operating in mixed-use spaces across the city, we provide fast response for critical network and cloud outages.',
       intro:
-        'Smart, secure managed IT for Toronto professional offices — we reduce downtime, harden Microsoft 365, and keep hybrid teams connected with dependable Wi-Fi, secure remote access, and fast support across the downtown core.',
+        'CtrlShift IT Services provides managed IT services and IT support for businesses in Toronto — from downtown professional offices and hybrid workforce firms to multi-location organizations across the Financial District, North York, and Midtown. As a security-first managed service provider Toronto teams rely on, we harden Microsoft 365, stabilize Wi-Fi in dense office towers, and deliver outsourced IT support Toronto law firms, medical clinics, and professional services depend on.',
       metaDescription:
-        'Smart, secure managed IT for Toronto professional offices. We reduce downtime, harden Microsoft 365, and keep hybrid teams connected with dependable Wi-Fi.',
+        'Managed IT Services Toronto + IT Support Toronto for downtown offices and hybrid teams. Security-first managed service provider serving the Financial District, North York, and Midtown.',
       heroBullets: [
         'Hybrid-ready: secure remote access + device protection',
         'Microsoft 365 hardening + phishing protection',
@@ -106,23 +106,39 @@ export class LocationComponent implements OnInit, OnDestroy {
         'Toronto teams often run hybrid schedules and rely heavily on secure email, shared files, and stable Wi-Fi in busy buildings.',
       nearbyAreas: ['Financial District', 'North York', 'Midtown', 'Downtown Core'],
       painPoints: [
-        'Wi-Fi interference and dead zones in high-density buildings',
+        'Wi-Fi interference and dead zones in high-density downtown office towers',
         'Phishing emails and account takeovers targeting Microsoft 365',
-        'Slow file access due to messy permissions and sync conflicts',
-        'VPN and remote access issues for hybrid staff'
+        'Slow file access due to messy permissions and sync conflicts across locations',
+        'VPN and remote access issues for hybrid and distributed Toronto staff',
+        'Inconsistent IT coverage across multi-location Toronto organizations'
       ],
-      industries: ['Law firms', 'Medical clinics', 'Accounting practices', 'Boutique consulting'],
+      industries: [
+        'Law firms in the Financial District and Bay Street towers',
+        'Medical clinics in Midtown and North York',
+        'Accounting practices near the downtown core',
+        'Boutique professional services and consulting firms',
+        'Multi-location organizations with Toronto headquarters'
+      ],
       services: [
-        'Microsoft 365 administration & security baseline',
-        'Office Wi-Fi troubleshooting & optimization',
-        'Endpoint patching + monitoring',
-        'Backup readiness and restore testing',
-        'Secure remote access for hybrid teams'
+        'Microsoft 365 administration & security baseline for Toronto offices',
+        'Office Wi-Fi troubleshooting & optimization for dense downtown buildings',
+        'Endpoint patching + 24/7 monitoring',
+        'Backup readiness and restore testing for compliance-sensitive Toronto firms',
+        'Secure remote access and zero-trust VPN for hybrid Toronto teams',
+        'Multi-location IT management for Toronto businesses with satellite offices'
       ],
       faq: [
         {
           q: 'How much does managed IT support cost for a Toronto business?',
           a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. All pricing is transparent with no hidden fees or surprise invoices.'
+        },
+        {
+          q: 'Can Toronto hybrid teams be supported remotely?',
+          a: 'Yes. CtrlShift IT Services supports hybrid Toronto teams with Tailscale zero-trust remote access, Microsoft 365 conditional access policies, and consistent endpoint protection across office and home devices — so the experience is the same whether staff are in the Financial District or working from home.'
+        },
+        {
+          q: 'Are you a managed service provider in Toronto for outsourced IT support?',
+          a: 'Yes. CtrlShift IT Services is a managed service provider in Toronto delivering outsourced IT support for downtown offices, hybrid workforce firms, and multi-location organizations. Our flat-rate managed IT services Toronto plan includes 24/7 monitoring, security hardening, and priority helpdesk.'
         },
         {
           q: 'Do you offer on-site IT support in Toronto?',
@@ -145,26 +161,27 @@ export class LocationComponent implements OnInit, OnDestroy {
         'https://www.linkedin.com/company/ctrlshift-it-services',
         'https://www.facebook.com/ctrlshiftit'
       ],
-      supportContext: 'Toronto professional offices — law firms in the Financial District, medical clinics in Midtown, accounting practices in North York, and boutique consulting firms across the downtown core — face unique IT challenges. Dense office buildings cause Wi-Fi interference, hybrid work creates VPN and remote access complexity, and compliance requirements for legal and medical data demand careful security controls.',
+      supportContext: 'Toronto professional offices — law firms in the Financial District, medical clinics in Midtown, accounting practices in North York, boutique consulting firms across the downtown core, and multi-location organizations with satellite sites around the GTA — face IT challenges that generic providers miss. Dense downtown office towers cause Wi-Fi interference and ISP-handoff issues, hybrid and distributed workforces create VPN and remote access complexity, and compliance requirements for legal, medical, and financial data demand a security-first managed IT approach with careful access controls, encrypted backups, and 24/7 endpoint monitoring.',
       supportContextPoints: [
-        'Hybrid workforce support — secure remote access for office and home workers',
-        'Wi-Fi optimization for high-density downtown and Midtown buildings',
-        'Microsoft 365 security hardening for law firms and medical practices',
-        'Multi-location IT management for Toronto businesses with satellite offices',
-        'Fast on-site dispatch to Financial District, North York, and Midtown'
+        'Hybrid workforce support — Tailscale zero-trust remote access for downtown hybrid teams',
+        'Wi-Fi optimization for high-density Bay Street, Midtown, and North York buildings',
+        'Microsoft 365 security hardening for Toronto law firms, clinics, and accounting practices',
+        'Multi-location IT management for Toronto headquarters with satellite offices across the GTA',
+        'Response coverage: 15-minute remote triage target for Growth/Business clients with on-site dispatch to the Financial District, North York, Midtown, and the downtown core',
+        'Security-first managed IT — Huntress EDR, MFA, conditional access, and encrypted Canadian-region backups'
       ]
     },
 
     mississauga: {
-      title: 'Managed IT Services in Mississauga | CtrlShift IT Services',
+      title: 'Managed IT Services Mississauga | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-mississauga',
-      mainHeading: 'Managed IT Services in Mississauga',
+      mainHeading: 'Managed IT Services & IT Support in Mississauga',
       areasServedText:
         'Our technicians deliver on-site IT support across Mississauga, including Square One, Meadowvale, Airport Corporate Centre, and Heartland business districts. Whether your office is near Hurontario or operating close to Highway 401 and 403 corridors, we respond quickly to urgent network and productivity incidents.',
       intro:
-        'Practical, secure, and responsive managed IT for Mississauga businesses — we keep your Wi-Fi reliable, your data protected, and your team productive with fast remote help and local on-site support when it matters.',
+        'CtrlShift IT Services provides managed IT services and IT support for businesses in Mississauga — from the Airport Corporate Centre and the Square One district to the Meadowvale business parks and Heartland corridor. As a managed service provider Mississauga offices rely on for outsourced IT support, we keep Wi-Fi reliable across large floorplans, protect client data, and respond fast when Peel Region teams need help.',
       metaDescription:
-        'Practical, secure managed IT for Mississauga businesses. We keep your Wi-Fi reliable, data protected, and teams productive with fast remote & on-site support.',
+        'Managed IT Services Mississauga + IT Support Mississauga for Airport Corporate Centre, Square One, and Meadowvale offices. Outsourced IT support from a local managed service provider.',
       heroBullets: [
         'Local response across Peel Region and Square One',
         'Microsoft 365 / Google Workspace management',
@@ -191,6 +208,14 @@ export class LocationComponent implements OnInit, OnDestroy {
         {
           q: 'How much does managed IT support cost for a Mississauga business?',
           a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. All pricing is transparent — no hidden fees, no surprise invoices.'
+        },
+        {
+          q: 'How quickly can Mississauga companies receive support?',
+          a: 'Remote support starts within minutes through our ticketing system, and Growth and Business plan clients get a priority response within 15 minutes for production-critical incidents. On-site dispatch to Square One, Airport Corporate Centre, Meadowvale, and Heartland is typically same-day for urgent issues.'
+        },
+        {
+          q: 'Are you a managed service provider in Mississauga for outsourced IT support?',
+          a: 'Yes. CtrlShift IT Services is a managed service provider in Mississauga that delivers outsourced IT support as a flat-rate managed IT services Mississauga plan — covering helpdesk, monitoring, patching, security, and vendor coordination from one point of contact.'
         },
         {
           q: 'Can you improve Wi-Fi coverage across our Mississauga office?',
@@ -230,9 +255,9 @@ export class LocationComponent implements OnInit, OnDestroy {
       areasServedText:
         'Our technicians provide on-site IT support across the City of Vaughan, including the Concord industrial park, Woodbridge business district, and the Vaughan Metropolitan Centre (VMC). Whether your office is located near Highway 7 and the 400 or up in Maple, we offer rapid response times for critical network failures.',
       intro:
-        'Proactive managed IT for Vaughan and York Region — we stabilize your network, secure your cloud tools, and prevent outages with monitoring, patching, and clear documentation for growing professional offices.',
+        'CtrlShift IT Services provides managed IT services and IT support for businesses in Vaughan — from Woodbridge and Maple to the Vaughan Metropolitan Centre and the Highway 7 corridor. As a local managed service provider Vaughan offices trust, we deliver outsourced IT support for medical practices, engineering firms, and professional offices with proactive monitoring, patching, and clear documentation.',
       metaDescription:
-        'Reliable Managed IT Services in Vaughan. Proactive IT support, cybersecurity, and cloud solutions for businesses in Concord, Woodbridge, and Maple.',
+        'Managed IT Services Vaughan + IT Support Vaughan for Woodbridge, Maple, and the Vaughan Metropolitan Centre. Proactive managed service provider and outsourced IT support for York Region.',
       heroBullets: [
         'Reliable connectivity for clinics and professional services',
         'Microsoft 365 / Google Workspace administration',
@@ -259,6 +284,14 @@ export class LocationComponent implements OnInit, OnDestroy {
         {
           q: 'How much does managed IT support cost for a Vaughan business?',
           a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and under-15-minute priority response, and $899/month for complete IT department outsourcing. All plans are month-to-month with no hidden fees.'
+        },
+        {
+          q: 'Do you provide managed IT services in Vaughan?',
+          a: 'Yes. CtrlShift IT Services provides managed IT services in Vaughan for offices in Woodbridge, Maple, Concord, and the Vaughan Metropolitan Centre. Our managed IT services Vaughan plan includes 24/7 monitoring, proactive patching, Microsoft 365 administration, and a priority helpdesk — all under a flat monthly rate.'
+        },
+        {
+          q: 'Are you a managed service provider in Vaughan for outsourced IT support?',
+          a: 'Yes. CtrlShift IT Services is a managed service provider in Vaughan delivering outsourced IT support for growing professional offices, medical practices, and engineering firms in York Region. Our flat-rate plans replace an in-house IT team with predictable monthly pricing.'
         },
         {
           q: 'Do you offer on-site IT support in Vaughan?',
@@ -292,15 +325,15 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     thornhill: {
-      title: 'Managed IT Services in Thornhill | CtrlShift IT Services',
+      title: 'Managed IT Services Thornhill | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-thornhill',
-      mainHeading: 'Managed IT Services in Thornhill',
+      mainHeading: 'Managed IT Services & IT Support in Thornhill',
       areasServedText:
         'Our technicians provide on-site IT support across Thornhill, including offices near Promenade Shopping Centre, Yonge Street commercial corridors, and surrounding business plazas. Whether your team operates on the Vaughan side or Markham side of Thornhill, we provide rapid support for connectivity and security-critical failures.',
       intro:
-        'Simple, dependable managed IT for Thornhill offices — we keep your email, Wi-Fi, and devices running smoothly with fast helpdesk support, practical security, and clear processes that reduce everyday IT friction.',
+        'CtrlShift IT Services provides managed IT services and IT support for businesses in Thornhill — serving professional office clusters along Yonge Street and Bathurst, local retail service businesses, and medical and accounting practices near Promenade Shopping Centre. As a managed service provider Thornhill owners trust for outsourced IT support, we keep email, Wi-Fi, and devices running with dependable helpdesk, patching, and practical security.',
       metaDescription:
-        'Simple, dependable managed IT for Thornhill offices. We keep email, Wi-Fi, and devices running smoothly with fast helpdesk support and practical security.',
+        'Managed IT Services Thornhill + IT Support Thornhill for professional offices, medical and accounting practices near Promenade and Yonge Street. Local managed service provider.',
       heroBullets: [
         'Fast remote support for small offices',
         'Wi-Fi troubleshooting and upgrades',
@@ -327,6 +360,14 @@ export class LocationComponent implements OnInit, OnDestroy {
         {
           q: 'How much does managed IT support cost for a Thornhill business?',
           a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. There are no hidden fees and no surprise invoices.'
+        },
+        {
+          q: 'Do Thornhill offices receive proactive monitoring support?',
+          a: 'Yes. Every Thornhill office on our Growth or Business plan is covered by 24/7 endpoint and network monitoring. We catch failing drives, failed backups, and suspicious activity before your team feels the impact — so problems get fixed in the background.'
+        },
+        {
+          q: 'Are you a managed service provider in Thornhill for outsourced IT support?',
+          a: 'Yes. CtrlShift IT Services is a managed service provider in Thornhill offering outsourced IT support to small and mid-size offices — from accounting and medical practices near Promenade to professional service firms along Yonge Street. Our managed IT services Thornhill plan scales to 5–20 staff without the cost of in-house IT.'
         },
         {
           q: 'Are you a good fit for smaller offices in Thornhill?',
@@ -360,15 +401,15 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     'richmond hill': {
-      title: 'Managed IT Services in Richmond Hill | CtrlShift IT Services',
+      title: 'Managed IT Services Richmond Hill | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-richmond-hill',
-      mainHeading: 'Managed IT Services in Richmond Hill',
+      mainHeading: 'Managed IT Services & IT Support in Richmond Hill',
       areasServedText:
         'Our technicians provide on-site IT support across Richmond Hill, including the Hillcrest Mall area, Highway 7 corridor, and key office zones along Yonge Street and Leslie Street. Whether your business is in a medical, legal, or professional office cluster, we offer fast response for high-impact outages and recurring IT disruptions.',
       intro:
-        'Managed IT support for Richmond Hill businesses — proactive maintenance, strong account security, and responsive helpdesk so your team can focus on work instead of fighting with technology.',
+        'CtrlShift IT Services provides managed IT services and IT support for businesses in Richmond Hill — along the Yonge Street corridor, the Leslie Street business parks, and the Hillcrest Mall area. As a managed service provider Richmond Hill clinics, professional offices, and growing firms rely on for outsourced IT support, we deliver proactive maintenance, Microsoft 365 account security, and responsive helpdesk so your team can focus on work instead of technology.',
       metaDescription:
-        'Managed IT support for Richmond Hill businesses. Proactive maintenance, strong account security, and responsive helpdesk so your team can focus on work.',
+        'Managed IT Services Richmond Hill + IT Support Richmond Hill for Yonge Street corridor, Leslie Street business parks, and Hillcrest Mall area offices. Outsourced IT support with proactive maintenance.',
       heroBullets: [
         'Device maintenance and patching',
         'Microsoft 365 security (MFA + access control)',
@@ -395,6 +436,14 @@ export class LocationComponent implements OnInit, OnDestroy {
         {
           q: 'How much does managed IT support cost for a Richmond Hill business?',
           a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. All plans are month-to-month with no hidden fees.'
+        },
+        {
+          q: 'Do Richmond Hill businesses receive on-site support?',
+          a: 'Yes. We dispatch on-site technicians throughout Richmond Hill — including the Hillcrest Mall area, the Yonge Street corridor, Elgin Mills, and the Leslie Street office parks — typically same-day for critical incidents, with remote triage starting immediately.'
+        },
+        {
+          q: 'Are you a managed service provider in Richmond Hill for outsourced IT support?',
+          a: 'Yes. CtrlShift IT Services is a managed service provider in Richmond Hill. Our outsourced IT support replaces the cost of an in-house IT team with a flat monthly managed IT services Richmond Hill plan — covering monitoring, patching, Microsoft 365 security, backups, and helpdesk.'
         },
         {
           q: 'Do you provide proactive monitoring for Richmond Hill offices?',

@@ -45,7 +45,7 @@ export class IndustryPageComponent implements OnInit {
       ],
       caseStudy: {
         problem: 'A downtown Toronto law firm with 18 lawyers had no endpoint protection, shared admin credentials, unencrypted client files on laptops, and a legacy VPN with exposed RDP ports. Cyber insurance renewal was denied.',
-        solution: 'CtrlShift IT deployed Huntress EDR across all endpoints, replaced the legacy VPN with Tailscale zero-trust access, enforced MFA for all users, implemented BitLocker encryption, and set up encrypted daily backups to a Canadian AWS region.',
+        solution: 'CtrlShift IT Services deployed Huntress EDR across all endpoints, replaced the legacy VPN with Tailscale zero-trust access, enforced MFA for all users, implemented BitLocker encryption, and set up encrypted daily backups to a Canadian AWS region.',
         result: 'Cyber insurance was reinstated within 30 days. The firm passed a Law Society technology audit. Zero breaches or unauthorized access in 12 months of continuous monitoring.',
         metrics: [{ value: '100%', label: 'Endpoints Secured' }, { value: '30d', label: 'Insurance Reinstated' }, { value: '0', label: 'Data Breaches' }]
       },
@@ -95,7 +95,7 @@ export class IndustryPageComponent implements OnInit {
       ],
       caseStudy: {
         problem: 'A Richmond Hill medical clinic had their EMR system crash twice in one quarter, causing appointment cancellations and a locum revenue loss. They had no backup strategy and no PHIPA-compliant data handling.',
-        solution: 'CtrlShift IT implemented encrypted cloud backups with 4-hour RTO, migrated EMR to AWS Canadian region, established 24/7 uptime monitoring, and documented a full business continuity plan.',
+        solution: 'CtrlShift IT Services implemented encrypted cloud backups with 4-hour RTO, migrated EMR to AWS Canadian region, established 24/7 uptime monitoring, and documented a full business continuity plan.',
         result: 'Zero unplanned downtime in the first 10 months. PHIPA compliance achieved. Estimated $15,000+ in recovered appointment revenue in year one — based on prior cancellation rates.',
         metrics: [{ value: '0', label: 'Downtime Events' }, { value: '4hr', label: 'Recovery Time' }, { value: '$15K+', label: 'Est. Revenue Recovered' }]
       },
@@ -145,7 +145,7 @@ export class IndustryPageComponent implements OnInit {
       ],
       caseStudy: {
         problem: 'A 15-person GTA professional services firm was spending $2,000+/month on reactive IT support — paying per ticket, per incident, with no monitoring and frequent outages disrupting client work.',
-        solution: 'Transitioned to CtrlShift IT\'s Growth plan at $499/month with proactive monitoring, endpoint protection, automated patching, and a priority helpdesk. All devices enrolled, MFA enforced.',
+        solution: 'Transitioned to CtrlShift IT Services\' Growth plan at $499/month with proactive monitoring, endpoint protection, automated patching, and a priority helpdesk. All devices enrolled, MFA enforced.',
         result: 'IT incidents dropped 70% in the first 90 days. Monthly IT spend reduced by $1,200. Staff satisfaction with IT improved measurably. One ransomware attempt blocked automatically by Huntress.',
         metrics: [{ value: '70%', label: 'Fewer Incidents' }, { value: '$1.2K', label: 'Monthly Savings' }, { value: '1', label: 'Attack Blocked' }]
       },

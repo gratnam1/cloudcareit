@@ -223,11 +223,27 @@ canvas {
   max-width: 1200px;
 }
 
+/* Widen on larger displays so content does not float in a tiny strip */
+@media (min-width: 1400px) { .container { max-width: 1360px; } }
+@media (min-width: 1600px) { .container { max-width: 1480px; } }
+@media (min-width: 1920px) { .container { max-width: 1640px; } }
+@media (min-width: 2400px) { .container { max-width: 1760px; } }
+
 @media (max-width: 575.98px) {
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
+
+/* Typography scale-up on very wide displays (≥1600px) */
+@media (min-width: 1600px) {
+  .section-title { font-size: clamp(2.25rem, 2.4vw, 3rem) !important; }
+  .section-subtitle { font-size: 1.15rem; }
+}
+@media (min-width: 1920px) {
+  .section-title { font-size: clamp(2.5rem, 2.2vw, 3.4rem) !important; }
+  .section-subtitle { font-size: 1.2rem; }
 }
 
 /* Service detail pages: align visual tone with blog detail layout */

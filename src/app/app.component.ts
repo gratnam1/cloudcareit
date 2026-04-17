@@ -23,7 +23,7 @@ export class AppComponent implements OnInit, AfterViewChecked {
   chatInput = '';
   chatLoading = false;
   messages: { text: string; isUser: boolean; isTyping?: boolean }[] = [
-    { text: "Hi! I'm the CtrlShift IT assistant. Ask me anything about our IT services, pricing, or coverage areas.", isUser: false }
+    { text: "Hi! I'm the CtrlShift IT Services assistant. Ask me anything about our IT services, pricing, or coverage areas.", isUser: false }
   ];
   @ViewChild('chatBody') private chatBodyRef?: ElementRef<HTMLDivElement>;
 

@@ -623,6 +623,7 @@
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 20px; padding: 2rem;
   display: flex; flex-direction: column;
+  position: relative;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .pricing-dark-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.35); }
@@ -636,10 +637,13 @@
   50% { box-shadow: 0 0 0 1px rgba(99,102,241,0.18) inset, 0 24px 56px rgba(99,102,241,0.2), 0 0 40px rgba(99,102,241,0.08); }
 }
 .pricing-popular-badge {
+  position: absolute;
+  top: -0.8rem; left: 50%; transform: translateX(-50%);
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em;
   background: linear-gradient(90deg, #6366f1, #8b5cf6);
   color: #fff; padding: 0.3rem 0.85rem; border-radius: 999px;
-  display: inline-block; margin-bottom: 1rem;
+  white-space: nowrap; z-index: 2;
+  box-shadow: 0 6px 16px rgba(99,102,241,0.35);
 }
 .pricing-tier-label { font-size: 0.85rem; font-weight: 700; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; }
 .pricing-tier-indigo { color: #a5b4fc; }
@@ -722,7 +726,7 @@
   display: flex; align-items: center; justify-content: space-between;
   width: 100%; padding: 1.25rem 0;
   background: none; border: none; cursor: pointer;
-  color: #f1f5f9; font-size: 1rem; text-align: left;
+  color: #f1f5f9; font-size: 1.0625rem; text-align: left;
   list-style: none; gap: 1rem; transition: color 0.2s ease;
 }
 .faq-button:hover { color: #a5b4fc; }
@@ -733,7 +737,7 @@
 }
 .faq-item[open] .faq-button { color: #a5b4fc; }
 .faq-item[open] .faq-button::after { transform: rotate(45deg); color: #a5b4fc; }
-.faq-content { padding: 0 0 1.25rem; font-size: 0.92rem; line-height: 1.7; color: rgba(148, 163, 184, 0.85); }
+.faq-content { padding: 0 0 1.25rem; font-size: 1rem; line-height: 1.7; color: rgba(148, 163, 184, 0.9); }
 
 /* ===== CONSULTATION ===== */
 .consult-info-card {

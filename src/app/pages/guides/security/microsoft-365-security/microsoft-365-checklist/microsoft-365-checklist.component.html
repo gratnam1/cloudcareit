@@ -10,6 +10,7 @@
         <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
         <li class="breadcrumb-item"><a routerLink="/guides">Guides</a></li>
         <li class="breadcrumb-item"><a routerLink="/guides/security">Security</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides/security/microsoft-365-security">Microsoft 365 Security</a></li>
         <li class="breadcrumb-item active" aria-current="page">Microsoft 365 Security Checklist</li>
       </ol>
     </nav>
@@ -53,8 +54,8 @@
             Small businesses with 5–50 employees are a primary target precisely because they carry valuable data and are easier to exploit than enterprises. A misconfigured Microsoft 365 tenant is the most common entry point we see in SMB breach cases.
           </p>
           <p class="text-muted mt-3 mb-0">
-            This checklist is the anchor guide in our <a routerLink="/guides/security">security hub</a>. Use it as the baseline, then branch into the live
-            <a routerLink="/guides/security/phishing-protection">phishing protection guide</a> and the upcoming deep dives linked throughout the page.
+            This checklist is the anchor guide in our <a routerLink="/guides/security/microsoft-365-security">Microsoft 365 Security hub</a>. Use it as the baseline, then branch into the live
+            <a routerLink="/guides/security/microsoft-365-security/phishing-protection">phishing protection guide</a> and the upcoming deep dives linked throughout the page.
           </p>
 
           <!-- Attack chain diagram -->
@@ -376,8 +377,8 @@
             <div class="guide-related-eyebrow">Deep dive next</div>
             <h3 class="guide-related-title h6 fw-bold mb-2" id="mfa-deep-dive-title">What to pair with MFA rollout</h3>
             <ul class="guide-related-list mb-0">
-              <li><a routerLink="/guides/security/phishing-protection">Phishing &amp; Email Threat Defense</a> for the controls that catch token theft and impersonation.</li>
-              <li><a routerLink="/guides/security" fragment="mfa-rollout">Rolling Out MFA Without Breaking Things</a> on the security hub for shared mailboxes, service accounts, and exception planning.</li>
+              <li><a routerLink="/guides/security/microsoft-365-security/phishing-protection">Phishing &amp; Email Threat Defense</a> for the controls that catch token theft and impersonation.</li>
+              <li><a routerLink="/guides/security/microsoft-365-security" fragment="mfa-rollout">Rolling Out MFA Without Breaking Things</a> in the Microsoft 365 Security hub for shared mailboxes, service accounts, and exception planning.</li>
             </ul>
           </aside>
 
@@ -542,8 +543,8 @@
             <div class="guide-related-eyebrow">Related guide</div>
             <h3 class="guide-related-title h6 fw-bold mb-2" id="conditional-deep-dive-title">Where this section fits in the wider security plan</h3>
             <ul class="guide-related-list mb-0">
-              <li><a routerLink="/guides/security" fragment="conditional-access-policies">Conditional Access Policies for Small Business</a> on the security hub covers report-only testing, break-glass exclusions, and policy order.</li>
-              <li><a routerLink="/guides/security">Browse the security hub</a> if you want the companion guides for MFA rollout, endpoint hardening, and backup planning.</li>
+              <li><a routerLink="/guides/security/microsoft-365-security/conditional-access-small-business">Conditional Access Policies for Small Business</a> covers report-only testing, break-glass exclusions, and policy order.</li>
+              <li><a routerLink="/guides/security/microsoft-365-security">Browse the Microsoft 365 Security hub</a> if you want the companion guides for MFA rollout and backup planning.</li>
             </ul>
           </aside>
 
@@ -689,7 +690,7 @@
             <div class="guide-related-eyebrow">Related guide</div>
             <h3 class="guide-related-title h6 fw-bold mb-2" id="email-deep-dive-title">Continue with the email-security walkthrough</h3>
             <ul class="guide-related-list mb-0">
-              <li><a routerLink="/guides/security/phishing-protection">Phishing &amp; Email Threat Defense</a> goes deeper on impersonation protection, Defender presets, Safe Links, and staff reporting workflow.</li>
+              <li><a routerLink="/guides/security/microsoft-365-security/phishing-protection">Phishing &amp; Email Threat Defense</a> goes deeper on impersonation protection, Defender presets, Safe Links, and staff reporting workflow.</li>
             </ul>
           </aside>
         </div>
@@ -1043,7 +1044,7 @@
             <div class="guide-related-eyebrow">Related guide</div>
             <h3 class="guide-related-title h6 fw-bold mb-2" id="training-deep-dive-title">Pair awareness training with the technical controls</h3>
             <ul class="guide-related-list mb-0">
-              <li><a routerLink="/guides/security/phishing-protection">Phishing &amp; Email Threat Defense</a> covers the tenant-side policies that support the user training process.</li>
+              <li><a routerLink="/guides/security/microsoft-365-security/phishing-protection">Phishing &amp; Email Threat Defense</a> covers the tenant-side policies that support the user training process.</li>
             </ul>
           </aside>
         </div>
@@ -1193,7 +1194,7 @@
             <div class="guide-related-eyebrow">Deep dive next</div>
             <h3 class="guide-related-title h6 fw-bold mb-2" id="backup-deep-dive-title">Use this section as the baseline for recovery planning</h3>
             <ul class="guide-related-list mb-0">
-              <li><a routerLink="/guides/security" fragment="microsoft-365-backup">Microsoft 365 Backup: What You Actually Need</a> on the security hub expands on vendor selection, retention, and restore testing.</li>
+              <li><a routerLink="/guides/security/microsoft-365-security" fragment="microsoft-365-backup">Microsoft 365 Backup: What You Actually Need</a> in the Microsoft 365 Security hub expands on vendor selection, retention, and restore testing.</li>
               <li><a routerLink="/guides/security" fragment="ransomware-recovery">Ransomware Response Playbook</a> will cover the first-hour decisions after a real incident.</li>
             </ul>
           </aside>
@@ -1306,12 +1307,12 @@
             <h2 class="h4 fw-bold mb-0">More From the Security Hub</h2>
           </div>
           <div class="guide-related-grid">
-            <a class="guide-related-card" routerLink="/guides/security">
+            <a class="guide-related-card" routerLink="/guides/security/microsoft-365-security">
               <span class="guide-related-card-eyebrow">Hub</span>
-              <span class="guide-related-card-title">Browse all security guides</span>
-              <span class="guide-related-card-copy">See the live Microsoft 365 checklist, phishing guide, and the next deep dives we are publishing.</span>
+              <span class="guide-related-card-title">Browse Microsoft 365 Security</span>
+              <span class="guide-related-card-copy">See the checklist, phishing guide, Conditional Access guide, and the next Microsoft 365 deep dives we are publishing.</span>
             </a>
-            <a class="guide-related-card" routerLink="/guides/security/phishing-protection">
+            <a class="guide-related-card" routerLink="/guides/security/microsoft-365-security/phishing-protection">
               <span class="guide-related-card-eyebrow">Live guide</span>
               <span class="guide-related-card-title">Phishing &amp; Email Threat Defense</span>
               <span class="guide-related-card-copy">The detailed Defender, Safe Links, Safe Attachments, and reporting workflow companion to this checklist.</span>
@@ -1445,10 +1446,10 @@
           <div class="border rounded-4 p-3 bg-light mb-3">
             <div class="fw-bold mb-2">Related guides</div>
             <ul class="text-muted small mb-0 ps-3">
-              <li><a routerLink="/guides/security">Security hub overview</a></li>
-              <li><a routerLink="/guides/security/phishing-protection">Phishing &amp; Email Threat Defense</a></li>
-              <li><a routerLink="/guides/security" fragment="mfa-rollout">Rolling Out MFA Without Breaking Things</a> <span class="text-muted">(security hub, in progress)</span></li>
-              <li><a routerLink="/guides/security" fragment="microsoft-365-backup">Microsoft 365 Backup: What You Actually Need</a> <span class="text-muted">(security hub, in progress)</span></li>
+              <li><a routerLink="/guides/security/microsoft-365-security">Microsoft 365 Security hub overview</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security/phishing-protection">Phishing &amp; Email Threat Defense</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security" fragment="mfa-rollout">Rolling Out MFA Without Breaking Things</a> <span class="text-muted">(Microsoft 365 Security hub, in progress)</span></li>
+              <li><a routerLink="/guides/security/microsoft-365-security" fragment="microsoft-365-backup">Microsoft 365 Backup: What You Actually Need</a> <span class="text-muted">(Microsoft 365 Security hub, in progress)</span></li>
             </ul>
           </div>
 

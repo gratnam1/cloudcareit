@@ -1,0 +1,703 @@
+<div class="reading-progress-track">
+  <div id="reading-progress" class="reading-progress-bar"></div>
+</div>
+
+<section class="service-detail-page py-5 guides-security ca-guide">
+  <div class="container py-5">
+    <nav class="mb-4 breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides">Guides</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides/security">Security</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides/security/microsoft-365-security">Microsoft 365 Security</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Conditional Access Policies</li>
+      </ol>
+    </nav>
+
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-8">
+
+        <!-- ── Header ───────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-sliders"></i>
+            </div>
+            <h1 class="fw-bold display-6 mb-0">
+              Conditional Access Policies for Small Business (Microsoft 365)
+            </h1>
+          </div>
+          <p class="text-muted lead mb-4">
+            A practical deployment guide for Canadian small businesses on Microsoft 365 Business Premium — covering the five baseline policies, rollout strategy that avoids lockouts, and recovery steps when things go wrong.
+          </p>
+
+          <div class="border rounded-4 p-3 bg-light mb-4">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="fw-bold small text-uppercase text-muted">Estimated reading time</div>
+                <div>10 minutes</div>
+              </div>
+              <div class="col-md-8">
+                <div class="fw-bold small text-uppercase text-muted">Who this guide is for</div>
+                <div>
+                  Owners, office managers, and IT decision-makers at Canadian small businesses (5–50 employees) on Microsoft 365 Business Premium who want to enforce Conditional Access without locking themselves out.
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 mt-0">
+              <div class="col-md-4">
+                <div class="fw-bold small text-uppercase text-muted">Licence required</div>
+                <div>Microsoft 365 Business Premium or Entra ID P1</div>
+              </div>
+              <div class="col-md-8">
+                <div class="fw-bold small text-uppercase text-muted">Prerequisite</div>
+                <div>
+                  Security Defaults must be disabled before any Conditional Access policy can be enforced. This guide walks through that transition safely.
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 small text-muted">Last reviewed: April 2026</div>
+          </div>
+
+          <h2 class="h4 fw-bold mb-3">Why Conditional Access Is the Identity Control Layer Every SMB Needs</h2>
+          <p class="text-muted">
+            A password and MFA code protect you at the moment of login — but not after. An attacker who steals a session token, authenticates from an unfamiliar country, or logs in from a personal device may bypass that login challenge entirely. Conditional Access evaluates the context of every sign-in — who is signing in, where they are, what device they are using, and how risky the session looks — and applies a policy decision in real time.
+          </p>
+          <p class="text-muted mb-0">
+            For small businesses, Conditional Access is not an enterprise luxury. It is the control that stops a stolen Microsoft 365 password from turning into a mailbox takeover, and it is now a requirement for most Canadian cyber insurance policies. This guide stays focused on deploying a safe, practical SMB baseline. For the surrounding identity and email controls, branch into the
+            <a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist" fragment="conditional-access">Microsoft 365 Security Checklist</a> or the
+            <a routerLink="/guides/security/microsoft-365-security/phishing-protection" fragment="conditional-access">Phishing Protection guide</a>.
+          </p>
+
+          <div class="ca-eval-chain mt-4 animate-on-scroll">
+            <div class="ca-eval-label small fw-bold text-muted text-uppercase mb-2">How Conditional Access evaluates each sign-in</div>
+            <div class="ca-eval-steps">
+              <div class="ca-eval-step">
+                <div class="ca-eval-icon c-blue"><i class="bi bi-person-fill"></i></div>
+                <div class="ca-eval-text">
+                  <div class="fw-bold small">Who?</div>
+                  <div class="ca-eval-sub">User, role, group</div>
+                </div>
+              </div>
+              <div class="ca-eval-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="ca-eval-step">
+                <div class="ca-eval-icon c-orange"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="ca-eval-text">
+                  <div class="fw-bold small">Where?</div>
+                  <div class="ca-eval-sub">Location, IP, country</div>
+                </div>
+              </div>
+              <div class="ca-eval-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="ca-eval-step">
+                <div class="ca-eval-icon c-purple"><i class="bi bi-laptop"></i></div>
+                <div class="ca-eval-text">
+                  <div class="fw-bold small">What device?</div>
+                  <div class="ca-eval-sub">Managed, compliant</div>
+                </div>
+              </div>
+              <div class="ca-eval-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="ca-eval-step">
+                <div class="ca-eval-icon c-orange"><i class="bi bi-activity"></i></div>
+                <div class="ca-eval-text">
+                  <div class="fw-bold small">What risk?</div>
+                  <div class="ca-eval-sub">Sign-in, user risk</div>
+                </div>
+              </div>
+              <div class="ca-eval-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="ca-eval-step">
+                <div class="ca-eval-icon c-green"><i class="bi bi-check-circle-fill"></i></div>
+                <div class="ca-eval-text">
+                  <div class="fw-bold small">Grant / Block</div>
+                  <div class="ca-eval-sub">Allow, MFA, or deny</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="guide-cta-card guide-cta-card-primary mt-4 mb-0" aria-labelledby="intro-cta-title">
+            <div class="guide-cta-eyebrow">Free Security Assessment</div>
+            <h2 class="guide-cta-title h5 fw-bold mb-2" id="intro-cta-title">Not sure what state your Conditional Access configuration is in right now?</h2>
+            <p class="guide-cta-copy mb-0">
+              We can review your Microsoft 365 Conditional Access policies, Security Defaults status, and admin protection posture — no sales agenda, just a clear picture of what is and is not enforced.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+            </div>
+          </aside>
+        </div>
+
+        <!-- ── Mobile quick-jump nav ──────────────────────────────── -->
+        <nav class="bg-white rounded-4 shadow-sm p-4 mt-4 d-lg-none" aria-labelledby="quick-jump-title">
+          <h2 class="h6 fw-bold mb-3" id="quick-jump-title">Jump to the sections that matter most</h2>
+          <div class="guide-jump-grid">
+            <a class="guide-jump-link" routerLink="." fragment="prerequisites">Prerequisites</a>
+            <a class="guide-jump-link" routerLink="." fragment="break-glass">Break-Glass</a>
+            <a class="guide-jump-link" routerLink="." fragment="checklist">Checklist</a>
+            <a class="guide-jump-link" routerLink="." fragment="baseline-policies">Policies</a>
+            <a class="guide-jump-link" routerLink="." fragment="rollout">Rollout</a>
+            <a class="guide-jump-link" routerLink="." fragment="testing">Testing</a>
+            <a class="guide-jump-link" routerLink="." fragment="recovery">Recovery</a>
+            <a class="guide-jump-link" routerLink="." fragment="faq">FAQ</a>
+          </div>
+        </nav>
+
+        <!-- ── Prerequisites ─────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="prerequisites">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-check2-circle"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Before You Begin: Licence, Defaults, and the Critical First Step</h2>
+          </div>
+
+          <h3 class="h5 fw-bold mb-2">Licence check</h3>
+          <p class="text-muted mb-3">
+            Conditional Access requires <strong>Microsoft 365 Business Premium</strong> or a standalone <strong>Microsoft Entra ID P1</strong> licence. Business Standard does not include Conditional Access — if you are on Standard, your equivalent option is Security Defaults (free, included in every M365 plan), which enforces MFA and blocks legacy auth without granular control. The Business Premium upgrade unlocks Conditional Access, Microsoft Defender for Business, and Intune — making it worth the cost for most businesses managing security seriously.
+          </p>
+
+          <h3 class="h5 fw-bold mb-2">Security Defaults vs. Conditional Access — choose one</h3>
+          <p class="text-muted mb-3">
+            Security Defaults and Conditional Access are mutually exclusive. Microsoft will not enforce CA policies while Security Defaults is enabled. You must disable Security Defaults before creating Conditional Access policies — but do not disable it until you are ready to enable your CA policies immediately afterward, or you will have a gap in MFA enforcement.
+          </p>
+          <div class="ca-comparison-grid animate-on-scroll">
+            <div class="ca-comparison-card">
+              <div class="ca-comparison-header">
+                <i class="bi bi-toggles me-2"></i>Security Defaults
+                <span class="ca-comparison-tag ca-comparison-tag-free">Free / All Licences</span>
+              </div>
+              <ul class="text-muted small mb-0 ps-3 mt-2">
+                <li class="mb-1">MFA enforced for all users</li>
+                <li class="mb-1">Legacy auth blocked</li>
+                <li class="mb-1">No customization — all or nothing</li>
+                <li class="mb-1">No exceptions or exclusions</li>
+                <li class="mb-1">Cannot target by role, device, or location</li>
+              </ul>
+            </div>
+            <div class="ca-comparison-card ca-comparison-card-premium">
+              <div class="ca-comparison-header">
+                <i class="bi bi-sliders me-2"></i>Conditional Access
+                <span class="ca-comparison-tag ca-comparison-tag-premium">Business Premium / Entra P1</span>
+              </div>
+              <ul class="text-muted small mb-0 ps-3 mt-2">
+                <li class="mb-1">Granular MFA per user, role, or app</li>
+                <li class="mb-1">Legacy auth blocked with audit first</li>
+                <li class="mb-1">Location, device, and risk conditions</li>
+                <li class="mb-1">Break-glass exclusions and exceptions</li>
+                <li class="mb-1">Sign-in frequency and session controls</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="ca-inline-warning mt-3">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <span>Disable Security Defaults only when your CA policies are ready to go live. A gap — even a few hours — means no MFA enforcement across the tenant.</span>
+          </div>
+        </div>
+
+        <!-- ── Break-glass ────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="break-glass">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-key-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Create Your Break-Glass Account First — Before Any Policy</h2>
+          </div>
+          <p class="text-muted">
+            This is the single most important step in this guide. A break-glass account is a dedicated Global Administrator account that is <strong>intentionally excluded from every Conditional Access policy</strong>. Its only job is emergency recovery: if a misconfigured CA policy locks every other admin out of the tenant, the break-glass account is your way back in.
+          </p>
+          <p class="text-muted">
+            Without a break-glass account, a single policy mistake can make your tenant unrecoverable without calling Microsoft Support — a process that can take days.
+          </p>
+
+          <div class="ca-step-list mt-3">
+            <div class="ca-step-item">
+              <div class="ca-step-num">1</div>
+              <div>
+                <div class="fw-bold small mb-1">Create a dedicated account</div>
+                <div class="text-muted small">Create a new user with a name like <code>breakglass&#64;yourdomain.com</code>. Assign Global Administrator. Use a strong, randomly generated password — 40+ characters, stored securely offline.</div>
+              </div>
+            </div>
+            <div class="ca-step-item">
+              <div class="ca-step-num">2</div>
+              <div>
+                <div class="fw-bold small mb-1">Protect with FIDO2 — not an authenticator app</div>
+                <div class="text-muted small">Register a physical FIDO2 security key (YubiKey or equivalent). Do not use Microsoft Authenticator — if the phone is unavailable, you lose access. The key and its PIN should be stored in a secure physical location (safe, lockbox).</div>
+              </div>
+            </div>
+            <div class="ca-step-item">
+              <div class="ca-step-num">3</div>
+              <div>
+                <div class="fw-bold small mb-1">Create a dedicated exclusion group</div>
+                <div class="text-muted small">Create an Entra security group called "CA-Break-Glass-Exclusion" and add the break-glass account to it. Add this group to the Exclude field of every CA policy you create — never include the break-glass account in any policy's scope.</div>
+              </div>
+            </div>
+            <div class="ca-step-item">
+              <div class="ca-step-num">4</div>
+              <div>
+                <div class="fw-bold small mb-1">Document and test quarterly</div>
+                <div class="text-muted small">Record the account name, the FIDO2 key location, and the credentials in a secure, offline document. Test access quarterly — verify the key still works and the account still has Global Admin. Set an alert in Entra to notify if the account is used outside of tests.</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="guide-related-block mt-4">
+            <div class="guide-related-eyebrow">Why this cannot be skipped</div>
+            <p class="text-muted small mb-0">
+              Microsoft's own Conditional Access documentation treats break-glass account creation as Step 1, before policy definition. This guide does the same. If you have existing CA policies that do not exclude a break-glass account, correct that before proceeding.
+            </p>
+          </aside>
+        </div>
+
+        <!-- ── Deployment checklist ───────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="checklist">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-card-checklist"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Conditional Access Deployment Checklist</h2>
+          </div>
+          <p class="text-muted mb-3">Track your baseline deployment progress. Your state is saved locally in this browser.</p>
+
+          <div class="checklist-progress-wrap mb-4" [class.all-done]="isAllComplete">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="small fw-bold">
+                <ng-container *ngIf="!isAllComplete">
+                  {{ completedCount }} of {{ checklistItems.length }} items complete
+                </ng-container>
+                <ng-container *ngIf="isAllComplete">
+                  <i class="bi bi-patch-check-fill me-1 text-success"></i> Conditional Access baseline complete
+                </ng-container>
+              </span>
+              <span class="small text-muted">{{ completedPercent }}%</span>
+            </div>
+            <div class="checklist-progress-track">
+              <div class="checklist-progress-fill" [style.width.%]="completedPercent"></div>
+            </div>
+            <div class="risk-legend d-flex gap-3 flex-wrap mt-2">
+              <span class="risk-badge risk-critical">CRITICAL</span>
+              <span class="risk-badge risk-high">HIGH</span>
+              <span class="risk-badge risk-medium">MEDIUM</span>
+              <button *ngIf="completedCount > 0" class="btn btn-link p-0 ms-auto small text-muted" (click)="clearChecklistProgress()">Reset</button>
+            </div>
+          </div>
+
+          <div class="checklist-items">
+            <label
+              *ngFor="let item of checklistItems; let i = index"
+              class="checklist-item-row"
+              [class.is-checked]="checklistChecked[i]">
+              <input
+                type="checkbox"
+                class="checklist-cb"
+                [checked]="checklistChecked[i]"
+                (change)="toggleChecklistItem(i)"
+                [attr.aria-label]="item.text">
+              <div class="cb-box">
+                <i class="bi bi-check2 cb-check-icon"></i>
+              </div>
+              <a class="checklist-item-text text-decoration-none" routerLink="." [fragment]="item.fragment">{{ item.text }}</a>
+              <span class="risk-badge ms-auto flex-shrink-0"
+                [class.risk-critical]="item.risk === 'critical'"
+                [class.risk-high]="item.risk === 'high'"
+                [class.risk-medium]="item.risk === 'medium'">
+                {{ item.risk | uppercase }}
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ── Policy framework ───────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-diagram-3-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">How Conditional Access Policies Work</h2>
+          </div>
+          <p class="text-muted mb-3">
+            Each Conditional Access policy has three components: <strong>Assignments</strong> (who the policy applies to and under what conditions), <strong>Target resources</strong> (which apps are affected), and <strong>Grant controls</strong> (what happens — allow, require MFA, require compliant device, or block). Policies stack: if a sign-in matches multiple policies, the most restrictive grant applies.
+          </p>
+          <div class="ca-framework-grid animate-on-scroll">
+            <div class="ca-framework-card">
+              <div class="ca-framework-icon"><i class="bi bi-people-fill"></i></div>
+              <h3 class="h6 fw-bold mb-2">Assignments</h3>
+              <p class="text-muted small mb-0">Who the policy targets: all users, specific groups, or directory roles. Includes and excludes. Also covers conditions: location, device platform, client app type, sign-in risk.</p>
+            </div>
+            <div class="ca-framework-card">
+              <div class="ca-framework-icon"><i class="bi bi-grid-fill"></i></div>
+              <h3 class="h6 fw-bold mb-2">Target Resources</h3>
+              <p class="text-muted small mb-0">Which cloud apps the policy applies to. "All cloud apps" covers everything including Microsoft 365, Teams, SharePoint, and any OAuth-connected apps. You can also scope to specific apps like Exchange Online only.</p>
+            </div>
+            <div class="ca-framework-card">
+              <div class="ca-framework-icon"><i class="bi bi-shield-check"></i></div>
+              <h3 class="h6 fw-bold mb-2">Grant Controls</h3>
+              <p class="text-muted small mb-0">What happens: Grant access (optionally requiring MFA, compliant device, or approved app), or Block access entirely. Session controls can layer on top — sign-in frequency, app-enforced restrictions.</p>
+            </div>
+          </div>
+          <p class="text-muted mt-3 mb-0 small">
+            <strong>Report-only mode</strong> is a native CA feature: set it during policy creation and the policy evaluates sign-ins and records what it would have done — but does not enforce anything. Sign-in logs in Microsoft Entra admin centre show the report-only results. Use it before every policy enforcement.
+          </p>
+        </div>
+
+        <!-- ── Baseline policies ──────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="baseline-policies">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-shield-fill-check"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">The Recommended SMB Baseline Policy Set</h2>
+          </div>
+          <p class="text-muted mb-4">
+            These five policies cover the exposure profile of most Canadian small businesses. Policies 1–4 can be deployed without Intune. Policy 5 is an optional second-tier control for tenants that have completed Intune enrollment.
+          </p>
+
+          <div class="ca-policy-list">
+            <div
+              *ngFor="let policy of baselinePolicies"
+              class="ca-policy-card animate-on-scroll"
+              [attr.id]="'policy-' + (policy.number === '1' ? 'mfa' : policy.number === '2' ? 'legacy' : policy.number === '3' ? 'admins' : policy.number === '4' ? 'locations' : 'devices')"
+              [ngClass]="policy.accentClass">
+              <div class="ca-policy-header">
+                <div class="ca-policy-num">{{ policy.number }}</div>
+                <div class="ca-policy-title-wrap">
+                  <h3 class="h5 fw-bold mb-1">{{ policy.title }}</h3>
+                  <p class="text-muted small mb-0">{{ policy.summary }}</p>
+                </div>
+                <div class="ca-policy-icon"><i class="bi" [ngClass]="policy.icon"></i></div>
+              </div>
+
+              <div class="ca-policy-steps mt-3">
+                <div class="ca-steps-label small fw-bold text-uppercase text-muted mb-2">Configuration steps</div>
+                <ol class="ca-steps-list">
+                  <li *ngFor="let step of policy.steps" class="text-muted small">{{ step }}</li>
+                </ol>
+              </div>
+
+              <div *ngIf="policy.warning" class="ca-inline-warning mt-3">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                <span>{{ policy.warning }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Rollout strategy ───────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="rollout">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-arrow-right-circle-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Rollout Strategy That Avoids Lockouts</h2>
+          </div>
+          <p class="text-muted mb-4">
+            The single most common Conditional Access failure mode: switching a policy directly from disabled to On for All users, then spending the morning fielding calls from locked-out staff. A three-phase rollout takes an extra two weeks and prevents that entirely.
+          </p>
+
+          <div class="ca-phases animate-on-scroll">
+            <div *ngFor="let phase of rolloutPhases; let last = last" class="ca-phase-block">
+              <div class="ca-phase-header">
+                <div class="ca-phase-num">Phase {{ phase.phase }}</div>
+                <div>
+                  <div class="fw-bold">{{ phase.title }}</div>
+                  <div class="ca-phase-duration"><i class="bi bi-clock me-1"></i>{{ phase.duration }}</div>
+                </div>
+                <div class="ca-phase-icon"><i class="bi ms-auto" [ngClass]="phase.icon"></i></div>
+              </div>
+              <ul class="ca-phase-steps">
+                <li *ngFor="let step of phase.steps" class="text-muted small">{{ step }}</li>
+              </ul>
+              <div *ngIf="!last" class="ca-phase-connector"><i class="bi bi-arrow-down"></i></div>
+            </div>
+          </div>
+
+          <aside class="guide-related-block mt-4">
+            <div class="guide-related-eyebrow">Who to exclude and when</div>
+            <p class="text-muted small mb-2">
+              Permanent exclusions should be documented with business justification: the break-glass account is the only one that should never be removed. Temporary exclusions — for a service account migration or a travelling employee — should have a review date set at creation. Undocumented, permanent exclusions accumulate and quietly erode your policy coverage over time.
+            </p>
+          </aside>
+        </div>
+
+        <!-- ── Testing ────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="testing">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-search"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Testing Your Policies Before Full Enforcement</h2>
+          </div>
+
+          <h3 class="h5 fw-bold mb-2">The What-If tool</h3>
+          <p class="text-muted mb-3">
+            Microsoft Entra admin centre includes a built-in policy simulator called <strong>What If</strong>. Navigate to Protection → Conditional Access → What If. Enter a user, an app, a location, and other conditions — the tool shows exactly which policies would apply and what the result would be. Run it before enforcing any policy and after making changes.
+          </p>
+
+          <div class="ca-testing-grid animate-on-scroll">
+            <div class="ca-test-scenario">
+              <div class="ca-test-icon"><i class="bi bi-person-check-fill"></i></div>
+              <div class="fw-bold small mb-1">Regular employee sign-in</div>
+              <div class="text-muted small">Test a standard user account signing in from Canada — should be granted with MFA prompt.</div>
+            </div>
+            <div class="ca-test-scenario">
+              <div class="ca-test-icon"><i class="bi bi-shield-fill-check"></i></div>
+              <div class="fw-bold small mb-1">Admin sign-in</div>
+              <div class="text-muted small">Test a Global Admin account — should require MFA every session with no persistent sign-in token.</div>
+            </div>
+            <div class="ca-test-scenario">
+              <div class="ca-test-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div class="fw-bold small mb-1">International sign-in attempt</div>
+              <div class="text-muted small">Test a user with a location outside your named locations — should be blocked if Policy 4 is enforced.</div>
+            </div>
+            <div class="ca-test-scenario">
+              <div class="ca-test-icon"><i class="bi bi-ban"></i></div>
+              <div class="fw-bold small mb-1">Legacy auth client</div>
+              <div class="text-muted small">Test with client app type set to "Other clients" — should be blocked by Policy 2.</div>
+            </div>
+            <div class="ca-test-scenario">
+              <div class="ca-test-icon"><i class="bi bi-key-fill"></i></div>
+              <div class="fw-bold small mb-1">Break-glass account</div>
+              <div class="text-muted small">Verify the break-glass account is excluded from all policies — should be granted access with no policy match blocking it.</div>
+            </div>
+            <div class="ca-test-scenario">
+              <div class="ca-test-icon"><i class="bi bi-person-lines-fill"></i></div>
+              <div class="fw-bold small mb-1">Guest user access</div>
+              <div class="text-muted small">Test a guest account — verify whether policies apply as intended. Confirm the experience is workable for external collaborators.</div>
+            </div>
+          </div>
+
+          <h3 class="h5 fw-bold mt-4 mb-2">Reading sign-in logs</h3>
+          <p class="text-muted mb-0">
+            Sign-in logs live in Microsoft Entra admin centre → Monitoring → Sign-in logs. Filter by Conditional Access status — look for <strong>Failure</strong> and <strong>Not applied</strong> entries. A Failure may indicate a misconfigured policy catching an unintended account. A Not applied entry means no policy matched — check whether that account should be covered. Review logs daily for the first week after full enforcement.
+          </p>
+        </div>
+
+        <!-- ── Recovery strategy ──────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="recovery">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-arrow-counterclockwise"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Recovery Strategy: If Something Goes Wrong</h2>
+          </div>
+
+          <h3 class="h5 fw-bold mb-2">Using the break-glass account</h3>
+          <p class="text-muted mb-3">
+            If you cannot sign in with any admin account: retrieve the break-glass account credentials and FIDO2 key from their secure storage location. Sign in at <strong>entra.microsoft.com</strong> or <strong>portal.azure.com</strong> directly. Once in, you can disable or modify any policy that caused the lockout.
+          </p>
+
+          <div class="ca-recovery-steps animate-on-scroll">
+            <div class="ca-recovery-step">
+              <div class="ca-recovery-step-icon c-red"><i class="bi bi-exclamation-triangle-fill"></i></div>
+              <div class="ca-recovery-step-body">
+                <div class="fw-bold small">All admins locked out?</div>
+                <div class="text-muted small">Use break-glass credentials and FIDO2 key to sign in at entra.microsoft.com</div>
+              </div>
+            </div>
+            <div class="ca-recovery-arrow"><i class="bi bi-arrow-down"></i></div>
+            <div class="ca-recovery-step">
+              <div class="ca-recovery-step-icon c-orange"><i class="bi bi-shield-slash-fill"></i></div>
+              <div class="ca-recovery-step-body">
+                <div class="fw-bold small">Disable the offending policy</div>
+                <div class="text-muted small">Go to Protection → Conditional Access, find the policy causing the block, set it to Off immediately</div>
+              </div>
+            </div>
+            <div class="ca-recovery-arrow"><i class="bi bi-arrow-down"></i></div>
+            <div class="ca-recovery-step">
+              <div class="ca-recovery-step-icon c-orange"><i class="bi bi-search"></i></div>
+              <div class="ca-recovery-step-body">
+                <div class="fw-bold small">Review sign-in logs</div>
+                <div class="text-muted small">Identify which accounts were affected and why — Entra sign-in logs will show the exact policy match that caused the block</div>
+              </div>
+            </div>
+            <div class="ca-recovery-arrow"><i class="bi bi-arrow-down"></i></div>
+            <div class="ca-recovery-step">
+              <div class="ca-recovery-step-icon c-purple"><i class="bi bi-wrench-adjustable"></i></div>
+              <div class="ca-recovery-step-body">
+                <div class="fw-bold small">Fix and re-test before re-enabling</div>
+                <div class="text-muted small">Add the missing exclusion, update named locations, or correct the scope — then run report-only again before switching back to On</div>
+              </div>
+            </div>
+            <div class="ca-recovery-arrow"><i class="bi bi-arrow-down"></i></div>
+            <div class="ca-recovery-step">
+              <div class="ca-recovery-step-icon c-green"><i class="bi bi-check-circle-fill"></i></div>
+              <div class="ca-recovery-step-body">
+                <div class="fw-bold small">Re-enable and monitor</div>
+                <div class="text-muted small">Switch the fixed policy back to On and monitor sign-in logs actively for 24 hours</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="h5 fw-bold mt-4 mb-2">Restoring access for a locked-out individual user</h3>
+          <p class="text-muted mb-0">
+            If a single user — not an admin — is blocked by a policy: sign in as an admin, navigate to Microsoft Entra admin centre → Users, locate the account, and review which policies are applying via the sign-in logs for that user. Add them temporarily to an exclusion group to restore access while you investigate, then resolve the underlying cause and remove the exclusion.
+          </p>
+        </div>
+
+        <!-- ── Common mistakes ────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="common-mistakes">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-exclamation-octagon-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Common Mistakes — and How to Avoid Them</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Most Conditional Access lockouts and policy failures follow the same patterns. Recognizing them before deployment is considerably cheaper than diagnosing them after.
+          </p>
+
+          <div class="ca-mistakes-grid animate-on-scroll">
+            <article *ngFor="let mistake of commonMistakes" class="ca-mistake-card">
+              <div class="ca-mistake-icon"><i class="bi" [ngClass]="mistake.icon"></i></div>
+              <h3 class="h6 fw-bold mb-2">{{ mistake.title }}</h3>
+              <p class="text-muted small mb-0">{{ mistake.body }}</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Broader security posture ───────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-diagram-3-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">How Conditional Access Fits Your Broader Security Posture</h2>
+          </div>
+          <p class="text-muted mb-3">
+            Conditional Access is the identity enforcement layer — it is not a complete security posture on its own. It works best when the surrounding controls are also in place.
+          </p>
+
+          <div class="ca-posture-links animate-on-scroll">
+            <a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist" fragment="conditional-access" class="ca-posture-link">
+              <div class="ca-posture-link-icon"><i class="bi bi-microsoft"></i></div>
+              <div>
+                <div class="fw-bold small">Microsoft 365 Security Checklist</div>
+                <div class="text-muted small">The 19-control baseline covering MFA enforcement, admin protection, endpoint, backup, and incident response — Conditional Access is Control 3 of 19.</div>
+              </div>
+              <i class="bi bi-arrow-right ms-auto"></i>
+            </a>
+            <a routerLink="/guides/security/microsoft-365-security/phishing-protection" fragment="conditional-access" class="ca-posture-link">
+              <div class="ca-posture-link-icon"><i class="bi bi-envelope-exclamation-fill"></i></div>
+              <div>
+                <div class="fw-bold small">Phishing &amp; Email Threat Defence</div>
+                <div class="text-muted small">Conditional Access stops credential-only attacks — but phishing-resistant MFA, Safe Links, and email authentication are the controls that stop credential theft before it happens.</div>
+              </div>
+              <i class="bi bi-arrow-right ms-auto"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── FAQ ───────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="faq">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-chat-left-dots-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Frequently Asked Questions</h2>
+          </div>
+
+          <div class="guide-faq-list">
+            <details class="guide-faq-item" *ngFor="let item of faqs; let idx = index" [attr.open]="idx === 0 ? '' : null">
+              <summary class="guide-faq-button fw-bold">{{ item.q }}</summary>
+              <div class="guide-faq-content text-muted">{{ item.a }}</div>
+            </details>
+          </div>
+        </div>
+
+        <!-- ── When to call IT support ────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="it-support">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">When to Call IT Support</h2>
+          </div>
+          <p class="text-muted mb-3">
+            Conditional Access is manageable in-house for most small businesses — but a few situations benefit from professional review before you enforce anything.
+          </p>
+
+          <ul class="text-muted mb-4">
+            <li class="mb-2">You disabled Security Defaults and have not yet replaced it with Conditional Access policies — your tenant has a live MFA enforcement gap</li>
+            <li class="mb-2">You have existing CA policies that do not exclude a break-glass account — any misconfiguration could lock out every admin simultaneously</li>
+            <li class="mb-2">Your tenant has line-of-business apps, CRMs, or equipment using basic authentication that will break when legacy auth is blocked</li>
+            <li class="mb-2">You have guest users, external contractors, or a hybrid environment (on-premises Active Directory) that adds complexity to policy scoping</li>
+            <li class="mb-2">Your cyber insurer has asked for documented evidence of Conditional Access policy enforcement as part of a renewal questionnaire</li>
+            <li class="mb-2">A lockout has already occurred and the break-glass account has not been tested recently or the credentials are unavailable</li>
+          </ul>
+
+          <aside class="guide-cta-card guide-cta-card-primary" aria-labelledby="support-cta-title">
+            <div class="guide-cta-eyebrow">CtrlShift IT Services — GTA</div>
+            <h3 class="guide-cta-title h5 fw-bold mb-2" id="support-cta-title">We configure Conditional Access for small businesses without the enterprise complexity</h3>
+            <p class="guide-cta-copy mb-0">
+              If you want a second set of eyes on your current CA policies — or need the baseline deployed safely without risking a lockout — we can review your tenant, identify the gaps, and implement the controls correctly the first time.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+              <a class="btn btn-outline-secondary rounded-pill px-4 fw-bold" routerLink="/microsoft-365">
+                Learn About Our M365 Support
+              </a>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+
+      <!-- ── Sidebar ───────────────────────────────────────────────── -->
+      <div class="col-lg-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 sticky-lg-top" style="top: 1rem;">
+          <h3 class="fw-bold mb-3">In this guide</h3>
+          <nav aria-label="On-page navigation">
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="prerequisites">Prerequisites &amp; Licence</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="break-glass">Break-Glass Account</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="checklist">Deployment Checklist</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="baseline-policies">Baseline Policy Set</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="policy-mfa">&nbsp;&nbsp;&nbsp;Policy 1: Require MFA</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="policy-legacy">&nbsp;&nbsp;&nbsp;Policy 2: Block Legacy Auth</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="policy-admins">&nbsp;&nbsp;&nbsp;Policy 3: Admin MFA</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="policy-locations">&nbsp;&nbsp;&nbsp;Policy 4: Block Locations</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="policy-devices">&nbsp;&nbsp;&nbsp;Policy 5: Device Compliance</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="rollout">Rollout Strategy</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="testing">Testing</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="recovery">Recovery Strategy</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="common-mistakes">Common Mistakes</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq">FAQ</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="it-support">When to Call IT Support</a></li>
+            </ul>
+          </nav>
+
+          <div class="border rounded-4 p-3 bg-light mb-3">
+            <div class="fw-bold mb-2">Related guides</div>
+            <ul class="text-muted small mb-0 ps-3">
+              <li><a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist">Microsoft 365 Security Checklist</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security/phishing-protection">Phishing &amp; Email Defence</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security" fragment="mfa-rollout">MFA Rollout Guide</a> <span class="text-muted">(coming soon)</span></li>
+              <li><a routerLink="/guides/security">All Security Guides</a></li>
+            </ul>
+          </div>
+
+          <div class="border rounded-4 p-3 bg-light mb-3">
+            <div class="fw-bold mb-2">Related services</div>
+            <ul class="text-muted small mb-0 ps-3">
+              <li><a routerLink="/microsoft-365">Microsoft 365 Support</a></li>
+              <li><a routerLink="/security-firewall">Managed Security &amp; Firewall</a></li>
+              <li><a routerLink="/cyber-insurance-readiness-vaughan">Cyber Insurance Readiness</a></li>
+              <li><a routerLink="/crisis-recovery">IT Crisis Recovery</a></li>
+            </ul>
+          </div>
+
+          <div class="border rounded-4 p-3 bg-light">
+            <div class="fw-bold mb-1">Talk to a human</div>
+            <div class="text-muted small mb-2">Questions about your Conditional Access setup or an existing lockout? We answer plainly — no quota, no pressure.</div>
+            <a class="btn btn-dark rounded-pill w-100 py-2 fw-bold" routerLink="/" fragment="consultation">
+              Book a Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

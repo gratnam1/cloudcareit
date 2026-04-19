@@ -75,6 +75,10 @@ const LEGACY_REDIRECTS: Record<string, string> = {
   '/managed-it-vs-break-fix': '/blog/managed-it-benefits',
   '/microsoft-365-security-basics': '/blog/microsoft-365-tips',
   '/wifi-office-slow': '/blog/office-networking-basics',
+  '/guides/security/microsoft-365-checklist': '/guides/security/microsoft-365-security/microsoft-365-checklist',
+  '/guides/security/phishing-protection': '/guides/security/microsoft-365-security/phishing-protection',
+  '/guides/security/conditional-access-policies': '/guides/security/microsoft-365-security/conditional-access-small-business',
+  '/guides/security/conditional-access-small-business': '/guides/security/microsoft-365-security/conditional-access-small-business',
 };
 
 type GooglePlaceReview = {

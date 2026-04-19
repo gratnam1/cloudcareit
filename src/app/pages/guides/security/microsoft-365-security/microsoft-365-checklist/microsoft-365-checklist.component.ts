@@ -1,10 +1,10 @@
 import { Component, OnDestroy, AfterViewInit, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SeoService } from '../../../../shared/seo/seo.service';
+import { SeoService } from '../../../../../shared/seo/seo.service';
 
 const BASE_URL = 'https://ctrlshiftit.ca';
-const PAGE_PATH = '/guides/security/microsoft-365-checklist';
+const PAGE_PATH = '/guides/security/microsoft-365-security/microsoft-365-checklist';
 const PAGE_URL = `${BASE_URL}${PAGE_PATH}`;
 const STORAGE_KEY = 'm365-checklist-v2';
 
@@ -260,7 +260,8 @@ export class MicrosoftSecurityChecklistComponent implements OnDestroy, AfterView
         { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
         { '@type': 'ListItem', position: 2, name: 'Guides', item: `${BASE_URL}/guides` },
         { '@type': 'ListItem', position: 3, name: 'Security', item: `${BASE_URL}/guides/security` },
-        { '@type': 'ListItem', position: 4, name: 'Microsoft 365 Security Checklist', item: PAGE_URL }
+        { '@type': 'ListItem', position: 4, name: 'Microsoft 365 Security', item: `${BASE_URL}/guides/security/microsoft-365-security` },
+        { '@type': 'ListItem', position: 5, name: 'Microsoft 365 Security Checklist', item: PAGE_URL }
       ]
     });
   }

@@ -110,10 +110,28 @@
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://ctrlshiftit.ca/guides/security/microsoft-365-checklist</loc>
+    <loc>https://ctrlshiftit.ca/guides/security/microsoft-365-security</loc>
+    <lastmod>2026-04-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.76</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/guides/security/microsoft-365-security/microsoft-365-checklist</loc>
     <lastmod>2026-04-19T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.78</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/guides/security/microsoft-365-security/phishing-protection</loc>
+    <lastmod>2026-04-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.76</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/guides/security/microsoft-365-security/conditional-access-small-business</loc>
+    <lastmod>2026-04-19T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.76</priority>
   </url>
   <url>
     <loc>https://ctrlshiftit.ca/crisis-recovery</loc>

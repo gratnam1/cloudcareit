@@ -519,6 +519,14 @@ export const routes: Routes = [
       ),
     title: 'How to Protect Microsoft 365 Accounts From Phishing Attacks | CtrlShift IT Services'
   },
+  {
+    path: 'guides/security/conditional-access-policies',
+    loadComponent: () =>
+      import('./pages/guides/security/conditional-access/conditional-access.component').then(
+        (m) => m.ConditionalAccessComponent
+      ),
+    title: 'Conditional Access Policies for Small Business (Microsoft 365) | CtrlShift IT Services'
+  },
 
   // About page
   {

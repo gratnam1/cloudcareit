@@ -46,7 +46,7 @@ const HOWTOS: ReadonlyArray<SecurityHowTo> = [
     summary:
       'How to design, test, and enforce Conditional Access in a Microsoft 365 Business Premium tenant — named locations, device compliance, sign-in risk, and the break-glass exclusions that keep you from locking yourself out.',
     icon: 'bi-sliders',
-    available: false
+    available: true
   },
   {
     slug: 'ransomware-recovery',

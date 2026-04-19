@@ -35,12 +35,6 @@
   line-height: 1;
 }
 
-.breadcrumb-nav .breadcrumb-item a,
-.breadcrumb-nav .breadcrumb-item.active {
-  line-height: 1;
-  vertical-align: middle;
-}
-
 .breadcrumb-nav .breadcrumb-item + .breadcrumb-item {
   padding-left: 0;
 }
@@ -86,9 +80,6 @@
 .badge-orange   { background: rgba(249, 115, 22, 0.12); color: #f97316; }
 .badge-teal     { background: rgba(20, 184, 166, 0.12); color: #14b8a6; }
 
-.text-warning-dark { color: #d97706; }
-.text-success-dark { color: #16a34a; }
-
 /* ── Scroll animations ─────────────────────────────────────────────── */
 .animate-on-scroll {
   opacity: 0;
@@ -131,22 +122,22 @@
   color: #a5b4fc;
 }
 
-/* ── Attack chain ──────────────────────────────────────────────────── */
-.attack-chain-wrap {
+/* ── CA evaluation chain ───────────────────────────────────────────── */
+.ca-eval-chain {
   background: rgba(15, 23, 42, 0.03);
   border: 1px solid rgba(148, 163, 184, 0.15);
   border-radius: 0.75rem;
   padding: 1rem 1rem 0.75rem;
 }
 
-.attack-chain {
+.ca-eval-steps {
   display: flex;
   align-items: flex-start;
   gap: 0.25rem;
   flex-wrap: wrap;
 }
 
-.chain-node {
+.ca-eval-step {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,7 +146,7 @@
   flex: 1;
 }
 
-.chain-icon-wrap {
+.ca-eval-icon {
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 50%;
@@ -165,20 +156,21 @@
   font-size: 1rem;
 }
 
-.c-red    { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
+.c-blue   { background: rgba(59, 130, 246, 0.12); color: #3b82f6; }
 .c-orange { background: rgba(249, 115, 22, 0.12); color: #f97316; }
 .c-purple { background: rgba(168, 85, 247, 0.12); color: #a855f7; }
-.c-dark   { background: rgba(30, 41, 59, 0.12); color: #334155; }
+.c-green  { background: rgba(34, 197, 94, 0.12); color: #22c55e; }
+.c-red    { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
 
-.chain-text { text-align: center; }
+.ca-eval-text { text-align: center; }
 
-.chain-sub {
+.ca-eval-sub {
   font-size: 0.68rem;
   color: #94a3b8;
   line-height: 1.2;
 }
 
-.chain-arrow {
+.ca-eval-arrow {
   display: flex;
   align-items: flex-start;
   padding-top: 0.6rem;
@@ -187,105 +179,102 @@
   flex-shrink: 0;
 }
 
-.attack-chain-note { color: #94a3b8; }
-
-/* ── Layer cards ───────────────────────────────────────────────────── */
-.phishing-layer-grid {
+/* ── Security Defaults vs CA comparison ────────────────────────────── */
+.ca-comparison-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.85rem;
 }
 
-.phishing-layer-card,
-.threat-card {
-  min-height: 100%;
+.ca-comparison-card {
   padding: 1rem;
   border-radius: 0.8rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
   background: linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.02));
 }
 
-.phishing-layer-icon,
-.threat-card-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.75rem;
+.ca-comparison-card-premium {
+  border-color: rgba(99, 102, 241, 0.2);
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.06), rgba(15, 23, 42, 0.02));
+}
+
+.ca-comparison-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  margin-bottom: 0.25rem;
+}
+
+.ca-comparison-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.12rem 0.45rem;
+  border-radius: 0.25rem;
+}
+
+.ca-comparison-tag-free {
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+}
+
+.ca-comparison-tag-premium {
+  background: rgba(99, 102, 241, 0.14);
+  color: #818cf8;
+}
+
+/* ── Inline warning / callout ──────────────────────────────────────── */
+.ca-inline-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  background: rgba(249, 115, 22, 0.07);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  font-size: 0.87rem;
+  color: #fb923c;
+  line-height: 1.5;
+}
+
+.ca-inline-warning i {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* ── Break-glass step list ─────────────────────────────────────────── */
+.ca-step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.ca-step-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.ca-step-num {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.12);
+  color: #818cf8;
+  font-size: 0.78rem;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
 }
 
-.layer-awareness .phishing-layer-icon { background: rgba(129, 140, 248, 0.14); color: #818cf8; }
-.layer-identity .phishing-layer-icon { background: rgba(99, 102, 241, 0.12); color: #6366f1; }
-.layer-email .phishing-layer-icon { background: rgba(249, 115, 22, 0.12); color: #f97316; }
-.layer-response .phishing-layer-icon { background: rgba(20, 184, 166, 0.12); color: #14b8a6; }
-
-/* ── Threat cards ──────────────────────────────────────────────────── */
-.threat-card-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
-}
-
-.threat-credential .threat-card-icon { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
-.threat-bec .threat-card-icon { background: rgba(249, 115, 22, 0.12); color: #f97316; }
-.threat-attachment .threat-card-icon { background: rgba(168, 85, 247, 0.12); color: #a855f7; }
-.threat-login .threat-card-icon { background: rgba(99, 102, 241, 0.12); color: #6366f1; }
-
-/* ── Pillar-style subsections ─────────────────────────────────────── */
-.guide-subsection-shell {
-  border: 1px solid rgba(99, 102, 241, 0.14);
-  border-radius: 1rem;
-  padding: 1.15rem 1.15rem 1rem;
-  background:
-    linear-gradient(180deg, rgba(30, 41, 59, 0.18), rgba(15, 23, 42, 0.08)),
-    rgba(15, 23, 42, 0.04);
-}
-
-.guide-subsection-eyebrow {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #93c5fd;
-  margin-bottom: 0.45rem;
-}
-
-.mini-control-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.85rem;
-}
-
-.mini-control-card {
-  min-height: 100%;
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  border-radius: 0.9rem;
-  padding: 0.95rem;
-  background: rgba(15, 23, 42, 0.18);
-}
-
-.mini-control-icon {
-  width: 2.2rem;
-  height: 2.2rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.7rem;
-  margin-bottom: 0.75rem;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(59, 130, 246, 0.16));
-  color: #a5b4fc;
-  font-size: 1rem;
-}
-
-.mini-control-grid-auth .mini-control-icon {
-  background: linear-gradient(135deg, rgba(20, 184, 166, 0.16), rgba(34, 197, 94, 0.14));
-  color: #5eead4;
-}
-
-/* ── Lightweight checklist ─────────────────────────────────────────── */
+/* ── Checklist ─────────────────────────────────────────────────────── */
 .checklist-progress-wrap {
   transition: all 0.3s ease;
 }
@@ -324,20 +313,9 @@
   align-items: center;
 }
 
-.risk-critical {
-  background: rgba(239, 68, 68, 0.12);
-  color: #ef4444;
-}
-
-.risk-high {
-  background: rgba(249, 115, 22, 0.12);
-  color: #f97316;
-}
-
-.risk-medium {
-  background: rgba(234, 179, 8, 0.12);
-  color: #ca8a04;
-}
+.risk-critical { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
+.risk-high     { background: rgba(249, 115, 22, 0.12); color: #f97316; }
+.risk-medium   { background: rgba(234, 179, 8, 0.12);  color: #ca8a04; }
 
 .checklist-items {
   display: flex;
@@ -381,9 +359,7 @@
   background: transparent;
 }
 
-.checklist-item-row:hover .cb-box {
-  border-color: #6366f1;
-}
+.checklist-item-row:hover .cb-box { border-color: #6366f1; }
 
 .checklist-item-row.is-checked .cb-box {
   background: #22c55e;
@@ -412,149 +388,304 @@
   text-decoration-color: rgba(100, 116, 139, 0.5);
 }
 
-/* ── Red flag interaction ──────────────────────────────────────────── */
-.red-flag-email {
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  border-radius: 0.85rem;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.02));
-}
-
-.red-flag-email-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem 1rem 0.75rem;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
-}
-
-.red-flag-email-meta {
-  padding: 0.75rem 1rem;
-  font-size: 0.82rem;
-  color: #94a3b8;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
-}
-
-.red-flag-email-meta div + div {
-  margin-top: 0.2rem;
-}
-
-.red-flag-email-body {
-  position: relative;
-  padding: 1rem;
-  color: #64748b;
-}
-
-.fake-email-btn.disabled {
-  pointer-events: none;
-  opacity: 1;
-}
-
-.red-flag-hotspot {
-  position: absolute;
-  width: 1.7rem;
-  height: 1.7rem;
-  border: 0;
-  border-radius: 50%;
-  background: #ef4444;
-  color: #fff;
-  font-size: 0.72rem;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.14);
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-}
-
-.red-flag-hotspot:hover,
-.red-flag-hotspot:focus-visible,
-.red-flag-hotspot.is-active {
-  transform: scale(1.06);
-  box-shadow: 0 0 0 5px rgba(239, 68, 68, 0.2);
-  background: #dc2626;
-}
-
-.hotspot-1 { top: 0.9rem; right: 1rem; }
-.hotspot-2 { top: 3.3rem; right: 1rem; }
-.hotspot-3 { top: 7.85rem; left: 12.75rem; }
-.hotspot-4 { top: 6.1rem; right: 1.1rem; }
-
-.red-flag-panels {
+/* ── Policy framework cards ────────────────────────────────────────── */
+.ca-framework-grid {
   display: grid;
-  gap: 0.6rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
 }
 
-.red-flag-panel {
-  width: 100%;
-  padding: 0.9rem 1rem;
+.ca-framework-card {
+  padding: 1rem;
   border-radius: 0.8rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
-  background: rgba(15, 23, 42, 0.03);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.02));
+}
+
+.ca-framework-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.65rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(59, 130, 246, 0.16));
+  color: #a5b4fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ── Baseline policy cards ─────────────────────────────────────────── */
+.ca-policy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ca-policy-card {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 1rem;
+  padding: 1.15rem;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.01));
+  transition: border-color 0.2s;
+}
+
+.ca-policy-card:hover { border-color: rgba(99, 102, 241, 0.2); }
+
+.policy-mfa     { border-left: 3px solid #6366f1; }
+.policy-legacy  { border-left: 3px solid #ef4444; }
+.policy-admins  { border-left: 3px solid #818cf8; }
+.policy-locations { border-left: 3px solid #14b8a6; }
+.policy-devices { border-left: 3px solid #64748b; }
+
+.ca-policy-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.ca-policy-num {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.6rem;
+  background: rgba(99, 102, 241, 0.12);
+  color: #818cf8;
+  font-size: 1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.policy-legacy .ca-policy-num  { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
+.policy-admins .ca-policy-num  { background: rgba(129, 140, 248, 0.14); color: #818cf8; }
+.policy-locations .ca-policy-num { background: rgba(20, 184, 166, 0.12); color: #14b8a6; }
+.policy-devices .ca-policy-num { background: rgba(100, 116, 139, 0.12); color: #94a3b8; }
+
+.ca-policy-title-wrap { flex: 1; }
+
+.ca-policy-icon {
+  font-size: 1.25rem;
+  color: #475569;
+  flex-shrink: 0;
+}
+
+.ca-steps-label { color: #64748b; }
+
+.ca-steps-list {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.ca-steps-list li {
+  margin-bottom: 0.4rem;
+  line-height: 1.5;
+}
+
+/* ── Rollout phases ────────────────────────────────────────────────── */
+.ca-phases {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ca-phase-block {
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 0.9rem;
+  padding: 1.1rem;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.02));
+  position: relative;
+}
+
+.ca-phase-block + .ca-phase-block {
+  margin-top: 0.4rem;
+}
+
+.ca-phase-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.ca-phase-num {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #818cf8;
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.3rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ca-phase-duration {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 0.1rem;
+}
+
+.ca-phase-icon {
+  margin-left: auto;
+  font-size: 1.1rem;
+  color: #475569;
+}
+
+.ca-phase-steps {
+  padding-left: 1.1rem;
+  margin: 0;
+}
+
+.ca-phase-steps li {
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+}
+
+.ca-phase-connector {
+  text-align: center;
+  color: #475569;
+  font-size: 1rem;
+  padding: 0.1rem 0;
+}
+
+/* ── Testing scenarios grid ────────────────────────────────────────── */
+.ca-testing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.ca-test-scenario {
+  padding: 0.9rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.02));
+}
+
+.ca-test-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.6rem;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.16), rgba(59, 130, 246, 0.14));
+  color: #a5b4fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+}
+
+/* ── Recovery steps ────────────────────────────────────────────────── */
+.ca-recovery-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ca-recovery-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.02));
+}
+
+.ca-recovery-step-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.ca-recovery-step-body { flex: 1; }
+
+.ca-recovery-arrow {
+  text-align: center;
+  color: #475569;
+  font-size: 0.85rem;
+  padding: 0.05rem 0;
+}
+
+/* ── Common mistakes grid ──────────────────────────────────────────── */
+.ca-mistakes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.ca-mistake-card {
+  padding: 1rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(239, 68, 68, 0.12);
+  background: linear-gradient(180deg, rgba(239, 68, 68, 0.04), rgba(15, 23, 42, 0.02));
+}
+
+.ca-mistake-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.6rem;
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  margin-bottom: 0.7rem;
+}
+
+/* ── Posture links ─────────────────────────────────────────────────── */
+.ca-posture-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.ca-posture-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(99, 102, 241, 0.14);
+  background: rgba(99, 102, 241, 0.04);
+  text-decoration: none;
   color: inherit;
   transition: border-color 0.2s, background 0.2s;
 }
 
-.red-flag-panel.is-active {
-  border-color: rgba(239, 68, 68, 0.3);
-  background: rgba(239, 68, 68, 0.05);
+.ca-posture-link:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.08);
+  color: inherit;
 }
 
-.red-flag-panel-title {
+.ca-posture-link-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.6rem;
+  background: rgba(99, 102, 241, 0.12);
+  color: #818cf8;
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  font-weight: 700;
-  color: #e2e8f0;
-}
-
-.red-flag-pill {
-  width: 1.4rem;
-  height: 1.4rem;
-  border-radius: 999px;
-  background: rgba(239, 68, 68, 0.16);
-  color: #ef4444;
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.95rem;
   flex-shrink: 0;
 }
 
-.red-flag-panel-copy {
-  color: #64748b;
-  font-size: 0.88rem;
-  line-height: 1.55;
-  padding-left: 1.95rem;
-  margin-top: 0.45rem;
-}
-
-/* ── Stat callout ──────────────────────────────────────────────────── */
-.stat-callout {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.85rem 1rem;
-  background: rgba(99, 102, 241, 0.06);
-  border: 1px solid rgba(99, 102, 241, 0.15);
-  border-radius: 0.6rem;
-  margin-bottom: 0.25rem;
-}
-
-.stat-number {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #6366f1;
-  white-space: nowrap;
-  line-height: 1;
-}
-
-.stat-text {
-  font-size: 0.82rem;
-  color: #64748b;
-  line-height: 1.4;
+.ca-posture-link .bi-arrow-right {
+  color: #475569;
+  font-size: 0.85rem;
+  flex-shrink: 0;
 }
 
 /* ── Related / CTA blocks ──────────────────────────────────────────── */
@@ -575,29 +706,6 @@
   margin-bottom: 0.35rem;
 }
 
-.guide-related-title,
-.guide-cta-title {
-  color: #e2e8f0;
-}
-
-.guide-related-list {
-  padding-left: 1.1rem;
-  color: #64748b;
-}
-
-.guide-related-list li + li {
-  margin-top: 0.45rem;
-}
-
-.guide-related-list a {
-  color: #a5b4fc;
-  text-decoration: none;
-}
-
-.guide-related-list a:hover {
-  color: #c4b5fd;
-}
-
 .guide-cta-card {
   padding: 1.15rem 1.15rem 1.1rem;
   border: 1px solid rgba(99, 102, 241, 0.16);
@@ -608,6 +716,8 @@
 .guide-cta-card-primary {
   background: linear-gradient(180deg, rgba(99, 102, 241, 0.1), rgba(129, 140, 248, 0.05));
 }
+
+.guide-cta-title { color: #e2e8f0; }
 
 .guide-cta-copy {
   color: #64748b;
@@ -621,61 +731,6 @@
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-top: 1rem;
-}
-
-/* ── Response flow ─────────────────────────────────────────────────── */
-.response-flow {
-  display: flex;
-  gap: 0.55rem;
-  flex-wrap: wrap;
-}
-
-.response-step {
-  display: flex;
-  align-items: stretch;
-  gap: 0.55rem;
-  flex: 1 1 240px;
-}
-
-.response-step-body {
-  flex: 1;
-  padding: 0.9rem 1rem;
-  border-radius: 0.8rem;
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.02));
-}
-
-.response-step-icon {
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 0.7rem;
-  background: rgba(99, 102, 241, 0.1);
-  color: #818cf8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 0.2rem;
-}
-
-.response-step-title {
-  color: #e2e8f0;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.response-step-copy {
-  color: #64748b;
-  font-size: 0.8rem;
-  line-height: 1.5;
-  margin-top: 0.3rem;
-}
-
-.response-step-arrow {
-  display: flex;
-  align-items: center;
-  color: #64748b;
-  padding-right: 0.1rem;
 }
 
 /* ── FAQ ───────────────────────────────────────────────────────────── */
@@ -742,30 +797,29 @@
 
 /* ── Responsive ────────────────────────────────────────────────────── */
 @media (max-width: 991px) {
-  .response-step-arrow { display: none; }
+  .ca-eval-steps { gap: 0.2rem; }
+}
+
+@media (max-width: 768px) {
+  .ca-comparison-grid,
+  .ca-testing-grid,
+  .ca-mistakes-grid,
+  .ca-framework-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
-  .guide-jump-grid,
-  .phishing-layer-grid,
-  .threat-card-grid,
-  .mini-control-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .attack-chain { gap: 0.2rem; }
-  .chain-node { min-width: 55px; }
-  .chain-sub { display: none; }
-  .chain-arrow { padding-top: 0.5rem; font-size: 0.7rem; }
-  .chain-icon-wrap { width: 2rem; height: 2rem; font-size: 0.85rem; }
-
-  .hotspot-3 { left: auto; right: 1rem; top: 9.9rem; }
-  .hotspot-4 { top: 6.2rem; }
+  .guide-jump-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ca-eval-step { min-width: 55px; }
+  .ca-eval-sub { display: none; }
+  .ca-eval-arrow { padding-top: 0.5rem; font-size: 0.7rem; }
+  .ca-eval-icon { width: 2rem; height: 2rem; font-size: 0.85rem; }
+  .ca-policy-header { flex-wrap: wrap; }
+  .ca-policy-icon { display: none; }
 }
 
 @media (max-width: 480px) {
-  .checklist-item-row { flex-wrap: wrap; }
   .guide-cta-card { padding: 1rem; }
-  .red-flag-panel-copy { padding-left: 0; }
-  .red-flag-hotspot { width: 1.5rem; height: 1.5rem; }
+  .checklist-item-row { flex-wrap: wrap; }
 }

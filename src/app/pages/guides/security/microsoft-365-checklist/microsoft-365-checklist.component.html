@@ -1,3 +1,8 @@
+<!-- Reading progress bar -->
+<div class="reading-progress-track">
+  <div id="reading-progress" class="reading-progress-bar"></div>
+</div>
+
 <section class="service-detail-page py-5 guides-security">
   <div class="container py-5">
     <nav class="mb-4 breadcrumb-nav" aria-label="Breadcrumb">
@@ -5,253 +10,1205 @@
         <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
         <li class="breadcrumb-item"><a routerLink="/guides">Guides</a></li>
         <li class="breadcrumb-item"><a routerLink="/guides/security">Security</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Microsoft 365 Checklist</li>
+        <li class="breadcrumb-item active" aria-current="page">Microsoft 365 Security Checklist</li>
       </ol>
     </nav>
 
     <div class="row g-4 align-items-start">
       <div class="col-lg-8">
+
+        <!-- ── INTRO ─────────────────────────────────────────────────── -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5">
-          <h1 class="fw-bold display-6 mb-3">
-            Small Business Cybersecurity: The Complete Checklist & Protection Guide for Microsoft 365
-          </h1>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h1 class="fw-bold display-6 mb-0">
+              Microsoft 365 Security Checklist for Small Businesses (2026)
+            </h1>
+          </div>
           <p class="text-muted lead mb-4">
-            A practical security playbook for Canadian small businesses on Microsoft 365 — built by the managed IT team at CtrlShift IT Services.
+            A technical, actionable checklist for Canadian small businesses running Microsoft 365 Business Standard or Business Premium — built by the managed IT team at CtrlShift IT Services.
           </p>
 
           <div class="border rounded-4 p-3 bg-light mb-4">
             <div class="row g-3">
               <div class="col-md-4">
                 <div class="fw-bold small text-uppercase text-muted">Estimated reading time</div>
-                <div>12 minutes</div>
+                <div>15 minutes</div>
               </div>
               <div class="col-md-8">
                 <div class="fw-bold small text-uppercase text-muted">Who this guide is for</div>
-                <div>
-                  Owners, office managers, and IT decision-makers at Canadian small businesses (5–50 employees) using Microsoft 365 who want to reduce breach risk, meet cyber insurance requirements, and build a defensible security posture.
-                </div>
+                <div>Business owners, office managers, and IT decision-makers at small businesses with 5–50 employees on Microsoft 365 Business Standard or Business Premium.</div>
               </div>
             </div>
             <div class="mt-3 small text-muted">Last reviewed: April 2026</div>
           </div>
 
-          <h2 class="h4 fw-bold mb-3">Why Small Businesses Are the #1 Target for Cyberattacks in Canada</h2>
+          <h2 class="h4 fw-bold mb-3">Why Most Microsoft 365 Tenants Are Misconfigured</h2>
           <p class="text-muted">
-            Small businesses — not enterprises — are now the most-targeted segment in Canada. Roughly 60% of small businesses hit by a serious cyberattack close within six months. The comfortable myth that "we are too small to be a target" no longer holds: attackers use automation to scan the entire internet, and your size does not protect you from a ransomware kit or a credential-stuffing script.
+            Microsoft 365 ships in a permissive default state. Legacy authentication protocols are often still active. Multi-factor authentication is available but not enforced. SharePoint external sharing may be open to anyone with a link. Admin accounts frequently share credentials with daily work accounts. These defaults simplify initial setup — but in a live business tenant they represent real, exploitable gaps.
           </p>
-          <p class="text-muted">
-            Two things have changed the stakes in the last 24 months. First, cyber insurance carriers now require multi-factor authentication, endpoint protection, and documented backups before issuing or paying out on a policy. Second, Microsoft 365 has become the primary attack surface for most SMBs, which means tenant-level protection is no longer optional. This guide walks through the controls that matter most, in the order we deploy them for clients.
+          <p class="text-muted mb-0">
+            Small businesses with 5–50 employees are a primary target precisely because they carry valuable data and are easier to exploit than enterprises. A misconfigured Microsoft 365 tenant is the most common entry point we see in SMB breach cases.
           </p>
 
-          <div class="border rounded-4 p-3 bg-light mt-4 mb-2">
-            <div class="fw-bold mb-1">Not sure where your business stands?</div>
-            <div class="text-muted small mb-3">Get a no-pressure review of your Microsoft 365 tenant, endpoints, and backup posture.</div>
+          <!-- Attack chain diagram -->
+          <div class="attack-chain-wrap mt-4 animate-on-scroll">
+            <div class="attack-chain-label small fw-bold text-muted text-uppercase mb-2">How a typical SMB breach unfolds</div>
+            <div class="attack-chain">
+              <div class="chain-node">
+                <div class="chain-icon-wrap c-red"><i class="bi bi-envelope-exclamation-fill"></i></div>
+                <div class="chain-text">
+                  <div class="fw-bold small">Phishing email</div>
+                  <div class="chain-sub">Delivered to inbox</div>
+                </div>
+              </div>
+              <div class="chain-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="chain-node">
+                <div class="chain-icon-wrap c-orange"><i class="bi bi-key-fill"></i></div>
+                <div class="chain-text">
+                  <div class="fw-bold small">Credential stolen</div>
+                  <div class="chain-sub">Password captured</div>
+                </div>
+              </div>
+              <div class="chain-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="chain-node">
+                <div class="chain-icon-wrap c-orange"><i class="bi bi-door-open-fill"></i></div>
+                <div class="chain-text">
+                  <div class="fw-bold small">Tenant access</div>
+                  <div class="chain-sub">Email &amp; SharePoint</div>
+                </div>
+              </div>
+              <div class="chain-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="chain-node">
+                <div class="chain-icon-wrap c-purple"><i class="bi bi-diagram-3-fill"></i></div>
+                <div class="chain-text">
+                  <div class="fw-bold small">Lateral movement</div>
+                  <div class="chain-sub">Spreads across tenant</div>
+                </div>
+              </div>
+              <div class="chain-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="chain-node">
+                <div class="chain-icon-wrap c-dark"><i class="bi bi-lock-fill"></i></div>
+                <div class="chain-text">
+                  <div class="fw-bold small">Ransomware / BEC</div>
+                  <div class="chain-sub">Encryption or fraud</div>
+                </div>
+              </div>
+            </div>
+            <div class="attack-chain-note small text-muted mt-2">
+              <i class="bi bi-info-circle me-1"></i>Every node in this chain has a control in this checklist that breaks it.
+            </div>
+          </div>
+
+          <div class="border rounded-4 p-3 bg-light mt-4 mb-0">
+            <div class="fw-bold mb-1">Not sure where your tenant stands?</div>
+            <div class="text-muted small mb-3">Get a no-pressure review of your Microsoft 365 configuration, endpoints, and backup posture — typically completed within one business day.</div>
             <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
               Request a Free Security Assessment
             </a>
           </div>
         </div>
 
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="checklist">
-          <h2 class="h4 fw-bold mb-3">The 11-Point Small Business Cybersecurity Checklist</h2>
-          <p class="text-muted">
-            Work through this list in order. Each item links to its detailed section below.
-          </p>
-          <ol class="list-unstyled mb-0">
-            <li class="mb-2 d-flex gap-2">
-              <span class="form-check-label text-muted">☐</span>
-              <a class="text-decoration-none" routerLink="." fragment="mfa">Multi-factor authentication enabled on all Microsoft 365 accounts</a>
-            </li>
-            <li class="mb-2 d-flex gap-2">
-              <span class="form-check-label text-muted">☐</span>
-              <a class="text-decoration-none fw-bold" routerLink="." fragment="identity">Legacy authentication disabled in Microsoft 365</a>
-            </li>
-            <li class="mb-2 d-flex gap-2">
-              <span class="form-check-label text-muted">☐</span>
-              <a class="text-decoration-none" routerLink="." fragment="identity">Conditional access policies restricting risky sign-ins</a>
-            </li>
-            <li class="mb-2 d-flex gap-2">
-              <span class="form-check-label text-muted">☐</span>
-              <a class="text-decoration-none" routerLink="." fragment="phishing">Staff trained to spot phishing emails</a>
-            </li>
-            <li class="mb-2 d-flex gap-2">
-              <span class="form-check-label text-muted">☐</span>
-              <a class="text-decoration-none" routerLink="." fragment="phishing">Anti-phishing policies configured in Microsoft Defender</a>
-            </li>
-            <li class="mb-2 d-flex gap-2">
-              <span class="form-check-label text-muted">☐</span>
-              <a class="text-decoration-none" routerLink="." fragment="endpoint">Endpoint protection on every company device (including BYOD)</a>
-            </li>
-            <li class="mb-2 d-flex gap-2">
-              <span class="form-check-label text-muted">☐</span>
-              <a class="text-decoration-none" routerLink="." fragment="endpoint">Automatic OS and software updates enforced</a>
-            </li>
-            <li class="mb-2 d-flex gap-2">
-              <span class="form-check-label text-muted">☐</span>
-              <a class="text-decoration-none" routerLink="." fragment="identity">Admin accounts separated from daily-use accounts</a>
-            </li>
-            <li class="mb-2 d-flex gap-2">
-              <span class="form-check-label text-muted">☐</span>
-              <a class="text-decoration-none" routerLink="." fragment="backup">Microsoft 365 data backed up with a third-party solution</a>
-            </li>
-            <li class="mb-2 d-flex gap-2">
-              <span class="form-check-label text-muted">☐</span>
-              <a class="text-decoration-none" routerLink="." fragment="ransomware">Incident response plan documented and tested</a>
-            </li>
-            <li class="mb-2 d-flex gap-2">
-              <span class="form-check-label text-muted">☐</span>
-              <a class="text-decoration-none" routerLink="." fragment="next-steps">Quarterly security review scheduled</a>
-            </li>
-          </ol>
-        </div>
-
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="phishing">
-          <h2 class="h4 fw-bold mb-3">How to Protect Your Small Business from Phishing Attacks</h2>
-          <p class="text-muted">
-            Phishing is the single most common way attackers get into a small business — and it is the leading cause of cyber insurance claims. The most common patterns we see are invoice fraud, Microsoft 365 login spoofs that steal session cookies, CEO impersonation, and QR-code phishing that moves the attack to a personal phone (outside your defenses).
-          </p>
-          <p class="text-muted">
-            Defense comes in two layers. At the tenant level, configure SPF, DKIM, and DMARC on your sending domains and enable Microsoft Defender for Office 365 anti-phishing, Safe Links, and Safe Attachments. At the human level, give staff a simple one-click reporting button, run short monthly phishing simulations, and make it socially safe to report a suspicious message — even after clicking it.
-          </p>
-          <ul class="text-muted">
-            <li>Configure SPF, DKIM, and DMARC on every domain you send mail from</li>
-            <li>Enable Defender for Office 365 Safe Links and Safe Attachments tenant-wide</li>
-            <li>Install the Microsoft "Report Message" add-in for all users</li>
-            <li>Run a monthly phishing simulation — frequency beats length</li>
-            <li>Document what to do if an employee clicks a phishing link</li>
-          </ul>
-          <p class="text-muted mb-0 small">
-            Related reading (coming soon): How to Configure DMARC for Your Business Domain · Defender for Office 365 Setup Guide · How to Train Employees to Spot Phishing Emails · What to Do If an Employee Clicks a Phishing Link.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="mfa">
-          <h2 class="h4 fw-bold mb-3">How to Set Up Multi-Factor Authentication (MFA) in Microsoft 365</h2>
-          <p class="text-muted">
-            Passwords alone no longer meet Canadian cyber insurance requirements. MFA — sometimes called 2FA — adds a second check beyond the password, typically a code or push notification from an authenticator app. When enforced tenant-wide, MFA blocks the overwhelming majority of automated account takeover attempts.
-          </p>
-          <p class="text-muted">
-            The safest method is an authenticator app (Microsoft Authenticator or a passkey), followed by app-based codes. SMS and email codes are better than nothing but are vulnerable to SIM swapping and mailbox compromise. The pitfalls we see most often: shared mailboxes and service accounts that slip through enforcement, and break-glass admin accounts that never get tested.
-          </p>
-          <ul class="text-muted">
-            <li>Enforce MFA on every user, not just administrators</li>
-            <li>Prefer Microsoft Authenticator or passkeys over SMS</li>
-            <li>Register at least two break-glass admin accounts with physical security keys</li>
-            <li>Audit service accounts and mail-enabled identities quarterly</li>
-            <li>Record MFA enforcement evidence for your cyber insurance renewal</li>
-          </ul>
-          <p class="text-muted mb-0 small">
-            Related reading (coming soon): How to Enable MFA for All Microsoft 365 Users · Microsoft Authenticator vs. SMS Codes · MFA Requirements for Cyber Insurance in Canada.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="identity">
-          <h2 class="h4 fw-bold mb-3">Identity Protection & Account Takeover Prevention for Microsoft 365</h2>
-          <p class="text-muted">
-            Identity is the new perimeter for Microsoft 365 businesses. Once an attacker owns a valid identity, MFA alone will not always stop them — especially with modern adversary-in-the-middle phishing kits that steal session tokens. Protecting identities means watching how, where, and from what device sign-ins happen.
-          </p>
-          <h3 class="h6 fw-bold mt-4">Legacy authentication risks</h3>
-          <p class="text-muted">
-            Legacy protocols such as IMAP, POP, and basic SMTP auth cannot enforce MFA. Attackers specifically scan for these endpoints because a stolen password alone grants mailbox access. Disabling legacy authentication is one of the highest-impact, lowest-effort wins you can deploy — and insurers are now flagging tenants that leave it on.
-          </p>
-          <h3 class="h6 fw-bold mt-3">Impossible travel and risky sign-ins</h3>
-          <p class="text-muted">
-            Microsoft Entra ID Protection flags sign-ins from geographically impossible locations (Toronto at 9:00 a.m., Lagos at 9:15 a.m.), anonymous IP ranges, and known leaked credentials. The risk signal is only useful if somebody triages it — either your internal IT or a managed provider on a documented runbook.
-          </p>
-          <h3 class="h6 fw-bold mt-3">Session hijacking and token theft</h3>
-          <p class="text-muted">
-            Modern AiTM (adversary-in-the-middle) phishing kits steal authenticated session tokens, bypassing MFA entirely. Defenses include token binding with compliant devices, short session lifetimes for risky sign-ins, and continuous access evaluation. These sit inside conditional access.
-          </p>
-          <h3 class="h6 fw-bold mt-3">Conditional access basics for SMBs</h3>
-          <p class="text-muted">
-            A realistic 5–50 employee Microsoft 365 tenant can get significant protection from a small set of policies: block legacy authentication, require MFA for all users, require compliant or hybrid-joined devices for admin actions, and restrict sign-ins from countries you do not operate in. Start small, monitor impact, and expand.
-          </p>
-          <p class="text-muted mb-0 small">
-            Related reading (coming soon): How to Disable Legacy Authentication in Microsoft 365 · Conditional Access Policies Every Small Business Needs · How to Investigate a Risky Sign-In Alert · Protecting Against Token Theft and AiTM Phishing.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="ransomware">
-          <h2 class="h4 fw-bold mb-3">How to Protect Your Small Business from Ransomware</h2>
-          <p class="text-muted">
-            Ransomware almost always enters an SMB through the same path: a phishing email steals a credential, the attacker moves laterally using that identity, and then deploys encryption across reachable systems. Every stage of that chain can be blocked — which is why layered controls matter more than any single tool.
-          </p>
-          <p class="text-muted">
-            Follow the 3-2-1 backup rule: three copies of your data, on two different media, with one copy offline or in a separate cloud tenant. Combine that with least-privilege access, endpoint detection, and email filtering. In plain language, recovery planning comes down to two numbers: how much data you can afford to lose (RPO) and how long you can afford to be down (RTO). Most SMBs discover those numbers are much smaller than they assumed.
-          </p>
-          <ul class="text-muted">
-            <li>Enforce least-privilege on both users and admin accounts</li>
-            <li>Keep at least one backup copy outside the production cloud tenant</li>
-            <li>Test restores quarterly — an untested backup is not a backup</li>
-            <li>Document who decides what in the first 60 minutes of an incident</li>
-            <li>Confirm your cyber policy position on ransom payment before you need it</li>
-          </ul>
-          <p class="text-muted mb-0 small">
-            Related reading (coming soon): The 3-2-1 Backup Rule Explained · Ransomware Response Plan Template · How to Recover Microsoft 365 Data After a Ransomware Attack.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="endpoint">
-          <h2 class="h4 fw-bold mb-3">Endpoint Security for Small Business Employee Devices</h2>
-          <p class="text-muted">
-            Endpoints means laptops, desktops, phones, and tablets — including personal devices used for work. Built-in Windows Defender is a strong starting point but is often not sufficient for a business facing targeted threats and insurance scrutiny. Microsoft Defender for Business and Intune cover most SMB needs, and managed EDR platforms like Huntress add analyst-led response for environments without a dedicated security team.
-          </p>
-          <p class="text-muted">
-            Remote and hybrid work make endpoint hygiene harder. Enforce disk encryption, automatic OS and software patching, screen-lock timeouts, and the ability to remotely wipe a lost device. Treat BYOD with a written policy that defines what can be accessed, from what device state, and how it is retired.
-          </p>
-          <ul class="text-muted">
-            <li>Deploy endpoint detection and response (EDR), not legacy antivirus alone</li>
-            <li>Enforce disk encryption and automatic updates through Intune or equivalent</li>
-            <li>Standardize a BYOD policy covering access, compliance, and offboarding</li>
-            <li>Maintain the ability to remote-wipe lost or stolen devices</li>
-            <li>Review EDR coverage before your cyber insurance renewal</li>
-          </ul>
-          <p class="text-muted mb-0 small">
-            Pair this guide with our
-            <a routerLink="/security-firewall">managed security and firewall service</a>
-            for hands-on deployment of Huntress EDR, Tailscale zero-trust access, and tenant hardening.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="backup">
-          <h2 class="h4 fw-bold mb-3">Microsoft 365 Backup & Disaster Recovery (The Shared Responsibility Model)</h2>
-          <p class="text-muted">
-            Microsoft protects the platform. You are responsible for your data. That line — the shared responsibility model — is where most small businesses discover an expensive gap. OneDrive sync, SharePoint version history, and the Recycle Bin are not a backup. They are convenience features with short retention windows that do not protect you from ransomware, insider deletion, a departed employee, or tenant misconfiguration.
-          </p>
-          <p class="text-muted">
-            A real backup means an independent, immutable copy of your Exchange, SharePoint, OneDrive, and Teams data — stored outside the production tenant and restorable to a known-good point in time. Pair it with a simple disaster recovery plan that answers: who decides, who communicates, in what order do we restore, and how do we prove it worked afterwards.
-          </p>
-          <ul class="text-muted">
-            <li>Deploy a third-party Microsoft 365 backup with long retention</li>
-            <li>Document a simple DR plan with named owners and communication paths</li>
-            <li>Run one full restore test every quarter — not just spot checks</li>
-            <li>Keep restore evidence on file for cyber insurance claims</li>
-            <li>Treat OneDrive, SharePoint history, and Recycle Bin as recovery convenience only</li>
-          </ul>
-          <p class="text-muted mb-0 small">
-            Related reading (coming soon): Does Microsoft 365 Back Up Your Data? · How to Choose a Microsoft 365 Backup Solution · Disaster Recovery Plan Template for Small Businesses.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4">
-          <div class="border rounded-4 p-3 bg-light">
-            <div class="fw-bold mb-1">Running a small business in the GTA?</div>
-            <div class="text-muted small mb-3">
-              Our managed IT team handles Microsoft 365 security, endpoint protection, and cyber insurance readiness for companies just like yours.
+        <!-- ── SECURE SCORE ───────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="secure-score">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-speedometer2"></i>
             </div>
-            <div class="d-flex gap-3 flex-wrap">
-              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/security-firewall">
-                See How Managed Security Works
-              </a>
-              <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/cyber-insurance-readiness-vaughan">
-                Cyber Insurance Readiness
-              </a>
+            <h2 class="h4 fw-bold mb-0">What Secure Score Should a Small Business Target?</h2>
+          </div>
+          <p class="text-muted">
+            Microsoft Secure Score is a built-in dashboard in the Microsoft 365 Defender portal that measures how well your tenant is configured. It gives you a number — and more usefully — a prioritized list of exactly what to fix next. Access it at <strong>security.microsoft.com → Secure Score</strong>.
+          </p>
+
+          <div class="secure-score-tiers animate-on-scroll mt-3">
+            <div class="score-tier tier-critical">
+              <div class="tier-bar-track"><div class="tier-bar" style="width: 25%"></div></div>
+              <div class="tier-meta">
+                <div class="tier-range fw-bold">Under 30%</div>
+                <div class="tier-label text-danger">High risk — critical controls missing</div>
+              </div>
+              <div class="tier-icon"><i class="bi bi-exclamation-triangle-fill text-danger"></i></div>
+            </div>
+            <div class="score-tier tier-warn">
+              <div class="tier-bar-track"><div class="tier-bar" style="width: 45%"></div></div>
+              <div class="tier-meta">
+                <div class="tier-range fw-bold">30–60%</div>
+                <div class="tier-label text-warning-dark">Typical unmanaged tenant — significant gaps likely</div>
+              </div>
+              <div class="tier-icon"><i class="bi bi-exclamation-circle-fill text-warning"></i></div>
+            </div>
+            <div class="score-tier tier-good">
+              <div class="tier-bar-track"><div class="tier-bar" style="width: 70%"></div></div>
+              <div class="tier-meta">
+                <div class="tier-range fw-bold">60–80%</div>
+                <div class="tier-label text-success-dark">Strong baseline — target range for most SMBs</div>
+              </div>
+              <div class="tier-icon"><i class="bi bi-check-circle-fill text-success"></i></div>
+            </div>
+            <div class="score-tier tier-excellent">
+              <div class="tier-bar-track"><div class="tier-bar" style="width: 90%"></div></div>
+              <div class="tier-meta">
+                <div class="tier-range fw-bold">80%+</div>
+                <div class="tier-label" style="color: #6366f1;">Well-secured — suitable for regulated industries</div>
+              </div>
+              <div class="tier-icon"><i class="bi bi-shield-fill-check" style="color: #6366f1;"></i></div>
+            </div>
+          </div>
+
+          <p class="text-muted small mt-3 mb-0">
+            Review your Secure Score monthly. Use the <strong>Improvement Actions</strong> tab to see a prioritized list — each action shows the point value, implementation difficulty, and exact portal location.
+          </p>
+        </div>
+
+        <!-- ── DEFENSE STACK DIAGRAM ─────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-layers-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Your Defense Stack — Four Protection Layers</h2>
+          </div>
+          <p class="text-muted mb-3">
+            Every control in this checklist belongs to one of four protection layers. No single layer stops everything — all four working together is what creates a defensible posture.
+          </p>
+
+          <div class="defense-stack animate-on-scroll">
+            <div class="defense-layer dl-identity">
+              <div class="dl-icon"><i class="bi bi-person-lock"></i></div>
+              <div class="dl-content">
+                <div class="dl-title">Identity Layer</div>
+                <div class="dl-controls">MFA · Conditional Access · Legacy Auth Block · Admin Protection</div>
+              </div>
+              <div class="dl-badge">Highest impact</div>
+            </div>
+            <div class="defense-layer dl-email">
+              <div class="dl-icon"><i class="bi bi-envelope-shield-fill"></i></div>
+              <div class="dl-content">
+                <div class="dl-title">Email Security Layer</div>
+                <div class="dl-controls">Anti-phishing · Safe Links · Safe Attachments · DKIM/DMARC · Mailbox Audit</div>
+              </div>
+              <div class="dl-badge">Primary attack vector</div>
+            </div>
+            <div class="defense-layer dl-endpoint">
+              <div class="dl-icon"><i class="bi bi-laptop"></i></div>
+              <div class="dl-content">
+                <div class="dl-title">Endpoint Layer</div>
+                <div class="dl-controls">EDR · BitLocker · Intune · Patch Management · BYOD Policy</div>
+              </div>
+              <div class="dl-badge">Stops lateral spread</div>
+            </div>
+            <div class="defense-layer dl-data">
+              <div class="dl-icon"><i class="bi bi-database-check"></i></div>
+              <div class="dl-content">
+                <div class="dl-title">Data &amp; Recovery Layer</div>
+                <div class="dl-controls">Third-party Backup · Audit Logging · Alert Policies · Incident Response</div>
+              </div>
+              <div class="dl-badge">Recovery capability</div>
             </div>
           </div>
         </div>
 
+        <!-- ── INTERACTIVE CHECKLIST ──────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="checklist">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-card-checklist"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">The Microsoft 365 Security Checklist (19 Controls)</h2>
+          </div>
+          <p class="text-muted mb-3">Check items as you complete them — your progress is saved in your browser.</p>
+
+          <!-- Progress bar -->
+          <div class="checklist-progress-wrap mb-4" [class.all-done]="isAllComplete">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="small fw-bold">
+                <ng-container *ngIf="!isAllComplete">
+                  {{ completedCount }} of {{ checklistItems.length }} controls complete
+                </ng-container>
+                <ng-container *ngIf="isAllComplete">
+                  <i class="bi bi-patch-check-fill me-1 text-success"></i> All 19 controls complete — great posture!
+                </ng-container>
+              </span>
+              <span class="small text-muted">{{ completedPercent }}%</span>
+            </div>
+            <div class="checklist-progress-track">
+              <div class="checklist-progress-fill" [style.width.%]="completedPercent"></div>
+            </div>
+            <div class="risk-legend d-flex gap-3 flex-wrap mt-2">
+              <span class="risk-badge risk-critical">CRITICAL</span>
+              <span class="risk-badge risk-high">HIGH</span>
+              <span class="risk-badge risk-medium">MEDIUM</span>
+              <button *ngIf="completedCount > 0" class="btn btn-link p-0 ms-auto small text-muted" (click)="clearProgress()">Reset</button>
+            </div>
+          </div>
+
+          <!-- Checklist items -->
+          <div class="checklist-items">
+            <label
+              *ngFor="let item of checklistItems; let i = index"
+              class="checklist-item-row"
+              [class.is-checked]="checklistChecked[i]">
+              <input
+                type="checkbox"
+                class="checklist-cb"
+                [checked]="checklistChecked[i]"
+                (change)="toggleItem(i)"
+                [attr.aria-label]="item.text">
+              <div class="cb-box">
+                <i class="bi bi-check2 cb-check-icon"></i>
+              </div>
+              <a class="checklist-item-text text-decoration-none" routerLink="." [fragment]="item.fragment">{{ item.text }}</a>
+              <span class="risk-badge ms-auto flex-shrink-0" [ngClass]="'risk-' + item.risk">{{ item.risk | uppercase }}</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ── MFA ────────────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="mfa">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-person-lock"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Multi-Factor Authentication (MFA)</h2>
+          </div>
+
+          <div class="stat-callout animate-on-scroll">
+            <div class="stat-number">99.9%</div>
+            <div class="stat-text">of automated account takeover attacks are blocked by MFA, according to Microsoft telemetry</div>
+          </div>
+
+          <p class="text-muted mt-3">
+            Enforcing MFA across every Microsoft 365 account is the single highest-impact control available to a small business. Passwords alone are routinely stolen through phishing, credential stuffing, and info-stealer malware. MFA blocks the overwhelming majority of automated account takeover attempts — and its absence is the most common reason cyber insurance claims are denied after a breach.
+          </p>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-toggle-on text-primary me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Enforce MFA on all user accounts</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                A stolen password alone accesses email, SharePoint, Teams, and all connected apps without MFA.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                Account takeover, business email compromise, full mailbox access. Insurers frequently deny claims when MFA was not enforced.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Entra admin centre → Identity → Authentication methods. Or enable Security Defaults (Entra → Properties → Manage Security Defaults).
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                All plans. Conditional Access-enforced MFA requires Business Premium or Entra ID P1.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-phone text-primary me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Prefer authenticator apps over SMS codes</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                SMS-based MFA is vulnerable to SIM swapping. Authenticator app codes are generated locally and cannot be intercepted remotely.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                A SIM swap allows an attacker to receive the SMS code and bypass MFA entirely — a documented pattern in Canadian business email compromise cases.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Entra admin centre → Authentication methods → Policies. Enable Microsoft Authenticator, disable SMS sign-in where possible.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                All plans. Microsoft Authenticator is free.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-search text-primary me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Audit service accounts and shared mailboxes for MFA gaps</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Service accounts and shared mailboxes frequently slip through MFA enforcement. Attackers scan specifically for these exclusions.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Entra admin centre → Sign-in logs → Filter by Client App for Basic Auth, IMAP, POP entries. Review any account excluded from Conditional Access scope.
+              </div>
+            </div>
+          </div>
+
+          <p class="text-muted small mt-3 mb-0">
+            Related: <a routerLink="/guides/security/phishing-protection-microsoft-365">Microsoft 365 Phishing Protection Guide</a> · <span class="text-muted">Conditional Access Setup for Small Businesses (coming soon)</span>
+          </p>
+        </div>
+
+        <!-- ── LEGACY AUTH ─────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="legacy-auth">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-ban"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Disable Legacy Authentication</h2>
+          </div>
+
+          <div class="stat-callout stat-callout-danger animate-on-scroll">
+            <div class="stat-number">99%+</div>
+            <div class="stat-text">of password spray attacks against Microsoft 365 exploit legacy authentication protocols, per Microsoft's own telemetry</div>
+          </div>
+
+          <p class="text-muted mt-3">
+            Legacy authentication protocols — IMAP, POP3, basic SMTP auth, and older Exchange ActiveSync — cannot enforce MFA. A stolen password alone grants mailbox access through these protocols regardless of what MFA policies are set elsewhere in the tenant.
+          </p>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-x-circle text-danger me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Block legacy authentication tenant-wide</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Legacy protocols bypass MFA completely. This is the highest-impact, lowest-effort change you can make.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                Password-spray attacks succeed reliably. Your MFA policies offer zero protection through these endpoints.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Entra admin centre → Security → Conditional Access → block "Other clients". Security Defaults (free) block legacy auth automatically.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Security Defaults — all plans, free. Conditional Access — Business Premium or Entra ID P1.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-clipboard2-check text-primary me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Audit for active legacy connections before disabling</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Older printers, accounting software, or third-party integrations may use legacy auth. Disabling without auditing can break these.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Entra admin centre → Sign-in logs → filter by Client App → look for Basic Authentication, IMAP, POP, SMTP entries. Modernize before blocking.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── CONDITIONAL ACCESS ──────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="conditional-access">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-funnel-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Conditional Access Policies</h2>
+          </div>
+          <p class="text-muted">
+            Conditional Access is the policy engine that controls how, from where, and from what devices your team can sign into Microsoft 365. A small set of well-configured policies delivers significant protection beyond Security Defaults alone.
+          </p>
+          <div class="license-note animate-on-scroll">
+            <i class="bi bi-tag-fill me-2"></i>
+            <strong>License required:</strong> Microsoft 365 Business Premium or Entra ID P1. Business Standard users should consider Security Defaults as a free alternative.
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-people-fill text-indigo me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Require MFA for all users</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Applies MFA consistently to every sign-in including new accounts and app connections — no per-user configuration.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Entra admin centre → Protection → Conditional Access → New policy. All users, all cloud apps, grant requiring MFA. Exclude break-glass accounts.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Business Premium or Entra ID P1.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-laptop text-indigo me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Require compliant devices for admin actions</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Admin actions from unmanaged personal devices are high risk. Requiring an Intune-enrolled device adds a hardware-level gate.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Conditional Access → New policy → Admin roles → Grant: Require "Compliant device" or "Hybrid Azure AD joined".
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Business Premium. Intune enrollment required.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-geo-alt-fill text-indigo me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Block sign-ins from countries you don't operate in</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Most automated attacks against SMB tenants originate overseas. Geo-blocking eliminates a large category of opportunistic attacks instantly.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Conditional Access → Named Locations → Create allowed countries list → Block all other locations.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Business Premium or Entra ID P1.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── ADMIN PROTECTION ────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="admin-protection">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-person-badge-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Admin Role Protection</h2>
+          </div>
+          <p class="text-muted">
+            Global administrators have unrestricted access to your entire Microsoft 365 environment — including the ability to reset any password, delete data, remove audit logs, and disable security policies. Compromise of a single global admin account is effectively a complete tenant takeover.
+          </p>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-person-plus-fill text-danger me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Create dedicated admin accounts for admin tasks only</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Using your daily work email for admin tasks means a successful phishing attack simultaneously captures global admin credentials.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                An attacker who compromises your email account immediately has global admin access with no additional steps.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Entra admin centre → Users → New user. Admin accounts should have no mailbox and not be used for daily work.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                All plans.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-usb-symbol text-danger me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Protect global admin accounts with hardware security keys</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Standard MFA (push, TOTP) can be bypassed by adversary-in-the-middle phishing kits. FIDO2 hardware keys are phishing-resistant — they cannot be intercepted remotely.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                AiTM phishing kits routinely bypass push-notification MFA for admin accounts. A hardware key stops this attack class entirely.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Entra admin centre → Security → Authentication methods → FIDO2 security keys. Register at least two keys per admin account.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                All plans for FIDO2 enablement. Conditional Access enforcement requires Business Premium.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-shield-minus text-danger me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Replace Global Admin with scoped roles where possible</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Most IT staff don't need global admin for day-to-day tasks. Limiting roles limits the blast radius of any account compromise.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Entra admin centre → Roles and admins. Replace Global Admin with Exchange Admin, SharePoint Admin, or Helpdesk Admin as appropriate.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── EMAIL SECURITY ─────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="email-security">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-envelope-shield-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Anti-Phishing Policies</h2>
+          </div>
+          <div class="license-note animate-on-scroll">
+            <i class="bi bi-tag-fill me-2"></i>
+            <strong>License required:</strong> Enhanced anti-phishing is part of Defender for Office 365 Plan 1, included in Business Premium. Not available in Business Standard without an add-on.
+          </div>
+          <p class="text-muted mt-3">
+            Phishing is the leading cause of Microsoft 365 account compromise in small businesses. Defender anti-phishing capabilities go well beyond basic spam filtering — but require configuration to be effective. A default tenant has minimal protection. A configured tenant has impersonation detection, mailbox intelligence, and first-contact safety tips active.
+          </p>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-envelope-exclamation text-orange me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Configure anti-phishing policies in Microsoft Defender</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Default policies are conservative. Custom policies enable impersonation protection for your executives and domain, plus spoof detection tuned to your sending patterns.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                CEO impersonation, vendor fraud, and Microsoft login spoofs bypass standard spam filters — they contain no malware, only a convincing sender address.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                security.microsoft.com → Email &amp; collaboration → Policies &amp; rules → Threat policies → Anti-phishing. Enable impersonation protection, set action to Quarantine, enable first-contact safety tips.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Business Premium (Defender for Office 365 Plan 1).
+              </div>
+            </div>
+          </div>
+
+          <p class="text-muted small mt-3 mb-0">
+            Related: <a routerLink="/guides/security/phishing-protection-microsoft-365">Microsoft 365 Phishing Protection Guide</a> — full configuration walkthrough.
+          </p>
+        </div>
+
+        <!-- ── SAFE LINKS & SAFE ATTACHMENTS ─────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="safe-links">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-link-45deg"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Safe Links and Safe Attachments</h2>
+          </div>
+          <p class="text-muted">
+            Safe Links checks URLs at the moment a user clicks — not just at delivery — catching links that turned malicious after reaching the inbox. Safe Attachments detonates suspicious files in an isolated sandbox before delivering them, blocking malware that signature-based scanning misses.
+          </p>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-link-45deg text-orange me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Enable Safe Links for email and Office 365 apps</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Phishing links are often delivered before the malicious redirect activates. Click-time checking closes this gap entirely.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                Time-delayed malicious redirects — a common evasion technique — are not detected without click-time verification.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                security.microsoft.com → Threat policies → Safe Links. Enable for email and Microsoft 365 apps. Enable "Do not allow users to click through to original URL".
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Business Premium (Defender for Office 365 Plan 1).
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-paperclip text-orange me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Enable Safe Attachments for email, SharePoint, OneDrive, and Teams</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Safe Attachments detonates suspicious files in isolation before delivery. Novel malware that evades signature-based AV is caught through behavioral analysis.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                Zero-day malware in email attachments is the most common ransomware delivery vector — passes through signature-based scanning undetected.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                security.microsoft.com → Threat policies → Safe Attachments → Block. Enable for SharePoint, OneDrive, and Teams as well — malicious files shared there bypass email scanning.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Business Premium (Defender for Office 365 Plan 1).
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── DKIM / DMARC ────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="dkim">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-envelope-check-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">DKIM and DMARC Configuration</h2>
+          </div>
+          <p class="text-muted">
+            SPF, DKIM, and DMARC are DNS-level email authentication standards. Together they prove email from your domain is genuine — and instruct receiving servers what to do with messages that fail the check. Without all three, anyone can send convincing spoofed email appearing to come from your domain.
+          </p>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-patch-check-fill text-teal me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Configure DKIM for your domain</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                DKIM cryptographically signs every outbound message. Receiving servers verify the signature, confirming the email originated from your domain and was not altered in transit.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                Spoofed emails appearing to come from your domain pass authentication checks. Your domain becomes usable for phishing campaigns against your own clients.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                security.microsoft.com → Email &amp; collaboration → Policies &amp; rules → Threat policies → Email authentication → DKIM tab. Enable for each custom domain, then add the two CNAME records to your DNS registrar.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                All plans. DKIM signing is a standard Exchange Online feature.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-shield-fill-check text-teal me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Publish and enforce a DMARC policy</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                DMARC tells receiving servers what to do when email fails SPF/DKIM: ignore it (p=none), quarantine it, or reject it. p=reject is the strongest protection.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                Spoofed emails pretending to be from your company are delivered to clients with no authentication warnings. Invoice fraud and BEC attacks exploit domains with no DMARC policy.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Add a DMARC TXT record at your DNS registrar. Use the progression below: start monitoring, then enforce.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                No Microsoft license required — configured at your DNS registrar.
+              </div>
+            </div>
+          </div>
+
+          <!-- DMARC progression visual -->
+          <div class="dmarc-progression animate-on-scroll mt-3">
+            <div class="dmarc-label small text-muted fw-bold text-uppercase mb-2">DMARC rollout progression</div>
+            <div class="dmarc-steps">
+              <div class="dmarc-step step-none">
+                <div class="dmarc-step-icon"><i class="bi bi-eye"></i></div>
+                <div class="dmarc-step-name">p=none</div>
+                <div class="dmarc-step-desc">Monitor only — no action taken. Review reports for 2–4 weeks.</div>
+              </div>
+              <div class="dmarc-connector"><i class="bi bi-arrow-right"></i></div>
+              <div class="dmarc-step step-quarantine">
+                <div class="dmarc-step-icon"><i class="bi bi-folder2"></i></div>
+                <div class="dmarc-step-name">p=quarantine</div>
+                <div class="dmarc-step-desc">Failing messages go to spam. Confirm no legitimate sources are failing.</div>
+              </div>
+              <div class="dmarc-connector"><i class="bi bi-arrow-right"></i></div>
+              <div class="dmarc-step step-reject active">
+                <div class="dmarc-step-icon"><i class="bi bi-shield-fill-x"></i></div>
+                <div class="dmarc-step-name">p=reject</div>
+                <div class="dmarc-step-desc">Spoofed emails are outright rejected. Full protection achieved.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── MAILBOX AUDITING ────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="mailbox-auditing">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-journal-text"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Mailbox Auditing</h2>
+          </div>
+          <p class="text-muted">
+            Mailbox auditing records a log of every action in each user's mailbox — who accessed it, what was read, what was deleted, and whether forwarding rules were added. Without it, a post-breach investigation has nothing to work with.
+          </p>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-check2-square text-indigo me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Verify mailbox auditing is enabled tenant-wide</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Auditing is on by default for accounts created after January 2019 — but older accounts and service accounts may not have it active.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                After a compromise, there are no logs to determine what data was accessed, what was forwarded, or when the attacker first gained entry.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Exchange admin centre → Mailboxes → verify AuditEnabled. PowerShell: <code>Get-EXOMailbox -ResultSize Unlimited | Select-Object UserPrincipalName, AuditEnabled</code>
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                All plans. Exchange Online Audit is included.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-forward-fill text-indigo me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Review all mailboxes for unauthorized forwarding rules</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                After compromise, attackers add inbox rules that silently forward all incoming email to an external address. These persist even after the password is reset.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                Undetected forwarding rules can exfiltrate months of correspondence after the "resolved" breach. This is one of the most common persistence mechanisms we encounter.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Microsoft 365 Defender portal → Explorer → search inbox rules with external forwarding. Review quarterly.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                All plans.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── EXTERNAL SHARING ────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="sharing">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-share-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">External Sharing and Guest Access Controls</h2>
+          </div>
+          <p class="text-muted">
+            By default, Microsoft 365 allows users to share any file with anyone via a link requiring no sign-in. Guest accounts added for contractors often persist long after the engagement ends. These two defaults represent a quiet but significant data exposure risk.
+          </p>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-folder-symlink text-orange me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Restrict SharePoint and OneDrive external sharing</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                "Anyone with the link" sharing = publicly accessible, no authentication, no audit trail, no expiry. A single careless share exposes confidential documents.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Microsoft 365 admin centre → SharePoint admin centre → Policies → Sharing. Set to "New and existing guests" (requires sign-in) or "Only people in your organization".
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                All plans.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-person-dash-fill text-orange me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Review and expire guest accounts quarterly</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Former contractors with active guest accounts have access to Teams channels and SharePoint libraries containing current client data.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                Departed guests are both a data leak risk and an entry point — especially if their personal email accounts are later compromised.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Entra admin centre → External identities → All guests. Review and remove stale accounts quarterly.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Manual review — all plans. Automated access reviews — Business Premium or Entra ID P2.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── MONITORING ──────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="monitoring">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-bell-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Audit Logging and Alert Policies</h2>
+          </div>
+          <p class="text-muted">
+            Unified audit logging captures activity across Exchange, SharePoint, Teams, and Entra ID. Alert policies trigger notifications on high-risk events. Together they are the foundation of any incident detection capability — and increasingly expected by cyber insurers as evidence of monitoring.
+          </p>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-clipboard-data text-teal me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Enable unified audit logging</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Audit logs are the primary evidence source in any incident investigation. Without them, forensic response is blind.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Microsoft Purview compliance portal → Audit → Verify "Recording user and admin activity" is On. Default retention is 90 days; Business Premium extends to 1 year.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                All plans. 1-year retention requires Business Premium or M365 E3.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-bell text-teal me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Configure alert policies for high-risk events</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                Breaches persist for weeks or months in tenants without active alerting. Attackers slowly exfiltrate data through channels that generate no default notifications.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Microsoft 365 Defender portal → Alerts → Alert policies. Create custom policies for: mass file download, mailbox forwarding rule creation, admin role elevation, multiple failed sign-ins.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Default policies — all plans. Custom alert policies — Business Premium or M365 E3.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── PHISHING TRAINING ───────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="phishing-training">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-mortarboard-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Staff Phishing Awareness Training</h2>
+          </div>
+          <p class="text-muted">
+            Technical controls reduce the attack surface — but a convincing phishing email still reaches inboxes. Staff training is the last line of defence. The goal is not to eliminate all clicks; it is to make suspicious emails reportable, normalize asking for help, and ensure staff know what to do in the first 15 minutes after clicking something suspicious.
+          </p>
+          <ul class="text-muted">
+            <li class="mb-1">Run short monthly phishing simulations (Microsoft Attack Simulator, included in Business Premium) — frequency beats length</li>
+            <li class="mb-1">Install the Microsoft "Report Message" Outlook add-in — reporting should be one click</li>
+            <li class="mb-1">Make it explicitly safe to report a click without fear of blame — reported incidents are easier to contain than hidden ones</li>
+            <li class="mb-1">Train staff to recognize: invoice fraud, Microsoft 365 login spoofs, CEO impersonation</li>
+            <li class="mb-0">Document what to do immediately after clicking: who to call, whether to close the browser, whether to shut down the device</li>
+          </ul>
+          <p class="text-muted small mt-3 mb-0">
+            Related: <a routerLink="/guides/security/phishing-protection-microsoft-365">Microsoft 365 Phishing Protection Guide</a>
+          </p>
+        </div>
+
+        <!-- ── ENDPOINT ────────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="endpoint">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Endpoint Security for Business Devices</h2>
+          </div>
+          <p class="text-muted">
+            Endpoints — laptops, desktops, phones, tablets, including personal BYOD devices — are the second primary attack surface alongside email. Built-in Windows Defender provides a baseline but is not sufficient for businesses with remote workers, BYOD devices, or active cyber insurance obligations. Microsoft Defender for Business (included in Business Premium) provides EDR-level protection managed through Intune.
+          </p>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-shield-fill text-primary me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Deploy endpoint detection and response (EDR) on all devices</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                EDR watches device behaviour and detects suspicious patterns. Traditional antivirus only matches known signatures — it misses novel and fileless malware.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Microsoft Defender for Business is included in Business Premium and deploys through Intune. Also available as a standalone SMB product.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Included in Business Premium. Standalone add-on for Business Standard tenants.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-hdd-rack text-primary me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Enforce disk encryption and automatic OS updates via Intune</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                An unencrypted laptop lost or stolen exposes all locally cached files and credentials. Unpatched OS is the primary exploitation target for opportunistic attacks.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Intune (Endpoint Manager) → Devices → Configuration profiles. Enforce BitLocker, require Windows Update for Business, configure update deferral windows.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Intune included in Business Premium.
+              </div>
+            </div>
+          </div>
+
+          <p class="text-muted small mt-3 mb-0">
+            Pair this guide with our <a routerLink="/security-firewall">managed security and firewall service</a> for hands-on EDR deployment and tenant hardening.
+          </p>
+        </div>
+
+        <!-- ── BACKUP ──────────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="backup">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-cloud-arrow-up-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Microsoft 365 Backup — Retention Is Not a Backup</h2>
+          </div>
+
+          <!-- Shared responsibility visual -->
+          <div class="shared-responsibility animate-on-scroll">
+            <div class="sr-col sr-microsoft">
+              <div class="sr-label"><i class="bi bi-microsoft me-1"></i> Microsoft's responsibility</div>
+              <ul class="sr-list">
+                <li>Platform uptime &amp; availability</li>
+                <li>Infrastructure security</li>
+                <li>Application functionality</li>
+                <li>Global data replication</li>
+              </ul>
+            </div>
+            <div class="sr-divider">
+              <div class="sr-divider-line"></div>
+              <div class="sr-divider-badge">You are responsible for</div>
+              <div class="sr-divider-line"></div>
+            </div>
+            <div class="sr-col sr-customer">
+              <div class="sr-label"><i class="bi bi-building me-1"></i> Your responsibility</div>
+              <ul class="sr-list">
+                <li>Emails, files, and Teams data</li>
+                <li>Recovering from ransomware</li>
+                <li>Recovering from admin deletion</li>
+                <li>Departed employee data</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="text-muted mt-3">
+            The Recycle Bin, OneDrive version history, and SharePoint retention policies are convenience recovery features — not backups. They have short windows, can be wiped by a compromised admin account, and do not protect against ransomware encryption.
+          </p>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-database-fill-check text-teal me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Deploy a third-party Microsoft 365 backup solution</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                A real backup is an independent, immutable copy of Exchange, SharePoint, OneDrive, and Teams data — stored outside the production tenant and restorable to any point in time.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Risk if skipped</span>
+                Ransomware encryption of a Microsoft 365 tenant leaves no recovery path beyond Microsoft's short-window retention — which is frequently not enough.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">Where to configure</span>
+                Third-party solutions (Veeam, Acronis, Datto, Dropsuite) integrate via the Graph API and store encrypted backups in a separate cloud tenancy with configurable retention.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">License</span>
+                Not included in any Microsoft 365 plan. Third-party backup is a separate service.
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-item animate-on-scroll">
+            <div class="detail-header">
+              <i class="bi bi-arrow-counterclockwise text-teal me-2"></i>
+              <h3 class="h6 fw-bold mb-0">Test backup restores quarterly and document results</h3>
+            </div>
+            <div class="detail-grid">
+              <div class="detail-field">
+                <span class="detail-label">Why it matters</span>
+                An untested backup is not a backup. Backup software can fail silently, API permissions can expire, and retention policies may not capture what you believe they do.
+              </div>
+              <div class="detail-field">
+                <span class="detail-label">How to test</span>
+                Restore a sample mailbox and a SharePoint library to a test location. Verify completeness and restore time. Document results for your cyber insurance renewal.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── RANSOMWARE ──────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="ransomware">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Ransomware Protection and Incident Response</h2>
+          </div>
+          <p class="text-muted">
+            Ransomware attacks almost always follow the same path: a phishing email compromises a credential, the attacker moves laterally, then deploys encryption. Every stage of that chain is breakable — MFA stops credential-only attacks, endpoint protection detects lateral movement, Safe Attachments blocks malicious payloads, and backup provides the recovery path.
+          </p>
+          <ul class="text-muted">
+            <li class="mb-1">Enforce least-privilege on both user and admin accounts — limit the blast radius of any compromised identity</li>
+            <li class="mb-1">Apply the 3-2-1 rule: three copies of data, two media types, one copy outside the production tenant</li>
+            <li class="mb-1">Test restores quarterly and document results — an untested backup is not a backup</li>
+            <li class="mb-1">Write down who makes decisions in the first 60 minutes of an incident, before you need it</li>
+            <li class="mb-0">Confirm your cyber insurance policy's position on ransom payment in advance</li>
+          </ul>
+        </div>
+
+        <!-- ── COMMON GAPS ─────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="common-gaps">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-bug-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Common Microsoft 365 Security Gaps We Find in Small Business Tenants</h2>
+          </div>
+          <p class="text-muted mb-3">These are the issues we encounter most frequently when auditing a new client's tenant. None require expensive tools to fix — they require configuration and attention.</p>
+
+          <div class="gaps-grid animate-on-scroll">
+            <div class="gap-card">
+              <div class="gap-icon"><i class="bi bi-people-fill"></i></div>
+              <div class="gap-title">Shared admin credentials</div>
+              <div class="gap-desc">Multiple staff using one global admin account. No accountability, no individual audit trail, no clean MFA.</div>
+            </div>
+            <div class="gap-card">
+              <div class="gap-icon"><i class="bi bi-shield-slash"></i></div>
+              <div class="gap-title">MFA gaps on service accounts</div>
+              <div class="gap-desc">MFA enforced for regular users but service accounts and shared mailboxes were excluded. Attackers scan specifically for these exclusions.</div>
+            </div>
+            <div class="gap-card">
+              <div class="gap-icon"><i class="bi bi-plugin"></i></div>
+              <div class="gap-title">Legacy auth still active</div>
+              <div class="gap-desc">An old printer or accounting integration was never modernized. Legacy auth bypasses MFA entirely for those connections.</div>
+            </div>
+            <div class="gap-card">
+              <div class="gap-icon"><i class="bi bi-globe2"></i></div>
+              <div class="gap-title">SharePoint sharing open to anyone</div>
+              <div class="gap-desc">Default sharing settings mean files can be shared with no sign-in required. Confidential docs end up with publicly accessible URLs.</div>
+            </div>
+            <div class="gap-card">
+              <div class="gap-icon"><i class="bi bi-journal-x"></i></div>
+              <div class="gap-title">No mailbox audit review</div>
+              <div class="gap-desc">Auditing was never verified on older accounts. After a compromise, there are no logs to reconstruct what happened.</div>
+            </div>
+            <div class="gap-card">
+              <div class="gap-icon"><i class="bi bi-envelope-dash"></i></div>
+              <div class="gap-title">DKIM and DMARC missing</div>
+              <div class="gap-desc">SPF exists but DKIM and DMARC were never configured. The domain is used in invoice fraud attacks against the company's own clients.</div>
+            </div>
+            <div class="gap-card">
+              <div class="gap-icon"><i class="bi bi-database-slash"></i></div>
+              <div class="gap-title">No third-party backup</div>
+              <div class="gap-desc">The business assumes Microsoft backs up their data. Version history is the assumed recovery tool — until ransomware makes that irrelevant.</div>
+            </div>
+            <div class="gap-card">
+              <div class="gap-icon"><i class="bi bi-person-check-fill"></i></div>
+              <div class="gap-title">Guest accounts never reviewed</div>
+              <div class="gap-desc">Contractors from 12–18 months ago still have active guest access to Teams channels with current client data.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── MID-PAGE CTA ────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4">
+          <div class="border rounded-4 p-3 bg-light">
+            <div class="fw-bold mb-1">Running a small business in the GTA?</div>
+            <div class="text-muted small mb-3">Our managed IT team handles Microsoft 365 security, endpoint protection, and cyber insurance readiness for businesses with 5–50 employees.</div>
+            <div class="d-flex gap-3 flex-wrap">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/security-firewall">See How Managed Security Works</a>
+              <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/cyber-insurance-readiness-vaughan">Cyber Insurance Readiness</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── FAQ ────────────────────────────────────────────────────── -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="faq">
-          <h2 class="h4 fw-bold mb-3">Frequently Asked Questions</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-patch-question-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Frequently Asked Questions</h2>
+          </div>
           <div class="guide-faq-list">
             <details class="guide-faq-item" *ngFor="let item of faqs; let idx = index" [attr.open]="idx === 0 ? '' : null">
               <summary class="guide-faq-button fw-bold">{{ item.q }}</summary>
@@ -260,40 +1217,106 @@
           </div>
         </div>
 
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="next-steps">
-          <h2 class="h4 fw-bold mb-3">Your Next Steps</h2>
+        <!-- ── TENANT REVIEW / CONVERSION ────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="tenant-review">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-clipboard2-check-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Want Us to Review Your Microsoft 365 Tenant Security?</h2>
+          </div>
           <p class="text-muted">
-            Security is ongoing, not a one-time project. The practical path for most 5–50 employee businesses: run the 11-point checklist above, fix the highest-impact gaps first (MFA, legacy authentication, backup, endpoint protection), then schedule a quarterly review so controls do not drift. Treat cyber insurance readiness as the outcome — it is the best external signal that your posture actually works.
+            We offer a structured Microsoft 365 tenant security review for small businesses. It is not a sales call — it is a technical audit of your tenant configuration against the controls in this checklist, delivered as a written report you can act on with or without our ongoing involvement.
           </p>
-          <div class="d-flex gap-3 flex-wrap mt-3">
-            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
-              Get a Free Security Assessment
+
+          <div class="review-includes animate-on-scroll mt-3">
+            <div class="ri-item"><i class="bi bi-check2-circle text-success me-2"></i>MFA enforcement and authentication method audit</div>
+            <div class="ri-item"><i class="bi bi-check2-circle text-success me-2"></i>Legacy authentication and Conditional Access policy review</div>
+            <div class="ri-item"><i class="bi bi-check2-circle text-success me-2"></i>Admin role and least-privilege assessment</div>
+            <div class="ri-item"><i class="bi bi-check2-circle text-success me-2"></i>SPF, DKIM, DMARC check for all sending domains</div>
+            <div class="ri-item"><i class="bi bi-check2-circle text-success me-2"></i>Anti-phishing, Safe Links, Safe Attachments configuration review</div>
+            <div class="ri-item"><i class="bi bi-check2-circle text-success me-2"></i>SharePoint and OneDrive external sharing posture</div>
+            <div class="ri-item"><i class="bi bi-check2-circle text-success me-2"></i>Mailbox forwarding rule check and audit logging verification</div>
+            <div class="ri-item"><i class="bi bi-check2-circle text-success me-2"></i>Backup coverage check and Secure Score baseline</div>
+            <div class="ri-item ri-item-highlight"><i class="bi bi-file-earmark-text text-primary me-2"></i>Written findings report with prioritized remediation steps and licensing notes</div>
+          </div>
+
+          <div class="review-timeline animate-on-scroll mt-4">
+            <div class="rt-step">
+              <div class="rt-num">1</div>
+              <div class="rt-text"><strong>Day 1</strong> — Read-only tenant access granted. Technical review begins.</div>
+            </div>
+            <div class="rt-step">
+              <div class="rt-num">2</div>
+              <div class="rt-text"><strong>Day 2–3</strong> — Written findings report delivered. Gaps ranked by severity.</div>
+            </div>
+            <div class="rt-step">
+              <div class="rt-num">3</div>
+              <div class="rt-text"><strong>Day 4</strong> — Optional 30-minute walkthrough of findings. No configuration changes without your authorization.</div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale me-3" routerLink="/free-security-assessment">
+              Request a Tenant Security Review
             </a>
-            <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/security-firewall">
-              See Managed Security Service
-            </a>
+            <span class="small text-muted">No obligation · Typically completed in 1 business day</span>
           </div>
         </div>
-      </div>
 
+        <!-- ── NEXT STEPS ─────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="next-steps">
+          <h2 class="h4 fw-bold mb-3">Next Steps</h2>
+          <p class="text-muted">
+            Start with the CRITICAL-tagged controls at the top of the checklist — MFA enforcement, legacy authentication blocking, admin account separation, and backup. These deliver the highest impact and are most frequently checked by cyber insurers. Then work through HIGH-rated email security and endpoint controls. Schedule a quarterly Secure Score review to catch drift.
+          </p>
+          <p class="text-muted">
+            Security is a posture, not a one-time project. The practical goal for a 5–50 person business is a documented, maintainable Microsoft 365 security baseline — not perfection.
+          </p>
+          <div class="d-flex gap-3 flex-wrap mt-3">
+            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">Get a Free Security Assessment</a>
+            <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/security-firewall">See Managed Security Service</a>
+          </div>
+        </div>
+
+      </div><!-- /col-lg-8 -->
+
+      <!-- ── SIDEBAR ────────────────────────────────────────────────────── -->
       <div class="col-lg-4">
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 sticky-lg-top" style="top: 1rem;">
           <h3 class="fw-bold mb-3">In this guide</h3>
           <ul class="list-unstyled mb-4">
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="checklist">11-Point Checklist</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="phishing">Phishing Protection</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="mfa">MFA Setup</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="identity">Identity Protection</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="ransomware">Ransomware Protection</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="endpoint">Endpoint Security</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="backup">Backup & DR</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq">FAQ</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="secure-score"><i class="bi bi-speedometer2 me-1 text-muted small"></i>Secure Score Benchmarks</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="checklist"><i class="bi bi-card-checklist me-1 text-muted small"></i>19-Point Checklist</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="mfa"><i class="bi bi-person-lock me-1 text-muted small"></i>MFA Enforcement</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="legacy-auth"><i class="bi bi-ban me-1 text-muted small"></i>Legacy Authentication</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="conditional-access"><i class="bi bi-funnel me-1 text-muted small"></i>Conditional Access</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="admin-protection"><i class="bi bi-person-badge me-1 text-muted small"></i>Admin Role Protection</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="email-security"><i class="bi bi-envelope-shield me-1 text-muted small"></i>Anti-Phishing Policies</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="safe-links"><i class="bi bi-link-45deg me-1 text-muted small"></i>Safe Links &amp; Attachments</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="dkim"><i class="bi bi-envelope-check me-1 text-muted small"></i>DKIM &amp; DMARC</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="mailbox-auditing"><i class="bi bi-journal-text me-1 text-muted small"></i>Mailbox Auditing</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="sharing"><i class="bi bi-share me-1 text-muted small"></i>External Sharing</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="monitoring"><i class="bi bi-bell me-1 text-muted small"></i>Audit Logging &amp; Alerts</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="phishing-training"><i class="bi bi-mortarboard me-1 text-muted small"></i>Phishing Training</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="endpoint"><i class="bi bi-laptop me-1 text-muted small"></i>Endpoint Security</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="backup"><i class="bi bi-cloud-arrow-up me-1 text-muted small"></i>Backup &amp; DR</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="common-gaps"><i class="bi bi-bug me-1 text-muted small"></i>Common Gaps We Find</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq"><i class="bi bi-patch-question me-1 text-muted small"></i>FAQ</a></li>
+            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="tenant-review"><i class="bi bi-clipboard2-check me-1 text-muted small"></i>Request a Tenant Review</a></li>
           </ul>
+
+          <div class="border rounded-4 p-3 bg-light mb-3">
+            <div class="fw-bold mb-2">Related guides</div>
+            <ul class="text-muted small mb-0 ps-3">
+              <li><a routerLink="/guides/security/phishing-protection-microsoft-365">Microsoft 365 Phishing Protection</a></li>
+            </ul>
+          </div>
 
           <div class="border rounded-4 p-3 bg-light mb-3">
             <div class="fw-bold mb-2">Related services</div>
             <ul class="text-muted small mb-0 ps-3">
-              <li><a routerLink="/security-firewall">Managed Security & Firewall</a></li>
+              <li><a routerLink="/security-firewall">Managed Security &amp; Firewall</a></li>
               <li><a routerLink="/microsoft-365">Microsoft 365 Support</a></li>
               <li><a routerLink="/cyber-insurance-readiness-vaughan">Cyber Insurance Readiness</a></li>
               <li><a routerLink="/crisis-recovery">IT Crisis Recovery</a></li>
@@ -303,12 +1326,11 @@
           <div class="border rounded-4 p-3 bg-light">
             <div class="fw-bold mb-1">Talk to a human</div>
             <div class="text-muted small mb-2">Have a question about your Microsoft 365 tenant or cyber insurance renewal? We answer plainly — no quota, no pressure.</div>
-            <a class="btn btn-dark rounded-pill w-100 py-2 fw-bold" routerLink="/" fragment="consultation">
-              Book a Consultation
-            </a>
+            <a class="btn btn-dark rounded-pill w-100 py-2 fw-bold" routerLink="/" fragment="consultation">Book a Consultation</a>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>

@@ -104,6 +104,43 @@
   color: #a5b4fc;
 }
 
+.dropdown-item-header {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: rgba(165, 180, 252, 0.7);
+}
+.dropdown-item-header:hover {
+  color: #a5b4fc;
+}
+
+.dropdown-item-soon {
+  opacity: 0.55;
+  cursor: default;
+  pointer-events: none;
+}
+
+.text-indigo { color: #a5b4fc; }
+
+.nav-badge {
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+.nav-badge-live {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+.nav-badge-soon {
+  background: rgba(148, 163, 184, 0.15);
+  color: rgba(203, 213, 225, 0.7);
+}
+
 @media (max-width: 991.98px) {
   .navbar-collapse {
     padding: 1rem 0;

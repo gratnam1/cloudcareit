@@ -259,8 +259,15 @@ canvas {
 }
 
 .service-detail-page .container {
-  max-width: 1040px;
+  max-width: 1200px;
 }
+
+@media (min-width: 1400px) { .service-detail-page .container { max-width: 1360px; } }
+@media (min-width: 1600px) { .service-detail-page .container { max-width: 1480px; } }
+@media (min-width: 1920px) { .service-detail-page .container { max-width: 1640px; } }
+@media (min-width: 2400px) { .service-detail-page .container { max-width: 1900px; } }
+@media (min-width: 3000px) { .service-detail-page .container { max-width: 2400px; } }
+@media (min-width: 3440px) { .service-detail-page .container { max-width: 2900px; } }
 
 .service-back-link {
   display: inline-flex;

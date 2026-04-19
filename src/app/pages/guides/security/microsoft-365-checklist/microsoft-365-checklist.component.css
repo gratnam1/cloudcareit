@@ -1,13 +1,29 @@
 .breadcrumb-nav .breadcrumb {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
   background: transparent;
   padding: 0;
-  font-size: 0.85rem;
+  margin: 0;
+  font-size: 0.82rem;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.breadcrumb-nav .breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-nav .breadcrumb-item + .breadcrumb-item {
+  padding-left: 0;
 }
 
 .breadcrumb-nav .breadcrumb-item + .breadcrumb-item::before {
   content: "/";
-  color: rgba(255, 255, 255, 0.3);
-  padding: 0 0.4rem;
+  color: rgba(255, 255, 255, 0.25);
+  padding: 0 0.45rem;
+  float: none;
 }
 
 .breadcrumb-nav .breadcrumb-item a {
@@ -21,7 +37,7 @@
 }
 
 .breadcrumb-nav .breadcrumb-item.active {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .guides-security h2 {

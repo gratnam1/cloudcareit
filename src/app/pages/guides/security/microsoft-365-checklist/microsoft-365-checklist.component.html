@@ -52,6 +52,10 @@
           <p class="text-muted mb-0">
             Small businesses with 5–50 employees are a primary target precisely because they carry valuable data and are easier to exploit than enterprises. A misconfigured Microsoft 365 tenant is the most common entry point we see in SMB breach cases.
           </p>
+          <p class="text-muted mt-3 mb-0">
+            This checklist is the anchor guide in our <a routerLink="/guides/security">security hub</a>. Use it as the baseline, then branch into the live
+            <a routerLink="/guides/security/phishing-protection">phishing protection guide</a> and the upcoming deep dives linked throughout the page.
+          </p>
 
           <!-- Attack chain diagram -->
           <div class="attack-chain-wrap mt-4 animate-on-scroll">
@@ -102,14 +106,31 @@
             </div>
           </div>
 
-          <div class="border rounded-4 p-3 bg-light mt-4 mb-0">
-            <div class="fw-bold mb-1">Not sure where your tenant stands?</div>
-            <div class="text-muted small mb-3">Get a no-pressure review of your Microsoft 365 configuration, endpoints, and backup posture — typically completed within one business day.</div>
-            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
-              Request a Free Security Assessment
-            </a>
-          </div>
+          <aside class="guide-cta-card guide-cta-card-primary mt-4 mb-0" aria-labelledby="intro-cta-title">
+            <div class="guide-cta-eyebrow">Free Security Assessment</div>
+            <h2 class="guide-cta-title h5 fw-bold mb-2" id="intro-cta-title">Not sure where your tenant stands?</h2>
+            <p class="guide-cta-copy mb-0">
+              Get a no-pressure review of your Microsoft 365 configuration, endpoints, and backup posture — typically completed within one business day.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+            </div>
+          </aside>
         </div>
+
+        <nav class="bg-white rounded-4 shadow-sm p-4 mt-4 d-lg-none" aria-labelledby="quick-jump-title">
+          <h2 class="h6 fw-bold mb-3" id="quick-jump-title">Jump to the sections that matter most</h2>
+          <div class="guide-jump-grid">
+            <a class="guide-jump-link" routerLink="." fragment="checklist">Checklist</a>
+            <a class="guide-jump-link" routerLink="." fragment="mfa">MFA</a>
+            <a class="guide-jump-link" routerLink="." fragment="conditional-access">Conditional Access</a>
+            <a class="guide-jump-link" routerLink="." fragment="email-security">Email Security</a>
+            <a class="guide-jump-link" routerLink="." fragment="backup">Backup &amp; Recovery</a>
+            <a class="guide-jump-link" routerLink="." fragment="faq">FAQ</a>
+          </div>
+        </nav>
 
         <!-- ── SECURE SCORE ───────────────────────────────────────────── -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="secure-score">
@@ -185,7 +206,7 @@
               <div class="dl-badge">Highest impact</div>
             </div>
             <div class="defense-layer dl-email">
-              <div class="dl-icon"><i class="bi bi-envelope-shield-fill"></i></div>
+              <div class="dl-icon"><i class="bi bi-envelope-check-fill"></i></div>
               <div class="dl-content">
                 <div class="dl-title">Email Security Layer</div>
                 <div class="dl-controls">Anti-phishing · Safe Links · Safe Attachments · DKIM/DMARC · Mailbox Audit</div>
@@ -351,9 +372,30 @@
             </div>
           </div>
 
-          <p class="text-muted small mt-3 mb-0">
-            Related: <a routerLink="/guides/security/phishing-protection-microsoft-365">Microsoft 365 Phishing Protection Guide</a> · <span class="text-muted">Conditional Access Setup for Small Businesses (coming soon)</span>
-          </p>
+          <aside class="guide-related-block mt-4" aria-labelledby="mfa-deep-dive-title">
+            <div class="guide-related-eyebrow">Deep dive next</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="mfa-deep-dive-title">What to pair with MFA rollout</h3>
+            <ul class="guide-related-list mb-0">
+              <li><a routerLink="/guides/security/phishing-protection">Phishing &amp; Email Threat Defense</a> for the controls that catch token theft and impersonation.</li>
+              <li><a routerLink="/guides/security" fragment="mfa-rollout">Rolling Out MFA Without Breaking Things</a> on the security hub for shared mailboxes, service accounts, and exception planning.</li>
+            </ul>
+          </aside>
+
+          <aside class="guide-cta-card mt-4" aria-labelledby="mfa-cta-title">
+            <div class="guide-cta-eyebrow">Need help now?</div>
+            <h3 class="guide-cta-title h5 fw-bold mb-2" id="mfa-cta-title">Want MFA enforced without lockouts or noisy Monday-morning support calls?</h3>
+            <p class="guide-cta-copy mb-0">
+              We can audit your current sign-in methods, flag shared mailbox and legacy app risks, and stage the rollout cleanly.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+              <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/microsoft-365">
+                See Microsoft 365 Support
+              </a>
+            </div>
+          </aside>
         </div>
 
         <!-- ── LEGACY AUTH ─────────────────────────────────────────────── -->
@@ -495,6 +537,31 @@
               </div>
             </div>
           </div>
+
+          <aside class="guide-related-block mt-4" aria-labelledby="conditional-deep-dive-title">
+            <div class="guide-related-eyebrow">Related guide</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="conditional-deep-dive-title">Where this section fits in the wider security plan</h3>
+            <ul class="guide-related-list mb-0">
+              <li><a routerLink="/guides/security" fragment="conditional-access-policies">Conditional Access Policies for Small Business</a> on the security hub covers report-only testing, break-glass exclusions, and policy order.</li>
+              <li><a routerLink="/guides/security">Browse the security hub</a> if you want the companion guides for MFA rollout, endpoint hardening, and backup planning.</li>
+            </ul>
+          </aside>
+
+          <aside class="guide-cta-card mt-4" aria-labelledby="conditional-cta-title">
+            <div class="guide-cta-eyebrow">Business Premium planning</div>
+            <h3 class="guide-cta-title h5 fw-bold mb-2" id="conditional-cta-title">Need help designing Conditional Access without locking out admins or line-of-business apps?</h3>
+            <p class="guide-cta-copy mb-0">
+              We can map the required policies, test them in report-only mode, and line them up with cyber insurance requirements before you enforce.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+              <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/cyber-insurance-readiness-vaughan">
+                See Cyber Insurance Readiness
+              </a>
+            </div>
+          </aside>
         </div>
 
         <!-- ── ADMIN PROTECTION ────────────────────────────────────────── -->
@@ -581,7 +648,7 @@
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="email-security">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="section-icon-badge badge-orange">
-              <i class="bi bi-envelope-shield-fill"></i>
+              <i class="bi bi-envelope-check-fill"></i>
             </div>
             <h2 class="h4 fw-bold mb-0">Anti-Phishing Policies</h2>
           </div>
@@ -618,9 +685,13 @@
             </div>
           </div>
 
-          <p class="text-muted small mt-3 mb-0">
-            Related: <a routerLink="/guides/security/phishing-protection-microsoft-365">Microsoft 365 Phishing Protection Guide</a> — full configuration walkthrough.
-          </p>
+          <aside class="guide-related-block mt-4" aria-labelledby="email-deep-dive-title">
+            <div class="guide-related-eyebrow">Related guide</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="email-deep-dive-title">Continue with the email-security walkthrough</h3>
+            <ul class="guide-related-list mb-0">
+              <li><a routerLink="/guides/security/phishing-protection">Phishing &amp; Email Threat Defense</a> goes deeper on impersonation protection, Defender presets, Safe Links, and staff reporting workflow.</li>
+            </ul>
+          </aside>
         </div>
 
         <!-- ── SAFE LINKS & SAFE ATTACHMENTS ─────────────────────────── -->
@@ -968,9 +1039,13 @@
             <li class="mb-1">Train staff to recognize: invoice fraud, Microsoft 365 login spoofs, CEO impersonation</li>
             <li class="mb-0">Document what to do immediately after clicking: who to call, whether to close the browser, whether to shut down the device</li>
           </ul>
-          <p class="text-muted small mt-3 mb-0">
-            Related: <a routerLink="/guides/security/phishing-protection-microsoft-365">Microsoft 365 Phishing Protection Guide</a>
-          </p>
+          <aside class="guide-related-block mt-4" aria-labelledby="training-deep-dive-title">
+            <div class="guide-related-eyebrow">Related guide</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="training-deep-dive-title">Pair awareness training with the technical controls</h3>
+            <ul class="guide-related-list mb-0">
+              <li><a routerLink="/guides/security/phishing-protection">Phishing &amp; Email Threat Defense</a> covers the tenant-side policies that support the user training process.</li>
+            </ul>
+          </aside>
         </div>
 
         <!-- ── ENDPOINT ────────────────────────────────────────────────── -->
@@ -1113,6 +1188,31 @@
               </div>
             </div>
           </div>
+
+          <aside class="guide-related-block mt-4" aria-labelledby="backup-deep-dive-title">
+            <div class="guide-related-eyebrow">Deep dive next</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="backup-deep-dive-title">Use this section as the baseline for recovery planning</h3>
+            <ul class="guide-related-list mb-0">
+              <li><a routerLink="/guides/security" fragment="microsoft-365-backup">Microsoft 365 Backup: What You Actually Need</a> on the security hub expands on vendor selection, retention, and restore testing.</li>
+              <li><a routerLink="/guides/security" fragment="ransomware-recovery">Ransomware Response Playbook</a> will cover the first-hour decisions after a real incident.</li>
+            </ul>
+          </aside>
+
+          <aside class="guide-cta-card mt-4" aria-labelledby="backup-cta-title">
+            <div class="guide-cta-eyebrow">Recovery readiness</div>
+            <h3 class="guide-cta-title h5 fw-bold mb-2" id="backup-cta-title">If your tenant was encrypted today, would you have a tested restore path?</h3>
+            <p class="guide-cta-copy mb-0">
+              We can review your current retention setup, confirm whether third-party backup exists, and document the restore process before you need it.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+              <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/crisis-recovery">
+                See Crisis Recovery Support
+              </a>
+            </div>
+          </aside>
         </div>
 
         <!-- ── RANSOMWARE ──────────────────────────────────────────────── -->
@@ -1133,6 +1233,15 @@
             <li class="mb-1">Write down who makes decisions in the first 60 minutes of an incident, before you need it</li>
             <li class="mb-0">Confirm your cyber insurance policy's position on ransom payment in advance</li>
           </ul>
+
+          <aside class="guide-related-block mt-4" aria-labelledby="incident-deep-dive-title">
+            <div class="guide-related-eyebrow">Related guide</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="incident-deep-dive-title">Where to go next for incident planning</h3>
+            <ul class="guide-related-list mb-0">
+              <li><a routerLink="/guides/security" fragment="ransomware-recovery">Ransomware Response Playbook</a> is the upcoming security-hub guide for first-hour containment and evidence preservation.</li>
+              <li><a routerLink="/crisis-recovery">IT Crisis Recovery</a> covers the live service side if you need hands-on recovery support.</li>
+            </ul>
+          </aside>
         </div>
 
         <!-- ── COMMON GAPS ─────────────────────────────────────────────── -->
@@ -1189,15 +1298,29 @@
           </div>
         </div>
 
-        <!-- ── MID-PAGE CTA ────────────────────────────────────────────── -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4">
-          <div class="border rounded-4 p-3 bg-light">
-            <div class="fw-bold mb-1">Running a small business in the GTA?</div>
-            <div class="text-muted small mb-3">Our managed IT team handles Microsoft 365 security, endpoint protection, and cyber insurance readiness for businesses with 5–50 employees.</div>
-            <div class="d-flex gap-3 flex-wrap">
-              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/security-firewall">See How Managed Security Works</a>
-              <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/cyber-insurance-readiness-vaughan">Cyber Insurance Readiness</a>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-signpost-split-fill"></i>
             </div>
+            <h2 class="h4 fw-bold mb-0">More From the Security Hub</h2>
+          </div>
+          <div class="guide-related-grid">
+            <a class="guide-related-card" routerLink="/guides/security">
+              <span class="guide-related-card-eyebrow">Hub</span>
+              <span class="guide-related-card-title">Browse all security guides</span>
+              <span class="guide-related-card-copy">See the live Microsoft 365 checklist, phishing guide, and the next deep dives we are publishing.</span>
+            </a>
+            <a class="guide-related-card" routerLink="/guides/security/phishing-protection">
+              <span class="guide-related-card-eyebrow">Live guide</span>
+              <span class="guide-related-card-title">Phishing &amp; Email Threat Defense</span>
+              <span class="guide-related-card-copy">The detailed Defender, Safe Links, Safe Attachments, and reporting workflow companion to this checklist.</span>
+            </a>
+            <a class="guide-related-card" routerLink="/guides/security" fragment="endpoint-hardening">
+              <span class="guide-related-card-eyebrow">Coming next</span>
+              <span class="guide-related-card-title">Endpoint Hardening</span>
+              <span class="guide-related-card-copy">The security hub roadmap also includes the Windows 11 and macOS hardening guide referenced from this checklist.</span>
+            </a>
           </div>
         </div>
 
@@ -1258,7 +1381,7 @@
 
           <div class="mt-4">
             <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale me-3" routerLink="/free-security-assessment">
-              Request a Tenant Security Review
+              Request a Free Security Assessment
             </a>
             <span class="small text-muted">No obligation · Typically completed in 1 business day</span>
           </div>
@@ -1273,10 +1396,21 @@
           <p class="text-muted">
             Security is a posture, not a one-time project. The practical goal for a 5–50 person business is a documented, maintainable Microsoft 365 security baseline — not perfection.
           </p>
-          <div class="d-flex gap-3 flex-wrap mt-3">
-            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">Get a Free Security Assessment</a>
-            <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/security-firewall">See Managed Security Service</a>
-          </div>
+          <aside class="guide-cta-card mt-4" aria-labelledby="next-steps-cta-title">
+            <div class="guide-cta-eyebrow">Next step</div>
+            <h3 class="guide-cta-title h5 fw-bold mb-2" id="next-steps-cta-title">Want the checklist turned into a prioritized action plan for your tenant?</h3>
+            <p class="guide-cta-copy mb-0">
+              We can map your current controls against this guide, highlight the fastest risk reductions, and tell you what can wait.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+              <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/security-firewall">
+                See Managed Security Service
+              </a>
+            </div>
+          </aside>
         </div>
 
       </div><!-- /col-lg-8 -->
@@ -1285,31 +1419,36 @@
       <div class="col-lg-4">
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 sticky-lg-top" style="top: 1rem;">
           <h3 class="fw-bold mb-3">In this guide</h3>
-          <ul class="list-unstyled mb-4">
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="secure-score"><i class="bi bi-speedometer2 me-1 text-muted small"></i>Secure Score Benchmarks</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="checklist"><i class="bi bi-card-checklist me-1 text-muted small"></i>19-Point Checklist</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="mfa"><i class="bi bi-person-lock me-1 text-muted small"></i>MFA Enforcement</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="legacy-auth"><i class="bi bi-ban me-1 text-muted small"></i>Legacy Authentication</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="conditional-access"><i class="bi bi-funnel me-1 text-muted small"></i>Conditional Access</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="admin-protection"><i class="bi bi-person-badge me-1 text-muted small"></i>Admin Role Protection</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="email-security"><i class="bi bi-envelope-shield me-1 text-muted small"></i>Anti-Phishing Policies</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="safe-links"><i class="bi bi-link-45deg me-1 text-muted small"></i>Safe Links &amp; Attachments</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="dkim"><i class="bi bi-envelope-check me-1 text-muted small"></i>DKIM &amp; DMARC</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="mailbox-auditing"><i class="bi bi-journal-text me-1 text-muted small"></i>Mailbox Auditing</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="sharing"><i class="bi bi-share me-1 text-muted small"></i>External Sharing</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="monitoring"><i class="bi bi-bell me-1 text-muted small"></i>Audit Logging &amp; Alerts</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="phishing-training"><i class="bi bi-mortarboard me-1 text-muted small"></i>Phishing Training</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="endpoint"><i class="bi bi-laptop me-1 text-muted small"></i>Endpoint Security</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="backup"><i class="bi bi-cloud-arrow-up me-1 text-muted small"></i>Backup &amp; DR</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="common-gaps"><i class="bi bi-bug me-1 text-muted small"></i>Common Gaps We Find</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq"><i class="bi bi-patch-question me-1 text-muted small"></i>FAQ</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="tenant-review"><i class="bi bi-clipboard2-check me-1 text-muted small"></i>Request a Tenant Review</a></li>
-          </ul>
+          <nav aria-label="On-page navigation">
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="secure-score"><i class="bi bi-speedometer2 me-1 text-muted small"></i>Secure Score Benchmarks</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="checklist"><i class="bi bi-card-checklist me-1 text-muted small"></i>19-Point Checklist</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="mfa"><i class="bi bi-person-lock me-1 text-muted small"></i>MFA Enforcement</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="legacy-auth"><i class="bi bi-ban me-1 text-muted small"></i>Legacy Authentication</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="conditional-access"><i class="bi bi-funnel me-1 text-muted small"></i>Conditional Access</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="admin-protection"><i class="bi bi-person-badge me-1 text-muted small"></i>Admin Role Protection</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="email-security"><i class="bi bi-envelope-shield me-1 text-muted small"></i>Anti-Phishing Policies</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="safe-links"><i class="bi bi-link-45deg me-1 text-muted small"></i>Safe Links &amp; Attachments</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="dkim"><i class="bi bi-envelope-check me-1 text-muted small"></i>DKIM &amp; DMARC</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="mailbox-auditing"><i class="bi bi-journal-text me-1 text-muted small"></i>Mailbox Auditing</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="sharing"><i class="bi bi-share me-1 text-muted small"></i>External Sharing</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="monitoring"><i class="bi bi-bell me-1 text-muted small"></i>Audit Logging &amp; Alerts</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="phishing-training"><i class="bi bi-mortarboard me-1 text-muted small"></i>Phishing Training</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="endpoint"><i class="bi bi-laptop me-1 text-muted small"></i>Endpoint Security</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="backup"><i class="bi bi-cloud-arrow-up me-1 text-muted small"></i>Backup &amp; DR</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="common-gaps"><i class="bi bi-bug me-1 text-muted small"></i>Common Gaps We Find</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq"><i class="bi bi-patch-question me-1 text-muted small"></i>FAQ</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="tenant-review"><i class="bi bi-clipboard2-check me-1 text-muted small"></i>Request a Tenant Review</a></li>
+            </ul>
+          </nav>
 
           <div class="border rounded-4 p-3 bg-light mb-3">
             <div class="fw-bold mb-2">Related guides</div>
             <ul class="text-muted small mb-0 ps-3">
-              <li><a routerLink="/guides/security/phishing-protection-microsoft-365">Microsoft 365 Phishing Protection</a></li>
+              <li><a routerLink="/guides/security">Security hub overview</a></li>
+              <li><a routerLink="/guides/security/phishing-protection">Phishing &amp; Email Threat Defense</a></li>
+              <li><a routerLink="/guides/security" fragment="mfa-rollout">Rolling Out MFA Without Breaking Things</a> <span class="text-muted">(security hub, in progress)</span></li>
+              <li><a routerLink="/guides/security" fragment="microsoft-365-backup">Microsoft 365 Backup: What You Actually Need</a> <span class="text-muted">(security hub, in progress)</span></li>
             </ul>
           </div>
 

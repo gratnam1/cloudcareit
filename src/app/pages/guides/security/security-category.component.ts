@@ -20,7 +20,7 @@ const HOWTOS: ReadonlyArray<SecurityHowTo> = [
     slug: 'microsoft-365-checklist',
     title: 'Microsoft 365 Security Checklist',
     summary:
-      'The complete 11-point Microsoft 365 hardening checklist for Canadian small businesses — MFA, conditional access, legacy auth, phishing, endpoints, backup, and incident response.',
+      'The complete 19-control Microsoft 365 hardening checklist for Canadian small businesses — MFA, Conditional Access, legacy auth, phishing defense, endpoints, backup, and incident response.',
     icon: 'bi-microsoft',
     available: true
   },

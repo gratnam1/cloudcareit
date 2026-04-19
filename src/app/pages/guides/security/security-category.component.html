@@ -26,6 +26,7 @@
         <a
           *ngIf="h.available"
           [routerLink]="['/guides', 'security', h.slug]"
+          [attr.id]="h.slug"
           class="guide-card guide-card-available"
           [attr.aria-label]="h.title + ' how-to — available now'"
         >
@@ -42,6 +43,7 @@
 
         <div
           *ngIf="!h.available"
+          [attr.id]="h.slug"
           class="guide-card guide-card-soon"
           [attr.aria-label]="h.title + ' how-to — coming soon'"
         >

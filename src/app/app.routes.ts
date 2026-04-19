@@ -490,6 +490,12 @@ export const routes: Routes = [
 
   // Guides (topic-cluster pillar pages)
   {
+    path: 'guides',
+    loadComponent: () =>
+      import('./pages/guides/guides-hub.component').then((m) => m.GuidesHubComponent),
+    title: 'IT Guides & Knowledge Base | CtrlShift IT Services'
+  },
+  {
     path: 'guides/security',
     loadComponent: () =>
       import('./pages/guides/security/guides-security.component').then(

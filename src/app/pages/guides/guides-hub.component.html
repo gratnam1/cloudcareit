@@ -1,0 +1,65 @@
+<section class="service-detail-page py-5 guides-hub">
+  <div class="container" style="max-width: 1120px;">
+    <nav class="guide-breadcrumb mb-4" aria-label="Breadcrumb">
+      <ol class="guide-breadcrumb-list">
+        <li><a routerLink="/">Home</a></li>
+        <li aria-hidden="true" class="guide-breadcrumb-sep">/</li>
+        <li aria-current="page"><span class="guide-breadcrumb-current">Guides</span></li>
+      </ol>
+    </nav>
+
+    <header class="mb-5">
+      <h1 class="fw-bold mb-3" style="font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.15;">
+        IT Guides &amp; Knowledge Base
+      </h1>
+      <p class="lead text-secondary mb-0" style="max-width: 56rem;">
+        Practical, opinionated guides for Canadian small businesses — written by the managed IT team at
+        CtrlShift IT Services. Start with security; the rest are in progress and will land here as each
+        guide reaches the depth we want to publish under our name.
+      </p>
+    </header>
+
+    <div class="guides-hub-grid">
+      <ng-container *ngFor="let cat of categories">
+        <a
+          *ngIf="cat.available"
+          [routerLink]="['/guides', cat.slug]"
+          class="guide-card guide-card-available"
+          [attr.aria-label]="cat.title + ' guide — available now'"
+        >
+          <div class="guide-card-top">
+            <span class="guide-card-icon" aria-hidden="true"><i class="bi" [ngClass]="cat.icon"></i></span>
+            <span class="guide-card-status guide-card-status-live">Live</span>
+          </div>
+          <h2 class="guide-card-title">{{ cat.title }}</h2>
+          <p class="guide-card-summary">{{ cat.summary }}</p>
+          <span class="guide-card-cta">
+            Read guide <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+          </span>
+        </a>
+
+        <div
+          *ngIf="!cat.available"
+          class="guide-card guide-card-soon"
+          [attr.aria-label]="cat.title + ' guide — coming soon'"
+        >
+          <div class="guide-card-top">
+            <span class="guide-card-icon" aria-hidden="true"><i class="bi" [ngClass]="cat.icon"></i></span>
+            <span class="guide-card-status guide-card-status-soon">Soon</span>
+          </div>
+          <h2 class="guide-card-title">{{ cat.title }}</h2>
+          <p class="guide-card-summary">{{ cat.summary }}</p>
+          <span class="guide-card-cta guide-card-cta-muted">In progress</span>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="mt-5 pt-4 border-top border-secondary-subtle">
+      <p class="text-secondary mb-0" style="max-width: 56rem;">
+        Want a specific guide prioritized? We publish based on what our managed clients actually ask for —
+        <a routerLink="/it-assessment">book a free IT assessment</a> and we will fold your question into the
+        next one.
+      </p>
+    </div>
+  </div>
+</section>

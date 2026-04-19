@@ -252,11 +252,11 @@
 
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="faq">
           <h2 class="h4 fw-bold mb-3">Frequently Asked Questions</h2>
-          <div class="accordion-like">
-            <div *ngFor="let item of faqs" class="border-bottom py-3">
-              <h3 class="h6 fw-bold mb-2">{{ item.q }}</h3>
-              <p class="text-muted mb-0">{{ item.a }}</p>
-            </div>
+          <div class="guide-faq-list">
+            <details class="guide-faq-item" *ngFor="let item of faqs; let idx = index" [attr.open]="idx === 0 ? '' : null">
+              <summary class="guide-faq-button fw-bold">{{ item.q }}</summary>
+              <div class="guide-faq-content text-muted">{{ item.a }}</div>
+            </details>
           </div>
         </div>
 

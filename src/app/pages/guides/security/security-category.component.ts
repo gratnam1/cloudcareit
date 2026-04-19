@@ -30,7 +30,7 @@ const HOWTOS: ReadonlyArray<SecurityHowTo> = [
     summary:
       'How to configure Microsoft Defender anti-phishing, safe links, and impersonation protection — plus a small-team awareness training cadence that actually sticks.',
     icon: 'bi-envelope-exclamation',
-    available: false
+    available: true
   },
   {
     slug: 'mfa-rollout',

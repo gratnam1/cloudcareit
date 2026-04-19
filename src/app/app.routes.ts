@@ -511,6 +511,14 @@ export const routes: Routes = [
       ),
     title: 'Microsoft 365 Security Checklist for Small Businesses (2026) | CtrlShift IT Services'
   },
+  {
+    path: 'guides/security/phishing-protection',
+    loadComponent: () =>
+      import('./pages/guides/security/phishing-protection/phishing-protection.component').then(
+        (m) => m.PhishingProtectionComponent
+      ),
+    title: 'How to Protect Microsoft 365 Accounts From Phishing Attacks | CtrlShift IT Services'
+  },
 
   // About page
   {

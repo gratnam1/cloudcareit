@@ -1,11 +1,40 @@
-import { Component, OnDestroy, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnDestroy, AfterViewInit, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../../../shared/seo/seo.service';
 
 const BASE_URL = 'https://ctrlshiftit.ca';
 const PAGE_PATH = '/guides/security/microsoft-365-checklist';
 const PAGE_URL = `${BASE_URL}${PAGE_PATH}`;
+const STORAGE_KEY = 'm365-checklist-v2';
+
+export interface ChecklistItem {
+  text: string;
+  risk: 'critical' | 'high' | 'medium';
+  fragment: string;
+}
+
+const CHECKLIST_ITEMS: ReadonlyArray<ChecklistItem> = [
+  { text: 'Multi-factor authentication enforced on all accounts',                        risk: 'critical', fragment: 'mfa' },
+  { text: 'Legacy authentication protocols disabled',                                    risk: 'critical', fragment: 'legacy-auth' },
+  { text: 'Conditional Access policies configured',                                      risk: 'critical', fragment: 'conditional-access' },
+  { text: 'Dedicated admin accounts separated from daily-use accounts',                  risk: 'critical', fragment: 'admin-protection' },
+  { text: 'Global admin accounts protected with phishing-resistant MFA',                 risk: 'critical', fragment: 'admin-protection' },
+  { text: 'Mailbox auditing enabled on all mailboxes',                                   risk: 'high',     fragment: 'mailbox-auditing' },
+  { text: 'Anti-phishing policies configured in Microsoft Defender',                     risk: 'high',     fragment: 'email-security' },
+  { text: 'Safe Links and Safe Attachments enabled tenant-wide',                         risk: 'high',     fragment: 'safe-links' },
+  { text: 'DKIM configured on all sending domains',                                      risk: 'high',     fragment: 'dkim' },
+  { text: 'DMARC policy published and enforced',                                         risk: 'high',     fragment: 'dkim' },
+  { text: 'External sharing controls reviewed in SharePoint and OneDrive',               risk: 'high',     fragment: 'sharing' },
+  { text: 'Guest access reviewed and restricted to necessary users only',                risk: 'medium',   fragment: 'sharing' },
+  { text: 'Unified audit logging enabled',                                               risk: 'medium',   fragment: 'monitoring' },
+  { text: 'Alert policies configured for high-risk events',                              risk: 'medium',   fragment: 'monitoring' },
+  { text: 'Staff trained to identify and report phishing attempts',                      risk: 'high',     fragment: 'phishing-training' },
+  { text: 'Endpoint detection and response deployed on every company device',            risk: 'critical', fragment: 'endpoint' },
+  { text: 'Microsoft 365 data backed up with a third-party solution',                   risk: 'critical', fragment: 'backup' },
+  { text: 'Incident response plan documented and tested',                                risk: 'high',     fragment: 'ransomware' },
+  { text: 'Microsoft Secure Score reviewed and tracked quarterly',                       risk: 'medium',   fragment: 'secure-score' },
+];
 
 const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   {
@@ -38,7 +67,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: 'Do we really need MFA if we use strong passwords?',
-    a: 'Yes. Strong passwords are routinely stolen through phishing, credential stuffing attacks, and info-stealer malware that captures keystrokes or browser-saved credentials. MFA blocks the overwhelming majority of automated account takeover attempts even after a password is compromised. It is now considered a baseline control by Canadian cyber insurers and regulators, not a premium add-on.'
+    a: 'Yes. Strong passwords are routinely stolen through phishing, credential stuffing, and info-stealer malware that captures keystrokes or browser-saved credentials. MFA blocks the overwhelming majority of automated account takeover attempts even after a password is compromised. It is now considered a baseline control by Canadian cyber insurers and regulators, not a premium add-on.'
   },
   {
     q: 'What is the difference between antivirus and endpoint detection and response (EDR)?',
@@ -58,28 +87,6 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   }
 ];
 
-const CHECKLIST: ReadonlyArray<string> = [
-  'Multi-factor authentication enforced on all accounts',
-  'Legacy authentication protocols disabled',
-  'Conditional Access policies configured',
-  'Dedicated admin accounts separated from daily-use accounts',
-  'Global admin accounts protected with phishing-resistant MFA',
-  'Mailbox auditing enabled on all mailboxes',
-  'Anti-phishing policies configured in Microsoft Defender',
-  'Safe Links and Safe Attachments enabled tenant-wide',
-  'DKIM configured on all sending domains',
-  'DMARC policy published and enforced',
-  'External sharing controls reviewed in SharePoint and OneDrive',
-  'Guest access reviewed and restricted to necessary users only',
-  'Unified audit logging enabled',
-  'Alert policies configured for high-risk events',
-  'Staff trained to identify and report phishing attempts',
-  'Endpoint detection and response deployed on every company device',
-  'Microsoft 365 data backed up with a third-party solution',
-  'Incident response plan documented and tested',
-  'Microsoft Secure Score reviewed and tracked quarterly'
-];
-
 @Component({
   standalone: true,
   selector: 'app-microsoft-365-checklist',
@@ -87,16 +94,109 @@ const CHECKLIST: ReadonlyArray<string> = [
   templateUrl: './microsoft-365-checklist.component.html',
   styleUrls: ['./microsoft-365-checklist.component.css']
 })
-export class MicrosoftSecurityChecklistComponent implements OnDestroy {
+export class MicrosoftSecurityChecklistComponent implements OnDestroy, AfterViewInit {
   private seo = inject(SeoService);
+  private platformId = inject(PLATFORM_ID);
 
   readonly faqs = FAQS;
-  readonly checklist = CHECKLIST;
+  readonly checklistItems = CHECKLIST_ITEMS;
+  checklistChecked: boolean[] = new Array(CHECKLIST_ITEMS.length).fill(false);
+
+  private scrollHandler?: () => void;
+  private observer?: IntersectionObserver;
 
   private readonly ARTICLE_SCHEMA_ID = 'guide-security-m365-checklist-article';
   private readonly FAQ_SCHEMA_ID = 'guide-security-m365-checklist-faq';
   private readonly HOWTO_SCHEMA_ID = 'guide-security-m365-checklist-howto';
   private readonly BREADCRUMB_SCHEMA_ID = 'guide-security-m365-checklist-breadcrumb';
+
+  get completedCount(): number {
+    return this.checklistChecked.filter(Boolean).length;
+  }
+
+  get completedPercent(): number {
+    return Math.round((this.completedCount / CHECKLIST_ITEMS.length) * 100);
+  }
+
+  get isAllComplete(): boolean {
+    return this.completedCount === CHECKLIST_ITEMS.length;
+  }
+
+  toggleItem(i: number): void {
+    this.checklistChecked = [...this.checklistChecked];
+    this.checklistChecked[i] = !this.checklistChecked[i];
+    this.saveProgress();
+  }
+
+  clearProgress(): void {
+    this.checklistChecked = new Array(CHECKLIST_ITEMS.length).fill(false);
+    if (isPlatformBrowser(this.platformId)) {
+      try { localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+    }
+  }
+
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    this.loadProgress();
+    this.initReadingProgress();
+    this.initScrollAnimations();
+  }
+
+  private loadProgress(): void {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const arr = JSON.parse(saved) as boolean[];
+        if (Array.isArray(arr) && arr.length === CHECKLIST_ITEMS.length) {
+          this.checklistChecked = arr;
+        }
+      }
+    } catch { /* ignore */ }
+  }
+
+  private saveProgress(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(this.checklistChecked)); } catch { /* ignore */ }
+  }
+
+  private initReadingProgress(): void {
+    const bar = document.getElementById('reading-progress');
+    if (!bar) return;
+    this.scrollHandler = () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      const pct = total > 0 ? Math.min(100, (scrolled / total) * 100) : 0;
+      bar.style.width = `${pct}%`;
+    };
+    window.addEventListener('scroll', this.scrollHandler, { passive: true });
+  }
+
+  private initScrollAnimations(): void {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            this.observer?.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.animate-on-scroll').forEach(el => this.observer!.observe(el));
+  }
+
+  ngOnDestroy(): void {
+    this.seo.removeStructuredData(this.ARTICLE_SCHEMA_ID);
+    this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
+    this.seo.removeStructuredData(this.HOWTO_SCHEMA_ID);
+    this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.scrollHandler) window.removeEventListener('scroll', this.scrollHandler);
+      this.observer?.disconnect();
+    }
+  }
 
   constructor() {
     const title = 'Microsoft 365 Security Checklist for Small Businesses (2026) | CtrlShift IT Services';
@@ -120,28 +220,14 @@ export class MicrosoftSecurityChecklistComponent implements OnDestroy {
       inLanguage: 'en-CA',
       datePublished: '2026-04-18',
       dateModified: '2026-04-19',
-      author: {
-        '@type': 'Organization',
-        name: 'CtrlShift IT Services',
-        url: BASE_URL
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'CtrlShift IT Services',
-        url: BASE_URL
-      },
+      author: { '@type': 'Organization', name: 'CtrlShift IT Services', url: BASE_URL },
+      publisher: { '@type': 'Organization', name: 'CtrlShift IT Services', url: BASE_URL },
       mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
       about: [
-        'Microsoft 365 security checklist',
-        'Microsoft 365 tenant security',
-        'Microsoft 365 security best practices',
-        'Microsoft 365 Business Premium security setup',
-        'Multi-factor authentication',
-        'Conditional Access',
-        'DKIM DMARC configuration',
-        'Microsoft Secure Score',
-        'Ransomware protection',
-        'Backup and disaster recovery',
+        'Microsoft 365 security checklist', 'Microsoft 365 tenant security',
+        'Microsoft 365 security best practices', 'Microsoft 365 Business Premium security setup',
+        'Multi-factor authentication', 'Conditional Access', 'DKIM DMARC configuration',
+        'Microsoft Secure Score', 'Ransomware protection', 'Backup and disaster recovery',
         'Cyber insurance readiness'
       ]
     });
@@ -151,8 +237,7 @@ export class MicrosoftSecurityChecklistComponent implements OnDestroy {
       '@type': 'FAQPage',
       '@id': `${PAGE_URL}#faq`,
       mainEntity: FAQS.map(({ q, a }) => ({
-        '@type': 'Question',
-        name: q,
+        '@type': 'Question', name: q,
         acceptedAnswer: { '@type': 'Answer', text: a }
       }))
     });
@@ -161,14 +246,10 @@ export class MicrosoftSecurityChecklistComponent implements OnDestroy {
       '@context': 'https://schema.org',
       '@type': 'HowTo',
       name: 'Microsoft 365 Security Checklist for Small Businesses',
-      description:
-        'A 19-point Microsoft 365 security checklist for small businesses running Business Standard or Business Premium, covering MFA, Conditional Access, legacy authentication, admin protection, DKIM/DMARC, Safe Links, audit logging, endpoint protection, and backup.',
+      description: 'A 19-point Microsoft 365 security checklist for small businesses running Business Standard or Business Premium.',
       totalTime: 'PT4H',
-      step: CHECKLIST.map((text, index) => ({
-        '@type': 'HowToStep',
-        position: index + 1,
-        name: text,
-        text
+      step: CHECKLIST_ITEMS.map((item, index) => ({
+        '@type': 'HowToStep', position: index + 1, name: item.text, text: item.text
       }))
     });
 
@@ -182,12 +263,5 @@ export class MicrosoftSecurityChecklistComponent implements OnDestroy {
         { '@type': 'ListItem', position: 4, name: 'Microsoft 365 Security Checklist', item: PAGE_URL }
       ]
     });
-  }
-
-  ngOnDestroy(): void {
-    this.seo.removeStructuredData(this.ARTICLE_SCHEMA_ID);
-    this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
-    this.seo.removeStructuredData(this.HOWTO_SCHEMA_ID);
-    this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
   }
 }

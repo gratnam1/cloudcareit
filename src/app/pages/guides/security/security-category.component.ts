@@ -34,41 +34,41 @@ const HOWTOS: ReadonlyArray<SecurityHowTo> = [
   },
   {
     slug: 'mfa-rollout',
-    title: 'Multi-Factor Authentication Rollout',
+    title: 'Rolling Out MFA Without Breaking Things',
     summary:
-      'A staged MFA rollout plan for a small business on Microsoft 365 — methods, exceptions, break-glass accounts, and how to avoid the support tickets that derail the project.',
+      'How to stage a Microsoft 365 MFA deployment across a real small business — handling shared mailboxes, service accounts, BYOD exceptions, break-glass accounts, and the user communication that keeps the help desk quiet.',
     icon: 'bi-shield-check',
     available: false
   },
   {
-    slug: 'ransomware-recovery',
-    title: 'Ransomware Recovery Playbook',
+    slug: 'conditional-access-policies',
+    title: 'Conditional Access Policies for Small Business',
     summary:
-      'Step-by-step containment, eradication, and recovery for a small business hit by ransomware — including the decisions that determine whether you pay, restore, or rebuild.',
-    icon: 'bi-bug',
+      'How to design, test, and enforce Conditional Access in a Microsoft 365 Business Premium tenant — named locations, device compliance, sign-in risk, and the break-glass exclusions that keep you from locking yourself out.',
+    icon: 'bi-sliders',
     available: false
   },
   {
-    slug: 'cyber-insurance-readiness',
-    title: 'Cyber Insurance Readiness',
+    slug: 'ransomware-recovery',
+    title: 'Ransomware Response Playbook',
     summary:
-      'A practical checklist mapped to the controls Canadian cyber insurers actually verify — with the evidence you need to keep on hand for renewal and claims.',
-    icon: 'bi-file-earmark-shield',
+      'What to do in the first 60 minutes after a ransomware hit — containment steps, who decides what, how to preserve evidence for your insurer, and the pay-vs-restore decision most businesses are not prepared to make.',
+    icon: 'bi-bug',
     available: false
   },
   {
     slug: 'endpoint-hardening',
     title: 'Endpoint Hardening (Windows 11 & macOS)',
     summary:
-      'Baseline configuration, EDR deployment, BitLocker / FileVault, patching cadence, and admin separation for the laptops and desktops on your network.',
+      'Device-level security for small business laptops — BitLocker and FileVault encryption, EDR deployment, auto-patching enforcement, local admin removal, and a BYOD policy that holds up at insurance renewal.',
     icon: 'bi-laptop',
     available: false
   },
   {
     slug: 'microsoft-365-backup',
-    title: 'Microsoft 365 Backup & DR Strategy',
+    title: 'Microsoft 365 Backup: What You Actually Need',
     summary:
-      'Why native retention is not a backup, how to evaluate third-party backup for Exchange / SharePoint / OneDrive / Teams, and what a tested restore actually looks like.',
+      'Why OneDrive sync and the Recycle Bin are not a backup, how to evaluate third-party solutions for Exchange, SharePoint, OneDrive, and Teams, and what a verified restore test looks like in practice.',
     icon: 'bi-cloud-arrow-down',
     available: false
   }

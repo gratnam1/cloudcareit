@@ -1,11 +1,31 @@
-import { Component, OnDestroy, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AfterViewInit, Component, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../../../shared/seo/seo.service';
 
 const BASE_URL = 'https://ctrlshiftit.ca';
 const PAGE_PATH = '/guides/security/phishing-protection';
 const PAGE_URL = `${BASE_URL}${PAGE_PATH}`;
+const STORAGE_KEY = 'phishing-guide-checklist-v1';
+
+interface PhishingChecklistItem {
+  readonly text: string;
+  readonly fragment: string;
+}
+
+interface VisualCard {
+  readonly title: string;
+  readonly body: string;
+  readonly icon: string;
+  readonly accentClass: string;
+}
+
+interface RedFlag {
+  readonly id: string;
+  readonly label: string;
+  readonly title: string;
+  readonly explanation: string;
+}
 
 const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   {
@@ -42,17 +62,129 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   }
 ];
 
-const PREVENTION_STEPS: ReadonlyArray<{ text: string; fragment: string }> = [
-  { text: 'Enforce MFA for all users — Authenticator app preferred over SMS', fragment: 'mfa' },
-  { text: 'Block legacy authentication protocols (IMAP, POP, basic SMTP auth)', fragment: 'legacy-auth' },
-  { text: 'Enable Microsoft Defender anti-phishing policy with impersonation protection', fragment: 'defender' },
-  { text: 'Enable Safe Links for email and Office documents', fragment: 'safe-links' },
-  { text: 'Enable Safe Attachments with Dynamic Delivery', fragment: 'safe-attachments' },
-  { text: 'Configure SPF, DKIM, and DMARC on every domain you send mail from', fragment: 'domain-auth' },
-  { text: 'Set up Conditional Access baseline policies (requires Business Premium)', fragment: 'conditional-access' },
-  { text: 'Install the Microsoft Report Message add-in for all users', fragment: 'awareness' },
-  { text: 'Run quarterly phishing simulations using Attack Simulator', fragment: 'awareness' },
-  { text: 'Document and practise your response plan for a successful phishing click', fragment: 'incident-response' }
+const PHISHING_CHECKLIST_ITEMS: ReadonlyArray<PhishingChecklistItem> = [
+  { text: 'MFA enabled for every user and admin account', fragment: 'mfa' },
+  { text: 'Legacy authentication blocked tenant-wide', fragment: 'legacy-auth' },
+  { text: 'Safe Links enabled for email and Microsoft 365 apps', fragment: 'safe-links' },
+  { text: 'Safe Attachments enabled with SharePoint, OneDrive, and Teams coverage', fragment: 'safe-attachments' },
+  { text: 'User reporting workflow documented with the Report Message add-in', fragment: 'awareness' },
+  { text: 'SPF, DKIM, and DMARC checked on every sending domain', fragment: 'domain-auth' },
+  { text: 'Staff phishing awareness training completed and refreshed regularly', fragment: 'awareness' },
+  { text: 'Incident response steps documented for suspicious clicks and mailbox compromise', fragment: 'incident-response' }
+];
+
+const PROTECTION_LAYERS: ReadonlyArray<VisualCard> = [
+  {
+    title: 'User Awareness',
+    body: 'Short monthly training, one-click reporting, and a no-blame culture reduce how often suspicious emails become incidents.',
+    icon: 'bi-mortarboard-fill',
+    accentClass: 'layer-awareness'
+  },
+  {
+    title: 'Identity Protection',
+    body: 'MFA, Conditional Access, and blocking legacy auth stop most credential-only phishing from turning into mailbox access.',
+    icon: 'bi-person-lock',
+    accentClass: 'layer-identity'
+  },
+  {
+    title: 'Email Security Controls',
+    body: 'Anti-phishing, Safe Links, Safe Attachments, SPF, DKIM, and DMARC reduce spoofing, malicious links, and attachment risk.',
+    icon: 'bi-envelope-check-fill',
+    accentClass: 'layer-email'
+  },
+  {
+    title: 'Response & Recovery',
+    body: 'Fast reporting, session revocation, mailbox review, and a practiced response process shorten dwell time and limit fraud.',
+    icon: 'bi-arrow-repeat',
+    accentClass: 'layer-response'
+  }
+];
+
+const THREAT_CARDS: ReadonlyArray<VisualCard> = [
+  {
+    title: 'Credential Phishing',
+    body: 'Fake login prompts steal passwords or session cookies and are still the most common entry point into Microsoft 365 tenants.',
+    icon: 'bi-key-fill',
+    accentClass: 'threat-credential'
+  },
+  {
+    title: 'Business Email Compromise',
+    body: 'Attackers quietly monitor real mailboxes, learn approval flows, and redirect payments or payroll without deploying malware.',
+    icon: 'bi-cash-coin',
+    accentClass: 'threat-bec'
+  },
+  {
+    title: 'Malicious Attachments',
+    body: 'Weaponized invoices, resumes, and “shared documents” deliver malware or lure users into enabling risky macros.',
+    icon: 'bi-file-earmark-zip-fill',
+    accentClass: 'threat-attachment'
+  },
+  {
+    title: 'Fake Microsoft 365 Login Pages',
+    body: 'Lookalike Microsoft sign-in pages use urgency, branding, and MFA prompts to make the phishing flow feel legitimate.',
+    icon: 'bi-window-stack',
+    accentClass: 'threat-login'
+  }
+];
+
+const RED_FLAGS: ReadonlyArray<RedFlag> = [
+  {
+    id: 'sender',
+    label: '1',
+    title: 'Suspicious sender address',
+    explanation: 'The display name looks normal, but the actual sender domain does not match Microsoft or your known vendor domain.'
+  },
+  {
+    id: 'urgency',
+    label: '2',
+    title: 'Urgency and account-threat language',
+    explanation: '“Immediate action required” and “mailbox deactivation” language is designed to override caution and push a fast click.'
+  },
+  {
+    id: 'link',
+    label: '3',
+    title: 'Login link that does not match the real destination',
+    explanation: 'Phishing emails hide suspicious destinations behind reassuring button text. Safe Links helps, but users still need to pause before clicking.'
+  },
+  {
+    id: 'request',
+    label: '4',
+    title: 'Unexpected credential request',
+    explanation: 'Microsoft almost never asks users to re-verify credentials from a cold email. Unexpected login prompts should always be treated cautiously.'
+  }
+];
+
+const RESPONSE_STEPS: ReadonlyArray<{ title: string; body: string; icon: string }> = [
+  {
+    title: 'Suspicious email reported',
+    body: 'User flags the message through the Report Message add-in or directly to IT.',
+    icon: 'bi-flag-fill'
+  },
+  {
+    title: 'Assess impact',
+    body: 'Confirm whether the user only received the message, clicked it, entered credentials, or approved MFA.',
+    icon: 'bi-search'
+  },
+  {
+    title: 'Isolate account if needed',
+    body: 'If compromise is possible, disable sign-in or isolate the device while triage begins.',
+    icon: 'bi-shield-lock-fill'
+  },
+  {
+    title: 'Reset password and revoke sessions',
+    body: 'Rotate credentials, revoke active sessions, and force fresh authentication.',
+    icon: 'bi-arrow-repeat'
+  },
+  {
+    title: 'Review mailbox rules and sign-in logs',
+    body: 'Look for forwarding rules, OAuth grants, unfamiliar IPs, and suspicious app activity.',
+    icon: 'bi-journal-text'
+  },
+  {
+    title: 'Communicate next steps',
+    body: 'Tell leadership and affected staff what happened, what changed, and what to watch for next.',
+    icon: 'bi-chat-left-text-fill'
+  }
 ];
 
 @Component({
@@ -62,11 +194,21 @@ const PREVENTION_STEPS: ReadonlyArray<{ text: string; fragment: string }> = [
   templateUrl: './phishing-protection.component.html',
   styleUrls: ['./phishing-protection.component.css']
 })
-export class PhishingProtectionComponent implements OnDestroy {
+export class PhishingProtectionComponent implements OnDestroy, AfterViewInit {
   private seo = inject(SeoService);
+  private platformId = inject(PLATFORM_ID);
 
   readonly faqs = FAQS;
-  readonly preventionSteps = PREVENTION_STEPS;
+  readonly phishingChecklistItems = PHISHING_CHECKLIST_ITEMS;
+  readonly protectionLayers = PROTECTION_LAYERS;
+  readonly threatCards = THREAT_CARDS;
+  readonly redFlags = RED_FLAGS;
+  readonly responseSteps = RESPONSE_STEPS;
+  checklistChecked: boolean[] = new Array(PHISHING_CHECKLIST_ITEMS.length).fill(false);
+  activeRedFlagId: string | null = RED_FLAGS[0]?.id ?? null;
+
+  private scrollHandler?: () => void;
+  private observer?: IntersectionObserver;
 
   private readonly ARTICLE_SCHEMA_ID = 'guide-security-phishing-article';
   private readonly FAQ_SCHEMA_ID = 'guide-security-phishing-faq';
@@ -135,9 +277,9 @@ export class PhishingProtectionComponent implements OnDestroy {
       '@type': 'HowTo',
       name: 'How to Protect Microsoft 365 Accounts From Phishing Attacks',
       description:
-        'A 10-step phishing protection checklist for Canadian small businesses on Microsoft 365, covering Defender anti-phishing, MFA, Safe Links, Safe Attachments, SPF/DKIM/DMARC, and legacy authentication blocking.',
+        'A practical phishing protection checklist for Canadian small businesses on Microsoft 365, covering Defender anti-phishing, MFA, Safe Links, Safe Attachments, SPF/DKIM/DMARC, and legacy authentication blocking.',
       totalTime: 'PT3H',
-      step: PREVENTION_STEPS.map(({ text }, index) => ({
+      step: PHISHING_CHECKLIST_ITEMS.map(({ text }, index) => ({
         '@type': 'HowToStep',
         position: index + 1,
         name: text,
@@ -162,10 +304,94 @@ export class PhishingProtectionComponent implements OnDestroy {
     });
   }
 
+  get completedCount(): number {
+    return this.checklistChecked.filter(Boolean).length;
+  }
+
+  get completedPercent(): number {
+    return Math.round((this.completedCount / PHISHING_CHECKLIST_ITEMS.length) * 100);
+  }
+
+  get isAllComplete(): boolean {
+    return this.completedCount === PHISHING_CHECKLIST_ITEMS.length;
+  }
+
+  toggleChecklistItem(index: number): void {
+    this.checklistChecked = [...this.checklistChecked];
+    this.checklistChecked[index] = !this.checklistChecked[index];
+    this.saveProgress();
+  }
+
+  clearChecklistProgress(): void {
+    this.checklistChecked = new Array(PHISHING_CHECKLIST_ITEMS.length).fill(false);
+    if (isPlatformBrowser(this.platformId)) {
+      try { localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+    }
+  }
+
+  toggleRedFlag(flagId: string): void {
+    this.activeRedFlagId = this.activeRedFlagId === flagId ? null : flagId;
+  }
+
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    this.loadProgress();
+    this.initReadingProgress();
+    this.initScrollAnimations();
+  }
+
+  private loadProgress(): void {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return;
+      const arr = JSON.parse(saved) as boolean[];
+      if (Array.isArray(arr) && arr.length === PHISHING_CHECKLIST_ITEMS.length) {
+        this.checklistChecked = arr;
+      }
+    } catch { /* ignore */ }
+  }
+
+  private saveProgress(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(this.checklistChecked)); } catch { /* ignore */ }
+  }
+
+  private initReadingProgress(): void {
+    const bar = document.getElementById('reading-progress');
+    if (!bar) return;
+    this.scrollHandler = () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      const pct = total > 0 ? Math.min(100, (scrolled / total) * 100) : 0;
+      bar.style.width = `${pct}%`;
+    };
+    window.addEventListener('scroll', this.scrollHandler, { passive: true });
+  }
+
+  private initScrollAnimations(): void {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            this.observer?.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => this.observer?.observe(el));
+  }
+
   ngOnDestroy(): void {
     this.seo.removeStructuredData(this.ARTICLE_SCHEMA_ID);
     this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
     this.seo.removeStructuredData(this.HOWTO_SCHEMA_ID);
     this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.scrollHandler) window.removeEventListener('scroll', this.scrollHandler);
+      this.observer?.disconnect();
+    }
   }
 }

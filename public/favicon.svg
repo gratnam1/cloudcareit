@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect x="10" y="10" width="80" height="80" rx="20" fill="#1e293b" stroke="#6366f1" stroke-width="8"/>
-  <path d="M50 25 L30 55 H42 V75 H58 V55 H70 L50 25 Z" fill="#6366f1"/>
+  <!-- Outer dark layer -->
+  <rect x="1" y="1" width="98" height="98" rx="24" fill="#1a0a2e"/>
+  <!-- Purple border ring -->
+  <rect x="4" y="4" width="92" height="92" rx="22" fill="#7c3aed"/>
+  <!-- Inner dark background -->
+  <rect x="15" y="15" width="70" height="70" rx="14" fill="#0d0820"/>
+  <!-- Up arrow (triangle head + stem) -->
+  <path d="M50 24 L31 47 H42 V72 H58 V47 H69 Z" fill="#7c3aed"/>
 </svg>

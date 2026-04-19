@@ -1,4 +1,8 @@
-<section class="service-detail-page py-5 guides-security">
+<div class="reading-progress-track">
+  <div id="reading-progress" class="reading-progress-bar"></div>
+</div>
+
+<section class="service-detail-page py-5 guides-security phishing-guide">
   <div class="container py-5">
     <nav class="mb-4 breadcrumb-nav" aria-label="Breadcrumb">
       <ol class="breadcrumb mb-0">
@@ -12,11 +16,15 @@
     <div class="row g-4 align-items-start">
       <div class="col-lg-8">
 
-        <!-- Header -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5">
-          <h1 class="fw-bold display-6 mb-3">
-            How to Protect Microsoft 365 Accounts From Phishing Attacks
-          </h1>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-envelope-exclamation-fill"></i>
+            </div>
+            <h1 class="fw-bold display-6 mb-0">
+              How to Protect Microsoft 365 Accounts From Phishing Attacks
+            </h1>
+          </div>
           <p class="text-muted lead mb-4">
             A practical step-by-step guide for Canadian small businesses using Microsoft 365 Business Standard or Premium — written by the managed IT team at CtrlShift IT Services.
           </p>
@@ -41,34 +49,236 @@
           <p class="text-muted">
             Most small business breaches do not start with a sophisticated zero-day exploit or a brute-force attack against your firewall. They start with one employee clicking one convincing email. Phishing is the leading cause of Microsoft 365 account takeovers — and a compromised M365 account is not just a lost inbox. It is access to SharePoint, OneDrive, Teams, and every integration your business has connected to that identity.
           </p>
-          <p class="text-muted">
-            The good news: Microsoft 365 includes most of the controls you need. The problem is that almost none of them are configured by default. This guide walks through every meaningful protection layer, in the order we deploy them for clients — starting with the highest-impact changes you can make today.
+          <p class="text-muted mb-0">
+            This guide stays focused on phishing prevention and response. For the wider Microsoft 365 posture — endpoint security, backup, and admin protection — branch into the
+            <a routerLink="/guides/security/microsoft-365-checklist">Microsoft 365 Security Checklist</a>.
           </p>
 
-          <div class="border rounded-4 p-3 bg-light mt-4">
-            <div class="fw-bold mb-1">Not sure where your tenant stands?</div>
-            <div class="text-muted small mb-3">Get a plain-language review of your Microsoft 365 security posture — no sales pitch, no jargon.</div>
-            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
-              Request a Free Security Assessment
-            </a>
+          <div class="attack-chain-wrap mt-4 animate-on-scroll">
+            <div class="attack-chain-label small fw-bold text-muted text-uppercase mb-2">How a phishing-led SMB incident usually unfolds</div>
+            <div class="attack-chain">
+              <div class="chain-node">
+                <div class="chain-icon-wrap c-red"><i class="bi bi-envelope-fill"></i></div>
+                <div class="chain-text">
+                  <div class="fw-bold small">Phishing email</div>
+                  <div class="chain-sub">Lands in inbox</div>
+                </div>
+              </div>
+              <div class="chain-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="chain-node">
+                <div class="chain-icon-wrap c-orange"><i class="bi bi-cursor-fill"></i></div>
+                <div class="chain-text">
+                  <div class="fw-bold small">User clicks</div>
+                  <div class="chain-sub">Link or attachment opened</div>
+                </div>
+              </div>
+              <div class="chain-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="chain-node">
+                <div class="chain-icon-wrap c-orange"><i class="bi bi-key-fill"></i></div>
+                <div class="chain-text">
+                  <div class="fw-bold small">Credentials captured</div>
+                  <div class="chain-sub">Password or token stolen</div>
+                </div>
+              </div>
+              <div class="chain-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="chain-node">
+                <div class="chain-icon-wrap c-purple"><i class="bi bi-envelope-open-fill"></i></div>
+                <div class="chain-text">
+                  <div class="fw-bold small">Tenant access</div>
+                  <div class="chain-sub">Mailbox or SharePoint reached</div>
+                </div>
+              </div>
+              <div class="chain-arrow"><i class="bi bi-arrow-right"></i></div>
+              <div class="chain-node">
+                <div class="chain-icon-wrap c-dark"><i class="bi bi-exclamation-octagon-fill"></i></div>
+                <div class="chain-text">
+                  <div class="fw-bold small">Fraud or disruption</div>
+                  <div class="chain-sub">BEC, data theft, ransomware</div>
+                </div>
+              </div>
+            </div>
+            <div class="attack-chain-note small text-muted mt-2">
+              <i class="bi bi-info-circle me-1"></i>Each section below is aimed at breaking one or more links in that chain.
+            </div>
+          </div>
+
+          <aside class="guide-cta-card guide-cta-card-primary mt-4 mb-0" aria-labelledby="intro-cta-title">
+            <div class="guide-cta-eyebrow">Free Security Assessment</div>
+            <h2 class="guide-cta-title h5 fw-bold mb-2" id="intro-cta-title">Not sure how exposed your tenant is to phishing right now?</h2>
+            <p class="guide-cta-copy mb-0">
+              We can review your Microsoft 365 phishing protections, reporting workflow, and response steps without turning this into a sales lecture.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+            </div>
+          </aside>
+        </div>
+
+        <nav class="bg-white rounded-4 shadow-sm p-4 mt-4 d-lg-none" aria-labelledby="quick-jump-title">
+          <h2 class="h6 fw-bold mb-3" id="quick-jump-title">Jump to the sections that matter most</h2>
+          <div class="guide-jump-grid">
+            <a class="guide-jump-link" routerLink="." fragment="checklist">Checklist</a>
+            <a class="guide-jump-link" routerLink="." fragment="red-flags">Spot Red Flags</a>
+            <a class="guide-jump-link" routerLink="." fragment="defender">Defender</a>
+            <a class="guide-jump-link" routerLink="." fragment="mfa">MFA</a>
+            <a class="guide-jump-link" routerLink="." fragment="response-flow">Response Flow</a>
+            <a class="guide-jump-link" routerLink="." fragment="faq">FAQ</a>
+          </div>
+        </nav>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-layers-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Four Protection Layers for Phishing Defence</h2>
+          </div>
+          <p class="text-muted mb-3">
+            Phishing defence is not one toggle in Microsoft 365. Small-business tenants hold up best when awareness, identity, email controls, and response discipline all reinforce each other.
+          </p>
+          <div class="phishing-layer-grid animate-on-scroll">
+            <article class="phishing-layer-card" *ngFor="let layer of protectionLayers" [ngClass]="layer.accentClass">
+              <div class="phishing-layer-icon"><i class="bi" [ngClass]="layer.icon"></i></div>
+              <h3 class="h6 fw-bold mb-2">{{ layer.title }}</h3>
+              <p class="text-muted small mb-0">{{ layer.body }}</p>
+            </article>
           </div>
         </div>
 
-        <!-- Quick Checklist -->
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="checklist">
-          <h2 class="h4 fw-bold mb-3">Quick Protection Checklist</h2>
-          <p class="text-muted">Work through this list in order. Each item is covered in detail in the sections below.</p>
-          <ol class="list-unstyled mb-0">
-            <li *ngFor="let step of preventionSteps; let i = index" class="mb-2 d-flex gap-2">
-              <span class="text-muted flex-shrink-0">☐</span>
-              <a class="text-decoration-none checklist-link" routerLink="." [fragment]="step.fragment">{{ step.text }}</a>
-            </li>
-          </ol>
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-bug-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">The Threat Types Most SMB Teams Actually See</h2>
+          </div>
+          <div class="threat-card-grid animate-on-scroll">
+            <article class="threat-card" *ngFor="let threat of threatCards" [ngClass]="threat.accentClass">
+              <div class="threat-card-icon"><i class="bi" [ngClass]="threat.icon"></i></div>
+              <h3 class="h6 fw-bold mb-2">{{ threat.title }}</h3>
+              <p class="text-muted small mb-0">{{ threat.body }}</p>
+            </article>
+          </div>
         </div>
 
-        <!-- Section 1: Employee Awareness -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="checklist">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-card-checklist"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Short Phishing-Defense Checklist</h2>
+          </div>
+          <p class="text-muted mb-3">Use this lightweight checklist as a quick baseline. Your progress is saved locally in this browser.</p>
+
+          <div class="checklist-progress-wrap mb-4" [class.all-done]="isAllComplete">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="small fw-bold">
+                <ng-container *ngIf="!isAllComplete">
+                  {{ completedCount }} of {{ phishingChecklistItems.length }} items complete
+                </ng-container>
+                <ng-container *ngIf="isAllComplete">
+                  <i class="bi bi-patch-check-fill me-1 text-success"></i> Phishing baseline complete
+                </ng-container>
+              </span>
+              <span class="small text-muted">{{ completedPercent }}%</span>
+            </div>
+            <div class="checklist-progress-track">
+              <div class="checklist-progress-fill" [style.width.%]="completedPercent"></div>
+            </div>
+            <div class="risk-legend d-flex gap-3 flex-wrap mt-2">
+              <span class="risk-badge risk-critical">IDENTITY</span>
+              <span class="risk-badge risk-high">EMAIL</span>
+              <span class="risk-badge risk-medium">RESPONSE</span>
+              <button *ngIf="completedCount > 0" class="btn btn-link p-0 ms-auto small text-muted" (click)="clearChecklistProgress()">Reset</button>
+            </div>
+          </div>
+
+          <div class="checklist-items">
+            <label
+              *ngFor="let item of phishingChecklistItems; let i = index"
+              class="checklist-item-row"
+              [class.is-checked]="checklistChecked[i]">
+              <input
+                type="checkbox"
+                class="checklist-cb"
+                [checked]="checklistChecked[i]"
+                (change)="toggleChecklistItem(i)"
+                [attr.aria-label]="item.text">
+              <div class="cb-box">
+                <i class="bi bi-check2 cb-check-icon"></i>
+              </div>
+              <a class="checklist-item-text text-decoration-none" routerLink="." [fragment]="item.fragment">{{ item.text }}</a>
+            </label>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="red-flags">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-search"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Spot the Red Flags</h2>
+          </div>
+          <p class="text-muted mb-3">
+            Use this example to show staff what a typical Microsoft 365 phishing email feels like. Click the numbered markers to reveal why each detail matters.
+          </p>
+
+          <div class="red-flag-email animate-on-scroll">
+            <div class="red-flag-email-header">
+              <div>
+                <div class="small fw-bold text-uppercase text-muted">Inbox preview</div>
+                <div class="fw-bold">Microsoft 365 Account Verification</div>
+              </div>
+              <span class="risk-badge risk-high">Example</span>
+            </div>
+            <div class="red-flag-email-meta">
+              <div><strong>From:</strong> Microsoft Account Team &lt;security-review&#64;microsoft365-alerts.net&gt;</div>
+              <div><strong>Subject:</strong> Action required: your mailbox will be suspended today</div>
+            </div>
+            <div class="red-flag-email-body">
+              <p>Hello,</p>
+              <p>We detected unusual sign-in activity on your Microsoft 365 account. To avoid deactivation, verify your mailbox and sign in again using the secure link below.</p>
+              <a class="btn btn-primary rounded-pill px-4 fw-bold disabled fake-email-btn" aria-disabled="true">Review Mailbox Activity</a>
+              <p class="small text-muted mb-0 mt-3">This secure review page expires in 15 minutes. Failure to act may result in email delivery disruption.</p>
+
+              <button
+                *ngFor="let flag of redFlags; let i = index"
+                type="button"
+                class="red-flag-hotspot"
+                [ngClass]="'hotspot-' + (i + 1)"
+                [class.is-active]="activeRedFlagId === flag.id"
+                [attr.aria-expanded]="activeRedFlagId === flag.id"
+                (click)="toggleRedFlag(flag.id)">
+                <span>{{ flag.label }}</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="red-flag-panels mt-3">
+            <button
+              *ngFor="let flag of redFlags"
+              type="button"
+              class="red-flag-panel text-start"
+              [class.is-active]="activeRedFlagId === flag.id"
+              [attr.aria-expanded]="activeRedFlagId === flag.id"
+              (click)="toggleRedFlag(flag.id)">
+              <div class="red-flag-panel-title">
+                <span class="red-flag-pill">{{ flag.label }}</span>{{ flag.title }}
+              </div>
+              <div class="red-flag-panel-copy" *ngIf="activeRedFlagId === flag.id">{{ flag.explanation }}</div>
+            </button>
+          </div>
+        </div>
+
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="awareness">
-          <h2 class="h4 fw-bold mb-3">1. Employee Awareness — Your First Line of Defence</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-mortarboard-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">1. Employee Awareness — Your First Line of Defence</h2>
+          </div>
           <p class="text-muted">
             Technical controls can be bypassed when users act under social pressure. A convincing invoice email, a spoofed CEO message, or a fake Microsoft login page are designed to move faster than caution. Awareness training does not eliminate that risk — but it measurably reduces it, and it makes your other controls more effective by ensuring staff actually use the Report Message button.
           </p>
@@ -81,11 +291,23 @@
             <li class="mb-1">Teach staff the three red flags: unexpected urgency, requests involving credentials or payments, and sender addresses that do not match the display name</li>
             <li class="mb-1">Make it socially safe to report a suspicious click — staff who report quickly limit damage significantly</li>
           </ul>
+
+          <aside class="guide-related-block mt-4" aria-labelledby="awareness-related-title">
+            <div class="guide-related-eyebrow">Related guide</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="awareness-related-title">Pair user training with the technical baseline</h3>
+            <ul class="guide-related-list mb-0">
+              <li><a routerLink="/guides/security/microsoft-365-checklist">Microsoft 365 Security Checklist</a> covers the surrounding identity, endpoint, and backup controls that make phishing incidents easier to contain.</li>
+            </ul>
+          </aside>
         </div>
 
-        <!-- Section 2: Defender Anti-Phishing -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="defender">
-          <h2 class="h4 fw-bold mb-3">2. Configure Microsoft Defender Anti-Phishing Policy</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-envelope-check-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">2. Configure Microsoft Defender Anti-Phishing Policy</h2>
+          </div>
           <p class="text-muted">
             Microsoft Defender includes a dedicated anti-phishing policy that catches impersonation attacks, spoofed senders, and domain lookalikes. Out of the box, basic protection is on — but the controls that catch targeted attacks against your specific business are off by default and require manual configuration.
           </p>
@@ -103,10 +325,20 @@
           </p>
         </div>
 
-        <!-- Section 3: MFA -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="mfa">
-          <h2 class="h4 fw-bold mb-3">3. Enforce Multi-Factor Authentication</h2>
-          <p class="text-muted">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-person-lock"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">3. Enforce Multi-Factor Authentication</h2>
+          </div>
+
+          <div class="stat-callout animate-on-scroll">
+            <div class="stat-number">99%+</div>
+            <div class="stat-text">of automated account-takeover attempts are blocked when phishing only steals a password and MFA is enforced correctly.</div>
+          </div>
+
+          <p class="text-muted mt-3">
             MFA is the single most effective control against credential-based phishing. A stolen password alone is not enough to access an account when MFA is enforced — which is why Microsoft's own data puts MFA at blocking over 99% of automated account takeover attempts.
           </p>
           <p class="text-muted">
@@ -118,20 +350,28 @@
             <li class="mb-1">Register <strong>two break-glass admin accounts</strong> with physical FIDO2 security keys and store them in a documented, secure location</li>
             <li class="mb-1">Document your MFA enforcement as evidence — Canadian cyber insurers verify this at renewal</li>
           </ul>
-          <p class="text-muted mb-0 small">
-            Related guide on the <a routerLink="/guides/security" fragment="mfa-rollout">security hub</a>: Rolling Out MFA Without Breaking Things.
-          </p>
+
+          <aside class="guide-related-block mt-4" aria-labelledby="mfa-related-title">
+            <div class="guide-related-eyebrow">Related guide</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="mfa-related-title">Where to go next for the broader identity baseline</h3>
+            <ul class="guide-related-list mb-0">
+              <li><a routerLink="/guides/security/microsoft-365-checklist">Microsoft 365 Security Checklist</a> expands on Conditional Access, admin-account separation, and the backup/recovery controls that sit beside MFA.</li>
+              <li><a routerLink="/guides/security" fragment="mfa-rollout">Rolling Out MFA Without Breaking Things</a> lives on the security hub roadmap for staged rollout details.</li>
+            </ul>
+          </aside>
         </div>
 
-        <!-- Section 4: Conditional Access -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="conditional-access">
-          <h2 class="h4 fw-bold mb-3">4. Conditional Access Basics</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-funnel-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">4. Conditional Access Basics</h2>
+          </div>
           <p class="text-muted">
             Conditional Access moves beyond password-and-MFA by evaluating the context of each sign-in — location, device compliance, sign-in risk — and enforcing policies based on that context. It requires <strong>Microsoft 365 Business Premium</strong> or a Microsoft Entra ID P1 licence.
           </p>
-          <p class="text-muted">
-            For a 5–50 employee business, four policies cover most of your exposure:
-          </p>
+          <p class="text-muted">For a 5–50 employee business, four policies cover most of your exposure:</p>
           <ul class="text-muted">
             <li class="mb-1"><strong>Require MFA for all users</strong> — even if Security Defaults is on, an explicit Conditional Access policy gives you more control over exceptions</li>
             <li class="mb-1"><strong>Block legacy authentication</strong> — create an explicit policy targeting legacy auth clients as a belt-and-suspenders measure</li>
@@ -143,9 +383,13 @@
           </p>
         </div>
 
-        <!-- Section 5: Legacy Auth -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="legacy-auth">
-          <h2 class="h4 fw-bold mb-3">5. Block Legacy Authentication Protocols</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-ban"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">5. Block Legacy Authentication Protocols</h2>
+          </div>
           <p class="text-muted">
             Legacy protocols — IMAP, POP3, basic SMTP auth, Exchange ActiveSync with basic auth — cannot enforce MFA. No matter how strong your MFA rollout is, a single legacy-auth endpoint leaves a side door open that attackers specifically scan for. A stolen password is all they need.
           </p>
@@ -154,15 +398,19 @@
           </p>
           <ul class="text-muted">
             <li class="mb-1">If using Security Defaults: legacy auth is blocked automatically — confirm it is enabled in Entra admin centre → Properties</li>
-            <li class="mb-1">If using Conditional Access: create an explicit block policy targeting legacy auth clients for Belt-and-suspenders coverage</li>
+            <li class="mb-1">If using Conditional Access: create an explicit block policy targeting legacy auth clients for belt-and-suspenders coverage</li>
             <li class="mb-1"><strong>Before enforcing:</strong> audit for any line-of-business apps using basic SMTP auth to send mail — printers, scanners, CRMs, and older helpdesk tools are the most common gotchas</li>
             <li class="mb-1">Migrate any app still using basic auth to OAuth or modern auth before blocking</li>
           </ul>
         </div>
 
-        <!-- Section 6: SPF, DKIM, DMARC -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="domain-auth">
-          <h2 class="h4 fw-bold mb-3">6. Domain Authentication: SPF, DKIM, and DMARC</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-envelope-check-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">6. Domain Authentication: SPF, DKIM, and DMARC</h2>
+          </div>
           <p class="text-muted">
             These three DNS records work together to tell receiving mail servers whether email claiming to come from your domain is actually from you. Without them, an attacker can send a phishing email that appears — to the recipient and their spam filter — to come from your own domain. This is how supplier fraud and CEO impersonation attacks are executed at scale.
           </p>
@@ -183,9 +431,13 @@
           </p>
         </div>
 
-        <!-- Section 7: Safe Links -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="safe-links">
-          <h2 class="h4 fw-bold mb-3">7. Enable Safe Links</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-link-45deg"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">7. Enable Safe Links</h2>
+          </div>
           <p class="text-muted">
             Safe Links rewrites URLs in incoming email and Office documents and re-checks them at the moment of the click — not just at delivery time. This matters because attackers frequently use "time-of-click" attacks: send a clean URL that passes initial scanning, then replace the destination after delivery.
           </p>
@@ -203,9 +455,13 @@
           </p>
         </div>
 
-        <!-- Section 8: Safe Attachments -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="safe-attachments">
-          <h2 class="h4 fw-bold mb-3">8. Enable Safe Attachments</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-file-earmark-zip-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">8. Enable Safe Attachments</h2>
+          </div>
           <p class="text-muted">
             Safe Attachments routes incoming email attachments through a detonation sandbox before delivering them — opening the file in a controlled environment to detect malicious behaviour that signature-based antivirus would miss. This catches zero-day malware, macro-based payloads, and weaponized Office documents.
           </p>
@@ -222,9 +478,35 @@
           </p>
         </div>
 
-        <!-- Section 9: Employee Clicks -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="response-flow">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-sign-turn-right-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Phishing Response Flow</h2>
+          </div>
+          <p class="text-muted mb-3">
+            The practical goal is not zero clicks. It is shortening the time between a suspicious email and the response steps that limit mailbox abuse.
+          </p>
+          <div class="response-flow animate-on-scroll">
+            <div class="response-step" *ngFor="let step of responseSteps; let i = index">
+              <div class="response-step-icon"><i class="bi" [ngClass]="step.icon"></i></div>
+              <div class="response-step-body">
+                <div class="response-step-title">{{ step.title }}</div>
+                <div class="response-step-copy">{{ step.body }}</div>
+              </div>
+              <div class="response-step-arrow" *ngIf="i < responseSteps.length - 1"><i class="bi bi-arrow-right"></i></div>
+            </div>
+          </div>
+        </div>
+
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="incident-response">
-          <h2 class="h4 fw-bold mb-3">9. What to Do If an Employee Clicks a Phishing Link</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-activity"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">9. What to Do If an Employee Clicks a Phishing Link</h2>
+          </div>
           <p class="text-muted">
             Fast response limits damage. The worst outcome is not the initial click — it is the 48 hours of undetected access that follow. Have this process written down before you need it, not after.
           </p>
@@ -237,11 +519,31 @@
             <li class="mb-2"><strong>Check OAuth app consent grants</strong> — attackers sometimes trick users into granting a malicious third-party app access to the mailbox. Check Entra admin centre → Enterprise Applications for any unfamiliar apps with broad mail permissions.</li>
             <li class="mb-0"><strong>Notify your IT provider or internal security contact</strong> before making further changes — evidence preservation matters for insurance claims and breach notification requirements.</li>
           </ol>
+
+          <aside class="guide-cta-card mt-4" aria-labelledby="response-cta-title">
+            <div class="guide-cta-eyebrow">Need help now?</div>
+            <h3 class="guide-cta-title h5 fw-bold mb-2" id="response-cta-title">If someone has already clicked, the priority is speed and clarity.</h3>
+            <p class="guide-cta-copy mb-0">
+              We can help review sign-in logs, revoke sessions, and check mailbox persistence items without turning the situation into guesswork.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+              <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/crisis-recovery">
+                See Crisis Recovery Support
+              </a>
+            </div>
+          </aside>
         </div>
 
-        <!-- Section 10: Attacker Bypasses -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="attacker-techniques">
-          <h2 class="h4 fw-bold mb-3">10. How Attackers Bypass Basic Protections</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-shield-slash-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">10. How Attackers Bypass Basic Protections</h2>
+          </div>
           <p class="text-muted">
             Understanding the attack methods helps you decide which controls are worth the investment. These are the bypass techniques we see most often in small business incidents:
           </p>
@@ -261,15 +563,17 @@
           </ul>
         </div>
 
-        <!-- Section 11: When to Involve a Provider -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="managed-it">
-          <h2 class="h4 fw-bold mb-3">11. When to Involve a Managed IT Provider</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-headset"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">11. When to Involve a Managed IT Provider</h2>
+          </div>
           <p class="text-muted">
             These controls are configurable without external help — but configuration is only part of the picture. The gaps we most often find when auditing self-managed tenants are not missing settings; they are missing oversight. No one is watching the sign-in logs. Alerts are firing with no one reading them. A Conditional Access policy was set to report-only and never enforced.
           </p>
-          <p class="text-muted">
-            Consider engaging a managed IT provider when:
-          </p>
+          <p class="text-muted">Consider engaging a managed IT provider when:</p>
           <ul class="text-muted">
             <li class="mb-1">No one internally monitors sign-in logs, Defender alerts, or the quarantine queue on a documented schedule</li>
             <li class="mb-1">You are unsure whether your current Defender policies are correctly configured and tested</li>
@@ -281,27 +585,24 @@
             A managed provider should be actively monitoring your tenant for anomalous sign-ins, managing policy drift, running phishing simulations, and having a documented runbook for incident response — not just keeping the lights on.
           </p>
 
-          <div class="border rounded-4 p-3 bg-light mt-4">
-            <div class="fw-bold mb-1">We work with Canadian small businesses on Microsoft 365 security.</div>
-            <div class="text-muted small mb-3">Tenant hardening, Defender configuration, conditional access, and phishing incident response — with a team that explains what we are doing and why.</div>
-            <div class="d-flex gap-3 flex-wrap mb-3">
-              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/security-firewall">
-                See Managed Security Service
-              </a>
-              <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/free-security-assessment">
-                Get a Free Assessment
-              </a>
-            </div>
-            <p class="text-muted small mb-0">
-              For a broader Microsoft 365 security posture — endpoints, backup, and cyber insurance readiness — see the full
-              <a routerLink="/guides/security/microsoft-365-checklist">Microsoft 365 Security Checklist</a>.
-            </p>
-          </div>
+          <aside class="guide-related-block mt-4" aria-labelledby="related-guides-title">
+            <div class="guide-related-eyebrow">Related guides</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="related-guides-title">Use the phishing guide as one layer in the bigger security plan</h3>
+            <ul class="guide-related-list mb-0">
+              <li><a routerLink="/guides/security/microsoft-365-checklist">Microsoft 365 Security Checklist</a> covers the wider tenant hardening controls that support this guide.</li>
+              <li><a routerLink="/guides/security" fragment="conditional-access-policies">Conditional Access Policies for Small Business</a> is the next planned deep dive on the security hub.</li>
+              <li><a routerLink="/guides/security">Browse all security guides</a> to see what is live now and what is in progress.</li>
+            </ul>
+          </aside>
         </div>
 
-        <!-- FAQ -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="faq">
-          <h2 class="h4 fw-bold mb-3">Frequently Asked Questions</h2>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-patch-question-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Frequently Asked Questions</h2>
+          </div>
           <div class="guide-faq-list">
             <details class="guide-faq-item" *ngFor="let item of faqs; let idx = index" [attr.open]="idx === 0 ? '' : null">
               <summary class="guide-faq-button fw-bold">{{ item.q }}</summary>
@@ -312,30 +613,33 @@
 
       </div>
 
-      <!-- Sidebar -->
       <div class="col-lg-4">
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 sticky-lg-top" style="top: 1rem;">
           <h3 class="fw-bold mb-3">In this guide</h3>
-          <ul class="list-unstyled mb-4">
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="checklist">Quick Checklist</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="awareness">Employee Awareness</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="defender">Defender Anti-Phishing</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="mfa">MFA Enforcement</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="conditional-access">Conditional Access</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="legacy-auth">Block Legacy Auth</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="domain-auth">SPF / DKIM / DMARC</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="safe-links">Safe Links</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="safe-attachments">Safe Attachments</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="incident-response">Employee Clicks a Link</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="attacker-techniques">How Attacks Bypass Controls</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="managed-it">When to Call a Provider</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq">FAQ</a></li>
-          </ul>
+          <nav aria-label="On-page navigation">
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="checklist">Short Checklist</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="red-flags">Spot the Red Flags</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="awareness">User Awareness</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="defender">Defender Anti-Phishing</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="mfa">MFA Enforcement</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="conditional-access">Conditional Access</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="legacy-auth">Block Legacy Auth</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="domain-auth">SPF / DKIM / DMARC</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="safe-links">Safe Links</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="safe-attachments">Safe Attachments</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="response-flow">Response Flow</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="incident-response">If Someone Clicks</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="attacker-techniques">Bypass Techniques</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="managed-it">When to Call a Provider</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq">FAQ</a></li>
+            </ul>
+          </nav>
 
           <div class="border rounded-4 p-3 bg-light mb-3">
             <div class="fw-bold mb-2">Related guides</div>
             <ul class="text-muted small mb-0 ps-3">
-              <li><a routerLink="/guides/security/microsoft-365-checklist">M365 Security Checklist</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-checklist">Microsoft 365 Security Checklist</a></li>
               <li><a routerLink="/guides/security" fragment="mfa-rollout">MFA Rollout Guide</a> <span class="text-muted">(security hub, coming soon)</span></li>
               <li><a routerLink="/guides/security" fragment="conditional-access-policies">Conditional Access Policies</a> <span class="text-muted">(security hub, coming soon)</span></li>
               <li><a routerLink="/guides/security">All Security Guides</a></li>
@@ -361,7 +665,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>

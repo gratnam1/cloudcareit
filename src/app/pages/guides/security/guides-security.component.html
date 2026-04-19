@@ -1,0 +1,310 @@
+<section class="service-detail-page py-5 guides-security">
+  <div class="container py-5">
+    <div class="mb-4 d-flex gap-3 flex-wrap">
+      <a class="service-back-link text-decoration-none" routerLink="/">← Back to Home</a>
+      <span class="text-muted small align-self-center">/ Guides / Security</span>
+    </div>
+
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-8">
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5">
+          <h1 class="fw-bold display-6 mb-3">
+            Small Business Cybersecurity: The Complete Checklist & Protection Guide for Microsoft 365
+          </h1>
+          <p class="text-muted lead mb-4">
+            A practical security playbook for Canadian small businesses on Microsoft 365 — built by the managed IT team at CtrlShift IT Services.
+          </p>
+
+          <div class="border rounded-4 p-3 bg-light mb-4">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="fw-bold small text-uppercase text-muted">Estimated reading time</div>
+                <div>12 minutes</div>
+              </div>
+              <div class="col-md-8">
+                <div class="fw-bold small text-uppercase text-muted">Who this guide is for</div>
+                <div>
+                  Owners, office managers, and IT decision-makers at Canadian small businesses (5–50 employees) using Microsoft 365 who want to reduce breach risk, meet cyber insurance requirements, and build a defensible security posture.
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 small text-muted">Last reviewed: April 2026</div>
+          </div>
+
+          <h2 class="h4 fw-bold mb-3">Why Small Businesses Are the #1 Target for Cyberattacks in Canada</h2>
+          <p class="text-muted">
+            Small businesses — not enterprises — are now the most-targeted segment in Canada. Roughly 60% of small businesses hit by a serious cyberattack close within six months. The comfortable myth that "we are too small to be a target" no longer holds: attackers use automation to scan the entire internet, and your size does not protect you from a ransomware kit or a credential-stuffing script.
+          </p>
+          <p class="text-muted">
+            Two things have changed the stakes in the last 24 months. First, cyber insurance carriers now require multi-factor authentication, endpoint protection, and documented backups before issuing or paying out on a policy. Second, Microsoft 365 has become the primary attack surface for most SMBs, which means tenant-level protection is no longer optional. This guide walks through the controls that matter most, in the order we deploy them for clients.
+          </p>
+
+          <div class="border rounded-4 p-3 bg-light mt-4 mb-2">
+            <div class="fw-bold mb-1">Not sure where your business stands?</div>
+            <div class="text-muted small mb-3">Get a no-pressure review of your Microsoft 365 tenant, endpoints, and backup posture.</div>
+            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+              Request a Free Security Assessment
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="checklist">
+          <h2 class="h4 fw-bold mb-3">The 11-Point Small Business Cybersecurity Checklist</h2>
+          <p class="text-muted">
+            Work through this list in order. Each item links to its detailed section below.
+          </p>
+          <ol class="list-unstyled mb-0">
+            <li class="mb-2 d-flex gap-2">
+              <span class="form-check-label text-muted">☐</span>
+              <a class="text-decoration-none" href="#mfa">Multi-factor authentication enabled on all Microsoft 365 accounts</a>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="form-check-label text-muted">☐</span>
+              <a class="text-decoration-none fw-bold" href="#identity">Legacy authentication disabled in Microsoft 365</a>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="form-check-label text-muted">☐</span>
+              <a class="text-decoration-none" href="#identity">Conditional access policies restricting risky sign-ins</a>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="form-check-label text-muted">☐</span>
+              <a class="text-decoration-none" href="#phishing">Staff trained to spot phishing emails</a>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="form-check-label text-muted">☐</span>
+              <a class="text-decoration-none" href="#phishing">Anti-phishing policies configured in Microsoft Defender</a>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="form-check-label text-muted">☐</span>
+              <a class="text-decoration-none" href="#endpoint">Endpoint protection on every company device (including BYOD)</a>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="form-check-label text-muted">☐</span>
+              <a class="text-decoration-none" href="#endpoint">Automatic OS and software updates enforced</a>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="form-check-label text-muted">☐</span>
+              <a class="text-decoration-none" href="#identity">Admin accounts separated from daily-use accounts</a>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="form-check-label text-muted">☐</span>
+              <a class="text-decoration-none" href="#backup">Microsoft 365 data backed up with a third-party solution</a>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="form-check-label text-muted">☐</span>
+              <a class="text-decoration-none" href="#ransomware">Incident response plan documented and tested</a>
+            </li>
+            <li class="mb-2 d-flex gap-2">
+              <span class="form-check-label text-muted">☐</span>
+              <a class="text-decoration-none" href="#next-steps">Quarterly security review scheduled</a>
+            </li>
+          </ol>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="phishing">
+          <h2 class="h4 fw-bold mb-3">How to Protect Your Small Business from Phishing Attacks</h2>
+          <p class="text-muted">
+            Phishing is the single most common way attackers get into a small business — and it is the leading cause of cyber insurance claims. The most common patterns we see are invoice fraud, Microsoft 365 login spoofs that steal session cookies, CEO impersonation, and QR-code phishing that moves the attack to a personal phone (outside your defenses).
+          </p>
+          <p class="text-muted">
+            Defense comes in two layers. At the tenant level, configure SPF, DKIM, and DMARC on your sending domains and enable Microsoft Defender for Office 365 anti-phishing, Safe Links, and Safe Attachments. At the human level, give staff a simple one-click reporting button, run short monthly phishing simulations, and make it socially safe to report a suspicious message — even after clicking it.
+          </p>
+          <ul class="text-muted">
+            <li>Configure SPF, DKIM, and DMARC on every domain you send mail from</li>
+            <li>Enable Defender for Office 365 Safe Links and Safe Attachments tenant-wide</li>
+            <li>Install the Microsoft "Report Message" add-in for all users</li>
+            <li>Run a monthly phishing simulation — frequency beats length</li>
+            <li>Document what to do if an employee clicks a phishing link</li>
+          </ul>
+          <p class="text-muted mb-0 small">
+            Related reading (coming soon): How to Configure DMARC for Your Business Domain · Defender for Office 365 Setup Guide · How to Train Employees to Spot Phishing Emails · What to Do If an Employee Clicks a Phishing Link.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="mfa">
+          <h2 class="h4 fw-bold mb-3">How to Set Up Multi-Factor Authentication (MFA) in Microsoft 365</h2>
+          <p class="text-muted">
+            Passwords alone no longer meet Canadian cyber insurance requirements. MFA — sometimes called 2FA — adds a second check beyond the password, typically a code or push notification from an authenticator app. When enforced tenant-wide, MFA blocks the overwhelming majority of automated account takeover attempts.
+          </p>
+          <p class="text-muted">
+            The safest method is an authenticator app (Microsoft Authenticator or a passkey), followed by app-based codes. SMS and email codes are better than nothing but are vulnerable to SIM swapping and mailbox compromise. The pitfalls we see most often: shared mailboxes and service accounts that slip through enforcement, and break-glass admin accounts that never get tested.
+          </p>
+          <ul class="text-muted">
+            <li>Enforce MFA on every user, not just administrators</li>
+            <li>Prefer Microsoft Authenticator or passkeys over SMS</li>
+            <li>Register at least two break-glass admin accounts with physical security keys</li>
+            <li>Audit service accounts and mail-enabled identities quarterly</li>
+            <li>Record MFA enforcement evidence for your cyber insurance renewal</li>
+          </ul>
+          <p class="text-muted mb-0 small">
+            Related reading (coming soon): How to Enable MFA for All Microsoft 365 Users · Microsoft Authenticator vs. SMS Codes · MFA Requirements for Cyber Insurance in Canada.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="identity">
+          <h2 class="h4 fw-bold mb-3">Identity Protection & Account Takeover Prevention for Microsoft 365</h2>
+          <p class="text-muted">
+            Identity is the new perimeter for Microsoft 365 businesses. Once an attacker owns a valid identity, MFA alone will not always stop them — especially with modern adversary-in-the-middle phishing kits that steal session tokens. Protecting identities means watching how, where, and from what device sign-ins happen.
+          </p>
+          <h3 class="h6 fw-bold mt-4">Legacy authentication risks</h3>
+          <p class="text-muted">
+            Legacy protocols such as IMAP, POP, and basic SMTP auth cannot enforce MFA. Attackers specifically scan for these endpoints because a stolen password alone grants mailbox access. Disabling legacy authentication is one of the highest-impact, lowest-effort wins you can deploy — and insurers are now flagging tenants that leave it on.
+          </p>
+          <h3 class="h6 fw-bold mt-3">Impossible travel and risky sign-ins</h3>
+          <p class="text-muted">
+            Microsoft Entra ID Protection flags sign-ins from geographically impossible locations (Toronto at 9:00 a.m., Lagos at 9:15 a.m.), anonymous IP ranges, and known leaked credentials. The risk signal is only useful if somebody triages it — either your internal IT or a managed provider on a documented runbook.
+          </p>
+          <h3 class="h6 fw-bold mt-3">Session hijacking and token theft</h3>
+          <p class="text-muted">
+            Modern AiTM (adversary-in-the-middle) phishing kits steal authenticated session tokens, bypassing MFA entirely. Defenses include token binding with compliant devices, short session lifetimes for risky sign-ins, and continuous access evaluation. These sit inside conditional access.
+          </p>
+          <h3 class="h6 fw-bold mt-3">Conditional access basics for SMBs</h3>
+          <p class="text-muted">
+            A realistic 5–50 employee Microsoft 365 tenant can get significant protection from a small set of policies: block legacy authentication, require MFA for all users, require compliant or hybrid-joined devices for admin actions, and restrict sign-ins from countries you do not operate in. Start small, monitor impact, and expand.
+          </p>
+          <p class="text-muted mb-0 small">
+            Related reading (coming soon): How to Disable Legacy Authentication in Microsoft 365 · Conditional Access Policies Every Small Business Needs · How to Investigate a Risky Sign-In Alert · Protecting Against Token Theft and AiTM Phishing.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="ransomware">
+          <h2 class="h4 fw-bold mb-3">How to Protect Your Small Business from Ransomware</h2>
+          <p class="text-muted">
+            Ransomware almost always enters an SMB through the same path: a phishing email steals a credential, the attacker moves laterally using that identity, and then deploys encryption across reachable systems. Every stage of that chain can be blocked — which is why layered controls matter more than any single tool.
+          </p>
+          <p class="text-muted">
+            Follow the 3-2-1 backup rule: three copies of your data, on two different media, with one copy offline or in a separate cloud tenant. Combine that with least-privilege access, endpoint detection, and email filtering. In plain language, recovery planning comes down to two numbers: how much data you can afford to lose (RPO) and how long you can afford to be down (RTO). Most SMBs discover those numbers are much smaller than they assumed.
+          </p>
+          <ul class="text-muted">
+            <li>Enforce least-privilege on both users and admin accounts</li>
+            <li>Keep at least one backup copy outside the production cloud tenant</li>
+            <li>Test restores quarterly — an untested backup is not a backup</li>
+            <li>Document who decides what in the first 60 minutes of an incident</li>
+            <li>Confirm your cyber policy position on ransom payment before you need it</li>
+          </ul>
+          <p class="text-muted mb-0 small">
+            Related reading (coming soon): The 3-2-1 Backup Rule Explained · Ransomware Response Plan Template · How to Recover Microsoft 365 Data After a Ransomware Attack.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="endpoint">
+          <h2 class="h4 fw-bold mb-3">Endpoint Security for Small Business Employee Devices</h2>
+          <p class="text-muted">
+            Endpoints means laptops, desktops, phones, and tablets — including personal devices used for work. Built-in Windows Defender is a strong starting point but is often not sufficient for a business facing targeted threats and insurance scrutiny. Microsoft Defender for Business and Intune cover most SMB needs, and managed EDR platforms like Huntress add analyst-led response for environments without a dedicated security team.
+          </p>
+          <p class="text-muted">
+            Remote and hybrid work make endpoint hygiene harder. Enforce disk encryption, automatic OS and software patching, screen-lock timeouts, and the ability to remotely wipe a lost device. Treat BYOD with a written policy that defines what can be accessed, from what device state, and how it is retired.
+          </p>
+          <ul class="text-muted">
+            <li>Deploy endpoint detection and response (EDR), not legacy antivirus alone</li>
+            <li>Enforce disk encryption and automatic updates through Intune or equivalent</li>
+            <li>Standardize a BYOD policy covering access, compliance, and offboarding</li>
+            <li>Maintain the ability to remote-wipe lost or stolen devices</li>
+            <li>Review EDR coverage before your cyber insurance renewal</li>
+          </ul>
+          <p class="text-muted mb-0 small">
+            Pair this guide with our
+            <a routerLink="/security-firewall">managed security and firewall service</a>
+            for hands-on deployment of Huntress EDR, Tailscale zero-trust access, and tenant hardening.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="backup">
+          <h2 class="h4 fw-bold mb-3">Microsoft 365 Backup & Disaster Recovery (The Shared Responsibility Model)</h2>
+          <p class="text-muted">
+            Microsoft protects the platform. You are responsible for your data. That line — the shared responsibility model — is where most small businesses discover an expensive gap. OneDrive sync, SharePoint version history, and the Recycle Bin are not a backup. They are convenience features with short retention windows that do not protect you from ransomware, insider deletion, a departed employee, or tenant misconfiguration.
+          </p>
+          <p class="text-muted">
+            A real backup means an independent, immutable copy of your Exchange, SharePoint, OneDrive, and Teams data — stored outside the production tenant and restorable to a known-good point in time. Pair it with a simple disaster recovery plan that answers: who decides, who communicates, in what order do we restore, and how do we prove it worked afterwards.
+          </p>
+          <ul class="text-muted">
+            <li>Deploy a third-party Microsoft 365 backup with long retention</li>
+            <li>Document a simple DR plan with named owners and communication paths</li>
+            <li>Run one full restore test every quarter — not just spot checks</li>
+            <li>Keep restore evidence on file for cyber insurance claims</li>
+            <li>Treat OneDrive, SharePoint history, and Recycle Bin as recovery convenience only</li>
+          </ul>
+          <p class="text-muted mb-0 small">
+            Related reading (coming soon): Does Microsoft 365 Back Up Your Data? · How to Choose a Microsoft 365 Backup Solution · Disaster Recovery Plan Template for Small Businesses.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4">
+          <div class="border rounded-4 p-3 bg-light">
+            <div class="fw-bold mb-1">Running a small business in the GTA?</div>
+            <div class="text-muted small mb-3">
+              Our managed IT team handles Microsoft 365 security, endpoint protection, and cyber insurance readiness for companies just like yours.
+            </div>
+            <div class="d-flex gap-3 flex-wrap">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/security-firewall">
+                See How Managed Security Works
+              </a>
+              <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/cyber-insurance-readiness-vaughan">
+                Cyber Insurance Readiness
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="faq">
+          <h2 class="h4 fw-bold mb-3">Frequently Asked Questions</h2>
+          <div class="accordion-like">
+            <div *ngFor="let item of faqs" class="border-bottom py-3">
+              <h3 class="h6 fw-bold mb-2">{{ item.q }}</h3>
+              <p class="text-muted mb-0">{{ item.a }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="next-steps">
+          <h2 class="h4 fw-bold mb-3">Your Next Steps</h2>
+          <p class="text-muted">
+            Security is ongoing, not a one-time project. The practical path for most 5–50 employee businesses: run the 11-point checklist above, fix the highest-impact gaps first (MFA, legacy authentication, backup, endpoint protection), then schedule a quarterly review so controls do not drift. Treat cyber insurance readiness as the outcome — it is the best external signal that your posture actually works.
+          </p>
+          <div class="d-flex gap-3 flex-wrap mt-3">
+            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+              Get a Free Security Assessment
+            </a>
+            <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/security-firewall">
+              See Managed Security Service
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 sticky-lg-top" style="top: 1rem;">
+          <h3 class="fw-bold mb-3">In this guide</h3>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-2"><a class="text-decoration-none" href="#checklist">11-Point Checklist</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#phishing">Phishing Protection</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#mfa">MFA Setup</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#identity">Identity Protection</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#ransomware">Ransomware Protection</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#endpoint">Endpoint Security</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#backup">Backup & DR</a></li>
+            <li class="mb-2"><a class="text-decoration-none" href="#faq">FAQ</a></li>
+          </ul>
+
+          <div class="border rounded-4 p-3 bg-light mb-3">
+            <div class="fw-bold mb-2">Related services</div>
+            <ul class="text-muted small mb-0 ps-3">
+              <li><a routerLink="/security-firewall">Managed Security & Firewall</a></li>
+              <li><a routerLink="/microsoft-365">Microsoft 365 Support</a></li>
+              <li><a routerLink="/cyber-insurance-readiness-vaughan">Cyber Insurance Readiness</a></li>
+              <li><a routerLink="/crisis-recovery">IT Crisis Recovery</a></li>
+            </ul>
+          </div>
+
+          <div class="border rounded-4 p-3 bg-light">
+            <div class="fw-bold mb-1">Talk to a human</div>
+            <div class="text-muted small mb-2">Have a question about your Microsoft 365 tenant or cyber insurance renewal? We answer plainly — no quota, no pressure.</div>
+            <a class="btn btn-dark rounded-pill w-100 py-2 fw-bold" routerLink="/" fragment="consultation">
+              Book a Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

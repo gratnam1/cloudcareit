@@ -63,6 +63,9 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'cybersecurity-services-vaughan', renderMode: RenderMode.Prerender },
   { path: 'cloud-services-vaughan', renderMode: RenderMode.Prerender },
 
+  // Guides (pillar pages)
+  { path: 'guides/security', renderMode: RenderMode.Prerender },
+
   // About & utility pages
   { path: 'about', renderMode: RenderMode.Prerender },
   { path: 'it-assessment', renderMode: RenderMode.Prerender },

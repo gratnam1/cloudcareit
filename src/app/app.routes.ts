@@ -488,6 +488,16 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
 
+  // Guides (topic-cluster pillar pages)
+  {
+    path: 'guides/security',
+    loadComponent: () =>
+      import('./pages/guides/security/guides-security.component').then(
+        (m) => m.GuidesSecurityComponent
+      ),
+    title: 'Small Business Cybersecurity Checklist & Guide (2026) | CtrlShift IT Services'
+  },
+
   // About page
   {
     path: 'about',

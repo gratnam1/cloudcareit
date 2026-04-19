@@ -168,9 +168,9 @@
             <div class="section-icon-badge badge-primary">
               <i class="bi bi-card-checklist"></i>
             </div>
-            <h2 class="h4 fw-bold mb-0">Short Phishing-Defense Checklist</h2>
+            <h2 class="h4 fw-bold mb-0">Compact Phishing Readiness Checklist</h2>
           </div>
-          <p class="text-muted mb-3">Use this lightweight checklist as a quick baseline. Your progress is saved locally in this browser.</p>
+          <p class="text-muted mb-3">Use this lightweight checklist as a quick SMB baseline. Your progress is saved locally in this browser.</p>
 
           <div class="checklist-progress-wrap mb-4" [class.all-done]="isAllComplete">
             <div class="d-flex justify-content-between align-items-center mb-1">
@@ -344,6 +344,38 @@
           <p class="text-muted">
             The fastest path for most small businesses: enable <strong>Security Defaults</strong> in Microsoft Entra admin centre (formerly Azure AD). This enforces MFA registration for all users and blocks legacy authentication in one setting — no licence upgrade required.
           </p>
+
+          <div class="guide-subsection-shell mt-4">
+            <div class="guide-subsection-eyebrow">Identity Layer</div>
+            <h3 class="h5 fw-bold mb-2">Why identity protection stops most phishing attacks</h3>
+            <p class="text-muted mb-3">
+              Most phishing incidents only become breaches when a stolen password turns into a successful sign-in. Identity controls break that handoff. They do not stop every message from landing, but they stop most mailbox-takeover attempts from becoming business email compromise, data theft, or ransomware staging.
+            </p>
+            <div class="mini-control-grid">
+              <article class="mini-control-card">
+                <div class="mini-control-icon"><i class="bi bi-shield-lock-fill"></i></div>
+                <h4 class="h6 fw-bold mb-1">Phishing-resistant MFA</h4>
+                <p class="text-muted small mb-0">
+                  FIDO2 keys or passkeys stop modern token-theft kits far better than SMS codes. Use them first for admins, finance roles, and anyone approving wire changes.
+                </p>
+              </article>
+              <article class="mini-control-card">
+                <div class="mini-control-icon"><i class="bi bi-funnel-fill"></i></div>
+                <h4 class="h6 fw-bold mb-1">Conditional Access</h4>
+                <p class="text-muted small mb-0">
+                  Conditional Access checks context like device state, sign-in risk, and geography so a stolen password plus weak MFA is still not enough in the wrong conditions.
+                </p>
+              </article>
+              <article class="mini-control-card">
+                <div class="mini-control-icon"><i class="bi bi-ban"></i></div>
+                <h4 class="h6 fw-bold mb-1">Legacy auth blocking</h4>
+                <p class="text-muted small mb-0">
+                  IMAP, POP, and older basic-auth flows bypass MFA completely. Blocking them removes the side door attackers test after they steal credentials.
+                </p>
+              </article>
+            </div>
+          </div>
+
           <ul class="text-muted">
             <li class="mb-1">Prefer <strong>Microsoft Authenticator push approval</strong> or passkeys over SMS codes — SMS is vulnerable to SIM swapping</li>
             <li class="mb-1">Enforce MFA on <strong>every account</strong>, including service accounts and shared mailboxes — these are common gaps that attackers specifically target</li>
@@ -414,6 +446,36 @@
           <p class="text-muted">
             These three DNS records work together to tell receiving mail servers whether email claiming to come from your domain is actually from you. Without them, an attacker can send a phishing email that appears — to the recipient and their spam filter — to come from your own domain. This is how supplier fraud and CEO impersonation attacks are executed at scale.
           </p>
+          <div class="guide-subsection-shell mt-4">
+            <div class="guide-subsection-eyebrow">Email Trust Layer</div>
+            <h3 class="h5 fw-bold mb-2">Preventing domain spoofing with SPF, DKIM, and DMARC</h3>
+            <p class="text-muted mb-3">
+              Domain spoofing protection works best when all three records are treated as one system: SPF says who can send, DKIM proves the message was signed correctly, and DMARC tells receiving servers how strictly to enforce the result.
+            </p>
+            <div class="mini-control-grid mini-control-grid-auth">
+              <article class="mini-control-card">
+                <div class="mini-control-icon"><i class="bi bi-person-badge-fill"></i></div>
+                <h4 class="h6 fw-bold mb-1">SPF</h4>
+                <p class="text-muted small mb-0">
+                  Lists the services allowed to send mail for your domain, including Microsoft 365 and any marketing or billing platforms you use.
+                </p>
+              </article>
+              <article class="mini-control-card">
+                <div class="mini-control-icon"><i class="bi bi-patch-check-fill"></i></div>
+                <h4 class="h6 fw-bold mb-1">DKIM</h4>
+                <p class="text-muted small mb-0">
+                  Adds a cryptographic signature to outbound mail so receiving servers can verify the message really came from an approved sender.
+                </p>
+              </article>
+              <article class="mini-control-card">
+                <div class="mini-control-icon"><i class="bi bi-shield-check"></i></div>
+                <h4 class="h6 fw-bold mb-1">DMARC</h4>
+                <p class="text-muted small mb-0">
+                  Tells receiving systems whether to monitor, quarantine, or reject messages that fail SPF or DKIM alignment checks.
+                </p>
+              </article>
+            </div>
+          </div>
           <h3 class="h6 fw-bold mt-4 mb-2">SPF (Sender Policy Framework)</h3>
           <p class="text-muted">
             SPF is a DNS TXT record that lists the mail servers authorized to send on behalf of your domain. For Microsoft 365, add <code>include:spf.protection.outlook.com</code> to your SPF record. If you also send from a marketing platform or third-party system, include those as well.
@@ -641,7 +703,7 @@
             <ul class="text-muted small mb-0 ps-3">
               <li><a routerLink="/guides/security/microsoft-365-checklist">Microsoft 365 Security Checklist</a></li>
               <li><a routerLink="/guides/security" fragment="mfa-rollout">MFA Rollout Guide</a> <span class="text-muted">(security hub, coming soon)</span></li>
-              <li><a routerLink="/guides/security" fragment="conditional-access-policies">Conditional Access Policies</a> <span class="text-muted">(security hub, coming soon)</span></li>
+              <li><a routerLink="/guides/security/conditional-access-policies">Conditional Access Policies</a></li>
               <li><a routerLink="/guides/security">All Security Guides</a></li>
             </ul>
           </div>

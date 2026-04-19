@@ -1,0 +1,11 @@
+.guides-security h2 {
+  scroll-margin-top: 1.5rem;
+}
+
+.guides-security h3 {
+  scroll-margin-top: 1.5rem;
+}
+
+.guides-security .accordion-like > div:last-child {
+  border-bottom: 0 !important;
+}

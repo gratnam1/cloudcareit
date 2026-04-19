@@ -42,6 +42,20 @@ function findHtml(dir, results = []) {
 }
 const htmlFiles = findHtml(DIST);
 
+// ── Collect source files that contain runtime class names ────────────────────
+function findSourceFiles(dir, extensions, results = []) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      findSourceFiles(full, extensions, results);
+    } else if (extensions.includes(path.extname(entry.name))) {
+      results.push(full);
+    }
+  }
+  return results;
+}
+const sourceFiles = findSourceFiles(path.resolve('src'), ['.html', '.ts', '.css', '.scss']);
+
 // ── Safelist ─────────────────────────────────────────────────────────────────
 // Keep selectors that are toggled by JavaScript at runtime (not in static HTML)
 const safelist = {
@@ -68,6 +82,9 @@ const safelist = {
     /^\[?_nghost/,
     // Bootstrap data- attribute selectors used by JS plugins
     /^data-bs-/,
+    // Bootstrap Icons classes, including ones bound dynamically via ngClass
+    /^bi$/,
+    /^bi-/,
     // Any class starting with 'ng-' (Angular animation/transition classes)
     /^ng-/,
     // GSAP / animation utility classes
@@ -86,10 +103,14 @@ const safelist = {
 // ── Run PurgeCSS ─────────────────────────────────────────────────────────────
 console.log(`Purging CSS: ${path.basename(cssFile)} (${(originalSize / 1024).toFixed(1)} KiB)`);
 console.log(`Content: ${htmlFiles.length} prerendered HTML files`);
+console.log(`Source scan: ${sourceFiles.length} app source files`);
 
 const [result] = await new PurgeCSS().purge({
   css: [cssFile],
-  content: htmlFiles.map((f) => ({ raw: fs.readFileSync(f, 'utf-8'), extension: 'html' })),
+  content: [
+    ...htmlFiles.map((f) => ({ raw: fs.readFileSync(f, 'utf-8'), extension: 'html' })),
+    ...sourceFiles.map((f) => ({ raw: fs.readFileSync(f, 'utf-8'), extension: path.extname(f).slice(1) })),
+  ],
   safelist,
   // Keep @font-face, @keyframes, CSS custom properties, etc.
   fontFace: false,

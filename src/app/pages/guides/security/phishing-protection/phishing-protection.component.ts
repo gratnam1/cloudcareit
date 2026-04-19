@@ -42,17 +42,17 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   }
 ];
 
-const PREVENTION_STEPS: ReadonlyArray<string> = [
-  'Enforce MFA for all users — Authenticator app preferred over SMS',
-  'Block legacy authentication protocols (IMAP, POP, basic SMTP auth)',
-  'Enable Microsoft Defender anti-phishing policy with impersonation protection',
-  'Enable Safe Links for email and Office documents',
-  'Enable Safe Attachments with Dynamic Delivery',
-  'Configure SPF, DKIM, and DMARC on every domain you send mail from',
-  'Set up Conditional Access baseline policies (requires Business Premium)',
-  'Install the Microsoft Report Message add-in for all users',
-  'Run quarterly phishing simulations using Attack Simulator',
-  'Document and practise your response plan for a successful phishing click'
+const PREVENTION_STEPS: ReadonlyArray<{ text: string; fragment: string }> = [
+  { text: 'Enforce MFA for all users — Authenticator app preferred over SMS', fragment: 'mfa' },
+  { text: 'Block legacy authentication protocols (IMAP, POP, basic SMTP auth)', fragment: 'legacy-auth' },
+  { text: 'Enable Microsoft Defender anti-phishing policy with impersonation protection', fragment: 'defender' },
+  { text: 'Enable Safe Links for email and Office documents', fragment: 'safe-links' },
+  { text: 'Enable Safe Attachments with Dynamic Delivery', fragment: 'safe-attachments' },
+  { text: 'Configure SPF, DKIM, and DMARC on every domain you send mail from', fragment: 'domain-auth' },
+  { text: 'Set up Conditional Access baseline policies (requires Business Premium)', fragment: 'conditional-access' },
+  { text: 'Install the Microsoft Report Message add-in for all users', fragment: 'awareness' },
+  { text: 'Run quarterly phishing simulations using Attack Simulator', fragment: 'awareness' },
+  { text: 'Document and practise your response plan for a successful phishing click', fragment: 'incident-response' }
 ];
 
 @Component({
@@ -137,7 +137,7 @@ export class PhishingProtectionComponent implements OnDestroy {
       description:
         'A 10-step phishing protection checklist for Canadian small businesses on Microsoft 365, covering Defender anti-phishing, MFA, Safe Links, Safe Attachments, SPF/DKIM/DMARC, and legacy authentication blocking.',
       totalTime: 'PT3H',
-      step: PREVENTION_STEPS.map((text, index) => ({
+      step: PREVENTION_STEPS.map(({ text }, index) => ({
         '@type': 'HowToStep',
         position: index + 1,
         name: text,

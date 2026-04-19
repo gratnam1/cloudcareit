@@ -9,59 +9,75 @@ const PAGE_URL = `${BASE_URL}${PAGE_PATH}`;
 
 const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   {
-    q: 'How much should a small business spend on cybersecurity?',
-    a: 'Most Canadian small businesses we work with spend between 3% and 8% of their IT budget on security controls such as MFA, endpoint protection, email filtering, and third-party backup. The exact number depends on regulated data, cyber insurance requirements, and remote-work footprint.'
+    q: 'What is Microsoft Secure Score and what should a small business target?',
+    a: 'Microsoft Secure Score is a built-in dashboard in the Microsoft 365 Defender portal that measures how well your tenant is configured against Microsoft\'s security recommendations. For a small business running Microsoft 365 Business Standard or Business Premium, a score between 60% and 80% represents a strong, defensible baseline. Under 30% indicates high risk and missing critical controls. Access it at security.microsoft.com → Secure Score.'
+  },
+  {
+    q: 'Do I need Microsoft 365 Business Premium for Conditional Access?',
+    a: 'Yes. Conditional Access requires Microsoft 365 Business Premium or an Entra ID P1 licence. If you are on Business Standard, you can use Security Defaults (free, included in all plans) to enforce MFA and block legacy authentication — but you lose the granular control Conditional Access provides. For most 5–50 employee businesses, the Business Premium upgrade is worth the cost given the security controls it unlocks.'
   },
   {
     q: 'Is Microsoft 365 secure out of the box?',
-    a: 'Microsoft 365 provides a secure platform, but default tenant settings leave important gaps. Multi-factor authentication, conditional access, legacy authentication blocking, and third-party backup still need to be configured to reach a defensible posture.'
+    a: 'Microsoft 365 provides a secure platform but ships in a permissive default state. Multi-factor authentication is available but not enforced. Legacy authentication protocols remain active. SharePoint external sharing may allow anonymous access. Admin accounts have no separation from daily work accounts. These defaults simplify initial setup but represent real, exploitable gaps in a live business tenant.'
+  },
+  {
+    q: 'What does DKIM protect against and how is it different from SPF?',
+    a: 'SPF specifies which mail servers are authorized to send email on behalf of your domain. DKIM adds a cryptographic signature to each outbound message, allowing receiving servers to verify the email was not tampered with in transit and genuinely originated from your domain. DMARC builds on both — it tells receiving servers what to do when a message fails SPF or DKIM checks. All three are needed for complete email authentication.'
   },
   {
     q: 'What does cyber insurance require from a small business?',
-    a: 'Canadian cyber insurers increasingly require enforced MFA on all users, endpoint detection and response (EDR), documented backups, a tested incident response plan, and evidence that legacy authentication is disabled. Missing controls can trigger coverage exclusions or denied claims.'
-  },
-  {
-    q: 'Do we really need MFA if we use strong passwords?',
-    a: 'Yes. Strong passwords still get stolen through phishing, credential stuffing, and info-stealer malware. MFA stops most automated account takeovers and is now considered a baseline control by insurers and regulators, not a premium add-on.'
-  },
-  {
-    q: 'What is legacy authentication and why is it dangerous?',
-    a: 'Legacy authentication refers to older Microsoft 365 sign-in protocols like IMAP, POP, and basic SMTP auth that cannot enforce MFA. Attackers specifically target these protocols because a stolen password alone grants access. Disabling legacy auth is one of the highest-impact controls you can enable.'
-  },
-  {
-    q: 'What is the difference between antivirus and endpoint protection (EDR)?',
-    a: 'Traditional antivirus matches known malware signatures. Endpoint detection and response (EDR) watches device behavior, identifies suspicious activity, isolates compromised devices, and supports human-led investigation. Most cyber insurance policies now expect EDR, not basic antivirus.'
+    a: 'Canadian cyber insurers increasingly require enforced MFA on all users, endpoint detection and response (EDR), documented backups tested quarterly, a tested incident response plan, and evidence that legacy authentication is disabled. Insurers may also check for Conditional Access policies, DKIM/DMARC on sending domains, and audit logging. Missing controls can trigger coverage exclusions or denied claims after an incident.'
   },
   {
     q: 'Does Microsoft back up my emails and files in 365?',
-    a: 'Microsoft protects the platform and provides limited retention, but under the shared responsibility model your data is your responsibility. Recycle Bin and version history are not a backup. A dedicated third-party backup is what restores your business after ransomware, insider deletion, or a departed employee.'
+    a: 'No — not in the sense a business recovery plan requires. Microsoft protects the platform and provides limited retention features (Recycle Bin, version history, litigation hold), but under the shared responsibility model, your data is your responsibility. These convenience features cannot restore your tenant after ransomware encryption, an admin deletion, a departed employee, or a misconfiguration that wipes data. A dedicated third-party backup is required for genuine recovery capability.'
   },
   {
-    q: 'How often should we run security awareness training for staff?',
-    a: 'A short monthly phishing simulation plus quarterly micro-training works better for small teams than a single annual session. Frequency matters more than length because phishing tactics evolve continuously.'
+    q: 'What is legacy authentication and why is it dangerous?',
+    a: 'Legacy authentication refers to older Microsoft 365 sign-in protocols — IMAP, POP3, basic SMTP auth, and older ActiveSync connections — that cannot enforce MFA. Regardless of your MFA policies, a stolen password alone grants mailbox access through these protocols. Microsoft\'s telemetry links legacy authentication to over 99% of password spray incidents. Disabling legacy auth is one of the highest-impact, lowest-effort controls you can enable.'
   },
   {
-    q: 'What should we do immediately if we suspect a breach?',
-    a: 'Preserve evidence, isolate affected accounts and devices, reset credentials for impacted users, notify leadership, and contact your managed IT or incident response provider before changing the environment. Do not delete logs or reimage machines until an investigator reviews them.'
+    q: 'Do we really need MFA if we use strong passwords?',
+    a: 'Yes. Strong passwords are routinely stolen through phishing, credential stuffing attacks, and info-stealer malware that captures keystrokes or browser-saved credentials. MFA blocks the overwhelming majority of automated account takeover attempts even after a password is compromised. It is now considered a baseline control by Canadian cyber insurers and regulators, not a premium add-on.'
   },
   {
-    q: 'Is cyber insurance worth it for a 20-person business in Canada?',
-    a: 'For most Canadian SMBs the answer is yes. A single ransomware event can cost 6 to 7 figures in recovery, downtime, and legal notification. Insurance is meaningful only when your underlying controls match what the policy requires, so readiness and coverage go together.'
+    q: 'What is the difference between antivirus and endpoint detection and response (EDR)?',
+    a: 'Traditional antivirus matches files against a database of known malware signatures. Endpoint detection and response (EDR) monitors device behaviour continuously — identifying suspicious activity patterns, isolating compromised devices, and supporting human-led investigation after an incident. Most cyber insurance policies now expect EDR-level protection rather than basic antivirus, which misses novel and fileless malware variants.'
+  },
+  {
+    q: 'How much should a small business spend on cybersecurity?',
+    a: 'Most Canadian small businesses we work with spend between 3% and 8% of their IT budget on security controls — MFA, endpoint protection, email filtering, and third-party backup. The exact number depends on regulated data, cyber insurance requirements, and remote-work footprint. Microsoft 365 Business Premium consolidates many of these controls into a single licence, often reducing the per-control cost compared to purchasing them separately.'
+  },
+  {
+    q: 'What should we do immediately if we suspect a Microsoft 365 breach?',
+    a: 'Preserve evidence first — do not delete logs or reimage machines. Isolate affected accounts by revoking active sessions in Entra ID (Revoke sign-in sessions). Reset credentials for impacted users. Check for malicious inbox forwarding rules and newly created email filters. Notify leadership and contact your managed IT or incident response provider before making further changes to the environment. If you have cyber insurance, notify your insurer early — most policies have reporting windows.'
+  },
+  {
+    q: 'How often should we run phishing awareness training for staff?',
+    a: 'Short monthly phishing simulations plus quarterly micro-training consistently outperform a single annual session for small teams. Phishing tactics evolve quickly — monthly simulations keep recognition skills current without requiring long training blocks. Pair simulations with easy one-click reporting using the Microsoft "Report Message" Outlook add-in.'
   }
 ];
 
 const CHECKLIST: ReadonlyArray<string> = [
-  'Multi-factor authentication enabled on all Microsoft 365 accounts',
-  'Legacy authentication disabled in Microsoft 365',
-  'Conditional access policies restricting risky sign-ins',
-  'Staff trained to spot phishing emails',
+  'Multi-factor authentication enforced on all accounts',
+  'Legacy authentication protocols disabled',
+  'Conditional Access policies configured',
+  'Dedicated admin accounts separated from daily-use accounts',
+  'Global admin accounts protected with phishing-resistant MFA',
+  'Mailbox auditing enabled on all mailboxes',
   'Anti-phishing policies configured in Microsoft Defender',
-  'Endpoint protection on every company device (including BYOD)',
-  'Automatic OS and software updates enforced',
-  'Admin accounts separated from daily-use accounts',
+  'Safe Links and Safe Attachments enabled tenant-wide',
+  'DKIM configured on all sending domains',
+  'DMARC policy published and enforced',
+  'External sharing controls reviewed in SharePoint and OneDrive',
+  'Guest access reviewed and restricted to necessary users only',
+  'Unified audit logging enabled',
+  'Alert policies configured for high-risk events',
+  'Staff trained to identify and report phishing attempts',
+  'Endpoint detection and response deployed on every company device',
   'Microsoft 365 data backed up with a third-party solution',
   'Incident response plan documented and tested',
-  'Quarterly security review scheduled'
+  'Microsoft Secure Score reviewed and tracked quarterly'
 ];
 
 @Component({
@@ -85,7 +101,7 @@ export class MicrosoftSecurityChecklistComponent implements OnDestroy {
   constructor() {
     const title = 'Microsoft 365 Security Checklist for Small Businesses (2026) | CtrlShift IT Services';
     const description =
-      'The complete Microsoft 365 security checklist for Canadian small businesses — phishing, MFA, identity protection, ransomware, endpoints, and backup. Cyber insurance ready.';
+      'The complete Microsoft 365 security checklist for small businesses — MFA, Conditional Access, DKIM/DMARC, Safe Links, audit logging, backup, and Secure Score benchmarks. Written for Microsoft 365 Business Standard and Business Premium tenants with 5–50 employees.';
 
     this.seo.update({
       title,
@@ -98,7 +114,7 @@ export class MicrosoftSecurityChecklistComponent implements OnDestroy {
     this.seo.setStructuredData(this.ARTICLE_SCHEMA_ID, {
       '@context': 'https://schema.org',
       '@type': 'Article',
-      headline: 'Small Business Cybersecurity: The Complete Checklist & Protection Guide for Microsoft 365',
+      headline: 'Microsoft 365 Security Checklist for Small Businesses (2026)',
       description,
       url: PAGE_URL,
       inLanguage: 'en-CA',
@@ -116,11 +132,15 @@ export class MicrosoftSecurityChecklistComponent implements OnDestroy {
       },
       mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
       about: [
-        'Microsoft 365 security',
-        'Phishing protection',
+        'Microsoft 365 security checklist',
+        'Microsoft 365 tenant security',
+        'Microsoft 365 security best practices',
+        'Microsoft 365 Business Premium security setup',
         'Multi-factor authentication',
+        'Conditional Access',
+        'DKIM DMARC configuration',
+        'Microsoft Secure Score',
         'Ransomware protection',
-        'Endpoint security',
         'Backup and disaster recovery',
         'Cyber insurance readiness'
       ]
@@ -140,10 +160,10 @@ export class MicrosoftSecurityChecklistComponent implements OnDestroy {
     this.seo.setStructuredData(this.HOWTO_SCHEMA_ID, {
       '@context': 'https://schema.org',
       '@type': 'HowTo',
-      name: 'The 11-Point Small Business Cybersecurity Checklist',
+      name: 'Microsoft 365 Security Checklist for Small Businesses',
       description:
-        'An ordered Microsoft 365 security checklist for Canadian small businesses, covering MFA, legacy authentication, conditional access, phishing, endpoint protection, backup, and incident response.',
-      totalTime: 'PT2H',
+        'A 19-point Microsoft 365 security checklist for small businesses running Business Standard or Business Premium, covering MFA, Conditional Access, legacy authentication, admin protection, DKIM/DMARC, Safe Links, audit logging, endpoint protection, and backup.',
+      totalTime: 'PT4H',
       step: CHECKLIST.map((text, index) => ({
         '@type': 'HowToStep',
         position: index + 1,
@@ -159,7 +179,7 @@ export class MicrosoftSecurityChecklistComponent implements OnDestroy {
         { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
         { '@type': 'ListItem', position: 2, name: 'Guides', item: `${BASE_URL}/guides` },
         { '@type': 'ListItem', position: 3, name: 'Security', item: `${BASE_URL}/guides/security` },
-        { '@type': 'ListItem', position: 4, name: 'Microsoft 365 Checklist', item: PAGE_URL }
+        { '@type': 'ListItem', position: 4, name: 'Microsoft 365 Security Checklist', item: PAGE_URL }
       ]
     });
   }

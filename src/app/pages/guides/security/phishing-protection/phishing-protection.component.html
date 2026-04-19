@@ -60,8 +60,8 @@
           <p class="text-muted">Work through this list in order. Each item is covered in detail in the sections below.</p>
           <ol class="list-unstyled mb-0">
             <li *ngFor="let step of preventionSteps; let i = index" class="mb-2 d-flex gap-2">
-              <span class="text-muted">☐</span>
-              <span class="text-muted">{{ step }}</span>
+              <span class="text-muted flex-shrink-0">☐</span>
+              <a class="text-decoration-none checklist-link" routerLink="." [fragment]="step.fragment">{{ step.text }}</a>
             </li>
           </ol>
         </div>
@@ -119,7 +119,7 @@
             <li class="mb-1">Document your MFA enforcement as evidence — Canadian cyber insurers verify this at renewal</li>
           </ul>
           <p class="text-muted mb-0 small">
-            Related guide (coming soon): <a routerLink="/guides/security/mfa-rollout">Multi-Factor Authentication Rollout for Microsoft 365</a>
+            Related guide (coming soon): <a routerLink="/guides/security/mfa-rollout">Rolling Out MFA Without Breaking Things</a>
           </p>
         </div>
 
@@ -284,7 +284,7 @@
           <div class="border rounded-4 p-3 bg-light mt-4">
             <div class="fw-bold mb-1">We work with Canadian small businesses on Microsoft 365 security.</div>
             <div class="text-muted small mb-3">Tenant hardening, Defender configuration, conditional access, and phishing incident response — with a team that explains what we are doing and why.</div>
-            <div class="d-flex gap-3 flex-wrap">
+            <div class="d-flex gap-3 flex-wrap mb-3">
               <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/security-firewall">
                 See Managed Security Service
               </a>
@@ -292,26 +292,9 @@
                 Get a Free Assessment
               </a>
             </div>
-          </div>
-        </div>
-
-        <!-- Prevention Checklist -->
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="prevention-checklist">
-          <h2 class="h4 fw-bold mb-3">Phishing Prevention Checklist</h2>
-          <p class="text-muted">Print this out, work through it with your IT contact, and keep it on file for your next cyber insurance renewal.</p>
-          <ol class="list-unstyled mb-0">
-            <li *ngFor="let step of preventionSteps; let i = index" class="mb-3 d-flex gap-3 align-items-start">
-              <span class="badge bg-primary rounded-pill flex-shrink-0 mt-1" style="min-width: 1.6rem;">{{ i + 1 }}</span>
-              <span class="text-muted">{{ step }}</span>
-            </li>
-          </ol>
-          <div class="mt-4 p-3 bg-light rounded-3">
-            <p class="text-muted small mb-1">
-              <strong>Related guide:</strong> For a broader Microsoft 365 security posture — endpoints, backup, and cyber insurance readiness — see our full
-              <a routerLink="/guides/security/microsoft-365-checklist">Microsoft 365 Security Checklist</a>.
-            </p>
             <p class="text-muted small mb-0">
-              <strong>Related service:</strong> <a routerLink="/security-firewall">Managed Security &amp; Firewall</a> · <a routerLink="/services/cybersecurity">Cybersecurity Services</a>
+              For a broader Microsoft 365 security posture — endpoints, backup, and cyber insurance readiness — see the full
+              <a routerLink="/guides/security/microsoft-365-checklist">Microsoft 365 Security Checklist</a>.
             </p>
           </div>
         </div>
@@ -346,7 +329,6 @@
             <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="incident-response">Employee Clicks a Link</a></li>
             <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="attacker-techniques">How Attacks Bypass Controls</a></li>
             <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="managed-it">When to Call a Provider</a></li>
-            <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="prevention-checklist">Prevention Checklist</a></li>
             <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq">FAQ</a></li>
           </ul>
 
@@ -355,6 +337,7 @@
             <ul class="text-muted small mb-0 ps-3">
               <li><a routerLink="/guides/security/microsoft-365-checklist">M365 Security Checklist</a></li>
               <li><a routerLink="/guides/security/mfa-rollout">MFA Rollout Guide (coming soon)</a></li>
+              <li><a routerLink="/guides/security/conditional-access-policies">Conditional Access Policies (coming soon)</a></li>
               <li><a routerLink="/guides/security">All Security Guides</a></li>
             </ul>
           </div>

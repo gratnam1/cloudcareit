@@ -504,28 +504,56 @@ export const routes: Routes = [
     title: 'Small Business Cybersecurity Guides | CtrlShift IT Services'
   },
   {
-    path: 'guides/security/microsoft-365-checklist',
+    path: 'guides/security/microsoft-365-security',
     loadComponent: () =>
-      import('./pages/guides/security/microsoft-365-checklist/microsoft-365-checklist.component').then(
+      import('./pages/guides/security/microsoft-365-security/microsoft-365-security-hub.component').then(
+        (m) => m.Microsoft365SecurityHubComponent
+      ),
+    title: 'Microsoft 365 Security Guides | CtrlShift IT Services'
+  },
+  {
+    path: 'guides/security/microsoft-365-security/microsoft-365-checklist',
+    loadComponent: () =>
+      import('./pages/guides/security/microsoft-365-security/microsoft-365-checklist/microsoft-365-checklist.component').then(
         (m) => m.MicrosoftSecurityChecklistComponent
       ),
     title: 'Microsoft 365 Security Checklist for Small Businesses (2026) | CtrlShift IT Services'
   },
   {
-    path: 'guides/security/phishing-protection',
+    path: 'guides/security/microsoft-365-security/phishing-protection',
     loadComponent: () =>
-      import('./pages/guides/security/phishing-protection/phishing-protection.component').then(
+      import('./pages/guides/security/microsoft-365-security/phishing-protection/phishing-protection.component').then(
         (m) => m.PhishingProtectionComponent
       ),
     title: 'How to Protect Microsoft 365 Accounts From Phishing Attacks | CtrlShift IT Services'
   },
   {
-    path: 'guides/security/conditional-access-policies',
+    path: 'guides/security/microsoft-365-security/conditional-access-small-business',
     loadComponent: () =>
-      import('./pages/guides/security/conditional-access/conditional-access.component').then(
+      import('./pages/guides/security/microsoft-365-security/conditional-access-small-business/conditional-access.component').then(
         (m) => m.ConditionalAccessComponent
       ),
     title: 'Conditional Access Policies for Small Business (Microsoft 365) | CtrlShift IT Services'
+  },
+  {
+    path: 'guides/security/microsoft-365-checklist',
+    redirectTo: 'guides/security/microsoft-365-security/microsoft-365-checklist',
+    pathMatch: 'full'
+  },
+  {
+    path: 'guides/security/phishing-protection',
+    redirectTo: 'guides/security/microsoft-365-security/phishing-protection',
+    pathMatch: 'full'
+  },
+  {
+    path: 'guides/security/conditional-access-policies',
+    redirectTo: 'guides/security/microsoft-365-security/conditional-access-small-business',
+    pathMatch: 'full'
+  },
+  {
+    path: 'guides/security/conditional-access-small-business',
+    redirectTo: 'guides/security/microsoft-365-security/conditional-access-small-business',
+    pathMatch: 'full'
   },
 
   // About page

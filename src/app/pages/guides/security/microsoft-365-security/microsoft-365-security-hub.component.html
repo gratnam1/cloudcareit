@@ -1,0 +1,70 @@
+<section class="service-detail-page py-5 guides-hub">
+  <div class="container" style="max-width: 1120px;">
+    <nav class="guide-breadcrumb mb-4" aria-label="Breadcrumb">
+      <ol class="guide-breadcrumb-list">
+        <li><a routerLink="/">Home</a></li>
+        <li aria-hidden="true" class="guide-breadcrumb-sep">/</li>
+        <li><a routerLink="/guides">Guides</a></li>
+        <li aria-hidden="true" class="guide-breadcrumb-sep">/</li>
+        <li><a routerLink="/guides/security">Security</a></li>
+        <li aria-hidden="true" class="guide-breadcrumb-sep">/</li>
+        <li aria-current="page"><span class="guide-breadcrumb-current">Microsoft 365 Security</span></li>
+      </ol>
+    </nav>
+
+    <header class="mb-5">
+      <h1 class="fw-bold mb-3" style="font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.15;">
+        Microsoft 365 Security Guides
+      </h1>
+      <p class="lead text-secondary mb-0" style="max-width: 56rem;">
+        The Microsoft 365 security cluster for Canadian small businesses — start with the checklist,
+        then go deeper into phishing defence and Conditional Access as you tighten the tenant.
+      </p>
+    </header>
+
+    <div class="guides-hub-grid">
+      <ng-container *ngFor="let guide of guides">
+        <a
+          *ngIf="guide.available"
+          [routerLink]="guide.path"
+          [attr.id]="guide.id"
+          class="guide-card guide-card-available"
+          [attr.aria-label]="guide.title + ' guide — available now'"
+        >
+          <div class="guide-card-top">
+            <span class="guide-card-icon" aria-hidden="true"><i class="bi" [ngClass]="guide.icon"></i></span>
+            <span class="guide-card-status guide-card-status-live">Live</span>
+          </div>
+          <h2 class="guide-card-title">{{ guide.title }}</h2>
+          <p class="guide-card-summary">{{ guide.summary }}</p>
+          <span class="guide-card-cta">
+            Read guide <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+          </span>
+        </a>
+
+        <div
+          *ngIf="!guide.available"
+          [attr.id]="guide.id"
+          class="guide-card guide-card-soon"
+          [attr.aria-label]="guide.title + ' guide — coming soon'"
+        >
+          <div class="guide-card-top">
+            <span class="guide-card-icon" aria-hidden="true"><i class="bi" [ngClass]="guide.icon"></i></span>
+            <span class="guide-card-status guide-card-status-soon">Soon</span>
+          </div>
+          <h2 class="guide-card-title">{{ guide.title }}</h2>
+          <p class="guide-card-summary">{{ guide.summary }}</p>
+          <span class="guide-card-cta guide-card-cta-muted">In progress</span>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="mt-5 pt-4 border-top border-secondary-subtle">
+      <p class="text-secondary mb-0" style="max-width: 56rem;">
+        Need help deciding which Microsoft 365 control to fix first? Start with the checklist, then
+        <a routerLink="/free-security-assessment">request a free security assessment</a> if you want
+        help turning the guidance into a rollout plan.
+      </p>
+    </div>
+  </div>
+</section>

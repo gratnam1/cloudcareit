@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SeoService } from '../../../../shared/seo/seo.service';
+import { SeoService } from '../../../../../shared/seo/seo.service';
 
 const BASE_URL = 'https://ctrlshiftit.ca';
-const PAGE_PATH = '/guides/security/phishing-protection';
+const PAGE_PATH = '/guides/security/microsoft-365-security/phishing-protection';
 const PAGE_URL = `${BASE_URL}${PAGE_PATH}`;
 const STORAGE_KEY = 'phishing-guide-checklist-v1';
 
@@ -297,6 +297,12 @@ export class PhishingProtectionComponent implements OnDestroy, AfterViewInit {
         {
           '@type': 'ListItem',
           position: 4,
+          name: 'Microsoft 365 Security',
+          item: `${BASE_URL}/guides/security/microsoft-365-security`
+        },
+        {
+          '@type': 'ListItem',
+          position: 5,
           name: 'Phishing Protection',
           item: PAGE_URL
         }

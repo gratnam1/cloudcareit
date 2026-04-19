@@ -54,6 +54,12 @@
 /microsoft-365-security-basics /blog/microsoft-365-tips 301
 /wifi-office-slow /blog/office-networking-basics 301
 
+# Guides restructuring
+/guides/security/microsoft-365-checklist /guides/security/microsoft-365-security/microsoft-365-checklist 301
+/guides/security/phishing-protection /guides/security/microsoft-365-security/phishing-protection 301
+/guides/security/conditional-access-policies /guides/security/microsoft-365-security/conditional-access-small-business 301
+/guides/security/conditional-access-small-business /guides/security/microsoft-365-security/conditional-access-small-business 301
+
 # Legacy blog namespaces
 /post/* /blog/:splat 301
 /posts/* /blog/:splat 301

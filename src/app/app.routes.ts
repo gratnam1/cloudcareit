@@ -498,10 +498,18 @@ export const routes: Routes = [
   {
     path: 'guides/security',
     loadComponent: () =>
-      import('./pages/guides/security/guides-security.component').then(
-        (m) => m.GuidesSecurityComponent
+      import('./pages/guides/security/security-category.component').then(
+        (m) => m.SecurityCategoryComponent
       ),
-    title: 'Small Business Cybersecurity Checklist & Guide (2026) | CtrlShift IT Services'
+    title: 'Small Business Cybersecurity Guides | CtrlShift IT Services'
+  },
+  {
+    path: 'guides/security/microsoft-365-checklist',
+    loadComponent: () =>
+      import('./pages/guides/security/microsoft-365-checklist/microsoft-365-checklist.component').then(
+        (m) => m.MicrosoftSecurityChecklistComponent
+      ),
+    title: 'Microsoft 365 Security Checklist for Small Businesses (2026) | CtrlShift IT Services'
   },
 
   // About page

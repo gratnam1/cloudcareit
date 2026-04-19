@@ -1,10 +1,10 @@
 import { Component, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { SeoService } from '../../../shared/seo/seo.service';
+import { SeoService } from '../../../../shared/seo/seo.service';
 
 const BASE_URL = 'https://ctrlshiftit.ca';
-const PAGE_PATH = '/guides/security';
+const PAGE_PATH = '/guides/security/microsoft-365-checklist';
 const PAGE_URL = `${BASE_URL}${PAGE_PATH}`;
 
 const FAQS: ReadonlyArray<{ q: string; a: string }> = [
@@ -66,26 +66,26 @@ const CHECKLIST: ReadonlyArray<string> = [
 
 @Component({
   standalone: true,
-  selector: 'app-guides-security',
+  selector: 'app-microsoft-365-checklist',
   imports: [CommonModule, RouterModule],
-  templateUrl: './guides-security.component.html',
-  styleUrls: ['./guides-security.component.css']
+  templateUrl: './microsoft-365-checklist.component.html',
+  styleUrls: ['./microsoft-365-checklist.component.css']
 })
-export class GuidesSecurityComponent implements OnDestroy {
+export class MicrosoftSecurityChecklistComponent implements OnDestroy {
   private seo = inject(SeoService);
 
   readonly faqs = FAQS;
   readonly checklist = CHECKLIST;
 
-  private readonly ARTICLE_SCHEMA_ID = 'guide-security-article';
-  private readonly FAQ_SCHEMA_ID = 'guide-security-faq';
-  private readonly HOWTO_SCHEMA_ID = 'guide-security-howto';
-  private readonly BREADCRUMB_SCHEMA_ID = 'guide-security-breadcrumb';
+  private readonly ARTICLE_SCHEMA_ID = 'guide-security-m365-checklist-article';
+  private readonly FAQ_SCHEMA_ID = 'guide-security-m365-checklist-faq';
+  private readonly HOWTO_SCHEMA_ID = 'guide-security-m365-checklist-howto';
+  private readonly BREADCRUMB_SCHEMA_ID = 'guide-security-m365-checklist-breadcrumb';
 
   constructor() {
-    const title = 'Small Business Cybersecurity Checklist & Guide (2026) | CtrlShift IT Services';
+    const title = 'Microsoft 365 Security Checklist for Small Businesses (2026) | CtrlShift IT Services';
     const description =
-      'The complete small business cybersecurity checklist for Canadian companies on Microsoft 365 — phishing, MFA, identity protection, ransomware, endpoints, and backup. Cyber insurance ready.';
+      'The complete Microsoft 365 security checklist for Canadian small businesses — phishing, MFA, identity protection, ransomware, endpoints, and backup. Cyber insurance ready.';
 
     this.seo.update({
       title,
@@ -103,7 +103,7 @@ export class GuidesSecurityComponent implements OnDestroy {
       url: PAGE_URL,
       inLanguage: 'en-CA',
       datePublished: '2026-04-18',
-      dateModified: '2026-04-18',
+      dateModified: '2026-04-19',
       author: {
         '@type': 'Organization',
         name: 'CtrlShift IT Services',
@@ -142,7 +142,7 @@ export class GuidesSecurityComponent implements OnDestroy {
       '@type': 'HowTo',
       name: 'The 11-Point Small Business Cybersecurity Checklist',
       description:
-        'An ordered small business cybersecurity checklist for Canadian companies on Microsoft 365, covering MFA, legacy authentication, conditional access, phishing, endpoint protection, backup, and incident response.',
+        'An ordered Microsoft 365 security checklist for Canadian small businesses, covering MFA, legacy authentication, conditional access, phishing, endpoint protection, backup, and incident response.',
       totalTime: 'PT2H',
       step: CHECKLIST.map((text, index) => ({
         '@type': 'HowToStep',
@@ -157,8 +157,9 @@ export class GuidesSecurityComponent implements OnDestroy {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-        { '@type': 'ListItem', position: 2, name: 'Guides', item: `${BASE_URL}/guides/` },
-        { '@type': 'ListItem', position: 3, name: 'Security', item: PAGE_URL }
+        { '@type': 'ListItem', position: 2, name: 'Guides', item: `${BASE_URL}/guides` },
+        { '@type': 'ListItem', position: 3, name: 'Security', item: `${BASE_URL}/guides/security` },
+        { '@type': 'ListItem', position: 4, name: 'Microsoft 365 Checklist', item: PAGE_URL }
       ]
     });
   }

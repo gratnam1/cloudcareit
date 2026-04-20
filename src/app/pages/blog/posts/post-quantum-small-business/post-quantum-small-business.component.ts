@@ -18,7 +18,7 @@ export class PostQuantumSmallBusinessComponent implements OnInit {
 
   ngOnInit() {
     this.seo.update({
-      title: 'Post-Quantum Security for Small Businesses | CtrlShift IT Services',
+      title: 'Post-Quantum Security for SMBs | CtrlShift IT Services',
       description: 'What post-quantum cryptography means for small businesses — what to do now, which algorithms to adopt, and how to plan upgrades before quantum threats become real.',
       type: 'article',
       canonicalPath: '/blog/post-quantum-small-business',

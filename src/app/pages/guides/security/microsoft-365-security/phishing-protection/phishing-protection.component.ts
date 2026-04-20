@@ -11,6 +11,7 @@ const STORAGE_KEY = 'phishing-guide-checklist-v1';
 interface PhishingChecklistItem {
   readonly text: string;
   readonly fragment: string;
+  readonly category: 'identity' | 'email' | 'response';
 }
 
 interface VisualCard {
@@ -63,14 +64,14 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
 ];
 
 const PHISHING_CHECKLIST_ITEMS: ReadonlyArray<PhishingChecklistItem> = [
-  { text: 'MFA enabled for every user and admin account', fragment: 'mfa' },
-  { text: 'Legacy authentication blocked tenant-wide', fragment: 'legacy-auth' },
-  { text: 'Safe Links enabled for email and Microsoft 365 apps', fragment: 'safe-links' },
-  { text: 'Safe Attachments enabled with SharePoint, OneDrive, and Teams coverage', fragment: 'safe-attachments' },
-  { text: 'User reporting workflow documented with the Report Message add-in', fragment: 'awareness' },
-  { text: 'SPF, DKIM, and DMARC checked on every sending domain', fragment: 'domain-auth' },
-  { text: 'Staff phishing awareness training completed and refreshed regularly', fragment: 'awareness' },
-  { text: 'Incident response steps documented for suspicious clicks and mailbox compromise', fragment: 'incident-response' }
+  { text: 'MFA enabled for every user and admin account', fragment: 'mfa', category: 'identity' },
+  { text: 'Legacy authentication blocked tenant-wide', fragment: 'legacy-auth', category: 'identity' },
+  { text: 'Safe Links enabled for email and Microsoft 365 apps', fragment: 'safe-links', category: 'email' },
+  { text: 'Safe Attachments enabled with SharePoint, OneDrive, and Teams coverage', fragment: 'safe-attachments', category: 'email' },
+  { text: 'User reporting workflow documented with the Report Message add-in', fragment: 'awareness', category: 'response' },
+  { text: 'SPF, DKIM, and DMARC checked on every sending domain', fragment: 'domain-auth', category: 'email' },
+  { text: 'Staff phishing awareness training completed and refreshed regularly', fragment: 'awareness', category: 'response' },
+  { text: 'Incident response steps documented for suspicious clicks and mailbox compromise', fragment: 'incident-response', category: 'response' }
 ];
 
 const PROTECTION_LAYERS: ReadonlyArray<VisualCard> = [

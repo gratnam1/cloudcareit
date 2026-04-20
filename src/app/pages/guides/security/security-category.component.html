@@ -10,16 +10,29 @@
       </ol>
     </nav>
 
-    <header class="mb-5">
+    <header class="mb-4">
       <h1 class="fw-bold mb-3" style="font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.15;">
-        Small Business Cybersecurity Guides
+        Small Business Cybersecurity Guides (Canada)
       </h1>
       <p class="lead text-secondary mb-0" style="max-width: 56rem;">
-        Practical, hands-on cybersecurity how-tos for Canadian small businesses on Microsoft 365 —
-        written by the managed IT team at CtrlShift IT Services. Pick the topic you need; new how-tos
-        ship as we finalize them under our name.
+        Practical, deployment-focused guides for Canadian small businesses running Microsoft 365 —
+        covering phishing prevention, MFA rollout, Conditional Access policies, ransomware protection,
+        and backup strategy. Written by the managed IT team at CtrlShift IT Services.
       </p>
     </header>
+
+    <section class="mb-5 mt-4 p-4 rounded-3" style="background: var(--bs-tertiary-bg, #f8f9fa); max-width: 56rem;">
+      <h2 class="fw-semibold mb-3" style="font-size: 1.25rem;">
+        What cybersecurity controls should small businesses set up first?
+      </h2>
+      <p class="text-secondary mb-0">
+        Start with identity protection — enable MFA on every account before anything else. From there,
+        the recommended sequence is: MFA rollout across all staff, Conditional Access baseline policies
+        to enforce context-aware sign-in rules, phishing protection in Microsoft 365 Defender, then
+        verified backup coverage for Exchange, SharePoint, OneDrive, and Teams. Staff awareness training
+        runs in parallel throughout. Each layer compounds the one before it, so sequence matters.
+      </p>
+    </section>
 
     <div class="guides-hub-grid">
       <ng-container *ngFor="let h of howtos">
@@ -58,10 +71,24 @@
       </ng-container>
     </div>
 
+    <section class="mt-5 pt-4 border-top border-secondary-subtle">
+      <h2 class="fw-semibold mb-3" style="font-size: 1.25rem;">
+        Recommended cybersecurity rollout order for small businesses
+      </h2>
+      <ol class="text-secondary ps-3 mb-0" style="max-width: 56rem; line-height: 2.2;">
+        <li>Enable MFA across all accounts</li>
+        <li>Protect admin identities first</li>
+        <li>Deploy Conditional Access baseline policies</li>
+        <li>Configure phishing protection in Microsoft 365 Defender</li>
+        <li>Implement Microsoft 365 backup coverage</li>
+        <li>Train staff to recognize phishing attempts</li>
+      </ol>
+    </section>
+
     <div class="mt-5 pt-4 border-top border-secondary-subtle">
       <p class="text-secondary mb-0" style="max-width: 56rem;">
-        Need a security how-to we have not published yet? We prioritize based on what our managed
-        clients ask for —
+        Need a cybersecurity checklist or small business IT security how-to we have not published yet?
+        We prioritize based on what our managed clients ask for —
         <a routerLink="/it-assessment">book a free IT assessment</a> and we will fold your question
         into the next one.
       </p>

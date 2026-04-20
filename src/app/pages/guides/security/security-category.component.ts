@@ -21,27 +21,9 @@ const HOWTOS: ReadonlyArray<SecurityHowTo> = [
     id: 'microsoft-365-security',
     title: 'Microsoft 365 Security Checklist',
     summary:
-      'A prioritized Microsoft 365 security checklist for Canadian small businesses — tenant hardening, admin controls, Conditional Access, Microsoft Defender configuration, and audit logging.',
+      'The Microsoft 365 security cluster for Canadian small businesses — checklist, phishing protection, Conditional Access policies, and the related rollout guides in one place.',
     icon: 'bi-microsoft',
     path: '/guides/security/microsoft-365-security',
-    available: true
-  },
-  {
-    id: 'phishing-protection',
-    title: 'Phishing Protection for Small Business',
-    summary:
-      'How to configure Microsoft 365 Defender anti-phishing policies, enable Safe Links and Safe Attachments, and reduce impersonation and spoofing risk for your domain.',
-    icon: 'bi-shield-exclamation',
-    path: '/guides/security/microsoft-365-security/phishing-protection',
-    available: true
-  },
-  {
-    id: 'conditional-access-policies',
-    title: 'Conditional Access Policies for Small Business',
-    summary:
-      'Step-by-step guide to deploying Microsoft Entra Conditional Access baseline policies — blocking legacy auth, enforcing MFA on every sign-in, and protecting admin accounts without locking users out.',
-    icon: 'bi-lock',
-    path: '/guides/security/microsoft-365-security/conditional-access-small-business',
     available: true
   },
   {

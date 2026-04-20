@@ -7,6 +7,7 @@ const BASE_URL = 'https://ctrlshiftit.ca';
 const PAGE_PATH = '/guides/security/microsoft-365-security/conditional-access-small-business';
 const PAGE_URL = `${BASE_URL}${PAGE_PATH}`;
 const STORAGE_KEY = 'ca-guide-checklist-v1';
+const TESTING_STORAGE_KEY = 'ca-guide-testing-checklist-v1';
 
 interface CaChecklistItem {
   readonly text: string;
@@ -20,6 +21,7 @@ interface BaselinePolicy {
   readonly summary: string;
   readonly icon: string;
   readonly accentClass: string;
+  readonly layerTag?: string;
   readonly steps: ReadonlyArray<string>;
   readonly warning?: string;
 }
@@ -38,6 +40,10 @@ interface CommonMistake {
   readonly icon: string;
 }
 
+interface TestingChecklistItem {
+  readonly text: string;
+}
+
 const CHECKLIST_ITEMS: ReadonlyArray<CaChecklistItem> = [
   { text: 'Break-glass account created, FIDO2-protected, and excluded from all CA policies', fragment: 'break-glass', risk: 'critical' },
   { text: 'Security Defaults disabled (required before CA policies can be enforced)', fragment: 'prerequisites', risk: 'critical' },
@@ -49,6 +55,15 @@ const CHECKLIST_ITEMS: ReadonlyArray<CaChecklistItem> = [
   { text: 'Sign-in logs reviewed and unexpected blocks resolved after enforcement', fragment: 'testing', risk: 'medium' },
 ];
 
+const TESTING_CHECKLIST_ITEMS: ReadonlyArray<TestingChecklistItem> = [
+  { text: 'Corporate device' },
+  { text: 'Personal device' },
+  { text: 'Mobile phone' },
+  { text: 'External network' },
+  { text: 'Guest account' },
+  { text: 'Admin account' },
+];
+
 const BASELINE_POLICIES: ReadonlyArray<BaselinePolicy> = [
   {
     number: '1',
@@ -56,6 +71,7 @@ const BASELINE_POLICIES: ReadonlyArray<BaselinePolicy> = [
     summary: 'Enforces multi-factor authentication for every sign-in across the tenant. The highest-impact single policy you can deploy — blocks the overwhelming majority of automated credential attacks.',
     icon: 'bi-person-lock',
     accentClass: 'policy-mfa',
+    layerTag: 'Identity Protection Layer',
     steps: [
       'In Microsoft Entra admin centre, go to Protection → Conditional Access → New policy',
       'Name it "Require MFA — All Users"',
@@ -72,6 +88,7 @@ const BASELINE_POLICIES: ReadonlyArray<BaselinePolicy> = [
     summary: 'Blocks IMAP, POP3, and basic auth protocols that cannot enforce MFA — eliminating the side door that makes MFA irrelevant when credentials are stolen.',
     icon: 'bi-ban',
     accentClass: 'policy-legacy',
+    layerTag: 'Identity Protection Layer',
     steps: [
       'Create a new policy named "Block Legacy Authentication"',
       'Under Users: All users. Exclude: break-glass group',
@@ -88,6 +105,7 @@ const BASELINE_POLICIES: ReadonlyArray<BaselinePolicy> = [
     summary: 'Forces MFA on every admin session without persistent session tokens. Admins control the entire tenant — they are the highest-value target and should never be remembered.',
     icon: 'bi-shield-lock-fill',
     accentClass: 'policy-admins',
+    layerTag: 'Identity Protection Layer',
     steps: [
       'Create a policy named "Admin MFA — Every Sign-In"',
       'Under Users → Include: Directory role — select Global Administrator, Exchange Administrator, SharePoint Administrator, User Administrator, Security Administrator',
@@ -261,8 +279,10 @@ export class ConditionalAccessComponent implements OnDestroy, AfterViewInit {
   readonly rolloutPhases = ROLLOUT_PHASES;
   readonly commonMistakes = COMMON_MISTAKES;
   readonly faqs = FAQS;
+  readonly testingChecklistItems = TESTING_CHECKLIST_ITEMS;
 
   checklistChecked: boolean[] = new Array(CHECKLIST_ITEMS.length).fill(false);
+  testingChecklistChecked: boolean[] = new Array(TESTING_CHECKLIST_ITEMS.length).fill(false);
 
   private scrollHandler?: () => void;
   private observer?: IntersectionObserver;
@@ -358,6 +378,18 @@ export class ConditionalAccessComponent implements OnDestroy, AfterViewInit {
     return this.completedCount === CHECKLIST_ITEMS.length;
   }
 
+  get testingCompletedCount(): number {
+    return this.testingChecklistChecked.filter(Boolean).length;
+  }
+
+  get testingCompletedPercent(): number {
+    return Math.round((this.testingCompletedCount / TESTING_CHECKLIST_ITEMS.length) * 100);
+  }
+
+  get isTestingChecklistComplete(): boolean {
+    return this.testingCompletedCount === TESTING_CHECKLIST_ITEMS.length;
+  }
+
   toggleChecklistItem(index: number): void {
     this.checklistChecked = [...this.checklistChecked];
     this.checklistChecked[index] = !this.checklistChecked[index];
@@ -371,9 +403,23 @@ export class ConditionalAccessComponent implements OnDestroy, AfterViewInit {
     }
   }
 
+  toggleTestingChecklistItem(index: number): void {
+    this.testingChecklistChecked = [...this.testingChecklistChecked];
+    this.testingChecklistChecked[index] = !this.testingChecklistChecked[index];
+    this.saveTestingProgress();
+  }
+
+  clearTestingChecklistProgress(): void {
+    this.testingChecklistChecked = new Array(TESTING_CHECKLIST_ITEMS.length).fill(false);
+    if (isPlatformBrowser(this.platformId)) {
+      try { localStorage.removeItem(TESTING_STORAGE_KEY); } catch { /* ignore */ }
+    }
+  }
+
   ngAfterViewInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
     this.loadProgress();
+    this.loadTestingProgress();
     this.initReadingProgress();
     this.initScrollAnimations();
   }
@@ -392,6 +438,22 @@ export class ConditionalAccessComponent implements OnDestroy, AfterViewInit {
   private saveProgress(): void {
     if (!isPlatformBrowser(this.platformId)) return;
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(this.checklistChecked)); } catch { /* ignore */ }
+  }
+
+  private loadTestingProgress(): void {
+    try {
+      const saved = localStorage.getItem(TESTING_STORAGE_KEY);
+      if (!saved) return;
+      const arr = JSON.parse(saved) as boolean[];
+      if (Array.isArray(arr) && arr.length === TESTING_CHECKLIST_ITEMS.length) {
+        this.testingChecklistChecked = arr;
+      }
+    } catch { /* ignore */ }
+  }
+
+  private saveTestingProgress(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    try { localStorage.setItem(TESTING_STORAGE_KEY, JSON.stringify(this.testingChecklistChecked)); } catch { /* ignore */ }
   }
 
   private initReadingProgress(): void {

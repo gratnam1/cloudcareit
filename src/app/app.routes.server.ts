@@ -8,7 +8,7 @@ const BLOG_SLUGS = [
   'aws-infrastructure-best-practices',
   'firewall-security-essentials',
   'crisis-recovery-plan',
-  'web-development-trends',
+  'web-development-gta',
   'seo-visibility-guide',
   'lead-generation-strategies',
   'post-quantum-small-business',

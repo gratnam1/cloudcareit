@@ -19,45 +19,54 @@ interface SecurityHowTo {
 const HOWTOS: ReadonlyArray<SecurityHowTo> = [
   {
     id: 'microsoft-365-security',
-    title: 'Microsoft 365 Security',
+    title: 'Microsoft 365 Security Checklist',
     summary:
-      'A dedicated Microsoft 365 security cluster covering the checklist, phishing protection, Conditional Access, and the related rollout guides Canadian small businesses actually need.',
+      'A prioritized Microsoft 365 security checklist for Canadian small businesses — tenant hardening, admin controls, Conditional Access, Microsoft Defender configuration, and audit logging.',
     icon: 'bi-microsoft',
     path: '/guides/security/microsoft-365-security',
     available: true
   },
   {
-    id: 'mfa-rollout',
-    title: 'Rolling Out MFA Without Breaking Things',
+    id: 'phishing-protection',
+    title: 'Phishing Protection for Small Business',
     summary:
-      'How to stage a Microsoft 365 MFA deployment across a real small business — handling shared mailboxes, service accounts, BYOD exceptions, break-glass accounts, and the user communication that keeps the help desk quiet.',
+      'How to configure Microsoft 365 Defender anti-phishing policies, enable Safe Links and Safe Attachments, and reduce impersonation and spoofing risk for your domain.',
+    icon: 'bi-shield-exclamation',
+    path: '/guides/security/microsoft-365-security/phishing-protection',
+    available: true
+  },
+  {
+    id: 'conditional-access-policies',
+    title: 'Conditional Access Policies for Small Business',
+    summary:
+      'Step-by-step guide to deploying Microsoft Entra Conditional Access baseline policies — blocking legacy auth, enforcing MFA on every sign-in, and protecting admin accounts without locking users out.',
+    icon: 'bi-lock',
+    path: '/guides/security/microsoft-365-security/conditional-access-small-business',
+    available: true
+  },
+  {
+    id: 'password-management-mfa',
+    title: 'Password Management & MFA Setup',
+    summary:
+      'How to stage a Microsoft 365 MFA deployment across a real small business — shared mailboxes, service accounts, BYOD exceptions, break-glass accounts, and the user communication that keeps the help desk quiet.',
     icon: 'bi-shield-check',
     path: '',
     available: false
   },
   {
-    id: 'ransomware-recovery',
-    title: 'Ransomware Response Playbook',
+    id: 'ransomware-prevention',
+    title: 'Ransomware Prevention & Recovery Guide',
     summary:
-      'What to do in the first 60 minutes after a ransomware hit — containment steps, who decides what, how to preserve evidence for your insurer, and the pay-vs-restore decision most businesses are not prepared to make.',
+      'Ransomware protection controls for small business Microsoft 365 environments, plus what to do in the first 60 minutes after an incident — containment, evidence preservation, and the pay-vs-restore decision.',
     icon: 'bi-bug',
     path: '',
     available: false
   },
   {
-    id: 'endpoint-hardening',
-    title: 'Endpoint Hardening (Windows 11 & macOS)',
+    id: 'small-business-backup-strategy',
+    title: 'Small Business Data Backup Strategy',
     summary:
-      'Device-level security for small business laptops — BitLocker and FileVault encryption, EDR deployment, auto-patching enforcement, local admin removal, and a BYOD policy that holds up at insurance renewal.',
-    icon: 'bi-laptop',
-    path: '',
-    available: false
-  },
-  {
-    id: 'microsoft-365-backup',
-    title: 'Microsoft 365 Backup: What You Actually Need',
-    summary:
-      'Why OneDrive sync and the Recycle Bin are not a backup, how to evaluate third-party solutions for Exchange, SharePoint, OneDrive, and Teams, and what a verified restore test looks like in practice.',
+      'Why OneDrive sync and the Recycle Bin are not a backup strategy, how to evaluate Microsoft 365 backup solutions for Exchange, SharePoint, OneDrive, and Teams, and what a verified restore test looks like.',
     icon: 'bi-cloud-arrow-down',
     path: '',
     available: false
@@ -80,9 +89,9 @@ export class SecurityCategoryComponent implements OnDestroy {
   private readonly BREADCRUMB_SCHEMA_ID = 'guides-security-category-breadcrumb';
 
   constructor() {
-    const title = 'Small Business Cybersecurity Guides | CtrlShift IT Services';
+    const title = 'Small Business Cybersecurity Guide (Canada) | CtrlShift IT Services';
     const description =
-      'Practical cybersecurity how-tos for Canadian small businesses on Microsoft 365 — tenant hardening, phishing defense, MFA, ransomware, endpoint hardening, backup, and cyber insurance readiness.';
+      'Practical cybersecurity guides for Canadian small businesses on Microsoft 365 — MFA rollout, Conditional Access policies, phishing protection for small business, ransomware prevention, and backup strategy. Written by CtrlShift IT Services.';
 
     this.seo.update({
       title,
@@ -96,7 +105,7 @@ export class SecurityCategoryComponent implements OnDestroy {
       '@type': 'CollectionPage',
       '@id': PAGE_URL,
       url: PAGE_URL,
-      name: 'Small Business Cybersecurity Guides',
+      name: 'Small Business Cybersecurity Guides (Canada)',
       description,
       inLanguage: 'en-CA',
       isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website` },

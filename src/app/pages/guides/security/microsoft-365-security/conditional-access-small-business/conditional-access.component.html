@@ -114,6 +114,72 @@
             </div>
           </div>
 
+          <div class="ca-flow-wrap mt-4 animate-on-scroll" aria-labelledby="ca-flow-title">
+            <div class="ca-flow-label small fw-bold text-muted text-uppercase mb-2" id="ca-flow-title">
+              How Policies Evaluate Sign-in Requests
+            </div>
+            <div class="ca-flow" aria-label="Conditional Access evaluation flow from sign-in through final policy decision">
+              <div class="ca-flow-node">
+                <div class="ca-flow-icon c-blue"><i class="bi bi-box-arrow-in-right"></i></div>
+                <div class="ca-flow-text">
+                  <div class="fw-bold small">User signs in</div>
+                  <div class="ca-flow-sub">Authentication starts</div>
+                </div>
+              </div>
+              <div class="ca-flow-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+              <div class="ca-flow-node">
+                <div class="ca-flow-icon c-blue"><i class="bi bi-person-badge-fill"></i></div>
+                <div class="ca-flow-text">
+                  <div class="fw-bold small">Identity evaluated</div>
+                  <div class="ca-flow-sub">User, role, group</div>
+                </div>
+              </div>
+              <div class="ca-flow-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+              <div class="ca-flow-node">
+                <div class="ca-flow-icon c-purple"><i class="bi bi-laptop"></i></div>
+                <div class="ca-flow-text">
+                  <div class="fw-bold small">Device evaluated</div>
+                  <div class="ca-flow-sub">Managed or compliant</div>
+                </div>
+              </div>
+              <div class="ca-flow-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+              <div class="ca-flow-node">
+                <div class="ca-flow-icon c-orange"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="ca-flow-text">
+                  <div class="fw-bold small">Location evaluated</div>
+                  <div class="ca-flow-sub">IP, country, named location</div>
+                </div>
+              </div>
+              <div class="ca-flow-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+              <div class="ca-flow-node">
+                <div class="ca-flow-icon c-orange"><i class="bi bi-activity"></i></div>
+                <div class="ca-flow-text">
+                  <div class="fw-bold small">Risk evaluated</div>
+                  <div class="ca-flow-sub">Sign-in and user risk</div>
+                </div>
+              </div>
+              <div class="ca-flow-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+              <div class="ca-flow-node">
+                <div class="ca-flow-icon c-teal"><i class="bi bi-sliders"></i></div>
+                <div class="ca-flow-text">
+                  <div class="fw-bold small">Policy applied</div>
+                  <div class="ca-flow-sub">Grant controls checked</div>
+                </div>
+              </div>
+              <div class="ca-flow-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></div>
+              <div class="ca-flow-node">
+                <div class="ca-flow-icon c-green"><i class="bi bi-shield-check"></i></div>
+                <div class="ca-flow-text">
+                  <div class="fw-bold small">Allow / block / require MFA</div>
+                  <div class="ca-flow-sub">Final access decision</div>
+                </div>
+              </div>
+            </div>
+            <div class="ca-flow-note small text-muted mt-2">
+              Each stage narrows the final access decision before Microsoft 365 grants, challenges, or blocks the session.
+            </div>
+          </div>
+
           <aside class="guide-cta-card guide-cta-card-primary mt-4 mb-0" aria-labelledby="intro-cta-title">
             <div class="guide-cta-eyebrow">Free Security Assessment</div>
             <h2 class="guide-cta-title h5 fw-bold mb-2" id="intro-cta-title">Not sure what state your Conditional Access configuration is in right now?</h2>
@@ -210,6 +276,18 @@
           <p class="text-muted">
             Without a break-glass account, a single policy mistake can make your tenant unrecoverable without calling Microsoft Support — a process that can take days.
           </p>
+
+          <aside class="guide-related-block guide-related-block-warning mt-4" aria-labelledby="rollout-warning-title">
+            <div class="guide-related-eyebrow">Rollout safety warning</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="rollout-warning-title">
+              Never enable Conditional Access enforcement without all three safeguards in place
+            </h3>
+            <ul class="guide-related-list mb-0">
+              <li>A break-glass emergency account</li>
+              <li>Report-only validation</li>
+              <li>Pilot group testing</li>
+            </ul>
+          </aside>
 
           <div class="ca-step-list mt-3">
             <div class="ca-step-item">
@@ -341,6 +419,25 @@
           </p>
         </div>
 
+        <!-- ── Business Premium capabilities ─────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="business-premium-capabilities">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-microsoft"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Conditional Access capabilities in Microsoft 365 Business Premium</h2>
+          </div>
+          <p class="text-muted">
+            <strong>Microsoft 365 Business Premium includes Conditional Access</strong> through Entra ID P1. That means Business Premium tenants can build strong identity baselines with user and group targeting, admin-role policies, named locations, device-based access decisions, sign-in frequency controls, report-only testing, and legacy-auth blocking.
+          </p>
+          <p class="text-muted">
+            What Business Premium does <strong>not</strong> include is the full set of <strong>Microsoft Entra ID P2 / Identity Protection risk-based policies</strong>. Features like automated user-risk remediation, sign-in-risk policy enforcement, and the broader Identity Protection workflow require Entra ID P2. Those are valuable in larger or higher-risk environments, but they are not required to build a strong small-business baseline.
+          </p>
+          <p class="text-muted mb-0">
+            In practice, most SMB tenants on Business Premium can still implement the controls that matter most: require MFA for all users, protect admin roles more aggressively, block legacy authentication, restrict sign-ins by location, and require compliant devices where appropriate. P2 adds more advanced risk automation; Business Premium already gives most small businesses enough to enforce a defensible Conditional Access posture.
+          </p>
+        </div>
+
         <!-- ── Baseline policies ──────────────────────────────────── -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="baseline-policies">
           <div class="d-flex align-items-center gap-3 mb-3">
@@ -352,6 +449,131 @@
           <p class="text-muted mb-4">
             These five policies cover the exposure profile of most Canadian small businesses. Policies 1–4 can be deployed without Intune. Policy 5 is an optional second-tier control for tenants that have completed Intune enrollment.
           </p>
+          <aside class="guide-related-block mb-4" aria-labelledby="minimum-baseline-title">
+            <div class="guide-related-eyebrow">Quick Reference</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="minimum-baseline-title">Minimum recommended SMB Conditional Access baseline</h3>
+            <ul class="guide-related-list mb-0">
+              <li>Require MFA for all users.</li>
+              <li>Require MFA for admins every sign-in.</li>
+              <li>Block legacy authentication.</li>
+              <li>Block risky locations.</li>
+              <li>Protect break-glass account.</li>
+            </ul>
+          </aside>
+
+          <aside class="guide-related-block mb-4" aria-labelledby="baseline-example-title">
+            <div class="guide-related-eyebrow">Example Policy Set</div>
+            <h3 class="guide-related-title h6 fw-bold mb-3" id="baseline-example-title">
+              SMB-safe Conditional Access baseline for Microsoft 365 Business Premium
+            </h3>
+            <div class="ca-baseline-example-grid">
+              <article class="ca-baseline-example-card">
+                <div class="ca-baseline-example-name">Require MFA - All Users</div>
+                <dl class="ca-baseline-example-list mb-0">
+                  <div>
+                    <dt>Target users</dt>
+                    <dd>All users, excluding the break-glass account and any documented temporary exceptions.</dd>
+                  </div>
+                  <div>
+                    <dt>Conditions</dt>
+                    <dd>All cloud apps.</dd>
+                  </div>
+                  <div>
+                    <dt>Grant controls</dt>
+                    <dd>Grant access + require multifactor authentication.</dd>
+                  </div>
+                  <div>
+                    <dt>Rollout mode</dt>
+                    <dd>Start in report-only for 1-2 weeks, then enforce.</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="ca-baseline-example-card">
+                <div class="ca-baseline-example-name">Block Legacy Authentication</div>
+                <dl class="ca-baseline-example-list mb-0">
+                  <div>
+                    <dt>Target users</dt>
+                    <dd>All users, excluding the break-glass account group.</dd>
+                  </div>
+                  <div>
+                    <dt>Conditions</dt>
+                    <dd>All cloud apps; client apps set to Exchange ActiveSync clients and Other clients.</dd>
+                  </div>
+                  <div>
+                    <dt>Grant controls</dt>
+                    <dd>Block access.</dd>
+                  </div>
+                  <div>
+                    <dt>Rollout mode</dt>
+                    <dd>Run report-only first, then enforce after checking printers, scanners, and older apps.</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="ca-baseline-example-card">
+                <div class="ca-baseline-example-name">Require MFA - Admin Roles</div>
+                <dl class="ca-baseline-example-list mb-0">
+                  <div>
+                    <dt>Target users</dt>
+                    <dd>Global Admin, Exchange Admin, SharePoint Admin, User Admin, and Security Admin roles.</dd>
+                  </div>
+                  <div>
+                    <dt>Conditions</dt>
+                    <dd>All cloud apps, with short sign-in frequency if you need tighter admin session control.</dd>
+                  </div>
+                  <div>
+                    <dt>Grant controls</dt>
+                    <dd>Grant access + require multifactor authentication.</dd>
+                  </div>
+                  <div>
+                    <dt>Rollout mode</dt>
+                    <dd>Enforce immediately once your break-glass exclusion is confirmed.</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="ca-baseline-example-card">
+                <div class="ca-baseline-example-name">Block Sign-Ins - Risky Locations</div>
+                <dl class="ca-baseline-example-list mb-0">
+                  <div>
+                    <dt>Target users</dt>
+                    <dd>All users, excluding break-glass and any approved travel or service-account exceptions.</dd>
+                  </div>
+                  <div>
+                    <dt>Conditions</dt>
+                    <dd>Any location, excluding your named safe locations such as Canada and approved travel countries.</dd>
+                  </div>
+                  <div>
+                    <dt>Grant controls</dt>
+                    <dd>Block access.</dd>
+                  </div>
+                  <div>
+                    <dt>Rollout mode</dt>
+                    <dd>Use report-only first, then enforce after validating travel and remote-work patterns.</dd>
+                  </div>
+                </dl>
+              </article>
+              <article class="ca-baseline-example-card">
+                <div class="ca-baseline-example-name">Require Compliant Device - Company Access</div>
+                <dl class="ca-baseline-example-list mb-0">
+                  <div>
+                    <dt>Target users</dt>
+                    <dd>All users or a staged pilot group after Intune enrollment is complete.</dd>
+                  </div>
+                  <div>
+                    <dt>Conditions</dt>
+                    <dd>All cloud apps or selected business apps, using device-compliance signals.</dd>
+                  </div>
+                  <div>
+                    <dt>Grant controls</dt>
+                    <dd>Grant access + require device to be marked compliant or require Hybrid Entra ID joined device.</dd>
+                  </div>
+                  <div>
+                    <dt>Rollout mode</dt>
+                    <dd>Report-only first, then enforce only after enrolled devices show healthy compliance coverage.</dd>
+                  </div>
+                </dl>
+              </article>
+            </div>
+          </aside>
 
           <div class="ca-policy-list">
             <div
@@ -362,6 +584,7 @@
               <div class="ca-policy-header">
                 <div class="ca-policy-num">{{ policy.number }}</div>
                 <div class="ca-policy-title-wrap">
+                  <div *ngIf="policy.layerTag" class="policy-layer-tag">{{ policy.layerTag }}</div>
                   <h3 class="h5 fw-bold mb-1">{{ policy.title }}</h3>
                   <p class="text-muted small mb-0">{{ policy.summary }}</p>
                 </div>
@@ -433,6 +656,45 @@
           <p class="text-muted mb-3">
             Microsoft Entra admin centre includes a built-in policy simulator called <strong>What If</strong>. Navigate to Protection → Conditional Access → What If. Enter a user, an app, a location, and other conditions — the tool shows exactly which policies would apply and what the result would be. Run it before enforcing any policy and after making changes.
           </p>
+
+          <div class="checklist-progress-wrap checklist-progress-wrap-compact mb-4" [class.all-done]="isTestingChecklistComplete">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="small fw-bold">
+                <ng-container *ngIf="!isTestingChecklistComplete">
+                  {{ testingCompletedCount }} of {{ testingChecklistItems.length }} sign-in scenarios tested
+                </ng-container>
+                <ng-container *ngIf="isTestingChecklistComplete">
+                  <i class="bi bi-patch-check-fill me-1 text-success"></i> Testing checklist complete
+                </ng-container>
+              </span>
+              <span class="small text-muted">{{ testingCompletedPercent }}%</span>
+            </div>
+            <div class="checklist-progress-track">
+              <div class="checklist-progress-fill" [style.width.%]="testingCompletedPercent"></div>
+            </div>
+            <div class="risk-legend d-flex gap-3 flex-wrap mt-2">
+              <span class="risk-badge risk-high">TEST COVERAGE</span>
+              <button *ngIf="testingCompletedCount > 0" class="btn btn-link p-0 ms-auto small text-muted" (click)="clearTestingChecklistProgress()">Reset</button>
+            </div>
+          </div>
+
+          <div class="checklist-items mb-4" aria-label="Conditional Access sign-in testing checklist">
+            <label
+              *ngFor="let item of testingChecklistItems; let i = index"
+              class="checklist-item-row"
+              [class.is-checked]="testingChecklistChecked[i]">
+              <input
+                type="checkbox"
+                class="checklist-cb"
+                [checked]="testingChecklistChecked[i]"
+                (change)="toggleTestingChecklistItem(i)"
+                [attr.aria-label]="'Test sign-in from ' + item.text.toLowerCase()">
+              <div class="cb-box">
+                <i class="bi bi-check2 cb-check-icon"></i>
+              </div>
+              <span class="checklist-item-text">Test sign-in from {{ item.text.toLowerCase() }}</span>
+            </label>
+          </div>
 
           <div class="ca-testing-grid animate-on-scroll">
             <div class="ca-test-scenario">

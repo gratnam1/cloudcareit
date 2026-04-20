@@ -20,6 +20,11 @@ export const routes: Routes = [
       },
       // Legacy blog slugs
       {
+        path: 'web-development-trends',
+        redirectTo: 'web-development-gta',
+        pathMatch: 'full'
+      },
+      {
         path: 'managed-it-vs-break-fix',
         redirectTo: 'managed-it-benefits',
         pathMatch: 'full'
@@ -50,11 +55,11 @@ export const routes: Routes = [
         title: 'Local SEO for Small Businesses: A No-Nonsense Playbook | CtrlShift IT Services'
       },
       {
-        path: 'web-development-trends',
+        path: 'web-development-gta',
         loadComponent: () =>
           import('./pages/blog/posts/web-development-trends/web-development-trends.component')
             .then((m) => m.WebDevelopmentTrendsComponent),
-        title: 'What Makes a Service Business Website Actually Work | CtrlShift IT Services'
+        title: 'Web Development for GTA Businesses | CtrlShift IT Services'
       },
       {
         path: 'post-quantum-small-business',

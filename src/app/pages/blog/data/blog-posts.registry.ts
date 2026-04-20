@@ -51,7 +51,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     tags: ['Recovery', 'Continuity']
   },
   {
-    slug: 'web-development-trends',
+    slug: 'web-development-gta',
     title: 'Web Development for GTA Businesses',
     excerpt: 'How service businesses in the GTA can build faster, higher-converting websites — covering Core Web Vitals, mobile UX, trust signals, and page structure that turns visitors into leads.',
     date: '2026-02-14',

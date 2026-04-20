@@ -21,7 +21,7 @@ export class WebDevelopmentTrendsComponent implements OnInit {
       title: 'Web Development for GTA Businesses | CtrlShift IT Services',
       description: 'How service businesses in the GTA can build faster, higher-converting websites — covering Core Web Vitals, mobile UX, trust signals, and page structure that turns visitors into leads.',
       type: 'article',
-      canonicalPath: '/blog/web-development-trends',
+      canonicalPath: '/blog/web-development-gta',
       publishedTime: '2026-02-14'
     });
   }

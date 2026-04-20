@@ -173,15 +173,15 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     mississauga: {
-      title: 'Managed IT Services Mississauga | CtrlShift IT Services',
+      title: 'IT Support Mississauga | Managed IT Services for Peel Region | CtrlShift IT',
       canonicalPath: '/managed-it-services-mississauga',
-      mainHeading: 'Managed IT Services & IT Support in Mississauga',
+      mainHeading: 'IT Support & Managed IT Services in Mississauga',
       areasServedText:
         'Our technicians deliver on-site IT support across Mississauga, including Square One, Meadowvale, Airport Corporate Centre, and Heartland business districts. Whether your office is near Hurontario or operating close to Highway 401 and 403 corridors, we respond quickly to urgent network and productivity incidents.',
       intro:
         'CtrlShift IT Services provides managed IT services and IT support for businesses in Mississauga — from the Airport Corporate Centre and the Square One district to the Meadowvale business parks and Heartland corridor. As a managed service provider Mississauga offices rely on for outsourced IT support, we keep Wi-Fi reliable across large floorplans, protect client data, and respond fast when Peel Region teams need help.',
       metaDescription:
-        'Managed IT Services Mississauga + IT Support Mississauga for Airport Corporate Centre, Square One, and Meadowvale offices. Outsourced IT support from a local managed service provider.',
+        'Reliable IT support and managed services for Mississauga businesses at Square One, Airport Corporate Centre, and Meadowvale. Local Peel Region MSP covering networking, Microsoft 365, and cybersecurity.',
       heroBullets: [
         'Local response across Peel Region and Square One',
         'Microsoft 365 / Google Workspace management',
@@ -325,15 +325,15 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     thornhill: {
-      title: 'Managed IT Services Thornhill | CtrlShift IT Services',
+      title: 'IT Support Thornhill | Managed IT for Small Offices | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-thornhill',
-      mainHeading: 'Managed IT Services & IT Support in Thornhill',
+      mainHeading: 'IT Support & Managed IT Services in Thornhill',
       areasServedText:
         'Our technicians provide on-site IT support across Thornhill, including offices near Promenade Shopping Centre, Yonge Street commercial corridors, and surrounding business plazas. Whether your team operates on the Vaughan side or Markham side of Thornhill, we provide rapid support for connectivity and security-critical failures.',
       intro:
         'CtrlShift IT Services provides managed IT services and IT support for businesses in Thornhill — serving professional office clusters along Yonge Street and Bathurst, local retail service businesses, and medical and accounting practices near Promenade Shopping Centre. As a managed service provider Thornhill owners trust for outsourced IT support, we keep email, Wi-Fi, and devices running with dependable helpdesk, patching, and practical security.',
       metaDescription:
-        'Managed IT Services Thornhill + IT Support Thornhill for professional offices, medical and accounting practices near Promenade and Yonge Street. Local managed service provider.',
+        'Practical IT support for small Thornhill offices — accounting, medical, and professional practices near Promenade and Yonge Street. Flat-rate managed IT with fast remote helpdesk and on-site visits.',
       heroBullets: [
         'Fast remote support for small offices',
         'Wi-Fi troubleshooting and upgrades',
@@ -401,15 +401,15 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     'richmond hill': {
-      title: 'Managed IT Services Richmond Hill | CtrlShift IT Services',
+      title: 'Managed IT Services Richmond Hill | Proactive IT for York Region | CtrlShift IT',
       canonicalPath: '/managed-it-services-richmond-hill',
-      mainHeading: 'Managed IT Services & IT Support in Richmond Hill',
+      mainHeading: 'Proactive IT Support & Managed IT in Richmond Hill',
       areasServedText:
         'Our technicians provide on-site IT support across Richmond Hill, including the Hillcrest Mall area, Highway 7 corridor, and key office zones along Yonge Street and Leslie Street. Whether your business is in a medical, legal, or professional office cluster, we offer fast response for high-impact outages and recurring IT disruptions.',
       intro:
         'CtrlShift IT Services provides managed IT services and IT support for businesses in Richmond Hill — along the Yonge Street corridor, the Leslie Street business parks, and the Hillcrest Mall area. As a managed service provider Richmond Hill clinics, professional offices, and growing firms rely on for outsourced IT support, we deliver proactive maintenance, Microsoft 365 account security, and responsive helpdesk so your team can focus on work instead of technology.',
       metaDescription:
-        'Managed IT Services Richmond Hill + IT Support Richmond Hill for Yonge Street corridor, Leslie Street business parks, and Hillcrest Mall area offices. Outsourced IT support with proactive maintenance.',
+        'Proactive managed IT and 24/7 monitoring for Richmond Hill offices along Yonge Street, Leslie Street, and the Hillcrest Mall area. Prevent downtime before it happens — flat-rate IT support for York Region.',
       heroBullets: [
         'Device maintenance and patching',
         'Microsoft 365 security (MFA + access control)',

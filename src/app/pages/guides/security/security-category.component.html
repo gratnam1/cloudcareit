@@ -1,5 +1,5 @@
 <section class="service-detail-page py-5 guides-hub">
-  <div class="container" style="max-width: 1120px;">
+  <div class="container">
     <nav class="guide-breadcrumb mb-4" aria-label="Breadcrumb">
       <ol class="guide-breadcrumb-list">
         <li><a routerLink="/">Home</a></li>
@@ -14,17 +14,23 @@
       <h1 class="fw-bold mb-3" style="font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.15;">
         Small Business Cybersecurity Guides (Canada)
       </h1>
-      <p class="lead text-secondary mb-0" style="max-width: 56rem;">
+      <p class="lead text-secondary mb-0">
         Practical, deployment-focused guides for Canadian small businesses running Microsoft 365 —
         covering phishing prevention, MFA rollout, Conditional Access policies, ransomware protection,
         and backup strategy. Written by the managed IT team at CtrlShift IT Services.
       </p>
     </header>
 
-    <section class="mb-5 mt-4 p-4 rounded-3" style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(99, 102, 241, 0.18); max-width: 56rem;">
-      <h2 class="fw-semibold mb-3" style="font-size: 1.25rem;">
-        What cybersecurity controls should small businesses set up first?
-      </h2>
+    <section class="mb-5 mt-4 p-4 rounded-3 security-callout">
+      <div class="security-callout-header mb-3">
+        <span class="security-callout-badge">
+          <i class="bi bi-check2-circle" aria-hidden="true"></i>
+          Recommended
+        </span>
+        <h2 class="fw-semibold mb-0" style="font-size: 1.25rem;">
+          What cybersecurity controls should small businesses set up first?
+        </h2>
+      </div>
       <p class="text-secondary mb-0">
         Start with identity protection — enable MFA on every account before anything else. From there,
         the recommended sequence is: MFA rollout across all staff, Conditional Access baseline policies
@@ -75,7 +81,7 @@
       <h2 class="fw-semibold mb-3" style="font-size: 1.25rem;">
         Recommended cybersecurity rollout order for small businesses
       </h2>
-      <ol class="text-secondary ps-3 mb-0" style="max-width: 56rem; line-height: 2.2;">
+      <ol class="text-secondary ps-3 mb-0" style="line-height: 2.2;">
         <li>Enable MFA across all accounts</li>
         <li>Protect admin identities first</li>
         <li>Deploy Conditional Access baseline policies</li>
@@ -86,7 +92,7 @@
     </section>
 
     <div class="mt-5 pt-4 border-top border-secondary-subtle">
-      <p class="text-secondary mb-0" style="max-width: 56rem;">
+      <p class="text-secondary mb-0">
         Need a cybersecurity checklist or small business IT security how-to we have not published yet?
         We prioritize based on what our managed clients ask for —
         <a routerLink="/it-assessment">book a free IT assessment</a> and we will fold your question

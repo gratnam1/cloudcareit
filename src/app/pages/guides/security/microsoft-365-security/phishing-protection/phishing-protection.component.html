@@ -211,6 +211,12 @@
                 <i class="bi bi-check2 cb-check-icon"></i>
               </div>
               <a class="checklist-item-text text-decoration-none" routerLink="." [fragment]="item.fragment">{{ item.text }}</a>
+              <span class="risk-badge ms-auto flex-shrink-0"
+                [class.risk-critical]="item.category === 'identity'"
+                [class.risk-high]="item.category === 'email'"
+                [class.risk-medium]="item.category === 'response'">
+                {{ item.category | uppercase }}
+              </span>
             </label>
           </div>
         </div>

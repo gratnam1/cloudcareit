@@ -4,19 +4,67 @@
   <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
   <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
   <div class="hero-noise" aria-hidden="true"></div>
-  <div class="container py-4 py-md-5">
-    <div class="row align-items-center g-5">
 
-      <div class="col-lg-5 order-1 order-lg-2">
-        <div class="glass-card-interactive ms-0 ms-lg-auto hero-parallax-target">
-          <svg id="blueprint-svg" viewBox="0 0 100 100">
-            <title>Blueprint SVG</title>
-            <rect class="draw-path" x="15" y="15" width="70" height="70" rx="12" />
-            <path class="draw-path" d="M50 30 L30 55 H42 V75 H58 V55 H70 L50 30 Z" />
+  <div class="container py-4 py-md-5 position-relative" style="z-index:1">
+
+    <!-- TRUST BADGE STRIP -->
+    <div class="hero-trust-strip d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start mb-5">
+      <span class="hero-trust-chip">
+        <i class="bi bi-star-fill" style="color:#f59e0b"></i>
+        <strong>5.0</strong> Google Rating
+      </span>
+      <span class="hero-trust-chip">
+        <i class="bi bi-shield-fill-check" style="color:#10b981"></i>
+        Cybersecurity-First
+      </span>
+      <span class="hero-trust-chip">
+        <i class="bi bi-lightning-charge-fill" style="color:#6366f1"></i>
+        &lt;15 Min Response SLA
+      </span>
+      <span class="hero-trust-chip">
+        <i class="bi bi-people-fill" style="color:#a5b4fc"></i>
+        GTA SMB Specialist
+      </span>
+    </div>
+
+    <div class="row align-items-stretch g-5">
+
+      <!-- RIGHT: Architecture Visual -->
+      <div class="col-lg-5 col-xl-6 order-1 order-lg-2 d-lg-flex">
+        <div class="glass-card-interactive ms-0 ms-lg-auto hero-parallax-target w-100">
+
+          <!-- Network topology SVG (draw-path only on stroke outlines for dash reveal) -->
+          <svg id="blueprint-svg" viewBox="0 0 160 140" aria-hidden="true">
+            <title>Secure IT Architecture</title>
+            <!-- Central shield node -->
+            <circle cx="80" cy="70" r="18" class="arch-node-primary" />
+            <path d="M80 57 L87 65 L80 83 L73 65 Z" class="arch-shield" />
+            <!-- Satellite nodes -->
+            <circle cx="28" cy="35" r="10" class="arch-node" />
+            <circle cx="132" cy="35" r="10" class="arch-node" />
+            <circle cx="28" cy="105" r="10" class="arch-node" />
+            <circle cx="132" cy="105" r="10" class="arch-node" />
+            <circle cx="80" cy="18" r="8" class="arch-node-accent" />
+            <!-- Connection lines -->
+            <line x1="80" y1="52" x2="80" y2="26" class="draw-path arch-line" />
+            <line x1="62" y1="60" x2="38" y2="42" class="draw-path arch-line" />
+            <line x1="98" y1="60" x2="122" y2="42" class="draw-path arch-line" />
+            <line x1="65" y1="80" x2="38" y2="98" class="draw-path arch-line" />
+            <line x1="95" y1="80" x2="122" y2="98" class="draw-path arch-line" />
+            <!-- Orbit ring -->
+            <circle cx="80" cy="70" r="32" class="draw-path arch-orbit" stroke-dasharray="4 6" />
+            <!-- Node labels -->
+            <text x="28" y="39" class="arch-label" text-anchor="middle">MDR</text>
+            <text x="132" y="39" class="arch-label" text-anchor="middle">FW</text>
+            <text x="28" y="109" class="arch-label" text-anchor="middle">M365</text>
+            <text x="132" y="109" class="arch-label" text-anchor="middle">VPN</text>
+            <text x="80" y="22" class="arch-label" text-anchor="middle">SOC</text>
           </svg>
-          <h2 class="text-white fw-light mb-0">CTRL<b>SHIFT</b></h2>
-          <p class="text-primary-light small tracking-widest uppercase mt-2">IT SERVICES</p>
-          <div class="glass-stats mt-4">
+
+          <h2 class="text-white fw-light mb-0 mt-2">CTRL<b>SHIFT</b></h2>
+          <p class="text-primary-light small tracking-widest uppercase mt-1 mb-3">SECURE IT ARCHITECTURE</p>
+
+          <div class="glass-stats">
             <div class="glass-stat">
               <span class="glass-stat-val">15+</span>
               <span class="glass-stat-lbl">Yrs Exp</span>
@@ -32,38 +80,90 @@
               <span class="glass-stat-lbl">Monitor</span>
             </div>
           </div>
+
+          <!-- Certifications row -->
+          <div class="hero-cert-row mt-3">
+            <span class="hero-cert-chip"><i class="bi bi-microsoft"></i> Microsoft</span>
+            <span class="hero-cert-chip"><i class="bi bi-shield-check"></i> Huntress</span>
+            <span class="hero-cert-chip"><i class="bi bi-google"></i> Google Workspace</span>
+            <span class="hero-cert-chip"><i class="bi bi-router"></i> Fortinet</span>
+          </div>
+
         </div>
       </div>
 
-      <div class="col-lg-7 order-2 order-lg-1 text-start">
-        <span class="badge badge-neon mb-4 px-3 py-2 rounded-pill">
-          <i class="bi bi-shield-check me-2"></i>Cybersecurity-First · 24/7 Monitoring · No Surprise Invoices
+      <!-- LEFT: Copy -->
+      <div class="col-lg-7 col-xl-6 order-2 order-lg-1 text-start">
+
+        <span class="badge badge-neon mb-3 px-3 py-2 rounded-pill">
+          <i class="bi bi-building-check me-2"></i>GTA Managed IT · 5–50 Employees · Security-First
         </span>
 
         <h1 class="display-3 fw-bold text-white mb-4 hero-title">
-          IT That Never<br><span class="text-gradient">Interrupts Your Business.</span>
+          Your IT Should Protect&nbsp;You,<br>
+          <span class="text-gradient">Not Hold You Back.</span>
         </h1>
 
         <p class="hero-text-bright mb-4 hero-subtitle">
-          Security-first managed IT services for GTA businesses — law firms, accounting offices, medical clinics, and engineering firms with 5–50 staff. 24/7 monitoring, proactive support, and zero surprise invoices.
+          Security-first managed IT for law firms, accounting offices, medical clinics, and engineering companies across Vaughan, Toronto, and Mississauga.
         </p>
 
-        <p class="hero-text-bright mb-4 hero-subtitle">
-          CtrlShift IT Services provides managed IT services and IT support for businesses in Vaughan, Richmond Hill, Mississauga, Thornhill, and Toronto.
-        </p>
+        <!-- SLA badge row -->
+        <div class="hero-sla-row d-flex flex-wrap gap-2 mb-4">
+          <span class="hero-sla-chip">
+            <i class="bi bi-lightning-charge-fill"></i> &lt;15 min response SLA
+          </span>
+          <span class="hero-sla-chip hero-sla-chip--green">
+            <i class="bi bi-shield-fill-check"></i> 24/7 SOC monitoring
+          </span>
+          <span class="hero-sla-chip hero-sla-chip--amber">
+            <i class="bi bi-receipt"></i> Flat-rate billing
+          </span>
+        </div>
+
+        <!-- Industries served icons -->
+        <div class="hero-industries d-flex flex-wrap gap-2 mb-4" aria-label="Industries we serve">
+          <span class="hero-industry-chip">
+            <i class="bi bi-bank2"></i> Law Firms
+          </span>
+          <span class="hero-industry-chip">
+            <i class="bi bi-calculator"></i> Accounting
+          </span>
+          <span class="hero-industry-chip">
+            <i class="bi bi-heart-pulse"></i> Medical Clinics
+          </span>
+          <span class="hero-industry-chip">
+            <i class="bi bi-gear-wide"></i> Engineering
+          </span>
+          <span class="hero-industry-chip">
+            <i class="bi bi-briefcase"></i> Finance
+          </span>
+        </div>
 
         <ul class="list-unstyled mb-5 hero-bullets">
-          <li class="hero-bullet"><i class="bi bi-check-circle-fill text-indigo me-2"></i>Cybersecurity-first approach — Huntress, Fortinet &amp; Tailscale</li>
-          <li class="hero-bullet"><i class="bi bi-check-circle-fill text-indigo me-2"></i>24/7 monitoring and rapid response (&lt;15 min SLA)</li>
-          <li class="hero-bullet"><i class="bi bi-check-circle-fill text-indigo me-2"></i>30-day risk-free guarantee — cancel with no penalty</li>
+          <li class="hero-bullet">
+            <i class="bi bi-check-circle-fill text-indigo me-2"></i>
+            Cybersecurity-first stack — Huntress MDR, Fortinet &amp; Tailscale zero-trust
+          </li>
+          <li class="hero-bullet">
+            <i class="bi bi-check-circle-fill text-indigo me-2"></i>
+            Dedicated vCIO — not a helpdesk ticket queue
+          </li>
+          <li class="hero-bullet">
+            <i class="bi bi-check-circle-fill text-indigo me-2"></i>
+            30-day risk-free trial — cancel with no penalty, no contracts
+          </li>
         </ul>
 
         <div class="d-flex flex-column flex-sm-row gap-3 flex-wrap hero-cta">
           <a routerLink="/it-assessment" class="btn btn-hero-primary btn-lg px-5 py-3 rounded-pill fw-bold magnetic-btn">
             <i class="bi bi-clipboard2-check me-2"></i>Book Free IT Assessment
           </a>
-          <a routerLink="/" fragment="pricing" class="btn btn-hero-ghost btn-lg px-5 py-3 rounded-pill magnetic-btn">View Plans</a>
+          <a routerLink="/" fragment="pricing" class="btn btn-hero-ghost btn-lg px-5 py-3 rounded-pill magnetic-btn">
+            <i class="bi bi-tag me-2"></i>View Pricing Plans
+          </a>
         </div>
+
       </div>
 
     </div>

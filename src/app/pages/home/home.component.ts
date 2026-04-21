@@ -507,7 +507,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     gsap.registerPlugin(ScrollTrigger);
 
     if (prefersReducedMotion) {
-      gsap.set('.badge-neon, .draw-path, .reveal-card, .glass-card-interactive, .hero-orb, .hero-noise, .hero-title, .hero-subtitle, .hero-cta .btn, .reveal-section, .marquee-section, .section-head-reveal, .team-head-reveal, .team-cards-reveal, .reviews-head-reveal, .review-cards-reveal, .pricing-head-reveal, .pricing-cards-reveal, .faq-head-reveal, .faq-reveal, .consultation-reveal', {
+      gsap.set('.badge-neon, .draw-path, .reveal-card, .glass-card-interactive, .hero-orb, .hero-noise, .hero-title, .hero-subtitle, .hero-cta .btn, .hero-trust-strip, .hero-sla-chip, .hero-industry-chip, .hero-cert-chip, .arch-node, .arch-node-primary, .arch-node-accent, .reveal-section, .marquee-section, .section-head-reveal, .team-head-reveal, .team-cards-reveal, .reviews-head-reveal, .review-cards-reveal, .pricing-head-reveal, .pricing-cards-reveal, .faq-head-reveal, .faq-reveal, .consultation-reveal', {
         clearProps: 'all'
       });
       document.querySelectorAll('.reveal-section').forEach(el => el.classList.add('revealed'));
@@ -562,7 +562,19 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         stagger: 0.08
       }, 'heroStart+=0.2')
       .from(".glass-card-interactive", { scale: 0.85, opacity: 0, duration: 1.1, ease: "elastic.out(1, 0.6)" }, 'heroStart')
-      .to(".draw-path", { strokeDashoffset: 0, duration: 1.5, stagger: 0.3, ease: "power2.inOut" }, 'heroStart+=0.15');
+      .to(".draw-path", { strokeDashoffset: 0, duration: 1.5, stagger: 0.3, ease: "power2.inOut" }, 'heroStart+=0.15')
+      .from('.hero-trust-strip', { opacity: 0, y: -12, duration: 0.5, ease: 'power2.out' }, 'heroStart+=0.1')
+      .from('.hero-sla-chip', { opacity: 0, x: -10, duration: 0.4, stagger: 0.08, ease: 'power2.out' }, 'heroStart+=0.6')
+      .from('.hero-industry-chip', { opacity: 0, y: 8, duration: 0.35, stagger: 0.06, ease: 'power2.out' }, 'heroStart+=0.8')
+      .from('.hero-cert-chip', { opacity: 0, scale: 0.9, duration: 0.3, stagger: 0.07, ease: 'back.out(1.4)' }, 'heroStart+=1.0')
+      .from('.arch-node, .arch-node-primary, .arch-node-accent', {
+        scale: 0,
+        opacity: 0,
+        duration: 0.4,
+        stagger: 0.1,
+        ease: 'back.out(2)',
+        transformOrigin: 'center center'
+      }, 'heroStart+=0.4');
 
     // --- 4. Scroll Triggers (Service Cards) ---
     // Animate each bento row together so cards within a row enter simultaneously

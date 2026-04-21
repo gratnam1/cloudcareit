@@ -507,7 +507,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     gsap.registerPlugin(ScrollTrigger);
 
     if (prefersReducedMotion) {
-      gsap.set('.badge-neon, .draw-path, .reveal-card, .glass-card-interactive, .hero-orb, .hero-noise, .hero-title, .hero-subtitle, .hero-cta .btn, .hero-trust-strip, .hero-sla-chip, .hero-industry-chip, .hero-cert-chip, .arch-node, .arch-node-primary, .arch-node-accent, .reveal-section, .marquee-section, .section-head-reveal, .team-head-reveal, .team-cards-reveal, .reviews-head-reveal, .review-cards-reveal, .pricing-head-reveal, .pricing-cards-reveal, .faq-head-reveal, .faq-reveal, .consultation-reveal', {
+      gsap.set('.badge-neon, .draw-path, .reveal-card, .glass-card-interactive, .hero-orb, .hero-noise, .hero-title, .hero-subtitle, .hero-cta .btn, .hero-trust-strip, .hero-sla-chip, .hero-industry-chip, .hero-cert-chip, .arch-node, .arch-node-primary, .arch-node-accent, .reveal-section, .marquee-section, .section-head-reveal, .security-layer, .team-head-reveal, .team-cards-reveal, .reviews-head-reveal, .review-cards-reveal, .pricing-head-reveal, .pricing-cards-reveal, .faq-head-reveal, .faq-reveal, .consultation-reveal', {
         clearProps: 'all'
       });
       document.querySelectorAll('.reveal-section').forEach(el => el.classList.add('revealed'));
@@ -613,6 +613,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       once: true,
       onEnter: batch => {
         gsap.fromTo(batch, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' });
+      }
+    });
+    ScrollTrigger.batch('.security-layer', {
+      start: 'top 84%',
+      once: true,
+      onEnter: batch => {
+        gsap.fromTo(batch, { y: 22, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out', stagger: 0.07 });
       }
     });
     ScrollTrigger.batch('.team-head-reveal', {

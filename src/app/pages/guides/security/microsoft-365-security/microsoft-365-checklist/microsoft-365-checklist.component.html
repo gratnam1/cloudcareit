@@ -267,6 +267,51 @@
             </div>
           </div>
 
+          <!-- Tier summary overview -->
+          <div class="tier-summary-grid" aria-label="Controls by priority tier">
+            <div class="tier-col tier-col-critical" aria-label="Critical controls">
+              <div class="tier-col-header">
+                <span class="risk-badge risk-critical">CRITICAL</span>
+                <span class="tier-count">7 controls</span>
+              </div>
+              <div class="tier-col-target">Do these first — highest impact</div>
+              <ul class="tier-col-items">
+                <li>MFA on all accounts</li>
+                <li>Legacy auth disabled</li>
+                <li>Conditional Access</li>
+                <li>Admin account separation</li>
+                <li class="tier-col-more">+3 more in checklist below</li>
+              </ul>
+            </div>
+            <div class="tier-col tier-col-high" aria-label="High priority controls">
+              <div class="tier-col-header">
+                <span class="risk-badge risk-high">HIGH</span>
+                <span class="tier-count">8 controls</span>
+              </div>
+              <div class="tier-col-target">Complete within 30 days</div>
+              <ul class="tier-col-items">
+                <li>Anti-phishing policies</li>
+                <li>DKIM &amp; DMARC</li>
+                <li>Mailbox auditing</li>
+                <li>Staff phishing training</li>
+                <li class="tier-col-more">+4 more in checklist below</li>
+              </ul>
+            </div>
+            <div class="tier-col tier-col-medium" aria-label="Baseline controls">
+              <div class="tier-col-header">
+                <span class="risk-badge risk-medium">MEDIUM</span>
+                <span class="tier-count">4 controls</span>
+              </div>
+              <div class="tier-col-target">Complete within 90 days</div>
+              <ul class="tier-col-items">
+                <li>Guest access review</li>
+                <li>Unified audit logging</li>
+                <li>Alert policies</li>
+                <li>Secure Score tracking</li>
+              </ul>
+            </div>
+          </div>
+
           <!-- Checklist items -->
           <div class="checklist-items">
             <label
@@ -285,6 +330,14 @@
               <a class="checklist-item-text text-decoration-none" routerLink="." [fragment]="item.fragment">{{ item.text }}</a>
               <span class="risk-badge ms-auto flex-shrink-0" [ngClass]="'risk-' + item.risk">{{ item.risk | uppercase }}</span>
             </label>
+          </div>
+
+          <!-- Bottom CTA -->
+          <div class="checklist-bottom-cta">
+            <span class="checklist-bottom-cta-text">Can't complete this checklist on your own?</span>
+            <a routerLink="/free-security-assessment" class="checklist-bottom-cta-link">
+              Book a free M365 security review <i class="bi bi-arrow-right ms-1"></i>
+            </a>
           </div>
         </div>
 

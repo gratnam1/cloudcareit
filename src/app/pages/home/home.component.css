@@ -725,26 +725,94 @@
 
 /* ===== CYBERSECURITY ===== */
 .cyber-authority-section { border-top: 1px solid rgba(255,255,255,0.05); }
-.cyber-stack-card {
+.security-layer-list {
+  display: grid;
+  gap: 0.85rem;
+}
+.security-layer {
+  --layer-accent: var(--tech-indigo);
+  display: grid;
+  grid-template-columns: 4.75rem minmax(0, 1fr) 3.5rem;
+  align-items: center;
+  gap: 1.25rem;
+  min-height: 116px;
+  padding: 1.2rem 1.25rem;
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.07);
+  border-left: 4px solid var(--layer-accent);
+  border-radius: var(--radius-sm);
   transition: transform 0.25s ease, background 0.2s ease, border-color 0.2s ease;
 }
-.cyber-stack-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.05); border-color: rgba(99,102,241,0.2); }
-.cyber-stack-icon {
-  width: 44px; height: 44px; border-radius: 12px;
-  background: linear-gradient(135deg, rgba(99,102,241,0.25), rgba(139,92,246,0.15));
-  display: flex; align-items: center; justify-content: center;
+.security-layer:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.045);
+  border-color: rgba(255,255,255,0.12);
+  border-left-color: var(--layer-accent);
 }
-.cyber-stack-icon i { font-size: 1.3rem; color: #a5b4fc; }
-.cyber-badge {
-  display: inline-block; font-size: 0.68rem; font-weight: 700;
-  padding: 0.2rem 0.65rem; border-radius: 999px; margin-top: 0.5rem;
-  background: rgba(99,102,241,0.15); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.25);
+.security-layer--rose { --layer-accent: var(--tech-rose); }
+.security-layer--amber { --layer-accent: var(--tech-amber); }
+.security-layer--indigo { --layer-accent: var(--tech-indigo); }
+.security-layer--cyan { --layer-accent: var(--tech-cyan); }
+.security-layer-number {
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--layer-accent);
+  letter-spacing: 0.04em;
 }
-.cyber-badge-red   { background: rgba(239,68,68,0.12); color: #fca5a5; border-color: rgba(239,68,68,0.22); }
-.cyber-badge-green { background: rgba(34,197,94,0.1); color: #86efac; border-color: rgba(34,197,94,0.2); }
-.cyber-badge-amber { background: rgba(245,158,11,0.1); color: #fde68a; border-color: rgba(245,158,11,0.2); }
+.security-layer-body {
+  min-width: 0;
+}
+.security-layer-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+.security-layer-title {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+.security-tool-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.55rem 0 0.45rem;
+}
+.security-tool-list li {
+  color: rgba(226,232,240,0.82);
+  background: rgba(255,255,255,0.055);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0.28rem 0.55rem;
+}
+.security-layer-description {
+  color: rgba(148,163,184,0.9);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.security-layer-icon {
+  color: var(--layer-accent);
+  line-height: 1;
+}
+.security-layer-icon-end {
+  justify-self: end;
+  font-size: 2.1rem;
+  opacity: 0.9;
+}
+.security-layer-icon-inline {
+  display: none;
+  flex: 0 0 auto;
+  font-size: 1.25rem;
+}
 
 /* ===== CASE STUDIES ===== */
 .case-card {
@@ -1101,7 +1169,7 @@
 
 }
 
-/* Cybersecurity section — 4-across strip only at 1600+ (1440 keeps 2x2) */
+/* Cybersecurity section */
 @media (min-width: 1600px) {
   .cyber-authority-text {
     flex: 0 0 auto !important;
@@ -1113,11 +1181,32 @@
     width: 66.666% !important;
     max-width: 66.666% !important;
   }
-  .cyber-stack-grid > .col-sm-6 {
-    flex: 0 0 auto;
-    width: 25%;
+  .security-layer { min-height: 108px; }
+}
+
+@media (max-width: 767.98px) {
+  .security-layer {
+    grid-template-columns: 3.2rem minmax(0, 1fr);
+    gap: 0.85rem;
+    min-height: 0;
+    padding: 1rem;
   }
-  .cyber-stack-card { padding: 1.4rem !important; }
+  .security-layer-number {
+    align-self: start;
+    padding-top: 0.1rem;
+    font-size: 1.35rem;
+  }
+  .security-layer-title {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+  }
+  .security-layer-icon-end { display: none; }
+  .security-layer-icon-inline { display: block; }
+  .security-tool-list { gap: 0.38rem; }
+  .security-tool-list li {
+    font-size: 0.68rem;
+    padding: 0.25rem 0.48rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1127,6 +1216,8 @@
   .location-arrow { transition: none; }
   .location-card:hover { transform: none; }
   .location-card:hover .location-badge { transform: none; }
+  .security-layer { transition: none; }
+  .security-layer:hover { transform: none; }
 }
 
 /* ===== GENERAL MOBILE ===== */

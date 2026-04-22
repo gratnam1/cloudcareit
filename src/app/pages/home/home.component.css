@@ -387,8 +387,13 @@
   border-color: rgba(245, 158, 11, 0.28);
 }
 
-/* ===== INDUSTRIES CHIPS ===== */
+/* ===== INDUSTRIES ===== */
 .hero-industries { margin-bottom: 1.5rem; }
+.hero-industries-line {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 1.5rem;
+}
 
 .hero-industry-chip {
   display: inline-flex;
@@ -602,6 +607,7 @@
 .bento-md { grid-column: span 4; min-height: 260px; }
 .bento-sm { grid-column: span 4; min-height: 200px; }
 
+a.bento-card { text-decoration: none; color: inherit; cursor: pointer; }
 .bento-card {
   background: rgba(255,255,255,0.028);
   border: 1px solid rgba(255,255,255,0.07);

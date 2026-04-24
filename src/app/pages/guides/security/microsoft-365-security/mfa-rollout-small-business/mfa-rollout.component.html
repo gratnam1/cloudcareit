@@ -1,0 +1,750 @@
+<div class="reading-progress-track">
+  <div id="reading-progress" class="reading-progress-bar"></div>
+</div>
+
+<section class="service-detail-page py-5 guides-security mfa-guide">
+  <div class="container py-5">
+    <nav class="mb-4 breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides">Guides</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides/security">Security</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides/security/microsoft-365-security">Microsoft 365 Security</a></li>
+        <li class="breadcrumb-item active" aria-current="page">MFA Rollout Small Business</li>
+      </ol>
+    </nav>
+
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-8">
+
+        <!-- ── Header ─────────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h1 class="fw-bold display-6 mb-0">
+              Rolling Out MFA Without Breaking Things
+            </h1>
+          </div>
+          <p class="text-muted lead mb-4">
+            A staged deployment guide for Canadian small businesses deploying Microsoft 365 MFA safely — covering shared mailboxes, service accounts, BYOD devices, break-glass accounts, and legacy authentication shutdown without a Monday morning outage.
+          </p>
+
+          <div class="border rounded-4 p-3 bg-light mb-4">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="fw-bold small text-uppercase text-muted">Estimated reading time</div>
+                <div>15 minutes</div>
+              </div>
+              <div class="col-md-8">
+                <div class="fw-bold small text-uppercase text-muted">Who this guide is for</div>
+                <div>
+                  Small-business owners, clinic administrators, law firms, accounting firms, operations managers, and IT decision-makers with limited internal IT resources deploying Microsoft 365 MFA for the first time.
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 mt-0">
+              <div class="col-md-4">
+                <div class="fw-bold small text-uppercase text-muted">Rollout duration</div>
+                <div>5 weeks (staged)</div>
+              </div>
+              <div class="col-md-8">
+                <div class="fw-bold small text-uppercase text-muted">Prerequisite</div>
+                <div>
+                  A Microsoft 365 Business Premium or Entra ID P1 licence is required for Conditional Access-based MFA staging. Security Defaults (free) is an option for tenants that cannot yet stage the rollout.
+                </div>
+              </div>
+            </div>
+            <div class="mt-3 small text-muted">Last reviewed: April 2026</div>
+          </div>
+
+          <aside class="guide-related-block mb-4" aria-labelledby="related-checklist-title">
+            <div class="guide-related-eyebrow">Related Guide</div>
+            <h2 class="guide-related-title h6 fw-bold mb-1" id="related-checklist-title">
+              Microsoft 365 Security Checklist
+            </h2>
+            <p class="text-muted small mb-2">
+              MFA is one control in a 19-item security baseline. For the full picture of what your tenant needs before and after this rollout, start with the checklist.
+            </p>
+            <a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist" class="text-decoration-none small fw-bold">
+              Read the M365 Security Checklist <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </aside>
+
+          <aside class="guide-cta-card guide-cta-card-primary mb-0" aria-labelledby="intro-cta-title">
+            <div class="guide-cta-eyebrow">Free Security Assessment</div>
+            <h2 class="guide-cta-title h5 fw-bold mb-2" id="intro-cta-title">Not sure where to start with your MFA rollout?</h2>
+            <p class="guide-cta-copy mb-0">
+              We can audit your Microsoft 365 tenant for shared mailboxes, service accounts, and legacy auth dependencies before you enable a single policy — so nothing breaks when you enforce.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+            </div>
+          </aside>
+        </div>
+
+        <!-- ── Mobile quick-jump ──────────────────────────────────────── -->
+        <nav class="bg-white rounded-4 shadow-sm p-4 mt-4 d-lg-none" aria-labelledby="quick-jump-title">
+          <h2 class="h6 fw-bold mb-3" id="quick-jump-title">Jump to the sections that matter most</h2>
+          <div class="guide-jump-grid">
+            <a class="guide-jump-link" routerLink="." fragment="why-fail">Why MFA Fails</a>
+            <a class="guide-jump-link" routerLink="." fragment="phase-overview">5 Phases</a>
+            <a class="guide-jump-link" routerLink="." fragment="step-identity">Risky Accounts</a>
+            <a class="guide-jump-link" routerLink="." fragment="step-break-glass">Break-Glass</a>
+            <a class="guide-jump-link" routerLink="." fragment="step-admins">Admins First</a>
+            <a class="guide-jump-link" routerLink="." fragment="step-pilot">Pilot Group</a>
+            <a class="guide-jump-link" routerLink="." fragment="step-communicate">Communicate</a>
+            <a class="guide-jump-link" routerLink="." fragment="timeline">Timeline</a>
+          </div>
+        </nav>
+
+        <!-- ── Section 1: Why MFA Fails ──────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="why-fail">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-exclamation-circle-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Why MFA Deployments Fail in Small Businesses</h2>
+          </div>
+          <p class="text-muted mb-4">
+            MFA itself is reliable. What breaks deployments is the environment it lands in — accounts that were never designed to handle MFA prompts, devices that authenticate with protocols from 2003, and rollout strategies that treat a 40-person law firm the same as a single-user home lab.
+          </p>
+
+          <div class="mfa-failure-grid animate-on-scroll">
+            <div class="mfa-failure-card">
+              <div class="mfa-failure-icon c-red"><i class="bi bi-envelope-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Shared mailboxes receiving MFA prompts</h3>
+              <p class="text-muted small mb-0">Shared mailboxes cannot complete MFA challenges interactively. Any policy that targets them directly breaks delegation and any connector using those credentials.</p>
+            </div>
+            <div class="mfa-failure-card">
+              <div class="mfa-failure-icon c-orange"><i class="bi bi-printer-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Scanner and printer authentication failures</h3>
+              <p class="text-muted small mb-0">Multi-function printers that scan-to-email using a username and password over SMTP will fail silently when legacy authentication is blocked. Most businesses discover this only after enforcement.</p>
+            </div>
+            <div class="mfa-failure-card">
+              <div class="mfa-failure-icon c-orange"><i class="bi bi-phone"></i></div>
+              <h3 class="h6 fw-bold mb-1">Outlook mobile sign-in loops</h3>
+              <p class="text-muted small mb-0">Older versions of Outlook Mobile or accounts configured before MFA was enforced may loop repeatedly through authentication prompts without completing. Users assume MFA itself is broken.</p>
+            </div>
+            <div class="mfa-failure-card">
+              <div class="mfa-failure-icon c-purple"><i class="bi bi-door-open-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Legacy authentication still enabled</h3>
+              <p class="text-muted small mb-0">IMAP, POP, and SMTP AUTH bypass MFA entirely by design. If legacy auth is running alongside MFA policies, attackers can use those protocols to authenticate with a stolen password alone.</p>
+            </div>
+            <div class="mfa-failure-card">
+              <div class="mfa-failure-icon c-red"><i class="bi bi-robot"></i></div>
+              <h3 class="h6 fw-bold mb-1">Service accounts breaking silently</h3>
+              <p class="text-muted small mb-0">Line-of-business apps, backup connectors, and automation scripts that authenticate with Microsoft 365 credentials stop working the moment MFA is enforced — with no user-visible error to trace.</p>
+            </div>
+            <div class="mfa-failure-card">
+              <div class="mfa-failure-icon c-red"><i class="bi bi-key-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Missing break-glass accounts</h3>
+              <p class="text-muted small mb-0">A misconfigured Conditional Access policy can lock every admin out of the tenant simultaneously. Without a break-glass account, recovery requires Microsoft Support — a process that can take days.</p>
+            </div>
+          </div>
+
+          <aside class="guide-related-block guide-related-block-warning mt-4" aria-label="Core insight">
+            <div class="guide-related-eyebrow">The core insight</div>
+            <p class="fw-bold mb-0" style="color: #e2e8f0;">
+              Most MFA outages aren't caused by MFA itself — they're caused by deploying it all at once.
+            </p>
+          </aside>
+        </div>
+
+        <!-- ── Section 2: 5-Phase Overview ───────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="phase-overview">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-layers-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">The Safe MFA Deployment Strategy</h2>
+          </div>
+          <p class="text-muted mb-4">
+            A staged rollout protects operations at every step. Each phase resolves a specific risk category before the next phase begins — so a problem discovered in Phase 1 does not cascade into a tenant-wide outage in Phase 4.
+          </p>
+
+          <ol class="mfa-phase-list list-unstyled mb-0 animate-on-scroll" aria-label="5-phase MFA rollout strategy">
+            <li *ngFor="let phase of rolloutPhases" class="mfa-phase-item" [ngClass]="phase.accentClass" [attr.aria-label]="'Phase ' + phase.number + ': ' + phase.title">
+              <span class="mfa-phase-num" aria-hidden="true">{{ phase.number }}</span>
+              <div class="mfa-phase-body">
+                <h3 class="mfa-phase-title">{{ phase.title }}</h3>
+                <p class="mfa-phase-desc mb-0">{{ phase.description }}</p>
+              </div>
+              <i class="bi mfa-phase-icon-end" [ngClass]="phase.icon" aria-hidden="true"></i>
+            </li>
+          </ol>
+        </div>
+
+        <!-- ── Section 3: Step 1 – Identify Risky Accounts ───────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="step-identity">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-search"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Step 1: Identify Risky Accounts First</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Before writing a single Conditional Access policy, generate a complete list of every account in your tenant and classify each one. Accounts in the following categories require special handling — they cannot simply receive MFA and be moved on.
+          </p>
+
+          <div class="mfa-account-grid animate-on-scroll">
+            <div class="mfa-account-card">
+              <div class="mfa-account-icon"><i class="bi bi-envelope-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Shared mailboxes</h3>
+              <p class="text-muted small mb-0">Accessed by multiple people via delegate permissions. MFA must never be enforced directly on the mailbox account itself — only on the delegating user accounts.</p>
+            </div>
+            <div class="mfa-account-card">
+              <div class="mfa-account-icon"><i class="bi bi-gear-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Service accounts</h3>
+              <p class="text-muted small mb-0">Accounts used by line-of-business apps, backup tools, or third-party integrations authenticating with username and password. Must migrate to app registrations with OAuth before legacy auth is blocked.</p>
+            </div>
+            <div class="mfa-account-card">
+              <div class="mfa-account-icon"><i class="bi bi-printer-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Scanner and printer identities</h3>
+              <p class="text-muted small mb-0">Multi-function devices using SMTP AUTH for scan-to-email. Cannot complete MFA interactively. Migrate to Microsoft 365 direct send from a static IP before legacy auth shutdown.</p>
+            </div>
+            <div class="mfa-account-card">
+              <div class="mfa-account-icon"><i class="bi bi-arrow-left-right"></i></div>
+              <h3 class="h6 fw-bold mb-1">Backup connectors</h3>
+              <p class="text-muted small mb-0">Third-party backup solutions authenticating as a Microsoft 365 user. Must be migrated to a registered service principal with application permissions before MFA enforcement.</p>
+            </div>
+            <div class="mfa-account-card">
+              <div class="mfa-account-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Automation identities</h3>
+              <p class="text-muted small mb-0">Power Automate flows, scripts, or monitoring tools running as a user account. Should be converted to service principals or managed identities before MFA is applied tenant-wide.</p>
+            </div>
+            <div class="mfa-account-card">
+              <div class="mfa-account-icon"><i class="bi bi-arrow-repeat"></i></div>
+              <h3 class="h6 fw-bold mb-1">Directory sync accounts</h3>
+              <p class="text-muted small mb-0">Accounts used by Azure AD Connect or Entra Connect for on-premises directory synchronization. These require specific exclusions from MFA policies — Microsoft documents the required exclusions in the Entra Connect setup guide.</p>
+            </div>
+          </div>
+
+          <div class="ca-inline-warning mt-4">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <span>These accounts should <strong>not</strong> receive MFA until each one has been reviewed and a migration path documented. Enforce MFA on them without preparation and something will break.</span>
+          </div>
+        </div>
+
+        <!-- ── Section 4: Step 2 – Break-Glass ───────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="step-break-glass">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-key-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Step 2: Create Break-Glass Accounts (Critical Safety Step)</h2>
+          </div>
+          <p class="text-muted">
+            This is the single most important step in any MFA rollout. A break-glass account is a dedicated Global Administrator account intentionally excluded from every Conditional Access policy in the tenant. Its sole function is emergency access — if a misconfigured policy locks every other admin out, the break-glass account is your way back in.
+          </p>
+          <p class="text-muted mb-4">
+            Without a break-glass account, a single policy mistake can make the tenant unrecoverable without calling Microsoft Support, a process that can take days and requires legal verification of identity.
+          </p>
+
+          <div class="ca-step-list">
+            <div class="ca-step-item">
+              <div class="ca-step-num">1</div>
+              <div>
+                <div class="fw-bold small mb-1">Create two dedicated accounts</div>
+                <div class="text-muted small">Create two separate Global Administrator accounts with names like <code>breakglass1&#64;yourdomain.com</code> and <code>breakglass2&#64;yourdomain.com</code>. Two accounts guard against the case where one credential is unavailable. Use randomly generated passwords of 40 or more characters.</div>
+              </div>
+            </div>
+            <div class="ca-step-item">
+              <div class="ca-step-num">2</div>
+              <div>
+                <div class="fw-bold small mb-1">Protect with FIDO2 security keys — not an authenticator app</div>
+                <div class="text-muted small">Register a physical FIDO2 hardware key (YubiKey or equivalent) for each break-glass account. Do not use Microsoft Authenticator — if the phone is unavailable, lost, or wiped, you lose access. The key and its PIN must be stored in a physically secure location such as a safe or lockbox that at least two people in the organization can access.</div>
+              </div>
+            </div>
+            <div class="ca-step-item">
+              <div class="ca-step-num">3</div>
+              <div>
+                <div class="fw-bold small mb-1">Create a dedicated exclusion group</div>
+                <div class="text-muted small">Create a Microsoft Entra security group called <code>CA-Break-Glass-Exclusion</code> and add both break-glass accounts to it. Add this group to the Exclude field of every Conditional Access policy you create. The break-glass accounts must never appear in the Include scope of any policy.</div>
+              </div>
+            </div>
+            <div class="ca-step-item">
+              <div class="ca-step-num">4</div>
+              <div>
+                <div class="fw-bold small mb-1">Document and test quarterly</div>
+                <div class="text-muted small">Record both account names, key locations, and credentials in a secure offline document — a printed sheet in a fireproof safe is appropriate. Set a quarterly calendar reminder to test break-glass access. Verify the FIDO2 key still authenticates and the accounts still have Global Admin. Set an Entra alert to notify if either account is used outside of scheduled tests.</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="guide-related-block guide-related-block-warning mt-4" aria-labelledby="bg-security-callout-title">
+            <div class="guide-related-eyebrow">Security callout</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="bg-security-callout-title">
+              Never enforce any Conditional Access policy before these three safeguards exist
+            </h3>
+            <ul class="guide-related-list mb-0">
+              <li>Break-glass accounts created, FIDO2-protected, and tested</li>
+              <li>Break-glass exclusion group added to all existing and future policies</li>
+              <li>Credentials and key locations documented in a secure, physically accessible location</li>
+            </ul>
+          </aside>
+        </div>
+
+        <!-- ── Section 5: Step 3 – Protect Admins First ──────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="step-admins">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-shield-lock-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Step 3: Protect Administrators First</h2>
+          </div>
+          <p class="text-muted mb-3">
+            Administrators control the entire tenant — mailboxes, user accounts, email rules, app permissions, and data. A single compromised admin account can silently forward all email, add attacker-controlled accounts, and deploy ransomware across every connected device. Admins are the highest-value target and must be protected before any other group.
+          </p>
+          <p class="text-muted mb-4">
+            Admin phishing attacks are not rare or exotic. Attackers specifically target Global and Exchange administrators because compromising one account bypasses MFA enforcement for every other user in the tenant — they can simply disable policies or add new admin accounts. Protect administrators first, independently of the broader rollout schedule.
+          </p>
+
+          <div class="checklist-progress-wrap mb-4" [class.all-done]="isAdminChecklistComplete">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span class="small fw-bold">
+                <ng-container *ngIf="!isAdminChecklistComplete">
+                  {{ adminCompletedCount }} of {{ adminChecklistItems.length }} admin MFA items complete
+                </ng-container>
+                <ng-container *ngIf="isAdminChecklistComplete">
+                  <i class="bi bi-patch-check-fill me-1 text-success"></i> Admin MFA rollout complete
+                </ng-container>
+              </span>
+              <span class="small text-muted">{{ adminCompletedPercent }}%</span>
+            </div>
+            <div class="checklist-progress-track">
+              <div class="checklist-progress-fill" [style.width.%]="adminCompletedPercent"></div>
+            </div>
+            <div class="risk-legend d-flex gap-3 flex-wrap mt-2">
+              <span class="risk-badge risk-critical">CRITICAL</span>
+              <span class="risk-badge risk-high">HIGH</span>
+              <span class="risk-badge risk-medium">MEDIUM</span>
+              <button *ngIf="adminCompletedCount > 0" class="btn btn-link p-0 ms-auto small text-muted" (click)="clearAdminChecklistProgress()">Reset</button>
+            </div>
+          </div>
+
+          <div class="checklist-items" aria-label="Admin MFA rollout checklist">
+            <label
+              *ngFor="let item of adminChecklistItems; let i = index"
+              class="checklist-item-row"
+              [class.is-checked]="adminChecklistChecked[i]">
+              <input
+                type="checkbox"
+                class="checklist-cb"
+                [checked]="adminChecklistChecked[i]"
+                (change)="toggleAdminChecklistItem(i)"
+                [attr.aria-label]="item.text">
+              <div class="cb-box">
+                <i class="bi bi-check2 cb-check-icon"></i>
+              </div>
+              <span class="checklist-item-text">{{ item.text }}</span>
+              <span class="risk-badge ms-auto flex-shrink-0"
+                [class.risk-critical]="item.risk === 'critical'"
+                [class.risk-high]="item.risk === 'high'"
+                [class.risk-medium]="item.risk === 'medium'">
+                {{ item.risk | uppercase }}
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ── Section 6: Step 4 – Pilot Group ───────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="step-pilot">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Step 4: Run a Pilot Deployment Group</h2>
+          </div>
+          <p class="text-muted mb-3">
+            After admins are protected, run a controlled pilot before any department rollout. A pilot group surfaces edge cases — unusual devices, BYOD configurations, Outlook versions, or personal phone restrictions — that do not appear in report-only mode but cause real disruption at scale.
+          </p>
+
+          <h3 class="h5 fw-bold mb-2">How to select your pilot group</h3>
+          <p class="text-muted mb-3">
+            Choose 3–8 people who are available during business hours and willing to report problems. Include diversity across device types (Windows, Mac, iPhone, Android), locations (in-office, remote, BYOD), and technical comfort levels. Volunteers who are confident they can troubleshoot a sign-in problem are ideal — do not start with your least technical employee.
+          </p>
+
+          <div class="mfa-pilot-grid animate-on-scroll">
+            <div class="mfa-pilot-card">
+              <div class="mfa-pilot-num">1</div>
+              <div class="mfa-pilot-label">Business owner or principal</div>
+              <div class="text-muted small">High-value account, sets the tone, and usually has mobile access to confirm the full flow works on their device.</div>
+            </div>
+            <div class="mfa-pilot-card">
+              <div class="mfa-pilot-num">2</div>
+              <div class="mfa-pilot-label">Office manager or operations lead</div>
+              <div class="text-muted small">Likely has the most varied access patterns — shared mailboxes, delegation, multiple devices — and will surface the most edge cases.</div>
+            </div>
+            <div class="mfa-pilot-card">
+              <div class="mfa-pilot-num">3</div>
+              <div class="mfa-pilot-label">Tech-comfortable employee</div>
+              <div class="text-muted small">Can troubleshoot their own sign-in issues, articulate problems clearly, and help walk colleagues through the process during the broader rollout.</div>
+            </div>
+          </div>
+
+          <h3 class="h5 fw-bold mt-4 mb-2">What to monitor during the pilot</h3>
+          <ul class="text-muted mb-3">
+            <li class="mb-2">Sign-in logs in Microsoft Entra admin centre — filter by Conditional Access status for your pilot group</li>
+            <li class="mb-2">Any support requests or authentication failures reported by pilot users within the first 48 hours</li>
+            <li class="mb-2">Whether mobile clients (Outlook iOS/Android, Teams) complete MFA registration without looping</li>
+            <li class="mb-2">Whether any shared mailboxes or delegate access patterns break after the pilot group's policies go live</li>
+          </ul>
+
+          <aside class="guide-related-block" aria-labelledby="pilot-expand-title">
+            <div class="guide-related-eyebrow">Expanding the pilot</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="pilot-expand-title">Move from pilot to department rollout only when</h3>
+            <ul class="guide-related-list mb-0">
+              <li>No unresolved failures appear in the Entra sign-in logs for 48 hours</li>
+              <li>Every pilot user has confirmed their mobile and desktop access works</li>
+              <li>Any shared mailbox or delegation issues have been resolved and documented</li>
+            </ul>
+          </aside>
+        </div>
+
+        <!-- ── Section 7: Step 5 – User Communication ────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="step-communicate">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Step 5: Communicate With Users Before Enforcement</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Most MFA complaints come from employees who were surprised by the prompt. Send a clear announcement at least 48 hours before enforcement goes live — ideally the week before. Include specific instructions, not just a notification that something is changing.
+          </p>
+
+          <div class="mfa-email-template" aria-label="Example user announcement email">
+            <div class="mfa-email-header">
+              <div class="mfa-email-meta"><span class="mfa-email-label">To:</span> All Staff</div>
+              <div class="mfa-email-meta"><span class="mfa-email-label">From:</span> [Owner / Office Manager]</div>
+              <div class="mfa-email-meta"><span class="mfa-email-label">Subject:</span> Action Required: Two-Step Login Coming to Microsoft 365 on [DATE]</div>
+            </div>
+            <div class="mfa-email-body">
+              <p>Hi team,</p>
+              <p>Starting <strong>[DATE]</strong>, we are adding a second step to logging into Microsoft 365 — this applies to Outlook, Teams, SharePoint, and all other Microsoft 365 apps.</p>
+              <p><strong>What is changing:</strong> After entering your password, you will be asked to approve the sign-in using the Microsoft Authenticator app on your phone. This is called multi-factor authentication (MFA). It means that even if someone knows your password, they still cannot access your account without your phone.</p>
+              <p><strong>What you need to do before [DATE]:</strong></p>
+              <ol>
+                <li>Download the Microsoft Authenticator app on your phone (App Store or Google Play — it is free).</li>
+                <li>Visit <strong>aka.ms/mfasetup</strong> while logged into your Microsoft 365 account and follow the setup steps.</li>
+                <li>Test a sign-out and sign back in to confirm your phone approves the request.</li>
+              </ol>
+              <p><strong>If you have questions or run into any issues</strong>, contact [SUPPORT CONTACT] at [PHONE / EMAIL] before [DATE]. We will be available during [HOURS] to walk you through setup.</p>
+              <p><strong>Note on personal phones:</strong> The Microsoft Authenticator app can only see the approval request — it cannot access your contacts, photos, or any personal data on your phone.</p>
+              <p>Thank you for helping us keep our systems secure.</p>
+              <p>[Owner / Office Manager Name]</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Section 8: Step 6 – BYOD ───────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="step-byod">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-phone-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Step 6: Handle BYOD Without Breaking Productivity</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Most small businesses rely on employees using personal phones for Microsoft Authenticator. This is the practical default — and it works well. The key is managing three areas: initial setup friction, fallback when a phone is unavailable, and employee concerns about privacy.
+          </p>
+
+          <h3 class="h5 fw-bold mb-2">Personal phone authenticator setup</h3>
+          <p class="text-muted mb-3">
+            Walk every employee through setup during a scheduled session rather than leaving them to discover the prompt on their own. Microsoft Authenticator is a five-minute setup with no technical knowledge required. Provide a one-page printed instruction sheet with QR codes for the App Store and Google Play and the setup URL (<code>aka.ms/mfasetup</code>).
+          </p>
+
+          <h3 class="h5 fw-bold mb-2">Fallback verification methods</h3>
+          <p class="text-muted mb-3">
+            Configure at least one fallback method for every user before enforcement goes live:
+          </p>
+          <ul class="text-muted mb-4">
+            <li class="mb-2"><strong>Phone call to a direct number</strong> — suitable for users with limited phone access or shared office environments</li>
+            <li class="mb-2"><strong>SMS verification code</strong> — widely compatible but lower security than the Authenticator app; acceptable as a fallback method, not a primary one</li>
+            <li class="mb-2"><strong>Backup email address</strong> — for non-interactive password reset scenarios, not a replacement for MFA</li>
+          </ul>
+
+          <div class="mfa-privacy-callout animate-on-scroll" role="note">
+            <i class="bi bi-shield-check mfa-privacy-icon" aria-hidden="true"></i>
+            <div>
+              <div class="fw-bold mb-1" style="color: #e2e8f0;">Your company cannot see personal phone data.</div>
+              <p class="text-muted small mb-0">
+                The Microsoft Authenticator app generates time-based approval codes. It does not have access to contacts, photos, call history, location, or any other personal data on the device. Your employer can see that you approved or denied a sign-in request — nothing else. This is a common concern worth addressing explicitly before rollout.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Section 9: Step 7 – Conditional Access ─────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="step-conditional-access">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-sliders"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Step 7: Roll Out Conditional Access Safely</h2>
+          </div>
+          <p class="text-muted mb-3">
+            Conditional Access is the recommended mechanism for deploying MFA in Microsoft 365 Business Premium. It lets you stage the rollout, exclude specific accounts, and observe what policies would do before you enforce them. The four-stage sequence below prevents the most common rollout failures.
+          </p>
+
+          <div class="mfa-ca-stages animate-on-scroll" aria-label="Conditional Access rollout stages">
+            <div class="mfa-ca-stage">
+              <div class="mfa-ca-stage-num">1</div>
+              <div class="mfa-ca-stage-body">
+                <div class="fw-bold small mb-1">Report-only mode</div>
+                <div class="text-muted small">Create all policies with Enable policy set to Report-only. Nothing is enforced. Sign-in logs in Microsoft Entra show what would have been blocked or required — review them for two weeks before moving forward.</div>
+              </div>
+            </div>
+            <div class="mfa-ca-connector" aria-hidden="true"><i class="bi bi-arrow-down"></i></div>
+            <div class="mfa-ca-stage">
+              <div class="mfa-ca-stage-num">2</div>
+              <div class="mfa-ca-stage-body">
+                <div class="fw-bold small mb-1">Pilot group enforcement</div>
+                <div class="text-muted small">Change the policy target from All users to your pilot group security group. Set Enable policy to On. Enforce only for the pilot group — observe sign-in logs for 48–72 hours before expanding.</div>
+              </div>
+            </div>
+            <div class="mfa-ca-connector" aria-hidden="true"><i class="bi bi-arrow-down"></i></div>
+            <div class="mfa-ca-stage">
+              <div class="mfa-ca-stage-num">3</div>
+              <div class="mfa-ca-stage-body">
+                <div class="fw-bold small mb-1">Gradual department rollout</div>
+                <div class="text-muted small">Expand the policy target one department at a time by adding department security groups to the Include scope. Send user communication 48 hours before each department's enforcement date.</div>
+              </div>
+            </div>
+            <div class="mfa-ca-connector" aria-hidden="true"><i class="bi bi-arrow-down"></i></div>
+            <div class="mfa-ca-stage">
+              <div class="mfa-ca-stage-num">4</div>
+              <div class="mfa-ca-stage-body">
+                <div class="fw-bold small mb-1">Full tenant enforcement with log monitoring</div>
+                <div class="text-muted small">Switch the policy target to All users with the break-glass exclusion group in place. Monitor sign-in logs daily for the first week. Review any Failure or Not applied entries and resolve unexpected blocks within 24 hours.</div>
+              </div>
+            </div>
+          </div>
+
+          <a routerLink="/guides/security/microsoft-365-security/conditional-access-small-business" class="ca-posture-link mt-4 animate-on-scroll" aria-label="Read the full Conditional Access Policies guide">
+            <div class="ca-posture-link-icon"><i class="bi bi-sliders"></i></div>
+            <div>
+              <div class="fw-bold small">Conditional Access Policies for Small Business</div>
+              <div class="text-muted small">The complete guide to designing, testing, and enforcing Conditional Access in Microsoft 365 Business Premium — including named locations, device compliance, and break-glass exclusions.</div>
+            </div>
+            <i class="bi bi-arrow-right ms-auto"></i>
+          </a>
+        </div>
+
+        <!-- ── Section 10: Step 8 – Legacy Auth Shutdown ─────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="step-legacy-auth">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-ban"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Step 8: Disable Legacy Authentication (Final Security Layer)</h2>
+          </div>
+          <p class="text-muted mb-4">
+            MFA is not complete until legacy authentication is blocked. Every legacy protocol listed below bypasses MFA entirely — an attacker with a valid password can authenticate through these channels even while MFA is enforced on modern clients. This is not a theoretical risk: most automated credential-stuffing attacks specifically target legacy authentication endpoints because they are unprotected by MFA.
+          </p>
+
+          <div class="mfa-protocol-grid animate-on-scroll">
+            <div class="mfa-protocol-card">
+              <div class="mfa-protocol-icon c-red"><i class="bi bi-envelope-open-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">IMAP</h3>
+              <p class="text-muted small mb-0">Email retrieval protocol used by older email clients and some line-of-business tools. Authenticates with username and password only — MFA cannot be enforced on IMAP connections.</p>
+            </div>
+            <div class="mfa-protocol-card">
+              <div class="mfa-protocol-icon c-red"><i class="bi bi-inbox-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">POP3</h3>
+              <p class="text-muted small mb-0">Older email retrieval protocol with the same authentication limitation as IMAP. Modern email clients (Outlook 2016 and later) do not use POP3 by default, but legacy deployments may.</p>
+            </div>
+            <div class="mfa-protocol-card">
+              <div class="mfa-protocol-icon c-orange"><i class="bi bi-send-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">SMTP AUTH</h3>
+              <p class="text-muted small mb-0">Used by printers, scanners, and older CRMs to send email via Microsoft 365. Block only after all devices are migrated to direct send or OAuth. Blocking SMTP AUTH prematurely silences all scan-to-email devices.</p>
+            </div>
+            <div class="mfa-protocol-card">
+              <div class="mfa-protocol-icon c-orange"><i class="bi bi-windows"></i></div>
+              <h3 class="h6 fw-bold mb-1">Older Outlook clients</h3>
+              <p class="text-muted small mb-0">Outlook 2013 and earlier, and some configurations of Outlook 2016 without updates, use basic authentication. These clients must be updated or decommissioned before legacy auth is blocked.</p>
+            </div>
+          </div>
+
+          <h3 class="h5 fw-bold mt-4 mb-2">Correct shutdown timing</h3>
+          <p class="text-muted mb-0">
+            Only disable legacy authentication after the report-only Conditional Access policy for legacy auth has run for at least two weeks with zero failures from legitimate users. Check Entra sign-in logs and filter for client app type — look for IMAP, POP, SMTP, and Other clients entries. If any of those represent legitimate business workflows, migrate them first. When the logs show zero legitimate legacy auth traffic, enforce the Block Legacy Authentication policy.
+          </p>
+        </div>
+
+        <!-- ── Section 11: Common Mistakes ───────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="common-mistakes">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-exclamation-octagon-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Common MFA Mistakes We See During Emergency Recoveries</h2>
+          </div>
+          <p class="text-muted mb-4">
+            These are the patterns that generate emergency calls. Each one is preventable — and each one follows directly from skipping one of the preceding steps.
+          </p>
+
+          <div class="mfa-mistakes-grid animate-on-scroll">
+            <article *ngFor="let mistake of commonMistakes" class="mfa-mistake-card">
+              <div class="mfa-mistake-icon"><i class="bi" [ngClass]="mistake.icon"></i></div>
+              <h3 class="h6 fw-bold mb-2">{{ mistake.title }}</h3>
+              <p class="text-muted small mb-0">{{ mistake.body }}</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- ── Section 12: Timeline ───────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="timeline">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-calendar3"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Real-World Small Business MFA Rollout Timeline</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Five weeks is a practical timeline for a 10–50 person organization. Fewer than 10 users can compress to three weeks. Larger or more complex environments with many service accounts may need an additional week before Week 4.
+          </p>
+
+          <div class="mfa-timeline animate-on-scroll" aria-label="5-week MFA rollout timeline">
+            <div *ngFor="let week of rolloutWeeks; let last = last" class="mfa-timeline-block" [ngClass]="week.accentClass">
+              <div class="mfa-timeline-dot" aria-hidden="true"></div>
+              <div class="mfa-timeline-content">
+                <div class="mfa-timeline-week-label">{{ week.week }}</div>
+                <h3 class="mfa-timeline-title">{{ week.title }}</h3>
+                <ul class="mfa-timeline-tasks">
+                  <li *ngFor="let task of week.tasks">{{ task }}</li>
+                </ul>
+              </div>
+              <div *ngIf="!last" class="mfa-timeline-connector" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Section 13: When to Use an MSP ────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="when-msp">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">When Small Businesses Should Use an MSP for MFA Deployment</h2>
+          </div>
+          <p class="text-muted mb-3">
+            Most organizations with a single office, a consistent device fleet, and no legacy line-of-business apps can manage this rollout internally with the guidance in this document. The following signals indicate a higher-complexity environment where external support reduces risk:
+          </p>
+
+          <ul class="text-muted mb-4">
+            <li class="mb-2"><strong>Multiple locations or remote workforce</strong> — Conditional Access location policies and device compliance requirements need careful scoping when employees work from multiple jurisdictions or use unmanaged devices</li>
+            <li class="mb-2"><strong>Shared workstations</strong> — Kiosks, reception desks, or shared lab computers where multiple employees sign in require specific Conditional Access configurations that differ from personal-device rollouts</li>
+            <li class="mb-2"><strong>Compliance requirements</strong> — PIPEDA, PHIPA, or cyber insurance questionnaires that require documented evidence of MFA configuration often need specific policy settings, audit logs, and written verification</li>
+            <li class="mb-2"><strong>Recent phishing incidents</strong> — If credentials have been recently compromised or a phishing campaign has targeted the organization, MFA deployment should be accelerated and paired with a sign-in log audit before enforcement</li>
+            <li class="mb-2"><strong>Legacy line-of-business systems</strong> — EHR systems, practice management software, and accounting platforms that authenticate to Microsoft 365 using basic auth need migration planning before legacy auth can be blocked</li>
+          </ul>
+
+          <p class="text-muted mb-4">
+            CtrlShift IT Services deploys staged MFA rollouts designed to improve security without interrupting operations.
+          </p>
+
+          <a routerLink="/guides/security/microsoft-365-security/microsoft-365-backup-small-business" class="ca-posture-link mb-4 d-flex animate-on-scroll" aria-label="Read the Microsoft 365 Backup guide">
+            <div class="ca-posture-link-icon"><i class="bi bi-cloud-arrow-down"></i></div>
+            <div>
+              <div class="fw-bold small">Next: Microsoft 365 Backup — What You Actually Need</div>
+              <div class="text-muted small">Why OneDrive sync and the Recycle Bin are not a backup strategy, how to evaluate third-party backup, and what a verified restore looks like in practice.</div>
+            </div>
+            <i class="bi bi-arrow-right ms-auto"></i>
+          </a>
+
+          <aside class="guide-cta-card guide-cta-card-primary" aria-labelledby="msp-cta-title">
+            <div class="guide-cta-eyebrow">CtrlShift IT Services — GTA</div>
+            <h3 class="guide-cta-title h5 fw-bold mb-2" id="msp-cta-title">We deploy MFA rollouts designed for small businesses — without the enterprise complexity</h3>
+            <p class="guide-cta-copy mb-0">
+              If you want a staged MFA rollout that protects your tenant without locking out staff or silencing your printers, we can plan and execute the deployment from identity audit through legacy auth shutdown.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+              <a class="btn btn-outline-secondary rounded-pill px-4 fw-bold" routerLink="/microsoft-365">
+                Learn About Our M365 Support
+              </a>
+            </div>
+          </aside>
+        </div>
+
+        <!-- ── FAQ ───────────────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="faq">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-chat-left-dots-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Frequently Asked Questions</h2>
+          </div>
+
+          <div class="guide-faq-list">
+            <details class="guide-faq-item" *ngFor="let item of faqs; let idx = index" [attr.open]="idx === 0 ? '' : null">
+              <summary class="guide-faq-button fw-bold">{{ item.q }}</summary>
+              <div class="guide-faq-content text-muted">{{ item.a }}</div>
+            </details>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Sidebar ─────────────────────────────────────────────────── -->
+      <div class="col-lg-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 sticky-lg-top" style="top: 1rem;">
+          <h3 class="fw-bold mb-3">In this guide</h3>
+          <nav aria-label="On-page navigation">
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="why-fail">Why MFA Deployments Fail</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="phase-overview">The 5-Phase Strategy</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="step-identity">Step 1: Identify Risky Accounts</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="step-break-glass">Step 2: Break-Glass Accounts</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="step-admins">Step 3: Protect Admins First</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="step-pilot">Step 4: Pilot Group</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="step-communicate">Step 5: User Communication</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="step-byod">Step 6: Handle BYOD</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="step-conditional-access">Step 7: Conditional Access</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="step-legacy-auth">Step 8: Legacy Auth Shutdown</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="common-mistakes">Common Mistakes</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="timeline">5-Week Timeline</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="when-msp">When to Use an MSP</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq">FAQ</a></li>
+            </ul>
+          </nav>
+
+          <div class="border rounded-4 p-3 bg-light mb-3">
+            <div class="fw-bold mb-2">Related guides</div>
+            <ul class="text-muted small mb-0 ps-3">
+              <li><a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist">Microsoft 365 Security Checklist</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security/conditional-access-small-business">Conditional Access Policies</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security/phishing-protection">Phishing &amp; Email Defence</a></li>
+              <li><a routerLink="/guides/security">All Security Guides</a></li>
+            </ul>
+          </div>
+
+          <div class="border rounded-4 p-3 bg-light mb-3">
+            <div class="fw-bold mb-2">Related services</div>
+            <ul class="text-muted small mb-0 ps-3">
+              <li><a routerLink="/microsoft-365">Microsoft 365 Support</a></li>
+              <li><a routerLink="/security-firewall">Managed Security &amp; Firewall</a></li>
+              <li><a routerLink="/cyber-insurance-readiness-vaughan">Cyber Insurance Readiness</a></li>
+              <li><a routerLink="/crisis-recovery">IT Crisis Recovery</a></li>
+            </ul>
+          </div>
+
+          <div class="border rounded-4 p-3 bg-light">
+            <div class="fw-bold mb-1">Talk to a human</div>
+            <div class="text-muted small mb-2">Questions about your MFA rollout or an existing lockout? We answer plainly — no quota, no pressure.</div>
+            <a class="btn btn-dark rounded-pill w-100 py-2 fw-bold" routerLink="/" fragment="consultation">
+              Book a Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

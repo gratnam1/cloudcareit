@@ -70,6 +70,7 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'guides/security/microsoft-365-security/microsoft-365-checklist', renderMode: RenderMode.Prerender },
   { path: 'guides/security/microsoft-365-security/phishing-protection', renderMode: RenderMode.Prerender },
   { path: 'guides/security/microsoft-365-security/conditional-access-small-business', renderMode: RenderMode.Prerender },
+  { path: 'guides/security/microsoft-365-security/mfa-rollout-small-business', renderMode: RenderMode.Prerender },
 
   // About & utility pages
   { path: 'about', renderMode: RenderMode.Prerender },

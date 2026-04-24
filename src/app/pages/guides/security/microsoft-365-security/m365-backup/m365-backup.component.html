@@ -1,0 +1,734 @@
+<div class="reading-progress-track">
+  <div id="reading-progress" class="reading-progress-bar"></div>
+</div>
+
+<section class="service-detail-page py-5 guides-security m365-backup-guide">
+  <div class="container py-5">
+    <nav class="mb-4 breadcrumb-nav" aria-label="Breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides">Guides</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides/security">Security</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides/security/microsoft-365-security">Microsoft 365 Security</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Microsoft 365 Backup</li>
+      </ol>
+    </nav>
+
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-8">
+
+        <!-- ── Hero / Header ─────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-cloud-arrow-down-fill"></i>
+            </div>
+            <h1 class="fw-bold display-6 mb-0">
+              Microsoft 365 Backup: What You Actually Need
+            </h1>
+          </div>
+          <p class="text-muted lead mb-4">
+            Why OneDrive sync and the Recycle Bin are not real backups — and what small businesses should deploy instead.
+          </p>
+
+          <div class="border rounded-4 p-3 bg-light mb-4">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="fw-bold small text-uppercase text-muted">Estimated reading time</div>
+                <div>12 minutes</div>
+              </div>
+              <div class="col-md-8">
+                <div class="fw-bold small text-uppercase text-muted">Who this guide is for</div>
+                <div>
+                  Small-business owners, operations managers, and IT decision-makers running Microsoft 365 Business Standard or Business Premium who want to understand what Microsoft protects — and what they must protect themselves.
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 mt-0">
+              <div class="col-md-4">
+                <div class="fw-bold small text-uppercase text-muted">Platform</div>
+                <div>Microsoft 365 Business Standard &amp; Premium</div>
+              </div>
+              <div class="col-md-8">
+                <div class="fw-bold small text-uppercase text-muted">Key question answered</div>
+                <div>If a file is deleted, a mailbox is wiped, or ransomware encrypts your OneDrive — can you recover it? And from when?</div>
+              </div>
+            </div>
+            <div class="mt-3 small text-muted">Last reviewed: April 2026</div>
+          </div>
+
+          <p class="text-muted mb-4">
+            Microsoft 365 protects service availability, not your organization's data. Many small businesses assume files stored in OneDrive, SharePoint, or Exchange Online are automatically backed up — but recovery options inside Microsoft 365 are limited and time-sensitive.
+          </p>
+          <p class="text-muted mb-4">
+            This guide explains what Microsoft protects, what it does not protect, and how to implement a reliable Microsoft 365 backup strategy.
+          </p>
+
+          <aside class="guide-related-block mb-4" aria-labelledby="related-checklist-title">
+            <div class="guide-related-eyebrow">Related Guide</div>
+            <h2 class="guide-related-title h6 fw-bold mb-1" id="related-checklist-title">
+              Microsoft 365 Security Checklist
+            </h2>
+            <p class="text-muted small mb-2">
+              Backup is one of 19 controls in the Microsoft 365 security baseline. For the full picture of what your tenant needs, start with the checklist.
+            </p>
+            <a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist" class="text-decoration-none small fw-bold">
+              Read the M365 Security Checklist <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </aside>
+
+          <aside class="guide-cta-card guide-cta-card-primary mb-0" aria-labelledby="intro-cta-title">
+            <div class="guide-cta-eyebrow">Microsoft 365 Backup Assessment</div>
+            <h2 class="guide-cta-title h5 fw-bold mb-2" id="intro-cta-title">Not sure whether your Microsoft 365 data is actually protected?</h2>
+            <p class="guide-cta-copy mb-0">
+              We can review your tenant's current backup posture — what's covered, what's not, and what a verified restore would look like today.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Request a Free Security Assessment
+              </a>
+            </div>
+          </aside>
+        </div>
+
+        <!-- ── Mobile quick-jump ──────────────────────────────────────── -->
+        <nav class="bg-white rounded-4 shadow-sm p-4 mt-4 d-lg-none" aria-labelledby="quick-jump-title">
+          <h2 class="h6 fw-bold mb-3" id="quick-jump-title">Jump to the sections that matter most</h2>
+          <div class="guide-jump-grid">
+            <a class="guide-jump-link" routerLink="." fragment="shared-responsibility">Shared Responsibility</a>
+            <a class="guide-jump-link" routerLink="." fragment="onedrive-not-backup">OneDrive Sync</a>
+            <a class="guide-jump-link" routerLink="." fragment="recycle-bin">Recycle Bin</a>
+            <a class="guide-jump-link" routerLink="." fragment="data-loss-scenarios">Loss Scenarios</a>
+            <a class="guide-jump-link" routerLink="." fragment="what-backup-covers">What to Cover</a>
+            <a class="guide-jump-link" routerLink="." fragment="verified-restore">Verified Restore</a>
+            <a class="guide-jump-link" routerLink="." fragment="evaluate-vendors">Evaluating Vendors</a>
+            <a class="guide-jump-link" routerLink="." fragment="do-you-need-backup">Do You Need It?</a>
+          </div>
+        </nav>
+
+        <!-- ── Section 2: Shared Responsibility ─────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="shared-responsibility">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-building-fill-check"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Microsoft Protects the Platform — You Protect the Data</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Microsoft's shared responsibility model divides obligations clearly. Understanding where Microsoft's responsibility ends is the first step to understanding what you must protect yourself.
+          </p>
+
+          <div class="bkp-responsibility-grid animate-on-scroll">
+            <div class="bkp-responsibility-card bkp-card-ms">
+              <div class="bkp-card-header">
+                <i class="bi bi-microsoft me-2"></i>Microsoft's Responsibility
+              </div>
+              <ul class="bkp-card-list mb-0">
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Datacenter availability and hardware redundancy</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Microsoft 365 service uptime</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Platform-level replication across datacenters</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Infrastructure security and patching</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Compliance with Microsoft's SLA</li>
+              </ul>
+            </div>
+            <div class="bkp-responsibility-card bkp-card-you">
+              <div class="bkp-card-header">
+                <i class="bi bi-person-fill me-2"></i>Your Responsibility
+              </div>
+              <ul class="bkp-card-list mb-0">
+                <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Accidental deletion by users or admins</li>
+                <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Malicious deletion by insiders or attackers</li>
+                <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Ransomware encryption of files and mailboxes</li>
+                <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Insider risk and departing employee cleanup</li>
+                <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Retention policy misconfiguration</li>
+                <li><i class="bi bi-x-circle-fill text-danger me-2"></i>Legal discovery and long-term recovery requirements</li>
+              </ul>
+            </div>
+          </div>
+
+          <aside class="guide-related-block guide-related-block-warning mt-4" aria-label="Core insight">
+            <div class="guide-related-eyebrow">The critical distinction</div>
+            <p class="fw-bold mb-0" style="color: #e2e8f0;">
+              Platform availability ≠ data recoverability. Microsoft's infrastructure can be running perfectly while your data is permanently deleted.
+            </p>
+          </aside>
+        </div>
+
+        <!-- ── Section 3: OneDrive Sync ──────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="onedrive-not-backup">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-arrow-left-right"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Why OneDrive Sync Is Not a Backup Solution</h2>
+          </div>
+          <p class="text-muted mb-4">
+            OneDrive sync keeps files accessible across devices. That is its purpose. It is not designed for, and cannot provide, data recovery after a damaging event.
+          </p>
+
+          <div class="bkp-sync-grid animate-on-scroll">
+            <div class="bkp-sync-card">
+              <div class="bkp-sync-icon c-red"><i class="bi bi-trash-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Sync mirrors deletions</h3>
+              <p class="text-muted small mb-0">When a file is deleted on any synced device, that deletion propagates to all other devices and to the cloud. There is no second copy — the deletion is the change that sync preserves.</p>
+            </div>
+            <div class="bkp-sync-card">
+              <div class="bkp-sync-icon c-orange"><i class="bi bi-file-earmark-x-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Sync mirrors corruption</h3>
+              <p class="text-muted small mb-0">A corrupted or overwritten file on one device syncs its corrupted state across all devices. If the only version of a spreadsheet is a broken version, sync ensures every device has the broken version.</p>
+            </div>
+            <div class="bkp-sync-card">
+              <div class="bkp-sync-icon c-red"><i class="bi bi-bug-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Sync propagates ransomware encryption</h3>
+              <p class="text-muted small mb-0">Ransomware encrypts files on the local device, then sync uploads those encrypted files to OneDrive, replacing the originals. The attack uses sync as the delivery mechanism for overwriting your data.</p>
+            </div>
+            <div class="bkp-sync-card">
+              <div class="bkp-sync-icon c-orange"><i class="bi bi-lightning-charge-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Mistakes propagate instantly</h3>
+              <p class="text-muted small mb-0">A user who moves an entire shared folder to the wrong location, or bulk-deletes files thinking they are cleaning up, has those changes sync to every connected user immediately. Undo is only possible within the short retention window.</p>
+            </div>
+          </div>
+
+          <div class="bkp-scenario-block mt-4 animate-on-scroll" aria-label="Example scenario">
+            <div class="bkp-scenario-label"><i class="bi bi-clipboard-x-fill me-2"></i>Real-World Scenario</div>
+            <h3 class="h6 fw-bold mb-1" style="color: #e2e8f0;">Employee deletes a shared project folder</h3>
+            <p class="text-muted small mb-0">
+              A departing employee deletes a shared folder in OneDrive containing two years of project documentation. OneDrive sync removes the folder from every connected device across the team within minutes. The folder enters the Recycle Bin — but only for up to 93 days. If the deletion is not caught within that window, the data is permanently gone. No backup means no recovery.
+            </p>
+          </div>
+
+          <aside class="guide-related-block guide-related-block-warning mt-4" aria-label="Sync callout">
+            <div class="guide-related-eyebrow">Key point</div>
+            <p class="fw-bold mb-0" style="color: #e2e8f0;">
+              Sync improves access — not recovery. These are different problems requiring different tools.
+            </p>
+          </aside>
+        </div>
+
+        <!-- ── Section 4: Recycle Bin ────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="recycle-bin">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-trash3-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Why the Microsoft 365 Recycle Bin Cannot Be Trusted as Backup</h2>
+          </div>
+          <p class="text-muted mb-4">
+            The Recycle Bin provides a short recovery window for accidental deletions. It is not a backup system — it has no independent storage, no version history beyond what Microsoft exposes, and no protection against a determined admin or attacker.
+          </p>
+
+          <div class="bkp-recycle-grid animate-on-scroll">
+            <div class="bkp-recycle-item">
+              <div class="bkp-recycle-icon c-orange"><i class="bi bi-hourglass-split"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Retention window expires</div>
+                <p class="text-muted small mb-0">Exchange Online retains deleted mailbox items for 30 days by default, plus an additional 14 days in the Recoverable Items folder. SharePoint and OneDrive provide up to 93 days combined. Data deleted outside those windows is permanently gone without a third-party backup.</p>
+              </div>
+            </div>
+            <div class="bkp-recycle-item">
+              <div class="bkp-recycle-icon c-red"><i class="bi bi-shield-exclamation"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Admin deletion bypasses safety</div>
+                <p class="text-muted small mb-0">A Global Administrator or SharePoint Administrator can permanently delete items, empty Recycle Bins, or use PowerShell to purge data before the retention window expires. Misconfigured retention policies can have the same effect.</p>
+              </div>
+            </div>
+            <div class="bkp-recycle-item">
+              <div class="bkp-recycle-icon c-red"><i class="bi bi-person-fill-slash"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Malicious actors empty recycle bins</div>
+                <p class="text-muted small mb-0">An attacker who gains admin access to a tenant — through a compromised account or a phishing attack on an administrator — will routinely empty Recycle Bins and purge version history as part of covering their tracks after data exfiltration or ransomware deployment.</p>
+              </div>
+            </div>
+            <div class="bkp-recycle-item">
+              <div class="bkp-recycle-icon c-orange"><i class="bi bi-grid-1x2-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">SharePoint and Exchange retention differs</div>
+                <p class="text-muted small mb-0">Retention periods, Recycle Bin behaviour, and recovery processes differ between Exchange Online, SharePoint, OneDrive, and Teams. An admin attempting a manual recovery under pressure may discover the data is already gone — or that the recovery process for a given workload requires Microsoft Support, which adds hours or days to the timeline.</p>
+              </div>
+            </div>
+            <div class="bkp-recycle-item">
+              <div class="bkp-recycle-icon c-orange"><i class="bi bi-puzzle-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Restores are incomplete for structured environments</div>
+                <p class="text-muted small mb-0">Microsoft's native recovery tools can restore individual items or entire mailboxes, but they do not support cross-user restores, point-in-time recovery across multiple workloads simultaneously, or restoring a SharePoint site to a state from 60 days ago. These are capabilities that third-party backup tools provide.</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="guide-related-block guide-related-block-warning mt-4" aria-label="Recycle bin summary">
+            <div class="guide-related-eyebrow">The distinction</div>
+            <p class="fw-bold mb-0" style="color: #e2e8f0;">
+              The Recycle Bin helps with accidents — not incidents. A ransomware attack, a malicious insider, or a misconfigured retention policy is an incident.
+            </p>
+          </aside>
+        </div>
+
+        <!-- ── Section 5: Data Loss Scenarios ───────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="data-loss-scenarios">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-exclamation-octagon-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Common Data Loss Scenarios in Small Business Tenants</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Each scenario below represents a real pattern in Microsoft 365 environments. In each case, the Recycle Bin and OneDrive sync do not provide adequate recovery.
+          </p>
+
+          <div class="bkp-scenario-list animate-on-scroll">
+            <div class="bkp-scenario-row">
+              <div class="bkp-scenario-icon c-orange"><i class="bi bi-person-dash-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Departing employee cleanup mistakes</div>
+                <p class="text-muted small mb-0">An employee leaving the organization deletes personal files but accidentally removes shared project folders, client documents, or delegated mailbox content. These deletions sync immediately across the team and enter the time-limited Recycle Bin.</p>
+              </div>
+            </div>
+            <div class="bkp-scenario-row">
+              <div class="bkp-scenario-icon c-red"><i class="bi bi-bug-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Ransomware file encryption</div>
+                <p class="text-muted small mb-0">Ransomware running on a device with OneDrive sync enabled uploads encrypted versions of every file to OneDrive before the attack is detected. Version history can help — but only if the attack did not target older versions, and only within the retention window.</p>
+              </div>
+            </div>
+            <div class="bkp-scenario-row">
+              <div class="bkp-scenario-icon c-orange"><i class="bi bi-shield-x"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">SharePoint permission errors</div>
+                <p class="text-muted small mb-0">A site collection administrator misconfigures permissions and accidentally removes access to a document library, or deletes a SharePoint site while reorganizing. Site deletions move to the SharePoint Recycle Bin but can be missed if undetected for more than 93 days.</p>
+              </div>
+            </div>
+            <div class="bkp-scenario-row">
+              <div class="bkp-scenario-icon c-orange"><i class="bi bi-file-earmark-excel-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Overwritten spreadsheets and documents</div>
+                <p class="text-muted small mb-0">A shared Excel file is overwritten with incorrect data, or a Word document is saved over the previous version with significant changes. SharePoint version history can recover prior versions — but only if the version count limit has not been reached and the file has not been renamed or moved.</p>
+              </div>
+            </div>
+            <div class="bkp-scenario-row">
+              <div class="bkp-scenario-icon c-red"><i class="bi bi-envelope-x-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Mailbox deletion</div>
+                <p class="text-muted small mb-0">An admin removes a user account without retaining the mailbox. Email archives, sent items, calendar entries, and contact lists are permanently deleted. In regulated industries, this can create legal and compliance exposure that a Microsoft 365 backup would have prevented.</p>
+              </div>
+            </div>
+            <div class="bkp-scenario-row">
+              <div class="bkp-scenario-icon c-orange"><i class="bi bi-sliders"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Retention policy misconfiguration</div>
+                <p class="text-muted small mb-0">A Microsoft Purview retention policy is configured incorrectly, causing items across multiple mailboxes or SharePoint sites to be permanently purged before their intended retention date. This is an administrative error with no self-service recovery path.</p>
+              </div>
+            </div>
+            <div class="bkp-scenario-row">
+              <div class="bkp-scenario-icon c-red"><i class="bi bi-person-fill-slash"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Malicious insider deletion</div>
+                <p class="text-muted small mb-0">A disgruntled employee with sufficient permissions deletes key documents, empties the Recycle Bin, and overwrites version history before their account is suspended. Without an independent backup stored outside the tenant, this data is gone.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Section 6: What Backup Must Cover ─────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="what-backup-covers">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-list-check"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">What a Real Microsoft 365 Backup Solution Should Protect</h2>
+          </div>
+          <p class="text-muted mb-4">
+            A Microsoft 365 backup solution that only covers email — or that treats OneDrive as the only storage — leaves significant gaps. The following workloads require independent backup coverage.
+          </p>
+
+          <div class="bkp-coverage-list animate-on-scroll" aria-label="Microsoft 365 backup coverage checklist">
+            <div class="bkp-coverage-item bkp-coverage-required">
+              <div class="bkp-coverage-check"><i class="bi bi-check2"></i></div>
+              <div>
+                <div class="fw-bold small mb-0" style="color: #e2e8f0;">Exchange Online mailboxes</div>
+                <div class="text-muted small">Email, calendar, contacts, tasks, and notes for every licensed user. Restore should support individual item recovery, full mailbox recovery, and cross-user restore for offboarded accounts.</div>
+              </div>
+              <span class="bkp-coverage-tag bkp-tag-required">Required</span>
+            </div>
+            <div class="bkp-coverage-item bkp-coverage-required">
+              <div class="bkp-coverage-check"><i class="bi bi-check2"></i></div>
+              <div>
+                <div class="fw-bold small mb-0" style="color: #e2e8f0;">OneDrive user storage</div>
+                <div class="text-muted small">Personal file storage for each user, including files that are only stored in OneDrive and not synced locally. Requires granular restore to recover individual files or folders without a full account restore.</div>
+              </div>
+              <span class="bkp-coverage-tag bkp-tag-required">Required</span>
+            </div>
+            <div class="bkp-coverage-item bkp-coverage-required">
+              <div class="bkp-coverage-check"><i class="bi bi-check2"></i></div>
+              <div>
+                <div class="fw-bold small mb-0" style="color: #e2e8f0;">SharePoint document libraries</div>
+                <div class="text-muted small">Shared document libraries, site collections, and team sites. SharePoint stores not just files but metadata, permissions, and site structure — verify your backup solution restores these attributes, not just raw files.</div>
+              </div>
+              <span class="bkp-coverage-tag bkp-tag-required">Required</span>
+            </div>
+            <div class="bkp-coverage-item bkp-coverage-required">
+              <div class="bkp-coverage-check"><i class="bi bi-check2"></i></div>
+              <div>
+                <div class="fw-bold small mb-0" style="color: #e2e8f0;">Teams conversations</div>
+                <div class="text-muted small">Microsoft Teams chat messages and channel conversations are stored in Exchange Online and SharePoint — but not always in a format that is easily recoverable without a backup solution designed for Teams.</div>
+              </div>
+              <span class="bkp-coverage-tag bkp-tag-required">Required</span>
+            </div>
+            <div class="bkp-coverage-item bkp-coverage-required">
+              <div class="bkp-coverage-check"><i class="bi bi-check2"></i></div>
+              <div>
+                <div class="fw-bold small mb-0" style="color: #e2e8f0;">Teams channel files</div>
+                <div class="text-muted small">Files shared within Teams channels are stored in SharePoint but are associated with the Teams structure. Deleting a Teams team can cascade into SharePoint site deletion. Backup should cover both the SharePoint storage and the Teams metadata.</div>
+              </div>
+              <span class="bkp-coverage-tag bkp-tag-required">Required</span>
+            </div>
+            <div class="bkp-coverage-item bkp-coverage-optional">
+              <div class="bkp-coverage-check"><i class="bi bi-check2"></i></div>
+              <div>
+                <div class="fw-bold small mb-0" style="color: #e2e8f0;">Planner data</div>
+                <div class="text-muted small">Microsoft Planner tasks and plans are stored in Exchange Online group mailboxes. Not all backup solutions support Planner; verify coverage if your organization relies on Planner for project tracking.</div>
+              </div>
+              <span class="bkp-coverage-tag bkp-tag-optional">Verify support</span>
+            </div>
+            <div class="bkp-coverage-item bkp-coverage-required">
+              <div class="bkp-coverage-check"><i class="bi bi-check2"></i></div>
+              <div>
+                <div class="fw-bold small mb-0" style="color: #e2e8f0;">Version history visibility</div>
+                <div class="text-muted small">The backup solution should retain multiple versions of each file and allow selection of a specific version for restore — not just the most recent pre-deletion state.</div>
+              </div>
+              <span class="bkp-coverage-tag bkp-tag-required">Required</span>
+            </div>
+            <div class="bkp-coverage-item bkp-coverage-required">
+              <div class="bkp-coverage-check"><i class="bi bi-check2"></i></div>
+              <div>
+                <div class="fw-bold small mb-0" style="color: #e2e8f0;">Point-in-time restore capability</div>
+                <div class="text-muted small">The ability to restore an entire mailbox, OneDrive, or SharePoint site to its state at a specific date and time — not just recover recently deleted items. This is the critical capability that distinguishes a backup solution from a recycle bin.</div>
+              </div>
+              <span class="bkp-coverage-tag bkp-tag-required">Required</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Section 7: Verified Restore ──────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="verified-restore">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-arrow-counterclockwise"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Backup Only Matters If Restore Works</h2>
+          </div>
+          <p class="text-muted mb-4">
+            A backup solution that has never been tested is not a backup strategy — it is an assumption. The first time you discover a restore does not work should never be during an actual incident.
+          </p>
+
+          <h3 class="h5 fw-bold mb-3">What a restore validation process should verify</h3>
+
+          <div class="bkp-restore-grid animate-on-scroll">
+            <div class="bkp-restore-card">
+              <div class="bkp-restore-num">1</div>
+              <div class="bkp-restore-label">File-level restore</div>
+              <p class="text-muted small mb-0">Restore a single file from OneDrive or SharePoint to confirm individual item recovery works. Verify the restored file matches the expected version and retains metadata.</p>
+            </div>
+            <div class="bkp-restore-card">
+              <div class="bkp-restore-num">2</div>
+              <div class="bkp-restore-label">Folder-level restore</div>
+              <p class="text-muted small mb-0">Restore an entire folder structure from SharePoint or OneDrive. Verify sub-folders, file permissions, and document metadata are preserved — not just the files themselves.</p>
+            </div>
+            <div class="bkp-restore-card">
+              <div class="bkp-restore-num">3</div>
+              <div class="bkp-restore-label">Mailbox restore</div>
+              <p class="text-muted small mb-0">Restore a sample of email items from a specific date range to a test mailbox. Verify calendar events, contacts, and folder structure are intact after the restore operation completes.</p>
+            </div>
+            <div class="bkp-restore-card">
+              <div class="bkp-restore-num">4</div>
+              <div class="bkp-restore-label">Cross-user restore</div>
+              <p class="text-muted small mb-0">Restore items from an offboarded user's mailbox or OneDrive to a current user or an admin-accessible location. This is the most common real-world restore scenario after employee departure.</p>
+            </div>
+            <div class="bkp-restore-card">
+              <div class="bkp-restore-num">5</div>
+              <div class="bkp-restore-label">Point-in-time restore</div>
+              <p class="text-muted small mb-0">Restore a OneDrive or SharePoint library to its state as of a specific date — simulating a ransomware recovery where you need to roll back to before the encryption event began.</p>
+            </div>
+          </div>
+
+          <div class="ca-inline-warning mt-4">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <span>Testing restores is what confirms backup reliability — not backup job completion reports. A backup job that completed successfully does not mean a restore will succeed. These are different operations with different failure modes.</span>
+          </div>
+
+          <aside class="guide-related-block guide-related-block-warning mt-4" aria-label="Restore statement">
+            <div class="guide-related-eyebrow">The standard</div>
+            <p class="fw-bold mb-0" style="color: #e2e8f0;">
+              A backup you have never tested is not a backup strategy. Test restores quarterly — before you need them.
+            </p>
+          </aside>
+        </div>
+
+        <!-- ── Section 8: Evaluating Vendors ─────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="evaluate-vendors">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-clipboard2-check-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">How to Choose a Microsoft 365 Backup Solution</h2>
+          </div>
+          <p class="text-muted mb-3">
+            The right backup solution depends on your workload requirements, retention obligations, and recovery time targets. The following criteria provide a vendor-neutral evaluation framework.
+          </p>
+          <p class="text-muted mb-4">
+            This guide does not recommend specific brands. Evaluate any solution against the following checklist before committing to a contract.
+          </p>
+
+          <div class="bkp-eval-list animate-on-scroll" aria-label="Vendor evaluation checklist">
+            <div class="bkp-eval-item">
+              <div class="bkp-eval-icon c-teal"><i class="bi bi-calendar-check-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Daily backup frequency (minimum)</div>
+                <p class="text-muted small mb-0">Verify the backup schedule matches your recovery point objective. Daily is the minimum for most businesses. High-activity environments should consider more frequent snapshots. Ask explicitly what time of day backups run and how long they take to complete.</p>
+              </div>
+            </div>
+            <div class="bkp-eval-item">
+              <div class="bkp-eval-icon c-indigo"><i class="bi bi-hdd-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Independent storage location</div>
+                <p class="text-muted small mb-0">Backup data must be stored outside the Microsoft 365 tenant. A backup that lives in the same tenant as the data it is protecting is vulnerable to the same admin deletion, ransomware, or misconfiguration that caused the data loss in the first place.</p>
+              </div>
+            </div>
+            <div class="bkp-eval-item">
+              <div class="bkp-eval-icon c-teal"><i class="bi bi-layers-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Granular restore support</div>
+                <p class="text-muted small mb-0">The solution must support individual file, folder, mailbox item, and full mailbox restores — not only full-tenant or full-user restores. Most real-world recovery scenarios require restoring a specific file or email thread, not an entire mailbox.</p>
+              </div>
+            </div>
+            <div class="bkp-eval-item">
+              <div class="bkp-eval-icon c-indigo"><i class="bi bi-person-lines-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Cross-tenant restore options</div>
+                <p class="text-muted small mb-0">Verify whether data from a deleted or suspended user can be restored to a different user's account or to an admin-accessible export. This is required for offboarding scenarios and legal discovery requests.</p>
+              </div>
+            </div>
+            <div class="bkp-eval-item">
+              <div class="bkp-eval-icon c-teal"><i class="bi bi-clock-history"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Retention flexibility</div>
+                <p class="text-muted small mb-0">Confirm the retention period matches your compliance and business requirements. Some industries require 7-year retention of email; others require only 1 year. Ensure the solution supports your longest required retention period without cost surprises.</p>
+              </div>
+            </div>
+            <div class="bkp-eval-item">
+              <div class="bkp-eval-icon c-indigo"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Canadian data residency (if applicable)</div>
+                <p class="text-muted small mb-0">For organizations subject to PIPEDA, PHIPA, or provincial privacy legislation, or for organizations whose client contracts require Canadian data residency, verify that backup data is stored in Canadian datacenters. Ask for written confirmation — not just a marketing claim.</p>
+              </div>
+            </div>
+            <div class="bkp-eval-item">
+              <div class="bkp-eval-icon c-red"><i class="bi bi-shield-fill-check"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Ransomware-safe backup storage</div>
+                <p class="text-muted small mb-0">Ask whether backup storage is immutable — meaning it cannot be overwritten or deleted by an attacker who gains access to the backup admin console. Immutable storage is the only protection against an attacker who attempts to destroy backups before or after a ransomware deployment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Section 9: Do You Need It? ────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="do-you-need-backup">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-question-circle-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Do Small Businesses Really Need Microsoft 365 Backup?</h2>
+          </div>
+          <p class="text-muted mb-3">
+            The short answer: any small business where data loss would cause material harm to operations, clients, or compliance obligations needs a Microsoft 365 backup solution.
+          </p>
+          <p class="text-muted mb-4">
+            The following triggers are the most common reasons small businesses implement Microsoft 365 backup — and the most common situations where the absence of backup becomes a serious problem.
+          </p>
+
+          <div class="bkp-trigger-grid animate-on-scroll">
+            <div class="bkp-trigger-card">
+              <div class="bkp-trigger-icon c-indigo"><i class="bi bi-file-earmark-text-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Compliance requirements</h3>
+              <p class="text-muted small mb-0">PIPEDA, PHIPA, and provincial privacy legislation impose data retention obligations. Organizations that cannot demonstrate recoverable data may face regulatory exposure after a data loss event.</p>
+            </div>
+            <div class="bkp-trigger-card">
+              <div class="bkp-trigger-icon c-indigo"><i class="bi bi-briefcase-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Client contract obligations</h3>
+              <p class="text-muted small mb-0">Professional services firms — law offices, accounting firms, consulting practices — frequently have client contracts that include data retention and availability commitments. Losing client data is a breach-of-contract exposure, not just a technology failure.</p>
+            </div>
+            <div class="bkp-trigger-card">
+              <div class="bkp-trigger-icon c-indigo"><i class="bi bi-balance-scale-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Legal discovery exposure</h3>
+              <p class="text-muted small mb-0">If your business is involved in litigation or regulatory review, email and document records may be subject to legal hold and discovery. Microsoft 365 Litigation Hold helps, but a backup solution provides independent retention outside the tenant for additional protection.</p>
+            </div>
+            <div class="bkp-trigger-card">
+              <div class="bkp-trigger-icon c-orange"><i class="bi bi-people-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Shared SharePoint environments</h3>
+              <p class="text-muted small mb-0">Organizations with shared SharePoint sites where multiple people can create, modify, and delete content have a higher exposure to accidental deletion across the team. A single misconfigured permission or an accidental site deletion can affect every user simultaneously.</p>
+            </div>
+            <div class="bkp-trigger-card">
+              <div class="bkp-trigger-icon c-orange"><i class="bi bi-laptop-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Remote teams</h3>
+              <p class="text-muted small mb-0">Distributed workforces with employees accessing Microsoft 365 from personal devices increase the ransomware and accidental deletion risk surface. A device compromise in a remote work environment can result in synced ransomware encryption before IT has time to respond.</p>
+            </div>
+            <div class="bkp-trigger-card">
+              <div class="bkp-trigger-icon c-orange"><i class="bi bi-envelope-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">High email dependency</h3>
+              <p class="text-muted small mb-0">Businesses that conduct most of their client communication by email — quotes, contracts, approvals, support records — face significant operational impact if email history is lost. Recovering 3 years of client correspondence from a 30-day Recycle Bin is not possible.</p>
+            </div>
+          </div>
+
+          <div class="ca-inline-warning mt-4">
+            <i class="bi bi-info-circle-fill me-2"></i>
+            <span>Many Canadian cyber insurers now require documented third-party backup of Microsoft 365 data as a coverage condition. Review your policy's backup requirements before renewal — missing this control can affect your ability to make a claim after a ransomware event.</span>
+          </div>
+        </div>
+
+        <!-- ── Section 10: Internal Links ────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="continue-securing">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-signpost-split-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Continue Securing Your Microsoft 365 Environment</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Backup is one layer of a complete Microsoft 365 security posture. These guides cover the controls that work alongside backup to reduce the risk of data loss in the first place.
+          </p>
+
+          <div class="bkp-related-grid animate-on-scroll">
+            <a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist" class="bkp-related-card" aria-label="Microsoft 365 Security Checklist">
+              <div class="bkp-related-icon"><i class="bi bi-list-check"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Microsoft 365 Security Checklist</div>
+                <div class="text-muted small">The complete 19-control baseline for Microsoft 365 Business Standard and Premium tenants — including backup verification as a required control.</div>
+              </div>
+              <i class="bi bi-arrow-right ms-auto bkp-related-arrow"></i>
+            </a>
+            <a routerLink="/guides/security/microsoft-365-security/conditional-access-small-business" class="bkp-related-card" aria-label="Conditional Access Policies">
+              <div class="bkp-related-icon"><i class="bi bi-sliders"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Conditional Access Policies</div>
+                <div class="text-muted small">How to design Conditional Access to reduce the attack surface that leads to credential compromise and unauthorized tenant access.</div>
+              </div>
+              <i class="bi bi-arrow-right ms-auto bkp-related-arrow"></i>
+            </a>
+            <a routerLink="/guides/security/microsoft-365-security/phishing-protection" class="bkp-related-card" aria-label="Phishing Protection Guide">
+              <div class="bkp-related-icon"><i class="bi bi-fish-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Phishing Protection Guide</div>
+                <div class="text-muted small">Email-based attacks are the primary vector for account compromise and ransomware. Configuring Microsoft Defender for Office 365 reduces this risk significantly.</div>
+              </div>
+              <i class="bi bi-arrow-right ms-auto bkp-related-arrow"></i>
+            </a>
+            <a routerLink="/guides/security/microsoft-365-security/mfa-rollout-small-business" class="bkp-related-card" aria-label="Rolling Out MFA Without Breaking Things">
+              <div class="bkp-related-icon"><i class="bi bi-shield-check"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Rolling Out MFA Without Breaking Things</div>
+                <div class="text-muted small">A staged MFA deployment guide that covers shared mailboxes, service accounts, and legacy authentication — without locking anyone out.</div>
+              </div>
+              <i class="bi bi-arrow-right ms-auto bkp-related-arrow"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- ── Section 11: FAQ ────────────────────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="faq">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-chat-left-dots-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Frequently Asked Questions</h2>
+          </div>
+
+          <div class="guide-faq-list">
+            <details class="guide-faq-item" *ngFor="let item of faqs; let idx = index" [attr.open]="idx === 0 ? '' : null">
+              <summary class="guide-faq-button fw-bold">{{ item.q }}</summary>
+              <div class="guide-faq-content text-muted">{{ item.a }}</div>
+            </details>
+          </div>
+        </div>
+
+        <!-- ── Section 12: Conversion CTA ───────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="get-help">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-headset"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Need Help Implementing Microsoft 365 Backup?</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Many Microsoft 365 Business tenants assume their data is automatically protected until a restore is required. A properly designed backup strategy ensures files, mailboxes, and collaboration data remain recoverable even after deletion, ransomware events, or configuration mistakes.
+          </p>
+
+          <aside class="guide-cta-card guide-cta-card-primary" aria-labelledby="final-cta-title">
+            <div class="guide-cta-eyebrow">CtrlShift IT Services — GTA</div>
+            <h3 class="guide-cta-title h5 fw-bold mb-2" id="final-cta-title">We design and verify Microsoft 365 backup strategies for Canadian small businesses</h3>
+            <p class="guide-cta-copy mb-0">
+              If you want confidence that your Microsoft 365 data is recoverable — not just backed up — we can review your current posture, recommend the right solution for your workload, and verify restores actually work.
+            </p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/services/microsoft-365-security">
+                Review Microsoft 365 Protection Services
+              </a>
+              <a class="btn btn-outline-secondary rounded-pill px-4 fw-bold" routerLink="/free-security-assessment">
+                Request a Free Assessment
+              </a>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+
+      <!-- ── Sidebar ──────────────────────────────────────────────────── -->
+      <div class="col-lg-4">
+        <div class="bg-white rounded-4 shadow-sm p-4 sticky-lg-top" style="top: 1rem;">
+          <h3 class="fw-bold mb-3">In this guide</h3>
+          <nav aria-label="On-page navigation">
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="shared-responsibility">Shared Responsibility Model</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="onedrive-not-backup">Why OneDrive Sync Isn't Backup</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="recycle-bin">Why the Recycle Bin Isn't Enough</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="data-loss-scenarios">Data Loss Scenarios</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="what-backup-covers">What Backup Must Cover</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="verified-restore">Verified Restore</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="evaluate-vendors">Evaluating Vendors</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="do-you-need-backup">Do You Need Backup?</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq">FAQ</a></li>
+            </ul>
+          </nav>
+
+          <div class="border rounded-4 p-3 bg-light mb-3">
+            <div class="fw-bold mb-2">Related guides</div>
+            <ul class="text-muted small mb-0 ps-3">
+              <li><a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist">Microsoft 365 Security Checklist</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security/conditional-access-small-business">Conditional Access Policies</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security/phishing-protection">Phishing &amp; Email Defence</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security/mfa-rollout-small-business">MFA Rollout Guide</a></li>
+              <li><a routerLink="/guides/security">All Security Guides</a></li>
+            </ul>
+          </div>
+
+          <div class="border rounded-4 p-3 bg-light mb-3">
+            <div class="fw-bold mb-2">Related services</div>
+            <ul class="text-muted small mb-0 ps-3">
+              <li><a routerLink="/microsoft-365">Microsoft 365 Support</a></li>
+              <li><a routerLink="/security-firewall">Managed Security &amp; Firewall</a></li>
+              <li><a routerLink="/cyber-insurance-readiness-vaughan">Cyber Insurance Readiness</a></li>
+              <li><a routerLink="/crisis-recovery">IT Crisis Recovery</a></li>
+            </ul>
+          </div>
+
+          <div class="border rounded-4 p-3 bg-light">
+            <div class="fw-bold mb-1">Talk to a human</div>
+            <div class="text-muted small mb-2">Questions about your backup posture or a data loss situation? We answer plainly — no quota, no pressure.</div>
+            <a class="btn btn-dark rounded-pill w-100 py-2 fw-bold" routerLink="/" fragment="consultation">
+              Book a Consultation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

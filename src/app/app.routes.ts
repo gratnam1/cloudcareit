@@ -286,6 +286,14 @@ export const routes: Routes = [
       ),
     title: 'Rolling Out MFA Without Breaking Things | Microsoft 365 Small Business | CtrlShift IT Services'
   },
+  {
+    path: 'guides/security/microsoft-365-security/microsoft-365-backup-small-business',
+    loadComponent: () =>
+      import('./pages/guides/security/microsoft-365-security/m365-backup/m365-backup.component').then(
+        (m) => m.M365BackupComponent
+      ),
+    title: 'Microsoft 365 Backup: What You Actually Need | Small Business | CtrlShift IT Services'
+  },
 
   // About
   {

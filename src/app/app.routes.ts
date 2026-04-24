@@ -8,7 +8,7 @@ export const routes: Routes = [
     title: 'Managed IT Services & Cloud Support | CtrlShift IT Services'
   },
 
-  // ✅ CLEAN BLOG ROUTES (all under pages/blog)
+  // Blog
   {
     path: 'blog',
     children: [
@@ -18,28 +18,6 @@ export const routes: Routes = [
           import('./pages/blog/blog-list.component').then((m) => m.BlogListComponent),
         title: 'Blog | CtrlShift IT Services'
       },
-      // Legacy blog slugs
-      {
-        path: 'web-development-trends',
-        redirectTo: 'web-development-gta',
-        pathMatch: 'full'
-      },
-      {
-        path: 'managed-it-vs-break-fix',
-        redirectTo: 'managed-it-benefits',
-        pathMatch: 'full'
-      },
-      {
-        path: 'microsoft-365-security-basics',
-        redirectTo: 'microsoft-365-tips',
-        pathMatch: 'full'
-      },
-      {
-        path: 'wifi-office-slow',
-        redirectTo: 'office-networking-basics',
-        pathMatch: 'full'
-      },
-      // Inline blog posts — prerendered as dedicated route components
       {
         path: 'office-networking-basics',
         loadComponent: () =>
@@ -82,161 +60,6 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/services/managed-it/managed-it.component').then((m) => m.ManagedItComponent),
     title: 'Managed IT Services in Vaughan & GTA | CtrlShift IT Services'
-  },
-  {
-    path: 'managed-it',
-    redirectTo: 'managed-it-services',
-    pathMatch: 'full'
-  },
-  {
-    path: 'it-support',
-    redirectTo: 'managed-it-services',
-    pathMatch: 'full'
-  },
-  {
-    path: 'it-services',
-    redirectTo: 'managed-it-services',
-    pathMatch: 'full'
-  },
-  {
-    path: 'locations',
-    redirectTo: 'managed-it-services',
-    pathMatch: 'full'
-  },
-  {
-    path: 'location',
-    redirectTo: 'managed-it-services',
-    pathMatch: 'full'
-  },
-  {
-    path: 'managed-it-services/vaughan',
-    redirectTo: 'managed-it-services-vaughan',
-    pathMatch: 'full'
-  },
-  {
-    path: 'managed-it-services/toronto',
-    redirectTo: 'managed-it-services-toronto',
-    pathMatch: 'full'
-  },
-  {
-    path: 'managed-it-services/mississauga',
-    redirectTo: 'managed-it-services-mississauga',
-    pathMatch: 'full'
-  },
-  {
-    path: 'managed-it-services/thornhill',
-    redirectTo: 'managed-it-services-thornhill',
-    pathMatch: 'full'
-  },
-  {
-    path: 'managed-it-services/richmond-hill',
-    redirectTo: 'managed-it-services-richmond-hill',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/managed-it',
-    redirectTo: 'managed-it-services',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/google-workspace',
-    redirectTo: 'google-workspace',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/microsoft-365',
-    redirectTo: 'microsoft-365',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/office-networking',
-    redirectTo: 'office-networking',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/aws-infrastructure',
-    redirectTo: 'aws-infrastructure',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/security-firewall',
-    redirectTo: 'security-firewall',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/crisis-recovery',
-    redirectTo: 'crisis-recovery',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/web-development',
-    redirectTo: 'web-development',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/seo-visibility',
-    redirectTo: 'seo-visibility',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/lead-generation',
-    redirectTo: 'lead-generation',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/cyber-insurance-readiness',
-    redirectTo: 'cyber-insurance-readiness-vaughan',
-    pathMatch: 'full'
-  },
-  {
-    path: 'services/managed-it-for-medical-clinics',
-    redirectTo: 'managed-it-for-medical-clinics-vaughan',
-    pathMatch: 'full'
-  },
-  {
-    path: 'cyber-insurance-readiness',
-    redirectTo: 'cyber-insurance-readiness-vaughan',
-    pathMatch: 'full'
-  },
-  {
-    path: 'managed-it-for-medical-clinics',
-    redirectTo: 'managed-it-for-medical-clinics-vaughan',
-    pathMatch: 'full'
-  },
-  {
-    path: 'post/:slug',
-    redirectTo: 'blog/:slug',
-    pathMatch: 'full'
-  },
-  {
-    path: 'posts/:slug',
-    redirectTo: 'blog/:slug',
-    pathMatch: 'full'
-  },
-  {
-    path: 'article/:slug',
-    redirectTo: 'blog/:slug',
-    pathMatch: 'full'
-  },
-  {
-    path: 'articles/:slug',
-    redirectTo: 'blog/:slug',
-    pathMatch: 'full'
-  },
-  {
-    path: 'managed-it-vs-break-fix',
-    redirectTo: 'blog/managed-it-benefits',
-    pathMatch: 'full'
-  },
-  {
-    path: 'microsoft-365-security-basics',
-    redirectTo: 'blog/microsoft-365-tips',
-    pathMatch: 'full'
-  },
-  {
-    path: 'wifi-office-slow',
-    redirectTo: 'blog/office-networking-basics',
-    pathMatch: 'full'
   },
   {
     path: 'google-workspace',
@@ -335,7 +158,7 @@ export const routes: Routes = [
     title: 'Managed IT for Medical Clinics in Vaughan | CtrlShift IT Services'
   },
 
-  // Service + location pages (spoke pages)
+  // Service + location pages
   {
     path: 'cybersecurity-services-vaughan',
     loadComponent: () =>
@@ -357,11 +180,7 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
     title: 'Managed IT Services in Vaughan | CtrlShift IT Services',
-    data: {
-      city: 'Vaughan',
-      region: 'York Region',
-      landmark: 'Vaughan Metropolitan Centre'
-    }
+    data: { city: 'Vaughan', region: 'York Region', landmark: 'Vaughan Metropolitan Centre' }
   },
   {
     path: 'it-support-vaughan',
@@ -371,51 +190,18 @@ export const routes: Routes = [
     data: { cityKey: 'vaughan' }
   },
   {
-    path: 'locations/vaughan',
-    redirectTo: 'managed-it-services-vaughan',
-    pathMatch: 'full'
-  },
-  {
-    path: 'location/vaughan',
-    redirectTo: 'managed-it-services-vaughan',
-    pathMatch: 'full'
-  },
-  {
     path: 'managed-it-services-toronto',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
     title: 'Managed IT Services in Toronto | CtrlShift IT Services',
-    data: {
-      city: 'Toronto',
-      region: 'GTA',
-      landmark: 'Financial District'
-    }
-  },
-  {
-    path: 'it-support-toronto',
-    redirectTo: 'managed-it-services-toronto',
-    pathMatch: 'full'
-  },
-  {
-    path: 'locations/toronto',
-    redirectTo: 'managed-it-services-toronto',
-    pathMatch: 'full'
-  },
-  {
-    path: 'location/toronto',
-    redirectTo: 'managed-it-services-toronto',
-    pathMatch: 'full'
+    data: { city: 'Toronto', region: 'GTA', landmark: 'Financial District' }
   },
   {
     path: 'managed-it-services-mississauga',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
     title: 'Managed IT Services in Mississauga | CtrlShift IT Services',
-    data: {
-      city: 'Mississauga',
-      region: 'Peel Region',
-      landmark: 'Square One'
-    }
+    data: { city: 'Mississauga', region: 'Peel Region', landmark: 'Square One' }
   },
   {
     path: 'it-support-mississauga',
@@ -425,56 +211,18 @@ export const routes: Routes = [
     data: { cityKey: 'mississauga' }
   },
   {
-    path: 'locations/mississauga',
-    redirectTo: 'managed-it-services-mississauga',
-    pathMatch: 'full'
-  },
-  {
-    path: 'location/mississauga',
-    redirectTo: 'managed-it-services-mississauga',
-    pathMatch: 'full'
-  },
-  {
     path: 'managed-it-services-thornhill',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
     title: 'Managed IT Services in Thornhill | CtrlShift IT Services',
-    data: {
-      city: 'Thornhill',
-      region: 'York Region',
-      landmark: 'Promenade Shopping Centre'
-    }
-  },
-  {
-    path: 'it-support-thornhill',
-    redirectTo: 'managed-it-services-thornhill',
-    pathMatch: 'full'
-  },
-  {
-    path: 'locations/thornhill',
-    redirectTo: 'managed-it-services-thornhill',
-    pathMatch: 'full'
-  },
-  {
-    path: 'location/thornhill',
-    redirectTo: 'managed-it-services-thornhill',
-    pathMatch: 'full'
+    data: { city: 'Thornhill', region: 'York Region', landmark: 'Promenade Shopping Centre' }
   },
   {
     path: 'managed-it-services-richmond-hill',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
     title: 'Managed IT Services in Richmond Hill | CtrlShift IT Services',
-    data: {
-      city: 'Richmond Hill',
-      region: 'York Region',
-      landmark: 'Hillcrest Mall'
-    }
-  },
-  {
-    path: 'it-support-richmond-hill',
-    redirectTo: 'managed-it-services-richmond-hill',
-    pathMatch: 'full'
+    data: { city: 'Richmond Hill', region: 'York Region', landmark: 'Hillcrest Mall' }
   },
   {
     path: 'it-support-in/:city/:industry',
@@ -482,18 +230,8 @@ export const routes: Routes = [
       import('./pages/silo/it-support-silo.component').then((m) => m.ItSupportSiloComponent),
     title: 'IT Support in City and Industry | CtrlShift IT Services'
   },
-  {
-    path: 'locations/richmond-hill',
-    redirectTo: 'managed-it-services-richmond-hill',
-    pathMatch: 'full'
-  },
-  {
-    path: 'location/richmond-hill',
-    redirectTo: 'managed-it-services-richmond-hill',
-    pathMatch: 'full'
-  },
 
-  // Guides (topic-cluster pillar pages)
+  // Guides
   {
     path: 'guides',
     loadComponent: () =>
@@ -540,28 +278,8 @@ export const routes: Routes = [
       ),
     title: 'Conditional Access Policies for Small Business (Microsoft 365) | CtrlShift IT Services'
   },
-  {
-    path: 'guides/security/microsoft-365-checklist',
-    redirectTo: 'guides/security/microsoft-365-security/microsoft-365-checklist',
-    pathMatch: 'full'
-  },
-  {
-    path: 'guides/security/phishing-protection',
-    redirectTo: 'guides/security/microsoft-365-security/phishing-protection',
-    pathMatch: 'full'
-  },
-  {
-    path: 'guides/security/conditional-access-policies',
-    redirectTo: 'guides/security/microsoft-365-security/conditional-access-small-business',
-    pathMatch: 'full'
-  },
-  {
-    path: 'guides/security/conditional-access-small-business',
-    redirectTo: 'guides/security/microsoft-365-security/conditional-access-small-business',
-    pathMatch: 'full'
-  },
 
-  // About page
+  // About
   {
     path: 'about',
     loadComponent: () =>
@@ -569,7 +287,7 @@ export const routes: Routes = [
     title: 'About CtrlShift IT Services | Founder Story | GTA Managed IT'
   },
 
-  // IT Assessment request page
+  // IT Assessment
   {
     path: 'it-assessment',
     loadComponent: () =>
@@ -579,7 +297,7 @@ export const routes: Routes = [
     title: 'Book a Free IT Assessment | CtrlShift IT Services'
   },
 
-  // Lead Magnet (security scan)
+  // Lead Magnet
   {
     path: 'free-security-assessment',
     loadComponent: () =>
@@ -626,6 +344,10 @@ export const routes: Routes = [
     data: { industry: 'small-businesses' }
   },
 
-  // Catch-all
-  { path: '**', redirectTo: '' }
+  // Catch-all: serve home page, no redirect
+  {
+    path: '**',
+    loadComponent: () => import('./pages/home/home.component').then((m) => m.HomeComponent),
+    title: 'Managed IT Services & Cloud Support | CtrlShift IT Services'
+  }
 ];

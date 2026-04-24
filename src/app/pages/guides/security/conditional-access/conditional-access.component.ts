@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { SeoService } from '../../../../shared/seo/seo.service';
 
 const BASE_URL = 'https://ctrlshiftit.ca';
-const PAGE_PATH = '/guides/security/conditional-access-policies';
+const PAGE_PATH = '/guides/security/microsoft-365-security/conditional-access-small-business';
 const PAGE_URL = `${BASE_URL}${PAGE_PATH}`;
 const STORAGE_KEY = 'ca-guide-checklist-v1';
 

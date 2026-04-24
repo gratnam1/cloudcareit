@@ -24,11 +24,11 @@
               <i class="bi bi-cloud-arrow-down-fill"></i>
             </div>
             <h1 class="fw-bold display-6 mb-0">
-              Microsoft 365 Backup: What You Actually Need
+              Microsoft 365 Backup for Small Business: What You Actually Need
             </h1>
           </div>
           <p class="text-muted lead mb-4">
-            Why OneDrive sync and the Recycle Bin are not real backups — and what small businesses should deploy instead.
+            Why OneDrive sync, recycle bins, and retention policies are not real backup — and what small businesses should verify before data loss happens.
           </p>
 
           <div class="border rounded-4 p-3 bg-light mb-4">
@@ -58,10 +58,10 @@
           </div>
 
           <p class="text-muted mb-4">
-            Microsoft 365 protects service availability, not your organization's data. Many small businesses assume files stored in OneDrive, SharePoint, or Exchange Online are automatically backed up — but recovery options inside Microsoft 365 are limited and time-sensitive.
+            Microsoft 365 protects service availability, not your organization's data. If you are asking <strong>does Microsoft 365 include backup</strong>, <strong>does Microsoft backup OneDrive</strong>, or <strong>does Microsoft backup Exchange Online</strong>, the practical small-business answer is no. Recovery features inside Microsoft 365 are limited, workload-specific, and time-sensitive.
           </p>
           <p class="text-muted mb-4">
-            This guide explains what Microsoft protects, what it does not protect, and how to implement a reliable Microsoft 365 backup strategy.
+            This guide explains what Microsoft protects, what it does not protect, and what a reliable <strong>Microsoft 365 backup small business</strong> plan should verify across Exchange Online, OneDrive, SharePoint, and Teams. For the broader tenant baseline, start with the <a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist">Microsoft 365 security checklist</a>.
           </p>
 
           <aside class="guide-related-block mb-4" aria-labelledby="related-checklist-title">
@@ -95,6 +95,8 @@
         <nav class="bg-white rounded-4 shadow-sm p-4 mt-4 d-lg-none" aria-labelledby="quick-jump-title">
           <h2 class="h6 fw-bold mb-3" id="quick-jump-title">Jump to the sections that matter most</h2>
           <div class="guide-jump-grid">
+            <a class="guide-jump-link" routerLink="." fragment="protection-comparison">Protection Comparison</a>
+            <a class="guide-jump-link" routerLink="." fragment="protection-layers">Protection Layers</a>
             <a class="guide-jump-link" routerLink="." fragment="shared-responsibility">Shared Responsibility</a>
             <a class="guide-jump-link" routerLink="." fragment="onedrive-not-backup">OneDrive Sync</a>
             <a class="guide-jump-link" routerLink="." fragment="recycle-bin">Recycle Bin</a>
@@ -102,11 +104,164 @@
             <a class="guide-jump-link" routerLink="." fragment="what-backup-covers">What to Cover</a>
             <a class="guide-jump-link" routerLink="." fragment="verified-restore">Verified Restore</a>
             <a class="guide-jump-link" routerLink="." fragment="evaluate-vendors">Evaluating Vendors</a>
+            <a class="guide-jump-link" routerLink="." fragment="testing-cadence">Testing Cadence</a>
+            <a class="guide-jump-link" routerLink="." fragment="retention-is-not-backup">Retention vs Backup</a>
             <a class="guide-jump-link" routerLink="." fragment="do-you-need-backup">Do You Need It?</a>
           </div>
         </nav>
 
-        <!-- ── Section 2: Shared Responsibility ─────────────────────── -->
+        <!-- ── Section 2: Protection Comparison ───────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="protection-comparison">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-table"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">What Microsoft 365 Protects vs What Backup Protects</h2>
+          </div>
+          <p class="text-muted mb-4">
+            This is the simplest way to separate convenience features from true recovery capability. For <strong>OneDrive backup Microsoft 365</strong>, <strong>Exchange Online backup</strong>, and <strong>SharePoint backup Microsoft 365</strong> questions, the key issue is whether you can restore clean data independently, outside Microsoft’s native retention windows.
+          </p>
+
+          <div class="table-responsive bkp-table-wrap animate-on-scroll">
+            <table class="table align-middle mb-0 bkp-compare-table">
+              <thead>
+                <tr>
+                  <th scope="col">Recovery need</th>
+                  <th scope="col">OneDrive Sync</th>
+                  <th scope="col">Microsoft Retention / Recycle Bin</th>
+                  <th scope="col">Real Backup</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Accidental deletion</th>
+                  <td><span class="bkp-table-badge bkp-table-badge-warn"><i class="bi bi-dash-circle"></i> Limited</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-partial"><i class="bi bi-check-circle"></i> Time-limited</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-yes"><i class="bi bi-check-circle-fill"></i> Yes</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Ransomware protection</th>
+                  <td><span class="bkp-table-badge bkp-table-badge-no"><i class="bi bi-x-circle"></i> No</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-warn"><i class="bi bi-dash-circle"></i> Limited</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-yes"><i class="bi bi-check-circle-fill"></i> Yes</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Retention window expiry protection</th>
+                  <td><span class="bkp-table-badge bkp-table-badge-no"><i class="bi bi-x-circle"></i> No</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-no"><i class="bi bi-x-circle"></i> No</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-yes"><i class="bi bi-check-circle-fill"></i> Yes</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Separate storage location</th>
+                  <td><span class="bkp-table-badge bkp-table-badge-no"><i class="bi bi-x-circle"></i> No</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-no"><i class="bi bi-x-circle"></i> No</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-yes"><i class="bi bi-check-circle-fill"></i> Yes</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Point-in-time restore</th>
+                  <td><span class="bkp-table-badge bkp-table-badge-no"><i class="bi bi-x-circle"></i> No</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-warn"><i class="bi bi-dash-circle"></i> Limited</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-yes"><i class="bi bi-check-circle-fill"></i> Yes</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Mailbox restore</th>
+                  <td><span class="bkp-table-badge bkp-table-badge-no"><i class="bi bi-x-circle"></i> No</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-warn"><i class="bi bi-dash-circle"></i> Limited</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-yes"><i class="bi bi-check-circle-fill"></i> Yes</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">SharePoint restore</th>
+                  <td><span class="bkp-table-badge bkp-table-badge-no"><i class="bi bi-x-circle"></i> No</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-warn"><i class="bi bi-dash-circle"></i> Limited</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-yes"><i class="bi bi-check-circle-fill"></i> Yes</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">OneDrive restore</th>
+                  <td><span class="bkp-table-badge bkp-table-badge-warn"><i class="bi bi-dash-circle"></i> Limited</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-partial"><i class="bi bi-check-circle"></i> Time-limited</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-yes"><i class="bi bi-check-circle-fill"></i> Yes</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Teams restore</th>
+                  <td><span class="bkp-table-badge bkp-table-badge-no"><i class="bi bi-x-circle"></i> No</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-warn"><i class="bi bi-dash-circle"></i> Limited</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-yes"><i class="bi bi-check-circle-fill"></i> Yes</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Restore testing capability</th>
+                  <td><span class="bkp-table-badge bkp-table-badge-no"><i class="bi bi-x-circle"></i> No</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-no"><i class="bi bi-x-circle"></i> No</span></td>
+                  <td><span class="bkp-table-badge bkp-table-badge-yes"><i class="bi bi-check-circle-fill"></i> Yes</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ── Section 3: Protection Layers ───────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="protection-layers">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-diagram-3-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Microsoft 365 Data Protection Layers</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Microsoft 365 has multiple protection layers, but they are not equal. Recycle Bin, version history, and retention policies are convenience and governance controls. The recovery layer that stands apart is third-party backup followed by a <strong>verified restore Microsoft 365</strong> test.
+          </p>
+
+          <div class="bkp-layer-stack animate-on-scroll" aria-label="Microsoft 365 protection layers">
+            <div class="bkp-layer-card">
+              <div class="bkp-layer-icon c-red"><i class="bi bi-exclamation-triangle-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">User mistake / ransomware</div>
+                <div class="text-muted small">The event that creates real recovery pressure.</div>
+              </div>
+            </div>
+            <div class="bkp-layer-arrow"><i class="bi bi-arrow-down"></i></div>
+            <div class="bkp-layer-card">
+              <div class="bkp-layer-icon c-orange"><i class="bi bi-trash3-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Recycle Bin</div>
+                <div class="text-muted small">Useful for recent accidental deletion, but not independent or durable.</div>
+              </div>
+            </div>
+            <div class="bkp-layer-arrow"><i class="bi bi-arrow-down"></i></div>
+            <div class="bkp-layer-card">
+              <div class="bkp-layer-icon c-orange"><i class="bi bi-clock-history"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Version History</div>
+                <div class="text-muted small">Helps with overwritten files, but not with all workloads or all incidents.</div>
+              </div>
+            </div>
+            <div class="bkp-layer-arrow"><i class="bi bi-arrow-down"></i></div>
+            <div class="bkp-layer-card">
+              <div class="bkp-layer-icon c-indigo"><i class="bi bi-journal-check"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Retention Policies</div>
+                <div class="text-muted small">Governance controls that preserve or purge records according to policy.</div>
+              </div>
+            </div>
+            <div class="bkp-layer-arrow"><i class="bi bi-arrow-down"></i></div>
+            <div class="bkp-layer-card">
+              <div class="bkp-layer-icon c-teal"><i class="bi bi-hdd-stack-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Third-party backup</div>
+                <div class="text-muted small">Independent storage with granular and point-in-time recovery.</div>
+              </div>
+            </div>
+            <div class="bkp-layer-arrow"><i class="bi bi-arrow-down"></i></div>
+            <div class="bkp-layer-card bkp-layer-card-final">
+              <div class="bkp-layer-icon c-green"><i class="bi bi-patch-check-fill"></i></div>
+              <div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Verified restore</div>
+                <div class="text-muted small">Proof that recovery worked, the user can access the data, and the restore is usable.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Section 4: Shared Responsibility ─────────────────────── -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="shared-responsibility">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="section-icon-badge badge-indigo">
@@ -165,6 +320,9 @@
           <p class="text-muted mb-4">
             OneDrive sync keeps files accessible across devices. That is its purpose. It is not designed for, and cannot provide, data recovery after a damaging event.
           </p>
+          <p class="text-muted mb-4">
+            If you are evaluating whether <strong>does Microsoft backup OneDrive</strong>, the answer is that sync and version history help with collaboration, not independent recovery. Real <strong>OneDrive backup Microsoft 365</strong> protection means a second copy stored separately with restore control outside the production tenant.
+          </p>
 
           <div class="bkp-sync-grid animate-on-scroll">
             <div class="bkp-sync-card">
@@ -215,6 +373,9 @@
           </div>
           <p class="text-muted mb-4">
             The Recycle Bin provides a short recovery window for accidental deletions. It is not a backup system — it has no independent storage, no version history beyond what Microsoft exposes, and no protection against a determined admin or attacker.
+          </p>
+          <p class="text-muted mb-4">
+            The same applies if you are asking whether Microsoft handles <strong>Exchange Online backup</strong> or full <strong>SharePoint backup Microsoft 365</strong> recovery. Native retention features can help in narrow cases, but they are not the same as a backup platform designed for point-in-time restore.
           </p>
 
           <div class="bkp-recycle-grid animate-on-scroll">
@@ -414,51 +575,48 @@
             <div class="section-icon-badge badge-teal">
               <i class="bi bi-arrow-counterclockwise"></i>
             </div>
-            <h2 class="h4 fw-bold mb-0">Backup Only Matters If Restore Works</h2>
+            <h2 class="h4 fw-bold mb-0">What a Verified Restore Actually Looks Like</h2>
           </div>
           <p class="text-muted mb-4">
-            A backup solution that has never been tested is not a backup strategy — it is an assumption. The first time you discover a restore does not work should never be during an actual incident.
+            A backup solution that has never been tested is not a backup strategy. A proper verified restore in Microsoft 365 is a documented workflow that proves the recovered mailbox, file set, or site is usable by the business, not just restorable in theory.
           </p>
 
-          <h3 class="h5 fw-bold mb-3">What a restore validation process should verify</h3>
-
-          <div class="bkp-restore-grid animate-on-scroll">
-            <div class="bkp-restore-card">
-              <div class="bkp-restore-num">1</div>
-              <div class="bkp-restore-label">File-level restore</div>
-              <p class="text-muted small mb-0">Restore a single file from OneDrive or SharePoint to confirm individual item recovery works. Verify the restored file matches the expected version and retains metadata.</p>
+          <div class="bkp-checklist-items animate-on-scroll" aria-label="Verified restore workflow">
+            <div class="bkp-checklist-item">
+              <div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div>
+              <div class="bkp-checklist-text">Identify affected mailbox, OneDrive, SharePoint, or Teams data.</div>
             </div>
-            <div class="bkp-restore-card">
-              <div class="bkp-restore-num">2</div>
-              <div class="bkp-restore-label">Folder-level restore</div>
-              <p class="text-muted small mb-0">Restore an entire folder structure from SharePoint or OneDrive. Verify sub-folders, file permissions, and document metadata are preserved — not just the files themselves.</p>
+            <div class="bkp-checklist-item">
+              <div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div>
+              <div class="bkp-checklist-text">Select the correct restore point.</div>
             </div>
-            <div class="bkp-restore-card">
-              <div class="bkp-restore-num">3</div>
-              <div class="bkp-restore-label">Mailbox restore</div>
-              <p class="text-muted small mb-0">Restore a sample of email items from a specific date range to a test mailbox. Verify calendar events, contacts, and folder structure are intact after the restore operation completes.</p>
+            <div class="bkp-checklist-item">
+              <div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div>
+              <div class="bkp-checklist-text">Restore to the original location or an alternate location for review.</div>
             </div>
-            <div class="bkp-restore-card">
-              <div class="bkp-restore-num">4</div>
-              <div class="bkp-restore-label">Cross-user restore</div>
-              <p class="text-muted small mb-0">Restore items from an offboarded user's mailbox or OneDrive to a current user or an admin-accessible location. This is the most common real-world restore scenario after employee departure.</p>
+            <div class="bkp-checklist-item">
+              <div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div>
+              <div class="bkp-checklist-text">Verify access permissions and confirm the restored data opens normally.</div>
             </div>
-            <div class="bkp-restore-card">
-              <div class="bkp-restore-num">5</div>
-              <div class="bkp-restore-label">Point-in-time restore</div>
-              <p class="text-muted small mb-0">Restore a OneDrive or SharePoint library to its state as of a specific date — simulating a ransomware recovery where you need to roll back to before the encryption event began.</p>
+            <div class="bkp-checklist-item">
+              <div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div>
+              <div class="bkp-checklist-text">Confirm usability with the affected user or department.</div>
+            </div>
+            <div class="bkp-checklist-item">
+              <div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div>
+              <div class="bkp-checklist-text">Document the restore result, scope, and any follow-up actions.</div>
             </div>
           </div>
 
           <div class="ca-inline-warning mt-4">
             <i class="bi bi-exclamation-triangle-fill me-2"></i>
-            <span>Testing restores is what confirms backup reliability — not backup job completion reports. A backup job that completed successfully does not mean a restore will succeed. These are different operations with different failure modes.</span>
+            <span>Testing restores is what confirms backup reliability, not backup job completion reports. The difference between a backup job and a verified restore is the difference between assumption and evidence.</span>
           </div>
 
           <aside class="guide-related-block guide-related-block-warning mt-4" aria-label="Restore statement">
             <div class="guide-related-eyebrow">The standard</div>
             <p class="fw-bold mb-0" style="color: #e2e8f0;">
-              A backup you have never tested is not a backup strategy. Test restores quarterly — before you need them.
+              A backup you have never tested is not a backup strategy. Test restores quarterly, after major tenant changes, and after switching providers.
             </p>
           </aside>
         </div>
@@ -472,66 +630,135 @@
             <h2 class="h4 fw-bold mb-0">How to Choose a Microsoft 365 Backup Solution</h2>
           </div>
           <p class="text-muted mb-3">
-            The right backup solution depends on your workload requirements, retention obligations, and recovery time targets. The following criteria provide a vendor-neutral evaluation framework.
+            The right backup solution depends on your workload requirements, retention obligations, and recovery time targets. The checklist below gives small businesses a practical vendor-neutral evaluation framework.
           </p>
           <p class="text-muted mb-4">
             This guide does not recommend specific brands. Evaluate any solution against the following checklist before committing to a contract.
           </p>
 
-          <div class="bkp-eval-list animate-on-scroll" aria-label="Vendor evaluation checklist">
+          <div class="bkp-checklist-items animate-on-scroll" aria-label="Vendor evaluation checklist">
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">Exchange Online backup</div></div>
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">OneDrive backup</div></div>
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">SharePoint backup</div></div>
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">Teams coverage</div></div>
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">Separate storage</div></div>
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">Immutable retention</div></div>
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">Point-in-time restore</div></div>
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">Granular restore</div></div>
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">Audit logs</div></div>
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">Restore testing support</div></div>
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">Clear retention rules</div></div>
+            <div class="bkp-checklist-item"><div class="bkp-checklist-icon"><i class="bi bi-check2"></i></div><div class="bkp-checklist-text">Predictable pricing</div></div>
+          </div>
+
+          <div class="bkp-eval-list mt-4 animate-on-scroll">
             <div class="bkp-eval-item">
               <div class="bkp-eval-icon c-teal"><i class="bi bi-calendar-check-fill"></i></div>
               <div>
-                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Daily backup frequency (minimum)</div>
-                <p class="text-muted small mb-0">Verify the backup schedule matches your recovery point objective. Daily is the minimum for most businesses. High-activity environments should consider more frequent snapshots. Ask explicitly what time of day backups run and how long they take to complete.</p>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Ask how restore testing is supported</div>
+                <p class="text-muted small mb-0">A serious provider should be able to show you how quarterly mailbox, OneDrive, and SharePoint test restores are performed and documented.</p>
               </div>
             </div>
             <div class="bkp-eval-item">
               <div class="bkp-eval-icon c-indigo"><i class="bi bi-hdd-fill"></i></div>
               <div>
-                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Independent storage location</div>
-                <p class="text-muted small mb-0">Backup data must be stored outside the Microsoft 365 tenant. A backup that lives in the same tenant as the data it is protecting is vulnerable to the same admin deletion, ransomware, or misconfiguration that caused the data loss in the first place.</p>
-              </div>
-            </div>
-            <div class="bkp-eval-item">
-              <div class="bkp-eval-icon c-teal"><i class="bi bi-layers-fill"></i></div>
-              <div>
-                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Granular restore support</div>
-                <p class="text-muted small mb-0">The solution must support individual file, folder, mailbox item, and full mailbox restores — not only full-tenant or full-user restores. Most real-world recovery scenarios require restoring a specific file or email thread, not an entire mailbox.</p>
-              </div>
-            </div>
-            <div class="bkp-eval-item">
-              <div class="bkp-eval-icon c-indigo"><i class="bi bi-person-lines-fill"></i></div>
-              <div>
-                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Cross-tenant restore options</div>
-                <p class="text-muted small mb-0">Verify whether data from a deleted or suspended user can be restored to a different user's account or to an admin-accessible export. This is required for offboarding scenarios and legal discovery requests.</p>
-              </div>
-            </div>
-            <div class="bkp-eval-item">
-              <div class="bkp-eval-icon c-teal"><i class="bi bi-clock-history"></i></div>
-              <div>
-                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Retention flexibility</div>
-                <p class="text-muted small mb-0">Confirm the retention period matches your compliance and business requirements. Some industries require 7-year retention of email; others require only 1 year. Ensure the solution supports your longest required retention period without cost surprises.</p>
-              </div>
-            </div>
-            <div class="bkp-eval-item">
-              <div class="bkp-eval-icon c-indigo"><i class="bi bi-geo-alt-fill"></i></div>
-              <div>
-                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Canadian data residency (if applicable)</div>
-                <p class="text-muted small mb-0">For organizations subject to PIPEDA, PHIPA, or provincial privacy legislation, or for organizations whose client contracts require Canadian data residency, verify that backup data is stored in Canadian datacenters. Ask for written confirmation — not just a marketing claim.</p>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Confirm storage is separate from the tenant</div>
+                <p class="text-muted small mb-0">If the backup is controlled by the same compromised tenant or admin plane, it may fail in the same incident you are trying to recover from.</p>
               </div>
             </div>
             <div class="bkp-eval-item">
               <div class="bkp-eval-icon c-red"><i class="bi bi-shield-fill-check"></i></div>
               <div>
-                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Ransomware-safe backup storage</div>
-                <p class="text-muted small mb-0">Ask whether backup storage is immutable — meaning it cannot be overwritten or deleted by an attacker who gains access to the backup admin console. Immutable storage is the only protection against an attacker who attempts to destroy backups before or after a ransomware deployment.</p>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Verify immutable retention and auditability</div>
+                <p class="text-muted small mb-0">Immutable retention and audit logs help you prove what was backed up, what was restored, and whether anyone attempted to tamper with recovery data.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- ── Section 9: Do You Need It? ────────────────────────────── -->
+        <!-- ── Section 9: Testing Cadence ───────────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="testing-cadence">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-calendar3"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">How Often Backups Should Be Tested</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Small businesses do not need weekly disaster exercises, but they do need a restore testing cadence that proves core Microsoft 365 workloads are recoverable before an incident forces the issue.
+          </p>
+
+          <div class="bkp-testing-grid animate-on-scroll">
+            <div class="bkp-testing-card">
+              <div class="bkp-testing-icon c-teal"><i class="bi bi-envelope-check-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Quarterly sample mailbox restore</h3>
+              <p class="text-muted small mb-0">Restore a representative Exchange Online mailbox item set and confirm message content, folder structure, and user access.</p>
+            </div>
+            <div class="bkp-testing-card">
+              <div class="bkp-testing-icon c-teal"><i class="bi bi-folder-check"></i></div>
+              <h3 class="h6 fw-bold mb-1">Quarterly SharePoint restore sample</h3>
+              <p class="text-muted small mb-0">Restore a document library sample and verify permissions, metadata, and file usability.</p>
+            </div>
+            <div class="bkp-testing-card">
+              <div class="bkp-testing-icon c-orange"><i class="bi bi-diagram-3-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">After major tenant changes</h3>
+              <p class="text-muted small mb-0">Retest after mergers, SharePoint reorganizations, mailbox migrations, licence changes, or retention policy redesigns.</p>
+            </div>
+            <div class="bkp-testing-card">
+              <div class="bkp-testing-icon c-indigo"><i class="bi bi-arrow-left-right"></i></div>
+              <h3 class="h6 fw-bold mb-1">After switching providers</h3>
+              <p class="text-muted small mb-0">Do not assume parity when moving backup platforms. Validate restore points, retention scope, and alternate-location recovery immediately.</p>
+            </div>
+            <div class="bkp-testing-card">
+              <div class="bkp-testing-icon c-indigo"><i class="bi bi-clipboard2-pulse-fill"></i></div>
+              <h3 class="h6 fw-bold mb-1">Annual recovery scenario review</h3>
+              <p class="text-muted small mb-0">Walk through a ransomware or admin-deletion scenario and confirm decision paths, ownership, vendor contacts, and documentation standards.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Section 10: Retention vs Backup ─────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="retention-is-not-backup">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-journal-x"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Retention Policies Are Not Backup</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Retention policies are governance controls. They help keep or dispose of records according to business rules, but they do not replace independent backup. They are especially risky when small businesses assume retention equals recovery.
+          </p>
+
+          <div class="bkp-risk-grid animate-on-scroll">
+            <div class="bkp-risk-card">
+              <h3 class="h6 fw-bold mb-1">Client files</h3>
+              <p class="text-muted small mb-0">A retention rule may preserve a record category, but it does not guarantee easy recovery of a deleted client folder structure from the right point in time.</p>
+            </div>
+            <div class="bkp-risk-card">
+              <h3 class="h6 fw-bold mb-1">Financial documents</h3>
+              <p class="text-muted small mb-0">Bookkeeping exports, invoices, and month-end workbooks often need version-aware recovery, not just record preservation.</p>
+            </div>
+            <div class="bkp-risk-card">
+              <h3 class="h6 fw-bold mb-1">Email history</h3>
+              <p class="text-muted small mb-0">Retention can preserve mail, but it is not the same as flexible mailbox restore to original or alternate locations after deletion or compromise.</p>
+            </div>
+            <div class="bkp-risk-card">
+              <h3 class="h6 fw-bold mb-1">SharePoint libraries</h3>
+              <p class="text-muted small mb-0">Retention may keep documents in place while doing very little to simplify restoration of a damaged library, site structure, or permissions state.</p>
+            </div>
+            <div class="bkp-risk-card">
+              <h3 class="h6 fw-bold mb-1">Teams project files</h3>
+              <p class="text-muted small mb-0">Teams content spans chats, channel files, SharePoint storage, and mailbox data. Retention policies do not give you the same coordinated restore path a backup platform can.</p>
+            </div>
+          </div>
+
+          <div class="ca-inline-warning mt-4">
+            <i class="bi bi-info-circle-fill me-2"></i>
+            <span>Retention helps enforce rules about keeping or deleting information. Backup helps recover operational data after accidental deletion, ransomware, admin mistakes, or missed retention windows. Those are different jobs.</span>
+          </div>
+        </div>
+
+        <!-- ── Section 11: Do You Need It? ───────────────────────────── -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="do-you-need-backup">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="section-icon-badge badge-indigo">
@@ -583,9 +810,13 @@
             <i class="bi bi-info-circle-fill me-2"></i>
             <span>Many Canadian cyber insurers now require documented third-party backup of Microsoft 365 data as a coverage condition. Review your policy's backup requirements before renewal — missing this control can affect your ability to make a claim after a ransomware event.</span>
           </div>
+
+          <p class="text-muted mt-4 mb-0">
+            Backup is only one control in the overall tenant. Your recovery posture improves when backup is paired with a staged <a routerLink="/guides/security/microsoft-365-security/mfa-rollout-small-business">MFA rollout plan</a>, properly scoped <a routerLink="/guides/security/microsoft-365-security/conditional-access-small-business">Conditional Access policies</a>, and better user-facing <a routerLink="/guides/security/microsoft-365-security/phishing-protection">phishing protection basics</a>.
+          </p>
         </div>
 
-        <!-- ── Section 10: Internal Links ────────────────────────────── -->
+        <!-- ── Section 12: Internal Links ────────────────────────────── -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="continue-securing">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="section-icon-badge badge-primary">
@@ -601,7 +832,7 @@
             <a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist" class="bkp-related-card" aria-label="Microsoft 365 Security Checklist">
               <div class="bkp-related-icon"><i class="bi bi-list-check"></i></div>
               <div>
-                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Microsoft 365 Security Checklist</div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Microsoft 365 security checklist</div>
                 <div class="text-muted small">The complete 19-control baseline for Microsoft 365 Business Standard and Premium tenants — including backup verification as a required control.</div>
               </div>
               <i class="bi bi-arrow-right ms-auto bkp-related-arrow"></i>
@@ -609,7 +840,7 @@
             <a routerLink="/guides/security/microsoft-365-security/conditional-access-small-business" class="bkp-related-card" aria-label="Conditional Access Policies">
               <div class="bkp-related-icon"><i class="bi bi-sliders"></i></div>
               <div>
-                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Conditional Access Policies</div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Conditional Access policies</div>
                 <div class="text-muted small">How to design Conditional Access to reduce the attack surface that leads to credential compromise and unauthorized tenant access.</div>
               </div>
               <i class="bi bi-arrow-right ms-auto bkp-related-arrow"></i>
@@ -617,7 +848,7 @@
             <a routerLink="/guides/security/microsoft-365-security/phishing-protection" class="bkp-related-card" aria-label="Phishing Protection Guide">
               <div class="bkp-related-icon"><i class="bi bi-fish-fill"></i></div>
               <div>
-                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Phishing Protection Guide</div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">phishing protection basics</div>
                 <div class="text-muted small">Email-based attacks are the primary vector for account compromise and ransomware. Configuring Microsoft Defender for Office 365 reduces this risk significantly.</div>
               </div>
               <i class="bi bi-arrow-right ms-auto bkp-related-arrow"></i>
@@ -625,7 +856,7 @@
             <a routerLink="/guides/security/microsoft-365-security/mfa-rollout-small-business" class="bkp-related-card" aria-label="Rolling Out MFA Without Breaking Things">
               <div class="bkp-related-icon"><i class="bi bi-shield-check"></i></div>
               <div>
-                <div class="fw-bold small mb-1" style="color: #e2e8f0;">Rolling Out MFA Without Breaking Things</div>
+                <div class="fw-bold small mb-1" style="color: #e2e8f0;">MFA rollout plan</div>
                 <div class="text-muted small">A staged MFA deployment guide that covers shared mailboxes, service accounts, and legacy authentication — without locking anyone out.</div>
               </div>
               <i class="bi bi-arrow-right ms-auto bkp-related-arrow"></i>
@@ -633,7 +864,7 @@
           </div>
         </div>
 
-        <!-- ── Section 11: FAQ ────────────────────────────────────────── -->
+        <!-- ── Section 13: FAQ ────────────────────────────────────────── -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="faq">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="section-icon-badge badge-indigo">
@@ -650,30 +881,37 @@
           </div>
         </div>
 
-        <!-- ── Section 12: Conversion CTA ───────────────────────────── -->
+        <!-- ── Section 14: Conversion CTA ───────────────────────────── -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="get-help">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="section-icon-badge badge-primary">
               <i class="bi bi-headset"></i>
             </div>
-            <h2 class="h4 fw-bold mb-0">Need Help Implementing Microsoft 365 Backup?</h2>
+            <h2 class="h4 fw-bold mb-0">Book a Microsoft 365 Backup Risk Check</h2>
           </div>
           <p class="text-muted mb-4">
-            Many Microsoft 365 Business tenants assume their data is automatically protected until a restore is required. A properly designed backup strategy ensures files, mailboxes, and collaboration data remain recoverable even after deletion, ransomware events, or configuration mistakes.
+            Many Microsoft 365 Business tenants assume their data is automatically protected until a restore is required. We review the recovery gaps, confirm what is actually covered today, and show where verified restore capability is missing.
           </p>
 
           <aside class="guide-cta-card guide-cta-card-primary" aria-labelledby="final-cta-title">
             <div class="guide-cta-eyebrow">CtrlShift IT Services — GTA</div>
-            <h3 class="guide-cta-title h5 fw-bold mb-2" id="final-cta-title">We design and verify Microsoft 365 backup strategies for Canadian small businesses</h3>
-            <p class="guide-cta-copy mb-0">
-              If you want confidence that your Microsoft 365 data is recoverable — not just backed up — we can review your current posture, recommend the right solution for your workload, and verify restores actually work.
+            <h3 class="guide-cta-title h5 fw-bold mb-2" id="final-cta-title">Book a Microsoft 365 Backup Risk Check</h3>
+            <p class="guide-cta-copy mb-3">
+              We help small businesses validate whether Microsoft 365 recovery will actually work before a mailbox deletion, SharePoint issue, or ransomware event forces the answer.
             </p>
+            <ul class="bkp-cta-list mb-0">
+              <li>Mailbox recovery readiness</li>
+              <li>SharePoint protection coverage</li>
+              <li>OneDrive restore readiness</li>
+              <li>Teams file protection</li>
+              <li>Restore testing guidance</li>
+            </ul>
             <div class="guide-cta-actions">
-              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/services/microsoft-365-security">
-                Review Microsoft 365 Protection Services
-              </a>
-              <a class="btn btn-outline-secondary rounded-pill px-4 fw-bold" routerLink="/free-security-assessment">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
                 Request a Free Assessment
+              </a>
+              <a class="btn btn-outline-secondary rounded-pill px-4 fw-bold" routerLink="/microsoft-365">
+                Learn About Our M365 Support
               </a>
             </div>
           </aside>
@@ -687,6 +925,8 @@
           <h3 class="fw-bold mb-3">In this guide</h3>
           <nav aria-label="On-page navigation">
             <ul class="list-unstyled mb-4">
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="protection-comparison">Protection Comparison</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="protection-layers">Protection Layers</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="shared-responsibility">Shared Responsibility Model</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="onedrive-not-backup">Why OneDrive Sync Isn't Backup</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="recycle-bin">Why the Recycle Bin Isn't Enough</a></li>
@@ -694,6 +934,8 @@
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="what-backup-covers">What Backup Must Cover</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="verified-restore">Verified Restore</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="evaluate-vendors">Evaluating Vendors</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="testing-cadence">Testing Cadence</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="retention-is-not-backup">Retention vs Backup</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="do-you-need-backup">Do You Need Backup?</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq">FAQ</a></li>
             </ul>
@@ -702,10 +944,10 @@
           <div class="border rounded-4 p-3 bg-light mb-3">
             <div class="fw-bold mb-2">Related guides</div>
             <ul class="text-muted small mb-0 ps-3">
-              <li><a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist">Microsoft 365 Security Checklist</a></li>
-              <li><a routerLink="/guides/security/microsoft-365-security/conditional-access-small-business">Conditional Access Policies</a></li>
-              <li><a routerLink="/guides/security/microsoft-365-security/phishing-protection">Phishing &amp; Email Defence</a></li>
-              <li><a routerLink="/guides/security/microsoft-365-security/mfa-rollout-small-business">MFA Rollout Guide</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist">Microsoft 365 security checklist</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security/conditional-access-small-business">Conditional Access policies</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security/phishing-protection">phishing protection basics</a></li>
+              <li><a routerLink="/guides/security/microsoft-365-security/mfa-rollout-small-business">MFA rollout plan</a></li>
               <li><a routerLink="/guides/security">All Security Guides</a></li>
             </ul>
           </div>

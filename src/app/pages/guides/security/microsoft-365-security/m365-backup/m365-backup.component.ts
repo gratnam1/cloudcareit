@@ -60,9 +60,9 @@ export class M365BackupComponent implements OnDestroy, AfterViewInit {
 
   constructor() {
     const title =
-      'Microsoft 365 Backup: What You Actually Need | Small Business | CtrlShift IT';
+      'Microsoft 365 Backup for Small Business: What You Actually Need | CtrlShift IT';
     const description =
-      'Why OneDrive sync and the Recycle Bin are not real backups — and what small businesses should deploy instead. Microsoft 365 shared responsibility model, data loss scenarios, and how to evaluate backup solutions.';
+      'Learn why OneDrive sync, recycle bins, and retention policies are not true backup — and what small businesses should verify before data loss happens.';
 
     this.seo.update({
       title,
@@ -75,7 +75,7 @@ export class M365BackupComponent implements OnDestroy, AfterViewInit {
     this.seo.setStructuredData(this.ARTICLE_SCHEMA_ID, {
       '@context': 'https://schema.org',
       '@type': 'Article',
-      headline: 'Microsoft 365 Backup: What You Actually Need',
+      headline: 'Microsoft 365 Backup for Small Business: What You Actually Need',
       description,
       url: PAGE_URL,
       inLanguage: 'en-CA',

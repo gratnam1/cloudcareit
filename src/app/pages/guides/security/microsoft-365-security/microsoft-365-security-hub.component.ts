@@ -55,12 +55,12 @@ const GUIDES: ReadonlyArray<Microsoft365Guide> = [
   },
   {
     id: 'microsoft-365-backup',
-    title: 'Microsoft 365 Backup: What You Actually Need',
+    title: 'Microsoft 365 Backup for Small Business',
     summary:
-      'Why OneDrive sync and the Recycle Bin are not enough, how to evaluate third-party backup, and what a verified restore looks like in practice.',
-    icon: 'bi-cloud-arrow-down',
-    path: '',
-    available: false
+      'Why OneDrive sync and the Recycle Bin are not real backups, how Microsoft 365 data protection actually works, and what small businesses should deploy to ensure reliable recovery.',
+    icon: 'bi-cloud-check',
+    path: '/guides/security/microsoft-365-security/microsoft-365-backup-small-business',
+    available: true
   }
 ];
 

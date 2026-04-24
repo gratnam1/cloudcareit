@@ -19,11 +19,38 @@ interface SecurityHowTo {
 const HOWTOS: ReadonlyArray<SecurityHowTo> = [
   {
     id: 'microsoft-365-security',
-    title: 'Microsoft 365 Security Checklist',
+    title: 'Microsoft 365 Security',
     summary:
       'The Microsoft 365 security cluster for Canadian small businesses — checklist, phishing protection, Conditional Access policies, and the related rollout guides in one place.',
     icon: 'bi-microsoft',
     path: '/guides/security/microsoft-365-security',
+    available: true
+  },
+  {
+    id: 'identity-attacks',
+    title: 'Identity Attacks',
+    summary:
+      'Password spray, token theft, business email compromise, legacy authentication risks, and the account takeover paths small businesses should understand.',
+    icon: 'bi-person-lock',
+    path: '/guides/security/identity-attacks',
+    available: true
+  },
+  {
+    id: 'network-attacks',
+    title: 'Network Attacks',
+    summary:
+      'Plain-English guides for DDoS, exposed remote access, VPN risk, firewall misconfiguration, and other network attack paths that affect small businesses.',
+    icon: 'bi-router',
+    path: '/guides/security/network-attacks',
+    available: true
+  },
+  {
+    id: 'endpoint-security',
+    title: 'Endpoint Security',
+    summary:
+      'Guides on endpoint protection, EDR, MDR, patching, device hardening, and reducing ransomware and malware risk across workstations and servers.',
+    icon: 'bi-pc-display-horizontal',
+    path: '/guides/security/endpoint-security',
     available: true
   },
   {

@@ -1,0 +1,70 @@
+<section class="service-detail-page py-5 guides-hub">
+  <div class="container" style="max-width: 1120px;">
+    <nav class="guide-breadcrumb mb-4" aria-label="Breadcrumb">
+      <ol class="guide-breadcrumb-list">
+        <li><a routerLink="/">Home</a></li>
+        <li aria-hidden="true" class="guide-breadcrumb-sep">/</li>
+        <li><a routerLink="/guides">Guides</a></li>
+        <li aria-hidden="true" class="guide-breadcrumb-sep">/</li>
+        <li><a routerLink="/guides/security">Security</a></li>
+        <li aria-hidden="true" class="guide-breadcrumb-sep">/</li>
+        <li aria-current="page"><span class="guide-breadcrumb-current">{{ hub.breadcrumbLabel }}</span></li>
+      </ol>
+    </nav>
+
+    <header class="mb-5">
+      <h1 class="fw-bold mb-3" style="font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.15;">
+        {{ hub.title }}
+      </h1>
+      <p class="lead text-secondary mb-0" style="max-width: 56rem;">
+        {{ hub.description }}
+      </p>
+    </header>
+
+    <div class="guides-hub-grid">
+      <ng-container *ngFor="let guide of hub.guides">
+        <a
+          *ngIf="guide.available"
+          [routerLink]="guide.path"
+          [attr.id]="guide.id"
+          class="guide-card guide-card-available"
+          [attr.aria-label]="guide.title + ' guide - available now'"
+        >
+          <div class="guide-card-top">
+            <span class="guide-card-icon" aria-hidden="true"><i class="bi" [ngClass]="guide.icon"></i></span>
+            <span class="guide-card-status guide-card-status-live">Live</span>
+          </div>
+          <h2 class="guide-card-title">{{ guide.title }}</h2>
+          <p class="guide-card-summary">{{ guide.summary }}</p>
+          <span class="guide-card-cta">
+            Read guide <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+          </span>
+        </a>
+
+        <div
+          *ngIf="!guide.available"
+          [attr.id]="guide.id"
+          class="guide-card guide-card-soon"
+          [attr.aria-label]="guide.title + ' guide - coming soon'"
+        >
+          <div class="guide-card-top">
+            <span class="guide-card-icon" aria-hidden="true"><i class="bi" [ngClass]="guide.icon"></i></span>
+            <span class="guide-card-status guide-card-status-soon">Soon</span>
+          </div>
+          <h2 class="guide-card-title">{{ guide.title }}</h2>
+          <p class="guide-card-summary">{{ guide.summary }}</p>
+          <span class="guide-card-cta guide-card-cta-muted">In progress</span>
+        </div>
+      </ng-container>
+    </div>
+
+    <section class="mt-5 pt-4 border-top border-secondary-subtle" *ngIf="hub.relatedLinks.length">
+      <h2 class="fw-semibold mb-3" style="font-size: 1.25rem;">Related security guides</h2>
+      <div class="related-link-row">
+        <a *ngFor="let link of hub.relatedLinks" [routerLink]="link.path" class="related-guide-link">
+          {{ link.title }} <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+  </div>
+</section>

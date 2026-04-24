@@ -539,7 +539,7 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #1e293b;
+  color: #e2e8f0;
   line-height: 1.35;
 }
 
@@ -614,7 +614,7 @@
 .mfa-pilot-label {
   font-size: 0.88rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #e2e8f0;
   margin-bottom: 0.35rem;
   line-height: 1.35;
 }
@@ -644,7 +644,7 @@
 
 .mfa-email-label {
   font-weight: 700;
-  color: #1e293b;
+  color: #334155;
   margin-right: 0.35rem;
 }
 
@@ -833,7 +833,7 @@
 .mfa-timeline-title {
   font-size: 0.96rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #e2e8f0;
   margin: 0 0 0.5rem;
 }
 

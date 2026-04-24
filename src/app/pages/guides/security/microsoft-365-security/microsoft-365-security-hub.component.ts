@@ -48,10 +48,10 @@ const GUIDES: ReadonlyArray<Microsoft365Guide> = [
     id: 'mfa-rollout',
     title: 'Rolling Out MFA Without Breaking Things',
     summary:
-      'How to stage a Microsoft 365 MFA deployment across a real small business — shared mailboxes, service accounts, BYOD exceptions, break-glass accounts, and user communication.',
+      'How to deploy Microsoft 365 MFA safely across shared mailboxes, service accounts, BYOD devices, and Conditional Access — without locking users out.',
     icon: 'bi-shield-check',
-    path: '',
-    available: false
+    path: '/guides/security/microsoft-365-security/mfa-rollout-small-business',
+    available: true
   },
   {
     id: 'microsoft-365-backup',

@@ -278,6 +278,14 @@ export const routes: Routes = [
       ),
     title: 'Conditional Access Policies for Small Business (Microsoft 365) | CtrlShift IT Services'
   },
+  {
+    path: 'guides/security/microsoft-365-security/mfa-rollout-small-business',
+    loadComponent: () =>
+      import('./pages/guides/security/microsoft-365-security/mfa-rollout-small-business/mfa-rollout.component').then(
+        (m) => m.MfaRolloutComponent
+      ),
+    title: 'Rolling Out MFA Without Breaking Things | Microsoft 365 Small Business | CtrlShift IT Services'
+  },
 
   // About
   {

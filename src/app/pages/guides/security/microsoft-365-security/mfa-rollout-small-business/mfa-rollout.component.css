@@ -859,6 +859,131 @@
   opacity: 0.35;
 }
 
+/* ── Security Defaults vs Conditional Access grid ─────────────────── */
+.mfa-sd-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.mfa-sd-card {
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  background: rgba(99, 102, 241, 0.04);
+}
+
+.mfa-sd-card-premium {
+  border-color: rgba(99, 102, 241, 0.35);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.mfa-sd-header {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mfa-sd-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.mfa-sd-tag-free {
+  background: rgba(20, 184, 166, 0.15);
+  color: #5eead4;
+}
+
+.mfa-sd-tag-premium {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+}
+
+.mfa-sd-verdict {
+  font-size: 0.82rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  line-height: 1.45;
+}
+
+.mfa-sd-verdict-neutral {
+  background: rgba(20, 184, 166, 0.1);
+  color: #5eead4;
+}
+
+.mfa-sd-verdict-premium {
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+}
+
+/* ── What Breaks grid ──────────────────────────────────────────────── */
+.mfa-breaks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.mfa-breaks-card {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.65rem;
+  padding: 0.85rem;
+  background: rgba(15, 23, 42, 0.04);
+}
+
+.mfa-breaks-icon {
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+
+.mfa-breaks-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+/* ── "What Microsoft Is Pushing Toward" section ───────────────────── */
+.mfa-direction-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.mfa-direction-card {
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 0.75rem;
+  padding: 1.1rem;
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.mfa-direction-icon {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.mfa-direction-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+
 /* ── Responsive ────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .mfa-failure-grid,
@@ -869,6 +994,18 @@
   }
 
   .mfa-pilot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mfa-sd-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mfa-breaks-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mfa-direction-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -884,4 +1021,5 @@
   .guide-cta-card { padding: 1rem; }
   .checklist-item-row { flex-wrap: wrap; }
   .mfa-email-body { padding: 0.85rem 1rem; }
+  .mfa-breaks-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

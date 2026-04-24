@@ -46,8 +46,18 @@
             </div>
             <div class="row g-3 mt-0">
               <div class="col-md-4">
-                <div class="fw-bold small text-uppercase text-muted">Rollout duration</div>
-                <div>5 weeks (staged)</div>
+                <div class="fw-bold small text-uppercase text-muted">Estimated rollout time</div>
+                <div>2–5 weeks</div>
+              </div>
+              <div class="col-md-8">
+                <div class="fw-bold small text-uppercase text-muted">Tenant complexity factors</div>
+                <div>Number of users, shared devices, service accounts, and legacy authentication exposure determine where in the 2–5 week range your rollout will land.</div>
+              </div>
+            </div>
+            <div class="row g-3 mt-0">
+              <div class="col-md-4">
+                <div class="fw-bold small text-uppercase text-muted">Licence</div>
+                <div>Business Premium or Entra P1 for staged CA rollout; Security Defaults free on all plans</div>
               </div>
               <div class="col-md-8">
                 <div class="fw-bold small text-uppercase text-muted">Prerequisite</div>
@@ -91,13 +101,17 @@
           <h2 class="h6 fw-bold mb-3" id="quick-jump-title">Jump to the sections that matter most</h2>
           <div class="guide-jump-grid">
             <a class="guide-jump-link" routerLink="." fragment="why-fail">Why MFA Fails</a>
+            <a class="guide-jump-link" routerLink="." fragment="sec-defaults-vs-ca">SD vs CA</a>
+            <a class="guide-jump-link" routerLink="." fragment="what-breaks">What Breaks</a>
             <a class="guide-jump-link" routerLink="." fragment="phase-overview">5 Phases</a>
             <a class="guide-jump-link" routerLink="." fragment="step-identity">Risky Accounts</a>
             <a class="guide-jump-link" routerLink="." fragment="step-break-glass">Break-Glass</a>
             <a class="guide-jump-link" routerLink="." fragment="step-admins">Admins First</a>
             <a class="guide-jump-link" routerLink="." fragment="step-pilot">Pilot Group</a>
             <a class="guide-jump-link" routerLink="." fragment="step-communicate">Communicate</a>
+            <a class="guide-jump-link" routerLink="." fragment="microsoft-direction">MS Direction</a>
             <a class="guide-jump-link" routerLink="." fragment="timeline">Timeline</a>
+            <a class="guide-jump-link" routerLink="." fragment="faq">FAQ</a>
           </div>
         </nav>
 
@@ -151,6 +165,137 @@
             <p class="fw-bold mb-0" style="color: #e2e8f0;">
               Most MFA outages aren't caused by MFA itself — they're caused by deploying it all at once.
             </p>
+          </aside>
+        </div>
+
+        <!-- ── Security Defaults vs Conditional Access ──────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="sec-defaults-vs-ca">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-toggles"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Security Defaults vs Conditional Access — Which Should Small Businesses Use?</h2>
+          </div>
+          <p class="text-muted mb-4">
+            The right choice depends on your Microsoft 365 licence. Both enforce MFA — but they use different mechanisms, cannot run simultaneously, and suit different rollout scenarios.
+          </p>
+
+          <div class="mfa-sd-grid animate-on-scroll">
+            <div class="mfa-sd-card">
+              <div class="mfa-sd-header">
+                <i class="bi bi-toggles me-2"></i>Security Defaults
+                <span class="mfa-sd-tag mfa-sd-tag-free">Free — All Licences</span>
+              </div>
+              <p class="text-muted small mb-3">Included with every Microsoft 365 plan. Enforces MFA for all users and blocks legacy authentication with a single toggle — no policy configuration needed.</p>
+              <ul class="text-muted small mb-3 ps-3">
+                <li class="mb-1">MFA enforced for all users with no staging</li>
+                <li class="mb-1">Legacy authentication blocked globally</li>
+                <li class="mb-1">No exclusions or exceptions possible</li>
+                <li class="mb-1">Cannot target by role, device, or location</li>
+                <li class="mb-1">No report-only mode, no pilot rollout</li>
+              </ul>
+              <div class="mfa-sd-verdict mfa-sd-verdict-neutral">
+                <i class="bi bi-check-circle me-1"></i>
+                Right for Business Basic or Standard tenants that need a fast MFA baseline without granular staging.
+              </div>
+            </div>
+            <div class="mfa-sd-card mfa-sd-card-premium">
+              <div class="mfa-sd-header">
+                <i class="bi bi-sliders me-2"></i>Conditional Access
+                <span class="mfa-sd-tag mfa-sd-tag-premium">Business Premium / Entra P1</span>
+              </div>
+              <p class="text-muted small mb-3">Available with Microsoft 365 Business Premium or Entra ID P1. Replaces Security Defaults with fine-grained policies — required for any controlled, staged rollout.</p>
+              <ul class="text-muted small mb-3 ps-3">
+                <li class="mb-1">Granular MFA by user, role, or group</li>
+                <li class="mb-1">Report-only mode for safe pre-deployment observation</li>
+                <li class="mb-1">Pilot group enforcement before full tenant rollout</li>
+                <li class="mb-1">Service account and shared mailbox exclusions</li>
+                <li class="mb-1">Location, device, and sign-in risk conditions</li>
+              </ul>
+              <div class="mfa-sd-verdict mfa-sd-verdict-premium">
+                <i class="bi bi-shield-check me-1"></i>
+                Right for Business Premium tenants that need staged rollout, pilot groups, and legacy auth planning.
+              </div>
+            </div>
+          </div>
+
+          <div class="ca-inline-warning mt-4">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <span>Security Defaults and Conditional Access are mutually exclusive. Microsoft will not enforce Conditional Access policies while Security Defaults is active. Disable Security Defaults first, then immediately activate your CA policies — never leave a gap in MFA enforcement between the two.</span>
+          </div>
+
+          <aside class="guide-related-block mt-3" aria-labelledby="sd-checklist-link">
+            <div class="guide-related-eyebrow">Before you choose</div>
+            <p class="text-muted small mb-0" id="sd-checklist-link">
+              MFA is one of 19 controls in the <a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist" class="text-decoration-none fw-bold">Microsoft 365 Security Checklist</a> — useful context for deciding which deployment path fits your current licence and security posture.
+            </p>
+          </aside>
+        </div>
+
+        <!-- ── What Breaks When MFA Is Enabled Too Early ─────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="what-breaks">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-exclamation-triangle-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">What Breaks When MFA Is Enabled Too Early</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Most small businesses have at least two or three of these in their environment. Each fails silently — no error message, just a broken workflow discovered hours or days later. This is the exact reason a staged rollout with an identity audit in Week 1 exists.
+          </p>
+
+          <div class="mfa-breaks-grid animate-on-scroll">
+            <div class="mfa-breaks-card">
+              <div class="mfa-breaks-icon c-orange"><i class="bi bi-printer-fill"></i></div>
+              <div class="mfa-breaks-label">Scan-to-email printers</div>
+              <div class="text-muted small">SMTP AUTH credentials stop working when legacy authentication is blocked.</div>
+            </div>
+            <div class="mfa-breaks-card">
+              <div class="mfa-breaks-icon c-red"><i class="bi bi-envelope-fill"></i></div>
+              <div class="mfa-breaks-label">Shared mailboxes</div>
+              <div class="text-muted small">Cannot complete interactive MFA. Delegation breaks if the mailbox is targeted directly.</div>
+            </div>
+            <div class="mfa-breaks-card">
+              <div class="mfa-breaks-icon c-orange"><i class="bi bi-windows"></i></div>
+              <div class="mfa-breaks-label">Legacy Outlook clients</div>
+              <div class="text-muted small">Outlook 2013 and unpatched 2016 use basic auth and are blocked on enforcement.</div>
+            </div>
+            <div class="mfa-breaks-card">
+              <div class="mfa-breaks-icon c-red"><i class="bi bi-inbox-fill"></i></div>
+              <div class="mfa-breaks-label">POP / IMAP devices</div>
+              <div class="text-muted small">Both protocols bypass MFA entirely and are blocked when the legacy auth policy is enforced.</div>
+            </div>
+            <div class="mfa-breaks-card">
+              <div class="mfa-breaks-icon c-purple"><i class="bi bi-gear-fill"></i></div>
+              <div class="mfa-breaks-label">Service accounts</div>
+              <div class="text-muted small">Apps authenticating as a Microsoft 365 user stop working with no visible error to trace.</div>
+            </div>
+            <div class="mfa-breaks-card">
+              <div class="mfa-breaks-icon c-red"><i class="bi bi-arrow-left-right"></i></div>
+              <div class="mfa-breaks-label">Backup connectors</div>
+              <div class="text-muted small">Backup jobs authenticate silently — failure is only noticed when a restore is attempted.</div>
+            </div>
+            <div class="mfa-breaks-card">
+              <div class="mfa-breaks-icon c-purple"><i class="bi bi-lightning-charge-fill"></i></div>
+              <div class="mfa-breaks-label">Automation accounts</div>
+              <div class="text-muted small">Scripts, Power Automate flows, and monitoring tools fail to authenticate after enforcement.</div>
+            </div>
+            <div class="mfa-breaks-card">
+              <div class="mfa-breaks-icon c-orange"><i class="bi bi-phone"></i></div>
+              <div class="mfa-breaks-label">Mobile Outlook loops</div>
+              <div class="text-muted small">Older Outlook Mobile builds loop through auth prompts without completing MFA registration.</div>
+            </div>
+          </div>
+
+          <aside class="guide-related-block guide-related-block-warning mt-4" aria-labelledby="backup-failure-title">
+            <div class="guide-related-eyebrow">Example: Silent Backup Failure</div>
+            <h3 class="guide-related-title h6 fw-bold mb-2" id="backup-failure-title">Why backup connectors require explicit review before MFA enforcement</h3>
+            <p class="text-muted small mb-2">
+              A tenant enabled MFA globally before reviewing service accounts. A backup connector stopped authenticating silently, and the issue was not discovered until backup reports were reviewed. This is why MFA rollout planning must include service accounts, backup connectors, and monitoring.
+            </p>
+            <a routerLink="/guides/security/microsoft-365-security/microsoft-365-backup-small-business" class="text-decoration-none small fw-bold">
+              <i class="bi bi-cloud-arrow-down me-1"></i>Microsoft 365 Backup for Small Business <i class="bi bi-arrow-right ms-1"></i>
+            </a>
           </aside>
         </div>
 
@@ -302,6 +447,10 @@
           <p class="text-muted mb-4">
             Admin phishing attacks are not rare or exotic. Attackers specifically target Global and Exchange administrators because compromising one account bypasses MFA enforcement for every other user in the tenant — they can simply disable policies or add new admin accounts. Protect administrators first, independently of the broader rollout schedule.
           </p>
+          <div class="ca-inline-warning mb-4">
+            <i class="bi bi-file-earmark-text-fill me-2"></i>
+            <span>Many cyber-insurance questionnaires now expect MFA on administrative and remote-access accounts, especially for Microsoft 365 environments. Documented admin MFA enforcement is often a condition of coverage — not just a recommendation.</span>
+          </div>
 
           <div class="checklist-progress-wrap mb-4" [class.all-done]="isAdminChecklistComplete">
             <div class="d-flex justify-content-between align-items-center mb-1">
@@ -571,9 +720,16 @@
           </div>
 
           <h3 class="h5 fw-bold mt-4 mb-2">Correct shutdown timing</h3>
-          <p class="text-muted mb-0">
+          <p class="text-muted mb-3">
             Only disable legacy authentication after the report-only Conditional Access policy for legacy auth has run for at least two weeks with zero failures from legitimate users. Check Entra sign-in logs and filter for client app type — look for IMAP, POP, SMTP, and Other clients entries. If any of those represent legitimate business workflows, migrate them first. When the logs show zero legitimate legacy auth traffic, enforce the Block Legacy Authentication policy.
           </p>
+
+          <aside class="guide-related-block" aria-labelledby="backup-link-legacy">
+            <div class="guide-related-eyebrow">After legacy auth is blocked</div>
+            <p class="text-muted small mb-0" id="backup-link-legacy">
+              Once legacy auth is blocked, verify that your backup solution is still authenticating correctly. Backup connectors that relied on SMTP AUTH or basic auth will fail silently. See the <a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist" class="text-decoration-none fw-bold">Microsoft 365 Security Checklist</a> for the backup verification steps.
+            </p>
+          </aside>
         </div>
 
         <!-- ── Section 11: Common Mistakes ───────────────────────────── -->
@@ -630,7 +786,7 @@
             <div class="section-icon-badge badge-teal">
               <i class="bi bi-telephone-fill"></i>
             </div>
-            <h2 class="h4 fw-bold mb-0">When Small Businesses Should Use an MSP for MFA Deployment</h2>
+            <h2 class="h4 fw-bold mb-0">When Staged MFA Deployment Becomes Risky to Do Without an MSP</h2>
           </div>
           <p class="text-muted mb-3">
             Most organizations with a single office, a consistent device fleet, and no legacy line-of-business apps can manage this rollout internally with the guidance in this document. The following signals indicate a higher-complexity environment where external support reduces risk:
@@ -674,6 +830,44 @@
           </aside>
         </div>
 
+        <!-- ── What Microsoft Is Pushing Toward ─────────────────────── -->
+        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="microsoft-direction">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-signpost-2-fill"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">What Microsoft Is Pushing Toward</h2>
+          </div>
+          <p class="text-muted mb-4">
+            Understanding where Microsoft's identity platform is heading helps you make rollout decisions that don't require re-doing work in 18 months. The direction is clear: passwords are being deprecated, and phishing-resistant MFA is the target state for every Microsoft 365 tenant.
+          </p>
+
+          <div class="mfa-direction-grid animate-on-scroll">
+            <div class="mfa-direction-card">
+              <div class="mfa-direction-icon c-indigo"><i class="bi bi-key-fill"></i></div>
+              <div class="mfa-direction-title">Passkeys replacing passwords</div>
+              <p class="text-muted small mb-0">Microsoft has enabled passkey support for consumer and commercial Microsoft accounts. Business tenants can now configure Entra ID to allow passkey sign-in from the Microsoft Authenticator app — no password required.</p>
+            </div>
+            <div class="mfa-direction-card">
+              <div class="mfa-direction-icon c-indigo"><i class="bi bi-shield-check"></i></div>
+              <div class="mfa-direction-title">Phishing-resistant MFA as the expected baseline</div>
+              <p class="text-muted small mb-0">Microsoft's Secure Future Initiative and updated Entra Identity Protection recommendations now treat FIDO2 keys and certificate-based auth as the target state — not TOTP or SMS. Authenticator app push notifications remain acceptable but are no longer the ceiling.</p>
+            </div>
+            <div class="mfa-direction-card">
+              <div class="mfa-direction-icon c-indigo"><i class="bi bi-x-circle-fill"></i></div>
+              <div class="mfa-direction-title">Legacy authentication endpoints being retired</div>
+              <p class="text-muted small mb-0">Microsoft has signalled continued deprecation of basic authentication endpoints across Exchange Online and other M365 services. Tenants still running IMAP, POP, or SMTP AUTH today are operating on borrowed time — not a stable long-term configuration.</p>
+            </div>
+          </div>
+
+          <aside class="guide-related-block" aria-labelledby="direction-callout-title">
+            <div class="guide-related-eyebrow">What this means for your rollout</div>
+            <p class="text-muted small mb-0" id="direction-callout-title">
+              If your organization completes this MFA rollout guide and then evaluates <a routerLink="/guides/security/microsoft-365-security/conditional-access-small-business" class="text-decoration-none fw-bold">Conditional Access</a>, you are already building toward the phishing-resistant posture Microsoft is pushing. The next logical upgrade is moving admin accounts from the Authenticator app to FIDO2 security keys — a small change with a significant security improvement.
+            </p>
+          </aside>
+        </div>
+
         <!-- ── FAQ ───────────────────────────────────────────────────── -->
         <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="faq">
           <div class="d-flex align-items-center gap-3 mb-3">
@@ -700,6 +894,8 @@
           <nav aria-label="On-page navigation">
             <ul class="list-unstyled mb-4">
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="why-fail">Why MFA Deployments Fail</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="sec-defaults-vs-ca">Security Defaults vs Conditional Access</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="what-breaks">What Breaks When MFA Is Rushed</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="phase-overview">The 5-Phase Strategy</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="step-identity">Step 1: Identify Risky Accounts</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="step-break-glass">Step 2: Break-Glass Accounts</a></li>
@@ -712,6 +908,7 @@
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="common-mistakes">Common Mistakes</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="timeline">5-Week Timeline</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="when-msp">When to Use an MSP</a></li>
+              <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="microsoft-direction">What Microsoft Is Pushing Toward</a></li>
               <li class="mb-2"><a class="text-decoration-none" routerLink="." fragment="faq">FAQ</a></li>
             </ul>
           </nav>

@@ -255,6 +255,13 @@ export const routes: Routes = [
     title: 'Microsoft 365 Security Guides | CtrlShift IT Services'
   },
   {
+    path: 'guides/security/:subcategory',
+    loadComponent: () =>
+      import('./pages/guides/security/security-subcategory-hub/security-subcategory-hub.component').then(
+        (m) => m.SecuritySubcategoryHubComponent
+      )
+  },
+  {
     path: 'guides/security/microsoft-365-security/microsoft-365-checklist',
     loadComponent: () =>
       import('./pages/guides/security/microsoft-365-security/microsoft-365-checklist/microsoft-365-checklist.component').then(
@@ -293,6 +300,13 @@ export const routes: Routes = [
         (m) => m.M365BackupComponent
       ),
     title: 'Microsoft 365 Backup: What You Actually Need | Small Business | CtrlShift IT Services'
+  },
+  {
+    path: 'guides/security/:subcategory/:guideSlug',
+    loadComponent: () =>
+      import('./pages/guides/security/security-starter-guide/security-starter-guide.component').then(
+        (m) => m.SecurityStarterGuideComponent
+      )
   },
 
   // About

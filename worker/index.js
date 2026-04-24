@@ -229,13 +229,21 @@ export default {
       return handleGoogleReviews(env);
     }
 
-    // Cloudflare Static Assets issues a 307 redirect when a path without a trailing
-    // slash matches a directory (e.g. /about → /about/). Rewrite internally so the
-    // client never sees the redirect — better for SEO and latency.
-    if (!url.pathname.endsWith('/') && !/\.[a-zA-Z0-9]+$/.test(url.pathname)) {
-      const rewritten = new URL(request.url);
-      rewritten.pathname = url.pathname + '/';
-      return env.ASSETS.fetch(new Request(rewritten.toString(), request));
+    // For HTML page routes (no file extension), resolve to the explicit index.html
+    // path rather than a directory path. env.ASSETS.fetch() does not reliably resolve
+    // directory indexes when called from inside a Worker — it falls through to
+    // not_found_handling and serves root index.html instead of the prerendered file.
+    // Explicitly requesting /path/index.html bypasses this entirely.
+    if (!/\.[a-zA-Z0-9]+$/.test(url.pathname)) {
+      const base = url.pathname === '/' ? '' : url.pathname.replace(/\/$/, '');
+      const asset = new URL(request.url);
+      asset.pathname = base + '/index.html';
+      const assetRes = await env.ASSETS.fetch(new Request(asset.toString(), request));
+      if (assetRes.status !== 404) return assetRes;
+      // No prerendered file for this path — serve root shell for Angular client-side routing.
+      const root = new URL(request.url);
+      root.pathname = '/index.html';
+      return env.ASSETS.fetch(new Request(root.toString(), request));
     }
 
     return env.ASSETS.fetch(request);

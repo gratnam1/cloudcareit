@@ -27,7 +27,7 @@
           Check off your progress and see what's missing in your relocation plan. Our specialized move team ensures your transition is seamless and secure.
         </p>
         
-        <div class="progress-container p-4 rounded-4 bg-white bg-opacity-5 mb-4 text-center">
+        <div class="progress-container p-4 rounded-4 mb-4 text-center">
           <div class="progress-circle mx-auto mb-3">
             <span class="progress-val">{{ progress }}%</span>
           </div>
@@ -42,7 +42,7 @@
       </div>
 
       <div class="col-lg-7">
-        <div class="checklist-box p-4 p-md-5 rounded-4 bg-white bg-opacity-5 border border-white border-opacity-10">
+        <div class="checklist-box p-4 p-md-5 rounded-4 border border-white border-opacity-10">
           <div *ngFor="let item of checklist" class="check-item d-flex align-items-start mb-3 p-3 rounded-3 transition" 
                [class.checked]="item.completed">
             <div class="form-check">

@@ -220,7 +220,7 @@ export class MfaRolloutComponent implements OnDestroy, AfterViewInit {
 
   constructor() {
     const title =
-      'Rolling Out MFA Without Breaking Things | Microsoft 365 Small Business | CtrlShift IT';
+      'MFA Rollout for Small Business | CtrlShift IT Services';
     const description =
       'How to deploy Microsoft 365 MFA safely in a small business — staged rollout across shared mailboxes, service accounts, BYOD devices, and Conditional Access without locking users out. Canadian SMB guide.';
 

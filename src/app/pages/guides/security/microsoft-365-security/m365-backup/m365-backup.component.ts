@@ -60,7 +60,7 @@ export class M365BackupComponent implements OnDestroy, AfterViewInit {
 
   constructor() {
     const title =
-      'Microsoft 365 Backup for Small Business: What You Actually Need | CtrlShift IT';
+      'M365 Backup for Small Business | CtrlShift IT Services';
     const description =
       'Learn why OneDrive sync, recycle bins, and retention policies are not true backup — and what small businesses should verify before data loss happens.';
 

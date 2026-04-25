@@ -178,7 +178,7 @@ export class BlogPostComponent implements OnInit, OnDestroy {
     const publishedIso = this.toIsoDate(registryPost?.date);
     this.applyArticleSeo(
       slug,
-      effectiveTitle,
+      registryPost?.seoTitle || effectiveTitle,
       effectiveDescription,
       publishedIso,
       this.postTags()

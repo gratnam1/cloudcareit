@@ -98,7 +98,7 @@ export class SecurityCategoryComponent implements OnDestroy {
   private readonly BREADCRUMB_SCHEMA_ID = 'guides-security-category-breadcrumb';
 
   constructor() {
-    const title = 'Small Business Cybersecurity Guide (Canada) | CtrlShift IT Services';
+    const title = 'Small Business Cybersecurity Guides | CtrlShift IT Services';
     const description =
       'Practical cybersecurity guides for Canadian small businesses on Microsoft 365 — MFA rollout, Conditional Access policies, phishing protection for small business, ransomware prevention, and backup strategy. Written by CtrlShift IT Services.';
 

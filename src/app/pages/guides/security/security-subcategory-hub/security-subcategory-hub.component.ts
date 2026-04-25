@@ -136,6 +136,7 @@ export class SecuritySubcategoryHubComponent implements OnDestroy, AfterViewInit
     if (!isPlatformBrowser(this.platformId)) return;
     this.initReadingProgress();
     this.initScrollAnimations();
+    void this.initGuideMotion();
   }
 
   private initReadingProgress(): void {
@@ -165,6 +166,52 @@ export class SecuritySubcategoryHubComponent implements OnDestroy, AfterViewInit
       { threshold: 0.12 }
     );
     document.querySelectorAll('.animate-on-scroll').forEach((el) => this.observer?.observe(el));
+  }
+
+  private async initGuideMotion(): Promise<void> {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealTargets = Array.from(
+      document.querySelectorAll<HTMLElement>('.guide-hero-card, .identity-command-visual, .threat-path-card, .response-step, .license-card')
+    );
+
+    if (reduceMotion || revealTargets.length === 0) {
+      revealTargets.forEach((target) => target.classList.add('guide-motion-ready'));
+      return;
+    }
+
+    const { gsap } = await import('gsap');
+    const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.identity-command-visual', {
+      autoAlpha: 0,
+      scale: 0.96,
+      y: 18,
+      duration: 0.75,
+      ease: 'power3.out'
+    });
+
+    gsap.from('.identity-orbit-node, .signal-line', {
+      autoAlpha: 0,
+      scale: 0.9,
+      y: 10,
+      duration: 0.55,
+      ease: 'power2.out',
+      stagger: 0.08,
+      delay: 0.12
+    });
+
+    ScrollTrigger.batch('.threat-path-card, .response-step, .license-card', {
+      start: 'top 86%',
+      once: true,
+      onEnter: (batch: Element[]) => {
+        gsap.fromTo(
+          batch,
+          { autoAlpha: 0, y: 18 },
+          { autoAlpha: 1, y: 0, duration: 0.55, ease: 'power2.out', stagger: 0.06 }
+        );
+      }
+    });
   }
 
   ngOnDestroy(): void {

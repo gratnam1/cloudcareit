@@ -37,6 +37,11 @@ export interface SecurityHubBlock {
   readonly icon: string;
 }
 
+export interface SecurityHubStat {
+  readonly value: string;
+  readonly label: string;
+}
+
 export interface SecurityHubTableRow {
   readonly threat: string;
   readonly group?: string;
@@ -52,6 +57,12 @@ export interface SecurityHubFaq {
   readonly a: string;
 }
 
+export interface SecurityHubTier {
+  readonly title: string;
+  readonly fit: string;
+  readonly controls: ReadonlyArray<string>;
+}
+
 export interface SecurityHubRichContent {
   readonly slug: string;
   readonly eyebrow: string;
@@ -59,6 +70,7 @@ export interface SecurityHubRichContent {
   readonly subtitle: string;
   readonly intro: ReadonlyArray<string>;
   readonly meta: ReadonlyArray<SecurityHubMeta>;
+  readonly heroStats?: ReadonlyArray<SecurityHubStat>;
   readonly quickLinks: ReadonlyArray<{ readonly label: string; readonly fragment: string }>;
   readonly whoFor: ReadonlyArray<SecurityHubBlock>;
   readonly explanationTitle: string;
@@ -73,8 +85,10 @@ export interface SecurityHubRichContent {
   readonly tableRows: ReadonlyArray<SecurityHubTableRow>;
   readonly warningSigns: ReadonlyArray<SecurityHubBlock>;
   readonly firstSteps: ReadonlyArray<SecurityHubBlock>;
+  readonly responseSteps?: ReadonlyArray<SecurityHubBlock>;
   readonly mistakes: ReadonlyArray<SecurityHubBlock>;
   readonly controls: ReadonlyArray<SecurityHubBlock>;
+  readonly licenseTiers?: ReadonlyArray<SecurityHubTier>;
   readonly ctaTitle: string;
   readonly ctaCopy: string;
   readonly faqs: ReadonlyArray<SecurityHubFaq>;
@@ -112,6 +126,7 @@ export interface SecurityStarterGuide {
   readonly metaTitle: string;
   readonly metaDescription: string;
   readonly intro: ReadonlyArray<string>;
+  readonly coverItems?: ReadonlyArray<string>;
   readonly icon: string;
   readonly facts: ReadonlyArray<SecurityGuideFact>;
   readonly whatItMeans: SecurityGuideSection;
@@ -2441,12 +2456,21 @@ export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = 
       { label: 'Who this guide is for', value: 'Owners, office managers, clinic administrators, law firms, accountants, consultants, and Microsoft 365 decision-makers at 5-50 employee businesses.' },
       { label: 'Last reviewed', value: 'April 2026' }
     ],
+    heroStats: [
+      { value: '8', label: 'identity attack paths' },
+      { value: '15m', label: 'response target' },
+      { value: '4', label: 'control layers' }
+    ],
     quickLinks: [
       { label: 'Who it is for', fragment: 'who-for' },
+      { label: 'Plain English', fragment: 'plain-english' },
       { label: 'Scenario', fragment: 'scenario' },
       { label: 'Attack paths', fragment: 'attack-paths' },
+      { label: 'Deep dives', fragment: 'guides' },
       { label: 'Warning signs', fragment: 'warning-signs' },
       { label: 'First steps', fragment: 'first-steps' },
+      { label: 'Response runbook', fragment: 'response-runbook' },
+      { label: 'Licensing path', fragment: 'licensing-path' },
       { label: 'FAQ', fragment: 'faq' }
     ],
     whoFor: [
@@ -2488,14 +2512,15 @@ export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = 
     tableIntro:
       'These attacks overlap. A single incident may start with phishing, continue through token theft, and end as business email compromise.',
     tableRows: [
-      { threat: 'Credential phishing', howItShowsUp: 'Fake Microsoft, DocuSign, courier, bank, or file-sharing login page.', businessImpact: 'Mailbox access, SharePoint data exposure, internal phishing.', firstControl: 'MFA, phishing-resistant training, Safe Links, sign-in review.' },
-      { threat: 'MFA fatigue', howItShowsUp: 'Repeated approval prompts until a user taps approve to make them stop.', businessImpact: 'Account access despite the password not being newly entered.', firstControl: 'Number matching, Conditional Access, user reporting process.' },
-      { threat: 'Password spraying', howItShowsUp: 'Common passwords tried slowly across many staff accounts.', businessImpact: 'One weak password becomes email or cloud file access.', firstControl: 'MFA, smart lockout, legacy auth block, sign-in log monitoring.' },
-      { threat: 'Session/token theft', howItShowsUp: 'User appears already authenticated from an unusual browser or device.', businessImpact: 'MFA may not re-prompt during an active stolen session.', firstControl: 'Conditional Access, session controls, compliant devices, EDR.' },
-      { threat: 'Business email compromise', howItShowsUp: 'Inbox rules, strange sent mail, invoice changes, hidden replies.', businessImpact: 'Payment fraud, client trust issues, urgent investigation work.', firstControl: 'Mailbox auditing, forwarding alerts, payment verification.' },
-      { threat: 'OAuth consent abuse', howItShowsUp: 'A user grants a third-party app permission to read mail or files.', businessImpact: 'Persistent access without a normal interactive login.', firstControl: 'Admin consent workflow, app governance, permission reviews.' },
-      { threat: 'Shared mailbox abuse', howItShowsUp: 'Too many users have access, or a shared workflow masks who acted.', businessImpact: 'Harder investigations and weak accountability.', firstControl: 'Delegate review, audit logs, no shared passwords.' },
-      { threat: 'Admin takeover', howItShowsUp: 'Admin account sign-in from odd location or new MFA method added.', businessImpact: 'Tenant-wide control, mailbox access, data and policy changes.', firstControl: 'Separate admin accounts, phishing-resistant MFA, alerts.' }
+      { threat: 'Credential phishing', group: 'Initial access', icon: 'bi-envelope-exclamation', howItShowsUp: 'Fake Microsoft, DocuSign, courier, bank, or file-sharing login page.', businessImpact: 'Mailbox access, SharePoint data exposure, internal phishing.', firstControl: 'MFA, phishing-resistant training, Safe Links, sign-in review.' },
+      { threat: 'MFA fatigue', group: 'Initial access', icon: 'bi-phone-vibrate', howItShowsUp: 'Repeated approval prompts until a user taps approve to make them stop.', businessImpact: 'Account access despite the password not being newly entered.', firstControl: 'Number matching, Conditional Access, user reporting process.' },
+      { threat: 'Password spraying', group: 'Initial access', path: '/guides/security/identity-attacks/password-spray-attacks', icon: 'bi-shield-exclamation', howItShowsUp: 'Common passwords tried slowly across many staff accounts.', businessImpact: 'One weak password becomes email or cloud file access.', firstControl: 'MFA, smart lockout, legacy auth block, sign-in log monitoring.' },
+      { threat: 'Session/token theft', group: 'Session abuse', path: '/guides/security/identity-attacks/token-theft-attacks', icon: 'bi-key', howItShowsUp: 'User appears already authenticated from an unusual browser or device.', businessImpact: 'MFA may not re-prompt during an active stolen session.', firstControl: 'Conditional Access, session controls, compliant devices, EDR.' },
+      { threat: 'Business email compromise', group: 'Business impact', path: '/guides/security/identity-attacks/business-email-compromise', icon: 'bi-envelope-paper', howItShowsUp: 'Inbox rules, strange sent mail, invoice changes, hidden replies.', businessImpact: 'Payment fraud, client trust issues, urgent investigation work.', firstControl: 'Mailbox auditing, forwarding alerts, payment verification.' },
+      { threat: 'OAuth consent abuse', group: 'Persistence', icon: 'bi-puzzle', howItShowsUp: 'A user grants a third-party app permission to read mail or files.', businessImpact: 'Persistent access without a normal interactive login.', firstControl: 'Admin consent workflow, app governance, permission reviews.' },
+      { threat: 'Shared mailbox abuse', group: 'Operational blind spots', icon: 'bi-people', howItShowsUp: 'Too many users have access, or a shared workflow masks who acted.', businessImpact: 'Harder investigations and weak accountability.', firstControl: 'Delegate review, audit logs, no shared passwords.' },
+      { threat: 'Legacy authentication', group: 'Protocol risk', path: '/guides/security/identity-attacks/legacy-authentication-risk', icon: 'bi-ban', howItShowsUp: 'Old mail protocols keep accepting basic authentication paths.', businessImpact: 'MFA and modern sign-in controls may not apply as expected.', firstControl: 'Block legacy auth and review sign-in logs.' },
+      { threat: 'Admin takeover', group: 'Tenant control', icon: 'bi-person-lock', howItShowsUp: 'Admin account sign-in from odd location or new MFA method added.', businessImpact: 'Tenant-wide control, mailbox access, data and policy changes.', firstControl: 'Separate admin accounts, phishing-resistant MFA, alerts.' }
     ],
     warningSigns: [
       { title: 'Impossible travel or unfamiliar sign-ins', description: 'A user appears in Toronto and another country within minutes, or signs in from networks never used by the business.', icon: 'bi-geo-alt' },
@@ -2513,6 +2538,14 @@ export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = 
       { title: 'Protect endpoints', description: 'Token theft and browser credential theft often start on a compromised device.', icon: 'bi-laptop' },
       { title: 'Document payment verification', description: 'Make staff comfortable pausing and verifying payment changes before money moves.', icon: 'bi-clipboard-check' }
     ],
+    responseSteps: [
+      { title: '1. Contain the account', description: 'Revoke sessions, reset the password, reset MFA methods, and temporarily block sign-in if ownership is uncertain.', icon: 'bi-person-fill-lock' },
+      { title: '2. Preserve evidence', description: 'Export sign-in logs, mailbox audit records, inbox rules, forwarding settings, and suspicious messages before cleanup.', icon: 'bi-archive' },
+      { title: '3. Hunt for persistence', description: 'Check OAuth app grants, new MFA devices, hidden mailbox rules, delegated access, external forwarding, and admin role changes.', icon: 'bi-search' },
+      { title: '4. Protect money movement', description: 'Warn finance and client-facing staff, verify any payment changes out-of-band, and review recent invoice or banking requests.', icon: 'bi-bank' },
+      { title: '5. Reset affected trust', description: 'Rotate exposed credentials, review device health, remove risky app consent, and notify impacted contacts when needed.', icon: 'bi-arrow-repeat' },
+      { title: '6. Close the control gap', description: 'Document the entry path, tighten Conditional Access or mailbox controls, and add monitoring so the same path is visible next time.', icon: 'bi-clipboard2-check' }
+    ],
     mistakes: [
       { title: 'Assuming MFA solves every identity risk', description: 'MFA is essential, but token theft, OAuth consent, and active sessions still need monitoring and policy controls.', icon: 'bi-shield-exclamation' },
       { title: 'Leaving shared passwords in use', description: 'Shared mailbox workflows should use delegation and auditing, not one password passed around the office.', icon: 'bi-people' },
@@ -2524,6 +2557,23 @@ export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = 
       { title: 'Endpoint and browser protection', description: 'EDR or MDR, browser update management, credential theft detection, and device compliance for sensitive roles.', icon: 'bi-display' },
       { title: 'Email and mailbox controls', description: 'Anti-phishing policies, external forwarding restrictions, DKIM/DMARC, Safe Links, mailbox rule alerts, and user reporting.', icon: 'bi-envelope-check' },
       { title: 'Operational response', description: 'Know how to revoke sessions, reset MFA methods, preserve logs, review inbox rules, and communicate with affected staff.', icon: 'bi-diagram-3' }
+    ],
+    licenseTiers: [
+      {
+        title: 'Security Defaults / basics',
+        fit: 'Useful for very small tenants that need MFA on quickly.',
+        controls: ['Enable MFA baseline coverage', 'Block obvious legacy sign-in paths', 'Review admin accounts manually']
+      },
+      {
+        title: 'Microsoft 365 Business Premium',
+        fit: 'Best practical target for most 5-50 person professional offices.',
+        controls: ['Conditional Access policies', 'Intune device compliance', 'Defender for Business and stronger identity controls']
+      },
+      {
+        title: 'Higher-risk roles',
+        fit: 'Owners, finance, admins, partners, and users handling sensitive client records.',
+        controls: ['Phishing-resistant MFA where practical', 'Separate admin accounts', 'Tighter alerts and session review']
+      }
     ],
     ctaTitle: 'Want a practical identity risk review?',
     ctaCopy:

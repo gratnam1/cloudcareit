@@ -15,17 +15,61 @@
 
     <div class="row g-4 align-items-start">
       <div class="col-lg-8">
-        <header class="bg-white rounded-4 shadow-sm p-4 p-md-5">
-          <div class="guide-eyebrow mb-3">{{ content.eyebrow }}</div>
-          <div class="d-flex align-items-center gap-3 mb-3">
-            <div class="section-icon-badge badge-primary">
-              <i class="bi bi-shield-lock" aria-hidden="true"></i>
-            </div>
-            <h1 class="fw-bold display-6 mb-0">{{ content.title }}</h1>
-          </div>
+        <header class="guide-hero-card bg-white rounded-4 shadow-sm p-4 p-md-5">
+          <div class="guide-hero-grid">
+            <div>
+              <div class="guide-eyebrow mb-3">{{ content.eyebrow }}</div>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="section-icon-badge badge-primary">
+                  <i class="bi bi-shield-lock" aria-hidden="true"></i>
+                </div>
+                <h1 class="fw-bold display-6 mb-0">{{ content.title }}</h1>
+              </div>
 
-          <p class="text-muted lead mb-4">{{ content.subtitle }}</p>
-          <p *ngFor="let paragraph of content.intro" class="text-muted mb-3">{{ paragraph }}</p>
+              <p class="text-muted lead mb-4">{{ content.subtitle }}</p>
+              <p *ngFor="let paragraph of content.intro" class="text-muted mb-3">{{ paragraph }}</p>
+
+              <div class="identity-stat-strip" *ngIf="content.heroStats?.length">
+                <div *ngFor="let stat of content.heroStats" class="identity-stat">
+                  <span>{{ stat.value }}</span>
+                  <small>{{ stat.label }}</small>
+                </div>
+              </div>
+            </div>
+
+            <figure class="identity-command-visual" *ngIf="hub.slug === 'identity-attacks'" aria-label="Identity attack monitoring illustration">
+              <div class="visual-grid" aria-hidden="true"></div>
+              <div class="visual-orbit visual-orbit-one" aria-hidden="true"></div>
+              <div class="visual-orbit visual-orbit-two" aria-hidden="true"></div>
+              <div class="identity-core">
+                <i class="bi bi-person-badge" aria-hidden="true"></i>
+                <span>Identity</span>
+              </div>
+              <div class="identity-orbit-node node-mail">
+                <i class="bi bi-envelope-exclamation" aria-hidden="true"></i>
+                <span>Phish</span>
+              </div>
+              <div class="identity-orbit-node node-token">
+                <i class="bi bi-key" aria-hidden="true"></i>
+                <span>Token</span>
+              </div>
+              <div class="identity-orbit-node node-admin">
+                <i class="bi bi-person-lock" aria-hidden="true"></i>
+                <span>Admin</span>
+              </div>
+              <div class="identity-orbit-node node-bec">
+                <i class="bi bi-bank" aria-hidden="true"></i>
+                <span>BEC</span>
+              </div>
+              <svg class="identity-signal-lines" viewBox="0 0 360 260" role="img" aria-labelledby="identity-signal-title">
+                <title id="identity-signal-title">Account compromise paths converging on identity controls</title>
+                <path class="signal-line signal-one" d="M58 62 C108 82 132 122 178 132" />
+                <path class="signal-line signal-two" d="M302 70 C250 86 226 112 184 132" />
+                <path class="signal-line signal-three" d="M66 203 C116 182 142 158 180 137" />
+                <path class="signal-line signal-four" d="M300 202 C254 176 226 154 184 137" />
+              </svg>
+            </figure>
+          </div>
 
           <div class="border rounded-4 p-3 bg-light mt-4">
             <div class="row g-3">
@@ -131,10 +175,11 @@
             <section *ngFor="let group of groupedThreatRows" class="threat-group" [attr.aria-label]="group.group">
               <div class="threat-group-label">{{ group.group }}</div>
               <div class="threat-card-grid">
+                <ng-container *ngFor="let row of group.rows">
                 <a
-                  *ngFor="let row of group.rows"
+                  *ngIf="row.path; else staticThreatCard"
                   class="threat-path-card"
-                  [routerLink]="row.path || hub.path"
+                  [routerLink]="row.path"
                   [attr.aria-label]="'Read the ' + row.threat + ' guide'"
                 >
                   <span class="threat-icon" aria-hidden="true">
@@ -156,6 +201,29 @@
                     </span>
                   </span>
                 </a>
+                <ng-template #staticThreatCard>
+                  <article class="threat-path-card threat-path-card-static">
+                    <span class="threat-icon" aria-hidden="true">
+                      <i class="bi" [ngClass]="row.icon || 'bi-shield-exclamation'"></i>
+                    </span>
+                    <span class="threat-card-body">
+                      <span class="threat-title">
+                        {{ row.threat }}
+                        <span class="threat-static-label">Risk area</span>
+                      </span>
+                      <span class="threat-detail">
+                        <strong>Shows up as:</strong> {{ row.howItShowsUp }}
+                      </span>
+                      <span class="threat-detail">
+                        <strong>Business impact:</strong> {{ row.businessImpact }}
+                      </span>
+                      <span class="threat-control">
+                        <strong>First control:</strong> {{ row.firstControl }}
+                      </span>
+                    </span>
+                  </article>
+                </ng-template>
+                </ng-container>
               </div>
             </section>
           </div>
@@ -225,6 +293,31 @@
           </div>
         </section>
 
+        <section
+          *ngIf="content.responseSteps?.length"
+          class="response-runbook bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4"
+          id="response-runbook"
+        >
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-stopwatch-fill" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h2 class="h4 fw-bold mb-1">Suspected account compromise runbook</h2>
+              <p class="text-muted mb-0">Use this when an account, mailbox, MFA method, or payment thread looks wrong.</p>
+            </div>
+          </div>
+          <div class="response-timeline animate-on-scroll">
+            <article *ngFor="let item of content.responseSteps" class="response-step">
+              <div class="response-icon"><i class="bi" [ngClass]="item.icon" aria-hidden="true"></i></div>
+              <div>
+                <h3 class="h6 fw-bold mb-1">{{ item.title }}</h3>
+                <p class="text-muted mb-0">{{ item.description }}</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="mistakes">
           <div class="d-flex align-items-center gap-3 mb-3">
             <div class="section-icon-badge badge-orange">
@@ -256,6 +349,30 @@
                 <div class="dl-controls">{{ item.description }}</div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section *ngIf="content.licenseTiers?.length" class="licensing-path bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="licensing-path">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-layers-fill" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h2 class="h4 fw-bold mb-1">Practical Microsoft 365 licensing path</h2>
+              <p class="text-muted mb-0">Identity controls depend on licensing, so the right path should match risk and budget.</p>
+            </div>
+          </div>
+          <div class="license-grid animate-on-scroll">
+            <article *ngFor="let tier of content.licenseTiers" class="license-card">
+              <h3 class="h6 fw-bold">{{ tier.title }}</h3>
+              <p class="text-muted small">{{ tier.fit }}</p>
+              <ul class="license-list">
+                <li *ngFor="let control of tier.controls">
+                  <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                  <span>{{ control }}</span>
+                </li>
+              </ul>
+            </article>
           </div>
         </section>
 

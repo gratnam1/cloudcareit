@@ -56,6 +56,18 @@ export class SecuritySubcategoryHubComponent implements OnDestroy, AfterViewInit
     });
   }
 
+  get responseRunbookTitle(): string {
+    return this.hub.slug === 'endpoint-security'
+      ? 'Suspected endpoint compromise runbook'
+      : 'Suspected account compromise runbook';
+  }
+
+  get responseRunbookIntro(): string {
+    return this.hub.slug === 'endpoint-security'
+      ? 'Use this when a laptop, server, workstation, EDR alert, or ransomware signal looks wrong.'
+      : 'Use this when an account, mailbox, MFA method, or payment thread looks wrong.';
+  }
+
   constructor() {
     const slug = this.route.snapshot.paramMap.get('subcategory');
     const hub = findSecurityHubBySlug(slug);
@@ -171,7 +183,7 @@ export class SecuritySubcategoryHubComponent implements OnDestroy, AfterViewInit
   private async initGuideMotion(): Promise<void> {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const revealTargets = Array.from(
-      document.querySelectorAll<HTMLElement>('.guide-hero-card, .identity-command-visual, .threat-path-card, .response-step, .license-card')
+      document.querySelectorAll<HTMLElement>('.guide-hero-card, .identity-command-visual, .endpoint-command-visual, .threat-path-card, .response-step, .license-card')
     );
 
     if (reduceMotion || revealTargets.length === 0) {
@@ -195,6 +207,16 @@ export class SecuritySubcategoryHubComponent implements OnDestroy, AfterViewInit
       autoAlpha: 0,
       scale: 0.9,
       y: 10,
+      duration: 0.55,
+      ease: 'power2.out',
+      stagger: 0.08,
+      delay: 0.12
+    });
+
+    gsap.from('.endpoint-status-card, .endpoint-device-strip, .endpoint-scan-ring', {
+      autoAlpha: 0,
+      y: 14,
+      scale: 0.96,
       duration: 0.55,
       ease: 'power2.out',
       stagger: 0.08,

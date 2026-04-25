@@ -69,6 +69,42 @@
                 <path class="signal-line signal-four" d="M300 202 C254 176 226 154 184 137" />
               </svg>
             </figure>
+
+            <figure
+              class="endpoint-command-visual"
+              *ngIf="hub.slug === 'endpoint-security'"
+              aria-label="Endpoint security monitoring dashboard on managed laptops and workstations"
+            >
+              <img
+                src="/assets/guides/security/endpoint-security-hero.webp"
+                width="1400"
+                height="788"
+                alt="Endpoint security dashboard monitoring protected laptops, servers, and workstations"
+                loading="eager"
+                decoding="async"
+              >
+              <div class="endpoint-visual-scrim" aria-hidden="true"></div>
+              <div class="endpoint-scan-ring" aria-hidden="true">
+                <span></span>
+              </div>
+              <div class="endpoint-status-card endpoint-status-card-primary">
+                <i class="bi bi-shield-check" aria-hidden="true"></i>
+                <span>12 protected</span>
+                <small>EDR healthy</small>
+              </div>
+              <div class="endpoint-status-card endpoint-status-card-warning">
+                <i class="bi bi-arrow-repeat" aria-hidden="true"></i>
+                <span>1 reboot due</span>
+                <small>Patch follow-up</small>
+              </div>
+              <div class="endpoint-device-strip" aria-hidden="true">
+                <span class="device-dot device-dot-good"></span>
+                <span class="device-dot device-dot-good"></span>
+                <span class="device-dot device-dot-watch"></span>
+                <span class="device-dot device-dot-good"></span>
+                <span class="device-dot device-dot-good"></span>
+              </div>
+            </figure>
           </div>
 
           <div class="border rounded-4 p-3 bg-light mt-4">
@@ -303,8 +339,8 @@
               <i class="bi bi-stopwatch-fill" aria-hidden="true"></i>
             </div>
             <div>
-              <h2 class="h4 fw-bold mb-1">Suspected account compromise runbook</h2>
-              <p class="text-muted mb-0">Use this when an account, mailbox, MFA method, or payment thread looks wrong.</p>
+              <h2 class="h4 fw-bold mb-1">{{ responseRunbookTitle }}</h2>
+              <p class="text-muted mb-0">{{ responseRunbookIntro }}</p>
             </div>
           </div>
           <div class="response-timeline animate-on-scroll">

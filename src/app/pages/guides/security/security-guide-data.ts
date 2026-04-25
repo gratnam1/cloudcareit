@@ -2694,6 +2694,11 @@ export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = 
       'Endpoints are the devices people use to run the business: laptops, desktops, servers, tablets, and sometimes shared clinic or front-desk workstations. They open email attachments, browse the web, sync files, store credentials, run business apps, and connect to Microsoft 365.',
       'Antivirus is still useful, but endpoint security now needs more than known-file blocking. Small businesses need patching, EDR or MDR, local admin control, disk encryption, browser security, backup readiness, and a way to isolate a suspicious device before one laptop becomes a company-wide incident.'
     ],
+    heroStats: [
+      { value: '24/7', label: 'Endpoint monitoring target' },
+      { value: '100%', label: 'Servers and workstations covered' },
+      { value: '< 1 hr', label: 'Critical isolation goal' }
+    ],
     meta: [
       { label: 'Estimated reading time', value: '15 minutes' },
       { label: 'Primary systems', value: 'Windows, macOS, servers, browsers, EDR/MDR, patching, backup, Microsoft 365 device access' },
@@ -2704,6 +2709,8 @@ export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = 
       { label: 'Who it is for', fragment: 'who-for' },
       { label: 'Scenario', fragment: 'scenario' },
       { label: 'Control layers', fragment: 'attack-paths' },
+      { label: 'Endpoint stack', fragment: 'threat-table' },
+      { label: 'Deep dives', fragment: 'guides' },
       { label: 'Warning signs', fragment: 'warning-signs' },
       { label: 'First steps', fragment: 'first-steps' },
       { label: 'FAQ', fragment: 'faq' }
@@ -2735,15 +2742,16 @@ export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = 
     tableIntro:
       'The right endpoint stack is practical and maintainable. These controls cover the most common gaps in small-business environments.',
     tableRows: [
-      { threat: 'Antivirus', howItShowsUp: 'Blocks known malware and suspicious files.', businessImpact: 'Useful baseline, but limited against new or fileless attacks.', firstControl: 'Keep enabled, centrally managed, and updated.' },
-      { threat: 'EDR', howItShowsUp: 'Monitors process, file, network, and user behaviour.', businessImpact: 'Helps investigate and contain suspicious activity.', firstControl: 'Deploy to every company workstation and server.' },
-      { threat: 'MDR', howItShowsUp: 'Human monitoring and triage on top of EDR telemetry.', businessImpact: 'Useful when the business has no internal security team.', firstControl: 'Define escalation and response authority.' },
-      { threat: 'Patch management', howItShowsUp: 'Regular OS, browser, app, VPN, and firmware updates.', businessImpact: 'Closes known vulnerabilities before they become incidents.', firstControl: 'Monthly cadence plus urgent critical patches.' },
-      { threat: 'Local admin control', howItShowsUp: 'Users cannot install or change everything by default.', businessImpact: 'Limits malware and attacker control after compromise.', firstControl: 'Remove routine local admin rights.' },
-      { threat: 'Disk encryption', howItShowsUp: 'BitLocker or FileVault protects data if a laptop is lost.', businessImpact: 'Reduces exposure from theft or misplaced devices.', firstControl: 'Enable encryption and store recovery keys securely.' },
-      { threat: 'Browser security', howItShowsUp: 'Updated browsers, extension control, safer password practices.', businessImpact: 'Reduces token theft, malicious extensions, and phishing impact.', firstControl: 'Patch browsers and restrict risky extensions.' },
-      { threat: 'USB/device controls', howItShowsUp: 'Limits unknown removable media or unmanaged device transfer.', businessImpact: 'Reduces accidental data movement and malware risk.', firstControl: 'Apply role-based controls where needed.' },
-      { threat: 'Ransomware readiness', howItShowsUp: 'EDR/MDR alerts, least privilege, protected backups, isolation.', businessImpact: 'Improves chance of containment and recovery.', firstControl: 'Test backup restores and endpoint isolation.' }
+      { threat: 'Antivirus', group: 'Detection stack', path: '/guides/security/endpoint-security/edr-vs-antivirus', icon: 'bi-shield-plus', howItShowsUp: 'Blocks known malware and suspicious files.', businessImpact: 'Useful baseline, but limited against new or fileless attacks.', firstControl: 'Keep enabled, centrally managed, and updated.' },
+      { threat: 'EDR', group: 'Detection stack', path: '/guides/security/endpoint-security/edr-vs-antivirus', icon: 'bi-activity', howItShowsUp: 'Monitors process, file, network, and user behaviour.', businessImpact: 'Helps investigate and contain suspicious activity.', firstControl: 'Deploy to every company workstation and server.' },
+      { threat: 'MDR', group: 'Detection stack', path: '/guides/security/endpoint-security/mdr-vs-edr', icon: 'bi-person-workspace', howItShowsUp: 'Human monitoring and triage on top of EDR telemetry.', businessImpact: 'Useful when the business has no internal security team.', firstControl: 'Define escalation and response authority.' },
+      { threat: 'Patch management', group: 'Reduce exposure', path: '/guides/security/endpoint-security/patch-management-basics', icon: 'bi-tools', howItShowsUp: 'Regular OS, browser, app, VPN, and firmware updates.', businessImpact: 'Closes known vulnerabilities before they become incidents.', firstControl: 'Monthly cadence plus urgent critical patches.' },
+      { threat: 'Local admin control', group: 'Reduce exposure', icon: 'bi-person-lock', howItShowsUp: 'Users cannot install or change everything by default.', businessImpact: 'Limits malware and attacker control after compromise.', firstControl: 'Remove routine local admin rights.' },
+      { threat: 'Disk encryption', group: 'Device hardening', icon: 'bi-lock', howItShowsUp: 'BitLocker or FileVault protects data if a laptop is lost.', businessImpact: 'Reduces exposure from theft or misplaced devices.', firstControl: 'Enable encryption and store recovery keys securely.' },
+      { threat: 'Browser security', group: 'Device hardening', icon: 'bi-browser-edge', howItShowsUp: 'Updated browsers, extension control, safer password practices.', businessImpact: 'Reduces token theft, malicious extensions, and phishing impact.', firstControl: 'Patch browsers and restrict risky extensions.' },
+      { threat: 'USB/device controls', group: 'Device hardening', icon: 'bi-usb-drive', howItShowsUp: 'Limits unknown removable media or unmanaged device transfer.', businessImpact: 'Reduces accidental data movement and malware risk.', firstControl: 'Apply role-based controls where needed.' },
+      { threat: 'Endpoint isolation', group: 'Contain and recover', path: '/guides/security/endpoint-security/endpoint-isolation-explained', icon: 'bi-pc-display-horizontal', howItShowsUp: 'A suspicious device can be cut off while investigation continues.', businessImpact: 'Limits spread before one device reaches file shares or servers.', firstControl: 'Confirm isolation works before an incident.' },
+      { threat: 'Ransomware readiness', group: 'Contain and recover', path: '/guides/security/endpoint-security/ransomware-behavior-endpoints', icon: 'bi-bug', howItShowsUp: 'EDR/MDR alerts, least privilege, protected backups, isolation.', businessImpact: 'Improves chance of containment and recovery.', firstControl: 'Test backup restores and endpoint isolation.' }
     ],
     warningSigns: [
       { title: 'Unusual file changes', description: 'Mass renames, new extensions, rapid modifications, or encrypted-looking files are urgent signals.', icon: 'bi-file-earmark-lock' },
@@ -2760,6 +2768,12 @@ export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = 
       { title: 'Remove routine local admin rights', description: 'Use elevation only when needed instead of giving everyone permanent admin access.', icon: 'bi-person-lock' },
       { title: 'Enable disk encryption', description: 'Use BitLocker or FileVault for laptops and store recovery keys somewhere controlled.', icon: 'bi-lock' },
       { title: 'Test isolation and restore', description: 'Make sure you can isolate a device and restore business data before an incident.', icon: 'bi-arrow-counterclockwise' }
+    ],
+    responseSteps: [
+      { title: 'Isolate the affected device', description: 'Use EDR or network controls to stop the endpoint from reaching file shares, servers, and other workstations.', icon: 'bi-pc-display-horizontal' },
+      { title: 'Preserve the timeline', description: 'Capture alert details, logged-in user, recent processes, network connections, and file changes before rebuilding.', icon: 'bi-clock-history' },
+      { title: 'Reset exposed credentials', description: 'Change passwords and revoke sessions for the affected user, local admins, service accounts, and any cached privileged access.', icon: 'bi-key' },
+      { title: 'Restore and harden', description: 'Restore clean data, rebuild devices that cannot be trusted, patch the exploited gap, and confirm backups are usable.', icon: 'bi-life-preserver' }
     ],
     mistakes: [
       { title: 'Assuming antivirus equals endpoint security', description: 'Antivirus is a baseline. EDR/MDR adds behaviour monitoring, investigation, and response.', icon: 'bi-shield-exclamation' },

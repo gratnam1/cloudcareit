@@ -1,60 +1,71 @@
-# CtrlShift IT Services Angular Blog Add-on (Drop-in)
+# CtrlShift IT Services Web Application
 
-This adds:
-- `/blog` list page
-- `/blog/:slug` post page
-- Markdown-based posts stored in `src/assets/blog/`
+This repository contains the public-facing website and client portal for **CtrlShift IT Services**, a managed IT and cybersecurity provider based in the Greater Toronto Area (GTA).
 
-## 1) Copy files into your Angular repo
-Copy the folders from this zip into your repo:
-- `src/app/blog/*`
-- `src/assets/blog/*`
-- `tools/generate-sitemap.js` (optional)
+## Architecture
 
-## 2) Install dependency (markdown parser)
-From your repo root:
+The application is built for maximum speed, local SEO visibility, and low operating costs using a hybrid static/edge architecture.
+
+- **Frontend:** Angular (Standalone Components)
+- **Styling:** Bootstrap 5 (Customized via SCSS) + GSAP for animations
+- **Hosting & API:** Cloudflare Workers (`worker/index.js`)
+- **Rendering:** Static Site Generation (SSG). The Angular build prerenders all programmatic location and service pages into static HTML (`dist/ctrlshift-frontend/browser`).
+
+### Edge API (Cloudflare Workers)
+While the frontend is 100% static, dynamic functionality is handled at the edge by the Cloudflare Worker defined in `worker/index.js`. This includes:
+- `/api/chat`: An AI assistant powered by Cloudflare's Workers AI (`@cf/meta/llama-3.3-70b-instruct-fp8-fast`) that answers user questions about IT services and pricing.
+- `/api/google-reviews`: Fetches and caches live Google Reviews using the Places API v1.
+
+## Local Development
+
+### Prerequisites
+- Node.js (v22+)
+- npm
+
+### Setup
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   cd cloudcareit
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Set up environment variables for local edge testing:
+   ```bash
+   cp .env.local.example .env.local
+   # Add your Google Places API key to test the reviews endpoint
+   ```
+
+### Running the App
+To run the standard Angular development server (Hot Module Replacement, fast reloads):
 ```bash
-npm i marked
+npm run dev
 ```
+*Note: The Angular dev server (`localhost:4200`) does not run the Cloudflare Worker API. The Chat and Reviews components will fall back to default/error states unless you proxy them to a local wrangler instance.*
 
-## 3) Ensure HttpClient is enabled
-In Angular 15+ standalone apps, make sure you have:
-```ts
-provideHttpClient()
-```
-in your `app.config.ts` / providers setup.
-
-## 4) Add routes
-Open your `src/app/app.routes.ts` (or wherever your routes are) and add:
-
-```ts
-import { BLOG_ROUTES } from './app/blog/blog.routes'; // adjust path if needed
-
-export const routes: Routes = [
-  ...BLOG_ROUTES,
-  // your existing routes...
-];
-```
-
-## 5) Add a nav link
-Add "Blog" to your header navigation, linking to `/blog`.
-
-## 6) (Recommended) Prerender / SSR for best SEO
-Your repo already includes `tsconfig.server.json` which strongly suggests SSR/prerender is available.
-If your deploy supports it, enable prerender so each blog URL returns HTML to crawlers.
-
-## 7) Update sitemap.xml
-Add:
-- `/blog`
-- each `/blog/<slug>` URL
-
-You can print blog URLs via:
+### Building & Prerendering
+To generate the production static build and run the automated CSS purger:
 ```bash
-node tools/generate-sitemap.js
+npm run build
+```
+The output will be generated in `dist/ctrlshift-frontend/browser`.
+
+## Deployment
+
+Deployment is automated via GitHub Actions (`.github/workflows/deploy.yml`) on merges to the `main` branch.
+
+To deploy manually via Wrangler:
+```bash
+npm run build
+npx wrangler deploy
 ```
 
-## 8) Write new posts
-1. Add a markdown file: `src/assets/blog/<slug>.md`
-2. Add a record in `src/assets/blog/index.json` with the same slug.
+## SEO & Content
+The site heavily utilizes programmatic SEO to generate localized service pages (e.g., `/managed-it-services-vaughan`). These pages are defined in data dictionaries within `src/app/pages/location/` and are fully prerendered at build time.
 
-Done.
+A sitemap can be automatically generated using:
+```bash
+npm run sitemap
+```

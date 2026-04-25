@@ -342,7 +342,42 @@ export const HOME_STRUCTURED_DATA = {
     sameAs: [
       'https://www.linkedin.com/company/ctrlshiftit-services/',
       'https://x.com/CtrlShiftIt',
-      'https://maps.app.goo.gl/AHmLpmKhG88S54d37'
+      'https://maps.app.goo.gl/AHmLpmKhG88S54d37',
+      'https://clutch.co/profile/ctrlshift-it-services',
+      'https://www.goodfirms.co/company/ctrlshift-it-services'
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Managed IT Services',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Managed IT Services' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cybersecurity Services' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Microsoft 365 Administration' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Google Workspace Administration' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Cloud & AWS Infrastructure' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Office Networking & Wi-Fi' } }
+      ]
+    }
+  },
+  SERVICE_AREA: {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': 'https://ctrlshiftit.ca/#managed-it-service',
+    name: 'Managed IT Services',
+    serviceType: 'Managed IT Services',
+    description: 'Proactive managed IT support, cybersecurity, and cloud services for businesses in Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill.',
+    url: 'https://ctrlshiftit.ca/managed-it-services',
+    provider: {
+      '@type': 'Organization',
+      '@id': 'https://ctrlshiftit.ca/#organization',
+      name: 'CtrlShift IT Services'
+    },
+    areaServed: [
+      { '@type': 'City', name: 'Vaughan', containedInPlace: { '@type': 'State', name: 'Ontario' } },
+      { '@type': 'City', name: 'Toronto', containedInPlace: { '@type': 'State', name: 'Ontario' } },
+      { '@type': 'City', name: 'Mississauga', containedInPlace: { '@type': 'State', name: 'Ontario' } },
+      { '@type': 'City', name: 'Thornhill', containedInPlace: { '@type': 'State', name: 'Ontario' } },
+      { '@type': 'City', name: 'Richmond Hill', containedInPlace: { '@type': 'State', name: 'Ontario' } }
     ]
   }
 };

@@ -13,6 +13,8 @@ import { LocationsSectionComponent } from './components/locations-section.compon
 import { WhySwitchSectionComponent } from './components/why-switch-section.component';
 import { CybersecuritySectionComponent } from './components/cybersecurity-section.component';
 import { CaseStudiesSectionComponent } from './components/case-studies-section.component';
+import { TeamSectionComponent } from './components/team-section.component';
+import { AboutSectionComponent } from './components/about-section.component';
 import { ReviewsSectionComponent } from './components/reviews-section.component';
 import { PricingSectionComponent } from './components/pricing-section.component';
 import { FaqSectionComponent } from './components/faq-section.component';
@@ -31,6 +33,8 @@ import { ConsultationSectionComponent } from './components/consultation-section.
     WhySwitchSectionComponent,
     CybersecuritySectionComponent,
     CaseStudiesSectionComponent,
+    TeamSectionComponent,
+    AboutSectionComponent,
     ReviewsSectionComponent,
     PricingSectionComponent,
     FaqSectionComponent,
@@ -73,6 +77,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.seo.setStructuredData(HOME_SCHEMA_IDS.SPEAKABLE, HOME_STRUCTURED_DATA.SPEAKABLE);
     this.seo.setStructuredData(HOME_SCHEMA_IDS.HOWTO, HOME_STRUCTURED_DATA.HOWTO);
     this.seo.setStructuredData(HOME_SCHEMA_IDS.ORGANIZATION, HOME_STRUCTURED_DATA.ORGANIZATION);
+    this.seo.setStructuredData(HOME_SCHEMA_IDS.SERVICE_AREA, HOME_STRUCTURED_DATA.SERVICE_AREA);
 
     this.loadGoogleReviews();
   }

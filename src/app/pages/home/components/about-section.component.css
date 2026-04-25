@@ -1,0 +1,66 @@
+.section-dark-alt   { background: #080d1a; }
+.section-header { text-align: center; }
+.section-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+}
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+.text-gradient {
+  background: linear-gradient(130deg, #a5b4fc 0%, #c4b5fd 50%, #f0abfc 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.btn-outline-indigo {
+  background: transparent;
+  color: #a5b4fc !important;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-outline-indigo:hover {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+/* ===== ABOUT ===== */
+.about-stats-row {
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px;
+}
+.about-stat { flex: 1; padding: 1.5rem; text-align: center; }
+.about-stat-val { display: block; font-size: 2rem; font-weight: 900; }
+.about-stat-lbl { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.28); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-top: 0.25rem; }
+.about-stat-div { width: 1px; height: 48px; background: rgba(255, 255, 255, 0.06); }
+@media (max-width: 575.98px) {
+  .about-stats-row { flex-direction: column; }
+  .about-stat-div { width: 80%; height: 1px; }
+}
+
+.reveal-section { opacity: 0; }
+.reveal-section.revealed { opacity: 1; }

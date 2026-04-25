@@ -1,76 +1,148 @@
-<section id="risk-calculator" class="calculator-section py-5 section-dark-alt">
-  <div class="container py-5">
+<section id="risk-calculator" class="calculator-section section-dark-alt">
+  <div class="container">
     <div class="row g-5 align-items-center">
-      <!-- Left: Inputs -->
-      <div class="col-lg-6">
-        <span class="section-kicker mb-3 text-primary fw-bold text-uppercase" style="letter-spacing: 0.15em;">ROI & Risk Calculator</span>
-        <h2 class="section-title mb-4 text-white fw-bold">What is 1 Day of <span class="text-gradient">Downtime</span> Costing You?</h2>
-        <p class="section-subtitle mb-5 text-light opacity-75">
-          Most business owners underestimate the true cost of IT failure. Use our calculator to see the impact on your productivity, revenue, and reputation.
+      <div class="col-lg-5">
+        <span class="risk-kicker mb-3">ROI &amp; Risk Calculator</span>
+        <h2 class="section-title mb-4 text-white fw-bold">
+          See the real cost of one IT outage.
+        </h2>
+        <p class="section-subtitle mb-4">
+          Downtime rarely costs only the repair bill. It slows staff, interrupts revenue, burns
+          client trust, and can expose cyber insurance gaps.
         </p>
 
-        <div class="calculator-card p-4 p-md-5 rounded-4 border border-white border-opacity-10" style="background: rgba(255,255,255,0.03);">
-          <div class="calc-group mb-4">
-            <div class="d-flex justify-content-between mb-2">
-              <label class="form-label fw-bold text-white">Number of Employees</label>
-              <span class="calc-value text-primary fw-bold fs-5">{{ employeeCount }}</span>
-            </div>
-            <input type="range" class="form-range custom-slider" min="1" max="100" [(ngModel)]="employeeCount">
+        <div class="risk-exposure-map" aria-label="Downtime risk exposure model">
+          <div
+            class="risk-core has-tooltip"
+            tabindex="0"
+            data-tooltip="The estimated total business exposure from a single outage based on your inputs."
+          >
+            <span>Total Risk</span>
+            <strong>{{ formatCurrency(totalRisk) }}</strong>
           </div>
-
-          <div class="calc-group mb-4">
-            <div class="d-flex justify-content-between mb-2">
-              <label class="form-label fw-bold text-white">Avg. Hourly Salary (per employee)</label>
-              <span class="calc-value text-primary fw-bold fs-5">{{ formatCurrency(avgHourlySalary) }}</span>
-            </div>
-            <input type="range" class="form-range custom-slider" min="20" max="200" step="5" [(ngModel)]="avgHourlySalary">
+          <div
+            class="risk-node risk-node-productivity has-tooltip"
+            tabindex="0"
+            data-tooltip="Staff payroll cost while people are blocked, waiting, or working around failed systems."
+          >
+            <i class="bi bi-people" aria-hidden="true"></i>
+            <span>Productivity</span>
           </div>
-
-          <div class="calc-group mb-4">
-            <div class="d-flex justify-content-between mb-2">
-              <label class="form-label fw-bold text-white">Downtime Duration (Hours)</label>
-              <span class="calc-value text-primary fw-bold fs-5">{{ downtimeHours }}h</span>
-            </div>
-            <input type="range" class="form-range custom-slider" min="1" max="72" [(ngModel)]="downtimeHours">
+          <div
+            class="risk-node risk-node-revenue has-tooltip"
+            tabindex="0"
+            data-tooltip="Estimated lost revenue opportunity while phones, systems, transactions, or service delivery are disrupted."
+          >
+            <i class="bi bi-graph-down-arrow" aria-hidden="true"></i>
+            <span>Revenue</span>
           </div>
-
-          <div class="form-check form-switch custom-switch p-3 rounded-3 mt-4" style="background: rgba(255,255,255,0.05);">
-            <input class="form-check-input" type="checkbox" id="breachToggle" [(ngModel)]="includeBreach">
-            <label class="form-check-label fw-bold text-white ms-2" for="breachToggle">
-              Include Cybersecurity Breach Impact
-            </label>
-            <p class="small text-light opacity-50 mb-0 ms-2 mt-1">Adds data recovery, legal fines, and notification costs.</p>
+          <div
+            class="risk-node risk-node-breach has-tooltip"
+            tabindex="0"
+            data-tooltip="Optional breach impact for recovery, legal, notification, and reputation costs."
+          >
+            <i class="bi bi-shield-slash" aria-hidden="true"></i>
+            <span>Breach</span>
           </div>
         </div>
       </div>
 
-      <!-- Right: Results -->
-      <div class="col-lg-6">
-        <div class="results-card p-4 p-md-5 rounded-4 text-center border border-white border-opacity-10" style="background: rgba(255,255,255,0.03);">
-          <h4 class="text-white mb-4 fw-bold">Total Estimated Risk Exposure</h4>
-          <div class="total-amount mb-4">
-            <span class="amount-value text-gradient display-3 fw-bold">{{ formatCurrency(totalRisk) }}</span>
-          </div>
-
-          <div class="breakdown-list text-start mb-5">
-            <div class="breakdown-item d-flex justify-content-between py-3 border-bottom border-white border-opacity-10">
-              <span class="text-light opacity-75"><i class="bi bi-people me-2"></i>Productivity Loss</span>
-              <span class="text-white fw-bold">{{ formatCurrency(productivityCost) }}</span>
+      <div class="col-lg-7">
+        <div class="calculator-card">
+          <div class="calculator-header">
+            <div>
+              <span class="risk-kicker mb-2">Live Scenario</span>
+              <h3 class="text-white fw-bold mb-1">Adjust your outage assumptions.</h3>
+              <p class="section-subtitle small mb-0">Move the sliders to model a more realistic business interruption.</p>
             </div>
-            <div class="breakdown-item d-flex justify-content-between py-3 border-bottom border-white border-opacity-10">
-              <span class="text-light opacity-75"><i class="bi bi-graph-down-arrow me-2"></i>Estimated Revenue Loss</span>
-              <span class="text-white fw-bold">{{ formatCurrency(revenueLoss) }}</span>
-            </div>
-            <div *ngIf="includeBreach" class="breakdown-item d-flex justify-content-between py-3 border-bottom border-white border-opacity-10 animate-fade-in">
-              <span class="text-danger fw-bold"><i class="bi bi-shield-slash me-2"></i>Cyber Breach Costs</span>
-              <span class="text-danger fw-bold">{{ formatCurrency(breachCosts) }}</span>
+            <div class="scenario-chip">
+              <i class="bi bi-clock-history" aria-hidden="true"></i>
+              <span>{{ downtimeHours }}h outage</span>
             </div>
           </div>
 
-          <div class="cta-box p-4 rounded-4" style="background: rgba(255,255,255,0.05);">
-            <h5 class="text-white mb-3 fw-bold">Ready to Eliminate This Risk?</h5>
-            <p class="small text-light opacity-75 mb-4">Our Managed IT plans start at a fraction of this cost, providing 24/7 protection and 99.9% uptime for your GTA business.</p>
-            <a routerLink="/it-assessment" class="btn btn-primary btn-lg w-100 py-3 fw-bold" style="background-color: #6366f1; border-color: #6366f1; color: white;">Get Your Fixed-Price Quote</a>
+          <div class="calc-grid">
+            <div class="calc-control">
+              <div class="d-flex justify-content-between gap-3 mb-2">
+                <label class="form-label fw-bold text-white">Number of Employees</label>
+                <span class="calc-value">{{ employeeCount }}</span>
+              </div>
+              <input type="range" class="form-range custom-slider" min="1" max="100" [(ngModel)]="employeeCount">
+            </div>
+
+            <div class="calc-control">
+              <div class="d-flex justify-content-between gap-3 mb-2">
+                <label class="form-label fw-bold text-white">Avg. Hourly Salary</label>
+                <span class="calc-value">{{ formatCurrency(avgHourlySalary) }}</span>
+              </div>
+              <input type="range" class="form-range custom-slider" min="20" max="200" step="5" [(ngModel)]="avgHourlySalary">
+            </div>
+
+            <div class="calc-control">
+              <div class="d-flex justify-content-between gap-3 mb-2">
+                <label class="form-label fw-bold text-white">Downtime Duration</label>
+                <span class="calc-value">{{ downtimeHours }}h</span>
+              </div>
+              <input type="range" class="form-range custom-slider" min="1" max="72" [(ngModel)]="downtimeHours">
+            </div>
+
+            <div class="form-check form-switch breach-switch">
+              <input class="form-check-input" type="checkbox" id="breachToggle" [(ngModel)]="includeBreach">
+              <label class="form-check-label fw-bold text-white ms-2" for="breachToggle">
+                Include Cybersecurity Breach Impact
+              </label>
+              <p class="small section-subtitle mb-0 ms-2 mt-1">Adds recovery, legal, notification, and reputation costs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="risk-results-panel">
+          <div class="risk-total">
+            <span>Total Estimated Risk Exposure</span>
+            <strong>{{ formatCurrency(totalRisk) }}</strong>
+          </div>
+
+          <div class="risk-breakdown-grid">
+            <div
+              class="risk-breakdown-card has-tooltip"
+              tabindex="0"
+              data-tooltip="Payroll-weighted loss from employees who cannot work normally during downtime."
+            >
+              <i class="bi bi-people" aria-hidden="true"></i>
+              <span>Productivity Loss</span>
+              <strong>{{ formatCurrency(productivityCost) }}</strong>
+            </div>
+            <div
+              class="risk-breakdown-card has-tooltip"
+              tabindex="0"
+              data-tooltip="Revenue exposure estimated from a baseline hourly revenue contribution per employee."
+            >
+              <i class="bi bi-graph-down-arrow" aria-hidden="true"></i>
+              <span>Estimated Revenue Loss</span>
+              <strong>{{ formatCurrency(revenueLoss) }}</strong>
+            </div>
+            <div
+              class="risk-breakdown-card breach has-tooltip"
+              tabindex="0"
+              data-tooltip="Potential added cost if downtime is tied to a security incident or ransomware event."
+              [class.active]="includeBreach"
+            >
+              <i class="bi bi-shield-slash" aria-hidden="true"></i>
+              <span>Cyber Breach Costs</span>
+              <strong>{{ includeBreach ? formatCurrency(breachCosts) : 'Off' }}</strong>
+            </div>
+          </div>
+
+          <div class="risk-cta">
+            <div>
+              <h3 class="h5 text-white fw-bold mb-1">Ready to reduce this exposure?</h3>
+              <p class="small section-subtitle mb-0">Managed IT plans provide monitoring, patching, backup checks, and security response for a fraction of the outage cost.</p>
+            </div>
+            <a routerLink="/it-assessment" class="btn btn-hero-primary rounded-pill px-4 py-3 fw-bold">
+              Get Your Fixed-Price Quote
+            </a>
           </div>
         </div>
       </div>

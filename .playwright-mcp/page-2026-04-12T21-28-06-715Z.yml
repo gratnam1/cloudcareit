@@ -1,0 +1,654 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "CtrlShift IT Logo CTRL SHIFT" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "CtrlShift IT Logo" [ref=e6]
+        - text: CTRL
+        - generic [ref=e9]: SHIFT
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - button "Industries" [ref=e13] [cursor=pointer]
+        - listitem [ref=e14]:
+          - button "Locations" [ref=e15] [cursor=pointer]
+        - listitem [ref=e16]:
+          - link "Services" [ref=e17] [cursor=pointer]:
+            - /url: /#services
+        - listitem [ref=e18]:
+          - link "About" [ref=e19] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e20]:
+          - link "Blog" [ref=e21] [cursor=pointer]:
+            - /url: /blog
+        - listitem [ref=e22]:
+          - link " Free IT Assessment" [ref=e23] [cursor=pointer]:
+            - /url: /it-assessment
+            - generic [ref=e24]: 
+            - text: Free IT Assessment
+  - generic [ref=e25]:
+    - banner [ref=e26]:
+      - generic [ref=e28]:
+        - generic [ref=e30]:
+          - img "Blueprint SVG" [ref=e31]
+          - heading "CTRLSHIFT" [level=2] [ref=e34]
+          - paragraph [ref=e35]: IT SERVICES
+          - generic [ref=e36]:
+            - generic [ref=e37]:
+              - generic [ref=e38]: 15+
+              - generic [ref=e39]: Yrs Exp
+            - generic [ref=e41]:
+              - generic [ref=e42]: <15m
+              - generic [ref=e43]: Response
+            - generic [ref=e45]:
+              - generic [ref=e46]: 24/7
+              - generic [ref=e47]: Monitor
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - generic [ref=e50]: 
+            - text: Cybersecurity-First · 24/7 Monitoring · No Surprise Invoices
+          - heading "IT That Never Interrupts Your Business." [level=1] [ref=e51]:
+            - text: IT That Never
+            - text: Interrupts Your Business.
+          - paragraph [ref=e52]: Security-first managed IT services for GTA businesses — law firms, accounting offices, medical clinics, and engineering firms with 5–50 staff. 24/7 monitoring, proactive support, and zero surprise invoices.
+          - list [ref=e53]:
+            - listitem [ref=e54]:
+              - generic [ref=e55]: 
+              - text: Cybersecurity-first approach — Huntress, Fortinet & Tailscale
+            - listitem [ref=e56]:
+              - generic [ref=e57]: 
+              - text: 24/7 monitoring and rapid response (<15 min SLA)
+            - listitem [ref=e58]:
+              - generic [ref=e59]: 
+              - text: 30-day risk-free guarantee — cancel with no penalty
+          - generic [ref=e60]:
+            - link " Book Free IT Assessment" [ref=e61] [cursor=pointer]:
+              - /url: /it-assessment
+              - generic [ref=e62]: 
+              - text: Book Free IT Assessment
+            - link "View Plans" [ref=e63] [cursor=pointer]:
+              - /url: /#pricing
+    - generic "Technology Partners" [ref=e64]:
+      - paragraph [ref=e65]: Trusted Partner Stack
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - generic [ref=e69]: 
+          - generic [ref=e70]: Microsoft
+        - generic [ref=e71]:
+          - generic [ref=e72]: 
+          - generic [ref=e73]: Google
+        - generic [ref=e74]:
+          - generic [ref=e75]: 
+          - generic [ref=e76]: AWS
+        - generic [ref=e77]:
+          - generic [ref=e78]: 
+          - generic [ref=e79]: Fortinet
+        - generic [ref=e80]:
+          - generic [ref=e81]: 
+          - generic [ref=e82]: Huntress
+        - generic [ref=e83]:
+          - generic [ref=e84]: 
+          - generic [ref=e85]: Tailscale
+        - generic [ref=e86]:
+          - generic [ref=e87]: 
+          - generic [ref=e88]: Intune
+        - generic [ref=e89]:
+          - generic [ref=e90]: 
+          - generic [ref=e91]: Azure AD
+        - generic [ref=e92]:
+          - generic [ref=e93]: 
+          - generic [ref=e94]: Microsoft
+        - generic [ref=e95]:
+          - generic [ref=e96]: 
+          - generic [ref=e97]: Google
+        - generic [ref=e98]:
+          - generic [ref=e99]: 
+          - generic [ref=e100]: AWS
+        - generic [ref=e101]:
+          - generic [ref=e102]: 
+          - generic [ref=e103]: Fortinet
+        - generic [ref=e104]:
+          - generic [ref=e105]: 
+          - generic [ref=e106]: Huntress
+        - generic [ref=e107]:
+          - generic [ref=e108]: 
+          - generic [ref=e109]: Tailscale
+        - generic [ref=e110]:
+          - generic [ref=e111]: 
+          - generic [ref=e112]: Intune
+        - generic [ref=e113]:
+          - generic [ref=e114]: 
+          - generic [ref=e115]: Azure AD
+    - region "Key Metrics" [ref=e116]:
+      - generic [ref=e118]:
+        - generic [ref=e119]:
+          - generic [ref=e120]: "0"
+          - generic [ref=e121]: +
+          - generic [ref=e122]: Years in GTA IT
+        - generic [ref=e124]:
+          - generic [ref=e125]: <15
+          - generic [ref=e126]: min
+          - generic [ref=e127]: Guaranteed Response
+        - generic [ref=e129]:
+          - generic [ref=e130]: "0"
+          - generic [ref=e131]: "%"
+          - generic [ref=e132]: Uptime SLA Target
+        - generic [ref=e134]:
+          - generic [ref=e135]: "30"
+          - generic [ref=e136]: day
+          - generic [ref=e137]: Risk-Free Trial
+    - region "Core Services" [ref=e138]:
+      - generic [ref=e139]:
+        - generic [ref=e140]:
+          - generic [ref=e141]: What We Do
+          - heading "Managed IT Services for GTA Businesses" [level=2] [ref=e142]
+          - paragraph [ref=e143]: Complete IT management from cybersecurity to cloud infrastructure.
+        - generic [ref=e144]:
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - generic [ref=e148]: 
+              - heading "Managed IT Support" [level=3] [ref=e149]
+              - paragraph [ref=e150]: Full-service IT department outsourcing. Helpdesk, endpoint management, patch deployment, and 24/7 proactive monitoring — all under one flat monthly rate.
+              - generic [ref=e151]:
+                - generic [ref=e152]: Helpdesk
+                - generic [ref=e153]: Patch Management
+                - generic [ref=e154]: 24/7 Monitoring
+              - link "View Plans " [ref=e155] [cursor=pointer]:
+                - /url: /managed-it-services
+                - text: View Plans
+                - generic [ref=e156]: 
+            - generic [ref=e158]: 
+          - generic [ref=e159]:
+            - generic [ref=e161]: 
+            - heading "Managed Security & Firewall" [level=3] [ref=e162]
+            - paragraph [ref=e163]: Huntress EDR, Fortinet NGFW, Tailscale zero-trust — protecting your team 24/7.
+            - link "Learn more " [ref=e164] [cursor=pointer]:
+              - /url: /security-firewall
+              - text: Learn more
+              - generic [ref=e165]: 
+          - generic [ref=e166]:
+            - generic [ref=e168]: 
+            - heading "Microsoft 365" [level=3] [ref=e169]
+            - paragraph [ref=e170]: User lifecycle, SharePoint governance, email hardening, Intune device policy.
+            - link "Details " [ref=e171] [cursor=pointer]:
+              - /url: /microsoft-365
+              - text: Details
+              - generic [ref=e172]: 
+          - generic [ref=e173]:
+            - generic [ref=e175]: 
+            - heading "Cloud Infrastructure" [level=3] [ref=e176]
+            - paragraph [ref=e177]: Canadian-region AWS hosting with compliance-ready controls for regulated industries.
+            - link "Details " [ref=e178] [cursor=pointer]:
+              - /url: /aws-infrastructure
+              - text: Details
+              - generic [ref=e179]: 
+          - generic [ref=e180]:
+            - generic [ref=e182]: 
+            - heading "Network Management" [level=3] [ref=e183]
+            - paragraph [ref=e184]: Structured cabling, mesh Wi-Fi, VLAN segmentation, and ongoing monitoring.
+            - link "Details " [ref=e185] [cursor=pointer]:
+              - /url: /office-networking
+              - text: Details
+              - generic [ref=e186]: 
+          - generic [ref=e187]:
+            - generic [ref=e189]: 
+            - heading "Disaster Recovery" [level=3] [ref=e190]
+            - paragraph [ref=e191]: Ransomware or hardware failure? Immediate response with zero data loss goal.
+            - link "Details " [ref=e192] [cursor=pointer]:
+              - /url: /crisis-recovery
+              - text: Details
+              - generic [ref=e193]: 
+        - link "Explore All Plans " [ref=e195] [cursor=pointer]:
+          - /url: /managed-it-services
+          - text: Explore All Plans
+          - generic [ref=e196]: 
+        - generic [ref=e197]:
+          - generic [ref=e198]: "Industries we serve:"
+          - link "Law Firms" [ref=e199] [cursor=pointer]:
+            - /url: /it-support-law-firms-toronto
+          - link "Accounting" [ref=e200] [cursor=pointer]:
+            - /url: /it-support-accounting-firms-gta
+          - link "Medical Clinics" [ref=e201] [cursor=pointer]:
+            - /url: /it-support-medical-clinics-ontario
+          - link "Engineering" [ref=e202] [cursor=pointer]:
+            - /url: /it-support-engineering-firms-toronto
+          - link "SMBs" [ref=e203] [cursor=pointer]:
+            - /url: /it-support-small-businesses-gta
+    - region "Why Businesses Switch to CtrlShift IT" [ref=e204]:
+      - generic [ref=e205]:
+        - generic [ref=e206]:
+          - generic [ref=e207]: Why We're Different
+          - heading "What Makes CtrlShift IT Stand Out" [level=2] [ref=e208]
+          - paragraph [ref=e209]: We're not a generic help desk. We're your dedicated IT department.
+        - generic [ref=e210]:
+          - generic [ref=e212]:
+            - generic [ref=e214]: 
+            - heading "Under 15-Minute Response" [level=5] [ref=e215]
+            - paragraph [ref=e216]: Production-down issues get an engineer on the phone within 15 minutes — not a ticket queue.
+          - generic [ref=e218]:
+            - generic [ref=e220]: 
+            - heading "Proactive, Not Reactive" [level=5] [ref=e221]
+            - paragraph [ref=e222]: We catch and fix issues before they become outages. 24/7 monitoring catches problems while your staff sleeps.
+          - generic [ref=e224]:
+            - generic [ref=e226]: 
+            - heading "Cybersecurity-First" [level=5] [ref=e227]
+            - paragraph [ref=e228]: Every client gets enterprise-grade endpoint detection, zero-trust access, and ransomware protection built in.
+          - generic [ref=e230]:
+            - generic [ref=e232]: 
+            - heading "Transparent, Flat-Rate Pricing" [level=5] [ref=e233]
+            - paragraph [ref=e234]: One monthly price. No hidden fees, no surprise invoices. Hardware and projects are scoped and approved in advance.
+          - generic [ref=e236]:
+            - generic [ref=e238]: 
+            - heading "30-Day Risk-Free Guarantee" [level=5] [ref=e239]
+            - paragraph [ref=e240]: Start your Growth or Business plan. If we don't deliver clear improvements in 30 days, cancel with zero penalty.
+    - region "Cybersecurity-First IT" [ref=e241]:
+      - generic [ref=e243]:
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - generic [ref=e246]: 
+            - text: Cybersecurity Authority
+          - heading "Your Security Can't Wait." [level=2] [ref=e247]
+          - paragraph [ref=e248]: Ransomware attacks on small businesses have tripled in the past three years. We build your entire IT stack with security as the foundation — not an afterthought.
+          - link " Book Free IT Assessment" [ref=e249] [cursor=pointer]:
+            - /url: /it-assessment
+            - generic [ref=e250]: 
+            - text: Book Free IT Assessment
+        - generic [ref=e252]:
+          - generic [ref=e254]:
+            - generic [ref=e256]: 
+            - heading "Endpoint Detection" [level=6] [ref=e257]
+            - paragraph [ref=e258]: Huntress AI-assisted EDR with managed analyst response. Every endpoint monitored and defended 24/7.
+            - generic [ref=e259]: Huntress EDR
+          - generic [ref=e261]:
+            - generic [ref=e263]: 
+            - heading "Network Security" [level=6] [ref=e264]
+            - paragraph [ref=e265]: Fortinet firewall with IPS, deep packet inspection, web filtering, and threat intelligence feeds.
+            - generic [ref=e266]: Fortinet NGFW
+          - generic [ref=e268]:
+            - generic [ref=e270]: 
+            - heading "Zero-Trust Access" [level=6] [ref=e271]
+            - paragraph [ref=e272]: Tailscale eliminates exposed RDP ports. Secure, encrypted remote access for your entire team.
+            - generic [ref=e273]: Tailscale
+          - generic [ref=e275]:
+            - generic [ref=e277]: 
+            - heading "Cloud Security" [level=6] [ref=e278]
+            - paragraph [ref=e279]: AWS + Microsoft 365 with conditional access, DLP policies, and encrypted backups in Canadian regions.
+            - generic [ref=e280]: AWS + M365
+    - generic [ref=e282]:
+      - generic [ref=e283]:
+        - generic [ref=e284]: Real Results
+        - heading "Client Success Stories" [level=2] [ref=e285]
+        - paragraph [ref=e286]: How GTA businesses eliminated IT chaos and secured their operations.
+      - generic [ref=e287]:
+        - article [ref=e289]:
+          - generic [ref=e290]:
+            - generic [ref=e291]: Ransomware Risk
+            - heading "Downtown Toronto Law Firm — 18 Staff" [level=5] [ref=e292]
+          - generic [ref=e293]:
+            - generic [ref=e294]:
+              - paragraph [ref=e295]: Problem
+              - paragraph [ref=e296]: No endpoint protection, shared admin credentials, unmonitored legacy VPN. Cyber insurance renewal denied.
+            - generic [ref=e297]:
+              - paragraph [ref=e298]: Solution
+              - paragraph [ref=e299]: Deployed Huntress EDR, replaced VPN with Tailscale, enforced MFA, encrypted daily backups.
+            - generic [ref=e300]:
+              - paragraph [ref=e301]: Result
+              - paragraph [ref=e302]: Cyber insurance reinstated in 30 days. Zero intrusions in 12 months of monitoring.
+            - generic [ref=e303]:
+              - generic [ref=e304]:
+                - generic [ref=e305]: 100%
+                - generic [ref=e306]: Endpoints Secured
+              - generic [ref=e307]:
+                - generic [ref=e308]: 30d
+                - generic [ref=e309]: Insurance Back
+              - generic [ref=e310]:
+                - generic [ref=e311]: $0
+                - generic [ref=e312]: Breach Losses
+        - article [ref=e314]:
+          - generic [ref=e315]:
+            - generic [ref=e316]: Compliance Gap
+            - heading "Vaughan Accounting Firm — 12 Staff" [level=5] [ref=e317]
+          - generic [ref=e318]:
+            - generic [ref=e319]:
+              - paragraph [ref=e320]: Problem
+              - paragraph [ref=e321]: CRA audit revealed unencrypted client files on personal laptops, no patch management, staff sharing passwords.
+            - generic [ref=e322]:
+              - paragraph [ref=e323]: Solution
+              - paragraph [ref=e324]: Microsoft 365 Business Premium with BitLocker, Intune device management, password manager rollout.
+            - generic [ref=e325]:
+              - paragraph [ref=e326]: Result
+              - paragraph [ref=e327]: Full compliance within 45 days. 87% fewer support tickets in the first quarter. Measurably improved staff productivity.
+            - generic [ref=e328]:
+              - generic [ref=e329]:
+                - generic [ref=e330]: 87%
+                - generic [ref=e331]: Fewer Tickets
+              - generic [ref=e332]:
+                - generic [ref=e333]: 45d
+                - generic [ref=e334]: Full Compliance
+              - generic [ref=e335]:
+                - generic [ref=e336]: "12"
+                - generic [ref=e337]: Devices Secured
+        - article [ref=e339]:
+          - generic [ref=e340]:
+            - generic [ref=e341]: Zero Downtime
+            - heading "Richmond Hill Medical Clinic — 8 Staff" [level=5] [ref=e342]
+          - generic [ref=e343]:
+            - generic [ref=e344]:
+              - paragraph [ref=e345]: Problem
+              - paragraph [ref=e346]: EMR crashed twice in one quarter. No backup strategy, no PHIPA-compliant data handling.
+            - generic [ref=e347]:
+              - paragraph [ref=e348]: Solution
+              - paragraph [ref=e349]: Encrypted cloud backups with 4-hour RTO, migrated EMR to AWS Canadian region, 24/7 uptime monitoring.
+            - generic [ref=e350]:
+              - paragraph [ref=e351]: Result
+              - paragraph [ref=e352]: Zero unplanned downtime in the first 10 months. PHIPA compliant. Estimated $15K+ in recovered appointment revenue in year one.
+            - generic [ref=e353]:
+              - generic [ref=e354]:
+                - generic [ref=e355]: "0"
+                - generic [ref=e356]: Downtime Events
+              - generic [ref=e357]:
+                - generic [ref=e358]: 4hr
+                - generic [ref=e359]: Recovery Time
+              - generic [ref=e360]:
+                - generic [ref=e361]: $15K
+                - generic [ref=e362]: Revenue Saved/yr
+      - link " Book Your Free IT Assessment" [ref=e364] [cursor=pointer]:
+        - /url: /it-assessment
+        - generic [ref=e365]: 
+        - text: Book Your Free IT Assessment
+    - generic [ref=e367]:
+      - generic [ref=e368]:
+        - generic [ref=e369]:
+          - generic [ref=e370]: Social Proof
+          - heading "What Our Clients Are Saying" [level=2] [ref=e371]
+          - paragraph [ref=e372]: Live from our Google Business Profile.
+        - generic [ref=e373]:
+          - generic [ref=e374]:
+            - generic [ref=e375]: "5.0"
+            - generic [ref=e376]:
+              - generic [ref=e377]: 
+              - generic [ref=e378]: 
+              - generic [ref=e379]: 
+              - generic [ref=e380]: 
+              - generic [ref=e381]: 
+            - text: 3+ reviews
+          - link "See All on Google" [ref=e382] [cursor=pointer]:
+            - /url: https://www.google.com/search?q=CtrlShift+IT+Services+reviews
+      - generic [ref=e384]:
+        - article [ref=e385]:
+          - generic [ref=e386]:
+            - generic [ref=e387]: T
+            - generic [ref=e388]:
+              - generic [ref=e389]: Toronto Law Office
+              - generic [ref=e390]: recently
+          - generic [ref=e391]:
+            - generic [ref=e392]: 
+            - generic [ref=e393]: 
+            - generic [ref=e394]: 
+            - generic [ref=e395]: 
+            - generic [ref=e396]: 
+          - paragraph [ref=e397]: "\"Professional and knowledgeable team. They resolved our server incident quickly and documented every step clearly.\""
+        - article [ref=e398]:
+          - generic [ref=e399]:
+            - generic [ref=e400]: V
+            - generic [ref=e401]:
+              - generic [ref=e402]: Vaughan Accounting Practice
+              - generic [ref=e403]: recently
+          - generic [ref=e404]:
+            - generic [ref=e405]: 
+            - generic [ref=e406]: 
+            - generic [ref=e407]: 
+            - generic [ref=e408]: 
+            - generic [ref=e409]: 
+          - paragraph [ref=e410]: "\"Excellent Microsoft 365 and endpoint rollout. Migration was organized, downtime was minimal, and staff adoption was smooth.\""
+        - article [ref=e411]:
+          - generic [ref=e412]:
+            - generic [ref=e413]: G
+            - generic [ref=e414]:
+              - generic [ref=e415]: GTA Medical Clinic
+              - generic [ref=e416]: recently
+          - generic [ref=e417]:
+            - generic [ref=e418]: 
+            - generic [ref=e419]: 
+            - generic [ref=e420]: 
+            - generic [ref=e421]: 
+            - generic [ref=e422]: 
+          - paragraph [ref=e423]: "\"Reliable support and practical security guidance. Their team improved our backup confidence and daily IT stability.\""
+        - article [ref=e424]:
+          - generic [ref=e425]:
+            - generic [ref=e426]: T
+            - generic [ref=e427]:
+              - generic [ref=e428]: Toronto Law Office
+              - generic [ref=e429]: recently
+          - generic [ref=e430]:
+            - generic [ref=e431]: 
+            - generic [ref=e432]: 
+            - generic [ref=e433]: 
+            - generic [ref=e434]: 
+            - generic [ref=e435]: 
+          - paragraph [ref=e436]: "\"Professional and knowledgeable team. They resolved our server incident quickly and documented every step clearly.\""
+        - article [ref=e437]:
+          - generic [ref=e438]:
+            - generic [ref=e439]: V
+            - generic [ref=e440]:
+              - generic [ref=e441]: Vaughan Accounting Practice
+              - generic [ref=e442]: recently
+          - generic [ref=e443]:
+            - generic [ref=e444]: 
+            - generic [ref=e445]: 
+            - generic [ref=e446]: 
+            - generic [ref=e447]: 
+            - generic [ref=e448]: 
+          - paragraph [ref=e449]: "\"Excellent Microsoft 365 and endpoint rollout. Migration was organized, downtime was minimal, and staff adoption was smooth.\""
+        - article [ref=e450]:
+          - generic [ref=e451]:
+            - generic [ref=e452]: G
+            - generic [ref=e453]:
+              - generic [ref=e454]: GTA Medical Clinic
+              - generic [ref=e455]: recently
+          - generic [ref=e456]:
+            - generic [ref=e457]: 
+            - generic [ref=e458]: 
+            - generic [ref=e459]: 
+            - generic [ref=e460]: 
+            - generic [ref=e461]: 
+          - paragraph [ref=e462]: "\"Reliable support and practical security guidance. Their team improved our backup confidence and daily IT stability.\""
+    - generic [ref=e464]:
+      - generic [ref=e465]:
+        - generic [ref=e466]: Transparent Pricing
+        - heading "Managed IT Support Plans" [level=2] [ref=e467]
+        - paragraph [ref=e468]: Flat-rate monthly pricing. No hidden fees, no surprise invoices.
+      - generic [ref=e469]:
+        - generic [ref=e471]:
+          - generic [ref=e472]: Starter
+          - generic [ref=e473]: $249/mo
+          - paragraph [ref=e474]: Basic maintenance for small offices.
+          - list [ref=e475]:
+            - listitem [ref=e476]: ✓ 2 support hours/month
+            - listitem [ref=e477]: — 24/7 Monitoring
+            - listitem [ref=e478]: — Endpoint Protection
+            - listitem [ref=e479]: — Backup Monitoring
+            - listitem [ref=e480]: — Priority Response
+            - listitem [ref=e481]: — 30-Day Risk-Free Trial
+          - link "Get Started" [ref=e482] [cursor=pointer]:
+            - /url: /#consultation
+        - generic [ref=e484]:
+          - generic [ref=e485]: ⭐ Most Popular
+          - generic [ref=e486]: Growth
+          - generic [ref=e487]: $499/mo
+          - paragraph [ref=e488]: Full managed IT for growing teams.
+          - list [ref=e489]:
+            - listitem [ref=e490]: ✓ 5 support hours/month
+            - listitem [ref=e491]: ✓ 24/7 Monitoring
+            - listitem [ref=e492]: ✓ Endpoint Protection
+            - listitem [ref=e493]: ✓ Backup Monitoring
+            - listitem [ref=e494]: ✓ Priority Response <15 min
+            - listitem [ref=e495]: ✓ 30-Day Risk-Free Trial
+          - link "Start Risk-Free — 30 Days" [ref=e496] [cursor=pointer]:
+            - /url: /#consultation
+        - generic [ref=e498]:
+          - generic [ref=e499]: Business
+          - generic [ref=e500]: $899/mo
+          - paragraph [ref=e501]: Full IT department outsourcing.
+          - list [ref=e502]:
+            - listitem [ref=e503]: ✓ 10 support hours/month
+            - listitem [ref=e504]: ✓ 24/7 Monitoring
+            - listitem [ref=e505]: ✓ Endpoint Protection
+            - listitem [ref=e506]: ✓ Backup Monitoring
+            - listitem [ref=e507]: ✓ Priority Response <15 min
+            - listitem [ref=e508]: ✓ Hardware Procurement
+            - listitem [ref=e509]: ✓ Vendor Management
+            - listitem [ref=e510]: ✓ 30-Day Risk-Free Trial
+          - link "Try Risk-Free" [ref=e511] [cursor=pointer]:
+            - /url: /#consultation
+      - paragraph [ref=e512]: No hidden fees. No surprise invoices. Hardware and one-time project work scoped and approved before we start.
+    - generic [ref=e514]:
+      - generic [ref=e515]:
+        - generic [ref=e516]: The Team
+        - heading "Senior Engineering Team" [level=2] [ref=e517]
+      - generic [ref=e518]:
+        - generic [ref=e520]:
+          - generic [ref=e521]: LE
+          - heading "Lead Systems Engineer" [level=5] [ref=e522]
+          - paragraph [ref=e523]: MCSE · Security+ · CCNA
+          - paragraph [ref=e524]: Over 15 years of infrastructure design for Ontario professional offices.
+        - generic [ref=e526]:
+          - generic [ref=e527]: CA
+          - heading "Cloud Solutions Architect" [level=5] [ref=e528]
+          - paragraph [ref=e529]: Google Certified · M365 Expert
+          - paragraph [ref=e530]: Expert in hybrid workflows and secure remote access architecture.
+      - link "Meet Our Full Team & Story" [ref=e532] [cursor=pointer]:
+        - /url: /about
+    - region "About CtrlShift IT Services" [ref=e533]:
+      - generic [ref=e536]:
+        - generic [ref=e537]: Our Story
+        - heading "About CtrlShift IT Services" [level=2] [ref=e538]
+        - paragraph [ref=e539]: CtrlShift IT Services is a managed IT provider based in Vaughan, Ontario, serving professional offices across the Greater Toronto Area. We specialize in proactive IT support, cybersecurity, Microsoft 365 and Google Workspace administration, office networking, and cloud infrastructure management.
+        - paragraph [ref=e540]: Founded by senior engineers with 15+ years of infrastructure experience. Flat-rate plans from $249/month. MCSE, Security+, CCNA, and Google Cloud certified.
+        - generic [ref=e541]:
+          - generic [ref=e542]:
+            - generic [ref=e543]: "5"
+            - generic [ref=e544]: Cities Served
+          - generic [ref=e546]:
+            - generic [ref=e547]: 15+
+            - generic [ref=e548]: Years Experience
+          - generic [ref=e550]:
+            - generic [ref=e551]: 24/7
+            - generic [ref=e552]: Monitoring
+        - link "Read Our Full Story" [ref=e553] [cursor=pointer]:
+          - /url: /about
+    - region "Frequently Asked Questions" [ref=e554]:
+      - generic [ref=e558]:
+        - generic [ref=e559]:
+          - generic [ref=e560]: FAQ
+          - heading "Common Questions from GTA Businesses" [level=2] [ref=e561]
+        - generic [ref=e562]:
+          - group [ref=e563]:
+            - generic "How does the 30-Day Guarantee work? +" [ref=e564] [cursor=pointer]
+            - generic [ref=e565]: For the Growth or Business plan, if the first 30 days do not deliver a clear stability improvement, you can cancel with no penalty. Transparent monthly pricing, no hidden fees, no surprise invoices.
+          - group [ref=e566]:
+            - generic "Can you take over from our current IT provider? +" [ref=e567] [cursor=pointer]
+          - group [ref=e568]:
+            - generic "How fast do you respond when something breaks? +" [ref=e569] [cursor=pointer]
+          - group [ref=e570]:
+            - generic "How much does managed IT support cost in Vaughan? +" [ref=e571] [cursor=pointer]
+          - group [ref=e572]:
+            - generic "What cities do you provide IT support in? +" [ref=e573] [cursor=pointer]
+          - group [ref=e574]:
+            - generic "Do you support both Google Workspace and Microsoft 365? +" [ref=e575] [cursor=pointer]
+          - group [ref=e576]:
+            - generic "What cybersecurity tools do you use? +" [ref=e577] [cursor=pointer]
+          - group [ref=e578]:
+            - generic "Do you support law firms, medical clinics, and accounting firms? +" [ref=e579] [cursor=pointer]
+    - generic [ref=e581]:
+      - generic [ref=e582]: Get Started
+      - heading "Ready to Secure Your Business?" [level=2] [ref=e583]
+      - paragraph [ref=e584]: Ontario-based, PIPEDA compliant. Speak directly to Senior Engineers — we'll identify your top security risks at no cost.
+      - generic [ref=e585]:
+        - link " Book Free IT Assessment" [ref=e586] [cursor=pointer]:
+          - /url: /it-assessment
+          - generic [ref=e587]: 
+          - text: Book Free IT Assessment
+        - link "View Plans" [ref=e588] [cursor=pointer]:
+          - /url: /#pricing
+    - generic [ref=e591]:
+      - link "IT Support Vaughan" [ref=e592] [cursor=pointer]:
+        - /url: /managed-it-services-vaughan
+      - link "IT Support Toronto" [ref=e593] [cursor=pointer]:
+        - /url: /managed-it-services-toronto
+      - link "IT Support Richmond Hill" [ref=e594] [cursor=pointer]:
+        - /url: /managed-it-services-richmond-hill
+      - link "IT Support Mississauga" [ref=e595] [cursor=pointer]:
+        - /url: /managed-it-services-mississauga
+      - link "IT Support Thornhill" [ref=e596] [cursor=pointer]:
+        - /url: /managed-it-services-thornhill
+  - contentinfo [ref=e597]:
+    - generic [ref=e599]:
+      - generic [ref=e600]:
+        - paragraph [ref=e601]: © 2026 CtrlShift IT Services. Cybersecurity-First IT for Ontario Businesses.
+        - paragraph [ref=e602]: Serving Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill with proactive IT support, cybersecurity, and cloud management.
+        - generic [ref=e603]:
+          - heading "Contact Us" [level=3] [ref=e604]
+          - link "📞 (416) 624-4841" [ref=e605] [cursor=pointer]:
+            - /url: tel:+14166244841
+            - generic [ref=e606]: 📞
+            - text: (416) 624-4841
+          - link "✉ info@ctrlshiftit.ca" [ref=e607] [cursor=pointer]:
+            - /url: mailto:info@ctrlshiftit.ca
+            - generic [ref=e608]: ✉
+            - text: info@ctrlshiftit.ca
+      - generic [ref=e610]:
+        - heading "Service Areas" [level=3] [ref=e611]
+        - generic [ref=e612]:
+          - link "IT Support Vaughan" [ref=e613] [cursor=pointer]:
+            - /url: /managed-it-services-vaughan
+          - link "IT Support Toronto" [ref=e614] [cursor=pointer]:
+            - /url: /managed-it-services-toronto
+          - link "IT Support Mississauga" [ref=e615] [cursor=pointer]:
+            - /url: /managed-it-services-mississauga
+          - link "IT Support Thornhill" [ref=e616] [cursor=pointer]:
+            - /url: /managed-it-services-thornhill
+          - link "IT Support Richmond Hill" [ref=e617] [cursor=pointer]:
+            - /url: /managed-it-services-richmond-hill
+      - generic [ref=e619]:
+        - heading "Services" [level=3] [ref=e620]
+        - generic [ref=e621]:
+          - link "Managed IT Services" [ref=e622] [cursor=pointer]:
+            - /url: /managed-it-services
+          - link "Cybersecurity" [ref=e623] [cursor=pointer]:
+            - /url: /security-firewall
+          - link "Microsoft 365" [ref=e624] [cursor=pointer]:
+            - /url: /microsoft-365
+          - link "Cloud (AWS)" [ref=e625] [cursor=pointer]:
+            - /url: /aws-infrastructure
+          - link "Disaster Recovery" [ref=e626] [cursor=pointer]:
+            - /url: /crisis-recovery
+          - link "Network Management" [ref=e627] [cursor=pointer]:
+            - /url: /office-networking
+      - generic [ref=e629]:
+        - heading "Industries" [level=3] [ref=e630]
+        - generic [ref=e631]:
+          - link "IT for Law Firms" [ref=e632] [cursor=pointer]:
+            - /url: /it-support-law-firms-toronto
+          - link "IT for Accounting Firms" [ref=e633] [cursor=pointer]:
+            - /url: /it-support-accounting-firms-gta
+          - link "IT for Medical Clinics" [ref=e634] [cursor=pointer]:
+            - /url: /it-support-medical-clinics-ontario
+          - link "IT for Engineering Firms" [ref=e635] [cursor=pointer]:
+            - /url: /it-support-engineering-firms-toronto
+          - link "IT for Small Businesses" [ref=e636] [cursor=pointer]:
+            - /url: /it-support-small-businesses-gta
+          - link "About Us" [ref=e637] [cursor=pointer]:
+            - /url: /about
+          - link "Blog" [ref=e638] [cursor=pointer]:
+            - /url: /blog
+          - link "Free IT Assessment" [ref=e639] [cursor=pointer]:
+            - /url: /it-assessment
+  - generic [ref=e641] [cursor=pointer]: 
+  - generic [ref=e642]:
+    - generic [ref=e643]:
+      - generic [ref=e645]: Hi! I'm the CtrlShift IT assistant. Ask me anything about our IT services, pricing, or coverage areas.
+      - generic [ref=e652]: hi
+    - generic [ref=e647]:
+      - textbox "Ask anything..." [disabled] [ref=e648]
+      - button "" [disabled]:
+        - generic: 

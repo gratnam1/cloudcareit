@@ -1,4 +1,4 @@
-# Claude Code Instructions for cloudcareit
+# Claude Code Instructions for ctrlshiftit
 
 ## Pull Requests
 - **Always create a PR automatically after pushing changes** — do not wait for the user to ask
@@ -8,13 +8,13 @@
 
 ## Repository
 - Owner: `kannan`
-- Repo: `cloudcareit`
+- Repo: `ctrlshiftit`
 - Default development branch: create feature branches off `main`
 
 ## Deployment
 - Hosted on **Cloudflare Workers + Static Assets** (NOT Pages — deploy command is `npx wrangler deploy`, config in `wrangler.jsonc`)
 - Cloudflare runs `npm ci` — keep `package.json` and `package-lock.json` in sync
-- Angular builds to `dist/cloudcare-frontend/browser` (prerendered static, `outputMode: "static"`) — served by the ASSETS binding
+- Angular builds to `dist/ctrlshift-frontend/browser` (prerendered static, `outputMode: "static"`) — served by the ASSETS binding
 - Server-side endpoints live in `worker/index.js`, the Worker entrypoint (`main` in `wrangler.jsonc`). `run_worker_first: ["/api/*"]` forces `/api/*` through the Worker; everything else hits static assets directly
 - The `functions/` directory (Pages Functions convention) and `_routes.json` are **not used** — Workers ignores them
 - The Express `src/server.ts` is legacy Angular SSR boilerplate — unused in production

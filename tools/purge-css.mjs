@@ -13,7 +13,7 @@ import fs from 'fs';
 import path from 'path';
 import { glob } from 'fs/promises'; // Node 22+; falls back to manual find below
 
-const DIST = path.resolve('dist/cloudcare-frontend/browser');
+const DIST = path.resolve('dist/ctrlshift-frontend/browser');
 
 // ── Find the styles-*.css output file ────────────────────────────────────────
 const cssFiles = fs

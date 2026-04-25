@@ -1,0 +1,341 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "CtrlShift IT Services Logo CTRL SHIFT" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "CtrlShift IT Services Logo" [ref=e6]
+        - text: CTRL
+        - generic [ref=e9]: SHIFT
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - button "Industries" [ref=e13] [cursor=pointer]
+        - listitem [ref=e14]:
+          - button "Locations" [ref=e15] [cursor=pointer]
+        - listitem [ref=e16]:
+          - link "Services" [ref=e17] [cursor=pointer]:
+            - /url: /#services
+        - listitem [ref=e18]:
+          - link "About" [ref=e19] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e20]:
+          - link "Blog" [ref=e21] [cursor=pointer]:
+            - /url: /blog
+        - listitem [ref=e22]:
+          - link " Free IT Assessment" [ref=e23] [cursor=pointer]:
+            - /url: /it-assessment
+            - generic [ref=e24]: 
+            - text: Free IT Assessment
+  - main [ref=e25]:
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - link "← Back to Home" [ref=e30] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e31]: / Guides / Security
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]:
+            - 'heading "Small Business Cybersecurity: The Complete Checklist & Protection Guide for Microsoft 365" [level=1] [ref=e35]'
+            - paragraph [ref=e36]: A practical security playbook for Canadian small businesses on Microsoft 365 — built by the managed IT team at CtrlShift IT Services.
+            - generic [ref=e37]:
+              - generic [ref=e38]:
+                - generic [ref=e39]:
+                  - generic [ref=e40]: Estimated reading time
+                  - generic [ref=e41]: 12 minutes
+                - generic [ref=e42]:
+                  - generic [ref=e43]: Who this guide is for
+                  - generic [ref=e44]: Owners, office managers, and IT decision-makers at Canadian small businesses (5–50 employees) using Microsoft 365 who want to reduce breach risk, meet cyber insurance requirements, and build a defensible security posture.
+              - generic [ref=e45]: "Last reviewed: April 2026"
+            - 'heading "Why Small Businesses Are the #1 Target for Cyberattacks in Canada" [level=2] [ref=e46]'
+            - paragraph [ref=e47]: "Small businesses — not enterprises — are now the most-targeted segment in Canada. Roughly 60% of small businesses hit by a serious cyberattack close within six months. The comfortable myth that \"we are too small to be a target\" no longer holds: attackers use automation to scan the entire internet, and your size does not protect you from a ransomware kit or a credential-stuffing script."
+            - paragraph [ref=e48]: Two things have changed the stakes in the last 24 months. First, cyber insurance carriers now require multi-factor authentication, endpoint protection, and documented backups before issuing or paying out on a policy. Second, Microsoft 365 has become the primary attack surface for most SMBs, which means tenant-level protection is no longer optional. This guide walks through the controls that matter most, in the order we deploy them for clients.
+            - generic [ref=e49]:
+              - generic [ref=e50]: Not sure where your business stands?
+              - generic [ref=e51]: Get a no-pressure review of your Microsoft 365 tenant, endpoints, and backup posture.
+              - link "Request a Free Security Assessment" [ref=e52] [cursor=pointer]:
+                - /url: /free-security-assessment
+          - generic [ref=e53]:
+            - heading "The 11-Point Small Business Cybersecurity Checklist" [level=2] [ref=e54]
+            - paragraph [ref=e55]: Work through this list in order. Each item links to its detailed section below.
+            - list [ref=e56]:
+              - listitem [ref=e57]:
+                - generic [ref=e58]: ☐
+                - link "Multi-factor authentication enabled on all Microsoft 365 accounts" [ref=e59] [cursor=pointer]:
+                  - /url: "#mfa"
+              - listitem [ref=e60]:
+                - generic [ref=e61]: ☐
+                - link "Legacy authentication disabled in Microsoft 365" [ref=e62] [cursor=pointer]:
+                  - /url: "#identity"
+              - listitem [ref=e63]:
+                - generic [ref=e64]: ☐
+                - link "Conditional access policies restricting risky sign-ins" [ref=e65] [cursor=pointer]:
+                  - /url: "#identity"
+              - listitem [ref=e66]:
+                - generic [ref=e67]: ☐
+                - link "Staff trained to spot phishing emails" [ref=e68] [cursor=pointer]:
+                  - /url: "#phishing"
+              - listitem [ref=e69]:
+                - generic [ref=e70]: ☐
+                - link "Anti-phishing policies configured in Microsoft Defender" [ref=e71] [cursor=pointer]:
+                  - /url: "#phishing"
+              - listitem [ref=e72]:
+                - generic [ref=e73]: ☐
+                - link "Endpoint protection on every company device (including BYOD)" [ref=e74] [cursor=pointer]:
+                  - /url: "#endpoint"
+              - listitem [ref=e75]:
+                - generic [ref=e76]: ☐
+                - link "Automatic OS and software updates enforced" [ref=e77] [cursor=pointer]:
+                  - /url: "#endpoint"
+              - listitem [ref=e78]:
+                - generic [ref=e79]: ☐
+                - link "Admin accounts separated from daily-use accounts" [ref=e80] [cursor=pointer]:
+                  - /url: "#identity"
+              - listitem [ref=e81]:
+                - generic [ref=e82]: ☐
+                - link "Microsoft 365 data backed up with a third-party solution" [ref=e83] [cursor=pointer]:
+                  - /url: "#backup"
+              - listitem [ref=e84]:
+                - generic [ref=e85]: ☐
+                - link "Incident response plan documented and tested" [ref=e86] [cursor=pointer]:
+                  - /url: "#ransomware"
+              - listitem [ref=e87]:
+                - generic [ref=e88]: ☐
+                - link "Quarterly security review scheduled" [ref=e89] [cursor=pointer]:
+                  - /url: "#next-steps"
+          - generic [ref=e90]:
+            - heading "How to Protect Your Small Business from Phishing Attacks" [level=2] [ref=e91]
+            - paragraph [ref=e92]: Phishing is the single most common way attackers get into a small business — and it is the leading cause of cyber insurance claims. The most common patterns we see are invoice fraud, Microsoft 365 login spoofs that steal session cookies, CEO impersonation, and QR-code phishing that moves the attack to a personal phone (outside your defenses).
+            - paragraph [ref=e93]: Defense comes in two layers. At the tenant level, configure SPF, DKIM, and DMARC on your sending domains and enable Microsoft Defender for Office 365 anti-phishing, Safe Links, and Safe Attachments. At the human level, give staff a simple one-click reporting button, run short monthly phishing simulations, and make it socially safe to report a suspicious message — even after clicking it.
+            - list [ref=e94]:
+              - listitem [ref=e95]: Configure SPF, DKIM, and DMARC on every domain you send mail from
+              - listitem [ref=e96]: Enable Defender for Office 365 Safe Links and Safe Attachments tenant-wide
+              - listitem [ref=e97]: Install the Microsoft "Report Message" add-in for all users
+              - listitem [ref=e98]: Run a monthly phishing simulation — frequency beats length
+              - listitem [ref=e99]: Document what to do if an employee clicks a phishing link
+            - paragraph [ref=e100]: "Related reading (coming soon): How to Configure DMARC for Your Business Domain · Defender for Office 365 Setup Guide · How to Train Employees to Spot Phishing Emails · What to Do If an Employee Clicks a Phishing Link."
+          - generic [ref=e101]:
+            - heading "How to Set Up Multi-Factor Authentication (MFA) in Microsoft 365" [level=2] [ref=e102]
+            - paragraph [ref=e103]: Passwords alone no longer meet Canadian cyber insurance requirements. MFA — sometimes called 2FA — adds a second check beyond the password, typically a code or push notification from an authenticator app. When enforced tenant-wide, MFA blocks the overwhelming majority of automated account takeover attempts.
+            - paragraph [ref=e104]: "The safest method is an authenticator app (Microsoft Authenticator or a passkey), followed by app-based codes. SMS and email codes are better than nothing but are vulnerable to SIM swapping and mailbox compromise. The pitfalls we see most often: shared mailboxes and service accounts that slip through enforcement, and break-glass admin accounts that never get tested."
+            - list [ref=e105]:
+              - listitem [ref=e106]: Enforce MFA on every user, not just administrators
+              - listitem [ref=e107]: Prefer Microsoft Authenticator or passkeys over SMS
+              - listitem [ref=e108]: Register at least two break-glass admin accounts with physical security keys
+              - listitem [ref=e109]: Audit service accounts and mail-enabled identities quarterly
+              - listitem [ref=e110]: Record MFA enforcement evidence for your cyber insurance renewal
+            - paragraph [ref=e111]: "Related reading (coming soon): How to Enable MFA for All Microsoft 365 Users · Microsoft Authenticator vs. SMS Codes · MFA Requirements for Cyber Insurance in Canada."
+          - generic [ref=e112]:
+            - heading "Identity Protection & Account Takeover Prevention for Microsoft 365" [level=2] [ref=e113]
+            - paragraph [ref=e114]: Identity is the new perimeter for Microsoft 365 businesses. Once an attacker owns a valid identity, MFA alone will not always stop them — especially with modern adversary-in-the-middle phishing kits that steal session tokens. Protecting identities means watching how, where, and from what device sign-ins happen.
+            - heading "Legacy authentication risks" [level=3] [ref=e115]
+            - paragraph [ref=e116]: Legacy protocols such as IMAP, POP, and basic SMTP auth cannot enforce MFA. Attackers specifically scan for these endpoints because a stolen password alone grants mailbox access. Disabling legacy authentication is one of the highest-impact, lowest-effort wins you can deploy — and insurers are now flagging tenants that leave it on.
+            - heading "Impossible travel and risky sign-ins" [level=3] [ref=e117]
+            - paragraph [ref=e118]: Microsoft Entra ID Protection flags sign-ins from geographically impossible locations (Toronto at 9:00 a.m., Lagos at 9:15 a.m.), anonymous IP ranges, and known leaked credentials. The risk signal is only useful if somebody triages it — either your internal IT or a managed provider on a documented runbook.
+            - heading "Session hijacking and token theft" [level=3] [ref=e119]
+            - paragraph [ref=e120]: Modern AiTM (adversary-in-the-middle) phishing kits steal authenticated session tokens, bypassing MFA entirely. Defenses include token binding with compliant devices, short session lifetimes for risky sign-ins, and continuous access evaluation. These sit inside conditional access.
+            - heading "Conditional access basics for SMBs" [level=3] [ref=e121]
+            - paragraph [ref=e122]: "A realistic 5–50 employee Microsoft 365 tenant can get significant protection from a small set of policies: block legacy authentication, require MFA for all users, require compliant or hybrid-joined devices for admin actions, and restrict sign-ins from countries you do not operate in. Start small, monitor impact, and expand."
+            - paragraph [ref=e123]: "Related reading (coming soon): How to Disable Legacy Authentication in Microsoft 365 · Conditional Access Policies Every Small Business Needs · How to Investigate a Risky Sign-In Alert · Protecting Against Token Theft and AiTM Phishing."
+          - generic [ref=e124]:
+            - heading "How to Protect Your Small Business from Ransomware" [level=2] [ref=e125]
+            - paragraph [ref=e126]: "Ransomware almost always enters an SMB through the same path: a phishing email steals a credential, the attacker moves laterally using that identity, and then deploys encryption across reachable systems. Every stage of that chain can be blocked — which is why layered controls matter more than any single tool."
+            - paragraph [ref=e127]: "Follow the 3-2-1 backup rule: three copies of your data, on two different media, with one copy offline or in a separate cloud tenant. Combine that with least-privilege access, endpoint detection, and email filtering. In plain language, recovery planning comes down to two numbers: how much data you can afford to lose (RPO) and how long you can afford to be down (RTO). Most SMBs discover those numbers are much smaller than they assumed."
+            - list [ref=e128]:
+              - listitem [ref=e129]: Enforce least-privilege on both users and admin accounts
+              - listitem [ref=e130]: Keep at least one backup copy outside the production cloud tenant
+              - listitem [ref=e131]: Test restores quarterly — an untested backup is not a backup
+              - listitem [ref=e132]: Document who decides what in the first 60 minutes of an incident
+              - listitem [ref=e133]: Confirm your cyber policy position on ransom payment before you need it
+            - paragraph [ref=e134]: "Related reading (coming soon): The 3-2-1 Backup Rule Explained · Ransomware Response Plan Template · How to Recover Microsoft 365 Data After a Ransomware Attack."
+          - generic [ref=e135]:
+            - heading "Endpoint Security for Small Business Employee Devices" [level=2] [ref=e136]
+            - paragraph [ref=e137]: Endpoints means laptops, desktops, phones, and tablets — including personal devices used for work. Built-in Windows Defender is a strong starting point but is often not sufficient for a business facing targeted threats and insurance scrutiny. Microsoft Defender for Business and Intune cover most SMB needs, and managed EDR platforms like Huntress add analyst-led response for environments without a dedicated security team.
+            - paragraph [ref=e138]: Remote and hybrid work make endpoint hygiene harder. Enforce disk encryption, automatic OS and software patching, screen-lock timeouts, and the ability to remotely wipe a lost device. Treat BYOD with a written policy that defines what can be accessed, from what device state, and how it is retired.
+            - list [ref=e139]:
+              - listitem [ref=e140]: Deploy endpoint detection and response (EDR), not legacy antivirus alone
+              - listitem [ref=e141]: Enforce disk encryption and automatic updates through Intune or equivalent
+              - listitem [ref=e142]: Standardize a BYOD policy covering access, compliance, and offboarding
+              - listitem [ref=e143]: Maintain the ability to remote-wipe lost or stolen devices
+              - listitem [ref=e144]: Review EDR coverage before your cyber insurance renewal
+            - paragraph [ref=e145]:
+              - text: Pair this guide with our
+              - link "managed security and firewall service" [ref=e146] [cursor=pointer]:
+                - /url: /security-firewall
+              - text: for hands-on deployment of Huntress EDR, Tailscale zero-trust access, and tenant hardening.
+          - generic [ref=e147]:
+            - heading "Microsoft 365 Backup & Disaster Recovery (The Shared Responsibility Model)" [level=2] [ref=e148]
+            - paragraph [ref=e149]: Microsoft protects the platform. You are responsible for your data. That line — the shared responsibility model — is where most small businesses discover an expensive gap. OneDrive sync, SharePoint version history, and the Recycle Bin are not a backup. They are convenience features with short retention windows that do not protect you from ransomware, insider deletion, a departed employee, or tenant misconfiguration.
+            - paragraph [ref=e150]: "A real backup means an independent, immutable copy of your Exchange, SharePoint, OneDrive, and Teams data — stored outside the production tenant and restorable to a known-good point in time. Pair it with a simple disaster recovery plan that answers: who decides, who communicates, in what order do we restore, and how do we prove it worked afterwards."
+            - list [ref=e151]:
+              - listitem [ref=e152]: Deploy a third-party Microsoft 365 backup with long retention
+              - listitem [ref=e153]: Document a simple DR plan with named owners and communication paths
+              - listitem [ref=e154]: Run one full restore test every quarter — not just spot checks
+              - listitem [ref=e155]: Keep restore evidence on file for cyber insurance claims
+              - listitem [ref=e156]: Treat OneDrive, SharePoint history, and Recycle Bin as recovery convenience only
+            - paragraph [ref=e157]: "Related reading (coming soon): Does Microsoft 365 Back Up Your Data? · How to Choose a Microsoft 365 Backup Solution · Disaster Recovery Plan Template for Small Businesses."
+          - generic [ref=e159]:
+            - generic [ref=e160]: Running a small business in the GTA?
+            - generic [ref=e161]: Our managed IT team handles Microsoft 365 security, endpoint protection, and cyber insurance readiness for companies just like yours.
+            - generic [ref=e162]:
+              - link "See How Managed Security Works" [ref=e163] [cursor=pointer]:
+                - /url: /security-firewall
+              - link "Cyber Insurance Readiness" [ref=e164] [cursor=pointer]:
+                - /url: /cyber-insurance-readiness-vaughan
+          - generic [ref=e165]:
+            - heading "Frequently Asked Questions" [level=2] [ref=e166]
+            - generic [ref=e167]:
+              - generic [ref=e168]:
+                - heading "How much should a small business spend on cybersecurity?" [level=3] [ref=e169]
+                - paragraph [ref=e170]: Most Canadian small businesses we work with spend between 3% and 8% of their IT budget on security controls such as MFA, endpoint protection, email filtering, and third-party backup. The exact number depends on regulated data, cyber insurance requirements, and remote-work footprint.
+              - generic [ref=e171]:
+                - heading "Is Microsoft 365 secure out of the box?" [level=3] [ref=e172]
+                - paragraph [ref=e173]: Microsoft 365 provides a secure platform, but default tenant settings leave important gaps. Multi-factor authentication, conditional access, legacy authentication blocking, and third-party backup still need to be configured to reach a defensible posture.
+              - generic [ref=e174]:
+                - heading "What does cyber insurance require from a small business?" [level=3] [ref=e175]
+                - paragraph [ref=e176]: Canadian cyber insurers increasingly require enforced MFA on all users, endpoint detection and response (EDR), documented backups, a tested incident response plan, and evidence that legacy authentication is disabled. Missing controls can trigger coverage exclusions or denied claims.
+              - generic [ref=e177]:
+                - heading "Do we really need MFA if we use strong passwords?" [level=3] [ref=e178]
+                - paragraph [ref=e179]: Yes. Strong passwords still get stolen through phishing, credential stuffing, and info-stealer malware. MFA stops most automated account takeovers and is now considered a baseline control by insurers and regulators, not a premium add-on.
+              - generic [ref=e180]:
+                - heading "What is legacy authentication and why is it dangerous?" [level=3] [ref=e181]
+                - paragraph [ref=e182]: Legacy authentication refers to older Microsoft 365 sign-in protocols like IMAP, POP, and basic SMTP auth that cannot enforce MFA. Attackers specifically target these protocols because a stolen password alone grants access. Disabling legacy auth is one of the highest-impact controls you can enable.
+              - generic [ref=e183]:
+                - heading "What is the difference between antivirus and endpoint protection (EDR)?" [level=3] [ref=e184]
+                - paragraph [ref=e185]: Traditional antivirus matches known malware signatures. Endpoint detection and response (EDR) watches device behavior, identifies suspicious activity, isolates compromised devices, and supports human-led investigation. Most cyber insurance policies now expect EDR, not basic antivirus.
+              - generic [ref=e186]:
+                - heading "Does Microsoft back up my emails and files in 365?" [level=3] [ref=e187]
+                - paragraph [ref=e188]: Microsoft protects the platform and provides limited retention, but under the shared responsibility model your data is your responsibility. Recycle Bin and version history are not a backup. A dedicated third-party backup is what restores your business after ransomware, insider deletion, or a departed employee.
+              - generic [ref=e189]:
+                - heading "How often should we run security awareness training for staff?" [level=3] [ref=e190]
+                - paragraph [ref=e191]: A short monthly phishing simulation plus quarterly micro-training works better for small teams than a single annual session. Frequency matters more than length because phishing tactics evolve continuously.
+              - generic [ref=e192]:
+                - heading "What should we do immediately if we suspect a breach?" [level=3] [ref=e193]
+                - paragraph [ref=e194]: Preserve evidence, isolate affected accounts and devices, reset credentials for impacted users, notify leadership, and contact your managed IT or incident response provider before changing the environment. Do not delete logs or reimage machines until an investigator reviews them.
+              - generic [ref=e195]:
+                - heading "Is cyber insurance worth it for a 20-person business in Canada?" [level=3] [ref=e196]
+                - paragraph [ref=e197]: For most Canadian SMBs the answer is yes. A single ransomware event can cost 6 to 7 figures in recovery, downtime, and legal notification. Insurance is meaningful only when your underlying controls match what the policy requires, so readiness and coverage go together.
+          - generic [ref=e198]:
+            - heading "Your Next Steps" [level=2] [ref=e199]
+            - paragraph [ref=e200]: "Security is ongoing, not a one-time project. The practical path for most 5–50 employee businesses: run the 11-point checklist above, fix the highest-impact gaps first (MFA, legacy authentication, backup, endpoint protection), then schedule a quarterly review so controls do not drift. Treat cyber insurance readiness as the outcome — it is the best external signal that your posture actually works."
+            - generic [ref=e201]:
+              - link "Get a Free Security Assessment" [ref=e202] [cursor=pointer]:
+                - /url: /free-security-assessment
+              - link "See Managed Security Service" [ref=e203] [cursor=pointer]:
+                - /url: /security-firewall
+        - generic [ref=e205]:
+          - heading "In this guide" [level=3] [ref=e206]
+          - list [ref=e207]:
+            - listitem [ref=e208]:
+              - link "11-Point Checklist" [ref=e209] [cursor=pointer]:
+                - /url: "#checklist"
+            - listitem [ref=e210]:
+              - link "Phishing Protection" [ref=e211] [cursor=pointer]:
+                - /url: "#phishing"
+            - listitem [ref=e212]:
+              - link "MFA Setup" [ref=e213] [cursor=pointer]:
+                - /url: "#mfa"
+            - listitem [ref=e214]:
+              - link "Identity Protection" [ref=e215] [cursor=pointer]:
+                - /url: "#identity"
+            - listitem [ref=e216]:
+              - link "Ransomware Protection" [ref=e217] [cursor=pointer]:
+                - /url: "#ransomware"
+            - listitem [ref=e218]:
+              - link "Endpoint Security" [ref=e219] [cursor=pointer]:
+                - /url: "#endpoint"
+            - listitem [ref=e220]:
+              - link "Backup & DR" [ref=e221] [cursor=pointer]:
+                - /url: "#backup"
+            - listitem [ref=e222]:
+              - link "FAQ" [ref=e223] [cursor=pointer]:
+                - /url: "#faq"
+          - generic [ref=e224]:
+            - generic [ref=e225]: Related services
+            - list [ref=e226]:
+              - listitem [ref=e227]:
+                - link "Managed Security & Firewall" [ref=e228] [cursor=pointer]:
+                  - /url: /security-firewall
+              - listitem [ref=e229]:
+                - link "Microsoft 365 Support" [ref=e230] [cursor=pointer]:
+                  - /url: /microsoft-365
+              - listitem [ref=e231]:
+                - link "Cyber Insurance Readiness" [ref=e232] [cursor=pointer]:
+                  - /url: /cyber-insurance-readiness-vaughan
+              - listitem [ref=e233]:
+                - link "IT Crisis Recovery" [ref=e234] [cursor=pointer]:
+                  - /url: /crisis-recovery
+          - generic [ref=e235]:
+            - generic [ref=e236]: Talk to a human
+            - generic [ref=e237]: Have a question about your Microsoft 365 tenant or cyber insurance renewal? We answer plainly — no quota, no pressure.
+            - link "Book a Consultation" [ref=e238] [cursor=pointer]:
+              - /url: /#consultation
+  - contentinfo [ref=e239]:
+    - generic [ref=e241]:
+      - generic [ref=e242]:
+        - paragraph [ref=e243]: © 2026 CtrlShift IT Services. Cybersecurity-First IT for Ontario Businesses.
+        - paragraph [ref=e244]: Serving Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill with proactive IT support, cybersecurity, and cloud management.
+        - generic [ref=e245]:
+          - heading "Contact Us" [level=3] [ref=e246]
+          - link "📞 (416) 624-4841" [ref=e247] [cursor=pointer]:
+            - /url: tel:+14166244841
+            - generic [ref=e248]: 📞
+            - text: (416) 624-4841
+          - link "✉ info@ctrlshiftit.ca" [ref=e249] [cursor=pointer]:
+            - /url: mailto:info@ctrlshiftit.ca
+            - generic [ref=e250]: ✉
+            - text: info@ctrlshiftit.ca
+      - generic [ref=e252]:
+        - heading "Service Areas" [level=3] [ref=e253]
+        - generic [ref=e254]:
+          - link "Managed IT Services Vaughan" [ref=e255] [cursor=pointer]:
+            - /url: /managed-it-services-vaughan
+          - link "Managed IT Services Mississauga" [ref=e256] [cursor=pointer]:
+            - /url: /managed-it-services-mississauga
+          - link "IT Support Vaughan" [ref=e257] [cursor=pointer]:
+            - /url: /it-support-vaughan
+          - link "IT Support Mississauga" [ref=e258] [cursor=pointer]:
+            - /url: /it-support-mississauga
+          - link "Cybersecurity Services Vaughan" [ref=e259] [cursor=pointer]:
+            - /url: /cybersecurity-services-vaughan
+          - link "Cloud Services Vaughan" [ref=e260] [cursor=pointer]:
+            - /url: /cloud-services-vaughan
+          - link "Managed IT Services Toronto" [ref=e261] [cursor=pointer]:
+            - /url: /managed-it-services-toronto
+          - link "Managed IT Services Thornhill" [ref=e262] [cursor=pointer]:
+            - /url: /managed-it-services-thornhill
+          - link "Managed IT Services Richmond Hill" [ref=e263] [cursor=pointer]:
+            - /url: /managed-it-services-richmond-hill
+      - generic [ref=e265]:
+        - heading "Services" [level=3] [ref=e266]
+        - generic [ref=e267]:
+          - link "Managed IT Services" [ref=e268] [cursor=pointer]:
+            - /url: /managed-it-services
+          - link "Cybersecurity" [ref=e269] [cursor=pointer]:
+            - /url: /security-firewall
+          - link "Microsoft 365" [ref=e270] [cursor=pointer]:
+            - /url: /microsoft-365
+          - link "Cloud (AWS)" [ref=e271] [cursor=pointer]:
+            - /url: /aws-infrastructure
+          - link "Disaster Recovery" [ref=e272] [cursor=pointer]:
+            - /url: /crisis-recovery
+          - link "Network Management" [ref=e273] [cursor=pointer]:
+            - /url: /office-networking
+      - generic [ref=e275]:
+        - heading "Industries" [level=3] [ref=e276]
+        - generic [ref=e277]:
+          - link "IT for Law Firms" [ref=e278] [cursor=pointer]:
+            - /url: /it-support-law-firms-toronto
+          - link "IT for Accounting Firms" [ref=e279] [cursor=pointer]:
+            - /url: /it-support-accounting-firms-gta
+          - link "IT for Medical Clinics" [ref=e280] [cursor=pointer]:
+            - /url: /it-support-medical-clinics-ontario
+          - link "IT for Engineering Firms" [ref=e281] [cursor=pointer]:
+            - /url: /it-support-engineering-firms-toronto
+          - link "IT for Small Businesses" [ref=e282] [cursor=pointer]:
+            - /url: /it-support-small-businesses-gta
+          - link "About Us" [ref=e283] [cursor=pointer]:
+            - /url: /about
+          - link "Blog" [ref=e284] [cursor=pointer]:
+            - /url: /blog
+          - link "Free IT Assessment" [ref=e285] [cursor=pointer]:
+            - /url: /it-assessment
+  - generic [ref=e287] [cursor=pointer]: 

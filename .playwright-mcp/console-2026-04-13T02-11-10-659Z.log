@@ -1,0 +1,7 @@
+[     215ms] [LOG] Angular is running in development mode. @ http://localhost:4200/@fs/home/kannan/plaground/cloudcareit/.angular/cache/21.2.7/cloudcare-frontend/vite/deps/chunk-7YB6YR3W.js?v=ee7d71ef:14400
+[     295ms] [LOG] Angular hydrated 2 component(s) and 940 node(s), 0 component(s) were skipped. Learn more at https://v21.angular.dev/guide/hydration. @ http://localhost:4200/@fs/home/kannan/plaground/cloudcareit/.angular/cache/21.2.7/cloudcare-frontend/vite/deps/chunk-7YB6YR3W.js?v=ee7d71ef:14400
+[   45624ms] [ERROR] Failed to load resource: the server responded with a status of 503 (Service Unavailable) @ http://localhost:4200/api/chat:0
+[  249040ms] [ERROR] WebSocket connection to 'ws://localhost:4200/?token=toTAjhSAQ-4g' failed:  @ http://localhost:4200/@vite/client:744
+[  249041ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:4200/@vite/client:864
+[  263404ms] [LOG] Angular is running in development mode. @ http://localhost:4200/@fs/home/kannan/plaground/cloudcareit/.angular/cache/21.2.7/cloudcare-frontend/vite/deps/chunk-7YB6YR3W.js?v=d6d89885:14400
+[  263460ms] [LOG] Angular hydrated 2 component(s) and 940 node(s), 0 component(s) were skipped. Learn more at https://v21.angular.dev/guide/hydration. @ http://localhost:4200/@fs/home/kannan/plaground/cloudcareit/.angular/cache/21.2.7/cloudcare-frontend/vite/deps/chunk-7YB6YR3W.js?v=d6d89885:14400

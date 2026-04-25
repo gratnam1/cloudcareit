@@ -1,0 +1,173 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "CtrlShift IT Services Logo CTRL SHIFT" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "CtrlShift IT Services Logo" [ref=e6]
+        - text: CTRL
+        - generic [ref=e9]: SHIFT
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - button "Industries" [ref=e13] [cursor=pointer]
+        - listitem [ref=e14]:
+          - button "Locations" [ref=e15] [cursor=pointer]
+        - listitem [ref=e16]:
+          - link "Services" [ref=e17] [cursor=pointer]:
+            - /url: /#services
+        - listitem [ref=e18]:
+          - link "About" [ref=e19] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e20]:
+          - link "Blog" [ref=e21] [cursor=pointer]:
+            - /url: /blog
+        - listitem [ref=e22]:
+          - button "Guides" [ref=e23] [cursor=pointer]
+        - listitem [ref=e24]:
+          - link " Free IT Assessment" [ref=e25] [cursor=pointer]:
+            - /url: /it-assessment
+            - generic [ref=e26]: 
+            - text: Free IT Assessment
+  - main [ref=e27]:
+    - generic [ref=e30]:
+      - navigation "Breadcrumb" [ref=e31]:
+        - list [ref=e32]:
+          - listitem [ref=e33]:
+            - link "Home" [ref=e34] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e35]: /
+          - listitem [ref=e36]:
+            - generic [ref=e37]: Guides
+      - generic [ref=e38]:
+        - heading "IT Guides & Knowledge Base" [level=1] [ref=e39]
+        - paragraph [ref=e40]: Practical, opinionated guides for Canadian small businesses — written by the managed IT team at CtrlShift IT Services. Start with security; the rest are in progress and will land here as each guide reaches the depth we want to publish under our name.
+      - generic [ref=e41]:
+        - link "Security guide — available now" [ref=e42] [cursor=pointer]:
+          - /url: /guides/security
+          - generic [ref=e43]:
+            - generic [ref=e45]: 
+            - generic [ref=e46]: Live
+          - heading "Security" [level=2] [ref=e47]
+          - paragraph [ref=e48]: Small business cybersecurity checklist, Microsoft 365 tenant hardening, phishing, MFA, ransomware, endpoints, backup, and cyber insurance readiness.
+          - generic [ref=e49]:
+            - text: Read guide
+            - generic [ref=e50]: 
+        - generic "Microsoft 365 guide — coming soon" [ref=e51]:
+          - generic [ref=e52]:
+            - generic [ref=e54]: 
+            - generic [ref=e55]: Soon
+          - heading "Microsoft 365" [level=2] [ref=e56]
+          - paragraph [ref=e57]: Tenant setup, licensing, Exchange Online, SharePoint, Teams governance, and day-two administration for Canadian small businesses.
+          - generic [ref=e58]: In progress
+        - generic "Computer Fixes guide — coming soon" [ref=e59]:
+          - generic [ref=e60]:
+            - generic [ref=e62]: 
+            - generic [ref=e63]: Soon
+          - heading "Computer Fixes" [level=2] [ref=e64]
+          - paragraph [ref=e65]: Practical fix-it guides for the most common Windows, macOS, and office device problems — from boot loops to printer driver chaos.
+          - generic [ref=e66]: In progress
+        - generic "Networking guide — coming soon" [ref=e67]:
+          - generic [ref=e68]:
+            - generic [ref=e70]: 
+            - generic [ref=e71]: Soon
+          - heading "Networking" [level=2] [ref=e72]
+          - paragraph [ref=e73]: Office Wi-Fi design, VLANs, firewalls, zero-trust remote access, and DNS hygiene for small business networks.
+          - generic [ref=e74]: In progress
+        - generic "Virtualization guide — coming soon" [ref=e75]:
+          - generic [ref=e76]:
+            - generic [ref=e78]: 
+            - generic [ref=e79]: Soon
+          - heading "Virtualization" [level=2] [ref=e80]
+          - paragraph [ref=e81]: Hyper-V, VMware, Proxmox, and cloud VM patterns — when virtualization makes sense for a small business, and when it does not.
+          - generic [ref=e82]: In progress
+        - generic "Containers guide — coming soon" [ref=e83]:
+          - generic [ref=e84]:
+            - generic [ref=e86]: 
+            - generic [ref=e87]: Soon
+          - heading "Containers" [level=2] [ref=e88]
+          - paragraph [ref=e89]: Docker and Kubernetes fundamentals oriented at small IT teams — how to evaluate, adopt, and keep container workloads boring.
+          - generic [ref=e90]: In progress
+        - generic "AI Automation guide — coming soon" [ref=e91]:
+          - generic [ref=e92]:
+            - generic [ref=e94]: 
+            - generic [ref=e95]: Soon
+          - heading "AI Automation" [level=2] [ref=e96]
+          - paragraph [ref=e97]: Integrating AI into real small business operations — Microsoft Copilot, workflow automation, and staying inside your risk tolerance.
+          - generic [ref=e98]: In progress
+      - paragraph [ref=e100]:
+        - text: Want a specific guide prioritized? We publish based on what our managed clients actually ask for —
+        - link "book a free IT assessment" [ref=e101] [cursor=pointer]:
+          - /url: /it-assessment
+        - text: and we will fold your question into the next one.
+  - contentinfo [ref=e102]:
+    - generic [ref=e104]:
+      - generic [ref=e105]:
+        - paragraph [ref=e106]: © 2026 CtrlShift IT Services. Cybersecurity-First IT for Ontario Businesses.
+        - paragraph [ref=e107]: Serving Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill with proactive IT support, cybersecurity, and cloud management.
+        - generic [ref=e108]:
+          - heading "Contact Us" [level=3] [ref=e109]
+          - link "📞 (416) 624-4841" [ref=e110] [cursor=pointer]:
+            - /url: tel:+14166244841
+            - generic [ref=e111]: 📞
+            - text: (416) 624-4841
+          - link "✉ info@ctrlshiftit.ca" [ref=e112] [cursor=pointer]:
+            - /url: mailto:info@ctrlshiftit.ca
+            - generic [ref=e113]: ✉
+            - text: info@ctrlshiftit.ca
+      - generic [ref=e115]:
+        - heading "Service Areas" [level=3] [ref=e116]
+        - generic [ref=e117]:
+          - link "Managed IT Services Vaughan" [ref=e118] [cursor=pointer]:
+            - /url: /managed-it-services-vaughan
+          - link "Managed IT Services Mississauga" [ref=e119] [cursor=pointer]:
+            - /url: /managed-it-services-mississauga
+          - link "IT Support Vaughan" [ref=e120] [cursor=pointer]:
+            - /url: /it-support-vaughan
+          - link "IT Support Mississauga" [ref=e121] [cursor=pointer]:
+            - /url: /it-support-mississauga
+          - link "Cybersecurity Services Vaughan" [ref=e122] [cursor=pointer]:
+            - /url: /cybersecurity-services-vaughan
+          - link "Cloud Services Vaughan" [ref=e123] [cursor=pointer]:
+            - /url: /cloud-services-vaughan
+          - link "Managed IT Services Toronto" [ref=e124] [cursor=pointer]:
+            - /url: /managed-it-services-toronto
+          - link "Managed IT Services Thornhill" [ref=e125] [cursor=pointer]:
+            - /url: /managed-it-services-thornhill
+          - link "Managed IT Services Richmond Hill" [ref=e126] [cursor=pointer]:
+            - /url: /managed-it-services-richmond-hill
+      - generic [ref=e128]:
+        - heading "Services" [level=3] [ref=e129]
+        - generic [ref=e130]:
+          - link "Managed IT Services" [ref=e131] [cursor=pointer]:
+            - /url: /managed-it-services
+          - link "Cybersecurity" [ref=e132] [cursor=pointer]:
+            - /url: /security-firewall
+          - link "Microsoft 365" [ref=e133] [cursor=pointer]:
+            - /url: /microsoft-365
+          - link "Cloud (AWS)" [ref=e134] [cursor=pointer]:
+            - /url: /aws-infrastructure
+          - link "Disaster Recovery" [ref=e135] [cursor=pointer]:
+            - /url: /crisis-recovery
+          - link "Network Management" [ref=e136] [cursor=pointer]:
+            - /url: /office-networking
+          - link "IT Guides & Knowledge Base" [ref=e137] [cursor=pointer]:
+            - /url: /guides
+      - generic [ref=e139]:
+        - heading "Industries" [level=3] [ref=e140]
+        - generic [ref=e141]:
+          - link "IT for Law Firms" [ref=e142] [cursor=pointer]:
+            - /url: /it-support-law-firms-toronto
+          - link "IT for Accounting Firms" [ref=e143] [cursor=pointer]:
+            - /url: /it-support-accounting-firms-gta
+          - link "IT for Medical Clinics" [ref=e144] [cursor=pointer]:
+            - /url: /it-support-medical-clinics-ontario
+          - link "IT for Engineering Firms" [ref=e145] [cursor=pointer]:
+            - /url: /it-support-engineering-firms-toronto
+          - link "IT for Small Businesses" [ref=e146] [cursor=pointer]:
+            - /url: /it-support-small-businesses-gta
+          - link "About Us" [ref=e147] [cursor=pointer]:
+            - /url: /about
+          - link "Blog" [ref=e148] [cursor=pointer]:
+            - /url: /blog
+          - link "Free IT Assessment" [ref=e149] [cursor=pointer]:
+            - /url: /it-assessment
+  - generic [ref=e151] [cursor=pointer]: 

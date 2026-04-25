@@ -1,0 +1,188 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "CtrlShift IT Services Logo CTRL SHIFT" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "CtrlShift IT Services Logo" [ref=e6]
+        - text: CTRL
+        - generic [ref=e9]: SHIFT
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - button "Industries" [ref=e13] [cursor=pointer]
+        - listitem [ref=e14]:
+          - button "Locations" [ref=e15] [cursor=pointer]
+        - listitem [ref=e16]:
+          - link "Services" [ref=e17] [cursor=pointer]:
+            - /url: /#services
+        - listitem [ref=e18]:
+          - link "About" [ref=e19] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e20]:
+          - link "Blog" [ref=e21] [cursor=pointer]:
+            - /url: /blog
+        - listitem [ref=e22]:
+          - button "Guides" [ref=e23] [cursor=pointer]
+          - text:    
+        - listitem [ref=e24]:
+          - link " Free IT Assessment" [ref=e25] [cursor=pointer]:
+            - /url: /it-assessment
+            - generic [ref=e26]: 
+            - text: Free IT Assessment
+  - main [ref=e27]:
+    - generic [ref=e30]:
+      - link "← Back to Home" [ref=e32] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e33]:
+        - generic [ref=e35]:
+          - heading "Managed IT Services in Vaughan and the GTA" [level=1] [ref=e36]
+          - paragraph [ref=e37]: End-to-end IT ownership for professional offices with 5 to 50 staff who need uptime, security, and clear accountability. We run day-to-day operations, reduce recurring incidents, and keep leadership informed with practical reporting.
+          - paragraph [ref=e38]:
+            - text: Need city-specific details first? Start with
+            - link "Managed IT Services Vaughan" [ref=e39] [cursor=pointer]:
+              - /url: /managed-it-services-vaughan
+            - text: and compare coverage for
+            - link "Toronto" [ref=e40] [cursor=pointer]:
+              - /url: /managed-it-services-toronto
+            - text: ","
+            - link "Mississauga" [ref=e41] [cursor=pointer]:
+              - /url: /managed-it-services-mississauga
+            - text: ","
+            - link "Thornhill" [ref=e42] [cursor=pointer]:
+              - /url: /managed-it-services-thornhill
+            - text: ", and"
+            - link "Richmond Hill" [ref=e43] [cursor=pointer]:
+              - /url: /managed-it-services-richmond-hill
+            - text: .
+          - heading "Operational Coverage" [level=2] [ref=e44]
+          - list [ref=e45]:
+            - listitem [ref=e46]: 24/7 monitoring across servers, workstations, and critical SaaS alerts
+            - listitem [ref=e47]: Staff helpdesk support with remote-first response and scheduled on-site visits
+            - listitem [ref=e48]: Patch management for operating systems, browsers, and line-of-business apps
+            - listitem [ref=e49]: Microsoft 365 and Google Workspace administration with access hygiene controls
+            - listitem [ref=e50]: User onboarding, role changes, and secure offboarding workflows
+            - listitem [ref=e51]: Backup monitoring, restore validation, and recovery-readiness reporting
+            - listitem [ref=e52]: Free quarterly vulnerability scans with prioritized remediation recommendations
+            - listitem [ref=e53]: Network, Wi-Fi, and ISP coordination for recurring connectivity issues
+            - listitem [ref=e54]: Vendor coordination for printers, internet, VoIP, and business software
+          - heading "First 90 Days" [level=2] [ref=e55]
+          - list [ref=e56]:
+            - listitem [ref=e57]: "Stabilization: remove top recurring tickets and close obvious security gaps."
+            - listitem [ref=e58]: "Standardization: align endpoints, policies, backups, and identity controls."
+            - listitem [ref=e59]: "Optimization: improve response workflow, documentation, and escalation paths."
+            - listitem [ref=e60]: "Roadmap: deliver a quarterly plan tied to business risk and budget priorities."
+          - generic [ref=e61]:
+            - link "Start 30-Day Trial" [ref=e62] [cursor=pointer]:
+              - /url: /#pricing
+            - link "Read Blog" [ref=e63] [cursor=pointer]:
+              - /url: /blog
+        - generic [ref=e65]:
+          - heading "Engagement Snapshot" [level=3] [ref=e66]
+          - paragraph [ref=e67]: Built for professional offices that want predictable monthly support without hidden fees and without juggling multiple vendors.
+          - generic [ref=e68]:
+            - generic [ref=e69]: What leadership gets
+            - list [ref=e70]:
+              - listitem [ref=e71]: Monthly service summary with open risks and completed remediation
+              - listitem [ref=e72]: Documented asset and access changes for audit traceability
+              - listitem [ref=e73]: Quarterly planning aligned to growth, compliance, and resilience goals
+          - generic [ref=e74]:
+            - generic [ref=e75]: Discovery input
+            - generic [ref=e76]: Share user count, office locations, and your top three recurring IT issues. We will map a 90-day stabilization plan before onboarding.
+          - link "Get Recommendation" [ref=e78] [cursor=pointer]:
+            - /url: /#consultation
+      - generic [ref=e79]:
+        - heading "Managed IT Service Areas" [level=2] [ref=e80]
+        - paragraph [ref=e81]: Choose your city page for local response model, nearby coverage details, and area-specific technology priorities.
+        - generic [ref=e82]:
+          - link "Managed IT Services Vaughan" [ref=e83] [cursor=pointer]:
+            - /url: /managed-it-services-vaughan
+          - link "Managed IT Services Toronto" [ref=e84] [cursor=pointer]:
+            - /url: /managed-it-services-toronto
+          - link "Managed IT Services Mississauga" [ref=e85] [cursor=pointer]:
+            - /url: /managed-it-services-mississauga
+          - link "Managed IT Services Thornhill" [ref=e86] [cursor=pointer]:
+            - /url: /managed-it-services-thornhill
+          - link "Managed IT Services Richmond Hill" [ref=e87] [cursor=pointer]:
+            - /url: /managed-it-services-richmond-hill
+        - generic [ref=e88]:
+          - generic [ref=e89]: Specialized Programs
+          - generic [ref=e90]: Industry-focused offers for compliance-sensitive teams and higher-trust buying cycles.
+          - generic [ref=e91]:
+            - link "Cyber Insurance Readiness" [ref=e92] [cursor=pointer]:
+              - /url: /cyber-insurance-readiness-vaughan
+            - link "Managed IT for Medical Clinics" [ref=e93] [cursor=pointer]:
+              - /url: /managed-it-for-medical-clinics-vaughan
+  - contentinfo [ref=e94]:
+    - generic [ref=e96]:
+      - generic [ref=e97]:
+        - paragraph [ref=e98]: © 2026 CtrlShift IT Services. Cybersecurity-First IT for Ontario Businesses.
+        - paragraph [ref=e99]: Serving Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill with proactive IT support, cybersecurity, and cloud management.
+        - generic [ref=e100]:
+          - heading "Contact Us" [level=3] [ref=e101]
+          - link "📞 (416) 624-4841" [ref=e102] [cursor=pointer]:
+            - /url: tel:+14166244841
+            - generic [ref=e103]: 📞
+            - text: (416) 624-4841
+          - link "✉ info@ctrlshiftit.ca" [ref=e104] [cursor=pointer]:
+            - /url: mailto:info@ctrlshiftit.ca
+            - generic [ref=e105]: ✉
+            - text: info@ctrlshiftit.ca
+      - generic [ref=e107]:
+        - heading "Service Areas" [level=3] [ref=e108]
+        - generic [ref=e109]:
+          - link "Managed IT Services Vaughan" [ref=e110] [cursor=pointer]:
+            - /url: /managed-it-services-vaughan
+          - link "Managed IT Services Mississauga" [ref=e111] [cursor=pointer]:
+            - /url: /managed-it-services-mississauga
+          - link "IT Support Vaughan" [ref=e112] [cursor=pointer]:
+            - /url: /it-support-vaughan
+          - link "IT Support Mississauga" [ref=e113] [cursor=pointer]:
+            - /url: /it-support-mississauga
+          - link "Cybersecurity Services Vaughan" [ref=e114] [cursor=pointer]:
+            - /url: /cybersecurity-services-vaughan
+          - link "Cloud Services Vaughan" [ref=e115] [cursor=pointer]:
+            - /url: /cloud-services-vaughan
+          - link "Managed IT Services Toronto" [ref=e116] [cursor=pointer]:
+            - /url: /managed-it-services-toronto
+          - link "Managed IT Services Thornhill" [ref=e117] [cursor=pointer]:
+            - /url: /managed-it-services-thornhill
+          - link "Managed IT Services Richmond Hill" [ref=e118] [cursor=pointer]:
+            - /url: /managed-it-services-richmond-hill
+      - generic [ref=e120]:
+        - heading "Services" [level=3] [ref=e121]
+        - generic [ref=e122]:
+          - link "Managed IT Services" [ref=e123] [cursor=pointer]:
+            - /url: /managed-it-services
+          - link "Cybersecurity" [ref=e124] [cursor=pointer]:
+            - /url: /security-firewall
+          - link "Microsoft 365" [ref=e125] [cursor=pointer]:
+            - /url: /microsoft-365
+          - link "Cloud (AWS)" [ref=e126] [cursor=pointer]:
+            - /url: /aws-infrastructure
+          - link "Disaster Recovery" [ref=e127] [cursor=pointer]:
+            - /url: /crisis-recovery
+          - link "Network Management" [ref=e128] [cursor=pointer]:
+            - /url: /office-networking
+          - link "IT Guides & Knowledge Base" [ref=e129] [cursor=pointer]:
+            - /url: /guides
+          - link "Microsoft 365 Security Checklist" [ref=e130] [cursor=pointer]:
+            - /url: /guides/security/microsoft-365-security/microsoft-365-checklist
+      - generic [ref=e132]:
+        - heading "Industries" [level=3] [ref=e133]
+        - generic [ref=e134]:
+          - link "IT for Law Firms" [ref=e135] [cursor=pointer]:
+            - /url: /it-support-law-firms-toronto
+          - link "IT for Accounting Firms" [ref=e136] [cursor=pointer]:
+            - /url: /it-support-accounting-firms-gta
+          - link "IT for Medical Clinics" [ref=e137] [cursor=pointer]:
+            - /url: /it-support-medical-clinics-ontario
+          - link "IT for Engineering Firms" [ref=e138] [cursor=pointer]:
+            - /url: /it-support-engineering-firms-toronto
+          - link "IT for Small Businesses" [ref=e139] [cursor=pointer]:
+            - /url: /it-support-small-businesses-gta
+          - link "About Us" [ref=e140] [cursor=pointer]:
+            - /url: /about
+          - link "Blog" [ref=e141] [cursor=pointer]:
+            - /url: /blog
+          - link "Free IT Assessment" [ref=e142] [cursor=pointer]:
+            - /url: /it-assessment
+  - generic [ref=e144] [cursor=pointer]: 

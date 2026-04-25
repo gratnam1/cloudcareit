@@ -1,0 +1,1273 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "CtrlShift IT Services Logo CTRL SHIFT" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img "CtrlShift IT Services Logo" [ref=e6]
+        - text: CTRL
+        - generic [ref=e9]: SHIFT
+      - list [ref=e11]:
+        - listitem [ref=e12]:
+          - button "Industries" [ref=e13] [cursor=pointer]
+        - listitem [ref=e14]:
+          - button "Locations" [ref=e15] [cursor=pointer]
+        - listitem [ref=e16]:
+          - link "Services" [ref=e17] [cursor=pointer]:
+            - /url: /#services
+        - listitem [ref=e18]:
+          - link "About" [ref=e19] [cursor=pointer]:
+            - /url: /about
+        - listitem [ref=e20]:
+          - link "Blog" [ref=e21] [cursor=pointer]:
+            - /url: /blog
+        - listitem [ref=e22]:
+          - button "Guides" [ref=e23] [cursor=pointer]
+          - text:    
+        - listitem [ref=e24]:
+          - link " Free IT Assessment" [ref=e25] [cursor=pointer]:
+            - /url: /it-assessment
+            - generic [ref=e26]: 
+            - text: Free IT Assessment
+  - main [ref=e27]:
+    - generic [ref=e31]:
+      - navigation "Breadcrumb" [ref=e32]:
+        - list [ref=e33]:
+          - listitem [ref=e34]:
+            - link "Home" [ref=e35] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e36]:
+            - text: /
+            - link "Guides" [ref=e37] [cursor=pointer]:
+              - /url: /guides
+          - listitem [ref=e38]:
+            - text: /
+            - link "Security" [ref=e39] [cursor=pointer]:
+              - /url: /guides/security
+          - listitem [ref=e40]:
+            - text: /
+            - link "Microsoft 365 Security" [ref=e41] [cursor=pointer]:
+              - /url: /guides/security/microsoft-365-security
+          - listitem [ref=e42]: / Microsoft 365 Security Checklist
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - generic [ref=e46]:
+              - generic [ref=e48]: 
+              - heading "Microsoft 365 Security Checklist for Small Businesses (2026)" [level=1] [ref=e49]
+            - paragraph [ref=e50]: A technical, actionable checklist for Canadian small businesses running Microsoft 365 Business Standard or Business Premium — built by the managed IT team at CtrlShift IT Services.
+            - generic [ref=e51]:
+              - generic [ref=e52]:
+                - generic [ref=e53]:
+                  - generic [ref=e54]: Estimated reading time
+                  - generic [ref=e55]: 15 minutes
+                - generic [ref=e56]:
+                  - generic [ref=e57]: Who this guide is for
+                  - generic [ref=e58]: Business owners, office managers, and IT decision-makers at small businesses with 5–50 employees on Microsoft 365 Business Standard or Business Premium.
+              - generic [ref=e59]: "Last reviewed: April 2026"
+            - heading "Why Most Microsoft 365 Tenants Are Misconfigured" [level=2] [ref=e60]
+            - paragraph [ref=e61]: Microsoft 365 ships in a permissive default state. Legacy authentication protocols are often still active. Multi-factor authentication is available but not enforced. SharePoint external sharing may be open to anyone with a link. Admin accounts frequently share credentials with daily work accounts. These defaults simplify initial setup — but in a live business tenant they represent real, exploitable gaps.
+            - paragraph [ref=e62]: Small businesses with 5–50 employees are a primary target precisely because they carry valuable data and are easier to exploit than enterprises. A misconfigured Microsoft 365 tenant is the most common entry point we see in SMB breach cases.
+            - paragraph [ref=e63]:
+              - text: This checklist is the anchor guide in our
+              - link "Microsoft 365 Security hub" [ref=e64] [cursor=pointer]:
+                - /url: /guides/security/microsoft-365-security
+              - text: . Use it as the baseline, then branch into the live
+              - link "phishing protection guide" [ref=e65] [cursor=pointer]:
+                - /url: /guides/security/microsoft-365-security/phishing-protection
+              - text: and the upcoming deep dives linked throughout the page.
+            - generic [ref=e66]:
+              - generic [ref=e67]: How a typical SMB breach unfolds
+              - generic [ref=e68]:
+                - generic [ref=e69]:
+                  - generic [ref=e71]: 
+                  - generic [ref=e72]:
+                    - generic [ref=e73]: Phishing email
+                    - generic [ref=e74]: Delivered to inbox
+                - generic [ref=e76]: 
+                - generic [ref=e77]:
+                  - generic [ref=e79]: 
+                  - generic [ref=e80]:
+                    - generic [ref=e81]: Credential stolen
+                    - generic [ref=e82]: Password captured
+                - generic [ref=e84]: 
+                - generic [ref=e85]:
+                  - generic [ref=e87]: 
+                  - generic [ref=e88]:
+                    - generic [ref=e89]: Tenant access
+                    - generic [ref=e90]: Email & SharePoint
+                - generic [ref=e92]: 
+                - generic [ref=e93]:
+                  - generic [ref=e95]: 
+                  - generic [ref=e96]:
+                    - generic [ref=e97]: Lateral movement
+                    - generic [ref=e98]: Spreads across tenant
+                - generic [ref=e100]: 
+                - generic [ref=e101]:
+                  - generic [ref=e103]: 
+                  - generic [ref=e104]:
+                    - generic [ref=e105]: Ransomware / BEC
+                    - generic [ref=e106]: Encryption or fraud
+              - generic [ref=e107]:
+                - generic [ref=e108]: 
+                - text: Every node in this chain has a control in this checklist that breaks it.
+            - complementary "Not sure where your tenant stands?" [ref=e109]:
+              - generic [ref=e110]: Free Security Assessment
+              - heading "Not sure where your tenant stands?" [level=2] [ref=e111]
+              - paragraph [ref=e112]: Get a no-pressure review of your Microsoft 365 configuration, endpoints, and backup posture — typically completed within one business day.
+              - link "Request a Free Security Assessment" [ref=e114] [cursor=pointer]:
+                - /url: /free-security-assessment
+          - generic [ref=e115]:
+            - generic [ref=e116]:
+              - generic [ref=e118]: 
+              - heading "What Secure Score Should a Small Business Target?" [level=2] [ref=e119]
+            - paragraph [ref=e120]:
+              - text: Microsoft Secure Score is a built-in dashboard in the Microsoft 365 Defender portal that measures how well your tenant is configured. It gives you a number — and more usefully — a prioritized list of exactly what to fix next. Access it at
+              - strong [ref=e121]: security.microsoft.com → Secure Score
+              - text: .
+            - generic [ref=e122]:
+              - generic [ref=e123]:
+                - generic [ref=e126]:
+                  - generic [ref=e127]: Under 30%
+                  - generic [ref=e128]: High risk — critical controls missing
+                - generic [ref=e130]: 
+              - generic [ref=e131]:
+                - generic [ref=e134]:
+                  - generic [ref=e135]: 30–60%
+                  - generic [ref=e136]: Typical unmanaged tenant — significant gaps likely
+                - generic [ref=e138]: 
+              - generic [ref=e139]:
+                - generic [ref=e142]:
+                  - generic [ref=e143]: 60–80%
+                  - generic [ref=e144]: Strong baseline — target range for most SMBs
+                - generic [ref=e146]: 
+              - generic [ref=e147]:
+                - generic [ref=e150]:
+                  - generic [ref=e151]: 80%+
+                  - generic [ref=e152]: Well-secured — suitable for regulated industries
+                - generic [ref=e154]: 
+            - paragraph [ref=e155]:
+              - text: Review your Secure Score monthly. Use the
+              - strong [ref=e156]: Improvement Actions
+              - text: tab to see a prioritized list — each action shows the point value, implementation difficulty, and exact portal location.
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - generic [ref=e160]: 
+              - heading "Your Defense Stack — Four Protection Layers" [level=2] [ref=e161]
+            - paragraph [ref=e162]: Every control in this checklist belongs to one of four protection layers. No single layer stops everything — all four working together is what creates a defensible posture.
+            - generic [ref=e163]:
+              - generic [ref=e164]:
+                - generic [ref=e166]: 
+                - generic [ref=e167]:
+                  - generic [ref=e168]: Identity Layer
+                  - generic [ref=e169]: MFA · Conditional Access · Legacy Auth Block · Admin Protection
+                - generic [ref=e170]: Highest impact
+              - generic [ref=e171]:
+                - generic [ref=e173]: 
+                - generic [ref=e174]:
+                  - generic [ref=e175]: Email Security Layer
+                  - generic [ref=e176]: Anti-phishing · Safe Links · Safe Attachments · DKIM/DMARC · Mailbox Audit
+                - generic [ref=e177]: Primary attack vector
+              - generic [ref=e178]:
+                - generic [ref=e180]: 
+                - generic [ref=e181]:
+                  - generic [ref=e182]: Endpoint Layer
+                  - generic [ref=e183]: EDR · BitLocker · Intune · Patch Management · BYOD Policy
+                - generic [ref=e184]: Stops lateral spread
+              - generic [ref=e185]:
+                - generic [ref=e187]: 
+                - generic [ref=e188]:
+                  - generic [ref=e189]: Data & Recovery Layer
+                  - generic [ref=e190]: Third-party Backup · Audit Logging · Alert Policies · Incident Response
+                - generic [ref=e191]: Recovery capability
+          - generic [ref=e192]:
+            - generic [ref=e193]:
+              - generic [ref=e195]: 
+              - heading "The Microsoft 365 Security Checklist (19 Controls)" [level=2] [ref=e196]
+            - paragraph [ref=e197]: Check items as you complete them — your progress is saved in your browser.
+            - generic [ref=e198]:
+              - generic [ref=e199]:
+                - generic [ref=e200]: 0 of 19 controls complete
+                - generic [ref=e201]: 0%
+              - generic [ref=e203]:
+                - generic [ref=e204]: CRITICAL
+                - generic [ref=e205]: HIGH
+                - generic [ref=e206]: MEDIUM
+            - generic [ref=e207]:
+              - generic [ref=e208] [cursor=pointer]:
+                - generic [ref=e210]: 
+                - link "Multi-factor authentication enforced on all accounts" [ref=e211]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#mfa
+                - generic [ref=e212]: CRITICAL
+              - generic [ref=e213] [cursor=pointer]:
+                - generic [ref=e215]: 
+                - link "Legacy authentication protocols disabled" [ref=e216]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#legacy-auth
+                - generic [ref=e217]: CRITICAL
+              - generic [ref=e218] [cursor=pointer]:
+                - generic [ref=e220]: 
+                - link "Conditional Access policies configured" [ref=e221]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#conditional-access
+                - generic [ref=e222]: CRITICAL
+              - generic [ref=e223] [cursor=pointer]:
+                - generic [ref=e225]: 
+                - link "Dedicated admin accounts separated from daily-use accounts" [ref=e226]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#admin-protection
+                - generic [ref=e227]: CRITICAL
+              - generic [ref=e228] [cursor=pointer]:
+                - generic [ref=e230]: 
+                - link "Global admin accounts protected with phishing-resistant MFA" [ref=e231]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#admin-protection
+                - generic [ref=e232]: CRITICAL
+              - generic [ref=e233] [cursor=pointer]:
+                - generic [ref=e235]: 
+                - link "Endpoint detection and response deployed on every company device" [ref=e236]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#endpoint
+                - generic [ref=e237]: CRITICAL
+              - generic [ref=e238] [cursor=pointer]:
+                - generic [ref=e240]: 
+                - link "Microsoft 365 data backed up with a third-party solution" [ref=e241]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#backup
+                - generic [ref=e242]: CRITICAL
+              - generic [ref=e243] [cursor=pointer]:
+                - generic [ref=e245]: 
+                - link "Anti-phishing policies configured in Microsoft Defender" [ref=e246]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#email-security
+                - generic [ref=e247]: HIGH
+              - generic [ref=e248] [cursor=pointer]:
+                - generic [ref=e250]: 
+                - link "Safe Links and Safe Attachments enabled tenant-wide" [ref=e251]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#safe-links
+                - generic [ref=e252]: HIGH
+              - generic [ref=e253] [cursor=pointer]:
+                - generic [ref=e255]: 
+                - link "DKIM configured on all sending domains" [ref=e256]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#dkim
+                - generic [ref=e257]: HIGH
+              - generic [ref=e258] [cursor=pointer]:
+                - generic [ref=e260]: 
+                - link "DMARC policy published and enforced" [ref=e261]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#dkim
+                - generic [ref=e262]: HIGH
+              - generic [ref=e263] [cursor=pointer]:
+                - generic [ref=e265]: 
+                - link "Mailbox auditing enabled on all mailboxes" [ref=e266]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#mailbox-auditing
+                - generic [ref=e267]: HIGH
+              - generic [ref=e268] [cursor=pointer]:
+                - generic [ref=e270]: 
+                - link "External sharing controls reviewed in SharePoint and OneDrive" [ref=e271]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#sharing
+                - generic [ref=e272]: HIGH
+              - generic [ref=e273] [cursor=pointer]:
+                - generic [ref=e275]: 
+                - link "Staff trained to identify and report phishing attempts" [ref=e276]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#phishing-training
+                - generic [ref=e277]: HIGH
+              - generic [ref=e278] [cursor=pointer]:
+                - generic [ref=e280]: 
+                - link "Incident response plan documented and tested" [ref=e281]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#ransomware
+                - generic [ref=e282]: HIGH
+              - generic [ref=e283] [cursor=pointer]:
+                - generic [ref=e285]: 
+                - link "Guest access reviewed and restricted to necessary users only" [ref=e286]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#sharing
+                - generic [ref=e287]: MEDIUM
+              - generic [ref=e288] [cursor=pointer]:
+                - generic [ref=e290]: 
+                - link "Unified audit logging enabled" [ref=e291]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#monitoring
+                - generic [ref=e292]: MEDIUM
+              - generic [ref=e293] [cursor=pointer]:
+                - generic [ref=e295]: 
+                - link "Alert policies configured for high-risk events" [ref=e296]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#monitoring
+                - generic [ref=e297]: MEDIUM
+              - generic [ref=e298] [cursor=pointer]:
+                - generic [ref=e300]: 
+                - link "Microsoft Secure Score reviewed and tracked quarterly" [ref=e301]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#secure-score
+                - generic [ref=e302]: MEDIUM
+          - generic [ref=e303]:
+            - generic [ref=e304]:
+              - generic [ref=e306]: 
+              - heading "Multi-Factor Authentication (MFA)" [level=2] [ref=e307]
+            - generic [ref=e308]:
+              - generic [ref=e309]: 99.9%
+              - generic [ref=e310]: of automated account takeover attacks are blocked by MFA, according to Microsoft telemetry
+            - paragraph [ref=e311]: Enforcing MFA across every Microsoft 365 account is the single highest-impact control available to a small business. Passwords alone are routinely stolen through phishing, credential stuffing, and info-stealer malware. MFA blocks the overwhelming majority of automated account takeover attempts — and its absence is the most common reason cyber insurance claims are denied after a breach.
+            - generic [ref=e312]:
+              - generic [ref=e313]:
+                - generic [ref=e314]: 
+                - heading "Enforce MFA on all user accounts" [level=3] [ref=e315]
+              - generic [ref=e316]:
+                - generic [ref=e317]:
+                  - generic [ref=e318]: Why it matters
+                  - text: A stolen password alone accesses email, SharePoint, Teams, and all connected apps without MFA.
+                - generic [ref=e319]:
+                  - generic [ref=e320]: Risk if skipped
+                  - text: Account takeover, business email compromise, full mailbox access. Insurers frequently deny claims when MFA was not enforced.
+                - generic [ref=e321]:
+                  - generic [ref=e322]: Where to configure
+                  - text: Entra admin centre → Identity → Authentication methods. Or enable Security Defaults (Entra → Properties → Manage Security Defaults).
+                - generic [ref=e323]:
+                  - generic [ref=e324]: License
+                  - text: All plans. Conditional Access-enforced MFA requires Business Premium or Entra ID P1.
+            - generic [ref=e325]:
+              - generic [ref=e326]:
+                - generic [ref=e327]: 
+                - heading "Prefer authenticator apps over SMS codes" [level=3] [ref=e328]
+              - generic [ref=e329]:
+                - generic [ref=e330]:
+                  - generic [ref=e331]: Why it matters
+                  - text: SMS-based MFA is vulnerable to SIM swapping. Authenticator app codes are generated locally and cannot be intercepted remotely.
+                - generic [ref=e332]:
+                  - generic [ref=e333]: Risk if skipped
+                  - text: A SIM swap allows an attacker to receive the SMS code and bypass MFA entirely — a documented pattern in Canadian business email compromise cases.
+                - generic [ref=e334]:
+                  - generic [ref=e335]: Where to configure
+                  - text: Entra admin centre → Authentication methods → Policies. Enable Microsoft Authenticator, disable SMS sign-in where possible.
+                - generic [ref=e336]:
+                  - generic [ref=e337]: License
+                  - text: All plans. Microsoft Authenticator is free.
+            - generic [ref=e338]:
+              - generic [ref=e339]:
+                - generic [ref=e340]: 
+                - heading "Audit service accounts and shared mailboxes for MFA gaps" [level=3] [ref=e341]
+              - generic [ref=e342]:
+                - generic [ref=e343]:
+                  - generic [ref=e344]: Why it matters
+                  - text: Service accounts and shared mailboxes frequently slip through MFA enforcement. Attackers scan specifically for these exclusions.
+                - generic [ref=e345]:
+                  - generic [ref=e346]: Where to configure
+                  - text: Entra admin centre → Sign-in logs → Filter by Client App for Basic Auth, IMAP, POP entries. Review any account excluded from Conditional Access scope.
+            - complementary "What to pair with MFA rollout" [ref=e347]:
+              - generic [ref=e348]: Deep dive next
+              - heading "What to pair with MFA rollout" [level=3] [ref=e349]
+              - list [ref=e350]:
+                - listitem [ref=e351]:
+                  - link "Phishing & Email Threat Defense" [ref=e352] [cursor=pointer]:
+                    - /url: /guides/security/microsoft-365-security/phishing-protection
+                  - text: for the controls that catch token theft and impersonation.
+                - listitem [ref=e353]:
+                  - link "Rolling Out MFA Without Breaking Things" [ref=e354] [cursor=pointer]:
+                    - /url: /guides/security/microsoft-365-security#mfa-rollout
+                  - text: in the Microsoft 365 Security hub for shared mailboxes, service accounts, and exception planning.
+            - complementary "Want MFA enforced without lockouts or noisy Monday-morning support calls?" [ref=e355]:
+              - generic [ref=e356]: Need help now?
+              - heading "Want MFA enforced without lockouts or noisy Monday-morning support calls?" [level=3] [ref=e357]
+              - paragraph [ref=e358]: We can audit your current sign-in methods, flag shared mailbox and legacy app risks, and stage the rollout cleanly.
+              - generic [ref=e359]:
+                - link "Request a Free Security Assessment" [ref=e360] [cursor=pointer]:
+                  - /url: /free-security-assessment
+                - link "See Microsoft 365 Support" [ref=e361] [cursor=pointer]:
+                  - /url: /microsoft-365
+          - generic [ref=e362]:
+            - generic [ref=e363]:
+              - generic [ref=e365]: 
+              - heading "Disable Legacy Authentication" [level=2] [ref=e366]
+            - generic [ref=e367]:
+              - generic [ref=e368]: 99%+
+              - generic [ref=e369]: of password spray attacks against Microsoft 365 exploit legacy authentication protocols, per Microsoft's own telemetry
+            - paragraph [ref=e370]: Legacy authentication protocols — IMAP, POP3, basic SMTP auth, and older Exchange ActiveSync — cannot enforce MFA. A stolen password alone grants mailbox access through these protocols regardless of what MFA policies are set elsewhere in the tenant.
+            - generic [ref=e371]:
+              - generic [ref=e372]:
+                - generic [ref=e373]: 
+                - heading "Block legacy authentication tenant-wide" [level=3] [ref=e374]
+              - generic [ref=e375]:
+                - generic [ref=e376]:
+                  - generic [ref=e377]: Why it matters
+                  - text: Legacy protocols bypass MFA completely. This is the highest-impact, lowest-effort change you can make.
+                - generic [ref=e378]:
+                  - generic [ref=e379]: Risk if skipped
+                  - text: Password-spray attacks succeed reliably. Your MFA policies offer zero protection through these endpoints.
+                - generic [ref=e380]:
+                  - generic [ref=e381]: Where to configure
+                  - text: Entra admin centre → Security → Conditional Access → block "Other clients". Security Defaults (free) block legacy auth automatically.
+                - generic [ref=e382]:
+                  - generic [ref=e383]: License
+                  - text: Security Defaults — all plans, free. Conditional Access — Business Premium or Entra ID P1.
+            - generic [ref=e384]:
+              - generic [ref=e385]:
+                - generic [ref=e386]: 
+                - heading "Audit for active legacy connections before disabling" [level=3] [ref=e387]
+              - generic [ref=e388]:
+                - generic [ref=e389]:
+                  - generic [ref=e390]: Why it matters
+                  - text: Older printers, accounting software, or third-party integrations may use legacy auth. Disabling without auditing can break these.
+                - generic [ref=e391]:
+                  - generic [ref=e392]: Where to configure
+                  - text: Entra admin centre → Sign-in logs → filter by Client App → look for Basic Authentication, IMAP, POP, SMTP entries. Modernize before blocking.
+          - generic [ref=e393]:
+            - generic [ref=e394]:
+              - generic [ref=e396]: 
+              - heading "Conditional Access Policies" [level=2] [ref=e397]
+            - paragraph [ref=e398]: Conditional Access is the policy engine that controls how, from where, and from what devices your team can sign into Microsoft 365. A small set of well-configured policies delivers significant protection beyond Security Defaults alone.
+            - generic [ref=e399]:
+              - generic [ref=e400]: 
+              - strong [ref=e401]: "License required:"
+              - text: Microsoft 365 Business Premium or Entra ID P1. Business Standard users should consider Security Defaults as a free alternative.
+            - generic [ref=e402]:
+              - generic [ref=e403]:
+                - generic [ref=e404]: 
+                - heading "Require MFA for all users" [level=3] [ref=e405]
+              - generic [ref=e406]:
+                - generic [ref=e407]:
+                  - generic [ref=e408]: Why it matters
+                  - text: Applies MFA consistently to every sign-in including new accounts and app connections — no per-user configuration.
+                - generic [ref=e409]:
+                  - generic [ref=e410]: Where to configure
+                  - text: Entra admin centre → Protection → Conditional Access → New policy. All users, all cloud apps, grant requiring MFA. Exclude break-glass accounts.
+                - generic [ref=e411]:
+                  - generic [ref=e412]: License
+                  - text: Business Premium or Entra ID P1.
+            - generic [ref=e413]:
+              - generic [ref=e414]:
+                - generic [ref=e415]: 
+                - heading "Require compliant devices for admin actions" [level=3] [ref=e416]
+              - generic [ref=e417]:
+                - generic [ref=e418]:
+                  - generic [ref=e419]: Why it matters
+                  - text: Admin actions from unmanaged personal devices are high risk. Requiring an Intune-enrolled device adds a hardware-level gate.
+                - generic [ref=e420]:
+                  - generic [ref=e421]: Where to configure
+                  - text: "Conditional Access → New policy → Admin roles → Grant: Require \"Compliant device\" or \"Hybrid Azure AD joined\"."
+                - generic [ref=e422]:
+                  - generic [ref=e423]: License
+                  - text: Business Premium. Intune enrollment required.
+            - generic [ref=e424]:
+              - generic [ref=e425]:
+                - generic [ref=e426]: 
+                - heading "Block sign-ins from countries you don't operate in" [level=3] [ref=e427]
+              - generic [ref=e428]:
+                - generic [ref=e429]:
+                  - generic [ref=e430]: Why it matters
+                  - text: Most automated attacks against SMB tenants originate overseas. Geo-blocking eliminates a large category of opportunistic attacks instantly.
+                - generic [ref=e431]:
+                  - generic [ref=e432]: Where to configure
+                  - text: Conditional Access → Named Locations → Create allowed countries list → Block all other locations.
+                - generic [ref=e433]:
+                  - generic [ref=e434]: License
+                  - text: Business Premium or Entra ID P1.
+            - complementary "Where this section fits in the wider security plan" [ref=e435]:
+              - generic [ref=e436]: Related guide
+              - heading "Where this section fits in the wider security plan" [level=3] [ref=e437]
+              - list [ref=e438]:
+                - listitem [ref=e439]:
+                  - link "Conditional Access Policies for Small Business" [ref=e440] [cursor=pointer]:
+                    - /url: /guides/security/microsoft-365-security/conditional-access-small-business
+                  - text: covers report-only testing, break-glass exclusions, and policy order.
+                - listitem [ref=e441]:
+                  - link "Browse the Microsoft 365 Security hub" [ref=e442] [cursor=pointer]:
+                    - /url: /guides/security/microsoft-365-security
+                  - text: if you want the companion guides for MFA rollout and backup planning.
+            - complementary "Need help designing Conditional Access without locking out admins or line-of-business apps?" [ref=e443]:
+              - generic [ref=e444]: Business Premium planning
+              - heading "Need help designing Conditional Access without locking out admins or line-of-business apps?" [level=3] [ref=e445]
+              - paragraph [ref=e446]: We can map the required policies, test them in report-only mode, and line them up with cyber insurance requirements before you enforce.
+              - generic [ref=e447]:
+                - link "Request a Free Security Assessment" [ref=e448] [cursor=pointer]:
+                  - /url: /free-security-assessment
+                - link "See Cyber Insurance Readiness" [ref=e449] [cursor=pointer]:
+                  - /url: /cyber-insurance-readiness-vaughan
+          - generic [ref=e450]:
+            - generic [ref=e451]:
+              - generic [ref=e453]: 
+              - heading "Admin Role Protection" [level=2] [ref=e454]
+            - paragraph [ref=e455]: Global administrators have unrestricted access to your entire Microsoft 365 environment — including the ability to reset any password, delete data, remove audit logs, and disable security policies. Compromise of a single global admin account is effectively a complete tenant takeover.
+            - generic [ref=e456]:
+              - generic [ref=e457]:
+                - generic [ref=e458]: 
+                - heading "Create dedicated admin accounts for admin tasks only" [level=3] [ref=e459]
+              - generic [ref=e460]:
+                - generic [ref=e461]:
+                  - generic [ref=e462]: Why it matters
+                  - text: Using your daily work email for admin tasks means a successful phishing attack simultaneously captures global admin credentials.
+                - generic [ref=e463]:
+                  - generic [ref=e464]: Risk if skipped
+                  - text: An attacker who compromises your email account immediately has global admin access with no additional steps.
+                - generic [ref=e465]:
+                  - generic [ref=e466]: Where to configure
+                  - text: Entra admin centre → Users → New user. Admin accounts should have no mailbox and not be used for daily work.
+                - generic [ref=e467]:
+                  - generic [ref=e468]: License
+                  - text: All plans.
+            - generic [ref=e469]:
+              - generic [ref=e470]:
+                - generic [ref=e471]: 
+                - heading "Protect global admin accounts with hardware security keys" [level=3] [ref=e472]
+              - generic [ref=e473]:
+                - generic [ref=e474]:
+                  - generic [ref=e475]: Why it matters
+                  - text: Standard MFA (push, TOTP) can be bypassed by adversary-in-the-middle phishing kits. FIDO2 hardware keys are phishing-resistant — they cannot be intercepted remotely.
+                - generic [ref=e476]:
+                  - generic [ref=e477]: Risk if skipped
+                  - text: AiTM phishing kits routinely bypass push-notification MFA for admin accounts. A hardware key stops this attack class entirely.
+                - generic [ref=e478]:
+                  - generic [ref=e479]: Where to configure
+                  - text: Entra admin centre → Security → Authentication methods → FIDO2 security keys. Register at least two keys per admin account.
+                - generic [ref=e480]:
+                  - generic [ref=e481]: License
+                  - text: All plans for FIDO2 enablement. Conditional Access enforcement requires Business Premium.
+            - generic [ref=e482]:
+              - generic [ref=e483]:
+                - generic [ref=e484]: 
+                - heading "Replace Global Admin with scoped roles where possible" [level=3] [ref=e485]
+              - generic [ref=e486]:
+                - generic [ref=e487]:
+                  - generic [ref=e488]: Why it matters
+                  - text: Most IT staff don't need global admin for day-to-day tasks. Limiting roles limits the blast radius of any account compromise.
+                - generic [ref=e489]:
+                  - generic [ref=e490]: Where to configure
+                  - text: Entra admin centre → Roles and admins. Replace Global Admin with Exchange Admin, SharePoint Admin, or Helpdesk Admin as appropriate.
+          - generic [ref=e491]:
+            - generic [ref=e492]:
+              - generic [ref=e494]: 
+              - heading "Anti-Phishing Policies" [level=2] [ref=e495]
+            - generic [ref=e496]:
+              - generic [ref=e497]: 
+              - strong [ref=e498]: "License required:"
+              - text: Enhanced anti-phishing is part of Defender for Office 365 Plan 1, included in Business Premium. Not available in Business Standard without an add-on.
+            - paragraph [ref=e499]: Phishing is the leading cause of Microsoft 365 account compromise in small businesses. Defender anti-phishing capabilities go well beyond basic spam filtering — but require configuration to be effective. A default tenant has minimal protection. A configured tenant has impersonation detection, mailbox intelligence, and first-contact safety tips active.
+            - generic [ref=e500]:
+              - generic [ref=e501]:
+                - generic [ref=e502]: 
+                - heading "Configure anti-phishing policies in Microsoft Defender" [level=3] [ref=e503]
+              - generic [ref=e504]:
+                - generic [ref=e505]:
+                  - generic [ref=e506]: Why it matters
+                  - text: Default policies are conservative. Custom policies enable impersonation protection for your executives and domain, plus spoof detection tuned to your sending patterns.
+                - generic [ref=e507]:
+                  - generic [ref=e508]: Risk if skipped
+                  - text: CEO impersonation, vendor fraud, and Microsoft login spoofs bypass standard spam filters — they contain no malware, only a convincing sender address.
+                - generic [ref=e509]:
+                  - generic [ref=e510]: Where to configure
+                  - text: security.microsoft.com → Email & collaboration → Policies & rules → Threat policies → Anti-phishing. Enable impersonation protection, set action to Quarantine, enable first-contact safety tips.
+                - generic [ref=e511]:
+                  - generic [ref=e512]: License
+                  - text: Business Premium (Defender for Office 365 Plan 1).
+            - complementary "Continue with the email-security walkthrough" [ref=e513]:
+              - generic [ref=e514]: Related guide
+              - heading "Continue with the email-security walkthrough" [level=3] [ref=e515]
+              - list [ref=e516]:
+                - listitem [ref=e517]:
+                  - link "Phishing & Email Threat Defense" [ref=e518] [cursor=pointer]:
+                    - /url: /guides/security/microsoft-365-security/phishing-protection
+                  - text: goes deeper on impersonation protection, Defender presets, Safe Links, and staff reporting workflow.
+          - generic [ref=e519]:
+            - generic [ref=e520]:
+              - generic [ref=e522]: 
+              - heading "Safe Links and Safe Attachments" [level=2] [ref=e523]
+            - paragraph [ref=e524]: Safe Links checks URLs at the moment a user clicks — not just at delivery — catching links that turned malicious after reaching the inbox. Safe Attachments detonates suspicious files in an isolated sandbox before delivering them, blocking malware that signature-based scanning misses.
+            - generic [ref=e525]:
+              - generic [ref=e526]:
+                - generic [ref=e527]: 
+                - heading "Enable Safe Links for email and Office 365 apps" [level=3] [ref=e528]
+              - generic [ref=e529]:
+                - generic [ref=e530]:
+                  - generic [ref=e531]: Why it matters
+                  - text: Phishing links are often delivered before the malicious redirect activates. Click-time checking closes this gap entirely.
+                - generic [ref=e532]:
+                  - generic [ref=e533]: Risk if skipped
+                  - text: Time-delayed malicious redirects — a common evasion technique — are not detected without click-time verification.
+                - generic [ref=e534]:
+                  - generic [ref=e535]: Where to configure
+                  - text: security.microsoft.com → Threat policies → Safe Links. Enable for email and Microsoft 365 apps. Enable "Do not allow users to click through to original URL".
+                - generic [ref=e536]:
+                  - generic [ref=e537]: License
+                  - text: Business Premium (Defender for Office 365 Plan 1).
+            - generic [ref=e538]:
+              - generic [ref=e539]:
+                - generic [ref=e540]: 
+                - heading "Enable Safe Attachments for email, SharePoint, OneDrive, and Teams" [level=3] [ref=e541]
+              - generic [ref=e542]:
+                - generic [ref=e543]:
+                  - generic [ref=e544]: Why it matters
+                  - text: Safe Attachments detonates suspicious files in isolation before delivery. Novel malware that evades signature-based AV is caught through behavioral analysis.
+                - generic [ref=e545]:
+                  - generic [ref=e546]: Risk if skipped
+                  - text: Zero-day malware in email attachments is the most common ransomware delivery vector — passes through signature-based scanning undetected.
+                - generic [ref=e547]:
+                  - generic [ref=e548]: Where to configure
+                  - text: security.microsoft.com → Threat policies → Safe Attachments → Block. Enable for SharePoint, OneDrive, and Teams as well — malicious files shared there bypass email scanning.
+                - generic [ref=e549]:
+                  - generic [ref=e550]: License
+                  - text: Business Premium (Defender for Office 365 Plan 1).
+          - generic [ref=e551]:
+            - generic [ref=e552]:
+              - generic [ref=e554]: 
+              - heading "DKIM and DMARC Configuration" [level=2] [ref=e555]
+            - paragraph [ref=e556]: SPF, DKIM, and DMARC are DNS-level email authentication standards. Together they prove email from your domain is genuine — and instruct receiving servers what to do with messages that fail the check. Without all three, anyone can send convincing spoofed email appearing to come from your domain.
+            - generic [ref=e557]:
+              - generic [ref=e558]:
+                - generic [ref=e559]: 
+                - heading "Configure DKIM for your domain" [level=3] [ref=e560]
+              - generic [ref=e561]:
+                - generic [ref=e562]:
+                  - generic [ref=e563]: Why it matters
+                  - text: DKIM cryptographically signs every outbound message. Receiving servers verify the signature, confirming the email originated from your domain and was not altered in transit.
+                - generic [ref=e564]:
+                  - generic [ref=e565]: Risk if skipped
+                  - text: Spoofed emails appearing to come from your domain pass authentication checks. Your domain becomes usable for phishing campaigns against your own clients.
+                - generic [ref=e566]:
+                  - generic [ref=e567]: Where to configure
+                  - text: security.microsoft.com → Email & collaboration → Policies & rules → Threat policies → Email authentication → DKIM tab. Enable for each custom domain, then add the two CNAME records to your DNS registrar.
+                - generic [ref=e568]:
+                  - generic [ref=e569]: License
+                  - text: All plans. DKIM signing is a standard Exchange Online feature.
+            - generic [ref=e570]:
+              - generic [ref=e571]:
+                - generic [ref=e572]: 
+                - heading "Publish and enforce a DMARC policy" [level=3] [ref=e573]
+              - generic [ref=e574]:
+                - generic [ref=e575]:
+                  - generic [ref=e576]: Why it matters
+                  - text: "DMARC tells receiving servers what to do when email fails SPF/DKIM: ignore it (p=none), quarantine it, or reject it. p=reject is the strongest protection."
+                - generic [ref=e577]:
+                  - generic [ref=e578]: Risk if skipped
+                  - text: Spoofed emails pretending to be from your company are delivered to clients with no authentication warnings. Invoice fraud and BEC attacks exploit domains with no DMARC policy.
+                - generic [ref=e579]:
+                  - generic [ref=e580]: Where to configure
+                  - text: "Add a DMARC TXT record at your DNS registrar. Use the progression below: start monitoring, then enforce."
+                - generic [ref=e581]:
+                  - generic [ref=e582]: License
+                  - text: No Microsoft license required — configured at your DNS registrar.
+            - generic [ref=e583]:
+              - generic [ref=e584]: DMARC rollout progression
+              - generic [ref=e585]:
+                - generic [ref=e586]:
+                  - generic [ref=e588]: 
+                  - generic [ref=e589]: p=none
+                  - generic [ref=e590]: Monitor only — no action taken. Review reports for 2–4 weeks.
+                - generic [ref=e592]: 
+                - generic [ref=e593]:
+                  - generic [ref=e595]: 
+                  - generic [ref=e596]: p=quarantine
+                  - generic [ref=e597]: Failing messages go to spam. Confirm no legitimate sources are failing.
+                - generic [ref=e599]: 
+                - generic [ref=e600]:
+                  - generic [ref=e602]: 
+                  - generic [ref=e603]: p=reject
+                  - generic [ref=e604]: Spoofed emails are outright rejected. Full protection achieved.
+          - generic [ref=e605]:
+            - generic [ref=e606]:
+              - generic [ref=e608]: 
+              - heading "Mailbox Auditing" [level=2] [ref=e609]
+            - paragraph [ref=e610]: Mailbox auditing records a log of every action in each user's mailbox — who accessed it, what was read, what was deleted, and whether forwarding rules were added. Without it, a post-breach investigation has nothing to work with.
+            - generic [ref=e611]:
+              - generic [ref=e612]:
+                - generic [ref=e613]: 
+                - heading "Verify mailbox auditing is enabled tenant-wide" [level=3] [ref=e614]
+              - generic [ref=e615]:
+                - generic [ref=e616]:
+                  - generic [ref=e617]: Why it matters
+                  - text: Auditing is on by default for accounts created after January 2019 — but older accounts and service accounts may not have it active.
+                - generic [ref=e618]:
+                  - generic [ref=e619]: Risk if skipped
+                  - text: After a compromise, there are no logs to determine what data was accessed, what was forwarded, or when the attacker first gained entry.
+                - generic [ref=e620]:
+                  - generic [ref=e621]: Where to configure
+                  - text: "Exchange admin centre → Mailboxes → verify AuditEnabled. PowerShell:"
+                  - code [ref=e622]: Get-EXOMailbox -ResultSize Unlimited | Select-Object UserPrincipalName, AuditEnabled
+                - generic [ref=e623]:
+                  - generic [ref=e624]: License
+                  - text: All plans. Exchange Online Audit is included.
+            - generic [ref=e625]:
+              - generic [ref=e626]:
+                - generic [ref=e627]: 
+                - heading "Review all mailboxes for unauthorized forwarding rules" [level=3] [ref=e628]
+              - generic [ref=e629]:
+                - generic [ref=e630]:
+                  - generic [ref=e631]: Why it matters
+                  - text: After compromise, attackers add inbox rules that silently forward all incoming email to an external address. These persist even after the password is reset.
+                - generic [ref=e632]:
+                  - generic [ref=e633]: Risk if skipped
+                  - text: Undetected forwarding rules can exfiltrate months of correspondence after the "resolved" breach. This is one of the most common persistence mechanisms we encounter.
+                - generic [ref=e634]:
+                  - generic [ref=e635]: Where to configure
+                  - text: Microsoft 365 Defender portal → Explorer → search inbox rules with external forwarding. Review quarterly.
+                - generic [ref=e636]:
+                  - generic [ref=e637]: License
+                  - text: All plans.
+          - generic [ref=e638]:
+            - generic [ref=e639]:
+              - generic [ref=e641]: 
+              - heading "External Sharing and Guest Access Controls" [level=2] [ref=e642]
+            - paragraph [ref=e643]: By default, Microsoft 365 allows users to share any file with anyone via a link requiring no sign-in. Guest accounts added for contractors often persist long after the engagement ends. These two defaults represent a quiet but significant data exposure risk.
+            - generic [ref=e644]:
+              - generic [ref=e645]:
+                - generic [ref=e646]: 
+                - heading "Restrict SharePoint and OneDrive external sharing" [level=3] [ref=e647]
+              - generic [ref=e648]:
+                - generic [ref=e649]:
+                  - generic [ref=e650]: Why it matters
+                  - text: "\"Anyone with the link\" sharing = publicly accessible, no authentication, no audit trail, no expiry. A single careless share exposes confidential documents."
+                - generic [ref=e651]:
+                  - generic [ref=e652]: Where to configure
+                  - text: Microsoft 365 admin centre → SharePoint admin centre → Policies → Sharing. Set to "New and existing guests" (requires sign-in) or "Only people in your organization".
+                - generic [ref=e653]:
+                  - generic [ref=e654]: License
+                  - text: All plans.
+            - generic [ref=e655]:
+              - generic [ref=e656]:
+                - generic [ref=e657]: 
+                - heading "Review and expire guest accounts quarterly" [level=3] [ref=e658]
+              - generic [ref=e659]:
+                - generic [ref=e660]:
+                  - generic [ref=e661]: Why it matters
+                  - text: Former contractors with active guest accounts have access to Teams channels and SharePoint libraries containing current client data.
+                - generic [ref=e662]:
+                  - generic [ref=e663]: Risk if skipped
+                  - text: Departed guests are both a data leak risk and an entry point — especially if their personal email accounts are later compromised.
+                - generic [ref=e664]:
+                  - generic [ref=e665]: Where to configure
+                  - text: Entra admin centre → External identities → All guests. Review and remove stale accounts quarterly.
+                - generic [ref=e666]:
+                  - generic [ref=e667]: License
+                  - text: Manual review — all plans. Automated access reviews — Business Premium or Entra ID P2.
+          - generic [ref=e668]:
+            - generic [ref=e669]:
+              - generic [ref=e671]: 
+              - heading "Audit Logging and Alert Policies" [level=2] [ref=e672]
+            - paragraph [ref=e673]: Unified audit logging captures activity across Exchange, SharePoint, Teams, and Entra ID. Alert policies trigger notifications on high-risk events. Together they are the foundation of any incident detection capability — and increasingly expected by cyber insurers as evidence of monitoring.
+            - generic [ref=e674]:
+              - generic [ref=e675]:
+                - generic [ref=e676]: 
+                - heading "Enable unified audit logging" [level=3] [ref=e677]
+              - generic [ref=e678]:
+                - generic [ref=e679]:
+                  - generic [ref=e680]: Why it matters
+                  - text: Audit logs are the primary evidence source in any incident investigation. Without them, forensic response is blind.
+                - generic [ref=e681]:
+                  - generic [ref=e682]: Where to configure
+                  - text: Microsoft Purview compliance portal → Audit → Verify "Recording user and admin activity" is On. Default retention is 90 days; Business Premium extends to 1 year.
+                - generic [ref=e683]:
+                  - generic [ref=e684]: License
+                  - text: All plans. 1-year retention requires Business Premium or M365 E3.
+            - generic [ref=e685]:
+              - generic [ref=e686]:
+                - generic [ref=e687]: 
+                - heading "Configure alert policies for high-risk events" [level=3] [ref=e688]
+              - generic [ref=e689]:
+                - generic [ref=e690]:
+                  - generic [ref=e691]: Why it matters
+                  - text: Breaches persist for weeks or months in tenants without active alerting. Attackers slowly exfiltrate data through channels that generate no default notifications.
+                - generic [ref=e692]:
+                  - generic [ref=e693]: Where to configure
+                  - text: "Microsoft 365 Defender portal → Alerts → Alert policies. Create custom policies for: mass file download, mailbox forwarding rule creation, admin role elevation, multiple failed sign-ins."
+                - generic [ref=e694]:
+                  - generic [ref=e695]: License
+                  - text: Default policies — all plans. Custom alert policies — Business Premium or M365 E3.
+          - generic [ref=e696]:
+            - generic [ref=e697]:
+              - generic [ref=e699]: 
+              - heading "Staff Phishing Awareness Training" [level=2] [ref=e700]
+            - paragraph [ref=e701]: Technical controls reduce the attack surface — but a convincing phishing email still reaches inboxes. Staff training is the last line of defence. The goal is not to eliminate all clicks; it is to make suspicious emails reportable, normalize asking for help, and ensure staff know what to do in the first 15 minutes after clicking something suspicious.
+            - list [ref=e702]:
+              - listitem [ref=e703]: Run short monthly phishing simulations (Microsoft Attack Simulator, included in Business Premium) — frequency beats length
+              - listitem [ref=e704]: Install the Microsoft "Report Message" Outlook add-in — reporting should be one click
+              - listitem [ref=e705]: Make it explicitly safe to report a click without fear of blame — reported incidents are easier to contain than hidden ones
+              - listitem [ref=e706]: "Train staff to recognize: invoice fraud, Microsoft 365 login spoofs, CEO impersonation"
+              - listitem [ref=e707]: "Document what to do immediately after clicking: who to call, whether to close the browser, whether to shut down the device"
+            - complementary "Pair awareness training with the technical controls" [ref=e708]:
+              - generic [ref=e709]: Related guide
+              - heading "Pair awareness training with the technical controls" [level=3] [ref=e710]
+              - list [ref=e711]:
+                - listitem [ref=e712]:
+                  - link "Phishing & Email Threat Defense" [ref=e713] [cursor=pointer]:
+                    - /url: /guides/security/microsoft-365-security/phishing-protection
+                  - text: covers the tenant-side policies that support the user training process.
+          - generic [ref=e714]:
+            - generic [ref=e715]:
+              - generic [ref=e717]: 
+              - heading "Endpoint Security for Business Devices" [level=2] [ref=e718]
+            - paragraph [ref=e719]: Endpoints — laptops, desktops, phones, tablets, including personal BYOD devices — are the second primary attack surface alongside email. Built-in Windows Defender provides a baseline but is not sufficient for businesses with remote workers, BYOD devices, or active cyber insurance obligations. Microsoft Defender for Business (included in Business Premium) provides EDR-level protection managed through Intune.
+            - generic [ref=e720]:
+              - generic [ref=e721]:
+                - generic [ref=e722]: 
+                - heading "Deploy endpoint detection and response (EDR) on all devices" [level=3] [ref=e723]
+              - generic [ref=e724]:
+                - generic [ref=e725]:
+                  - generic [ref=e726]: Why it matters
+                  - text: EDR watches device behaviour and detects suspicious patterns. Traditional antivirus only matches known signatures — it misses novel and fileless malware.
+                - generic [ref=e727]:
+                  - generic [ref=e728]: Where to configure
+                  - text: Microsoft Defender for Business is included in Business Premium and deploys through Intune. Also available as a standalone SMB product.
+                - generic [ref=e729]:
+                  - generic [ref=e730]: License
+                  - text: Included in Business Premium. Standalone add-on for Business Standard tenants.
+            - generic [ref=e731]:
+              - generic [ref=e732]:
+                - generic [ref=e733]: 
+                - heading "Enforce disk encryption and automatic OS updates via Intune" [level=3] [ref=e734]
+              - generic [ref=e735]:
+                - generic [ref=e736]:
+                  - generic [ref=e737]: Why it matters
+                  - text: An unencrypted laptop lost or stolen exposes all locally cached files and credentials. Unpatched OS is the primary exploitation target for opportunistic attacks.
+                - generic [ref=e738]:
+                  - generic [ref=e739]: Where to configure
+                  - text: Intune (Endpoint Manager) → Devices → Configuration profiles. Enforce BitLocker, require Windows Update for Business, configure update deferral windows.
+                - generic [ref=e740]:
+                  - generic [ref=e741]: License
+                  - text: Intune included in Business Premium.
+            - paragraph [ref=e742]:
+              - text: Pair this guide with our
+              - link "managed security and firewall service" [ref=e743] [cursor=pointer]:
+                - /url: /security-firewall
+              - text: for hands-on EDR deployment and tenant hardening.
+          - generic [ref=e744]:
+            - generic [ref=e745]:
+              - generic [ref=e747]: 
+              - heading "Microsoft 365 Backup — Retention Is Not a Backup" [level=2] [ref=e748]
+            - generic [ref=e749]:
+              - generic [ref=e750]:
+                - generic [ref=e751]:
+                  - generic [ref=e752]: 
+                  - text: Microsoft's responsibility
+                - list [ref=e753]:
+                  - listitem [ref=e754]: • Platform uptime & availability
+                  - listitem [ref=e755]: • Infrastructure security
+                  - listitem [ref=e756]: • Application functionality
+                  - listitem [ref=e757]: • Global data replication
+              - generic [ref=e760]: You are responsible for
+              - generic [ref=e762]:
+                - generic [ref=e763]:
+                  - generic [ref=e764]: 
+                  - text: Your responsibility
+                - list [ref=e765]:
+                  - listitem [ref=e766]: • Emails, files, and Teams data
+                  - listitem [ref=e767]: • Recovering from ransomware
+                  - listitem [ref=e768]: • Recovering from admin deletion
+                  - listitem [ref=e769]: • Departed employee data
+            - paragraph [ref=e770]: The Recycle Bin, OneDrive version history, and SharePoint retention policies are convenience recovery features — not backups. They have short windows, can be wiped by a compromised admin account, and do not protect against ransomware encryption.
+            - generic [ref=e771]:
+              - generic [ref=e772]:
+                - generic [ref=e773]: 
+                - heading "Deploy a third-party Microsoft 365 backup solution" [level=3] [ref=e774]
+              - generic [ref=e775]:
+                - generic [ref=e776]:
+                  - generic [ref=e777]: Why it matters
+                  - text: A real backup is an independent, immutable copy of Exchange, SharePoint, OneDrive, and Teams data — stored outside the production tenant and restorable to any point in time.
+                - generic [ref=e778]:
+                  - generic [ref=e779]: Risk if skipped
+                  - text: Ransomware encryption of a Microsoft 365 tenant leaves no recovery path beyond Microsoft's short-window retention — which is frequently not enough.
+                - generic [ref=e780]:
+                  - generic [ref=e781]: Where to configure
+                  - text: Third-party solutions (Veeam, Acronis, Datto, Dropsuite) integrate via the Graph API and store encrypted backups in a separate cloud tenancy with configurable retention.
+                - generic [ref=e782]:
+                  - generic [ref=e783]: License
+                  - text: Not included in any Microsoft 365 plan. Third-party backup is a separate service.
+            - generic [ref=e784]:
+              - generic [ref=e785]:
+                - generic [ref=e786]: 
+                - heading "Test backup restores quarterly and document results" [level=3] [ref=e787]
+              - generic [ref=e788]:
+                - generic [ref=e789]:
+                  - generic [ref=e790]: Why it matters
+                  - text: An untested backup is not a backup. Backup software can fail silently, API permissions can expire, and retention policies may not capture what you believe they do.
+                - generic [ref=e791]:
+                  - generic [ref=e792]: How to test
+                  - text: Restore a sample mailbox and a SharePoint library to a test location. Verify completeness and restore time. Document results for your cyber insurance renewal.
+            - complementary "Use this section as the baseline for recovery planning" [ref=e793]:
+              - generic [ref=e794]: Deep dive next
+              - heading "Use this section as the baseline for recovery planning" [level=3] [ref=e795]
+              - list [ref=e796]:
+                - listitem [ref=e797]:
+                  - 'link "Microsoft 365 Backup: What You Actually Need" [ref=e798] [cursor=pointer]':
+                    - /url: /guides/security/microsoft-365-security#microsoft-365-backup
+                  - text: in the Microsoft 365 Security hub expands on vendor selection, retention, and restore testing.
+                - listitem [ref=e799]:
+                  - link "Ransomware Response Playbook" [ref=e800] [cursor=pointer]:
+                    - /url: /guides/security#ransomware-recovery
+                  - text: will cover the first-hour decisions after a real incident.
+            - complementary "If your tenant was encrypted today, would you have a tested restore path?" [ref=e801]:
+              - generic [ref=e802]: Recovery readiness
+              - heading "If your tenant was encrypted today, would you have a tested restore path?" [level=3] [ref=e803]
+              - paragraph [ref=e804]: We can review your current retention setup, confirm whether third-party backup exists, and document the restore process before you need it.
+              - generic [ref=e805]:
+                - link "Request a Free Security Assessment" [ref=e806] [cursor=pointer]:
+                  - /url: /free-security-assessment
+                - link "See Crisis Recovery Support" [ref=e807] [cursor=pointer]:
+                  - /url: /crisis-recovery
+          - generic [ref=e808]:
+            - generic [ref=e809]:
+              - generic [ref=e811]: 
+              - heading "Ransomware Protection and Incident Response" [level=2] [ref=e812]
+            - paragraph [ref=e813]: "Ransomware attacks almost always follow the same path: a phishing email compromises a credential, the attacker moves laterally, then deploys encryption. Every stage of that chain is breakable — MFA stops credential-only attacks, endpoint protection detects lateral movement, Safe Attachments blocks malicious payloads, and backup provides the recovery path."
+            - list [ref=e814]:
+              - listitem [ref=e815]: Enforce least-privilege on both user and admin accounts — limit the blast radius of any compromised identity
+              - listitem [ref=e816]: "Apply the 3-2-1 rule: three copies of data, two media types, one copy outside the production tenant"
+              - listitem [ref=e817]: Test restores quarterly and document results — an untested backup is not a backup
+              - listitem [ref=e818]: Write down who makes decisions in the first 60 minutes of an incident, before you need it
+              - listitem [ref=e819]: Confirm your cyber insurance policy's position on ransom payment in advance
+            - complementary "Where to go next for incident planning" [ref=e820]:
+              - generic [ref=e821]: Related guide
+              - heading "Where to go next for incident planning" [level=3] [ref=e822]
+              - list [ref=e823]:
+                - listitem [ref=e824]:
+                  - link "Ransomware Response Playbook" [ref=e825] [cursor=pointer]:
+                    - /url: /guides/security#ransomware-recovery
+                  - text: is the upcoming security-hub guide for first-hour containment and evidence preservation.
+                - listitem [ref=e826]:
+                  - link "IT Crisis Recovery" [ref=e827] [cursor=pointer]:
+                    - /url: /crisis-recovery
+                  - text: covers the live service side if you need hands-on recovery support.
+          - generic [ref=e828]:
+            - generic [ref=e829]:
+              - generic [ref=e831]: 
+              - heading "Common Microsoft 365 Security Gaps We Find in Small Business Tenants" [level=2] [ref=e832]
+            - paragraph [ref=e833]: These are the issues we encounter most frequently when auditing a new client's tenant. None require expensive tools to fix — they require configuration and attention.
+            - generic [ref=e834]:
+              - generic [ref=e835]:
+                - generic [ref=e837]: 
+                - generic [ref=e838]: Shared admin credentials
+                - generic [ref=e839]: Multiple staff using one global admin account. No accountability, no individual audit trail, no clean MFA.
+              - generic [ref=e840]:
+                - generic [ref=e842]: 
+                - generic [ref=e843]: MFA gaps on service accounts
+                - generic [ref=e844]: MFA enforced for regular users but service accounts and shared mailboxes were excluded. Attackers scan specifically for these exclusions.
+              - generic [ref=e845]:
+                - generic [ref=e847]: 
+                - generic [ref=e848]: Legacy auth still active
+                - generic [ref=e849]: An old printer or accounting integration was never modernized. Legacy auth bypasses MFA entirely for those connections.
+              - generic [ref=e850]:
+                - generic [ref=e852]: 
+                - generic [ref=e853]: SharePoint sharing open to anyone
+                - generic [ref=e854]: Default sharing settings mean files can be shared with no sign-in required. Confidential docs end up with publicly accessible URLs.
+              - generic [ref=e855]:
+                - generic [ref=e857]: 
+                - generic [ref=e858]: No mailbox audit review
+                - generic [ref=e859]: Auditing was never verified on older accounts. After a compromise, there are no logs to reconstruct what happened.
+              - generic [ref=e860]:
+                - generic [ref=e862]: 
+                - generic [ref=e863]: DKIM and DMARC missing
+                - generic [ref=e864]: SPF exists but DKIM and DMARC were never configured. The domain is used in invoice fraud attacks against the company's own clients.
+              - generic [ref=e865]:
+                - generic [ref=e867]: 
+                - generic [ref=e868]: No third-party backup
+                - generic [ref=e869]: The business assumes Microsoft backs up their data. Version history is the assumed recovery tool — until ransomware makes that irrelevant.
+              - generic [ref=e870]:
+                - generic [ref=e872]: 
+                - generic [ref=e873]: Guest accounts never reviewed
+                - generic [ref=e874]: Contractors from 12–18 months ago still have active guest access to Teams channels with current client data.
+          - generic [ref=e875]:
+            - generic [ref=e876]:
+              - generic [ref=e878]: 
+              - heading "More From the Security Hub" [level=2] [ref=e879]
+            - generic [ref=e880]:
+              - link "Hub Browse Microsoft 365 Security See the checklist, phishing guide, Conditional Access guide, and the next Microsoft 365 deep dives we are publishing." [ref=e881] [cursor=pointer]:
+                - /url: /guides/security/microsoft-365-security
+                - generic [ref=e882]: Hub
+                - generic [ref=e883]: Browse Microsoft 365 Security
+                - generic [ref=e884]: See the checklist, phishing guide, Conditional Access guide, and the next Microsoft 365 deep dives we are publishing.
+              - link "Live guide Phishing & Email Threat Defense The detailed Defender, Safe Links, Safe Attachments, and reporting workflow companion to this checklist." [ref=e885] [cursor=pointer]:
+                - /url: /guides/security/microsoft-365-security/phishing-protection
+                - generic [ref=e886]: Live guide
+                - generic [ref=e887]: Phishing & Email Threat Defense
+                - generic [ref=e888]: The detailed Defender, Safe Links, Safe Attachments, and reporting workflow companion to this checklist.
+              - link "Coming next Endpoint Hardening The security hub roadmap also includes the Windows 11 and macOS hardening guide referenced from this checklist." [ref=e889] [cursor=pointer]:
+                - /url: /guides/security#endpoint-hardening
+                - generic [ref=e890]: Coming next
+                - generic [ref=e891]: Endpoint Hardening
+                - generic [ref=e892]: The security hub roadmap also includes the Windows 11 and macOS hardening guide referenced from this checklist.
+          - generic [ref=e893]:
+            - generic [ref=e894]:
+              - generic [ref=e896]: 
+              - heading "Frequently Asked Questions" [level=2] [ref=e897]
+            - generic [ref=e898]:
+              - group [ref=e899]:
+                - generic "What is Microsoft Secure Score and what should a small business target?" [ref=e900] [cursor=pointer]
+                - generic [ref=e901]: Microsoft Secure Score is a built-in dashboard in the Microsoft 365 Defender portal that measures how well your tenant is configured against Microsoft's security recommendations. For a small business running Microsoft 365 Business Standard or Business Premium, a score between 60% and 80% represents a strong, defensible baseline. Under 30% indicates high risk and missing critical controls. Access it at security.microsoft.com → Secure Score.
+              - group [ref=e902]:
+                - generic "Do I need Microsoft 365 Business Premium for Conditional Access?" [ref=e903] [cursor=pointer]
+              - group [ref=e904]:
+                - generic "Is Microsoft 365 secure out of the box?" [ref=e905] [cursor=pointer]
+              - group [ref=e906]:
+                - generic "What does DKIM protect against and how is it different from SPF?" [ref=e907] [cursor=pointer]
+              - group [ref=e908]:
+                - generic "What does cyber insurance require from a small business?" [ref=e909] [cursor=pointer]
+              - group [ref=e910]:
+                - generic "Does Microsoft back up my emails and files in 365?" [ref=e911] [cursor=pointer]
+              - group [ref=e912]:
+                - generic "What is legacy authentication and why is it dangerous?" [ref=e913] [cursor=pointer]
+              - group [ref=e914]:
+                - generic "Do we really need MFA if we use strong passwords?" [ref=e915] [cursor=pointer]
+              - group [ref=e916]:
+                - generic "What is the difference between antivirus and endpoint detection and response (EDR)?" [ref=e917] [cursor=pointer]
+              - group [ref=e918]:
+                - generic "How much should a small business spend on cybersecurity?" [ref=e919] [cursor=pointer]
+              - group [ref=e920]:
+                - generic "What should we do immediately if we suspect a Microsoft 365 breach?" [ref=e921] [cursor=pointer]
+              - group [ref=e922]:
+                - generic "How often should we run phishing awareness training for staff?" [ref=e923] [cursor=pointer]
+          - generic [ref=e924]:
+            - generic [ref=e925]:
+              - generic [ref=e927]: 
+              - heading "Want Us to Review Your Microsoft 365 Tenant Security?" [level=2] [ref=e928]
+            - paragraph [ref=e929]: We offer a structured Microsoft 365 tenant security review for small businesses. It is not a sales call — it is a technical audit of your tenant configuration against the controls in this checklist, delivered as a written report you can act on with or without our ongoing involvement.
+            - generic [ref=e930]:
+              - generic [ref=e931]:
+                - generic [ref=e932]: 
+                - text: MFA enforcement and authentication method audit
+              - generic [ref=e933]:
+                - generic [ref=e934]: 
+                - text: Legacy authentication and Conditional Access policy review
+              - generic [ref=e935]:
+                - generic [ref=e936]: 
+                - text: Admin role and least-privilege assessment
+              - generic [ref=e937]:
+                - generic [ref=e938]: 
+                - text: SPF, DKIM, DMARC check for all sending domains
+              - generic [ref=e939]:
+                - generic [ref=e940]: 
+                - text: Anti-phishing, Safe Links, Safe Attachments configuration review
+              - generic [ref=e941]:
+                - generic [ref=e942]: 
+                - text: SharePoint and OneDrive external sharing posture
+              - generic [ref=e943]:
+                - generic [ref=e944]: 
+                - text: Mailbox forwarding rule check and audit logging verification
+              - generic [ref=e945]:
+                - generic [ref=e946]: 
+                - text: Backup coverage check and Secure Score baseline
+              - generic [ref=e947]:
+                - generic [ref=e948]: 
+                - text: Written findings report with prioritized remediation steps and licensing notes
+            - generic [ref=e949]:
+              - generic [ref=e950]:
+                - generic [ref=e951]: "1"
+                - generic [ref=e952]:
+                  - strong [ref=e953]: Day 1
+                  - text: — Read-only tenant access granted. Technical review begins.
+              - generic [ref=e954]:
+                - generic [ref=e955]: "2"
+                - generic [ref=e956]:
+                  - strong [ref=e957]: Day 2–3
+                  - text: — Written findings report delivered. Gaps ranked by severity.
+              - generic [ref=e958]:
+                - generic [ref=e959]: "3"
+                - generic [ref=e960]:
+                  - strong [ref=e961]: Day 4
+                  - text: — Optional 30-minute walkthrough of findings. No configuration changes without your authorization.
+            - generic [ref=e962]:
+              - link "Request a Free Security Assessment" [ref=e963] [cursor=pointer]:
+                - /url: /free-security-assessment
+              - text: No obligation · Typically completed in 1 business day
+          - generic [ref=e964]:
+            - heading "Next Steps" [level=2] [ref=e965]
+            - paragraph [ref=e966]: Start with the CRITICAL-tagged controls at the top of the checklist — MFA enforcement, legacy authentication blocking, admin account separation, and backup. These deliver the highest impact and are most frequently checked by cyber insurers. Then work through HIGH-rated email security and endpoint controls. Schedule a quarterly Secure Score review to catch drift.
+            - paragraph [ref=e967]: Security is a posture, not a one-time project. The practical goal for a 5–50 person business is a documented, maintainable Microsoft 365 security baseline — not perfection.
+            - complementary "Want the checklist turned into a prioritized action plan for your tenant?" [ref=e968]:
+              - generic [ref=e969]: Next step
+              - heading "Want the checklist turned into a prioritized action plan for your tenant?" [level=3] [ref=e970]
+              - paragraph [ref=e971]: We can map your current controls against this guide, highlight the fastest risk reductions, and tell you what can wait.
+              - generic [ref=e972]:
+                - link "Request a Free Security Assessment" [ref=e973] [cursor=pointer]:
+                  - /url: /free-security-assessment
+                - link "See Managed Security Service" [ref=e974] [cursor=pointer]:
+                  - /url: /security-firewall
+        - generic [ref=e976]:
+          - heading "In this guide" [level=3] [ref=e977]
+          - navigation "On-page navigation" [ref=e978]:
+            - list [ref=e979]:
+              - listitem [ref=e980]:
+                - link " Secure Score Benchmarks" [ref=e981] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#secure-score
+                  - generic [ref=e982]: 
+                  - text: Secure Score Benchmarks
+              - listitem [ref=e983]:
+                - link " 19-Point Checklist" [ref=e984] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#checklist
+                  - generic [ref=e985]: 
+                  - text: 19-Point Checklist
+              - listitem [ref=e986]:
+                - link " MFA Enforcement" [ref=e987] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#mfa
+                  - generic [ref=e988]: 
+                  - text: MFA Enforcement
+              - listitem [ref=e989]:
+                - link " Legacy Authentication" [ref=e990] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#legacy-auth
+                  - generic [ref=e991]: 
+                  - text: Legacy Authentication
+              - listitem [ref=e992]:
+                - link " Conditional Access" [ref=e993] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#conditional-access
+                  - generic [ref=e994]: 
+                  - text: Conditional Access
+              - listitem [ref=e995]:
+                - link " Admin Role Protection" [ref=e996] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#admin-protection
+                  - generic [ref=e997]: 
+                  - text: Admin Role Protection
+              - listitem [ref=e998]:
+                - link "Anti-Phishing Policies" [ref=e999] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#email-security
+                  - text: Anti-Phishing Policies
+              - listitem [ref=e1000]:
+                - link " Safe Links & Attachments" [ref=e1001] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#safe-links
+                  - generic [ref=e1002]: 
+                  - text: Safe Links & Attachments
+              - listitem [ref=e1003]:
+                - link " DKIM & DMARC" [ref=e1004] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#dkim
+                  - generic [ref=e1005]: 
+                  - text: DKIM & DMARC
+              - listitem [ref=e1006]:
+                - link " Mailbox Auditing" [ref=e1007] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#mailbox-auditing
+                  - generic [ref=e1008]: 
+                  - text: Mailbox Auditing
+              - listitem [ref=e1009]:
+                - link " External Sharing" [ref=e1010] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#sharing
+                  - generic [ref=e1011]: 
+                  - text: External Sharing
+              - listitem [ref=e1012]:
+                - link " Audit Logging & Alerts" [ref=e1013] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#monitoring
+                  - generic [ref=e1014]: 
+                  - text: Audit Logging & Alerts
+              - listitem [ref=e1015]:
+                - link " Phishing Training" [ref=e1016] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#phishing-training
+                  - generic [ref=e1017]: 
+                  - text: Phishing Training
+              - listitem [ref=e1018]:
+                - link " Endpoint Security" [ref=e1019] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#endpoint
+                  - generic [ref=e1020]: 
+                  - text: Endpoint Security
+              - listitem [ref=e1021]:
+                - link " Backup & DR" [ref=e1022] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#backup
+                  - generic [ref=e1023]: 
+                  - text: Backup & DR
+              - listitem [ref=e1024]:
+                - link " Common Gaps We Find" [ref=e1025] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#common-gaps
+                  - generic [ref=e1026]: 
+                  - text: Common Gaps We Find
+              - listitem [ref=e1027]:
+                - link " FAQ" [ref=e1028] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#faq
+                  - generic [ref=e1029]: 
+                  - text: FAQ
+              - listitem [ref=e1030]:
+                - link " Request a Tenant Review" [ref=e1031] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/microsoft-365-checklist#tenant-review
+                  - generic [ref=e1032]: 
+                  - text: Request a Tenant Review
+          - generic [ref=e1033]:
+            - generic [ref=e1034]: Related guides
+            - list [ref=e1035]:
+              - listitem [ref=e1036]:
+                - link "Microsoft 365 Security hub overview" [ref=e1037] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security
+              - listitem [ref=e1038]:
+                - link "Phishing & Email Threat Defense" [ref=e1039] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security/phishing-protection
+              - listitem [ref=e1040]:
+                - link "Rolling Out MFA Without Breaking Things" [ref=e1041] [cursor=pointer]:
+                  - /url: /guides/security/microsoft-365-security#mfa-rollout
+                - text: (Microsoft 365 Security hub, in progress)
+              - listitem [ref=e1042]:
+                - 'link "Microsoft 365 Backup: What You Actually Need" [ref=e1043] [cursor=pointer]':
+                  - /url: /guides/security/microsoft-365-security#microsoft-365-backup
+                - text: (Microsoft 365 Security hub, in progress)
+          - generic [ref=e1044]:
+            - generic [ref=e1045]: Related services
+            - list [ref=e1046]:
+              - listitem [ref=e1047]:
+                - link "Managed Security & Firewall" [ref=e1048] [cursor=pointer]:
+                  - /url: /security-firewall
+              - listitem [ref=e1049]:
+                - link "Microsoft 365 Support" [ref=e1050] [cursor=pointer]:
+                  - /url: /microsoft-365
+              - listitem [ref=e1051]:
+                - link "Cyber Insurance Readiness" [ref=e1052] [cursor=pointer]:
+                  - /url: /cyber-insurance-readiness-vaughan
+              - listitem [ref=e1053]:
+                - link "IT Crisis Recovery" [ref=e1054] [cursor=pointer]:
+                  - /url: /crisis-recovery
+          - generic [ref=e1055]:
+            - generic [ref=e1056]: Talk to a human
+            - generic [ref=e1057]: Have a question about your Microsoft 365 tenant or cyber insurance renewal? We answer plainly — no quota, no pressure.
+            - link "Book a Consultation" [ref=e1058] [cursor=pointer]:
+              - /url: /#consultation
+  - contentinfo [ref=e1059]:
+    - generic [ref=e1061]:
+      - generic [ref=e1062]:
+        - paragraph [ref=e1063]: © 2026 CtrlShift IT Services. Cybersecurity-First IT for Ontario Businesses.
+        - paragraph [ref=e1064]: Serving Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill with proactive IT support, cybersecurity, and cloud management.
+        - generic [ref=e1065]:
+          - heading "Contact Us" [level=3] [ref=e1066]
+          - link "📞 (416) 624-4841" [ref=e1067] [cursor=pointer]:
+            - /url: tel:+14166244841
+            - generic [ref=e1068]: 📞
+            - text: (416) 624-4841
+          - link "✉ info@ctrlshiftit.ca" [ref=e1069] [cursor=pointer]:
+            - /url: mailto:info@ctrlshiftit.ca
+            - generic [ref=e1070]: ✉
+            - text: info@ctrlshiftit.ca
+      - generic [ref=e1072]:
+        - heading "Service Areas" [level=3] [ref=e1073]
+        - generic [ref=e1074]:
+          - link "Managed IT Services Vaughan" [ref=e1075] [cursor=pointer]:
+            - /url: /managed-it-services-vaughan
+          - link "Managed IT Services Mississauga" [ref=e1076] [cursor=pointer]:
+            - /url: /managed-it-services-mississauga
+          - link "IT Support Vaughan" [ref=e1077] [cursor=pointer]:
+            - /url: /it-support-vaughan
+          - link "IT Support Mississauga" [ref=e1078] [cursor=pointer]:
+            - /url: /it-support-mississauga
+          - link "Cybersecurity Services Vaughan" [ref=e1079] [cursor=pointer]:
+            - /url: /cybersecurity-services-vaughan
+          - link "Cloud Services Vaughan" [ref=e1080] [cursor=pointer]:
+            - /url: /cloud-services-vaughan
+          - link "Managed IT Services Toronto" [ref=e1081] [cursor=pointer]:
+            - /url: /managed-it-services-toronto
+          - link "Managed IT Services Thornhill" [ref=e1082] [cursor=pointer]:
+            - /url: /managed-it-services-thornhill
+          - link "Managed IT Services Richmond Hill" [ref=e1083] [cursor=pointer]:
+            - /url: /managed-it-services-richmond-hill
+      - generic [ref=e1085]:
+        - heading "Services" [level=3] [ref=e1086]
+        - generic [ref=e1087]:
+          - link "Managed IT Services" [ref=e1088] [cursor=pointer]:
+            - /url: /managed-it-services
+          - link "Cybersecurity" [ref=e1089] [cursor=pointer]:
+            - /url: /security-firewall
+          - link "Microsoft 365" [ref=e1090] [cursor=pointer]:
+            - /url: /microsoft-365
+          - link "Cloud (AWS)" [ref=e1091] [cursor=pointer]:
+            - /url: /aws-infrastructure
+          - link "Disaster Recovery" [ref=e1092] [cursor=pointer]:
+            - /url: /crisis-recovery
+          - link "Network Management" [ref=e1093] [cursor=pointer]:
+            - /url: /office-networking
+          - link "IT Guides & Knowledge Base" [ref=e1094] [cursor=pointer]:
+            - /url: /guides
+          - link "Microsoft 365 Security Checklist" [ref=e1095] [cursor=pointer]:
+            - /url: /guides/security/microsoft-365-security/microsoft-365-checklist
+      - generic [ref=e1097]:
+        - heading "Industries" [level=3] [ref=e1098]
+        - generic [ref=e1099]:
+          - link "IT for Law Firms" [ref=e1100] [cursor=pointer]:
+            - /url: /it-support-law-firms-toronto
+          - link "IT for Accounting Firms" [ref=e1101] [cursor=pointer]:
+            - /url: /it-support-accounting-firms-gta
+          - link "IT for Medical Clinics" [ref=e1102] [cursor=pointer]:
+            - /url: /it-support-medical-clinics-ontario
+          - link "IT for Engineering Firms" [ref=e1103] [cursor=pointer]:
+            - /url: /it-support-engineering-firms-toronto
+          - link "IT for Small Businesses" [ref=e1104] [cursor=pointer]:
+            - /url: /it-support-small-businesses-gta
+          - link "About Us" [ref=e1105] [cursor=pointer]:
+            - /url: /about
+          - link "Blog" [ref=e1106] [cursor=pointer]:
+            - /url: /blog
+          - link "Free IT Assessment" [ref=e1107] [cursor=pointer]:
+            - /url: /it-assessment
+  - generic [ref=e1109] [cursor=pointer]: 

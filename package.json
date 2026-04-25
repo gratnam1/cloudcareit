@@ -1,14 +1,14 @@
 {
-  "name": "cloudcare-frontend",
+  "name": "ctrlshift-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "dev": "ng serve",
-    "start": "npm run build && npm run serve:ssr:cloudcare-frontend",
+    "start": "npm run build && npm run serve:ssr:ctrlshift-frontend",
     "build": "ng build && node tools/purge-css.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:cloudcare-frontend": "node dist/cloudcare-frontend/server/server.mjs",
+    "serve:ssr:ctrlshift-frontend": "node dist/ctrlshift-frontend/server/server.mjs",
     "sitemap": "node tools/generate-sitemap.js"
   },
   "prettier": {

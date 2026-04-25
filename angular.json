@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "cloudcare-frontend": {
+    "ctrlshift-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -78,10 +78,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "cloudcare-frontend:build:production"
+              "buildTarget": "ctrlshift-frontend:build:production"
             },
             "development": {
-              "buildTarget": "cloudcare-frontend:build:development"
+              "buildTarget": "ctrlshift-frontend:build:development"
             }
           },
           "defaultConfiguration": "development",

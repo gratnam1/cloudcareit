@@ -1,0 +1,5 @@
+[     192ms] [LOG] Angular is running in development mode. @ http://localhost:4200/@fs/home/kannan/plaground/cloudcareit/.angular/cache/21.2.7/cloudcare-frontend/vite/deps/chunk-7YB6YR3W.js?v=d6d89885:14400
+[     257ms] [LOG] Angular hydrated 2 component(s) and 940 node(s), 0 component(s) were skipped. Learn more at https://v21.angular.dev/guide/hydration. @ http://localhost:4200/@fs/home/kannan/plaground/cloudcareit/.angular/cache/21.2.7/cloudcare-frontend/vite/deps/chunk-7YB6YR3W.js?v=d6d89885:14400
+[   28751ms] [ERROR] Failed to load resource: the server responded with a status of 503 (Service Unavailable) @ http://localhost:4200/api/chat:0
+[  294942ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4200/api/google-reviews:0
+[  294943ms] [ERROR] Unable to load Google reviews: HttpErrorResponse @ http://localhost:4200/main.js:75

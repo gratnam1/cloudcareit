@@ -1,0 +1,8 @@
+[     169ms] [LOG] Angular is running in development mode. @ http://localhost:4200/@fs/home/kannan/plaground/cloudcareit/.angular/cache/21.2.7/cloudcare-frontend/vite/deps/chunk-7YB6YR3W.js?v=a6107ec0:14400
+[     217ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4200/api/google-reviews:0
+[     218ms] [ERROR] Unable to load Google reviews: HttpErrorResponse @ http://localhost:4200/chunk-QIKSZG5V.js:68
+[     224ms] [LOG] Angular hydrated 2 component(s) and 1033 node(s), 0 component(s) were skipped. Learn more at https://v21.angular.dev/guide/hydration. @ http://localhost:4200/@fs/home/kannan/plaground/cloudcareit/.angular/cache/21.2.7/cloudcare-frontend/vite/deps/chunk-7YB6YR3W.js?v=a6107ec0:14400
+[  208801ms] [LOG] Angular is running in development mode. @ http://localhost:4200/@fs/home/kannan/plaground/cloudcareit/.angular/cache/21.2.7/cloudcare-frontend/vite/deps/chunk-7YB6YR3W.js?v=a6107ec0:14400
+[  208847ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:4200/api/google-reviews:0
+[  208848ms] [ERROR] Unable to load Google reviews: HttpErrorResponse @ http://localhost:4200/chunk-QH3ZBZCH.js:68
+[  208853ms] [LOG] Angular hydrated 2 component(s) and 1033 node(s), 0 component(s) were skipped. Learn more at https://v21.angular.dev/guide/hydration. @ http://localhost:4200/@fs/home/kannan/plaground/cloudcareit/.angular/cache/21.2.7/cloudcare-frontend/vite/deps/chunk-7YB6YR3W.js?v=a6107ec0:14400

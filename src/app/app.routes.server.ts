@@ -19,6 +19,30 @@ const BLOG_SLUGS = [
   'managed-it-vs-break-fix-gta',
 ];
 
+const SECURITY_SUBCATEGORY_SLUGS = ['identity-attacks', 'network-attacks', 'endpoint-security'];
+
+const SECURITY_GUIDE_PARAMS = [
+  { subcategory: 'identity-attacks', guideSlug: 'password-spray-attacks' },
+  { subcategory: 'identity-attacks', guideSlug: 'token-theft-attacks' },
+  { subcategory: 'identity-attacks', guideSlug: 'legacy-authentication-risk' },
+  { subcategory: 'identity-attacks', guideSlug: 'business-email-compromise' },
+  { subcategory: 'network-attacks', guideSlug: 'ddos-attacks-small-business' },
+  { subcategory: 'network-attacks', guideSlug: 'port-scanning-risk' },
+  { subcategory: 'network-attacks', guideSlug: 'remote-exploitation-attacks' },
+  { subcategory: 'network-attacks', guideSlug: 'man-in-the-middle-attacks-small-business' },
+  { subcategory: 'network-attacks', guideSlug: 'rogue-wifi-risk' },
+  { subcategory: 'network-attacks', guideSlug: 'exposed-rdp-risk' },
+  { subcategory: 'network-attacks', guideSlug: 'firewall-misconfiguration-risk' },
+  { subcategory: 'network-attacks', guideSlug: 'vpn-attack-surface-small-business' },
+  { subcategory: 'network-attacks', guideSlug: 'dns-attack-risk-small-business' },
+  { subcategory: 'network-attacks', guideSlug: 'lateral-movement-risk' },
+  { subcategory: 'endpoint-security', guideSlug: 'edr-vs-antivirus' },
+  { subcategory: 'endpoint-security', guideSlug: 'mdr-vs-edr' },
+  { subcategory: 'endpoint-security', guideSlug: 'endpoint-isolation-explained' },
+  { subcategory: 'endpoint-security', guideSlug: 'patch-management-basics' },
+  { subcategory: 'endpoint-security', guideSlug: 'ransomware-behavior-endpoints' },
+];
+
 export const serverRoutes: ServerRoute[] = [
   // Home
   { path: '', renderMode: RenderMode.Prerender },
@@ -72,6 +96,20 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'guides/security/microsoft-365-security/conditional-access-small-business', renderMode: RenderMode.Prerender },
   { path: 'guides/security/microsoft-365-security/mfa-rollout-small-business', renderMode: RenderMode.Prerender },
   { path: 'guides/security/microsoft-365-security/microsoft-365-backup-small-business', renderMode: RenderMode.Prerender },
+  {
+    path: 'guides/security/:subcategory',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      return SECURITY_SUBCATEGORY_SLUGS.map((subcategory) => ({ subcategory }));
+    },
+  },
+  {
+    path: 'guides/security/:subcategory/:guideSlug',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      return SECURITY_GUIDE_PARAMS;
+    },
+  },
 
   // About & utility pages
   { path: 'about', renderMode: RenderMode.Prerender },

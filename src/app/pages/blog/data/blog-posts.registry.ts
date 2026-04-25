@@ -115,7 +115,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: 'ransomware-protection-toronto',
     title: 'How to Protect Your GTA Business from Ransomware in 2026',
-    seoTitle: 'Ransomware Protection for GTA SMBs',
+    seoTitle: 'Ransomware Protection for SMBs Vaughan',
     excerpt: 'The top ransomware entry vectors targeting Ontario SMBs and the exact controls that stop them — endpoint detection, zero-trust access, and tested backups.',
     date: '2026-03-13',
     tags: ['Ransomware', 'Security', 'GTA']

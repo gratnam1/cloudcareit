@@ -1,70 +1,460 @@
-<section class="service-detail-page py-5 guides-hub">
-  <div class="container" style="max-width: 1120px;">
-    <nav class="guide-breadcrumb mb-4" aria-label="Breadcrumb">
-      <ol class="guide-breadcrumb-list">
-        <li><a routerLink="/">Home</a></li>
-        <li aria-hidden="true" class="guide-breadcrumb-sep">/</li>
-        <li><a routerLink="/guides">Guides</a></li>
-        <li aria-hidden="true" class="guide-breadcrumb-sep">/</li>
-        <li><a routerLink="/guides/security">Security</a></li>
-        <li aria-hidden="true" class="guide-breadcrumb-sep">/</li>
-        <li aria-current="page"><span class="guide-breadcrumb-current">{{ hub.breadcrumbLabel }}</span></li>
+<div class="reading-progress-track">
+  <div id="reading-progress" class="reading-progress-bar"></div>
+</div>
+
+<section class="service-detail-page py-5 guides-security guides-hub">
+  <div class="container py-5">
+    <nav class="breadcrumb-nav mb-4" aria-label="Breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides">Guides</a></li>
+        <li class="breadcrumb-item"><a routerLink="/guides/security">Security</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ hub.breadcrumbLabel }}</li>
       </ol>
     </nav>
 
-    <header class="mb-5">
-      <h1 class="fw-bold mb-3" style="font-size: clamp(2rem, 4vw, 2.75rem); line-height: 1.15;">
-        {{ hub.title }}
-      </h1>
-      <p class="lead text-secondary mb-0" style="max-width: 56rem;">
-        {{ hub.description }}
-      </p>
-    </header>
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-8">
+        <header class="guide-hero-card bg-white rounded-4 shadow-sm p-4 p-md-5">
+          <div class="guide-hero-grid">
+            <div>
+              <div class="guide-eyebrow mb-3">{{ content.eyebrow }}</div>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="section-icon-badge badge-primary">
+                  <i class="bi bi-shield-lock" aria-hidden="true"></i>
+                </div>
+                <h1 class="fw-bold display-6 mb-0">{{ content.title }}</h1>
+              </div>
 
-    <div class="guides-hub-grid">
-      <ng-container *ngFor="let guide of hub.guides">
-        <a
-          *ngIf="guide.available"
-          [routerLink]="guide.path"
-          [attr.id]="guide.id"
-          class="guide-card guide-card-available"
-          [attr.aria-label]="guide.title + ' guide - available now'"
-        >
-          <div class="guide-card-top">
-            <span class="guide-card-icon" aria-hidden="true"><i class="bi" [ngClass]="guide.icon"></i></span>
-            <span class="guide-card-status guide-card-status-live">Live</span>
+              <p class="text-muted lead mb-4">{{ content.subtitle }}</p>
+              <p *ngFor="let paragraph of content.intro" class="text-muted mb-3">{{ paragraph }}</p>
+
+              <div class="identity-stat-strip" *ngIf="content.heroStats?.length">
+                <div *ngFor="let stat of content.heroStats" class="identity-stat">
+                  <span>{{ stat.value }}</span>
+                  <small>{{ stat.label }}</small>
+                </div>
+              </div>
+            </div>
+
+            <figure class="identity-command-visual" *ngIf="hub.slug === 'identity-attacks'" aria-label="Identity attack monitoring illustration">
+              <div class="visual-grid" aria-hidden="true"></div>
+              <div class="visual-orbit visual-orbit-one" aria-hidden="true"></div>
+              <div class="visual-orbit visual-orbit-two" aria-hidden="true"></div>
+              <div class="identity-core">
+                <i class="bi bi-person-badge" aria-hidden="true"></i>
+                <span>Identity</span>
+              </div>
+              <div class="identity-orbit-node node-mail">
+                <i class="bi bi-envelope-exclamation" aria-hidden="true"></i>
+                <span>Phish</span>
+              </div>
+              <div class="identity-orbit-node node-token">
+                <i class="bi bi-key" aria-hidden="true"></i>
+                <span>Token</span>
+              </div>
+              <div class="identity-orbit-node node-admin">
+                <i class="bi bi-person-lock" aria-hidden="true"></i>
+                <span>Admin</span>
+              </div>
+              <div class="identity-orbit-node node-bec">
+                <i class="bi bi-bank" aria-hidden="true"></i>
+                <span>BEC</span>
+              </div>
+              <svg class="identity-signal-lines" viewBox="0 0 360 260" role="img" aria-labelledby="identity-signal-title">
+                <title id="identity-signal-title">Account compromise paths converging on identity controls</title>
+                <path class="signal-line signal-one" d="M58 62 C108 82 132 122 178 132" />
+                <path class="signal-line signal-two" d="M302 70 C250 86 226 112 184 132" />
+                <path class="signal-line signal-three" d="M66 203 C116 182 142 158 180 137" />
+                <path class="signal-line signal-four" d="M300 202 C254 176 226 154 184 137" />
+              </svg>
+            </figure>
           </div>
-          <h2 class="guide-card-title">{{ guide.title }}</h2>
-          <p class="guide-card-summary">{{ guide.summary }}</p>
-          <span class="guide-card-cta">
-            Read guide <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
-          </span>
-        </a>
 
-        <div
-          *ngIf="!guide.available"
-          [attr.id]="guide.id"
-          class="guide-card guide-card-soon"
-          [attr.aria-label]="guide.title + ' guide - coming soon'"
-        >
-          <div class="guide-card-top">
-            <span class="guide-card-icon" aria-hidden="true"><i class="bi" [ngClass]="guide.icon"></i></span>
-            <span class="guide-card-status guide-card-status-soon">Soon</span>
+          <div class="border rounded-4 p-3 bg-light mt-4">
+            <div class="row g-3">
+              <div *ngFor="let item of content.meta" class="col-md-6">
+                <div class="fw-bold small text-uppercase text-muted">{{ item.label }}</div>
+                <div>{{ item.value }}</div>
+              </div>
+            </div>
           </div>
-          <h2 class="guide-card-title">{{ guide.title }}</h2>
-          <p class="guide-card-summary">{{ guide.summary }}</p>
-          <span class="guide-card-cta guide-card-cta-muted">In progress</span>
-        </div>
-      </ng-container>
-    </div>
 
-    <section class="mt-5 pt-4 border-top border-secondary-subtle" *ngIf="hub.relatedLinks.length">
-      <h2 class="fw-semibold mb-3" style="font-size: 1.25rem;">Related security guides</h2>
-      <div class="related-link-row">
-        <a *ngFor="let link of hub.relatedLinks" [routerLink]="link.path" class="related-guide-link">
-          {{ link.title }} <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
-        </a>
+          <aside class="guide-cta-card guide-cta-card-primary mt-4 mb-0" aria-labelledby="intro-cta-title">
+            <div class="guide-cta-eyebrow">Security Risk Review</div>
+            <h2 class="guide-cta-title h5 fw-bold mb-2" id="intro-cta-title">{{ content.ctaTitle }}</h2>
+            <p class="guide-cta-copy mb-0">{{ content.ctaCopy }}</p>
+            <div class="guide-cta-actions">
+              <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+                Book a Security Risk Review
+              </a>
+            </div>
+          </aside>
+        </header>
+
+        <nav class="bg-white rounded-4 shadow-sm p-4 mt-4 d-lg-none" aria-labelledby="quick-jump-title">
+          <h2 class="h6 fw-bold mb-3" id="quick-jump-title">Jump to the sections that matter most</h2>
+          <div class="guide-jump-grid">
+            <a *ngFor="let link of content.quickLinks" class="guide-jump-link" routerLink="." [fragment]="link.fragment">
+              {{ link.label }}
+            </a>
+          </div>
+        </nav>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="who-for">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-people-fill" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Who this guide is for</h2>
+          </div>
+          <div class="hub-card-grid animate-on-scroll">
+            <div *ngFor="let item of content.whoFor" class="hub-info-card">
+              <div class="hub-card-icon"><i class="bi" [ngClass]="item.icon" aria-hidden="true"></i></div>
+              <h3 class="h6 fw-bold mb-2">{{ item.title }}</h3>
+              <p class="text-muted small mb-0">{{ item.description }}</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="plain-english">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-lightbulb-fill" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">{{ content.explanationTitle }}</h2>
+          </div>
+          <p *ngFor="let paragraph of content.explanation" class="text-muted mb-3">{{ paragraph }}</p>
+        </section>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="scenario">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-building-exclamation" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">{{ content.scenarioTitle }}</h2>
+          </div>
+          <div class="scenario-panel animate-on-scroll">
+            <p *ngFor="let paragraph of content.scenario" class="mb-3">{{ paragraph }}</p>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="attack-paths">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-diagram-3-fill" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">{{ content.flowTitle }}</h2>
+          </div>
+          <p class="text-muted mb-4">{{ content.flowSubtitle }}</p>
+          <div class="attack-chain-wrap animate-on-scroll">
+            <div class="attack-chain">
+              <ng-container *ngFor="let step of content.flow; let last = last">
+                <div class="chain-node">
+                  <div class="chain-icon-wrap"><i class="bi" [ngClass]="step.icon" aria-hidden="true"></i></div>
+                  <div class="chain-text">
+                    <div class="fw-bold small">{{ step.title }}</div>
+                    <div class="chain-sub">{{ step.description }}</div>
+                  </div>
+                </div>
+                <div *ngIf="!last" class="chain-arrow"><i class="bi bi-arrow-right" aria-hidden="true"></i></div>
+              </ng-container>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="threat-table">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-table" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">{{ content.tableTitle }}</h2>
+          </div>
+          <p class="text-muted mb-4">{{ content.tableIntro }}</p>
+          <div class="threat-map animate-on-scroll">
+            <section *ngFor="let group of groupedThreatRows" class="threat-group" [attr.aria-label]="group.group">
+              <div class="threat-group-label">{{ group.group }}</div>
+              <div class="threat-card-grid">
+                <ng-container *ngFor="let row of group.rows">
+                <a
+                  *ngIf="row.path; else staticThreatCard"
+                  class="threat-path-card"
+                  [routerLink]="row.path"
+                  [attr.aria-label]="'Read the ' + row.threat + ' guide'"
+                >
+                  <span class="threat-icon" aria-hidden="true">
+                    <i class="bi" [ngClass]="row.icon || 'bi-arrow-right-circle'"></i>
+                  </span>
+                  <span class="threat-card-body">
+                    <span class="threat-title">
+                      {{ row.threat }}
+                      <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </span>
+                    <span class="threat-detail">
+                      <strong>Shows up as:</strong> {{ row.howItShowsUp }}
+                    </span>
+                    <span class="threat-detail">
+                      <strong>Business impact:</strong> {{ row.businessImpact }}
+                    </span>
+                    <span class="threat-control">
+                      <strong>First control:</strong> {{ row.firstControl }}
+                    </span>
+                  </span>
+                </a>
+                <ng-template #staticThreatCard>
+                  <article class="threat-path-card threat-path-card-static">
+                    <span class="threat-icon" aria-hidden="true">
+                      <i class="bi" [ngClass]="row.icon || 'bi-shield-exclamation'"></i>
+                    </span>
+                    <span class="threat-card-body">
+                      <span class="threat-title">
+                        {{ row.threat }}
+                        <span class="threat-static-label">Risk area</span>
+                      </span>
+                      <span class="threat-detail">
+                        <strong>Shows up as:</strong> {{ row.howItShowsUp }}
+                      </span>
+                      <span class="threat-detail">
+                        <strong>Business impact:</strong> {{ row.businessImpact }}
+                      </span>
+                      <span class="threat-control">
+                        <strong>First control:</strong> {{ row.firstControl }}
+                      </span>
+                    </span>
+                  </article>
+                </ng-template>
+                </ng-container>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="guides">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-journal-richtext" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Deep-dive guides in this section</h2>
+          </div>
+          <div class="guides-hub-grid">
+            <a
+              *ngFor="let guide of hub.guides"
+              [routerLink]="guide.path"
+              [attr.id]="guide.id"
+              class="guide-card guide-card-available"
+              [attr.aria-label]="guide.title + ' guide'"
+            >
+              <div class="guide-card-top">
+                <span class="guide-card-icon" aria-hidden="true"><i class="bi" [ngClass]="guide.icon"></i></span>
+                <span class="guide-card-status guide-card-status-live">Guide</span>
+              </div>
+              <h3 class="guide-card-title">{{ guide.title }}</h3>
+              <p class="guide-card-summary">{{ guide.summary }}</p>
+              <span class="guide-card-cta">
+                Read guide <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="warning-signs">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Warning signs and red flags</h2>
+          </div>
+          <div class="hub-check-grid animate-on-scroll">
+            <div *ngFor="let item of content.warningSigns" class="hub-check-card">
+              <i class="bi" [ngClass]="item.icon" aria-hidden="true"></i>
+              <div>
+                <h3 class="h6 fw-bold mb-1">{{ item.title }}</h3>
+                <p class="text-muted small mb-0">{{ item.description }}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="first-steps">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-card-checklist" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">What to do first</h2>
+          </div>
+          <div class="action-list animate-on-scroll">
+            <div *ngFor="let item of content.firstSteps" class="action-row">
+              <div class="action-icon"><i class="bi" [ngClass]="item.icon" aria-hidden="true"></i></div>
+              <div>
+                <h3 class="h6 fw-bold mb-1">{{ item.title }}</h3>
+                <p class="text-muted mb-0">{{ item.description }}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          *ngIf="content.responseSteps?.length"
+          class="response-runbook bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4"
+          id="response-runbook"
+        >
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-red">
+              <i class="bi bi-stopwatch-fill" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h2 class="h4 fw-bold mb-1">Suspected account compromise runbook</h2>
+              <p class="text-muted mb-0">Use this when an account, mailbox, MFA method, or payment thread looks wrong.</p>
+            </div>
+          </div>
+          <div class="response-timeline animate-on-scroll">
+            <article *ngFor="let item of content.responseSteps" class="response-step">
+              <div class="response-icon"><i class="bi" [ngClass]="item.icon" aria-hidden="true"></i></div>
+              <div>
+                <h3 class="h6 fw-bold mb-1">{{ item.title }}</h3>
+                <p class="text-muted mb-0">{{ item.description }}</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="mistakes">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-orange">
+              <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Common mistakes</h2>
+          </div>
+          <div class="hub-card-grid animate-on-scroll">
+            <div *ngFor="let item of content.mistakes" class="hub-info-card mistake-card">
+              <div class="hub-card-icon"><i class="bi" [ngClass]="item.icon" aria-hidden="true"></i></div>
+              <h3 class="h6 fw-bold mb-2">{{ item.title }}</h3>
+              <p class="text-muted small mb-0">{{ item.description }}</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="controls">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-primary">
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Recommended controls</h2>
+          </div>
+          <div class="defense-stack animate-on-scroll">
+            <div *ngFor="let item of content.controls" class="defense-layer">
+              <div class="dl-icon"><i class="bi" [ngClass]="item.icon" aria-hidden="true"></i></div>
+              <div class="dl-content">
+                <div class="dl-title">{{ item.title }}</div>
+                <div class="dl-controls">{{ item.description }}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section *ngIf="content.licenseTiers?.length" class="licensing-path bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="licensing-path">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-layers-fill" aria-hidden="true"></i>
+            </div>
+            <div>
+              <h2 class="h4 fw-bold mb-1">Practical Microsoft 365 licensing path</h2>
+              <p class="text-muted mb-0">Identity controls depend on licensing, so the right path should match risk and budget.</p>
+            </div>
+          </div>
+          <div class="license-grid animate-on-scroll">
+            <article *ngFor="let tier of content.licenseTiers" class="license-card">
+              <h3 class="h6 fw-bold">{{ tier.title }}</h3>
+              <p class="text-muted small">{{ tier.fit }}</p>
+              <ul class="license-list">
+                <li *ngFor="let control of tier.controls">
+                  <i class="bi bi-check2-circle" aria-hidden="true"></i>
+                  <span>{{ control }}</span>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="related-guides">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-indigo">
+              <i class="bi bi-link-45deg" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">Related guides</h2>
+          </div>
+          <div class="related-link-row">
+            <a routerLink="/guides/security" class="related-guide-link">
+              All small business security guides <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+            </a>
+            <a routerLink="/guides/security/microsoft-365-security" class="related-guide-link">
+              Microsoft 365 Security hub <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+            </a>
+            <a routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist" class="related-guide-link">
+              Microsoft 365 Security Checklist <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+            </a>
+            <a *ngFor="let link of uniqueHubRelatedLinks" [routerLink]="link.path" class="related-guide-link">
+              {{ link.title }} <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+            </a>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-4 shadow-sm p-4 p-md-5 mt-4" id="faq">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="section-icon-badge badge-teal">
+              <i class="bi bi-question-circle-fill" aria-hidden="true"></i>
+            </div>
+            <h2 class="h4 fw-bold mb-0">FAQ</h2>
+          </div>
+          <div class="faq-list">
+            <details *ngFor="let item of content.faqs" class="faq-item">
+              <summary>{{ item.q }}</summary>
+              <p>{{ item.a }}</p>
+            </details>
+          </div>
+        </section>
+
+        <aside class="guide-cta-card guide-cta-card-primary mt-4" aria-labelledby="final-cta-title">
+          <div class="guide-cta-eyebrow">CtrlShift IT Services</div>
+          <h2 class="guide-cta-title h5 fw-bold mb-2" id="final-cta-title">Book a Security Risk Review</h2>
+          <p class="guide-cta-copy mb-0">
+            We’ll review your Microsoft 365 security settings, endpoint protection, remote access exposure,
+            backup readiness, and identity controls.
+          </p>
+          <div class="guide-cta-actions">
+            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/free-security-assessment">
+              Book a Security Risk Review
+            </a>
+          </div>
+        </aside>
       </div>
-    </section>
+
+      <aside class="col-lg-4 d-none d-lg-block">
+        <div class="sticky-top guide-sidebar" style="top: 1.5rem;">
+          <div class="bg-white rounded-4 shadow-sm p-4">
+            <h2 class="h6 fw-bold mb-3">On this page</h2>
+            <div class="guide-jump-grid guide-jump-grid-sidebar">
+              <a *ngFor="let link of content.quickLinks" class="guide-jump-link" routerLink="." [fragment]="link.fragment">
+                {{ link.label }}
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-4 shadow-sm p-4 mt-4">
+            <h2 class="h6 fw-bold mb-3">Security services</h2>
+            <p class="text-muted small">
+              Practical security-first managed IT support for GTA small businesses, clinics, law firms,
+              accounting firms, and professional offices.
+            </p>
+            <a routerLink="/security-firewall" class="sidebar-link">
+              Security &amp; firewall services <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+            </a>
+            <a routerLink="/free-security-assessment" class="sidebar-link">
+              Free security assessment <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
   </div>
 </section>

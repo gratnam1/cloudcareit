@@ -1,8 +1,14 @@
-import { Component, OnDestroy, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnDestroy, AfterViewInit, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SeoService } from '../../../../shared/seo/seo.service';
-import { SecurityHub, findSecurityHubBySlug } from '../security-guide-data';
+import {
+  SecurityHub,
+  SecurityHubRichContent,
+  SecurityHubTableRow,
+  findSecurityHubBySlug,
+  findSecurityHubRichContentBySlug
+} from '../security-guide-data';
 
 const BASE_URL = 'https://ctrlshiftit.ca';
 
@@ -13,11 +19,42 @@ const BASE_URL = 'https://ctrlshiftit.ca';
   templateUrl: './security-subcategory-hub.component.html',
   styleUrls: ['./security-subcategory-hub.component.css']
 })
-export class SecuritySubcategoryHubComponent implements OnDestroy {
+export class SecuritySubcategoryHubComponent implements OnDestroy, AfterViewInit {
   private route = inject(ActivatedRoute);
   private seo = inject(SeoService);
+  private platformId = inject(PLATFORM_ID);
 
   readonly hub: SecurityHub;
+  readonly content: SecurityHubRichContent;
+  readonly faqSchemaId: string;
+
+  private scrollHandler?: () => void;
+  private observer?: IntersectionObserver;
+
+  get groupedThreatRows(): ReadonlyArray<{ group: string; rows: ReadonlyArray<SecurityHubTableRow> }> {
+    const groups = new Map<string, SecurityHubTableRow[]>();
+    this.content.tableRows.forEach((row) => {
+      const group = row.group ?? 'Key areas';
+      const rows = groups.get(group) ?? [];
+      rows.push(row);
+      groups.set(group, rows);
+    });
+    return Array.from(groups, ([group, rows]) => ({ group, rows }));
+  }
+
+  get uniqueHubRelatedLinks() {
+    const fixedPaths = new Set([
+      '/guides/security',
+      '/guides/security/microsoft-365-security',
+      '/guides/security/microsoft-365-security/microsoft-365-checklist'
+    ]);
+    const seen = new Set<string>();
+    return this.hub.relatedLinks.filter((link) => {
+      if (fixedPaths.has(link.path) || seen.has(link.path)) return false;
+      seen.add(link.path);
+      return true;
+    });
+  }
 
   constructor() {
     const slug = this.route.snapshot.paramMap.get('subcategory');
@@ -27,7 +64,14 @@ export class SecuritySubcategoryHubComponent implements OnDestroy {
       throw new Error(`Unknown security guide hub: ${slug}`);
     }
 
+    const content = findSecurityHubRichContentBySlug(slug);
+    if (!content) {
+      throw new Error(`Unknown security guide hub content: ${slug}`);
+    }
+
     this.hub = hub;
+    this.content = content;
+    this.faqSchemaId = `${hub.schemaId}-faq`;
 
     this.seo.update({
       title: hub.metaTitle,
@@ -60,6 +104,17 @@ export class SecuritySubcategoryHubComponent implements OnDestroy {
         }))
     });
 
+    this.seo.setStructuredData(this.faqSchemaId, {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      '@id': `${BASE_URL}${hub.path}#faq`,
+      mainEntity: content.faqs.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a }
+      }))
+    });
+
     this.seo.setStructuredData(hub.breadcrumbSchemaId, {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
@@ -77,8 +132,95 @@ export class SecuritySubcategoryHubComponent implements OnDestroy {
     });
   }
 
+  ngAfterViewInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+    this.initReadingProgress();
+    this.initScrollAnimations();
+    void this.initGuideMotion();
+  }
+
+  private initReadingProgress(): void {
+    const bar = document.getElementById('reading-progress');
+    if (!bar) return;
+    this.scrollHandler = () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      const pct = total > 0 ? Math.min(100, (scrolled / total) * 100) : 0;
+      bar.style.width = `${pct}%`;
+    };
+    window.addEventListener('scroll', this.scrollHandler, { passive: true });
+    this.scrollHandler();
+  }
+
+  private initScrollAnimations(): void {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            this.observer?.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => this.observer?.observe(el));
+  }
+
+  private async initGuideMotion(): Promise<void> {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealTargets = Array.from(
+      document.querySelectorAll<HTMLElement>('.guide-hero-card, .identity-command-visual, .threat-path-card, .response-step, .license-card')
+    );
+
+    if (reduceMotion || revealTargets.length === 0) {
+      revealTargets.forEach((target) => target.classList.add('guide-motion-ready'));
+      return;
+    }
+
+    const { gsap } = await import('gsap');
+    const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from('.identity-command-visual', {
+      autoAlpha: 0,
+      scale: 0.96,
+      y: 18,
+      duration: 0.75,
+      ease: 'power3.out'
+    });
+
+    gsap.from('.identity-orbit-node, .signal-line', {
+      autoAlpha: 0,
+      scale: 0.9,
+      y: 10,
+      duration: 0.55,
+      ease: 'power2.out',
+      stagger: 0.08,
+      delay: 0.12
+    });
+
+    ScrollTrigger.batch('.threat-path-card, .response-step, .license-card', {
+      start: 'top 86%',
+      once: true,
+      onEnter: (batch: Element[]) => {
+        gsap.fromTo(
+          batch,
+          { autoAlpha: 0, y: 18 },
+          { autoAlpha: 1, y: 0, duration: 0.55, ease: 'power2.out', stagger: 0.06 }
+        );
+      }
+    });
+  }
+
   ngOnDestroy(): void {
     this.seo.removeStructuredData(this.hub.schemaId);
     this.seo.removeStructuredData(this.hub.breadcrumbSchemaId);
+    this.seo.removeStructuredData(this.faqSchemaId);
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.scrollHandler) window.removeEventListener('scroll', this.scrollHandler);
+      this.observer?.disconnect();
+    }
   }
 }

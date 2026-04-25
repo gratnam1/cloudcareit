@@ -18,6 +18,15 @@ interface SecurityHowTo {
 
 const HOWTOS: ReadonlyArray<SecurityHowTo> = [
   {
+    id: 'gta-business',
+    title: 'GTA Small Business Cybersecurity Checklist',
+    summary:
+      'A practical 10-point security baseline for offices in Vaughan, Toronto, and Mississauga. Covering MFA, EDR, backups, and local compliance realities.',
+    icon: 'bi-check2-all',
+    path: '/guides/security/gta-business',
+    available: true
+  },
+  {
     id: 'microsoft-365-security',
     title: 'Microsoft 365 Security',
     summary:

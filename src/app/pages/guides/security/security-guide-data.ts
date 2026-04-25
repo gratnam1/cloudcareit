@@ -170,6 +170,33 @@ const MICROSOFT_365_RELATED_LINKS: ReadonlyArray<SecurityGuideLink> = [
 
 export const SECURITY_HUBS: ReadonlyArray<SecurityHub> = [
   {
+    slug: 'gta-business',
+    path: '/guides/security/gta-business',
+    title: 'GTA Small Business Cybersecurity Checklist',
+    description:
+      'A practical 10-point security baseline for offices in Vaughan, Toronto, and Mississauga. Covering MFA, EDR, backups, and local compliance.',
+    metaTitle: 'Cybersecurity Checklist for GTA Small Businesses | CtrlShift IT Services',
+    metaDescription:
+      'A practical 10-point security baseline for offices in Vaughan, Toronto, and Mississauga. Covering MFA, EDR, backups, and local compliance.',
+    breadcrumbLabel: 'GTA Business Security',
+    schemaId: 'guides-security-gta-business-collection',
+    breadcrumbSchemaId: 'guides-security-gta-business-breadcrumb',
+    relatedLinks: [
+      { title: 'All small business cybersecurity guides', path: '/guides/security' },
+      { title: 'Microsoft 365 security checklist', path: '/guides/security/microsoft-365-security/microsoft-365-checklist' }
+    ],
+    guides: [
+      {
+        id: 'gta-small-business-cybersecurity-checklist',
+        title: 'Cybersecurity Checklist for GTA Small Businesses',
+        summary: 'The 10-point security baseline every professional office in the GTA should have active.',
+        icon: 'bi-check2-all',
+        path: '/guides/security/gta-business/gta-small-business-cybersecurity-checklist',
+        available: true
+      }
+    ]
+  },
+  {
     slug: 'identity-attacks',
     path: '/guides/security/identity-attacks',
     title: 'Identity Attacks: How Small Businesses Get Compromised',
@@ -2441,6 +2468,85 @@ export const SECURITY_STARTER_GUIDES: ReadonlyArray<SecurityStarterGuide> = [
 
 export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = [
   {
+    slug: 'gta-small-business-cybersecurity-checklist',
+    eyebrow: 'Local Business Security',
+    title: 'Cybersecurity Checklist for GTA Small Businesses',
+    subtitle: 'A practical 10-point security baseline for offices in Vaughan, Toronto, and Mississauga.',
+    intro: [
+      'Small businesses in the Greater Toronto Area are increasingly targets for automated ransomware and phishing campaigns. Unlike large enterprises, most SMBs lack a dedicated security team.',
+      'This checklist provides a senior-engineer-vetted baseline for professional offices (law firms, clinics, accounting practices) to protect their data, reputation, and client trust.'
+    ],
+    meta: [
+      { label: 'Target Audience', value: 'GTA Small Business Owners' },
+      { label: 'Time to Review', value: '15 Minutes' },
+      { label: 'Cost to Implement', value: 'Low to Medium' },
+      { label: 'Last Updated', value: 'April 2026' }
+    ],
+    quickLinks: [
+      { label: 'The 10-Point Checklist', fragment: 'checklist' },
+      { label: 'Vaughan/Toronto Compliance', fragment: 'compliance' },
+      { label: 'Next Steps', fragment: 'next-steps' }
+    ],
+    whoFor: [
+      { title: 'Law Firms', description: 'Protecting client confidentiality and meeting Law Society of Ontario guidance.', icon: 'bi-bank' },
+      { title: 'Medical Clinics', description: 'Ensuring PHIPA compliance and protecting sensitive patient records.', icon: 'bi-hospital' },
+      { title: 'Accounting Firms', description: 'Securing financial data and meeting CRA record-keeping expectations.', icon: 'bi-calculator' }
+    ],
+    explanationTitle: 'Why GTA Businesses are Targeted',
+    explanation: [
+      'Cybercriminals often target businesses in prosperous hubs like Vaughan and Toronto because they assume these offices handle high-value transactions but have weaker IT defenses than major banks.',
+      'A single breach can cost a GTA small business an average of $50,000 in recovery costs, lost billable hours, and reputational damage.'
+    ],
+    scenarioTitle: 'A Typical Local Attack Scenario',
+    scenario: [
+      'An office manager at a Vaughan engineering firm receives a "missed invoice" email. They click a link, enter their Microsoft 365 credentials on a fake login page, and within 2 hours, the attacker has set up email forwarding rules to intercept client payments.',
+      'Without MFA or sign-in monitoring, this breach often goes unnoticed for weeks until a client reports a payment issue.'
+    ],
+    flowTitle: 'The 10-Point Security Baseline',
+    flowSubtitle: 'Every GTA professional office should have these controls active.',
+    flow: [
+      { title: 'Enforce MFA', description: 'Multi-Factor Authentication on all email and remote access accounts.', icon: 'bi-shield-lock' },
+      { title: 'EDR Monitoring', description: 'Replace basic antivirus with Endpoint Detection and Response (like Huntress).', icon: 'bi-cpu' },
+      { title: 'Managed Backups', description: 'Encrypted daily backups with a tested 4-hour recovery target.', icon: 'bi-cloud-arrow-up' },
+      { title: 'Email Hardening', description: 'DKIM, SPF, and DMARC records correctly configured to prevent spoofing.', icon: 'bi-envelope-check' },
+      { title: 'Zero-Trust Access', description: 'Removing legacy VPNs in favor of secure access like Tailscale or Twingate.', icon: 'bi-lock' },
+      { title: 'Automatic Patching', description: 'Windows and third-party apps updated automatically within 48 hours.', icon: 'bi-arrow-repeat' },
+      { title: 'Device Encryption', description: 'BitLocker active on all company laptops to protect lost/stolen hardware.', icon: 'bi-laptop' },
+      { title: 'Least Privilege', description: 'Staff should not have "Local Admin" rights on their workstations.', icon: 'bi-person-badge' },
+      { title: 'Security Awareness', description: 'Short, monthly training for staff on identifying modern phishing.', icon: 'bi-people' },
+      { title: 'Incident Plan', description: 'A documented list of who to call when a breach is suspected.', icon: 'bi-file-earmark-text' }
+    ],
+    tableTitle: 'Local Compliance Realities',
+    tableIntro: 'How this checklist aligns with Ontario and Federal requirements.',
+    tableRows: [
+      { threat: 'PIPEDA / PHIPA', howItShowsUp: 'Data Privacy Laws', businessImpact: 'Fines & Liability', firstControl: 'Encryption & MFA' },
+      { threat: 'Law Society (LSO)', howItShowsUp: 'Tech Competence Guidance', businessImpact: 'Professional Discipline', firstControl: 'Access Controls' },
+      { threat: 'Cyber Insurance', howItShowsUp: 'Policy Renewals', businessImpact: 'Loss of Coverage', firstControl: 'EDR & Backups' }
+    ],
+    warningSigns: [
+      { title: 'Slow Performance', description: 'Unexpected slowdowns can indicate background crypto-mining or data exfiltration.', icon: 'bi-speedometer' },
+      { title: 'Unknown Logins', description: 'Sign-in alerts from locations like Russia, China, or even other Canadian cities.', icon: 'bi-geo-alt' }
+    ],
+    firstSteps: [
+      { title: 'Audit Your MFA', description: 'Verify that every single user has MFA enabled — no exceptions.', icon: 'bi-check2-circle' },
+      { title: 'Test a Restore', description: 'Dont assume backups work. Attempt to restore one folder today.', icon: 'bi-cloud-download' }
+    ],
+    mistakes: [
+      { title: 'The Antivirus Myth', description: 'Traditional antivirus cannot stop modern ransomware. You need EDR.', icon: 'bi-x-circle' },
+      { title: 'Ignoring Mobile', description: 'Staff accessing email on unsecured personal phones is a major risk.', icon: 'bi-phone' }
+    ],
+    controls: [
+      { title: 'Huntress EDR', description: 'Our preferred tool for 24/7 human-backed threat hunting.', icon: 'bi-shield-shaded' },
+      { title: 'Fortinet NGFW', description: 'Enterprise-grade firewall protection for the office perimeter.', icon: 'bi-router' }
+    ],
+    ctaTitle: 'Not sure where your office stands?',
+    ctaCopy: 'Book a free 15-minute Security Risk Review. We will audit your top 3 risks and provide a clear remediation path.',
+    faqs: [
+      { q: 'Is this checklist enough for cyber insurance?', a: 'It covers the primary requirements (MFA, EDR, Backups), but every insurer has specific nuances we can help you navigate.' },
+      { q: 'We are already in the cloud, do we need this?', a: 'Yes. Cloud providers secure the infrastructure, but you are responsible for securing your data and identities within it.' }
+    ]
+  },
+  {
     slug: 'identity-attacks',
     eyebrow: 'Identity Security Guide',
     title: 'Identity Attacks: How Small Businesses Get Compromised',
@@ -4089,3 +4195,4 @@ export function findSecurityGuideBySlug(
   );
   return guide ? mergeGuideExpansion(guide) : undefined;
 }
+

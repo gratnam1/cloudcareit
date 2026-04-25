@@ -29,6 +29,9 @@ type LocationContent = {
   sameAs?: string[];
   supportContext?: string;
   supportContextPoints?: string[];
+  localTestimonial?: { quote: string; author: string; company: string };
+  citySpecificChallenges?: { title: string; description: string }[];
+  neighborhoodFocus?: { heading: string; body: string };
 };
 
 @Component({
@@ -64,6 +67,7 @@ export class LocationComponent implements OnInit, OnDestroy {
   mapImage = '';
   supportContext = '';
   supportContextPoints: string[] = [];
+  content!: LocationContent;
   readonly hubPagePath = '/managed-it-services';
   readonly hubPageLabel = 'Managed IT Services';
   readonly coreServiceLinks: LinkItem[] = [
@@ -169,7 +173,26 @@ export class LocationComponent implements OnInit, OnDestroy {
         'Multi-location IT management for Toronto headquarters with satellite offices across the GTA',
         'Response coverage: 15-minute remote triage target for Growth/Business clients with on-site dispatch to the Financial District, North York, Midtown, and the downtown core',
         'Security-first managed IT — Huntress EDR, MFA, conditional access, and encrypted Canadian-region backups'
-      ]
+      ],
+      neighborhoodFocus: {
+        heading: 'Financial District & Downtown Hubs',
+        body: 'We specialize in supporting multi-tenant offices in dense towers like those on Bay Street and Adelaide. We navigate complex ISP handoffs and multi-floor Wi-Fi mesh setups that generic IT companies struggle with.'
+      },
+      citySpecificChallenges: [
+        {
+          title: 'High-Density Wi-Fi Interference',
+          description: 'Bay Street towers are crowded with wireless signals. We use spectrum analysis to design stable Wi-Fi that does not drop during client meetings.'
+        },
+        {
+          title: 'Regulatory Compliance (Law/Finance)',
+          description: 'We harden Microsoft 365 to meet the strict data residency and security standards required for Toronto legal and financial firms.'
+        }
+      ],
+      localTestimonial: {
+        quote: 'CtrlShift IT transformed our hybrid office setup. We now have seamless, secure access between our downtown office and home workstations without the usual VPN headaches.',
+        author: 'Managing Partner',
+        company: 'Downtown Toronto Law Firm'
+      }
     },
 
     mississauga: {
@@ -321,7 +344,26 @@ export class LocationComponent implements OnInit, OnDestroy {
         'Backup and restore testing to protect data across Woodbridge and Concord locations',
         'Microsoft 365 and Google Workspace admin for multi-location Vaughan businesses',
         'Rapid on-site response to the Vaughan Metropolitan Centre and Highway 7 corridor'
-      ]
+      ],
+      neighborhoodFocus: {
+        heading: 'Vaughan Metropolitan Centre (VMC) & Concord',
+        body: 'From modern offices in the VMC to established industrial hubs in Concord, we support Vaughan teams with on-site dispatch and specialized networking for mixed-use buildings and office expansions.'
+      },
+      citySpecificChallenges: [
+        {
+          title: 'Rapid Office Expansion',
+          description: 'Vaughan startups and clinics grow fast. We standardize your network early so you do not have to "redo" everything when you add a second floor or new branch.'
+        },
+        {
+          title: 'VoIP & Cloud Stability',
+          description: 'Many Vaughan businesses struggle with ISP reliability. We implement failover and traffic shaping to ensure your phones and cloud apps never lag.'
+        }
+      ],
+      localTestimonial: {
+        quote: 'The team at CtrlShift IT handled our entire network move in Woodbridge flawlessly. They documented everything and improved our Wi-Fi reliability significantly compared to our previous provider.',
+        author: 'Office Manager',
+        company: 'Vaughan Medical Practice'
+      }
     },
 
     thornhill: {
@@ -493,6 +535,7 @@ export class LocationComponent implements OnInit, OnDestroy {
       this.LOCATION_CONTENT[key] ??
       this.buildFallbackContent(this.city, this.region, this.landmark);
 
+    this.content = content;
     this.intro = content.intro;
     this.heroBullets = content.heroBullets;
     this.localWorkStyle = content.localWorkStyle;

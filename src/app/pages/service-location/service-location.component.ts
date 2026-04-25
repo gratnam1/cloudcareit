@@ -21,6 +21,8 @@ export type ServiceLocationContent = {
   hubPath: string;
   hubLabel: string;
   faq: FaqItem[];
+  localCaseStudy?: { title: string; outcome: string; industry: string };
+  serviceDeliveryMethod?: { title: string; details: string }[];
 };
 
 export const SERVICE_LOCATION_CONTENT: Record<string, ServiceLocationContent> = {

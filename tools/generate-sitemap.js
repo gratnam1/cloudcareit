@@ -41,6 +41,7 @@ const staticRoutes = [
   { path: '/about', priority: '0.70', changefreq: 'monthly' },
   { path: '/it-assessment', priority: '0.75', changefreq: 'monthly' },
   { path: '/free-security-assessment', priority: '0.73', changefreq: 'monthly' },
+  { path: '/office-it-relocation', priority: '0.85', changefreq: 'monthly' },
   { path: '/blog', priority: '0.75', changefreq: 'weekly' },
   { path: '/guides', priority: '0.78', changefreq: 'monthly' },
   { path: '/guides/security', priority: '0.78', changefreq: 'monthly' },

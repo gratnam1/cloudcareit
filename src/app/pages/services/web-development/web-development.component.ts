@@ -17,7 +17,7 @@ export class WebDevelopmentComponent implements OnDestroy {
   private readonly BREADCRUMB_SCHEMA_ID = 'service-web-development-breadcrumb';
 
   constructor() {
-    const pageTitle = 'Web Development in Vaughan & GTA | CtrlShift IT Services';
+    const pageTitle = 'Web Development Vaughan Small Business';
     const description =
       'Web development services for Vaughan and GTA companies. We build fast, secure, conversion-focused websites with strong technical SEO foundations.';
     applyServicePageSeo(this.seo, {

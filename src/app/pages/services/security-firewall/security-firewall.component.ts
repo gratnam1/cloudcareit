@@ -19,7 +19,7 @@ export class SecurityFirewallComponent implements OnDestroy {
   constructor() {
     const pageTitle = 'Security & Firewall Services in Vaughan & GTA | CtrlShift IT Services';
     const description =
-      'Managed firewall and security services for Vaughan and GTA offices using Tailscale and Huntress AI-assisted detection with managed response. We harden your network edge, improve account protection, and reduce phishing and ransomware risk.';
+      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Managed firewall and security services for Vaughan and GTA offices using Huntress AI.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

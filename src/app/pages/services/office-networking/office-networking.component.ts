@@ -19,7 +19,7 @@ export class OfficeNetworkingComponent implements OnDestroy {
   constructor() {
     const pageTitle = 'Office Networking & Wi-Fi in Vaughan & GTA | CtrlShift IT Services';
     const description =
-      'Office networking and Wi-Fi support across Vaughan and GTA. We design reliable connectivity, optimize coverage, and stabilize network performance for growing teams.';
+      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Office networking and Wi-Fi support across Vaughan and GTA.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

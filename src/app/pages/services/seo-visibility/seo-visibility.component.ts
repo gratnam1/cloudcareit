@@ -17,9 +17,9 @@ export class SeoVisibilityComponent implements OnDestroy {
   private readonly BREADCRUMB_SCHEMA_ID = 'service-seo-visibility-breadcrumb';
 
   constructor() {
-    const pageTitle = 'SEO Services Vaughan Small Business';
+    const pageTitle = 'SEO Services Vaughan Small Business | CtrlShift IT Services';
     const description =
-      'Local SEO services for Vaughan and GTA businesses. We improve technical SEO, service-page relevance, and content architecture to grow qualified organic traffic.';
+      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Local SEO services for Vaughan and GTA businesses.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

@@ -19,7 +19,7 @@ export class CyberInsuranceReadinessComponent implements OnDestroy {
   constructor() {
     const pageTitle = 'Cyber Insurance Readiness in Vaughan | CtrlShift IT Services';
     const description =
-      'Cyber insurance readiness services for Vaughan and GTA businesses. We close control gaps, improve evidence quality, and prepare renewal-ready documentation with practical remediation support.';
+      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Cyber insurance readiness services for Vaughan and GTA businesses.';
 
     applyServicePageSeo(this.seo, {
       title: pageTitle,

@@ -19,7 +19,7 @@ export class MedicalClinicItComponent implements OnDestroy {
   constructor() {
     const pageTitle = 'Managed IT for Medical Clinics in Vaughan | CtrlShift IT Services';
     const description =
-      'Managed IT services for medical clinics in Vaughan and the GTA. We improve uptime, secure PHI workflows, and support front-desk and clinical systems with proactive maintenance.';
+      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Managed IT services for medical clinics in Vaughan and the GTA, securing PHI workflows.';
 
     applyServicePageSeo(this.seo, {
       title: pageTitle,

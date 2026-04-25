@@ -7,7 +7,7 @@
 - Include a clear summary of what changed and a test plan in the PR body
 
 ## Repository
-- Owner: `gratnam1`
+- Owner: `kannan`
 - Repo: `cloudcareit`
 - Default development branch: create feature branches off `main`
 

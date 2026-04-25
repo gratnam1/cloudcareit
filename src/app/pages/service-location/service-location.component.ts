@@ -105,7 +105,7 @@ export const SERVICE_LOCATION_CONTENT: Record<string, ServiceLocationContent> = 
     intro:
       'Practical cloud services for Vaughan businesses — Microsoft 365, Google Workspace, and AWS infrastructure managed properly, secured, and optimized for your team size and workflow.',
     metaDescription:
-      'Cloud services for Vaughan businesses — Microsoft 365, Google Workspace, and AWS management with secure setup, migration, and ongoing support from CtrlShift IT Services.',
+      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Cloud services for Vaughan from CtrlShift IT Services.',
     sections: [
       {
         heading: 'Cloud Migration for Vaughan Businesses',
@@ -227,5 +227,8 @@ export class ServiceLocationComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
     this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
+  }
+}
+(this.BREADCRUMB_SCHEMA_ID);
   }
 }

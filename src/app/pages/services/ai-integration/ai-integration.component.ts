@@ -17,9 +17,9 @@ export class AiIntegrationComponent implements OnDestroy {
   private readonly BREADCRUMB_SCHEMA_ID = 'service-ai-integration-breadcrumb';
 
   constructor() {
-    const pageTitle = 'AI Integration Services Brampton Small Business';
+    const pageTitle = 'AI Integration Services Brampton Small Business | CtrlShift IT Services';
     const description =
-      'We build production-grade AI integrations — voice agents, intelligent chat, tool-calling workflows, and multi-channel automation — tailored to your business operations.';
+      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Production-grade AI integrations tailored to your business operations.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

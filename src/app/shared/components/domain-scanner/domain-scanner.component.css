@@ -1,4 +1,16 @@
-.max-width-600 { max-width: 600px; }
+.scanner-container {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(10px);
+}
+
+.scanner-container h3, 
+.scanner-container p {
+  color: #ffffff !important;
+}
+
+.scanner-container p.text-muted {
+  color: #cbd5e1 !important;
+}
 
 .scanner-input-group {
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);

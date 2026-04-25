@@ -240,6 +240,30 @@
 
 .breach-switch {
   background: linear-gradient(135deg, rgba(244, 63, 94, 0.11), rgba(7, 20, 46, 0.82));
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 0.9rem;
+  margin: 0;
+  min-height: 78px;
+  padding: 1rem 1.1rem;
+}
+
+.breach-switch .form-check-input {
+  float: none;
+  width: 2.65rem;
+  height: 1.4rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+.breach-switch .form-check-label {
+  cursor: pointer;
+  line-height: 1.25;
+}
+
+.breach-switch-copy {
+  min-width: 0;
 }
 
 .breach-switch:has(input:checked) {
@@ -436,6 +460,11 @@
   .risk-cta {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .breach-switch {
+    grid-template-columns: 1fr;
+    row-gap: 0.75rem;
   }
 
   .risk-total strong {

@@ -115,6 +115,7 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'about', renderMode: RenderMode.Prerender },
   { path: 'it-assessment', renderMode: RenderMode.Prerender },
   { path: 'free-security-assessment', renderMode: RenderMode.Prerender },
+  { path: 'office-it-relocation', renderMode: RenderMode.Prerender },
 
   // Industry pages
   { path: 'it-support-law-firms-toronto', renderMode: RenderMode.Prerender },

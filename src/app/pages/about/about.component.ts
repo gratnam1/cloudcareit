@@ -35,14 +35,12 @@ export class AboutComponent implements OnInit, OnDestroy {
       address: [
         {
           '@type': 'PostalAddress',
-          streetAddress: '46 Ohr Maneachem Way',
           addressLocality: 'Vaughan',
           addressRegion: 'ON',
           addressCountry: 'CA'
         },
         {
           '@type': 'PostalAddress',
-          streetAddress: '27 Carisbrooke Sq',
           addressLocality: 'Scarborough',
           addressRegion: 'ON',
           addressCountry: 'CA'

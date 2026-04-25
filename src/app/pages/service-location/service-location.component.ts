@@ -229,6 +229,3 @@ export class ServiceLocationComponent implements OnInit, OnDestroy {
     this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
   }
 }
-(this.BREADCRUMB_SCHEMA_ID);
-  }
-}

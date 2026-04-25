@@ -19,6 +19,7 @@ export class HeaderComponent implements AfterViewInit {
   locationsOpen = false;
   industriesOpen = false;
   guidesOpen = false;
+  toolsOpen = false;
 
   constructor() {
     this.router.events
@@ -40,6 +41,7 @@ export class HeaderComponent implements AfterViewInit {
       this.locationsOpen = false;
       this.industriesOpen = false;
       this.guidesOpen = false;
+      this.toolsOpen = false;
     }
   }
 
@@ -48,6 +50,7 @@ export class HeaderComponent implements AfterViewInit {
     this.locationsOpen = !this.locationsOpen;
     this.industriesOpen = false;
     this.guidesOpen = false;
+    this.toolsOpen = false;
   }
 
   toggleIndustries(event: Event): void {
@@ -55,6 +58,7 @@ export class HeaderComponent implements AfterViewInit {
     this.industriesOpen = !this.industriesOpen;
     this.locationsOpen = false;
     this.guidesOpen = false;
+    this.toolsOpen = false;
   }
 
   toggleGuides(event: Event): void {
@@ -62,6 +66,15 @@ export class HeaderComponent implements AfterViewInit {
     this.guidesOpen = !this.guidesOpen;
     this.locationsOpen = false;
     this.industriesOpen = false;
+    this.toolsOpen = false;
+  }
+
+  toggleTools(event: Event): void {
+    event.preventDefault();
+    this.toolsOpen = !this.toolsOpen;
+    this.locationsOpen = false;
+    this.industriesOpen = false;
+    this.guidesOpen = false;
   }
 
   closeNavMenus(): void {
@@ -69,6 +82,7 @@ export class HeaderComponent implements AfterViewInit {
     this.locationsOpen = false;
     this.industriesOpen = false;
     this.guidesOpen = false;
+    this.toolsOpen = false;
   }
 
   @HostListener('document:click', ['$event'])

@@ -1,0 +1,79 @@
+<section class="calculator-section py-5 section-dark-alt">
+  <div class="container py-5">
+    <div class="row g-5 align-items-center">
+      <!-- Left: Inputs -->
+      <div class="col-lg-6">
+        <span class="section-kicker mb-3">ROI & Risk Calculator</span>
+        <h2 class="section-title mb-4">What is 1 Day of <span class="text-gradient">Downtime</span> Costing You?</h2>
+        <p class="section-subtitle mb-5">
+          Most business owners underestimate the true cost of IT failure. Use our calculator to see the impact on your productivity, revenue, and reputation.
+        </p>
+
+        <div class="calculator-card p-4 p-md-5 rounded-4">
+          <div class="calc-group mb-4">
+            <div class="d-flex justify-content-between mb-2">
+              <label class="form-label fw-bold text-white">Number of Employees</label>
+              <span class="calc-value">{{ employeeCount }}</span>
+            </div>
+            <input type="range" class="form-range custom-slider" min="1" max="100" [(ngModel)]="employeeCount">
+          </div>
+
+          <div class="calc-group mb-4">
+            <div class="d-flex justify-content-between mb-2">
+              <label class="form-label fw-bold text-white">Avg. Hourly Salary (per employee)</label>
+              <span class="calc-value">{{ formatCurrency(avgHourlySalary) }}</span>
+            </div>
+            <input type="range" class="form-range custom-slider" min="20" max="200" step="5" [(ngModel)]="avgHourlySalary">
+          </div>
+
+          <div class="calc-group mb-4">
+            <div class="d-flex justify-content-between mb-2">
+              <label class="form-label fw-bold text-white">Downtime Duration (Hours)</label>
+              <span class="calc-value">{{ downtimeHours }}h</span>
+            </div>
+            <input type="range" class="form-range custom-slider" min="1" max="72" [(ngModel)]="downtimeHours">
+          </div>
+
+          <div class="form-check form-switch custom-switch p-3 rounded-3 mt-4">
+            <input class="form-check-input" type="checkbox" id="breachToggle" [(ngModel)]="includeBreach">
+            <label class="form-check-label fw-bold text-white ms-2" for="breachToggle">
+              Include Cybersecurity Breach Impact
+            </label>
+            <p class="small text-muted mb-0 ms-2 mt-1">Adds data recovery, legal fines, and notification costs.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Results -->
+      <div class="col-lg-6">
+        <div class="results-card p-4 p-md-5 rounded-4 text-center">
+          <h4 class="text-white mb-4 fw-bold">Total Estimated Risk Exposure</h4>
+          <div class="total-amount mb-4">
+            <span class="amount-value text-gradient">{{ formatCurrency(totalRisk) }}</span>
+          </div>
+
+          <div class="breakdown-list text-start mb-5">
+            <div class="breakdown-item d-flex justify-content-between py-3 border-bottom border-white border-opacity-10">
+              <span class="text-muted"><i class="bi bi-people me-2"></i>Productivity Loss</span>
+              <span class="text-white fw-bold">{{ formatCurrency(productivityCost) }}</span>
+            </div>
+            <div class="breakdown-item d-flex justify-content-between py-3 border-bottom border-white border-opacity-10">
+              <span class="text-muted"><i class="bi bi-graph-down-arrow me-2"></i>Estimated Revenue Loss</span>
+              <span class="text-white fw-bold">{{ formatCurrency(revenueLoss) }}</span>
+            </div>
+            <div *ngIf="includeBreach" class="breakdown-item d-flex justify-content-between py-3 border-bottom border-white border-opacity-10 animate-fade-in">
+              <span class="text-danger"><i class="bi bi-shield-slash me-2"></i>Cyber Breach Costs</span>
+              <span class="text-danger fw-bold">{{ formatCurrency(breachCosts) }}</span>
+            </div>
+          </div>
+
+          <div class="cta-box p-4 rounded-4 bg-white bg-opacity-5">
+            <h5 class="text-white mb-3 fw-bold">Ready to Eliminate This Risk?</h5>
+            <p class="small text-muted mb-4">Our Managed IT plans start at a fraction of this cost, providing 24/7 protection and 99.9% uptime for your GTA business.</p>
+            <a routerLink="/it-assessment" class="btn btn-hero-primary w-100 py-3 fw-bold">Get Your Fixed-Price Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

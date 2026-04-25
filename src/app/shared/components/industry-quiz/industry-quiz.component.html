@@ -1,0 +1,68 @@
+<div class="quiz-container p-4 p-md-5 rounded-4 border border-white border-opacity-10 bg-white bg-opacity-5">
+  
+  <!-- Step 1: Industry Selection -->
+  <div *ngIf="currentStep === 'select'" class="animate-fade-in">
+    <h3 class="text-white fw-bold mb-4">Start Your 1-Minute Compliance Check</h3>
+    <p class="text-muted mb-5">Select your industry to get a tailored security and compliance score.</p>
+    
+    <div class="row g-3">
+      <div class="col-md-4" *ngFor="let ind of industries | keyvalue">
+        <button (click)="startQuiz(ind.key)" class="industry-btn w-100 p-4 rounded-4 text-center border-0">
+          <i class="bi {{ind.value.icon}} display-5 mb-3 d-block"></i>
+          <span class="fw-bold">{{ind.value.name}}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: The Quiz -->
+  <div *ngIf="currentStep === 'quiz'" class="animate-fade-in">
+    <div class="d-flex align-items-center mb-4">
+      <button (click)="currentStep = 'select'" class="btn btn-sm btn-outline-light me-3"><i class="bi bi-arrow-left"></i></button>
+      <h4 class="text-white fw-bold mb-0">{{industries[selectedIndustry].name}} Compliance Check</h4>
+    </div>
+
+    <div class="questions-list">
+      <div *ngFor="let q of currentQuestions" class="question-item p-3 mb-3 rounded-3 bg-white bg-opacity-5 border border-white border-opacity-5">
+        <div class="d-flex justify-content-between align-items-center">
+          <p class="text-white mb-0 pe-3">{{q.text}}</p>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" [(ngModel)]="answers[q.id]">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="submitQuiz()" class="btn btn-hero-primary w-100 py-3 mt-4 fw-bold">Check My Score</button>
+  </div>
+
+  <!-- Step 3: Lead Capture (The "Gate") -->
+  <div *ngIf="currentStep === 'lead'" class="animate-fade-in text-center">
+    <div class="gate-icon mb-4">
+      <i class="bi bi-shield-lock-fill display-3 text-gradient"></i>
+    </div>
+    <h3 class="text-white fw-bold mb-3">Your Report is Ready</h3>
+    <p class="text-muted mb-4">We've calculated your score. Enter your work email to view your compliance breakdown and priority action items.</p>
+    
+    <form (submit)="$event.preventDefault(); showResults()" class="lead-form max-width-400 mx-auto">
+      <input type="email" required class="form-control mb-3 py-3 bg-dark border-secondary text-white" placeholder="work@company.com">
+      <button type="submit" class="btn btn-hero-primary w-100 py-3 fw-bold">View My Full Scorecard</button>
+      <p class="small text-muted mt-3"><i class="bi bi-info-circle me-1"></i>We'll only use this to send your report.</p>
+    </form>
+  </div>
+
+  <!-- Step 4: Results -->
+  <div *ngIf="currentStep === 'result'" class="animate-fade-in text-center">
+    <div class="score-circle mx-auto mb-4" [style.border-color]="scoreColor">
+      <span class="score-num" [style.color]="scoreColor">{{score}}%</span>
+    </div>
+    <h3 class="text-white fw-bold mb-2">Posture Status: <span [style.color]="scoreColor">{{scoreLabel}}</span></h3>
+    <p class="text-muted mb-5">Based on your answers, there are critical gaps in your {{industries[selectedIndustry].name}} IT infrastructure.</p>
+
+    <div class="result-actions">
+      <a routerLink="/it-assessment" class="btn btn-hero-primary w-100 py-3 mb-3 fw-bold">Fix These Gaps Now</a>
+      <button (click)="currentStep = 'select'" class="btn btn-link text-muted">Start Over</button>
+    </div>
+  </div>
+
+</div>

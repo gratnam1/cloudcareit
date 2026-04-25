@@ -44,12 +44,40 @@
 <!-- ===== CONTENT SECTIONS ===== -->
 <section class="sl-sections py-5">
   <div class="container">
+    <!-- Local Case Study (Conditional) -->
+    <div *ngIf="content.localCaseStudy" class="sl-case-study-card p-4 p-lg-5 mb-5 rounded-4 border-start border-primary border-4 bg-light">
+      <div class="row align-items-center g-4">
+        <div class="col-md-9">
+          <div class="small fw-bold text-primary text-uppercase mb-2">Local Project Outcome</div>
+          <h3 class="h4 fw-bold mb-3">{{content.localCaseStudy.title}}</h3>
+          <p class="text-muted mb-0"><strong>Outcome:</strong> {{content.localCaseStudy.outcome}}</p>
+          <p class="small text-muted mt-2"><strong>Industry focus:</strong> {{content.localCaseStudy.industry}}</p>
+        </div>
+        <div class="col-md-3 text-md-end">
+          <i class="bi bi-trophy-fill display-4 text-primary opacity-25"></i>
+        </div>
+      </div>
+    </div>
+
     <div class="row g-4">
       <div class="col-lg-6" *ngFor="let s of content.sections">
         <article class="sl-section-card p-4 p-lg-5 h-100 rounded-4">
           <h2 class="h4 fw-bold mb-3">{{s.heading}}</h2>
           <p class="text-muted mb-0">{{s.body}}</p>
         </article>
+      </div>
+    </div>
+
+    <!-- Service Delivery Method (Conditional) -->
+    <div *ngIf="content.serviceDeliveryMethod" class="mt-5 pt-4">
+      <h3 class="h4 fw-bold mb-4 text-center">Our {{content.serviceType}} Delivery for {{content.city}}</h3>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4" *ngFor="let method of content.serviceDeliveryMethod">
+          <div class="surface-card p-4 h-100 rounded-4 text-center border-bottom border-primary border-4">
+            <h4 class="h6 fw-bold mb-2">{{method.title}}</h4>
+            <p class="small text-muted mb-0">{{method.details}}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

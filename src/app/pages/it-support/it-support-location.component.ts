@@ -338,9 +338,3 @@ export class ItSupportLocationComponent implements OnInit, OnDestroy {
     this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
   }
 }
-CHEMA_ID);
-  }
-}
-_ID);
-  }
-}

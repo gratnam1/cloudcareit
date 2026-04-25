@@ -21,6 +21,8 @@ export type ServiceLocationContent = {
   hubPath: string;
   hubLabel: string;
   faq: FaqItem[];
+  localCaseStudy?: { title: string; outcome: string; industry: string };
+  serviceDeliveryMethod?: { title: string; details: string }[];
 };
 
 export const SERVICE_LOCATION_CONTENT: Record<string, ServiceLocationContent> = {
@@ -227,8 +229,5 @@ export class ServiceLocationComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.seo.removeStructuredData(this.FAQ_SCHEMA_ID);
     this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
-  }
-}
-(this.BREADCRUMB_SCHEMA_ID);
   }
 }

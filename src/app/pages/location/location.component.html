@@ -77,6 +77,21 @@
       <p class="text-muted mb-0">{{localWorkStyle}}</p>
     </div>
 
+    <!-- Neighborhood Focus (Conditional) -->
+    <div *ngIf="content.neighborhoodFocus" class="neighborhood-focus-card surface-card p-4 p-lg-5 mb-5 border-start border-primary border-4">
+      <div class="row align-items-center g-4">
+        <div class="col-md-8">
+          <h3 class="h4 fw-bold mb-3">{{content.neighborhoodFocus.heading}}</h3>
+          <p class="text-muted mb-0">{{content.neighborhoodFocus.body}}</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <div class="focus-badge px-3 py-2 bg-primary bg-opacity-10 text-primary rounded-pill d-inline-block small fw-bold">
+            <i class="bi bi-geo-alt-fill me-1"></i> Area Focus
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row g-4 align-items-stretch">
       <div class="col-lg-6 d-flex">
         <article class="surface-card p-4 p-lg-5 w-100 h-100">
@@ -84,6 +99,22 @@
           <ul class="content-list mb-0">
             <li *ngFor="let p of painPoints">{{p}}</li>
           </ul>
+
+          <!-- City Specific Challenges (Conditional) -->
+          <div *ngIf="content.citySpecificChallenges" class="mt-4 pt-4 border-top">
+            <h4 class="h5 fw-bold mb-3">Local IT Realities in {{city}}</h4>
+            <div class="row g-3">
+              <div class="col-12" *ngFor="let challenge of content.citySpecificChallenges">
+                <div class="d-flex gap-3">
+                  <i class="bi bi-exclamation-triangle-fill text-warning"></i>
+                  <div>
+                    <div class="fw-bold small">{{challenge.title}}</div>
+                    <div class="text-muted small">{{challenge.description}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <h4 class="h5 fw-bold mt-4 mb-3">Industries We Support In {{city}}</h4>
           <ul class="content-list compact mb-0">
@@ -115,7 +146,20 @@
             </a>
           </div>
 
+          <!-- Local Testimonial (Conditional) -->
+          <div *ngIf="content.localTestimonial" class="local-quote mt-4 pt-4 border-top">
+            <figure class="mb-0">
+              <blockquote class="blockquote small italic text-muted mb-2">
+                "{{content.localTestimonial.quote}}"
+              </blockquote>
+              <figcaption class="blockquote-footer mb-0 small">
+                {{content.localTestimonial.author}}, <cite title="Source Title">{{content.localTestimonial.company}}</cite>
+              </figcaption>
+            </figure>
+          </div>
+
           <h4 class="h6 fw-bold mt-4 mb-2">Nearby Service Areas</h4>
+
           <p class="text-muted small mb-3">Compare local coverage pages across nearby cities in the GTA.</p>
           <div class="d-flex flex-wrap gap-2">
             <a

@@ -1,0 +1,64 @@
+.section-dark       { background: #050810; }
+.section-header { text-align: center; }
+.section-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+}
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+.section-subtitle {
+  color: rgba(148, 163, 184, 0.85);
+  font-size: 1.05rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+.text-gradient {
+  background: linear-gradient(130deg, #a5b4fc 0%, #c4b5fd 50%, #f0abfc 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+/* ===== FAQ ===== */
+.faq-section { border-top: 1px solid rgba(255,255,255,0.05); }
+.faq-list { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); overflow: hidden; }
+.faq-item:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+.faq-button {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 1.25rem 0;
+  background: none; border: none; cursor: pointer;
+  color: #f1f5f9; font-size: 1.0625rem; text-align: left;
+  list-style: none; gap: 1rem; transition: color 0.2s ease;
+}
+.faq-button:hover { color: #a5b4fc; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-button::after {
+  content: '+'; font-size: 1.25rem; color: #6366f1;
+  flex-shrink: 0; transition: transform 0.3s ease, color 0.2s ease; font-weight: 300;
+}
+.faq-item[open] .faq-button { color: #a5b4fc; }
+.faq-item[open] .faq-button::after { transform: rotate(45deg); color: #a5b4fc; }
+.faq-content { padding: 0 0 1.25rem; font-size: 1rem; line-height: 1.7; color: rgba(148, 163, 184, 0.9); }
+
+.reveal-section { opacity: 0; }
+.reveal-section.revealed { opacity: 1; }

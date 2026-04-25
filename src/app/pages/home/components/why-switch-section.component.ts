@@ -1,0 +1,36 @@
+import { Component, AfterViewInit, Input, inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+
+@Component({
+  selector: 'app-why-switch-section',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './why-switch-section.component.html',
+  styleUrl: './why-switch-section.component.css'
+})
+export class WhySwitchSectionComponent implements AfterViewInit {
+  @Input() prefersReducedMotion = false;
+  private platformId = inject(PLATFORM_ID);
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.initAnimations();
+    }
+  }
+
+  async initAnimations() {
+    if (this.prefersReducedMotion) return;
+    
+    const { gsap } = await import('gsap');
+    const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.batch('.why-grid .reveal-card', {
+      start: 'top 85%',
+      once: true,
+      onEnter: batch => {
+        gsap.fromTo(batch, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out', stagger: 0.1 });
+      }
+    });
+  }
+}

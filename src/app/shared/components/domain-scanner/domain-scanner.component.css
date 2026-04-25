@@ -61,6 +61,18 @@
   display: block;
 }
 
+.btn-hero-primary {
+  background-color: #6366f1 !important;
+  border-color: #6366f1 !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
+}
+
+.btn-hero-primary:hover {
+  background-color: #4f46e5 !important;
+  border-color: #4f46e5 !important;
+}
+
 @media (max-width: 767px) {
   .scanner-input-group {
     flex-direction: column;

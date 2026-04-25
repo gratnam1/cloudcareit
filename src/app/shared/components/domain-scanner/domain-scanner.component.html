@@ -32,7 +32,7 @@
       <!-- Breakdown -->
       <div class="col-lg-8">
         <div class="results-list">
-          <div *ngFor="let res of results | keyvalue" class="result-item p-3 mb-2 rounded-3 bg-white bg-opacity-5 border border-white border-opacity-5">
+          <div *ngFor="let res of results | keyvalue" class="result-item p-3 mb-2 rounded-3 bg-opacity-5 border border-white border-opacity-5" style="background-color: rgba(255,255,255,0.05);">
             <div class="d-flex align-items-center">
               <div class="status-icon me-3">
                 <i *ngIf="res.value.status === 'loading'" class="spinner-border spinner-border-sm text-primary"></i>

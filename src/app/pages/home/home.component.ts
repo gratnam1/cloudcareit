@@ -70,14 +70,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       address: [
         {
           '@type': 'PostalAddress',
-          streetAddress: '46 Ohr Maneachem Way',
           addressLocality: 'Vaughan',
           addressRegion: 'ON',
           addressCountry: 'CA'
         },
         {
           '@type': 'PostalAddress',
-          streetAddress: '27 Carisbrooke Sq',
           addressLocality: 'Scarborough',
           addressRegion: 'ON',
           addressCountry: 'CA'
@@ -103,8 +101,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         { '@type': 'City', name: 'Richmond Hill' }
       ],
       sameAs: [
-        'https://www.linkedin.com/company/ctrlshift-it-services',
-        'https://www.facebook.com/ctrlshiftit'
+        'https://www.linkedin.com/company/ctrlshiftit-services/',
+        'https://x.com/CtrlShiftIt',
+        'https://maps.app.goo.gl/AHmLpmKhG88S54d37',
+        'https://clutch.co/profile/ctrlshift-it-services',
+        'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
       knowsAbout: [
         'Managed IT services',
@@ -395,8 +396,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         }
       ],
       sameAs: [
-        'https://www.linkedin.com/company/ctrlshift-it-services',
-        'https://www.facebook.com/ctrlshiftit'
+        'https://www.linkedin.com/company/ctrlshiftit-services/',
+        'https://x.com/CtrlShiftIt',
+        'https://maps.app.goo.gl/AHmLpmKhG88S54d37',
+        'https://clutch.co/profile/ctrlshift-it-services',
+        'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',

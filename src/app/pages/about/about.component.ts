@@ -32,15 +32,26 @@ export class AboutComponent implements OnInit, OnDestroy {
       logo: 'https://ctrlshiftit.ca/favicon.svg',
       telephone: '+1-416-624-4841',
       email: 'info@ctrlshiftit.ca',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Vaughan',
-        addressRegion: 'ON',
-        addressCountry: 'CA'
-      },
+      address: [
+        {
+          '@type': 'PostalAddress',
+          addressLocality: 'Vaughan',
+          addressRegion: 'ON',
+          addressCountry: 'CA'
+        },
+        {
+          '@type': 'PostalAddress',
+          addressLocality: 'Scarborough',
+          addressRegion: 'ON',
+          addressCountry: 'CA'
+        }
+      ],
       sameAs: [
-        'https://www.linkedin.com/company/ctrlshift-it-services',
-        'https://www.facebook.com/ctrlshiftit'
+        'https://www.linkedin.com/company/ctrlshiftit-services/',
+        'https://x.com/CtrlShiftIt',
+        'https://maps.app.goo.gl/AHmLpmKhG88S54d37',
+        'https://clutch.co/profile/ctrlshift-it-services',
+        'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
       knowsAbout: [
         'Managed IT services',

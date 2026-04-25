@@ -162,8 +162,11 @@ export class LocationComponent implements OnInit, OnDestroy {
         longitude: -79.3832
       },
       sameAs: [
-        'https://www.linkedin.com/company/ctrlshift-it-services',
-        'https://www.facebook.com/ctrlshiftit'
+        'https://www.linkedin.com/company/ctrlshiftit-services/',
+        'https://x.com/CtrlShiftIt',
+        'https://maps.app.goo.gl/AHmLpmKhG88S54d37',
+        'https://clutch.co/profile/ctrlshift-it-services',
+        'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
       supportContext: 'Toronto professional offices — law firms in the Financial District, medical clinics in Midtown, accounting practices in North York, boutique consulting firms across the downtown core, and multi-location organizations with satellite sites around the GTA — face IT challenges that generic providers miss. Dense downtown office towers cause Wi-Fi interference and ISP-handoff issues, hybrid and distributed workforces create VPN and remote access complexity, and compliance requirements for legal, medical, and financial data demand a security-first managed IT approach with careful access controls, encrypted backups, and 24/7 endpoint monitoring.',
       supportContextPoints: [
@@ -258,8 +261,11 @@ export class LocationComponent implements OnInit, OnDestroy {
         longitude: -79.6441
       },
       sameAs: [
-        'https://www.linkedin.com/company/ctrlshift-it-services',
-        'https://www.facebook.com/ctrlshiftit'
+        'https://www.linkedin.com/company/ctrlshiftit-services/',
+        'https://x.com/CtrlShiftIt',
+        'https://maps.app.goo.gl/AHmLpmKhG88S54d37',
+        'https://clutch.co/profile/ctrlshift-it-services',
+        'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
       supportContext: 'Mississauga businesses at Airport Corporate Centre, Meadowvale business parks, and the Hurontario corridor often operate in large open-plan offices with complex networking needs and growing hybrid teams. Dental clinics, real estate brokerages, and professional services firms in Peel Region depend on stable connectivity, fast device onboarding, and clean Wi-Fi coverage across expansive floorplans.',
       supportContextPoints: [
@@ -334,8 +340,11 @@ export class LocationComponent implements OnInit, OnDestroy {
         longitude: -79.5083
       },
       sameAs: [
-        'https://www.linkedin.com/company/ctrlshift-it-services',
-        'https://www.facebook.com/ctrlshiftit'
+        'https://www.linkedin.com/company/ctrlshiftit-services/',
+        'https://x.com/CtrlShiftIt',
+        'https://maps.app.goo.gl/AHmLpmKhG88S54d37',
+        'https://clutch.co/profile/ctrlshift-it-services',
+        'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
       supportContext: 'Vaughan businesses in Woodbridge, Maple, Concord, and along the Highway 7 corridor often expand rapidly and find their IT infrastructure lagging behind growth. Medical practices, engineering firms, and professional offices in York Region need dependable connectivity for cloud tools, predictable IT costs, and a partner who can be on-site in the Vaughan Metropolitan Centre quickly when issues escalate.',
       supportContextPoints: [
@@ -429,8 +438,11 @@ export class LocationComponent implements OnInit, OnDestroy {
         longitude: -79.4246
       },
       sameAs: [
-        'https://www.linkedin.com/company/ctrlshift-it-services',
-        'https://www.facebook.com/ctrlshiftit'
+        'https://www.linkedin.com/company/ctrlshiftit-services/',
+        'https://x.com/CtrlShiftIt',
+        'https://maps.app.goo.gl/AHmLpmKhG88S54d37',
+        'https://clutch.co/profile/ctrlshift-it-services',
+        'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
       supportContext: 'Thornhill offices — from Promenade Shopping Centre area businesses to mixed-use professional offices along the Yonge Street and Bathurst corridors — tend to be smaller practices with 5 to 20 staff. Accounting practices, medical offices, and local retail service businesses in Thornhill need simple, dependable IT: email that just works, Wi-Fi that stays connected, and a support team that picks up the phone.',
       supportContextPoints: [
@@ -505,8 +517,11 @@ export class LocationComponent implements OnInit, OnDestroy {
         longitude: -79.4403
       },
       sameAs: [
-        'https://www.linkedin.com/company/ctrlshift-it-services',
-        'https://www.facebook.com/ctrlshiftit'
+        'https://www.linkedin.com/company/ctrlshiftit-services/',
+        'https://x.com/CtrlShiftIt',
+        'https://maps.app.goo.gl/AHmLpmKhG88S54d37',
+        'https://clutch.co/profile/ctrlshift-it-services',
+        'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
       supportContext: 'Richmond Hill businesses along the Hillcrest Mall area, the Yonge Street business strip, and the Leslie Street office parks tend to rely heavily on Microsoft 365, cloud-based file access, and multi-device setups. Professional services firms, clinics, and growing local offices in York Region need proactive maintenance to prevent slow devices, phishing incidents, and backup gaps before they become emergencies.',
       supportContextPoints: [

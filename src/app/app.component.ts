@@ -63,9 +63,11 @@ export class AppComponent implements OnInit, AfterViewChecked {
       telephone: '+1-416-624-4841',
       email: 'info@ctrlshiftit.ca',
       sameAs: [
-        'https://www.linkedin.com/company/ctrlshift-it-services',
-        'https://www.facebook.com/ctrlshiftit',
-        'https://clutch.co/profile/ctrlshift-it-services'
+        'https://www.linkedin.com/company/ctrlshiftit-services/',
+        'https://x.com/CtrlShiftIt',
+        'https://maps.app.goo.gl/AHmLpmKhG88S54d37',
+        'https://clutch.co/profile/ctrlshift-it-services',
+        'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
       areaServed: [
         { '@type': 'City', name: 'Vaughan' },

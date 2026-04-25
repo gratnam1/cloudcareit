@@ -39,8 +39,11 @@ export class AboutComponent implements OnInit, OnDestroy {
         addressCountry: 'CA'
       },
       sameAs: [
-        'https://www.linkedin.com/company/ctrlshift-it-services',
-        'https://www.facebook.com/ctrlshiftit'
+        'https://www.linkedin.com/company/ctrlshiftit-services/',
+        'https://x.com/CtrlShiftIt',
+        'https://maps.app.goo.gl/AHmLpmKhG88S54d37',
+        'https://clutch.co/profile/ctrlshift-it-services',
+        'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
       knowsAbout: [
         'Managed IT services',

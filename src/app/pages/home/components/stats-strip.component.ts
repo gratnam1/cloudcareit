@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Input, inject, PLATFORM_ID, OnDestroy } from '@angular/common';
+import { Component, AfterViewInit, Input, inject, PLATFORM_ID, OnDestroy } from '@angular/core';
 import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
 
 @Component({
@@ -34,8 +34,8 @@ export class StatsStripComponent implements AfterViewInit, OnDestroy {
       return;
     }
 
-    const counters = Array.from(this.document.querySelectorAll<HTMLElement>('.metric-counter'));
-    counters.forEach((counter) => {
+    const counters = Array.from(this.document.querySelectorAll('.metric-counter')) as HTMLElement[];
+    counters.forEach((counter: HTMLElement) => {
       const target = Number(counter.dataset['target'] ?? '0');
       const suffix = counter.dataset['suffix'] ?? '';
       const prefix = counter.dataset['prefix'] ?? '';
@@ -76,8 +76,8 @@ export class StatsStripComponent implements AfterViewInit, OnDestroy {
   }
 
   private setMetricCountersStatic(): void {
-    const counters = Array.from(this.document.querySelectorAll<HTMLElement>('.metric-counter'));
-    counters.forEach((counter) => {
+    const counters = Array.from(this.document.querySelectorAll('.metric-counter')) as HTMLElement[];
+    counters.forEach((counter: HTMLElement) => {
       const rawTarget = counter.dataset['target'];
       const suffix = counter.dataset['suffix'] ?? '';
       const prefix = counter.dataset['prefix'] ?? '';

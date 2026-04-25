@@ -21,7 +21,7 @@ const BLOG_SLUGS = [
 
 const SECURITY_SUBCATEGORY_SLUGS = ['identity-attacks', 'network-attacks', 'endpoint-security'];
 
-const SECURITY_GUIDE_ROUTES = [
+const SECURITY_GUIDE_PARAMS = [
   { subcategory: 'identity-attacks', guideSlug: 'password-spray-attacks' },
   { subcategory: 'identity-attacks', guideSlug: 'token-theft-attacks' },
   { subcategory: 'identity-attacks', guideSlug: 'legacy-authentication-risk' },
@@ -107,7 +107,7 @@ export const serverRoutes: ServerRoute[] = [
     path: 'guides/security/:subcategory/:guideSlug',
     renderMode: RenderMode.Prerender,
     async getPrerenderParams() {
-      return SECURITY_GUIDE_ROUTES;
+      return SECURITY_GUIDE_PARAMS;
     },
   },
 

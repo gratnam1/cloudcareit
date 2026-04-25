@@ -19,6 +19,7 @@ import { ReviewsSectionComponent } from './components/reviews-section.component'
 import { RiskCalculatorSectionComponent } from './components/risk-calculator-section.component';
 import { PricingSectionComponent } from './components/pricing-section.component';
 import { FaqSectionComponent } from './components/faq-section.component';
+import { ConsultationSectionComponent } from './components/consultation-section.component';
 
 @Component({
   selector: 'app-home',

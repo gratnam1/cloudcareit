@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/forms';
-import { CommonModule as NgCommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 interface Question {
@@ -18,7 +17,7 @@ interface IndustryConfig {
 @Component({
   selector: 'app-industry-quiz',
   standalone: true,
-  imports: [NgCommonModule, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './industry-quiz.component.html',
   styleUrl: './industry-quiz.component.css'
 })

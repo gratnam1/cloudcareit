@@ -1617,7 +1617,7 @@ app.get('/api/security-scans/:requestId/download-agent', (req, res) => {
     `$RequestId = "${requestId}"`,
     `$ApiUrl = "${apiUrl}"`,
     '',
-    'Write-Host "Starting CtrlShift IT Deep Local Scan..." -ForegroundColor Cyan',
+    'Write-Host "Starting CtrlShift IT Services Deep Local Scan..." -ForegroundColor Cyan',
     '',
     '$Result = @{',
     '    RequestId = $RequestId',
@@ -2019,5 +2019,8 @@ if (isMainModule(import.meta.url) || process.env['pm_id']) {
 
 /**
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
+ */
+export const reqHandler = createNodeRequestHandler(app);
+.
  */
 export const reqHandler = createNodeRequestHandler(app);

@@ -1,0 +1,16 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "CtrlShift IT Services",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "27 Carisbrooke Square",
+    "addressLocality": "Scarborough",
+    "addressRegion": "ON",
+    "postalCode": "M1B 4M3",
+    "addressCountry": "CA"
+  },
+  "areaServed": ["Vaughan", "Scarborough", "Toronto", "GTA"],
+  "founder": "Kannan",
+  "description": "Managed IT Services and Technical Operations for Ontario small businesses."
+}

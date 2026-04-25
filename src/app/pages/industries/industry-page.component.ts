@@ -75,7 +75,7 @@ export class IndustryPageComponent implements OnInit {
         metrics: [{ value: '87%', label: 'Fewer Tickets (Q1)' }, { value: '45d', label: 'Full Compliance' }, { value: '$0', label: 'Compliance Fines' }]
       },
       seoTitle: 'Accounting Firm IT Support Markham',
-      seoDescription: 'Managed IT for GTA accounting firms. CRA-compliant infrastructure, encrypted client data handling, Microsoft 365, and 24/7 security monitoring. Vaughan-based IT team.'
+      seoDescription: '15+ years of enterprise DevOps and IT support for Ontario small businesses. Managed IT for GTA accounting firms. CRA-compliant infrastructure and encrypted data handling.'
     },
     'medical-clinics': {
       title: 'IT Support for Medical Clinics in Ontario',

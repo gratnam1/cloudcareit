@@ -173,7 +173,7 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     mississauga: {
-      title: 'IT Support Mississauga | Managed IT Services for Peel Region | CtrlShift IT',
+      title: 'IT Support Mississauga | Managed IT Services for Peel Region | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-mississauga',
       mainHeading: 'IT Support & Managed IT Services in Mississauga',
       areasServedText:
@@ -401,7 +401,7 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     'richmond hill': {
-      title: 'Managed IT Services Richmond Hill | Proactive IT for York Region | CtrlShift IT',
+      title: 'Managed IT Services Richmond Hill | Proactive IT for York Region | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-richmond-hill',
       mainHeading: 'Proactive IT Support & Managed IT in Richmond Hill',
       areasServedText:

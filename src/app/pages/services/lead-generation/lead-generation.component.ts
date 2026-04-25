@@ -17,9 +17,9 @@ export class LeadGenerationComponent implements OnDestroy {
   private readonly BREADCRUMB_SCHEMA_ID = 'service-lead-generation-breadcrumb';
 
   constructor() {
-    const pageTitle = 'B2B Lead Generation Oakville Small Business';
+    const pageTitle = 'B2B Lead Generation Oakville Small Business | CtrlShift IT Services';
     const description =
-      'Lead generation services for Vaughan and GTA businesses. We build practical funnels, conversion-focused landing pages, and follow-up systems that produce qualified pipeline.';
+      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Lead generation services for Vaughan and GTA businesses.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

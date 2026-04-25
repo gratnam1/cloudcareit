@@ -19,7 +19,7 @@ export class GoogleWorkspaceComponent implements OnDestroy {
   constructor() {
     const pageTitle = 'Google Workspace Support in Vaughan & GTA | CtrlShift IT Services';
     const description =
-      'Google Workspace support for Vaughan and GTA teams. We manage Gmail, Drive, account security, and admin workflows to keep business operations stable and secure.';
+      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Google Workspace support for Vaughan and GTA teams, managing security and admin workflows.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

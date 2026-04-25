@@ -51,8 +51,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.seo.update({
-      title: 'Managed IT Services & Cloud Support | CtrlShift IT Services',
-      description: 'Cybersecurity-first managed IT services for Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill businesses. Flat-rate plans from $249/mo, under 15-minute response, 24/7 monitoring.',
+      title: 'Managed IT Services in Vaughan & Scarborough | CtrlShift IT Services',
+      description: 'CtrlShift IT Services provides enterprise-grade Managed IT, Cloud Infrastructure, and DevOps support for small businesses in Vaughan and Scarborough. Led by Kannan with 15+ years of experience.',
       type: 'website',
       canonicalPath: '/'
     });

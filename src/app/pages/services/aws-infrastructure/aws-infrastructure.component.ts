@@ -17,9 +17,9 @@ export class AwsInfrastructureComponent implements OnDestroy {
   private readonly BREADCRUMB_SCHEMA_ID = 'service-aws-infrastructure-breadcrumb';
 
   constructor() {
-    const pageTitle = 'AWS Cloud Services Brampton Small Business';
+    const pageTitle = 'AWS Cloud Services Brampton Small Business | CtrlShift IT Services';
     const description =
-      'Secure AWS infrastructure support for Vaughan and GTA businesses. We build resilient cloud foundations with cost controls, backup readiness, and practical security baselines.';
+      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Secure AWS infrastructure support for Vaughan and GTA businesses.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

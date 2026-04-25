@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../shared/seo/seo.service';
+import { IndustryQuizComponent } from '../../shared/components/industry-quiz/industry-quiz.component';
 
 export interface IndustryPageData {
   title: string;
@@ -19,12 +20,13 @@ export interface IndustryPageData {
 @Component({
   selector: 'app-industry-page',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, IndustryQuizComponent],
   templateUrl: './industry-page.component.html',
   styleUrl: './industry-page.component.css'
 })
 export class IndustryPageComponent implements OnInit {
   page!: IndustryPageData;
+  industryKey: string = '';
 
   private pages: Record<string, IndustryPageData> = {
     'law-firms': {
@@ -158,8 +160,8 @@ export class IndustryPageComponent implements OnInit {
   private seo = inject(SeoService);
 
   ngOnInit() {
-    const industry = this.route.snapshot.data['industry'] as string;
-    this.page = this.pages[industry];
+    this.industryKey = this.route.snapshot.data['industry'] as string;
+    this.page = this.pages[this.industryKey];
     if (this.page) {
       (this.seo as SeoService).update({
         title: this.page.seoTitle,

@@ -2,11 +2,12 @@ import { Component, NgZone, OnDestroy, OnInit, ChangeDetectorRef } from '@angula
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../shared/seo/seo.service';
+import { DomainScannerComponent } from '../../shared/components/domain-scanner/domain-scanner.component';
 
 @Component({
   selector: 'app-free-security-assessment',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, DomainScannerComponent],
   templateUrl: './free-security-assessment.component.html',
   styleUrl: './free-security-assessment.component.css'
 })

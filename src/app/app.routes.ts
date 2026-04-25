@@ -327,7 +327,7 @@ export const routes: Routes = [
     title: 'Book a Free IT Assessment | CtrlShift IT Services'
   },
 
-  // Lead Magnet
+  // Lead Magnets
   {
     path: 'free-security-assessment',
     loadComponent: () =>
@@ -335,6 +335,14 @@ export const routes: Routes = [
         (m) => m.FreeSecurityAssessmentComponent
       ),
     title: 'Free IT Security Assessment Vaughan Business'
+  },
+  {
+    path: 'office-it-relocation',
+    loadComponent: () =>
+      import('./pages/office-relocation/office-relocation.component').then(
+        (m) => m.OfficeRelocationComponent
+      ),
+    title: 'Office IT Relocation Services Toronto & GTA'
   },
 
   // Industry Pages

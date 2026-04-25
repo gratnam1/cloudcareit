@@ -16,9 +16,9 @@ import { CaseStudiesSectionComponent } from './components/case-studies-section.c
 import { TeamSectionComponent } from './components/team-section.component';
 import { AboutSectionComponent } from './components/about-section.component';
 import { ReviewsSectionComponent } from './components/reviews-section.component';
+import { RiskCalculatorSectionComponent } from './components/risk-calculator-section.component';
 import { PricingSectionComponent } from './components/pricing-section.component';
 import { FaqSectionComponent } from './components/faq-section.component';
-import { ConsultationSectionComponent } from './components/consultation-section.component';
 
 @Component({
   selector: 'app-home',
@@ -36,6 +36,7 @@ import { ConsultationSectionComponent } from './components/consultation-section.
     TeamSectionComponent,
     AboutSectionComponent,
     ReviewsSectionComponent,
+    RiskCalculatorSectionComponent,
     PricingSectionComponent,
     FaqSectionComponent,
     ConsultationSectionComponent

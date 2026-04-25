@@ -27,49 +27,63 @@ export class HeaderComponent implements AfterViewInit {
         this.closeNavMenus();
       });
   }
+menuOpen = false;
+locationsOpen = false;
+industriesOpen = false;
+guidesOpen = false;
+toolsOpen = false;
 
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.setupNavbarScroll();
-    }
-  }
-
-  toggleMenu(): void {
-    this.menuOpen = !this.menuOpen;
-    if (!this.menuOpen) {
-      this.locationsOpen = false;
-      this.industriesOpen = false;
-      this.guidesOpen = false;
-    }
-  }
-
-  toggleLocations(event: Event): void {
-    event.preventDefault();
-    this.locationsOpen = !this.locationsOpen;
-    this.industriesOpen = false;
-    this.guidesOpen = false;
-  }
-
-  toggleIndustries(event: Event): void {
-    event.preventDefault();
-    this.industriesOpen = !this.industriesOpen;
-    this.locationsOpen = false;
-    this.guidesOpen = false;
-  }
-
-  toggleGuides(event: Event): void {
-    event.preventDefault();
-    this.guidesOpen = !this.guidesOpen;
-    this.locationsOpen = false;
-    this.industriesOpen = false;
-  }
-
-  closeNavMenus(): void {
-    this.menuOpen = false;
+constructor() {
+...
+toggleMenu(): void {
+  this.menuOpen = !this.menuOpen;
+  if (!this.menuOpen) {
     this.locationsOpen = false;
     this.industriesOpen = false;
     this.guidesOpen = false;
+    this.toolsOpen = false;
   }
+}
+
+toggleLocations(event: Event): void {
+  event.preventDefault();
+  this.locationsOpen = !this.locationsOpen;
+  this.industriesOpen = false;
+  this.guidesOpen = false;
+  this.toolsOpen = false;
+}
+
+toggleIndustries(event: Event): void {
+  event.preventDefault();
+  this.industriesOpen = !this.industriesOpen;
+  this.locationsOpen = false;
+  this.guidesOpen = false;
+  this.toolsOpen = false;
+}
+
+toggleGuides(event: Event): void {
+  event.preventDefault();
+  this.guidesOpen = !this.guidesOpen;
+  this.locationsOpen = false;
+  this.industriesOpen = false;
+  this.toolsOpen = false;
+}
+
+toggleTools(event: Event): void {
+  event.preventDefault();
+  this.toolsOpen = !this.toolsOpen;
+  this.locationsOpen = false;
+  this.industriesOpen = false;
+  this.guidesOpen = false;
+}
+
+closeNavMenus(): void {
+  this.menuOpen = false;
+  this.locationsOpen = false;
+  this.industriesOpen = false;
+  this.guidesOpen = false;
+  this.toolsOpen = false;
+}
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {

@@ -23,7 +23,7 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/blog/posts/office-networking-basics/office-networking-basics.component')
             .then((m) => m.OfficeNetworkingBasicsComponent),
-        title: 'Office Networking & Wi-Fi Guide | CtrlShift IT Services'
+        title: 'Office Networking & Wi-Fi for SMBs | CtrlShift IT Services'
       },
       {
         path: 'seo-visibility-guide',
@@ -59,7 +59,7 @@ export const routes: Routes = [
     path: 'managed-it-services',
     loadComponent: () =>
       import('./pages/services/managed-it/managed-it.component').then((m) => m.ManagedItComponent),
-    title: 'Managed IT Services Vaughan & GTA | CtrlShift IT Services'
+    title: 'Managed IT for GTA Small Businesses | CtrlShift IT Services'
   },
   {
     path: 'google-workspace',
@@ -67,7 +67,7 @@ export const routes: Routes = [
       import('./pages/services/google-workspace/google-workspace.component').then(
         (m) => m.GoogleWorkspaceComponent
       ),
-    title: 'Google Workspace Support Vaughan | CtrlShift IT Services'
+    title: 'Google Workspace for SMBs Vaughan | CtrlShift IT Services'
   },
   {
     path: 'microsoft-365',
@@ -75,7 +75,7 @@ export const routes: Routes = [
       import('./pages/services/microsoft-365/microsoft-365.component').then(
         (m) => m.Microsoft365Component
       ),
-    title: 'Microsoft 365 Support Vaughan | CtrlShift IT Services'
+    title: 'Microsoft 365 for SMBs Vaughan | CtrlShift IT Services'
   },
   {
     path: 'office-networking',
@@ -83,7 +83,7 @@ export const routes: Routes = [
       import('./pages/services/office-networking/office-networking.component').then(
         (m) => m.OfficeNetworkingComponent
       ),
-    title: 'Office Networking & Wi-Fi Vaughan | CtrlShift IT Services'
+    title: 'Small Office Networking Vaughan | CtrlShift IT Services'
   },
   {
     path: 'aws-infrastructure',
@@ -91,7 +91,7 @@ export const routes: Routes = [
       import('./pages/services/aws-infrastructure/aws-infrastructure.component').then(
         (m) => m.AwsInfrastructureComponent
       ),
-    title: 'AWS Infrastructure Vaughan & GTA | CtrlShift IT Services'
+    title: 'AWS Cloud for GTA Small Business | CtrlShift IT Services'
   },
   {
     path: 'security-firewall',
@@ -99,7 +99,7 @@ export const routes: Routes = [
       import('./pages/services/security-firewall/security-firewall.component').then(
         (m) => m.SecurityFirewallComponent
       ),
-    title: 'Network Security & Firewall Vaughan | CtrlShift IT Services'
+    title: 'Small Business Firewall Vaughan | CtrlShift IT Services'
   },
   {
     path: 'crisis-recovery',
@@ -115,7 +115,7 @@ export const routes: Routes = [
       import('./pages/services/ai-integration/ai-integration.component').then(
         (m) => m.AiIntegrationComponent
       ),
-    title: 'AI Integration Services GTA | CtrlShift IT Services'
+    title: 'AI Integration for GTA SMBs | CtrlShift IT Services'
   },
   {
     path: 'web-development',
@@ -139,7 +139,7 @@ export const routes: Routes = [
       import('./pages/services/lead-generation/lead-generation.component').then(
         (m) => m.LeadGenerationComponent
       ),
-    title: 'B2B Lead Generation Vaughan | CtrlShift IT Services'
+    title: 'B2B Lead Generation for SMBs | CtrlShift IT Services'
   },
   {
     path: 'cyber-insurance-readiness-vaughan',
@@ -147,7 +147,7 @@ export const routes: Routes = [
       import('./pages/services/cyber-insurance-readiness/cyber-insurance-readiness.component').then(
         (m) => m.CyberInsuranceReadinessComponent
       ),
-    title: 'Cyber Insurance Readiness Vaughan | CtrlShift IT Services'
+    title: 'Cyber Insurance for SMBs Vaughan | CtrlShift IT Services'
   },
   {
     path: 'managed-it-for-medical-clinics-vaughan',
@@ -221,7 +221,7 @@ export const routes: Routes = [
     path: 'managed-it-services-richmond-hill',
     loadComponent: () =>
       import('./pages/location/location.component').then((m) => m.LocationComponent),
-    title: 'Managed IT Services Richmond Hill | CtrlShift IT Services',
+    title: 'Managed IT for SMBs Richmond Hill | CtrlShift IT Services',
     data: { city: 'Richmond Hill', region: 'York Region', landmark: 'Hillcrest Mall' }
   },
   {
@@ -267,7 +267,7 @@ export const routes: Routes = [
       import('./pages/guides/security/microsoft-365-security/microsoft-365-checklist/microsoft-365-checklist.component').then(
         (m) => m.MicrosoftSecurityChecklistComponent
       ),
-    title: 'M365 Security Checklist (2026) | CtrlShift IT Services'
+    title: 'M365 Security Checklist for SMBs | CtrlShift IT Services'
   },
   {
     path: 'guides/security/microsoft-365-security/phishing-protection',
@@ -275,7 +275,7 @@ export const routes: Routes = [
       import('./pages/guides/security/microsoft-365-security/phishing-protection/phishing-protection.component').then(
         (m) => m.PhishingProtectionComponent
       ),
-    title: 'Microsoft 365 Phishing Protection | CtrlShift IT Services'
+    title: 'M365 Anti-Phishing Guide for SMBs | CtrlShift IT Services'
   },
   {
     path: 'guides/security/microsoft-365-security/conditional-access-small-business',
@@ -283,7 +283,7 @@ export const routes: Routes = [
       import('./pages/guides/security/microsoft-365-security/conditional-access-small-business/conditional-access.component').then(
         (m) => m.ConditionalAccessComponent
       ),
-    title: 'Conditional Access Policies (M365) | CtrlShift IT Services'
+    title: 'Conditional Access (M365) for SMBs | CtrlShift IT Services'
   },
   {
     path: 'guides/security/microsoft-365-security/mfa-rollout-small-business',
@@ -314,7 +314,7 @@ export const routes: Routes = [
     path: 'about',
     loadComponent: () =>
       import('./pages/about/about.component').then((m) => m.AboutComponent),
-    title: 'About CtrlShift IT Services | Founder Story | GTA Managed IT'
+    title: 'About CtrlShift IT | Founder Story | GTA Managed IT'
   },
 
   // IT Assessment
@@ -334,7 +334,7 @@ export const routes: Routes = [
       import('./pages/free-security-assessment/free-security-assessment.component').then(
         (m) => m.FreeSecurityAssessmentComponent
       ),
-    title: 'Free IT Security Assessment | CtrlShift IT Services'
+    title: 'Free IT Security Assessment for GTA | CtrlShift IT Services'
   },
 
   // Industry Pages
@@ -356,14 +356,14 @@ export const routes: Routes = [
     path: 'it-support-medical-clinics-ontario',
     loadComponent: () =>
       import('./pages/industries/industry-page.component').then((m) => m.IndustryPageComponent),
-    title: 'IT Support for Medical Clinics | CtrlShift IT Services',
+    title: 'Medical Clinic IT Support Ontario | CtrlShift IT Services',
     data: { industry: 'medical-clinics' }
   },
   {
     path: 'it-support-engineering-firms-toronto',
     loadComponent: () =>
       import('./pages/industries/industry-page.component').then((m) => m.IndustryPageComponent),
-    title: 'IT Support for Engineering Firms | CtrlShift IT Services',
+    title: 'Engineering Firm IT Support Toronto | CtrlShift IT Services',
     data: { industry: 'engineering-firms' }
   },
   {

@@ -4,7 +4,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: 'managed-it-benefits',
     title: 'Managed IT Services for Growing Offices: A Practical Operating Model',
-    seoTitle: 'Managed IT for Growing Offices',
+    seoTitle: 'Managed IT for Small Offices',
     excerpt: 'A practical framework for reducing downtime, improving security posture, and making IT costs predictable.',
     date: '2026-02-14',
     tags: ['Managed IT', 'Operations']
@@ -20,7 +20,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: 'microsoft-365-tips',
     title: 'Microsoft 365 Security and Operations: The Baseline Every Office Needs',
-    seoTitle: 'Microsoft 365 Security Baseline',
+    seoTitle: 'M365 Security Baseline for SMBs',
     excerpt: 'A phased baseline for identity hardening, mail security, and SharePoint governance.',
     date: '2026-02-14',
     tags: ['Microsoft 365', 'Security']
@@ -73,7 +73,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: 'lead-generation-strategies',
     title: 'B2B Lead Generation for IT Services: Building a Funnel That Produces Qualified Opportunities',
-    seoTitle: 'B2B Lead Generation for IT Services',
+    seoTitle: 'B2B Lead Generation for Small Firms',
     excerpt: 'How to align targeting, offers, landing pages, and follow-up workflows for better lead quality.',
     date: '2026-02-14',
     tags: ['Lead Generation', 'B2B']
@@ -91,7 +91,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: 'managed-it-cost-toronto',
     title: 'How Much Does Managed IT Cost in Toronto? (2026 Guide)',
-    seoTitle: 'Managed IT Cost in Toronto (2026)',
+    seoTitle: 'Managed IT Cost for SMBs in Toronto',
     excerpt: 'A clear, honest breakdown of managed IT pricing in Toronto and the GTA — what you should pay, what\'s included, and what red flags to watch for.',
     date: '2026-03-10',
     tags: ['Managed IT', 'Pricing', 'Toronto']
@@ -99,7 +99,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: 'cyber-insurance-requirements-canada',
     title: 'Cyber Insurance Requirements for Canadian Businesses in 2026',
-    seoTitle: 'Cyber Insurance Requirements 2026',
+    seoTitle: 'Cyber Insurance for Canadian SMBs',
     excerpt: 'What your insurer now requires before issuing a policy: MFA, endpoint detection, backup verification, and more — explained in plain English.',
     date: '2026-03-11',
     tags: ['Cyber Insurance', 'Security', 'Canada']
@@ -123,7 +123,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: 'managed-it-vs-break-fix-gta',
     title: 'Managed IT vs Break-Fix IT: Which Is Right for Your GTA Business?',
-    seoTitle: 'Managed IT vs Break-Fix for GTA',
+    seoTitle: 'Managed IT vs Break-Fix for SMBs',
     excerpt: 'A clear comparison of proactive managed IT versus reactive break-fix support — costs, risks, response times, and which model makes sense for 5–50 person offices.',
     date: '2026-03-14',
     tags: ['Managed IT', 'Break-Fix', 'GTA']

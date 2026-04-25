@@ -199,7 +199,7 @@ export class MicrosoftSecurityChecklistComponent implements OnDestroy, AfterView
   }
 
   constructor() {
-    const title = 'M365 Security Checklist (2026) | CtrlShift IT Services';
+    const title = 'M365 Security Checklist for SMBs | CtrlShift IT Services';
     const description =
       'The complete Microsoft 365 security checklist for small businesses — MFA, Conditional Access, DKIM/DMARC, Safe Links, audit logging, backup, and Secure Score benchmarks. Written for Microsoft 365 Business Standard and Business Premium tenants with 5–50 employees.';
 

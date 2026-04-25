@@ -274,7 +274,7 @@ export class ConditionalAccessComponent implements OnDestroy, AfterViewInit {
 
   constructor() {
     const title =
-      'Conditional Access Policies for Small Business (Microsoft 365) | CtrlShift IT';
+      'Conditional Access (M365) for SMBs | CtrlShift IT Services';
     const description =
       'How to deploy a safe Conditional Access baseline in Microsoft 365 Business Premium — MFA enforcement, legacy auth blocking, location policies, break-glass accounts, rollout strategy, and lockout recovery for Canadian SMBs.';
 

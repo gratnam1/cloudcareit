@@ -218,7 +218,7 @@ export class PhishingProtectionComponent implements OnDestroy, AfterViewInit {
 
   constructor() {
     const title =
-      'Microsoft 365 Phishing Protection | CtrlShift IT Services';
+      'M365 Anti-Phishing Guide for SMBs | CtrlShift IT Services';
     const description =
       'Step-by-step phishing protection for Canadian small businesses on Microsoft 365 — Defender anti-phishing, MFA, Safe Links, Safe Attachments, SPF/DKIM/DMARC, and what to do when someone clicks.';
 

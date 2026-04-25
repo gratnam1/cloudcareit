@@ -1,59 +1,22 @@
-import { Component, OnInit, inject, Inject, HostListener, ViewChild, ElementRef, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
-import { CommonModule, ViewportScroller, DOCUMENT } from '@angular/common';
-import { Router, RouterLink, RouterOutlet, NavigationEnd } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { filter } from 'rxjs/operators';
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 import { SeoService } from './shared/seo/seo.service';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { ChatComponent } from './shared/chat/chat.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, FormsModule],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, ChatComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit, AfterViewChecked {
+export class AppComponent implements OnInit {
   private seo = inject(SeoService);
-  menuOpen = false;
-  locationsOpen = false;
-  industriesOpen = false;
-  guidesOpen = false;
-
-  // --- AI Chat State (Kept Global) ---
-  chatVisible = false;
-  chatInput = '';
-  chatLoading = false;
-  messages: { text: string; isUser: boolean; isTyping?: boolean }[] = [
-    { text: "Hi! I'm the CtrlShift IT Services assistant. Ask me anything about our IT services, pricing, or coverage areas.", isUser: false }
-  ];
-  @ViewChild('chatBody') private chatBodyRef?: ElementRef<HTMLDivElement>;
-
-  constructor(
-    private router: Router,
-    private viewportScroller: ViewportScroller,
-    @Inject(DOCUMENT) private document: Document,
-    private cdr: ChangeDetectorRef
-  ) {
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.closeNavMenus();
-        const fragment = this.router.parseUrl(this.router.url).fragment;
-        if (!fragment) return;
-
-        setTimeout(() => {
-          this.viewportScroller.scrollToAnchor(fragment);
-          const el = this.document.getElementById(fragment);
-          if (el) {
-            el.setAttribute('tabindex', '-1');
-            el.focus({ preventScroll: true });
-          }
-        }, 50);
-      });
-  }
 
   ngOnInit(): void {
-    this.setupNavbarScroll();
     this.seo.setStructuredData('global-organization', {
       '@context': 'https://schema.org',
       '@type': 'Organization',
@@ -111,126 +74,5 @@ export class AppComponent implements OnInit, AfterViewChecked {
         'query-input': 'required name=search_term_string'
       }
     });
-  }
-
-  ngAfterViewChecked(): void {
-    this.scrollChatToBottom();
-  }
-
-  private scrollChatToBottom(): void {
-    const el = this.chatBodyRef?.nativeElement;
-    if (el) {
-      el.scrollTop = el.scrollHeight;
-    }
-  }
-
-  toggleChat() {
-    this.chatVisible = !this.chatVisible;
-    if (this.chatVisible) {
-      setTimeout(() => this.scrollChatToBottom());
-    }
-  }
-
-  toggleMenu(): void {
-    this.menuOpen = !this.menuOpen;
-    if (!this.menuOpen) {
-      this.locationsOpen = false;
-      this.industriesOpen = false;
-      this.guidesOpen = false;
-    }
-  }
-
-  toggleLocations(event: Event): void {
-    event.preventDefault();
-    this.locationsOpen = !this.locationsOpen;
-    this.industriesOpen = false;
-    this.guidesOpen = false;
-  }
-
-  toggleIndustries(event: Event): void {
-    event.preventDefault();
-    this.industriesOpen = !this.industriesOpen;
-    this.locationsOpen = false;
-    this.guidesOpen = false;
-  }
-
-  toggleGuides(event: Event): void {
-    event.preventDefault();
-    this.guidesOpen = !this.guidesOpen;
-    this.locationsOpen = false;
-    this.industriesOpen = false;
-  }
-
-  closeNavMenus(): void {
-    this.menuOpen = false;
-    this.locationsOpen = false;
-    this.industriesOpen = false;
-    this.guidesOpen = false;
-  }
-
-  @HostListener('document:click', ['$event'])
-  onDocumentClick(event: MouseEvent): void {
-    const target = event.target as Node | null;
-    const nav = this.document.querySelector('.navbar');
-    if (!target || !nav) return;
-    if (!nav.contains(target)) {
-      this.closeNavMenus();
-    }
-  }
-
-  @HostListener('document:keydown.escape')
-  onEscapeKey(): void {
-    this.closeNavMenus();
-  }
-
-  private setupNavbarScroll(): void {
-    if (typeof this.document.defaultView === 'undefined') return;
-    const nav = this.document.querySelector('.navbar');
-    if (!nav) return;
-    const onScroll = (): void => {
-      const scrolled = (this.document.defaultView?.scrollY ?? 0) > 20;
-      nav.classList.toggle('scrolled', scrolled);
-    };
-    this.document.defaultView?.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  sendMessage() {
-    const text = this.chatInput.trim();
-    if (!text || this.chatLoading) return;
-
-    this.messages.push({ text, isUser: true });
-    this.chatInput = '';
-    this.chatLoading = true;
-    this.messages.push({ text: '...', isUser: false, isTyping: true });
-
-    const history = this.messages
-      .filter(m => !m.isTyping)
-      .map(m => ({ role: m.isUser ? 'user' : 'assistant', content: m.text }));
-
-    fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: history }),
-    })
-      .then(res => res.json())
-      .then((data: { reply?: string; error?: string }) => {
-        this.messages = this.messages.filter(m => !m.isTyping);
-        this.messages.push({
-          text: data.reply ?? "Sorry, I'm having trouble connecting. Please call us at (416) 624-4841 or email info@ctrlshiftit.ca.",
-          isUser: false,
-        });
-        this.chatLoading = false;
-        setTimeout(() => { this.cdr.detectChanges(); this.scrollChatToBottom(); });
-      })
-      .catch(() => {
-        this.messages = this.messages.filter(m => !m.isTyping);
-        this.messages.push({
-          text: "Sorry, I couldn't reach the server. Please call (416) 624-4841 or email info@ctrlshiftit.ca.",
-          isUser: false,
-        });
-        this.chatLoading = false;
-        setTimeout(() => { this.cdr.detectChanges(); this.scrollChatToBottom(); });
-      });
   }
 }

@@ -1,0 +1,133 @@
+.section-dark-alt   { background: #080d1a; }
+
+.section-header { text-align: center; }
+.section-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+}
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+.section-subtitle {
+  color: rgba(148, 163, 184, 0.85);
+  font-size: 1.05rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+.text-gradient {
+  background: linear-gradient(130deg, #a5b4fc 0%, #c4b5fd 50%, #f0abfc 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+/* ===== LOCATION CARDS ===== */
+.location-card {
+  --accent: 99, 102, 241;
+  --accent-2: 139, 92, 246;
+  position: relative;
+  background: linear-gradient(135deg, rgba(var(--accent),0.06) 0%, rgba(255,255,255,0.02) 60%);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  color: #f8fafc;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.location-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(var(--accent),0.9), rgba(var(--accent-2),0.9));
+  opacity: 0.55;
+  transition: opacity 0.3s ease;
+}
+.location-card:hover {
+  border-color: rgba(var(--accent),0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.32), 0 0 24px rgba(var(--accent),0.22);
+  color: #f8fafc;
+  background: linear-gradient(135deg, rgba(var(--accent),0.11) 0%, rgba(255,255,255,0.03) 60%);
+}
+.location-card:hover::before { opacity: 1; }
+
+.location-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 1.35rem;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(var(--accent),0.95) 0%, rgba(var(--accent-2),0.95) 100%);
+  box-shadow: 0 6px 18px rgba(var(--accent),0.35), inset 0 1px 0 rgba(255,255,255,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.location-card:hover .location-badge {
+  transform: scale(1.06) rotate(-3deg);
+  box-shadow: 0 10px 24px rgba(var(--accent),0.5), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+.location-arrow {
+  color: rgba(var(--accent),0.65);
+  font-size: 1.05rem;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+.location-card:hover .location-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: rgba(var(--accent),1);
+}
+
+.location-card--indigo { --accent: 99, 102, 241;  --accent-2: 139, 92, 246; }
+.location-card--violet { --accent: 167, 139, 250; --accent-2: 217, 70, 239; }
+.location-card--cyan   { --accent: 34, 211, 238;  --accent-2: 56, 189, 248; }
+.location-card--rose   { --accent: 244, 114, 182; --accent-2: 236, 72, 153; }
+.location-card--amber  { --accent: 251, 191, 36;  --accent-2: 249, 115, 22; }
+
+.location-title { font-weight: 700; line-height: 1.3; }
+.min-w-0 { min-width: 0; }
+
+@media (min-width: 1400px) {
+  .locations-grid > .col-xxl {
+    flex: 1 1 0 !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+  .location-card { padding: 1.1rem 1.25rem !important; gap: 0.75rem !important; }
+  .location-badge { width: 40px; height: 40px; font-size: 1.15rem; border-radius: 10px; }
+  .location-title .location-prefix { display: none; }
+  .location-title .location-city { font-size: 1.08rem; color: #fff; }
+  .location-card .small { font-size: 0.8rem; line-height: 1.35; }
+}
+
+.reveal-section { opacity: 0; }
+.reveal-section.revealed { opacity: 1; }
+.reveal-card { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .location-card, .location-card::before, .location-badge, .location-arrow { transition: none; }
+  .location-card:hover { transform: none; }
+  .location-card:hover .location-badge { transform: none; }
+}

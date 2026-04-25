@@ -1,0 +1,75 @@
+<!-- ========== FREE IT ASSESSMENT / CONSULTATION ========== -->
+<section id="consultation" class="section-dark py-5 reveal-section">
+  <div class="container py-4 py-md-5">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 consultation-reveal">
+        <span class="section-kicker section-kicker-amber">Next Step</span>
+        <h2 class="section-title mt-3">Get a Free <span class="text-gradient">Security Assessment</span></h2>
+        <p class="section-subtitle mb-4">No pressure, no sales pitch. We'll identify your three biggest IT risks and provide a clear roadmap to fix them.</p>
+
+        <div class="consult-info-card mb-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="review-avatar-dark bg-indigo"><i class="bi bi-clock-history"></i></div>
+            <div class="fw-bold text-white">30-Minute Roadmap Session</div>
+          </div>
+          <span class="consult-check-item"><i class="bi bi-check2-circle text-indigo me-2"></i>Dark web credential scan</span>
+          <span class="consult-check-item"><i class="bi bi-check2-circle text-indigo me-2"></i>M365 security posture review</span>
+          <span class="consult-check-item"><i class="bi bi-check2-circle text-indigo me-2"></i>Network performance & uptime audit</span>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="text-white-50 small">Direct Contact:</div>
+          <a href="tel:+14166244841" class="text-white fw-bold text-decoration-none">(416) 624-4841</a>
+        </div>
+      </div>
+
+      <div class="col-lg-6 consultation-reveal">
+        <div class="consult-form-card shadow-lg scan-line-host">
+          <div *ngIf="!submitted; else successMsg">
+            <h3 class="h5 fw-bold text-white mb-4">Request Your Assessment</h3>
+            <form (submit)="onSubmit($event)">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control consult-input" placeholder="Full Name" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="email" name="email" class="form-control consult-input" placeholder="Work Email" required>
+                </div>
+                <div class="col-12">
+                  <input type="text" name="company" class="form-control consult-input" placeholder="Company Name" required>
+                </div>
+                <div class="col-12">
+                  <select name="employees" class="form-select consult-input" required>
+                    <option value="" disabled selected>Number of Employees</option>
+                    <option value="1-4">1–4</option>
+                    <option value="5-15">5–15</option>
+                    <option value="16-50">16–50</option>
+                    <option value="50+">50+</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <textarea name="message" class="form-control consult-input" rows="3" placeholder="Tell us about your biggest IT challenge..."></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-hero-primary w-100 py-3 rounded-pill fw-bold magnetic-btn" [disabled]="isLoading">
+                    <span *ngIf="!isLoading">Send Assessment Request</span>
+                    <span *ngIf="isLoading"><i class="bi bi-hourglass-split me-2"></i>Sending...</span>
+                  </button>
+                  <p class="text-danger small mt-2 mb-0" *ngIf="errorMessage">{{ errorMessage }}</p>
+                </div>
+              </div>
+            </form>
+          </div>
+          <ng-template #successMsg>
+            <div class="text-center py-4">
+              <div class="display-1 text-indigo mb-3"><i class="bi bi-check-circle-fill"></i></div>
+              <h3 class="text-white fw-bold">Message Received</h3>
+              <p class="text-muted">Thanks! An IT strategist will reach out within 1 business day.</p>
+              <button class="btn btn-outline-indigo rounded-pill px-4 mt-3" (click)="submitted = false">Send Another</button>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

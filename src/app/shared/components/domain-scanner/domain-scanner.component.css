@@ -14,17 +14,27 @@
 
 .scanner-input-group {
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 1px solid rgba(56, 189, 248, 0.34);
   border-radius: 50px;
   overflow: hidden;
 }
 
+.scanner-input-group:focus-within {
+  border-color: rgba(103, 232, 249, 0.72);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.14), 0 14px 34px rgba(0,0,0,0.32);
+}
+
 .scanner-input-group .form-control {
-  border-left: none;
-  border-right: none;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
 .scanner-input-group .input-group-text {
-  border-right: none;
+  border: 0 !important;
+}
+
+.scanner-input-group .btn {
+  border: 0 !important;
 }
 
 .score-card {

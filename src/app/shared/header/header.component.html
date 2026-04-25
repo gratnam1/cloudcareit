@@ -59,6 +59,35 @@
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link px-3" routerLink="/" fragment="services" (click)="closeNavMenus()">Services</a></li>
+        <!-- Free Tools dropdown -->
+        <li class="nav-item dropdown" [class.show]="toolsOpen">
+          <a
+            class="nav-link dropdown-toggle px-3"
+            href="#"
+            role="button"
+            [attr.aria-expanded]="toolsOpen"
+            (click)="toggleTools($event)"
+          >
+            Free Tools
+          </a>
+          <ul class="dropdown-menu border-0 shadow" [class.show]="toolsOpen">
+            <li>
+              <a class="dropdown-item" routerLink="/" fragment="risk-calculator" (click)="closeNavMenus()">
+                <i class="bi bi-calculator me-2 text-indigo"></i>Downtime & ROI Calculator
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/free-security-assessment" (click)="closeNavMenus()">
+                <i class="bi bi-shield-check me-2 text-indigo"></i>Instant Domain Scanner
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/office-it-relocation" (click)="closeNavMenus()">
+                <i class="bi bi-truck me-2 text-indigo"></i>Office Move Checklist
+              </a>
+            </li>
+          </ul>
+        </li>
         <li class="nav-item"><a class="nav-link px-3" routerLink="/about" (click)="closeNavMenus()">About</a></li>
         <li class="nav-item"><a class="nav-link px-3" routerLink="/blog" (click)="closeNavMenus()">Blog</a></li>
         <!-- Guides dropdown -->

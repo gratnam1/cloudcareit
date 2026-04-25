@@ -88,10 +88,12 @@
 
             <div class="form-check form-switch breach-switch">
               <input class="form-check-input" type="checkbox" id="breachToggle" [(ngModel)]="includeBreach">
-              <label class="form-check-label fw-bold text-white ms-2" for="breachToggle">
-                Include Cybersecurity Breach Impact
-              </label>
-              <p class="small section-subtitle mb-0 ms-2 mt-1">Adds recovery, legal, notification, and reputation costs.</p>
+              <div class="breach-switch-copy">
+                <label class="form-check-label fw-bold text-white" for="breachToggle">
+                  Include Cybersecurity Breach Impact
+                </label>
+                <p class="small section-subtitle mb-0 mt-1">Adds recovery, legal, notification, and reputation costs.</p>
+              </div>
             </div>
           </div>
         </div>

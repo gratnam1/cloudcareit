@@ -17,7 +17,7 @@ export class CrisisRecoveryComponent implements OnDestroy {
   private readonly BREADCRUMB_SCHEMA_ID = 'service-crisis-recovery-breadcrumb';
 
   constructor() {
-    const pageTitle = 'IT Crisis Recovery in Vaughan & GTA | CtrlShift IT Services';
+    const pageTitle = 'IT Disaster Recovery Vaughan Small Business';
     const description =
       'Rapid crisis recovery for Vaughan and GTA offices. We contain incidents, restore critical systems, and harden your environment after outages, ransomware, or major failures.';
     applyServicePageSeo(this.seo, {

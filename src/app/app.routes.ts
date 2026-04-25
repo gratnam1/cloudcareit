@@ -37,7 +37,7 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/blog/posts/web-development-trends/web-development-trends.component')
             .then((m) => m.WebDevelopmentTrendsComponent),
-        title: 'Web Development for SMBs Markham | CtrlShift IT Services'
+        title: 'Web Development Markham Small Business'
       },
       {
         path: 'post-quantum-small-business',
@@ -59,7 +59,7 @@ export const routes: Routes = [
     path: 'managed-it-services',
     loadComponent: () =>
       import('./pages/services/managed-it/managed-it.component').then((m) => m.ManagedItComponent),
-    title: 'Managed IT Small Business Markham | CtrlShift IT Services'
+    title: 'Managed IT Support Markham Small Business'
   },
   {
     path: 'google-workspace',
@@ -91,7 +91,7 @@ export const routes: Routes = [
       import('./pages/services/aws-infrastructure/aws-infrastructure.component').then(
         (m) => m.AwsInfrastructureComponent
       ),
-    title: 'AWS Cloud for SMBs Brampton | CtrlShift IT Services'
+    title: 'AWS Cloud Services Brampton Small Business'
   },
   {
     path: 'security-firewall',
@@ -107,7 +107,7 @@ export const routes: Routes = [
       import('./pages/services/crisis-recovery/crisis-recovery.component').then(
         (m) => m.CrisisRecoveryComponent
       ),
-    title: 'IT Crisis Recovery for SMBs Vaughan | CtrlShift IT Services'
+    title: 'IT Disaster Recovery Vaughan Small Business'
   },
   {
     path: 'ai-integration',
@@ -115,7 +115,7 @@ export const routes: Routes = [
       import('./pages/services/ai-integration/ai-integration.component').then(
         (m) => m.AiIntegrationComponent
       ),
-    title: 'AI Integration for SMBs Brampton | CtrlShift IT Services'
+    title: 'AI Integration Services Brampton Small Business'
   },
   {
     path: 'web-development',
@@ -123,7 +123,7 @@ export const routes: Routes = [
       import('./pages/services/web-development/web-development.component').then(
         (m) => m.WebDevelopmentComponent
       ),
-    title: 'Web Development Vaughan & Markham | CtrlShift IT Services'
+    title: 'Web Development Vaughan Small Business'
   },
   {
     path: 'seo-visibility',
@@ -131,7 +131,7 @@ export const routes: Routes = [
       import('./pages/services/seo-visibility/seo-visibility.component').then(
         (m) => m.SeoVisibilityComponent
       ),
-    title: 'SEO Services Vaughan & Mississauga | CtrlShift IT Services'
+    title: 'SEO Services Vaughan Small Business'
   },
   {
     path: 'lead-generation',
@@ -139,7 +139,7 @@ export const routes: Routes = [
       import('./pages/services/lead-generation/lead-generation.component').then(
         (m) => m.LeadGenerationComponent
       ),
-    title: 'B2B Lead Generation SMBs Oakville | CtrlShift IT Services'
+    title: 'B2B Lead Generation Oakville Small Business'
   },
   {
     path: 'cyber-insurance-readiness-vaughan',
@@ -314,7 +314,7 @@ export const routes: Routes = [
     path: 'about',
     loadComponent: () =>
       import('./pages/about/about.component').then((m) => m.AboutComponent),
-    title: 'About CtrlShift IT | Founder Story | Vaughan IT'
+    title: 'Founder Story | Vaughan Managed IT Company'
   },
 
   // IT Assessment
@@ -334,7 +334,7 @@ export const routes: Routes = [
       import('./pages/free-security-assessment/free-security-assessment.component').then(
         (m) => m.FreeSecurityAssessmentComponent
       ),
-    title: 'Free IT Security Assessment Vaughan | CtrlShift IT Services'
+    title: 'Free IT Security Assessment Vaughan Business'
   },
 
   // Industry Pages
@@ -349,14 +349,14 @@ export const routes: Routes = [
     path: 'it-support-accounting-firms-gta',
     loadComponent: () =>
       import('./pages/industries/industry-page.component').then((m) => m.IndustryPageComponent),
-    title: 'Accounting Firm IT Support Markham | CtrlShift IT Services',
+    title: 'Accounting Firm IT Support Markham',
     data: { industry: 'accounting-firms' }
   },
   {
     path: 'it-support-medical-clinics-ontario',
     loadComponent: () =>
       import('./pages/industries/industry-page.component').then((m) => m.IndustryPageComponent),
-    title: 'Medical Clinic IT Support Vaughan | CtrlShift IT Services',
+    title: 'Medical Clinic IT Support Vaughan',
     data: { industry: 'medical-clinics' }
   },
   {
@@ -370,7 +370,7 @@ export const routes: Routes = [
     path: 'it-support-small-businesses-gta',
     loadComponent: () =>
       import('./pages/industries/industry-page.component').then((m) => m.IndustryPageComponent),
-    title: 'Small Business IT Support Brampton | CtrlShift IT Services',
+    title: 'Small Business IT Support Brampton',
     data: { industry: 'small-businesses' }
   },
 

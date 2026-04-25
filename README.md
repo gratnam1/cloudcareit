@@ -11,6 +11,13 @@ The application is built for maximum speed, local SEO visibility, and low operat
 - **Hosting & API:** Cloudflare Workers (`worker/index.js`)
 - **Rendering:** Static Site Generation (SSG). The Angular build prerenders all programmatic location and service pages into static HTML (`dist/ctrlshift-frontend/browser`).
 
+### Interactive Lead Generation Tools
+The application includes several high-conversion tools designed to provide immediate value to GTA businesses:
+- **Downtime & ROI Calculator:** Visualizes the cost of IT failure for business owners.
+- **Industry Compliance Quizzes:** Tailored security checks for Legal, Medical, and Accounting sectors.
+- **Instant Domain Scanner:** Performs live DNS/Email health checks using Cloudflare's DNS-over-HTTPS API.
+- **Office Move Hub:** Comprehensive interactive checklist for IT infrastructure relocation.
+
 ### Edge API (Cloudflare Workers)
 While the frontend is 100% static, dynamic functionality is handled at the edge by the Cloudflare Worker defined in `worker/index.js`. This includes:
 - `/api/chat`: An AI assistant powered by Cloudflare's Workers AI (`@cf/meta/llama-3.3-70b-instruct-fp8-fast`) that answers user questions about IT services and pricing.

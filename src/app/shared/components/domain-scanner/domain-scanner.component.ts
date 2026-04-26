@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { catchError, forkJoin, map, of, timeout } from 'rxjs';
+import { catchError, finalize, forkJoin, map, of, timeout } from 'rxjs';
 
 interface ScanResult {
   label: string;
@@ -51,7 +51,10 @@ export class DomainScannerComponent {
             spf: this.unavailableResult('SPF Record'),
             dmarc: this.unavailableResult('DMARC Policy')
           })
-        )
+        ),
+        finalize(() => {
+          this.isScanning = false;
+        })
       )
       .subscribe(({ spf, dmarc }) => {
         this.results['spf'] = spf;
@@ -63,8 +66,6 @@ export class DomainScannerComponent {
           message: 'Encryption Active',
           detail: 'HTTPS endpoint detected.'
         };
-
-        this.isScanning = false;
       });
   }
 

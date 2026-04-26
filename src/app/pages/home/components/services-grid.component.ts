@@ -31,7 +31,7 @@ export class ServicesGridComponent implements AfterViewInit, OnDestroy {
     gsap.registerPlugin(ScrollTrigger);
 
     if (this.prefersReducedMotion) {
-      gsap.set('.reveal-card, .section-head-reveal', { clearProps: 'all' });
+      gsap.set('.reveal-card, .section-head-reveal', { y: 0, opacity: 1, clearProps: 'transform' });
       return;
     }
 
@@ -48,15 +48,19 @@ export class ServicesGridComponent implements AfterViewInit, OnDestroy {
     const bentoRows = [
       ['#card-managed-it', '#card-security'],
       ['#card-microsoft', '#card-aws', '#card-networking'],
-      ['#card-crisis', '#card-ai-integration'],
+      ['#card-crisis', '#card-relocation', '#card-ai-integration'],
     ];
     bentoRows.forEach(ids => {
       ScrollTrigger.batch(ids.join(', '), {
         start: 'top 85%',
+        once: true,
         onEnter: batch => {
-          gsap.from(batch, {
+          gsap.fromTo(batch, {
             y: 30,
             opacity: 0,
+          }, {
+            y: 0,
+            opacity: 1,
             duration: 0.55,
             ease: 'power2.out',
             stagger: 0,

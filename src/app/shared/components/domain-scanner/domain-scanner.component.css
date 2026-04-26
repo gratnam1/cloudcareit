@@ -85,14 +85,42 @@
 
 @media (max-width: 767px) {
   .scanner-input-group {
-    flex-direction: column;
+    display: block;
+    gap: 0.6rem;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
     background: transparent;
+  }
+  .scanner-input-group:focus-within {
+    border: 0;
     box-shadow: none;
   }
   .scanner-input-group > * {
-    width: 100% !important;
-    border-radius: 10px !important;
-    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 16px !important;
+    margin-bottom: 0;
+    float: none;
+  }
+  .scanner-input-group .form-control,
+  .scanner-input-group .btn {
+    min-height: 3.25rem;
+  }
+  .scanner-input-group .form-control {
+    padding-inline: 1.1rem;
+    text-align: left;
+    font-size: 1.05rem;
+    margin-bottom: 0.65rem;
+  }
+  .scanner-input-group .btn {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .scanner-input-group .btn:disabled {
+    opacity: 1;
   }
   .scanner-input-group .input-group-text { display: none; }
 }

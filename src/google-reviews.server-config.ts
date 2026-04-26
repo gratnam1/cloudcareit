@@ -3,7 +3,7 @@ import { join } from 'node:path';
 
 export const DEFAULT_PLACE_NAME = 'CtrlShift IT Services';
 export const DEFAULT_REVIEWS_URL =
-  'https://www.google.com/search?q=CtrlShift+IT+Services+reviews';
+  'https://maps.google.com/?cid=16895135826401604647';
 
 const LOCAL_ENV_FILENAME = '.env.local';
 

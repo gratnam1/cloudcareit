@@ -112,7 +112,7 @@ export const HOME_STRUCTURED_DATA = {
         category: 'Managed IT Support Plan',
         priceSpecification: {
           '@type': 'PriceSpecification',
-          price: '249',
+          price: '299',
           priceCurrency: 'CAD',
           billingDuration: 1,
           billingIncrement: 1,
@@ -121,7 +121,7 @@ export const HOME_STRUCTURED_DATA = {
         itemOffered: {
           '@type': 'Service',
           name: 'Starter Managed IT Support',
-          description: '2 support hours per month, basic maintenance. Does not include 24/7 monitoring, endpoint protection, backup monitoring, network monitoring, priority response, or 30-day risk-free trial.'
+          description: 'Security-first managed IT plan for up to 5 business devices, including Huntress EDR, 24/7 monitoring and alerting, patch management, backup monitoring, device health automation, 2 support hours per month, and a 30-day risk-free trial.'
         }
       },
       {
@@ -131,7 +131,7 @@ export const HOME_STRUCTURED_DATA = {
         category: 'Managed IT Support Plan',
         priceSpecification: {
           '@type': 'PriceSpecification',
-          price: '499',
+          price: '549',
           priceCurrency: 'CAD',
           billingDuration: 1,
           billingIncrement: 1,
@@ -140,7 +140,7 @@ export const HOME_STRUCTURED_DATA = {
         itemOffered: {
           '@type': 'Service',
           name: 'Growth Managed IT Support',
-          description: '5 support hours per month, 24/7 monitoring, endpoint protection, backup monitoring, patch management, Microsoft 365 support, network monitoring, priority response under 15 minutes, quarterly vulnerability scan, and 30-day risk-free trial.'
+          description: 'Managed IT plan for up to 12 business devices, including everything in Starter plus priority response under 15 minutes, Microsoft 365 security hardening, identity threat monitoring signals, device policy enforcement, conditional access guidance, 5 support hours per month, and quarterly security reviews.'
         }
       },
       {
@@ -150,7 +150,7 @@ export const HOME_STRUCTURED_DATA = {
         category: 'Managed IT Support Plan',
         priceSpecification: {
           '@type': 'PriceSpecification',
-          price: '899',
+          price: '999',
           priceCurrency: 'CAD',
           billingDuration: 1,
           billingIncrement: 1,
@@ -159,7 +159,7 @@ export const HOME_STRUCTURED_DATA = {
         itemOffered: {
           '@type': 'Service',
           name: 'Business Managed IT Support',
-          description: '10 support hours per month, full IT department outsourcing, 24/7 monitoring, endpoint protection, backup monitoring, patch management, Microsoft 365 support, network monitoring, priority response under 15 minutes, quarterly vulnerability scan, hardware procurement, vendor management, and 30-day risk-free trial.'
+          description: 'Fully managed IT plan for up to 25 business devices, including everything in Growth plus vendor management, procurement assistance, hardware lifecycle planning, security containment coordination, compliance-ready documentation posture, 10 support hours per month, and executive environment planning.'
         }
       }
     ]
@@ -198,7 +198,7 @@ export const HOME_STRUCTURED_DATA = {
         name: 'How much does managed IT support cost in Vaughan?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'CtrlShift IT Services offers three flat-rate plans: Starter at $249/month with 2 support hours, Growth at $499/month with 5 hours and priority response, and Business at $899/month with 10 hours and full IT department outsourcing. All pricing is transparent with no hidden fees.'
+          text: 'CtrlShift IT Services offers three flat-rate plans: Starter at $299/month for up to 5 business devices, Growth at $549/month for up to 12 devices, and Business at $999/month for up to 25 devices. Every plan includes Huntress EDR-backed protection, and additional devices can be added for $15 per device per month.'
         }
       },
       {
@@ -222,7 +222,7 @@ export const HOME_STRUCTURED_DATA = {
         name: 'What cybersecurity tools do you use?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'We deploy Huntress for AI-assisted endpoint detection with managed analyst response, Tailscale for zero-trust network access, and enforce multi-factor authentication, conditional access policies, and regular vulnerability scanning across all managed endpoints.'
+          text: 'CtrlShift IT Services is a Huntress partner. We deploy Huntress EDR for endpoint detection with managed analyst response, Tailscale for zero-trust network access, and enforce multi-factor authentication, conditional access policies, and regular vulnerability scanning across managed endpoints.'
         }
       },
       {

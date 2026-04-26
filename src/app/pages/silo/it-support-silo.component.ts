@@ -44,9 +44,9 @@ export class ItSupportSiloComponent implements OnInit, OnDestroy {
   page!: SiloContent;
 
   readonly plans = [
-    { name: 'Starter', price: '$249/mo', summary: '2 support hours, foundational maintenance for small teams.' },
-    { name: 'Growth', price: '$499/mo', summary: '5 support hours, 24/7 monitoring, endpoint security, priority response.' },
-    { name: 'Business', price: '$899/mo', summary: '10 support hours, full IT outsourcing, vendor and procurement management.' }
+    { name: 'Starter', price: '$299/mo', summary: 'Up to 5 devices, Huntress EDR, monitoring, patching, and 2 support hours.' },
+    { name: 'Growth', price: '$549/mo', summary: 'Up to 12 devices, priority response, M365 hardening, and 5 support hours.' },
+    { name: 'Business', price: '$999/mo', summary: 'Up to 25 devices, vendor coordination, planning, and 10 support hours.' }
   ];
 
   ngOnInit(): void {

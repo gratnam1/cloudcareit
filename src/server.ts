@@ -1879,7 +1879,7 @@ Key facts:
 - Response time: under 15 minutes for production-down issues
 - Monitoring: 24/7
 - Guarantee: 30-day satisfaction guarantee
-- Pricing: flat-rate plans starting from $249/month per user
+- Pricing: flat-rate managed IT plans start at $299/month for up to 5 business devices; Growth is $549/month for up to 12 devices; Business is $999/month for up to 25 devices; extra devices are $15/device/month
 - Phone: (416) 624-4841
 - Email: info@ctrlshiftit.ca
 - Free IT assessment available at /it-assessment
@@ -2021,4 +2021,3 @@ if (isMainModule(import.meta.url) || process.env['pm_id']) {
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
  */
 export const reqHandler = createNodeRequestHandler(app);
-

@@ -147,12 +147,12 @@ export class IndustryPageComponent implements OnInit {
       ],
       caseStudy: {
         problem: 'A 15-person GTA professional services firm was spending $2,000+/month on reactive IT support — paying per ticket, per incident, with no monitoring and frequent outages disrupting client work.',
-        solution: 'Transitioned to CtrlShift IT Services\' Growth plan at $499/month with proactive monitoring, endpoint protection, automated patching, and a priority helpdesk. All devices enrolled, MFA enforced.',
+        solution: 'Transitioned to CtrlShift IT Services\' Growth plan at $549/month with proactive monitoring, Huntress EDR-backed endpoint protection, automated patching, and a priority helpdesk. All devices enrolled, MFA enforced.',
         result: 'IT incidents dropped 70% in the first 90 days. Monthly IT spend reduced by $1,200. Staff satisfaction with IT improved measurably. One ransomware attempt blocked automatically by Huntress.',
         metrics: [{ value: '70%', label: 'Fewer Incidents' }, { value: '$1.2K', label: 'Monthly Savings' }, { value: '1', label: 'Attack Blocked' }]
       },
       seoTitle: 'Small Business IT Support Brampton',
-      seoDescription: 'Managed IT for small businesses in the GTA. Flat-rate plans starting at $249/month. 24/7 monitoring, cybersecurity, and Microsoft 365 support. No surprise invoices.'
+      seoDescription: 'Managed IT for small businesses in the GTA. Flat-rate plans starting at $299/month. Huntress EDR, 24/7 monitoring, cybersecurity, and Microsoft 365 support. No surprise invoices.'
     }
   };
 

@@ -44,15 +44,15 @@
                 <i *ngIf="res.value.status === 'warn'" class="bi bi-exclamation-triangle-fill text-warning fs-4"></i>
               </div>
               <div class="flex-grow-1">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                  <h6 class="text-white fw-bold mb-0">{{res.value.label}}</h6>
-                  <span class="badge" [class.bg-success]="res.value.status === 'pass'" 
-                                      [class.bg-danger]="res.value.status === 'fail'"
-                                      [class.bg-warning]="res.value.status === 'warn'">
+                <div class="result-item-header d-flex justify-content-between align-items-center mb-1">
+                  <h6 class="result-title text-white fw-bold mb-0">{{res.value.label}}</h6>
+                  <span class="badge result-badge" [class.bg-success]="res.value.status === 'pass'" 
+                                                  [class.bg-danger]="res.value.status === 'fail'"
+                                                  [class.bg-warning]="res.value.status === 'warn'">
                     {{res.value.message}}
                   </span>
                 </div>
-                <p class="small text-muted mb-0">{{res.value.detail}}</p>
+                <p class="result-detail small text-muted mb-0">{{res.value.detail}}</p>
               </div>
             </div>
           </div>

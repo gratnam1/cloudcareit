@@ -45,7 +45,7 @@ export class DomainScannerComponent {
       dmarc: this.checkDNS(`_dmarc.${domain}`, 'DMARC', 'DMARC Policy')
     })
       .pipe(
-        timeout(12000),
+        timeout(7000),
         catchError(() =>
           of({
             spf: this.unavailableResult('SPF Record'),
@@ -94,7 +94,7 @@ export class DomainScannerComponent {
     const signature = type === 'SPF' ? 'v=spf1' : 'v=dmarc1';
 
     return this.http.get<any>(url, { headers: { Accept: 'application/dns-json' } }).pipe(
-      timeout(7000),
+      timeout(4500),
       map((resp) => {
         const answers = Array.isArray(resp?.Answer) ? resp.Answer : [];
         const record = answers.find((a: any) => String(a?.data || '').toLowerCase().includes(signature));

@@ -134,7 +134,7 @@ export class LocationComponent implements OnInit, OnDestroy {
       faq: [
         {
           q: 'How much does managed IT support cost for a Toronto business?',
-          a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. All pricing is transparent with no hidden fees or surprise invoices.'
+          a: 'Our flat-rate plans start at $299/month for up to 5 business devices, $549/month for up to 12 devices with priority response, and $999/month for up to 25 devices with fully managed IT coordination. Every plan includes Huntress EDR-backed protection, with additional devices available for $15/device/month.'
         },
         {
           q: 'Can Toronto hybrid teams be supported remotely?',
@@ -233,7 +233,7 @@ export class LocationComponent implements OnInit, OnDestroy {
       faq: [
         {
           q: 'How much does managed IT support cost for a Mississauga business?',
-          a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. All pricing is transparent — no hidden fees, no surprise invoices.'
+          a: 'Our flat-rate plans start at $299/month for up to 5 business devices, $549/month for up to 12 devices with priority response, and $999/month for up to 25 devices with fully managed IT coordination. Every plan includes Huntress EDR-backed protection, with additional devices available for $15/device/month.'
         },
         {
           q: 'How quickly can Mississauga companies receive support?',
@@ -312,7 +312,7 @@ export class LocationComponent implements OnInit, OnDestroy {
       faq: [
         {
           q: 'How much does managed IT support cost for a Vaughan business?',
-          a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and under-15-minute priority response, and $899/month for complete IT department outsourcing. All plans are month-to-month with no hidden fees.'
+          a: 'Our flat-rate plans start at $299/month for up to 5 business devices, $549/month for up to 12 devices with under-15-minute priority response, and $999/month for up to 25 devices with fully managed IT coordination. All plans are month-to-month, and additional devices are $15/device/month.'
         },
         {
           q: 'Do you provide managed IT services in Vaughan?',
@@ -410,7 +410,7 @@ export class LocationComponent implements OnInit, OnDestroy {
       faq: [
         {
           q: 'How much does managed IT support cost for a Thornhill business?',
-          a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. There are no hidden fees and no surprise invoices.'
+          a: 'Our flat-rate plans start at $299/month for up to 5 business devices, $549/month for up to 12 devices with priority response, and $999/month for up to 25 devices with fully managed IT coordination. Every plan includes Huntress EDR-backed protection, with no hidden fees or surprise invoices.'
         },
         {
           q: 'Do Thornhill offices receive proactive monitoring support?',
@@ -489,7 +489,7 @@ export class LocationComponent implements OnInit, OnDestroy {
       faq: [
         {
           q: 'How much does managed IT support cost for a Richmond Hill business?',
-          a: 'Our flat-rate plans start at $249/month for basic maintenance, $499/month for full managed IT with 24/7 monitoring and priority response, and $899/month for complete IT department outsourcing. All plans are month-to-month with no hidden fees.'
+          a: 'Our flat-rate plans start at $299/month for up to 5 business devices, $549/month for up to 12 devices with priority response, and $999/month for up to 25 devices with fully managed IT coordination. All plans are month-to-month, and additional devices are $15/device/month.'
         },
         {
           q: 'Do Richmond Hill businesses receive on-site support?',

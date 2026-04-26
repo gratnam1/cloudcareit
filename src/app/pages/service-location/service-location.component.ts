@@ -87,7 +87,7 @@ export const SERVICE_LOCATION_CONTENT: Record<string, ServiceLocationContent> = 
       },
       {
         q: 'How much does cybersecurity support cost for a Vaughan business?',
-        a: 'Cybersecurity services are included in our flat-rate managed IT plans starting at $499/month. For standalone cybersecurity assessments or project-based hardening, contact us for a custom quote.',
+        a: 'Cybersecurity services are included in our flat-rate managed IT plans starting at $299/month, with Huntress EDR-backed endpoint protection included in every plan. For standalone cybersecurity assessments or project-based hardening, contact us for a custom quote.',
       },
       {
         q: 'Do you offer cyber insurance readiness support in Vaughan?',

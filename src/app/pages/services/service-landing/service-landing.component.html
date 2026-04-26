@@ -1,0 +1,238 @@
+<main
+  class="service-landing"
+  [ngClass]="{
+    'service-managed-it': page.slug === 'managed-it',
+    'service-security-firewall': page.slug === 'security-firewall',
+    'service-microsoft-365': page.slug === 'microsoft-365',
+    'service-aws-infrastructure': page.slug === 'aws-infrastructure',
+    'service-office-networking': page.slug === 'office-networking',
+    'service-crisis-recovery': page.slug === 'crisis-recovery',
+    'service-ai-integration': page.slug === 'ai-integration'
+  }"
+>
+  <section class="service-hero">
+    <div class="container">
+      <a class="service-back-link service-reveal" routerLink="/">
+        <i class="bi bi-arrow-left" aria-hidden="true"></i>
+        Back to Home
+      </a>
+
+      <div class="service-hero-grid">
+        <div class="service-hero-copy service-reveal">
+          <span class="service-eyebrow">{{ page.eyebrow }}</span>
+          <h1>{{ page.title }}</h1>
+          <p class="service-lead">{{ page.intro }}</p>
+
+          <div class="service-actions">
+            <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow" [routerLink]="page.primaryCta.route" [fragment]="page.primaryCta.fragment">
+              {{ page.primaryCta.label }}
+              <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold" [routerLink]="page.secondaryCta.route" [fragment]="page.secondaryCta.fragment">
+              {{ page.secondaryCta.label }}
+            </a>
+          </div>
+
+          <ul class="service-trust-chips" aria-label="Service trust signals">
+            <li *ngFor="let chip of page.trustChips">{{ chip }}</li>
+          </ul>
+        </div>
+
+        <aside
+          class="service-hero-panel service-reveal"
+          [ngClass]="{
+            'hero-roadmap': page.infographic.type === 'roadmap',
+            'hero-layers': page.infographic.type === 'layers',
+            'hero-map': page.infographic.type === 'map',
+            'hero-ops': page.infographic.type === 'ops',
+            'hero-topology': page.infographic.type === 'topology',
+            'hero-timeline': page.infographic.type === 'timeline',
+            'hero-automation': page.infographic.type === 'automation'
+          }"
+          aria-label="Service snapshot"
+        >
+          <div class="hero-panel-header">
+            <span>{{ page.heroVisual.metric }}</span>
+            <i class="bi bi-activity" aria-hidden="true"></i>
+          </div>
+          <div class="hero-visual-system" aria-hidden="true">
+            <span *ngFor="let node of page.heroVisual.nodes">
+              {{ node }}
+            </span>
+          </div>
+          <h2>{{ page.heroVisual.title }}</h2>
+          <p>{{ page.heroVisual.caption }}</p>
+          <div class="hero-node-grid">
+            <span *ngFor="let node of page.heroVisual.nodes">{{ node }}</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-section" aria-labelledby="handle-title">
+    <div class="container">
+      <div class="service-section-head service-reveal">
+        <span class="service-eyebrow">What we actually handle</span>
+        <h2 id="handle-title">{{ page.handleTitle }}</h2>
+        <p>{{ page.handleIntro }}</p>
+      </div>
+
+      <div class="service-card-grid">
+        <article class="service-card" *ngFor="let card of page.serviceCards">
+          <i class="bi {{ card.icon }}" aria-hidden="true"></i>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.text }}</p>
+          <strong *ngIf="card.outcome">{{ card.outcome }}</strong>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-section service-infographic" aria-labelledby="infographic-title">
+    <div class="container">
+      <div
+        class="service-diagram service-reveal"
+        [ngClass]="{
+          'diagram-roadmap': page.infographic.type === 'roadmap',
+          'diagram-layers': page.infographic.type === 'layers',
+          'diagram-map': page.infographic.type === 'map',
+          'diagram-ops': page.infographic.type === 'ops',
+          'diagram-topology': page.infographic.type === 'topology',
+          'diagram-timeline': page.infographic.type === 'timeline',
+          'diagram-automation': page.infographic.type === 'automation'
+        }"
+      >
+        <div class="service-diagram-copy">
+          <span class="service-eyebrow">{{ page.infographic.eyebrow }}</span>
+          <h2 id="infographic-title">{{ page.infographic.title }}</h2>
+          <p>{{ page.infographic.intro }}</p>
+        </div>
+
+        <ol class="service-diagram-list" [attr.aria-label]="page.infographic.title">
+          <li class="service-diagram-item" *ngFor="let item of page.infographic.items; index as i">
+            <span class="diagram-index">{{ item.label || (i + 1).toString().padStart(2, '0') }}</span>
+            <div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.text }}</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-section" aria-labelledby="problems-title">
+    <div class="container">
+      <div class="service-section-head service-reveal">
+        <span class="service-eyebrow">Common problems we fix</span>
+        <h2 id="problems-title">Specific issues that usually point to a deeper system gap</h2>
+      </div>
+      <div class="service-problem-grid">
+        <article class="service-card service-problem-card" *ngFor="let problem of page.problems">
+          <i class="bi {{ problem.icon }}" aria-hidden="true"></i>
+          <h3>{{ problem.title }}</h3>
+          <p>{{ problem.text }}</p>
+          <strong>{{ problem.outcome }}</strong>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-section" aria-labelledby="deliverables-title">
+    <div class="container">
+      <div class="service-section-head service-reveal">
+        <span class="service-eyebrow">Deliverables you receive</span>
+        <h2 id="deliverables-title">Clear artifacts your office can keep using</h2>
+      </div>
+      <div class="service-deliverable-grid">
+        <article class="service-card service-deliverable-card" *ngFor="let item of page.deliverables">
+          <i class="bi {{ item.icon }}" aria-hidden="true"></i>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-section" aria-labelledby="engagement-title">
+    <div class="container">
+      <div class="service-section-head service-reveal">
+        <span class="service-eyebrow">How engagement works</span>
+        <h2 id="engagement-title">A practical sequence with clear expectations</h2>
+      </div>
+      <ol class="service-process" aria-label="Engagement steps">
+        <li class="service-process-step" *ngFor="let step of page.engagement; index as i">
+          <span>{{ step.label || (i + 1).toString().padStart(2, '0') }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="service-section" aria-labelledby="scenario-title">
+    <div class="container">
+      <article class="service-scenario service-reveal">
+        <div>
+          <span class="service-eyebrow">Example scenario</span>
+          <h2 id="scenario-title">{{ page.scenario.title }}</h2>
+        </div>
+        <div class="scenario-grid">
+          <div>
+            <span>Problem</span>
+            <p>{{ page.scenario.problem }}</p>
+          </div>
+          <div>
+            <span>Fix</span>
+            <p>{{ page.scenario.fix }}</p>
+          </div>
+          <div>
+            <span>Outcome</span>
+            <p>{{ page.scenario.outcome }}</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="service-section" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="service-section-head service-reveal">
+        <span class="service-eyebrow">FAQ</span>
+        <h2 id="faq-title">Questions offices ask before starting</h2>
+      </div>
+      <div class="service-faq-list">
+        <details class="service-faq service-reveal" *ngFor="let item of page.faq">
+          <summary>{{ item.question }}</summary>
+          <p>{{ item.answer }}</p>
+        </details>
+      </div>
+
+      <div class="service-related service-reveal" *ngIf="page.relatedLinks.length">
+        <span>Related services</span>
+        <a *ngFor="let link of page.relatedLinks" [routerLink]="link.route" [fragment]="link.fragment">{{ link.label }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-final-cta">
+    <div class="container">
+      <div class="service-final-card service-reveal">
+        <div>
+          <span class="service-eyebrow">{{ page.finalCta.eyebrow }}</span>
+          <h2>{{ page.finalCta.title }}</h2>
+          <p>{{ page.finalCta.text }}</p>
+        </div>
+        <div class="service-actions">
+          <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow" [routerLink]="page.finalCta.primary.route" [fragment]="page.finalCta.primary.fragment">
+            {{ page.finalCta.primary.label }}
+          </a>
+          <a class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold" [routerLink]="page.finalCta.secondary.route" [fragment]="page.finalCta.secondary.fragment">
+            {{ page.finalCta.secondary.label }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

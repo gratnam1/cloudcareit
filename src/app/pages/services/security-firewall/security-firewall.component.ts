@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../../shared/seo/seo.service';
 import { applyServicePageSeo } from '../service-page-seo';
+import { ServiceLandingComponent } from '../service-landing/service-landing.component';
+import { SERVICE_PAGES } from '../service-landing/service-pages.data';
 
 @Component({
   standalone: true,
   selector: 'app-security-firewall',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ServiceLandingComponent],
   templateUrl: './security-firewall.component.html',
   styleUrls: ['./security-firewall.component.css']
 })
 export class SecurityFirewallComponent implements OnDestroy {
   private seo = inject(SeoService);
+  readonly page = SERVICE_PAGES.securityFirewall;
   private readonly SERVICE_SCHEMA_ID = 'service-security-firewall';
   private readonly BREADCRUMB_SCHEMA_ID = 'service-security-firewall-breadcrumb';
 

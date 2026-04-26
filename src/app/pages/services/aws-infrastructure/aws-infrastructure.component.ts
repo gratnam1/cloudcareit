@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../../shared/seo/seo.service';
 import { applyServicePageSeo } from '../service-page-seo';
+import { ServiceLandingComponent } from '../service-landing/service-landing.component';
+import { SERVICE_PAGES } from '../service-landing/service-pages.data';
 
 @Component({
   standalone: true,
   selector: 'app-aws-infrastructure',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ServiceLandingComponent],
   templateUrl: './aws-infrastructure.component.html',
   styleUrls: ['./aws-infrastructure.component.css']
 })
 export class AwsInfrastructureComponent implements OnDestroy {
   private seo = inject(SeoService);
+  readonly page = SERVICE_PAGES.awsInfrastructure;
   private readonly SERVICE_SCHEMA_ID = 'service-aws-infrastructure';
   private readonly BREADCRUMB_SCHEMA_ID = 'service-aws-infrastructure-breadcrumb';
 

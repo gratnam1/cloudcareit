@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../../shared/seo/seo.service';
 import { applyServicePageSeo } from '../service-page-seo';
+import { ServiceLandingComponent } from '../service-landing/service-landing.component';
+import { SERVICE_PAGES } from '../service-landing/service-pages.data';
 
 @Component({
   standalone: true,
   selector: 'app-microsoft-365',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ServiceLandingComponent],
   templateUrl: './microsoft-365.component.html',
   styleUrls: ['./microsoft-365.component.css']
 })
 export class Microsoft365Component implements OnDestroy {
   private seo = inject(SeoService);
+  readonly page = SERVICE_PAGES.microsoft365;
   private readonly SERVICE_SCHEMA_ID = 'service-microsoft-365';
   private readonly BREADCRUMB_SCHEMA_ID = 'service-microsoft-365-breadcrumb';
 

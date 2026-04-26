@@ -49,38 +49,81 @@ const REVIEWS_FALLBACK = {
   source: 'fallback',
   configured: false,
   placeName: 'CtrlShift IT Services',
-  placeId: '',
+  placeId: 'ChIJuYi__3KoS2cRJ7SkFIWUd-o',
   rating: 5,
-  userRatingsTotal: 3,
-  googleMapsUrl: 'https://www.google.com/search?q=CtrlShift+IT+Services+reviews',
-  reviews: [
-    {
-      authorName: 'Toronto Law Office',
-      rating: 5,
-      text: 'Professional and knowledgeable team. They resolved our server incident quickly and documented every step clearly.',
-      relativeTimeDescription: 'recently',
-    },
-    {
-      authorName: 'Vaughan Accounting Practice',
-      rating: 5,
-      text: 'Excellent Microsoft 365 and endpoint rollout. Migration was organized, downtime was minimal, and staff adoption was smooth.',
-      relativeTimeDescription: 'recently',
-    },
-    {
-      authorName: 'GTA Medical Clinic',
-      rating: 5,
-      text: 'Reliable support and practical security guidance. Their team improved our backup confidence and daily IT stability.',
-      relativeTimeDescription: 'recently',
-    },
-  ],
+  userRatingsTotal: 0,
+  googleMapsUrl: 'https://maps.google.com/?cid=16895135826401604647',
+  reviews: [],
 };
 
-async function handleGoogleReviews(env) {
+const LEGACY_REVIEWS_ENDPOINT = 'https://cloudcareit.kannnan24.workers.dev/api/google-reviews';
+
+function normalizeLegacyReview(review) {
+  const authorName = String(review?.authorName || '').trim();
+  const text = String(review?.text || '').trim();
+  if (!authorName || !text) return null;
+
+  return {
+    authorName,
+    rating: Number.isFinite(review.rating) ? review.rating : 5,
+    text,
+    relativeTimeDescription: String(review.relativeTimeDescription || 'recently').trim(),
+    time: review.time,
+    profilePhotoUrl: review.profilePhotoUrl,
+  };
+}
+
+async function fetchLegacyGoogleReviews(requestUrl) {
+  try {
+    const currentHost = new URL(requestUrl).hostname;
+    const legacyHost = new URL(LEGACY_REVIEWS_ENDPOINT).hostname;
+    if (currentHost === legacyHost) return null;
+
+    const res = await fetch(LEGACY_REVIEWS_ENDPOINT, {
+      headers: { Accept: 'application/json' },
+    });
+    if (!res.ok) return null;
+
+    const payload = await res.json();
+    const reviews = Array.isArray(payload.reviews)
+      ? payload.reviews.map(normalizeLegacyReview).filter(Boolean)
+      : [];
+
+    if (reviews.length === 0 && !Number.isFinite(payload.rating)) return null;
+
+    return {
+      source: payload.source === 'google' ? 'google' : 'fallback',
+      configured: Boolean(payload.configured),
+      placeName: String(payload.placeName || REVIEWS_FALLBACK.placeName).trim(),
+      placeId: String(payload.placeId || '').trim(),
+      rating: Number.isFinite(payload.rating) ? payload.rating : REVIEWS_FALLBACK.rating,
+      userRatingsTotal: Number.isFinite(payload.userRatingsTotal) ? payload.userRatingsTotal : reviews.length,
+      googleMapsUrl: String(payload.googleMapsUrl || REVIEWS_FALLBACK.googleMapsUrl).trim(),
+      fetchedAt: payload.fetchedAt || new Date().toISOString(),
+      reviews,
+      error: payload.error,
+    };
+  } catch (err) {
+    console.error('[google-reviews] Legacy fallback error:', err);
+    return null;
+  }
+}
+
+async function handleGoogleReviews(env, requestUrl) {
   const apiKey = (env.GOOGLE_PLACES_API_KEY || env.GOOGLE_MAPS_API_KEY || '').trim();
   const placeId = (env.GOOGLE_PLACE_ID || env.GOOGLE_BUSINESS_PLACE_ID || '').trim();
   const fetchedAt = new Date().toISOString();
 
   if (!apiKey || !placeId) {
+    const legacyPayload = await fetchLegacyGoogleReviews(requestUrl);
+    if (legacyPayload) {
+      return jsonResponse(
+        legacyPayload,
+        200,
+        { 'Cache-Control': 'public, max-age=300, s-maxage=600, stale-while-revalidate=600' }
+      );
+    }
+
     return jsonResponse(
       { ...REVIEWS_FALLBACK, fetchedAt, error: 'Google Reviews API is not configured.' },
       200,
@@ -226,7 +269,7 @@ export default {
       if (request.method !== 'GET') {
         return new Response('Method Not Allowed', { status: 405, headers: { Allow: 'GET' } });
       }
-      return handleGoogleReviews(env);
+      return handleGoogleReviews(env, request.url);
     }
 
     // For HTML page routes (no file extension), resolve to the explicit index.html

@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable, catchError, map, of, switchMap } from 'rxjs';
 
 export interface GoogleReview {
   authorName: string;
   rating: number;
   text: string;
   relativeTimeDescription: string;
-  time: number;
+  time: number | string;
   profilePhotoUrl?: string;
 }
 
@@ -24,38 +24,18 @@ export interface GoogleReviewsResponse {
   error?: string;
 }
 
+const LEGACY_REVIEWS_ENDPOINT = 'https://cloudcareit.kannnan24.workers.dev/api/google-reviews';
+
 const FALLBACK_RESPONSE: GoogleReviewsResponse = {
   source: 'fallback',
   configured: false,
   placeName: 'CtrlShift IT Services',
-  placeId: '',
+  placeId: 'ChIJuYi__3KoS2cRJ7SkFIWUd-o',
   rating: 5,
-  userRatingsTotal: 3,
-  googleMapsUrl: 'https://www.google.com/search?q=CtrlShift+IT+Services+reviews',
+  userRatingsTotal: 0,
+  googleMapsUrl: 'https://maps.google.com/?cid=16895135826401604647',
   fetchedAt: new Date().toISOString(),
-  reviews: [
-    {
-      authorName: 'Toronto Law Office',
-      rating: 5,
-      text: 'Professional and knowledgeable team. They resolved our server incident quickly and documented every step clearly.',
-      relativeTimeDescription: 'recently',
-      time: Math.floor(Date.now() / 1000),
-    },
-    {
-      authorName: 'Vaughan Accounting Practice',
-      rating: 5,
-      text: 'Excellent Microsoft 365 and endpoint rollout. Migration was organized, downtime was minimal, and staff adoption was smooth.',
-      relativeTimeDescription: 'recently',
-      time: Math.floor(Date.now() / 1000),
-    },
-    {
-      authorName: 'GTA Medical Clinic',
-      rating: 5,
-      text: 'Reliable support and practical security guidance. Their team improved our backup confidence and daily IT stability.',
-      relativeTimeDescription: 'recently',
-      time: Math.floor(Date.now() / 1000),
-    },
-  ],
+  reviews: [],
   error: 'Google Reviews API is not configured yet.',
 };
 
@@ -66,20 +46,35 @@ export class GoogleReviewsService {
   getReviews(): Observable<GoogleReviewsResponse> {
     return this.http.get<GoogleReviewsResponse>('/api/google-reviews').pipe(
       map((response) => this.normalizeResponse(response)),
+      switchMap((response) => {
+        if (!this.shouldLoadLegacyReviews(response)) {
+          return of(response);
+        }
+
+        return this.http.get<GoogleReviewsResponse>(LEGACY_REVIEWS_ENDPOINT).pipe(
+          map((legacyResponse) => this.normalizeResponse(legacyResponse)),
+          catchError((error) => {
+            console.error('Unable to load legacy Google reviews fallback:', error);
+            return of(response);
+          }),
+        );
+      }),
       catchError((error) => {
         console.error('Unable to load Google reviews:', error);
-        return of(this.fallbackResponse('Unable to load live Google reviews.'));
+        return this.http.get<GoogleReviewsResponse>(LEGACY_REVIEWS_ENDPOINT).pipe(
+          map((legacyResponse) => this.normalizeResponse(legacyResponse)),
+          catchError((legacyError) => {
+            console.error('Unable to load legacy Google reviews fallback:', legacyError);
+            return of(this.fallbackResponse('Unable to load live Google reviews.'));
+          }),
+        );
       }),
     );
   }
 
   private normalizeResponse(response: GoogleReviewsResponse): GoogleReviewsResponse {
     const placeName = response.placeName?.trim() || FALLBACK_RESPONSE.placeName;
-    const hasLiveReviews = Array.isArray(response.reviews) && response.reviews.length > 0;
-    const shouldUseFallbackReviews = !response.configured && !hasLiveReviews;
-    const reviews = shouldUseFallbackReviews
-      ? FALLBACK_RESPONSE.reviews
-      : (response.reviews ?? []);
+    const reviews = Array.isArray(response.reviews) ? response.reviews : [];
 
     return {
       ...FALLBACK_RESPONSE,
@@ -94,6 +89,10 @@ export class GoogleReviewsService {
       fetchedAt: response.fetchedAt || new Date().toISOString(),
       error: response.error ? response.error : undefined,
     };
+  }
+
+  private shouldLoadLegacyReviews(response: GoogleReviewsResponse): boolean {
+    return !response.configured && response.reviews.length === 0;
   }
 
   private fallbackResponse(errorMessage: string): GoogleReviewsResponse {

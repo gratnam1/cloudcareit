@@ -497,29 +497,8 @@ function maybeStartSecurityScanWorker() {
   }
 }
 
-const FALLBACK_REVIEWS: PublicReview[] = [
-  {
-    authorName: 'Toronto Law Office',
-    rating: 5,
-    text: 'Professional and knowledgeable team. They resolved our server incident quickly and documented every step clearly.',
-    relativeTimeDescription: 'recently',
-    time: Math.floor(Date.now() / 1000),
-  },
-  {
-    authorName: 'Vaughan Accounting Practice',
-    rating: 5,
-    text: 'Excellent Microsoft 365 and endpoint rollout. Migration was organized, downtime was minimal, and staff adoption was smooth.',
-    relativeTimeDescription: 'recently',
-    time: Math.floor(Date.now() / 1000),
-  },
-  {
-    authorName: 'GTA Medical Clinic',
-    rating: 5,
-    text: 'Reliable support and practical security guidance. Their team improved our backup confidence and daily IT stability.',
-    relativeTimeDescription: 'recently',
-    time: Math.floor(Date.now() / 1000),
-  },
-];
+const FALLBACK_REVIEWS: PublicReview[] = [];
+const LEGACY_REVIEWS_ENDPOINT = 'https://cloudcareit.kannnan24.workers.dev/api/google-reviews';
 
 let reviewsCache: {
   payload: PublicReviewsPayload;
@@ -566,6 +545,53 @@ function buildFallbackPayload(
     reviews: showCuratedFallback ? FALLBACK_REVIEWS : [],
     error: useCuratedReviews ? undefined : error,
   };
+}
+
+function normalizePublicReview(review: Partial<PublicReview>): PublicReview | null {
+  const authorName = review.authorName?.trim();
+  const text = review.text?.trim();
+  if (!authorName || !text) return null;
+
+  return {
+    authorName,
+    rating: Number.isFinite(review.rating) ? Number(review.rating) : 5,
+    text,
+    relativeTimeDescription: review.relativeTimeDescription?.trim() || 'recently',
+    time: typeof review.time === 'number' && Number.isFinite(review.time) ? review.time : Math.floor(Date.now() / 1000),
+    profilePhotoUrl: review.profilePhotoUrl,
+  };
+}
+
+async function fetchLegacyGoogleReviews(): Promise<PublicReviewsPayload | null> {
+  try {
+    const response = await fetch(LEGACY_REVIEWS_ENDPOINT, {
+      headers: { Accept: 'application/json' },
+    });
+    if (!response.ok) return null;
+
+    const payload = (await response.json()) as Partial<PublicReviewsPayload>;
+    const reviews = Array.isArray(payload.reviews)
+      ? payload.reviews.map((review) => normalizePublicReview(review)).filter((review): review is PublicReview => Boolean(review))
+      : [];
+
+    if (reviews.length === 0 && !Number.isFinite(payload.rating)) return null;
+
+    return {
+      source: payload.source === 'google' ? 'google' : 'fallback',
+      configured: Boolean(payload.configured),
+      placeName: payload.placeName?.trim() || DEFAULT_PLACE_NAME,
+      placeId: payload.placeId?.trim() || '',
+      rating: Number.isFinite(payload.rating) ? Number(payload.rating) : 5,
+      userRatingsTotal: Number.isFinite(payload.userRatingsTotal) ? Number(payload.userRatingsTotal) : reviews.length,
+      googleMapsUrl: payload.googleMapsUrl?.trim() || DEFAULT_REVIEWS_URL,
+      fetchedAt: payload.fetchedAt || new Date().toISOString(),
+      reviews,
+      error: payload.error,
+    };
+  } catch (error) {
+    console.error('Unable to load legacy Google reviews fallback:', error);
+    return null;
+  }
 }
 
 function normalizeReview(review: GooglePlaceReview): PublicReview | null {
@@ -1089,6 +1115,9 @@ async function loadGoogleReviews(): Promise<PublicReviewsPayload> {
   });
 
   if (!googlePlacesApiKey) {
+    const legacyPayload = await fetchLegacyGoogleReviews();
+    if (legacyPayload) return legacyPayload;
+
     return buildFallbackPayload(
       false,
       'Set GOOGLE_PLACES_API_KEY (or GOOGLE_MAPS_API_KEY) in environment variables or .env.local.',

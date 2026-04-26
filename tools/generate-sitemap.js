@@ -32,6 +32,7 @@ const staticRoutes = [
   { path: '/seo-visibility', priority: '0.80', changefreq: 'monthly' },
   { path: '/lead-generation', priority: '0.80', changefreq: 'monthly' },
   { path: '/cyber-insurance-readiness-vaughan', priority: '0.82', changefreq: 'monthly' },
+  { path: '/services/security-baseline-assessment', priority: '0.84', changefreq: 'monthly' },
   { path: '/managed-it-for-medical-clinics-vaughan', priority: '0.82', changefreq: 'monthly' },
   { path: '/it-support-law-firms-toronto', priority: '0.82', changefreq: 'monthly' },
   { path: '/it-support-accounting-firms-gta', priority: '0.82', changefreq: 'monthly' },

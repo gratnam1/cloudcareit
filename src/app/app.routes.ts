@@ -150,6 +150,14 @@ export const routes: Routes = [
     title: 'Cyber Insurance for SMBs Vaughan | CtrlShift IT Services'
   },
   {
+    path: 'services/security-baseline-assessment',
+    loadComponent: () =>
+      import('./pages/services/security-baseline-assessment/security-baseline-assessment.component').then(
+        (m) => m.SecurityBaselineAssessmentComponent
+      ),
+    title: 'Security Baseline Assessment for Professional Offices'
+  },
+  {
     path: 'managed-it-for-medical-clinics-vaughan',
     loadComponent: () =>
       import('./pages/services/medical-clinic-it/medical-clinic-it.component').then(

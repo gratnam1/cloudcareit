@@ -86,13 +86,28 @@
 @media (max-width: 767px) {
   .scanner-input-group {
     flex-direction: column;
-    background: transparent;
+    gap: 0.6rem;
+    border: 0;
+    border-radius: 0;
     box-shadow: none;
+    overflow: visible;
   }
   .scanner-input-group > * {
     width: 100% !important;
-    border-radius: 10px !important;
-    margin-bottom: 10px;
+    border-radius: 9999px !important;
+    margin-bottom: 0;
+  }
+  .scanner-input-group .form-control,
+  .scanner-input-group .btn {
+    min-height: 3.25rem;
+  }
+  .scanner-input-group .form-control {
+    padding-inline: 1.1rem;
+  }
+  .scanner-input-group .btn {
+    justify-content: center;
+    display: flex;
+    align-items: center;
   }
   .scanner-input-group .input-group-text { display: none; }
 }

@@ -7,7 +7,7 @@ export interface GoogleReview {
   rating: number;
   text: string;
   relativeTimeDescription: string;
-  time: number;
+  time: number | string;
   profilePhotoUrl?: string;
 }
 
@@ -28,35 +28,28 @@ const FALLBACK_RESPONSE: GoogleReviewsResponse = {
   source: 'fallback',
   configured: false,
   placeName: 'CtrlShift IT Services',
-  placeId: '',
+  placeId: 'ChIJuYi__3KoS2cRJ7SkFIWUd-o',
   rating: 5,
-  userRatingsTotal: 3,
-  googleMapsUrl: 'https://www.google.com/search?q=CtrlShift+IT+Services+reviews',
+  userRatingsTotal: 2,
+  googleMapsUrl: 'https://maps.google.com/?cid=16895135826401604647',
   fetchedAt: new Date().toISOString(),
   reviews: [
     {
-      authorName: 'Toronto Law Office',
+      authorName: 'iqbal Ahmed',
       rating: 5,
-      text: 'Professional and knowledgeable team. They resolved our server incident quickly and documented every step clearly.',
-      relativeTimeDescription: 'recently',
-      time: Math.floor(Date.now() / 1000),
+      text: 'Kannan from CrtlShift is very professional and knowledgeable and ended up helping me to establish my office network system. I highly recommend their services.',
+      relativeTimeDescription: '2 months ago',
+      time: '2026-02-05T02:32:47.755013382Z',
     },
     {
-      authorName: 'Vaughan Accounting Practice',
+      authorName: 'Mylvaganam Thangavadivel',
       rating: 5,
-      text: 'Excellent Microsoft 365 and endpoint rollout. Migration was organized, downtime was minimal, and staff adoption was smooth.',
-      relativeTimeDescription: 'recently',
-      time: Math.floor(Date.now() / 1000),
-    },
-    {
-      authorName: 'GTA Medical Clinic',
-      rating: 5,
-      text: 'Reliable support and practical security guidance. Their team improved our backup confidence and daily IT stability.',
-      relativeTimeDescription: 'recently',
-      time: Math.floor(Date.now() / 1000),
+      text: 'Super easy to work with and very responsive. They know what they are doing and get things done quickly. Definitely recommend CtrlShift IT Services!',
+      relativeTimeDescription: 'a week ago',
+      time: '2026-04-12T23:37:56.755419749Z',
     },
   ],
-  error: 'Google Reviews API is not configured yet.',
+  error: 'Google Reviews API is not configured yet; showing verified public Google review fallback.',
 };
 
 @Injectable({ providedIn: 'root' })

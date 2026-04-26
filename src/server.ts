@@ -499,25 +499,18 @@ function maybeStartSecurityScanWorker() {
 
 const FALLBACK_REVIEWS: PublicReview[] = [
   {
-    authorName: 'Toronto Law Office',
+    authorName: 'iqbal Ahmed',
     rating: 5,
-    text: 'Professional and knowledgeable team. They resolved our server incident quickly and documented every step clearly.',
-    relativeTimeDescription: 'recently',
-    time: Math.floor(Date.now() / 1000),
+    text: 'Kannan from CrtlShift is very professional and knowledgeable and ended up helping me to establish my office network system. I highly recommend their services.',
+    relativeTimeDescription: '2 months ago',
+    time: 1762309967,
   },
   {
-    authorName: 'Vaughan Accounting Practice',
+    authorName: 'Mylvaganam Thangavadivel',
     rating: 5,
-    text: 'Excellent Microsoft 365 and endpoint rollout. Migration was organized, downtime was minimal, and staff adoption was smooth.',
-    relativeTimeDescription: 'recently',
-    time: Math.floor(Date.now() / 1000),
-  },
-  {
-    authorName: 'GTA Medical Clinic',
-    rating: 5,
-    text: 'Reliable support and practical security guidance. Their team improved our backup confidence and daily IT stability.',
-    relativeTimeDescription: 'recently',
-    time: Math.floor(Date.now() / 1000),
+    text: 'Super easy to work with and very responsive. They know what they are doing and get things done quickly. Definitely recommend CtrlShift IT Services!',
+    relativeTimeDescription: 'a week ago',
+    time: 1744501076,
   },
 ];
 
@@ -2021,4 +2014,3 @@ if (isMainModule(import.meta.url) || process.env['pm_id']) {
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
  */
 export const reqHandler = createNodeRequestHandler(app);
-

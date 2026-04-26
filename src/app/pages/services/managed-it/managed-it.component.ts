@@ -2,16 +2,19 @@ import { Component, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../../shared/seo/seo.service';
+import { ServiceLandingComponent } from '../service-landing/service-landing.component';
+import { SERVICE_PAGES } from '../service-landing/service-pages.data';
 
 @Component({
   standalone: true,
   selector: 'app-managed-it',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ServiceLandingComponent],
   templateUrl: './managed-it.component.html',
   styleUrls: ['./managed-it.component.css']
 })
 export class ManagedItComponent implements OnDestroy {
   private seo = inject(SeoService);
+  readonly page = SERVICE_PAGES.managedIt;
   private readonly HUB_ITEMLIST_SCHEMA_ID = 'managed-it-service-areas';
   private readonly MANAGED_IT_SERVICE_SCHEMA_ID = 'managed-it-service-schema';
 

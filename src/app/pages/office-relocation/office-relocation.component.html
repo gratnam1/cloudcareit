@@ -1,50 +1,157 @@
 <!-- Hero -->
-<section class="relocation-hero py-5 text-white">
-  <div class="hero-aurora"></div>
-  <div class="container py-5 text-center position-relative" style="z-index:1">
-    <span class="badge rounded-pill px-3 mb-4 fw-semibold border border-primary border-opacity-30 text-primary-emphasis bg-primary bg-opacity-10">
-      Zero-Downtime Office Moves
-    </span>
-    <h1 class="display-3 fw-bold mb-4">Moving Your Office in the <span class="text-gradient">GTA?</span></h1>
-    <p class="lead mb-5 text-muted mx-auto" style="max-width:700px">
-      Don't leave your IT to chance. We specialize in seamless infrastructure relocation, from ISP coordination to server room builds.
-    </p>
-    <div class="d-flex justify-content-center gap-3">
-      <a routerLink="/it-assessment" class="btn btn-hero-primary px-5 py-3 fw-bold">Get a Move Quote</a>
-      <a href="#checklist" class="btn btn-outline-light px-5 py-3 rounded-pill">View IT Checklist</a>
+<section class="relocation-hero text-white">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="container position-relative">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <a class="service-back-link text-decoration-none mb-4 d-inline-flex" routerLink="/">
+          <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>
+          Back to Home
+        </a>
+        <span class="section-kicker mb-3">Office IT Relocation</span>
+        <h1 class="display-4 fw-bold mb-4">
+          Move offices without losing phones, Wi-Fi, files, or momentum.
+        </h1>
+        <p class="lead mb-4 text-muted">
+          We coordinate the technology side of your office move across ISP lead times, cabling,
+          network cutover, workstation staging, security systems, and day-one support.
+        </p>
+        <div class="hero-actions d-flex flex-wrap gap-3">
+          <a routerLink="/it-assessment" class="btn btn-hero-primary px-4 py-3 fw-bold">
+            Get a Move Quote
+          </a>
+          <a routerLink="/office-it-relocation" fragment="move-plan" class="btn btn-outline-light px-4 py-3 rounded-pill">
+            View Move Plan
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <figure class="move-command-visual mb-0" aria-label="Office IT relocation command board">
+          <div class="visual-toolbar">
+            <span></span>
+            <span></span>
+            <span></span>
+            <strong>Cutover Control</strong>
+          </div>
+          <div class="office-map">
+            <div
+              class="old-office has-tooltip"
+              tabindex="0"
+              data-tooltip="Current office systems that need inventory, labels, backups, and a clean shutdown plan before move day."
+            >
+              <div class="office-label">Current Office</div>
+              <div class="rack" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="device-row" aria-hidden="true">
+                <i class="bi bi-pc-display"></i>
+                <i class="bi bi-printer"></i>
+                <i class="bi bi-telephone"></i>
+              </div>
+            </div>
+            <div
+              class="cutover-line has-tooltip"
+              tabindex="0"
+              data-tooltip="The planned handoff between the old and new office, including internet, firewall, VPN, and routing validation."
+            >
+              <span>Fiber</span>
+              <i class="bi bi-arrow-right"></i>
+              <span>VPN</span>
+            </div>
+            <div
+              class="new-office has-tooltip"
+              tabindex="0"
+              data-tooltip="New office readiness: internet live, Wi-Fi tested, devices placed, and security systems validated before staff arrive."
+            >
+              <div class="office-label">New Office</div>
+              <div class="wifi-rings" aria-hidden="true">
+                <i class="bi bi-router"></i>
+              </div>
+              <div class="device-row" aria-hidden="true">
+                <i class="bi bi-display"></i>
+                <i class="bi bi-shield-check"></i>
+                <i class="bi bi-camera-video"></i>
+              </div>
+            </div>
+          </div>
+          <div class="cutover-status-grid" aria-label="Move readiness highlights">
+            <div>
+              <span>12-week</span>
+              <small>planning window</small>
+            </div>
+            <div>
+              <span>Day-one</span>
+              <small>internet target</small>
+            </div>
+            <div>
+              <span>After-hours</span>
+              <small>cutover support</small>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="relocation-proof" aria-label="Office move priorities">
+  <div class="container">
+    <div class="proof-grid">
+      <div class="proof-item">
+        <i class="bi bi-diagram-3" aria-hidden="true"></i>
+        <span>Network mapped before furniture lands</span>
+      </div>
+      <div class="proof-item">
+        <i class="bi bi-building-check" aria-hidden="true"></i>
+        <span>Landlord, ISP, and vendor coordination</span>
+      </div>
+      <div class="proof-item">
+        <i class="bi bi-headset" aria-hidden="true"></i>
+        <span>Staff support through the first business day</span>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Interactive Checklist -->
-<section id="checklist" class="checklist-section py-5 section-dark-alt">
-  <div class="container py-5">
-    <div class="row g-5 align-items-center">
+<section id="move-plan" class="checklist-section section-dark-alt">
+  <div class="container">
+    <div class="row g-5 align-items-start">
       <div class="col-lg-5">
         <span class="section-kicker mb-3">Relocation Plan</span>
-        <h2 class="section-title mb-4">The Ultimate <span class="text-gradient">Office Move</span> IT Checklist</h2>
-        <p class="section-subtitle mb-5 text-muted">
-          Check off your progress and see what's missing in your relocation plan. Our specialized move team ensures your transition is seamless and secure.
+        <h2 class="section-title mb-4">The IT move plan your office needs before moving day.</h2>
+        <p class="section-subtitle mb-4">
+          Check your progress and use the readiness score to spot missing work before your lease,
+          internet install, and move vendors are already locked.
         </p>
-        
-        <div class="progress-container p-4 rounded-4 mb-4 text-center">
+
+        <div class="progress-container mb-4">
           <div class="progress-circle mx-auto mb-3">
             <span class="progress-val">{{ progress }}%</span>
           </div>
-          <h5 class="text-white fw-bold">Move Readiness Score</h5>
-          <p class="small text-muted mb-0">Based on standard GTA office requirements.</p>
+          <h3 class="h5 text-white fw-bold">Move Readiness Score</h3>
+          <p class="small text-muted mb-0">Based on common GTA office relocation dependencies.</p>
         </div>
 
-        <div class="alert alert-primary bg-primary bg-opacity-10 border-0 text-white p-4 rounded-4">
-          <h6 class="fw-bold mb-2"><i class="bi bi-info-circle me-2"></i>Expert Tip</h6>
-          <p class="small mb-0">Most ISPs require **60-90 days** notice for fiber installation in Toronto office buildings. If you're moving in less than 2 months, call us immediately.</p>
+        <div class="alert alert-primary p-4">
+          <h3 class="h6 fw-bold mb-2"><i class="bi bi-info-circle me-2"></i>Lead-time risk</h3>
+          <p class="small mb-0">
+            Most commercial internet installs require 60 to 90 days of notice. If your move is
+            inside two months, prioritize carrier escalation before furniture or hardware staging.
+          </p>
         </div>
       </div>
 
       <div class="col-lg-7">
-        <div class="checklist-box p-4 p-md-5 rounded-4 border border-white border-opacity-10">
-          <div *ngFor="let item of checklist" class="check-item d-flex align-items-start mb-3 p-3 rounded-3 transition" 
-               [class.checked]="item.completed">
+        <div class="checklist-box">
+          <div
+            *ngFor="let item of checklist"
+            class="check-item"
+            [class.checked]="item.completed"
+          >
             <div class="form-check">
               <input class="form-check-input" type="checkbox" [(ngModel)]="item.completed" [id]="item.id">
             </div>
@@ -53,12 +160,19 @@
             </label>
           </div>
 
-          <div class="mt-5 p-4 rounded-4 text-center bg-gradient-dark border border-white border-opacity-10">
-            <h5 class="text-white fw-bold mb-3">Need a Professional Move Team?</h5>
-            <p class="text-muted mb-4">Download our comprehensive 12-week IT relocation blueprint or book a consultation.</p>
+          <div class="move-cta">
+            <h3 class="h5 text-white fw-bold mb-2">Need a professional move team?</h3>
+            <p class="text-muted mb-4">
+              Book a relocation strategy call and we will map the cutover sequence, vendor
+              ownership, and day-one support model.
+            </p>
             <div class="d-grid gap-2">
-              <button class="btn btn-hero-primary py-3 fw-bold">Download Full Blueprint (PDF)</button>
-              <button routerLink="/it-assessment" class="btn btn-outline-light py-3 rounded-pill">Free Relocation Strategy Call</button>
+              <a routerLink="/it-assessment" class="btn btn-hero-primary py-3 fw-bold">
+                Free Relocation Strategy Call
+              </a>
+              <a routerLink="/office-it-relocation" fragment="services" class="btn btn-outline-light py-3 rounded-pill">
+                See What We Handle
+              </a>
             </div>
           </div>
         </div>
@@ -67,32 +181,163 @@
   </div>
 </section>
 
-<!-- Services Grid (Simplified) -->
-<section class="relocation-services py-5">
-  <div class="container py-5">
-    <div class="text-center mb-5">
-      <h2 class="section-title">How We Help You Move</h2>
+<section class="timeline-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="section-kicker mb-3">12-Week Cutover</span>
+      <h2 class="section-title">A visual schedule for the work that cannot slip.</h2>
+    </div>
+
+    <div class="move-timeline" role="list" aria-label="Office IT relocation timeline">
+      <div class="timeline-track" aria-hidden="true"></div>
+      <div class="timeline-step" role="listitem">
+        <div class="timeline-node">01</div>
+        <div class="timeline-card">
+          <span>Weeks 12-9</span>
+          <h3>Discovery</h3>
+          <p>Inventory, floor plan review, ISP order, vendor risk list.</p>
+        </div>
+      </div>
+      <div class="timeline-step" role="listitem">
+        <div class="timeline-node">02</div>
+        <div class="timeline-card">
+          <span>Weeks 8-5</span>
+          <h3>Build</h3>
+          <p>Cabling, rack layout, Wi-Fi design, firewall and switch staging.</p>
+        </div>
+      </div>
+      <div class="timeline-step" role="listitem">
+        <div class="timeline-node">03</div>
+        <div class="timeline-card">
+          <span>Weeks 4-2</span>
+          <h3>Test</h3>
+          <p>Internet handoff, VLANs, VoIP, printers, backups, access control.</p>
+        </div>
+      </div>
+      <div class="timeline-step" role="listitem">
+        <div class="timeline-node">04</div>
+        <div class="timeline-card">
+          <span>Move week</span>
+          <h3>Cutover</h3>
+          <p>After-hours migration, desk setup, validation, and staff support.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="infrastructure-section">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5">
+        <span class="section-kicker mb-3">Infrastructure Map</span>
+        <h2 class="section-title mb-4">Everything that has to reconnect correctly.</h2>
+        <p class="section-subtitle mb-4">
+          A move is not just transporting laptops. We plan the dependencies between internet,
+          firewall, Wi-Fi, phones, printers, security systems, cloud apps, and end-user devices.
+        </p>
+        <a routerLink="/it-assessment" class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold">
+          Map My Relocation
+        </a>
+      </div>
+      <div class="col-lg-7">
+        <div class="dependency-map" aria-label="Technology systems coordinated during relocation">
+          <div
+            class="map-core has-tooltip"
+            tabindex="0"
+            data-tooltip="The firewall, switches, routing, and network services everything else depends on."
+          >
+            <i class="bi bi-hdd-network" aria-hidden="true"></i>
+            <span>Network Core</span>
+          </div>
+          <div
+            class="map-link isp has-tooltip"
+            tabindex="0"
+            data-tooltip="Carrier install, building access, demarc handoff, failover, and live internet testing."
+          >
+            <i class="bi bi-broadcast-pin" aria-hidden="true"></i>
+            <span>ISP handoff</span>
+          </div>
+          <div
+            class="map-link wifi has-tooltip"
+            tabindex="0"
+            data-tooltip="Wireless coverage, guest isolation, access point placement, and signal testing in the new layout."
+          >
+            <i class="bi bi-wifi" aria-hidden="true"></i>
+            <span>Wi-Fi coverage</span>
+          </div>
+          <div
+            class="map-link voice has-tooltip"
+            tabindex="0"
+            data-tooltip="Phone-number porting, call routing, handsets, softphones, and post-cutover call testing."
+          >
+            <i class="bi bi-telephone" aria-hidden="true"></i>
+            <span>VoIP cutover</span>
+          </div>
+          <div
+            class="map-link security has-tooltip"
+            tabindex="0"
+            data-tooltip="Door access, cameras, alarm vendor coordination, and connectivity for physical security systems."
+          >
+            <i class="bi bi-shield-lock" aria-hidden="true"></i>
+            <span>Security systems</span>
+          </div>
+          <div
+            class="map-link cloud has-tooltip"
+            tabindex="0"
+            data-tooltip="Microsoft 365, Google Workspace, VPN, and cloud app access validated from the new office."
+          >
+            <i class="bi bi-cloud-check" aria-hidden="true"></i>
+            <span>Cloud access</span>
+          </div>
+          <div
+            class="map-link users has-tooltip"
+            tabindex="0"
+            data-tooltip="Workstations, docks, printers, labels, desk plans, and first-day staff support."
+          >
+            <i class="bi bi-people" aria-hidden="true"></i>
+            <span>User devices</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Grid -->
+<section id="services" class="relocation-services">
+  <div class="container">
+    <div class="section-heading text-center">
+      <span class="section-kicker mb-3">Execution Support</span>
+      <h2 class="section-title">How we help you move.</h2>
     </div>
     <div class="row g-4">
-      <div class="col-md-4">
-        <div class="service-card-mini p-4 rounded-4 h-100">
-          <i class="bi bi-broadcast fs-1 text-primary mb-3 d-block"></i>
-          <h5 class="text-white fw-bold">ISP & Carrier Management</h5>
-          <p class="small text-muted">We handle the coordination with Bell, Rogers, or Telus to ensure your internet is live on day one.</p>
+      <div class="col-md-6 col-xl-3">
+        <div class="service-card-mini h-100">
+          <i class="bi bi-broadcast" aria-hidden="true"></i>
+          <h3>ISP & Carrier Management</h3>
+          <p>We coordinate Bell, Rogers, Telus, building access, install windows, failover, and day-one testing.</p>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="service-card-mini p-4 rounded-4 h-100">
-          <i class="bi bi-hdd-network fs-1 text-primary mb-3 d-block"></i>
-          <h5 class="text-white fw-bold">Network & Cabling</h5>
-          <p class="small text-muted">Full Cat6/Fiber cabling, rack installation, and Wi-Fi mapping for your new layout.</p>
+      <div class="col-md-6 col-xl-3">
+        <div class="service-card-mini h-100">
+          <i class="bi bi-hdd-rack" aria-hidden="true"></i>
+          <h3>Network & Cabling</h3>
+          <p>Cat6 and fiber runs, rack installation, switch staging, firewall policy migration, and Wi-Fi mapping.</p>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="service-card-mini p-4 rounded-4 h-100">
-          <i class="bi bi-shield-lock fs-1 text-primary mb-3 d-block"></i>
-          <h5 class="text-white fw-bold">Physical Security & VoIP</h5>
-          <p class="small text-muted">Door access controls, camera systems, and VoIP phone system cutovers.</p>
+      <div class="col-md-6 col-xl-3">
+        <div class="service-card-mini h-100">
+          <i class="bi bi-pc-display-horizontal" aria-hidden="true"></i>
+          <h3>Workstation Staging</h3>
+          <p>Desk plans, equipment labels, printer mapping, docking stations, monitors, and first-day support.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-3">
+        <div class="service-card-mini h-100">
+          <i class="bi bi-camera-video" aria-hidden="true"></i>
+          <h3>Security & VoIP</h3>
+          <p>Door access, cameras, alarm vendors, phone-number porting, call routing, and post-cutover validation.</p>
         </div>
       </div>
     </div>

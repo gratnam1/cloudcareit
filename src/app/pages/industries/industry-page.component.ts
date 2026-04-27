@@ -76,8 +76,8 @@ export class IndustryPageComponent implements OnInit {
         result: 'Full compliance achieved within 45 days. 87% fewer helpdesk tickets in the first quarter after rollout. Cyber insurance renewed with better coverage. CRA audit passed without issue.',
         metrics: [{ value: '87%', label: 'Fewer Tickets (Q1)' }, { value: '45d', label: 'Full Compliance' }, { value: '$0', label: 'Compliance Fines' }]
       },
-      seoTitle: 'Accounting Firm IT Support Markham',
-      seoDescription: '15+ years of enterprise DevOps and IT support for Ontario small businesses. Managed IT for GTA accounting firms. CRA-compliant infrastructure and encrypted data handling.'
+      seoTitle: 'Accounting Firm IT Support GTA | CtrlShift IT Services',
+      seoDescription: 'Managed IT for GTA accounting firms with secure Microsoft 365, endpoint protection, encrypted backups, and CRA-aware workflows.'
     },
     'medical-clinics': {
       title: 'IT Support for Medical Clinics in Ontario',
@@ -101,7 +101,7 @@ export class IndustryPageComponent implements OnInit {
         result: 'Zero unplanned downtime in the first 10 months. PHIPA compliance achieved. Estimated $15,000+ in recovered appointment revenue in year one — based on prior cancellation rates.',
         metrics: [{ value: '0', label: 'Downtime Events' }, { value: '4hr', label: 'Recovery Time' }, { value: '$15K+', label: 'Est. Revenue Recovered' }]
       },
-      seoTitle: 'Medical Clinic IT Support Vaughan',
+      seoTitle: 'Medical Clinic IT Support Ontario | CtrlShift IT Services',
       seoDescription: 'PHIPA-compliant managed IT for medical clinics and healthcare practices in Ontario. EMR security, Canadian cloud hosting, 24/7 monitoring, and disaster recovery. GTA-based.'
     },
     'engineering-firms': {
@@ -151,7 +151,7 @@ export class IndustryPageComponent implements OnInit {
         result: 'IT incidents dropped 70% in the first 90 days. Monthly IT spend reduced by $1,200. Staff satisfaction with IT improved measurably. One ransomware attempt blocked automatically by Huntress.',
         metrics: [{ value: '70%', label: 'Fewer Incidents' }, { value: '$1.2K', label: 'Monthly Savings' }, { value: '1', label: 'Attack Blocked' }]
       },
-      seoTitle: 'Small Business IT Support Brampton',
+      seoTitle: 'Small Business IT Support GTA | CtrlShift IT Services',
       seoDescription: 'Managed IT for small businesses in the GTA. Flat-rate plans starting at $299/month. Huntress EDR, 24/7 monitoring, cybersecurity, and Microsoft 365 support. No surprise invoices.'
     }
   };

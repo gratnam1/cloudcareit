@@ -138,7 +138,7 @@ const CONTENT: Record<string, ItSupportContent> = {
     intro:
       'Responsive IT support for Mississauga businesses — fast remote resolution and on-site technicians available across Square One, Meadowvale, Airport Corporate Centre, and Heartland. Whether you need break-fix help or fully outsourced IT support in Mississauga, CtrlShift IT Services keeps your team productive with managed IT services tailored to Peel Region businesses.',
     metaDescription:
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Responsive IT support for Mississauga from CtrlShift IT Services.',
+      'Responsive IT support for Mississauga offices near Square One, Meadowvale, Heartland, and Airport Corporate Centre.',
     whatIsSection:
       'IT support handles day-to-day helpdesk requests, break-fix incidents, and user account management. Businesses looking for a managed service provider in Mississauga should explore our Managed IT Services in Mississauga — a fully managed plan with proactive monitoring that reduces downtime before it starts.',
     services: [
@@ -234,7 +234,7 @@ const CONTENT: Record<string, ItSupportContent> = {
     intro:
       'Proactive IT support for Richmond Hill businesses — fast remote help and on-site technicians serving the Hillcrest Mall area, Yonge Street business strip, and Leslie Street office parks. CtrlShift IT Services delivers managed IT services for Richmond Hill teams that need reliable systems, maintained devices, and security-first account management.',
     metaDescription:
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Proactive IT support for Richmond Hill from CtrlShift IT Services.',
+      'Proactive IT support for Richmond Hill offices: device maintenance, Microsoft 365 security, backups, and fast remote help.',
     whatIsSection:
       'IT support covers day-to-day helpdesk requests, device maintenance, and user account management. Richmond Hill businesses looking for a managed service provider should explore our Managed IT Services in Richmond Hill — a fully managed plan with 24/7 monitoring that catches issues before your team notices them.',
     services: [

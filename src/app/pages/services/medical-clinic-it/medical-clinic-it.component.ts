@@ -3,23 +3,26 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../../shared/seo/seo.service';
 import { applyServicePageSeo } from '../service-page-seo';
+import { ServiceLandingComponent } from '../service-landing/service-landing.component';
+import { SERVICE_PAGES } from '../service-landing/service-pages.data';
 
 @Component({
   standalone: true,
   selector: 'app-medical-clinic-it',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ServiceLandingComponent],
   templateUrl: './medical-clinic-it.component.html',
   styleUrls: ['./medical-clinic-it.component.css']
 })
 export class MedicalClinicItComponent implements OnDestroy {
   private seo = inject(SeoService);
+  readonly page = SERVICE_PAGES.medicalClinicIt;
   private readonly SERVICE_SCHEMA_ID = 'service-medical-clinic-it';
   private readonly BREADCRUMB_SCHEMA_ID = 'service-medical-clinic-it-breadcrumb';
 
   constructor() {
-    const pageTitle = 'Managed IT for Medical Clinics in Vaughan | CtrlShift IT Services';
+    const pageTitle = 'Managed IT for Vaughan Clinics';
     const description =
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Managed IT services for medical clinics in Vaughan and the GTA, securing PHI workflows.';
+      'Managed IT for Vaughan medical clinics: Microsoft 365, endpoint protection, clinic Wi-Fi, backups, and vendor support.';
 
     applyServicePageSeo(this.seo, {
       title: pageTitle,
@@ -36,4 +39,3 @@ export class MedicalClinicItComponent implements OnDestroy {
     this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
   }
 }
-

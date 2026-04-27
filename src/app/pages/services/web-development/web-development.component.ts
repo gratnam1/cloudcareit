@@ -19,7 +19,7 @@ export class WebDevelopmentComponent implements OnDestroy {
   constructor() {
     const pageTitle = 'Web Development Vaughan Small Business | CtrlShift IT Services';
     const description =
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Web development services for Vaughan and GTA companies.';
+      'Fast, secure web development for GTA service businesses focused on page speed, trust signals, conversion paths, and SEO structure.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

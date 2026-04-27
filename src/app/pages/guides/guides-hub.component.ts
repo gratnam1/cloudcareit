@@ -92,7 +92,7 @@ export class GuidesHubComponent implements OnDestroy {
   constructor() {
     const title = 'IT Guides & Knowledge Base | CtrlShift IT Services';
     const description =
-      'Practical IT guides for Canadian small businesses — cybersecurity, Microsoft 365, networking, virtualization, containers, and AI automation, written by the CtrlShift IT managed services team.';
+      'Practical IT guides for Canadian small businesses — cybersecurity, Microsoft 365, networking, virtualization, containers, and AI automation, written by the CtrlShift IT Services managed services team.';
 
     this.seo.update({
       title,

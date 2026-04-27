@@ -18,8 +18,8 @@ export class AboutComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.seo.update({
-      title: 'Founder Story | Vaughan Managed IT Company | CtrlShift IT Services',
-      description: 'Meet the team behind CtrlShift IT Services — MCSE, Security+, CCNA, and Google-certified engineers with 15+ years of experience serving law firms, medical clinics, and professional offices across the GTA.',
+      title: 'About CtrlShift IT Services',
+      description: 'Meet CtrlShift IT Services, a security-first managed IT team supporting GTA small businesses with practical infrastructure guidance.',
       type: 'website',
       canonicalPath: '/about'
     });

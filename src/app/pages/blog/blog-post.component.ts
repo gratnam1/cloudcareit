@@ -278,8 +278,9 @@ export class BlogPostComponent implements OnInit, OnDestroy {
   ): void {
     const canonicalPath = `/blog/${slug}`;
     const canonicalUrl = `https://ctrlshiftit.ca${canonicalPath}`;
+    const brandedTitle = `${title} | CtrlShift IT Services`;
     this.seo.update({
-      title: `${title} | CtrlShift IT Services`,
+      title: brandedTitle.length <= 60 ? brandedTitle : title,
       description,
       canonicalPath,
       type: 'article',

@@ -12,7 +12,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: 'google-workspace-guide',
     title: 'Google Workspace Administration for SMBs: Security, Structure, and Scale',
-    seoTitle: 'Google Workspace Admin for SMBs',
+    seoTitle: 'Google Workspace Administration for SMBs',
     excerpt: 'Shared Drive governance, identity controls, and scalable admin workflows for growing teams.',
     date: '2026-02-14',
     tags: ['Google Workspace', 'Security']
@@ -51,7 +51,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: 'crisis-recovery-plan',
     title: 'Crisis Recovery for SMBs: How to Restore Operations After a Major IT Incident',
-    seoTitle: 'IT Crisis Recovery Plan for SMBs',
+    seoTitle: 'Crisis Recovery Plan for SMBs',
     excerpt: 'A business-first recovery process with containment, restore testing, and post-incident hardening.',
     date: '2026-02-14',
     tags: ['Recovery', 'Continuity']
@@ -107,7 +107,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: 'it-support-law-firms-toronto-guide',
     title: 'Best IT Support for Law Firms in Toronto: What to Look For',
-    seoTitle: 'IT Support for Law Firms Toronto',
+    seoTitle: 'IT Support for Law Firms in Toronto',
     excerpt: 'How to evaluate managed IT providers for a law firm — Law Society compliance, confidentiality controls, and why cybersecurity-first matters.',
     date: '2026-03-12',
     tags: ['Law Firms', 'Managed IT', 'Toronto']
@@ -115,7 +115,7 @@ export const BLOG_POSTS: BlogPostMeta[] = [
   {
     slug: 'ransomware-protection-toronto',
     title: 'How to Protect Your GTA Business from Ransomware in 2026',
-    seoTitle: 'Ransomware Protection Vaughan Small Business',
+    seoTitle: 'Ransomware Protection for GTA Small Business',
     excerpt: 'The top ransomware entry vectors targeting Ontario SMBs and the exact controls that stop them — endpoint detection, zero-trust access, and tested backups.',
     date: '2026-03-13',
     tags: ['Ransomware', 'Security', 'GTA']

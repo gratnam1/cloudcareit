@@ -22,7 +22,7 @@ export class CrisisRecoveryComponent implements OnDestroy {
   constructor() {
     const pageTitle = 'IT Disaster Recovery Vaughan Small Business | CtrlShift IT Services';
     const description =
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Rapid crisis recovery for Vaughan and GTA offices, hardening environments after outages.';
+      'IT disaster recovery support for Vaughan and GTA offices: outage triage, containment, restore coordination, and post-incident hardening.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

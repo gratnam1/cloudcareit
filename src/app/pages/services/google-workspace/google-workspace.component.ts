@@ -3,23 +3,26 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SeoService } from '../../../shared/seo/seo.service';
 import { applyServicePageSeo } from '../service-page-seo';
+import { ServiceLandingComponent } from '../service-landing/service-landing.component';
+import { SERVICE_PAGES } from '../service-landing/service-pages.data';
 
 @Component({
   standalone: true,
   selector: 'app-google-workspace',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ServiceLandingComponent],
   templateUrl: './google-workspace.component.html',
   styleUrls: ['./google-workspace.component.css']
 })
 export class GoogleWorkspaceComponent implements OnDestroy {
   private seo = inject(SeoService);
+  readonly page = SERVICE_PAGES.googleWorkspace;
   private readonly SERVICE_SCHEMA_ID = 'service-google-workspace';
   private readonly BREADCRUMB_SCHEMA_ID = 'service-google-workspace-breadcrumb';
 
   constructor() {
-    const pageTitle = 'Google Workspace Support in Vaughan & GTA | CtrlShift IT Services';
+    const pageTitle = 'Google Workspace Support for SMBs';
     const description =
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Google Workspace support for Vaughan and GTA teams, managing security and admin workflows.';
+      'Google Workspace setup, migration, security, and ongoing admin support for small businesses across Vaughan and the GTA.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

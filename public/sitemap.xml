@@ -92,6 +92,12 @@
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://ctrlshiftit.ca/ai-integration</loc>
+    <lastmod>2026-04-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://ctrlshiftit.ca/web-development</loc>
     <lastmod>2026-04-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -278,7 +284,25 @@
     <priority>0.72</priority>
   </url>
   <url>
+    <loc>https://ctrlshiftit.ca/guides/security/network-attacks/port-scanning-risk</loc>
+    <lastmod>2026-04-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
     <loc>https://ctrlshiftit.ca/guides/security/network-attacks/remote-exploitation-attacks</loc>
+    <lastmod>2026-04-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/guides/security/network-attacks/man-in-the-middle-attacks-small-business</loc>
+    <lastmod>2026-04-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/guides/security/network-attacks/rogue-wifi-risk</loc>
     <lastmod>2026-04-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>
@@ -297,6 +321,18 @@
   </url>
   <url>
     <loc>https://ctrlshiftit.ca/guides/security/network-attacks/vpn-attack-surface-small-business</loc>
+    <lastmod>2026-04-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/guides/security/network-attacks/dns-attack-risk-small-business</loc>
+    <lastmod>2026-04-27T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://ctrlshiftit.ca/guides/security/network-attacks/lateral-movement-risk</loc>
     <lastmod>2026-04-27T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.72</priority>

@@ -2683,7 +2683,7 @@ export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = 
     ],
     ctaTitle: 'Want a practical identity risk review?',
     ctaCopy:
-      'CtrlShift IT can review your Microsoft 365 sign-in policies, MFA coverage, mailbox rules, admin accounts, endpoint protection, and identity logs so you know where the real gaps are.',
+      'CtrlShift IT Services can review your Microsoft 365 sign-in policies, MFA coverage, mailbox rules, admin accounts, endpoint protection, and identity logs so you know where the real gaps are.',
     faqs: [
       { q: 'Are identity attacks mostly a Microsoft 365 problem?', a: 'Microsoft 365 is a common target because email, files, Teams, and identity all meet there. The same principles apply to Google Workspace, accounting portals, CRM systems, and remote access tools.' },
       { q: 'Can MFA be bypassed?', a: 'MFA greatly reduces risk, but active session theft, phishing proxies, OAuth consent abuse, and compromised devices can still create access. That is why Conditional Access, endpoint protection, and logging matter.' },
@@ -2782,7 +2782,7 @@ export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = 
     ],
     ctaTitle: 'Need a clean view of your network exposure?',
     ctaCopy:
-      'CtrlShift IT can review your firewall rules, VPN posture, exposed services, Wi-Fi segmentation, DNS settings, and remote access design without turning it into a giant enterprise project.',
+      'CtrlShift IT Services can review your firewall rules, VPN posture, exposed services, Wi-Fi segmentation, DNS settings, and remote access design without turning it into a giant enterprise project.',
     faqs: [
       { q: 'Is a firewall enough for a small business network?', a: 'A firewall is important, but configuration matters more than the logo on the appliance. Rules, firmware, VPN settings, segmentation, logging, and review cadence determine the real posture.' },
       { q: 'Should RDP ever be exposed directly to the internet?', a: 'For small businesses, direct public RDP is not a good pattern. Use a VPN, remote access gateway, or identity-aware access with MFA and logging.' },
@@ -2895,7 +2895,7 @@ export const SECURITY_HUB_RICH_CONTENT: ReadonlyArray<SecurityHubRichContent> = 
     ],
     ctaTitle: 'Need endpoint protection that someone actually watches?',
     ctaCopy:
-      'CtrlShift IT can review your endpoint coverage, patch status, local admin rights, encryption, backup readiness, and EDR/MDR monitoring so protection is practical for a small team.',
+      'CtrlShift IT Services can review your endpoint coverage, patch status, local admin rights, encryption, backup readiness, and EDR/MDR monitoring so protection is practical for a small team.',
     faqs: [
       { q: 'Is antivirus still needed if we have EDR?', a: 'Yes. Antivirus remains a useful baseline, while EDR adds behaviour detection, investigation, and response. Most modern endpoint platforms include both layers.' },
       { q: 'What is MDR in simple terms?', a: 'MDR adds human monitoring and triage to endpoint detection. It is useful for small businesses that have tools but no internal team watching alerts.' },
@@ -4195,4 +4195,3 @@ export function findSecurityGuideBySlug(
   );
   return guide ? mergeGuideExpansion(guide) : undefined;
 }
-

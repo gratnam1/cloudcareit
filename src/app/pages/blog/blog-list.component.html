@@ -2,7 +2,18 @@
   <div class="container">
     <header class="header">
       <h1>Managed IT Blog for Vaughan and GTA Businesses</h1>
-      <p>Practical IT, cybersecurity, cloud, and operations insights for growing offices.</p>
+      <p>
+        Practical IT, cybersecurity, cloud, and operations guidance for small businesses that
+        need clearer decisions around managed IT, Microsoft 365, Google Workspace, networking,
+        backup, cyber insurance readiness, and secure growth.
+      </p>
+      <div class="topic-links" aria-label="Primary blog topics">
+        <a routerLink="/managed-it-services">Managed IT</a>
+        <a routerLink="/guides/security">Cybersecurity</a>
+        <a routerLink="/microsoft-365">Microsoft 365</a>
+        <a routerLink="/google-workspace">Google Workspace</a>
+        <a routerLink="/office-networking">Networking</a>
+      </div>
     </header>
 
     <div *ngIf="loading" class="empty-state">

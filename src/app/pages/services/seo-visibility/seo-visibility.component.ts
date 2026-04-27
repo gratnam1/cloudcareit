@@ -19,7 +19,7 @@ export class SeoVisibilityComponent implements OnDestroy {
   constructor() {
     const pageTitle = 'SEO Services Vaughan Small Business | CtrlShift IT Services';
     const description =
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Local SEO services for Vaughan and GTA businesses.';
+      'Local SEO support for Vaughan and GTA service businesses, covering page structure, technical fixes, content depth, and tracking.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

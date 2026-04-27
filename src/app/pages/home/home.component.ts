@@ -66,8 +66,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       : false;
 
     this.seo.update({
-      title: 'Managed IT Services in Vaughan & Scarborough | CtrlShift IT Services',
-      description: 'CtrlShift IT Services provides enterprise-grade Managed IT, Cloud Infrastructure, and DevOps support for small businesses in Vaughan and Scarborough.',
+      title: 'Managed IT Services Vaughan & GTA',
+      description: 'CtrlShift IT Services provides security-first managed IT, Microsoft 365, cybersecurity, cloud, and helpdesk support for small businesses across the GTA.',
       type: 'website',
       canonicalPath: '/'
     });

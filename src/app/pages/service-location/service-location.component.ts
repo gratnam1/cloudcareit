@@ -107,7 +107,7 @@ export const SERVICE_LOCATION_CONTENT: Record<string, ServiceLocationContent> = 
     intro:
       'Practical cloud services for Vaughan businesses — Microsoft 365, Google Workspace, and AWS infrastructure managed properly, secured, and optimized for your team size and workflow.',
     metaDescription:
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Cloud services for Vaughan from CtrlShift IT Services.',
+      'Cloud services for Vaughan businesses: Microsoft 365, Google Workspace, AWS, migration planning, backup, and secure access support.',
     sections: [
       {
         heading: 'Cloud Migration for Vaughan Businesses',

@@ -18,7 +18,7 @@ export class WebDevelopmentTrendsComponent implements OnInit {
 
   ngOnInit() {
     this.seo.update({
-      title: 'Web Development Markham Small Business',
+      title: 'Web Development for GTA Small Business',
       description: 'How service businesses in the GTA can build faster, higher-converting websites — covering Core Web Vitals, mobile UX, trust signals, and page structure that turns visitors into leads.',
       type: 'article',
       canonicalPath: '/blog/web-development-gta',

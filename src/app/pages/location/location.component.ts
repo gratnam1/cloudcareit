@@ -192,7 +192,7 @@ export class LocationComponent implements OnInit, OnDestroy {
         }
       ],
       localTestimonial: {
-        quote: 'CtrlShift IT transformed our hybrid office setup. We now have seamless, secure access between our downtown office and home workstations without the usual VPN headaches.',
+        quote: 'CtrlShift IT Services transformed our hybrid office setup. We now have seamless, secure access between our downtown office and home workstations without the usual VPN headaches.',
         author: 'Managing Partner',
         company: 'Downtown Toronto Law Firm'
       }
@@ -369,7 +369,7 @@ export class LocationComponent implements OnInit, OnDestroy {
         }
       ],
       localTestimonial: {
-        quote: 'The team at CtrlShift IT handled our entire network move in Woodbridge flawlessly. They documented everything and improved our Wi-Fi reliability significantly compared to our previous provider.',
+        quote: 'The team at CtrlShift IT Services handled our entire network move in Woodbridge flawlessly. They documented everything and improved our Wi-Fi reliability significantly compared to our previous provider.',
         author: 'Office Manager',
         company: 'Vaughan Medical Practice'
       }

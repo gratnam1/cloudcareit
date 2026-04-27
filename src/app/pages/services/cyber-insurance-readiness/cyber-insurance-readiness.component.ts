@@ -17,9 +17,9 @@ export class CyberInsuranceReadinessComponent implements OnDestroy {
   private readonly BREADCRUMB_SCHEMA_ID = 'service-cyber-insurance-readiness-breadcrumb';
 
   constructor() {
-    const pageTitle = 'Cyber Insurance Readiness in Vaughan | CtrlShift IT Services';
+    const pageTitle = 'Cyber Insurance Readiness Vaughan';
     const description =
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Cyber insurance readiness services for Vaughan and GTA businesses.';
+      'Cyber insurance readiness support for Vaughan businesses: MFA, endpoint protection, backups, evidence, and renewal preparation.';
 
     applyServicePageSeo(this.seo, {
       title: pageTitle,
@@ -36,4 +36,3 @@ export class CyberInsuranceReadinessComponent implements OnDestroy {
     this.seo.removeStructuredData(this.BREADCRUMB_SCHEMA_ID);
   }
 }
-

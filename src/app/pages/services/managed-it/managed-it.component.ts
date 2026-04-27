@@ -19,9 +19,9 @@ export class ManagedItComponent implements OnDestroy {
   private readonly MANAGED_IT_SERVICE_SCHEMA_ID = 'managed-it-service-schema';
 
   constructor() {
-    const pageTitle = 'Managed IT Services in Vaughan & Scarborough | CtrlShift IT Services';
+    const pageTitle = 'Managed IT Services Vaughan & GTA';
     const description =
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Managed IT services for Vaughan, Toronto, Mississauga, Thornhill, and Richmond Hill.';
+      'Security-first managed IT services for GTA small businesses: helpdesk, Microsoft 365, endpoint protection, backups, and planning.';
     this.seo.update({
       title: pageTitle,
       description,

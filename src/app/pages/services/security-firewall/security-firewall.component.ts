@@ -20,9 +20,9 @@ export class SecurityFirewallComponent implements OnDestroy {
   private readonly BREADCRUMB_SCHEMA_ID = 'service-security-firewall-breadcrumb';
 
   constructor() {
-    const pageTitle = 'Security & Firewall Services in Vaughan & GTA | CtrlShift IT Services';
+    const pageTitle = 'Security & Firewall Services Vaughan & GTA';
     const description =
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Managed firewall and security services for Vaughan and GTA offices using Huntress AI.';
+      'Managed firewall and security support for Vaughan and GTA offices: endpoint protection, remote access, email trust, and response planning.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

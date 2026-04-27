@@ -22,7 +22,7 @@ export class Microsoft365Component implements OnDestroy {
   constructor() {
     const pageTitle = 'Microsoft 365 Support in Vaughan & GTA | CtrlShift IT Services';
     const description =
-      '15+ years of enterprise DevOps and IT support for Ontario small businesses. Microsoft 365 support for Vaughan and GTA companies, handling security and reliability.';
+      'Microsoft 365 support for Vaughan and GTA small businesses: tenant hardening, email security, Teams, SharePoint, and licensing.';
     applyServicePageSeo(this.seo, {
       title: pageTitle,
       description,

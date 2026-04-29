@@ -199,61 +199,69 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     mississauga: {
-      title: 'IT Support Mississauga | Managed IT Services for Peel Region | CtrlShift IT Services',
+      title: 'Managed IT Services Mississauga | Multi-Floor & Airport-Area Offices | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-mississauga',
-      mainHeading: 'IT Support & Managed IT Services in Mississauga',
+      mainHeading: 'Managed IT Services in Mississauga',
       areasServedText:
-        'Our technicians deliver on-site IT support across Mississauga, including Square One, Meadowvale, Airport Corporate Centre, and Heartland business districts. Whether your office is near Hurontario or operating close to Highway 401 and 403 corridors, we respond quickly to urgent network and productivity incidents.',
+        'Our technicians deliver on-site IT support across Mississauga, including Square One / City Centre, Meadowvale business parks, the Dixie–Eglinton corridor, the Hurontario spine, and airport-area offices around the 401/427 interchange. Whether your team works in a multi-floor office tower or a mixed warehouse-and-office unit near the airport, we respond quickly when networks, VoIP calls, or Microsoft 365 access fail.',
       intro:
-        'CtrlShift IT Services provides managed IT services and IT support for businesses in Mississauga — from the Airport Corporate Centre and the Square One district to the Meadowvale business parks and Heartland corridor. As a managed service provider Mississauga offices rely on for outsourced IT support, we keep Wi-Fi reliable across large floorplans, protect client data, and respond fast when Peel Region teams need help.',
+        'CtrlShift IT Services provides managed IT services for Mississauga businesses with multi-floor offices, mixed warehouse-and-office networks, and growing Microsoft 365 environments. We work across Square One / City Centre office towers, Meadowvale business parks, the Hurontario corridor, the Dixie–Eglinton industrial belt, and airport-area logistics-plus-office sites. As a managed service provider Mississauga teams rely on for proactive support, we stabilise Wi-Fi across multi-floor footprints, keep VoIP and cloud calls clean, and tighten Microsoft 365 access control before staff turnover creates security gaps.',
       metaDescription:
-        'Reliable IT support and managed services for Mississauga businesses at Square One, Airport Corporate Centre, and Meadowvale. Local Peel Region MSP covering networking, Microsoft 365, and cybersecurity.',
+        'Managed IT services for Mississauga multi-floor offices, airport-area sites, and growing Microsoft 365 teams. Proactive Wi-Fi, VoIP, and M365 access control across Square One, Meadowvale, Hurontario, and the Dixie–Eglinton corridor.',
       heroBullets: [
-        'Local response across Peel Region and Square One',
-        'Microsoft 365 / Google Workspace management',
-        'Office networking, backups, and cybersecurity basics'
+        'Multi-floor Wi-Fi stability across City Centre and Meadowvale',
+        'VoIP and Teams call quality on shared business circuits',
+        'Microsoft 365 access control as Mississauga teams grow'
       ],
       localWorkStyle:
-        'Mississauga offices often have larger floorplans and mixed devices that depend on clean networking.',
-      nearbyAreas: ['Square One', 'Meadowvale', 'Airport Corporate Centre', 'Heartland'],
+        'Mississauga offices typically span multiple floors or combine a back-of-house warehouse with a customer-facing office — both are punishing on Wi-Fi, VoIP, and Microsoft 365 access if the network was never properly designed.',
+      nearbyAreas: ['Square One / City Centre', 'Meadowvale', 'Dixie–Eglinton corridor', 'Hurontario', 'Airport Corporate Centre'],
       painPoints: [
-        'Large office layouts causing Wi-Fi coverage gaps',
-        'Printer/scanner connectivity issues across floors',
-        'ISP and modem/router problems causing random drops',
-        'Onboarding/offboarding users quickly as teams grow'
+        'Wi-Fi roaming gaps between floors in City Centre and Hurontario office towers',
+        'VoIP and Microsoft Teams call quality dropping when warehouse traffic shares the same circuit as the office',
+        'Microsoft 365 access drifting out of control as Mississauga teams hire across Meadowvale and Dixie',
+        'Stale guest Wi-Fi, shared admin accounts, and ex-staff still in shared mailboxes after offboarding gaps',
+        'Backup coverage that does not include the Microsoft 365 mailboxes and SharePoint sites the office actually depends on'
       ],
-      industries: ['Dental clinics', 'Professional services', 'Real estate brokerages', 'Small corporate offices'],
+      industries: [
+        'Multi-floor professional services offices in the Square One / City Centre cluster',
+        'Accounting and tax practices along the Hurontario and Eglinton corridors',
+        'Logistics and distribution offices around the Airport Corporate Centre and 401/427',
+        'Health and wellness clinics in Meadowvale and the Dixie–Eglinton area',
+        'Construction, real estate, and trades offices with a back-of-house warehouse'
+      ],
       services: [
-        'Office networking + Wi-Fi coverage design',
-        'User onboarding/offboarding + device setup',
-        'Microsoft 365 or Google Workspace support',
-        'Backup monitoring + recovery readiness',
-        'Security hardening (MFA + patching)'
+        'Multi-floor Wi-Fi survey and access-point design for City Centre and Meadowvale offices',
+        'VoIP / Microsoft Teams call-quality troubleshooting on shared office + warehouse circuits',
+        'Microsoft 365 identity, MFA, and conditional access tuned for Mississauga office turnover',
+        'User onboarding and offboarding playbooks that close access on the day staff leave',
+        'Backup readiness for Microsoft 365 mailboxes, OneDrive, and SharePoint — not just servers',
+        'Network documentation for offices that have been added to or rewired over multiple moves'
       ],
       faq: [
         {
           q: 'How much does managed IT support cost for a Mississauga business?',
-          a: 'Our flat-rate plans start at $299/month for up to 5 business devices, $549/month for up to 12 devices with priority response, and $999/month for up to 25 devices with fully managed IT coordination. Every plan includes Huntress EDR-backed protection, with additional devices available for $15/device/month.'
+          a: 'Most Mississauga clients fit one of our three flat-rate tiers: a starter plan around $299/month for up to 5 devices, a $549/month plan for up to 12 devices with priority response, and a $999/month plan for up to 25 devices with fully managed coordination. Multi-floor offices in the Square One area and warehouse-plus-office sites near the airport usually sit in the middle tier. Additional devices are billed at $15/device/month. Plans are month-to-month and Huntress endpoint protection is included.'
         },
         {
-          q: 'How quickly can Mississauga companies receive support?',
-          a: 'Remote support starts within minutes through our ticketing system, and Growth and Business plan clients get a priority response within 15 minutes for production-critical incidents. On-site dispatch to Square One, Airport Corporate Centre, Meadowvale, and Heartland is typically same-day for urgent issues.'
+          q: 'Can you improve Wi-Fi coverage across a multi-floor Mississauga office?',
+          a: 'Yes. We survey real signal strength on every floor — including stairwells, meeting rooms, and warehouse zones — then place access points so devices roam cleanly between floors. We also separate staff, guest, and warehouse traffic so a busy back-of-house network does not slow down Microsoft Teams calls in the front office.'
         },
         {
-          q: 'Are you a managed service provider in Mississauga for outsourced IT support?',
-          a: 'Yes. CtrlShift IT Services is a managed service provider in Mississauga that delivers outsourced IT support as a flat-rate managed IT services Mississauga plan — covering helpdesk, monitoring, patching, security, and vendor coordination from one point of contact.'
+          q: 'Why do our Microsoft Teams calls drop in our airport-area Mississauga office?',
+          a: 'On most airport-area and Dixie–Eglinton sites we audit, voice traffic is competing with warehouse devices, security cameras, and bulk file uploads on the same circuit. We add quality-of-service rules so VoIP and Teams traffic gets priority, fix the access-point handoff between the office and the warehouse, and test under real load before signing off.'
         },
         {
-          q: 'Can you improve Wi-Fi coverage across our Mississauga office?',
-          a: 'Yes. We survey for dead zones, recommend access point placement across large floorplans, and configure separate guest and staff networks when needed.'
+          q: 'Can you tighten Microsoft 365 access for a growing Mississauga team?',
+          a: 'Yes. We baseline MFA, conditional access, and admin-role separation, then add a documented onboarding and offboarding flow so a new hire in Meadowvale gets access on day one and a departing user loses every login the same day they leave — including shared mailboxes and SharePoint sites that usually get missed.'
         },
         {
           q: 'Do you support mixed Microsoft 365 and Google Workspace environments?',
-          a: 'Yes. We manage identity, email routing, file permissions, and device access controls across both platforms from a single point of contact.'
+          a: 'Yes. Mississauga offices that grew through acquisition often run both platforms side-by-side. We manage identity, email routing, file permissions, and device access controls across both from a single point of contact, and we document who owns what so handovers stop being painful.'
         },
         {
-          q: 'Can you help standardize IT onboarding for fast-growing teams?',
-          a: 'Yes. We create repeatable onboarding and offboarding checklists so accounts, devices, security settings, and access rights are provisioned consistently every time — no gaps, no forgotten steps.'
+          q: 'Are you a managed service provider in Mississauga for outsourced IT support?',
+          a: 'Yes. We act as the outsourced IT department for offices that do not want to hire in-house. The Mississauga plan covers proactive monitoring, patching, Microsoft 365 administration, vendor coordination (ISP, VoIP, copier, line-of-business apps), and an after-hours maintenance window so changes do not disrupt the working day.'
         }
       ],
       geo: {
@@ -267,14 +275,34 @@ export class LocationComponent implements OnInit, OnDestroy {
         'https://clutch.co/profile/ctrlshift-it-services',
         'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
-      supportContext: 'Mississauga businesses at Airport Corporate Centre, Meadowvale business parks, and the Hurontario corridor often operate in large open-plan offices with complex networking needs and growing hybrid teams. Dental clinics, real estate brokerages, and professional services firms in Peel Region depend on stable connectivity, fast device onboarding, and clean Wi-Fi coverage across expansive floorplans.',
+      supportContext: 'Mississauga businesses are usually one of two shapes: a multi-floor professional office in the Square One / City Centre or Hurontario clusters, or an airport-area site that combines a back-of-house warehouse with a customer-facing office along Dixie, Eglinton, or the 401/427 interchange. Both shapes punish a network that was never properly designed — Wi-Fi roaming fails between floors, VoIP and Microsoft Teams calls drop when bulk traffic shares the same circuit, and Microsoft 365 access drifts out of control as teams hire across Meadowvale and the Hurontario corridor. CtrlShift IT Services focuses on the network, voice, and identity layer that those offices actually live on.',
       supportContextPoints: [
-        'Large-footprint office Wi-Fi surveys and access point planning',
-        'Device onboarding and offboarding for fast-growing Mississauga teams',
-        'Support for multi-department environments with complex printer and scanner setups',
-        'Microsoft 365 and Google Workspace administration from a single point of contact',
-        'On-site dispatch across Square One, Meadowvale, Airport Corporate Centre, and Heartland'
-      ]
+        'Multi-floor Wi-Fi design for City Centre and Hurontario office towers',
+        'VoIP / Microsoft Teams call-quality fixes on shared warehouse-and-office circuits',
+        'Microsoft 365 access control, MFA, and conditional access for growing Mississauga teams',
+        'Onboarding and offboarding playbooks that actually close access on the day staff leave',
+        'Backup readiness for Microsoft 365 mailboxes, OneDrive, and SharePoint',
+        'On-site dispatch across Square One / City Centre, Meadowvale, Dixie–Eglinton, Hurontario, and the Airport Corporate Centre'
+      ],
+      neighborhoodFocus: {
+        heading: 'Square One, Hurontario & the Airport Corridor',
+        body: 'Mississauga is split between vertical office towers around Square One / City Centre and Hurontario and horizontal warehouse-plus-office sites along Dixie, Eglinton, and the airport. We design networks for both — multi-floor Wi-Fi roaming on one side, and segmented voice / warehouse / staff traffic on the other — so a Microsoft Teams call in the front office is not held hostage by a bulk upload from the back of the building.'
+      },
+      citySpecificChallenges: [
+        {
+          title: 'Multi-floor Wi-Fi & VoIP Drift',
+          description: 'In Square One, City Centre, and Hurontario towers, devices fail to roam cleanly between floors and VoIP calls drop on the handoff. We re-survey signal, re-tune access points, and add quality-of-service rules so calls and Teams meetings stay stable.'
+        },
+        {
+          title: 'Microsoft 365 Access After Turnover',
+          description: 'Mississauga offices hire and rotate fast — and shared mailboxes, SharePoint sites, and admin roles get left behind. We baseline MFA and conditional access and document onboarding/offboarding so departing staff actually lose access the day they leave.'
+        }
+      ],
+      localTestimonial: {
+        quote: 'Our two-floor office near Square One had constant Wi-Fi handoff issues and Teams calls were dropping every afternoon. CtrlShift IT Services re-surveyed our access points, separated our guest and staff networks, and tightened our Microsoft 365 access. Calls have been clean since, and we finally have written documentation of how the network is set up.',
+        author: 'Operations Manager',
+        company: 'Multi-floor professional services office, Square One area'
+      }
     },
 
     vaughan: {
@@ -376,61 +404,69 @@ export class LocationComponent implements OnInit, OnDestroy {
     },
 
     thornhill: {
-      title: 'IT Support Thornhill | Managed IT for Small Offices | CtrlShift IT Services',
+      title: 'Managed IT Services Thornhill | Plaza Offices, Clinics & Professional Practices | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-thornhill',
-      mainHeading: 'IT Support & Managed IT Services in Thornhill',
+      mainHeading: 'Managed IT Services in Thornhill',
       areasServedText:
-        'Our technicians provide on-site IT support across Thornhill, including offices near Promenade Shopping Centre, Yonge Street commercial corridors, and surrounding business plazas. Whether your team operates on the Vaughan side or Markham side of Thornhill, we provide rapid support for connectivity and security-critical failures.',
+        'Our technicians support Thornhill offices on both the Vaughan and Markham sides — around Promenade Shopping Centre, along the Yonge Street corridor, the Bathurst / Centre Street stretch, and the shared business plazas around Steeles. Most clients are small accounting, legal, and medical practices with 5–25 staff that need their Wi-Fi, Microsoft 365, and onboarding/offboarding to just work.',
       intro:
-        'CtrlShift IT Services provides managed IT services and IT support for businesses in Thornhill — serving professional office clusters along Yonge Street and Bathurst, local retail service businesses, and medical and accounting practices near Promenade Shopping Centre. As a managed service provider Thornhill owners trust for outsourced IT support, we keep email, Wi-Fi, and devices running with dependable helpdesk, patching, and practical security.',
+        'CtrlShift IT Services provides managed IT services for Thornhill professional practices — accounting and tax firms, single-site law and notary offices, and medical and dental clinics in shared plazas around Promenade, Yonge, Bathurst, and Centre Street. As a managed service provider Thornhill owners trust, we focus on the things that quietly hurt small offices: Microsoft 365 security drift, plaza-shared Wi-Fi, and the onboarding/offboarding gaps that leave ex-staff and contractors with active accounts long after they have moved on.',
       metaDescription:
-        'Practical IT support for small Thornhill offices — accounting, medical, and professional practices near Promenade and Yonge Street. Flat-rate managed IT with fast remote helpdesk and on-site visits.',
+        'Managed IT services for Thornhill accounting, legal, and clinic offices around Promenade, Yonge, Bathurst, and Centre Street. Microsoft 365 security, plaza Wi-Fi, and tight onboarding / offboarding for small professional practices.',
       heroBullets: [
-        'Fast remote support for small offices',
-        'Wi-Fi troubleshooting and upgrades',
-        'Microsoft 365 / Google Workspace support'
+        'Microsoft 365 security tuned for accounting and legal offices',
+        'Plaza Wi-Fi separated from neighbouring tenants',
+        'Documented onboarding and offboarding for small teams'
       ],
       localWorkStyle:
-        'Thornhill offices often need simple, dependable IT: stable Wi-Fi, secure email, and fast support when devices misbehave.',
-      nearbyAreas: ['Promenade Shopping Centre', 'Bathurst Corridor', 'Yonge Street', 'Steeles Area'],
+        'Thornhill clients are usually small professional practices — accountants, lawyers, dentists, family clinics — where the same person handles bookings, billing, and IT. They need IT that runs quietly in the background, not another vendor to chase.',
+      nearbyAreas: ['Promenade Shopping Centre', 'Yonge Street corridor', 'Bathurst / Centre Street', 'Steeles plazas', 'Royal Orchard'],
       painPoints: [
-        'Recurring Wi-Fi slowdowns and disconnects',
-        'Email login issues and password resets',
-        'Shared file permissions that get messy over time',
-        'Unpatched laptops and outdated security settings'
+        'Microsoft 365 set up years ago without MFA, conditional access, or proper admin separation',
+        'Plaza Wi-Fi shared with neighbouring tenants, with no separation between staff devices and guest traffic',
+        'Ex-staff, locum dentists, and outside accountants still in shared mailboxes and file shares months after leaving',
+        'Recurring Outlook, password, and printer issues nobody has time to root-cause',
+        'Backups assumed to be working — until someone actually needs to restore a deleted SharePoint folder or mailbox'
       ],
-      industries: ['Accounting practices', 'Professional services', 'Medical offices', 'Small local businesses'],
+      industries: [
+        'Accounting and tax practices around Promenade and Yonge Street',
+        'Single-site law firms and notary offices along the Bathurst / Centre Street corridor',
+        'Family medical and dental clinics in shared plazas',
+        'Boutique consulting and financial-advisory practices',
+        'Local retail and service businesses with a small back-office team'
+      ],
       services: [
-        'Helpdesk support for staff',
-        'Wi-Fi troubleshooting and upgrades',
-        'Microsoft 365 / Google Workspace administration',
-        'Patch management + security baseline',
-        'Backup readiness + recovery steps'
+        'Microsoft 365 security baseline — MFA, conditional access, admin-role separation',
+        'Plaza Wi-Fi cleanup with separated staff, guest, and POS traffic',
+        'Documented onboarding and offboarding for accounting, legal, and clinic practices',
+        'Helpdesk for Outlook, password, MFA, and printer issues that keep coming back',
+        'Backup readiness for Microsoft 365 mailboxes, OneDrive, and SharePoint',
+        'Practical patch management and endpoint hygiene for small Thornhill offices'
       ],
       faq: [
         {
           q: 'How much does managed IT support cost for a Thornhill business?',
-          a: 'Our flat-rate plans start at $299/month for up to 5 business devices, $549/month for up to 12 devices with priority response, and $999/month for up to 25 devices with fully managed IT coordination. Every plan includes Huntress EDR-backed protection, with no hidden fees or surprise invoices.'
+          a: 'Most Thornhill practices fit our small-office tier of around $299/month for up to 5 devices, with a $549/month plan for up to 12 devices and priority response when the practice grows past one location. Pricing is flat and month-to-month, additional devices are $15/device/month, and Huntress endpoint protection is included so you do not pay separately for antivirus. We deliberately keep the plan simple because most Thornhill clients do not have the time to manage a complicated IT bill.'
         },
         {
-          q: 'Do Thornhill offices receive proactive monitoring support?',
-          a: 'Yes. Every Thornhill office on our Growth or Business plan is covered by 24/7 endpoint and network monitoring. We catch failing drives, failed backups, and suspicious activity before your team feels the impact — so problems get fixed in the background.'
+          q: 'Can you secure Microsoft 365 for a Thornhill accounting or legal practice?',
+          a: 'Yes — and this is usually the first thing we fix. Most Microsoft 365 tenants we inherit in Thornhill were set up years ago without MFA, without conditional access, and with the admin role attached to a regular user mailbox. We separate admin roles, enforce MFA, restrict legacy authentication, and add conditional access policies sized for a 5–25 person practice — without breaking how staff actually log in.'
         },
         {
-          q: 'Are you a managed service provider in Thornhill for outsourced IT support?',
-          a: 'Yes. CtrlShift IT Services is a managed service provider in Thornhill offering outsourced IT support to small and mid-size offices — from accounting and medical practices near Promenade to professional service firms along Yonge Street. Our managed IT services Thornhill plan scales to 5–20 staff without the cost of in-house IT.'
+          q: 'Our plaza Wi-Fi is shared with other tenants — can you fix that?',
+          a: 'Yes. We separate your staff network from the plaza-shared circuit, put guests on their own SSID, and lock the staff Wi-Fi to your business devices so neighbouring tenants cannot accidentally land on your subnet. Where the building only offers a shared circuit, we add a small business-grade firewall so your office is not depending on the plaza router for security.'
         },
         {
-          q: 'Are you a good fit for smaller offices in Thornhill?',
-          a: 'Yes. Many of our clients are small offices — 5 to 20 staff — that want dependable IT without the complexity or cost of a full in-house team. We scale to fit your size.'
+          q: 'How do you stop ex-staff and locums from staying in our systems after they leave?',
+          a: 'We build a documented offboarding checklist for the practice — Microsoft 365 account, shared mailboxes, SharePoint sites, MFA tokens, line-of-business apps, and any clinic or accounting software — and run it the same day someone leaves. New hires get the same checklist in reverse, so a locum dentist or a contract accountant has access on day one and loses it on the day the engagement ends.'
         },
         {
-          q: 'Can you fix recurring email and login issues for our staff?',
-          a: 'Yes. We troubleshoot account lockouts, MFA failures, and profile sync issues, then tighten policies so the same problems don\'t keep coming back.'
+          q: 'Are you a good fit for a small Thornhill practice with no in-house IT?',
+          a: 'Yes — most of our Thornhill clients are 5 to 25 staff with no in-house technology team. We act as the IT department: one phone number, one ticket queue, one quarterly review where we walk the office owner through what changed, what is at risk, and what we are going to fix next.'
         },
         {
-          q: 'Do you help with older networks that were never properly set up?',
-          a: 'Yes. We audit, document, and clean up legacy network setups so future troubleshooting and upgrades are faster, safer, and less disruptive.'
+          q: 'Can you take over an older Thornhill network that was never properly documented?',
+          a: 'Yes. The first 30 days are usually a documentation pass — we map the cabling, the access points, the Microsoft 365 tenant, the line-of-business apps, the printers, and the vendor logins — then we hand the practice owner a written summary so the next IT change is faster and safer than the last one was.'
         }
       ],
       geo: {
@@ -444,72 +480,100 @@ export class LocationComponent implements OnInit, OnDestroy {
         'https://clutch.co/profile/ctrlshift-it-services',
         'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
-      supportContext: 'Thornhill offices — from Promenade Shopping Centre area businesses to mixed-use professional offices along the Yonge Street and Bathurst corridors — tend to be smaller practices with 5 to 20 staff. Accounting practices, medical offices, and local retail service businesses in Thornhill need simple, dependable IT: email that just works, Wi-Fi that stays connected, and a support team that picks up the phone.',
+      supportContext: 'Thornhill is a city of small professional practices, not big corporate offices. Accounting and tax firms around Promenade, single-site law and notary offices along the Bathurst / Centre Street corridor, and family medical and dental clinics in shared plazas around Steeles all share the same risk profile: a Microsoft 365 tenant set up years ago without proper security, plaza Wi-Fi that nobody owns end-to-end, and onboarding/offboarding that lives in someone\'s head instead of in a checklist. CtrlShift IT Services focuses on those three things first because they are where Thornhill practices actually get hurt.',
       supportContextPoints: [
-        'Practical Wi-Fi troubleshooting and upgrades for small Thornhill office environments',
-        'Email and login issue resolution for Thornhill accounting and medical practices',
-        'Shared file permission cleanup for teams that have grown over time',
-        'Patch management and device security for Thornhill retail and service businesses',
-        'On-site support for offices near Promenade, Yonge Street, and the Steeles corridor'
-      ]
+        'Microsoft 365 security baseline for Thornhill accounting, legal, and clinic practices',
+        'Plaza Wi-Fi separation around Promenade, Yonge, and the Bathurst / Centre Street corridor',
+        'Documented onboarding and offboarding so ex-staff and locums actually lose access on the day they leave',
+        'Outlook / password / MFA / printer recurring-issue cleanup',
+        'Backup readiness for Microsoft 365 mailboxes, OneDrive, and SharePoint',
+        'On-site support for offices near Promenade, Yonge Street, Bathurst / Centre, and the Steeles plazas'
+      ],
+      neighborhoodFocus: {
+        heading: 'Promenade, Yonge & Bathurst / Centre Street Practices',
+        body: 'Thornhill practices cluster in three areas: Promenade and the surrounding plazas, the Yonge Street corridor up from Steeles, and the Bathurst / Centre Street stretch where most accounting, legal, and dental offices sit. We tune Microsoft 365 security, plaza Wi-Fi, and onboarding/offboarding around what those offices actually run — not the corporate-headquarters IT that bigger MSPs over-engineer for them.'
+      },
+      citySpecificChallenges: [
+        {
+          title: 'Microsoft 365 Set Up Years Ago',
+          description: 'Most Thornhill tenants we inherit have no MFA, no conditional access, and an admin role attached to a regular user mailbox. We baseline security in stages so a 10-person practice gets the protection without the disruption.'
+        },
+        {
+          title: 'Onboarding & Offboarding Gaps',
+          description: 'Locums, contract accountants, and former staff routinely keep access to shared mailboxes and SharePoint folders for months. We replace the verbal handover with a written checklist that runs the same day someone leaves.'
+        }
+      ],
+      localTestimonial: {
+        quote: 'We are a small accounting practice off Yonge in Thornhill — five staff plus seasonal contractors — and we had no real Microsoft 365 security and no offboarding process. CtrlShift IT Services fixed our MFA, separated the admin account from a regular user, and built us a one-page checklist we now follow every time a contractor finishes. The recurring Outlook lockouts also stopped after they cleaned up our conditional access rules.',
+        author: 'Practice Owner',
+        company: 'Small accounting practice, Yonge Street corridor (Thornhill)'
+      }
     },
 
     'richmond hill': {
-      title: 'Managed IT Services Richmond Hill | Proactive IT for York Region | CtrlShift IT Services',
+      title: 'Managed IT Services Richmond Hill | Endpoint Protection, Backup & Microsoft 365 | CtrlShift IT Services',
       canonicalPath: '/managed-it-services-richmond-hill',
-      mainHeading: 'Proactive IT Support & Managed IT in Richmond Hill',
+      mainHeading: 'Managed IT Services in Richmond Hill',
       areasServedText:
-        'Our technicians provide on-site IT support across Richmond Hill, including the Hillcrest Mall area, Highway 7 corridor, and key office zones along Yonge Street and Leslie Street. Whether your business is in a medical, legal, or professional office cluster, we offer fast response for high-impact outages and recurring IT disruptions.',
+        'Our technicians provide on-site IT support across Richmond Hill — along the Yonge Street corridor between Highway 7 and Elgin Mills, around the Hillcrest area and Hillcrest Mall, and through the Bayview / Leslie office clusters with quick access from Highway 7 and the 404. Most clients are growing professional practices and clinics that have outgrown a "one IT person we know" arrangement and need real endpoint protection, backup, and Microsoft 365 security.',
       intro:
-        'CtrlShift IT Services provides managed IT services and IT support for businesses in Richmond Hill — along the Yonge Street corridor, the Leslie Street business parks, and the Hillcrest Mall area. As a managed service provider Richmond Hill clinics, professional offices, and growing firms rely on for outsourced IT support, we deliver proactive maintenance, Microsoft 365 account security, and responsive helpdesk so your team can focus on work instead of technology.',
+        'CtrlShift IT Services provides managed IT services for Richmond Hill professional practices, clinics, and growing offices along the Yonge Street corridor, the Hillcrest area, and the Bayview / Leslie office cluster. As a managed service provider Richmond Hill businesses rely on, we focus on the controls that growing offices skip until something goes wrong — endpoint protection on every device, backups that have actually been restored at least once, and a Microsoft 365 tenant locked down with MFA, conditional access, and proper admin separation.',
       metaDescription:
-        'Proactive managed IT and 24/7 monitoring for Richmond Hill offices along Yonge Street, Leslie Street, and the Hillcrest Mall area. Prevent downtime before it happens — flat-rate IT support for York Region.',
+        'Managed IT services for Richmond Hill clinics, professional services, and growing offices. Endpoint protection, tested backups, and Microsoft 365 security across Yonge Street, Hillcrest, and the Bayview / Leslie corridor with Highway 7 / 404 access.',
       heroBullets: [
-        'Device maintenance and patching',
-        'Microsoft 365 security (MFA + access control)',
-        'Backup strategy and restore testing'
+        'Endpoint protection on every laptop and desktop',
+        'Backups that get restore-tested, not just scheduled',
+        'Microsoft 365 security tuned for growing York Region offices'
       ],
       localWorkStyle:
-        'Richmond Hill teams often rely on Microsoft 365, cloud files, and multi-device setups.',
-      nearbyAreas: ['Hillcrest Mall', 'Yonge Street', 'Elgin Mills', 'Leslie Corridor'],
+        'Richmond Hill offices tend to be growing — adding staff, opening a second location, or moving from a residential setup to a real office along Yonge or near Hillcrest — and the IT setup has not kept pace with the growth.',
+      nearbyAreas: ['Yonge Street corridor', 'Hillcrest area / Hillcrest Mall', 'Bayview / Leslie offices', 'Highway 7 / 404 access', 'Elgin Mills'],
       painPoints: [
-        'Slow laptops and devices due to lack of maintenance',
-        'Phishing risk and weak account protection',
-        'Network drops affecting calls and meetings',
-        'Backup uncertainty (not sure what is protected)'
+        'Endpoint protection patchy or missing — a mix of free antivirus, expired licences, and unmanaged personal devices',
+        'Backups assumed to work but never restore-tested — including Microsoft 365 mailboxes and OneDrive',
+        'Microsoft 365 still using basic password sign-in, with shared admin accounts and no conditional access',
+        'Network drops hurting calls and Teams meetings as offices grow past their original Wi-Fi design',
+        'No documented IT — the office "knows a guy" and nothing is written down for the next person who has to look at it'
       ],
-      industries: ['Professional services', 'Clinics', 'Local offices', 'Growing businesses'],
+      industries: [
+        'Medical, dental, and family clinics around the Hillcrest area',
+        'Accounting, financial-advisory, and tax practices along the Yonge Street corridor',
+        'Law firms and notary offices in the Bayview / Leslie cluster',
+        'Engineering, architecture, and consulting offices with quick Highway 7 / 404 access',
+        'Growing professional practices opening a second Richmond Hill location'
+      ],
       services: [
-        'Device maintenance + patching',
-        'Account security (MFA + access control)',
-        'Network reliability troubleshooting',
-        'Backup strategy + restore testing',
-        'Ongoing helpdesk and admin support'
+        'Endpoint protection deployment with managed EDR on every business device',
+        'Backup strategy and scheduled restore testing — including Microsoft 365 mailboxes, OneDrive, and SharePoint',
+        'Microsoft 365 security baseline — MFA, conditional access, admin-role separation',
+        'Network reliability work for offices that have grown past their original Wi-Fi design',
+        'Documented IT — written network map, vendor list, recovery steps, and quarterly review',
+        'Helpdesk and proactive monitoring for Richmond Hill offices with no in-house IT'
       ],
       faq: [
         {
           q: 'How much does managed IT support cost for a Richmond Hill business?',
-          a: 'Our flat-rate plans start at $299/month for up to 5 business devices, $549/month for up to 12 devices with priority response, and $999/month for up to 25 devices with fully managed IT coordination. All plans are month-to-month, and additional devices are $15/device/month.'
+          a: 'Most growing Richmond Hill offices fit our $549/month plan for up to 12 devices with priority response, with a $299/month starter tier for smaller practices and a $999/month plan for offices closer to 25 devices. Pricing is flat and month-to-month, additional devices are $15/device/month, and managed endpoint protection (Huntress) is included on every device — so you do not pay separately for antivirus, EDR, or after-the-fact incident response.'
         },
         {
-          q: 'Do Richmond Hill businesses receive on-site support?',
-          a: 'Yes. We dispatch on-site technicians throughout Richmond Hill — including the Hillcrest Mall area, the Yonge Street corridor, Elgin Mills, and the Leslie Street office parks — typically same-day for critical incidents, with remote triage starting immediately.'
+          q: 'Can you put real endpoint protection on every device in our Richmond Hill office?',
+          a: 'Yes — and on most engagements we find at least one laptop without working antivirus, an expired licence somewhere, or a personal device sitting on the staff Wi-Fi. We deploy managed EDR (Huntress) on every business device, get visibility on the personal devices touching company data, and lock the gaps in stages so we are not breaking how staff actually work.'
         },
         {
-          q: 'Are you a managed service provider in Richmond Hill for outsourced IT support?',
-          a: 'Yes. CtrlShift IT Services is a managed service provider in Richmond Hill. Our outsourced IT support replaces the cost of an in-house IT team with a flat monthly managed IT services Richmond Hill plan — covering monitoring, patching, Microsoft 365 security, backups, and helpdesk.'
+          q: 'How do you verify our Richmond Hill backups actually work?',
+          a: 'We do not trust a green tick on a backup dashboard. We schedule real restore tests — pick a file, a mailbox, a SharePoint folder — and prove they come back, then write the steps down so anyone in the office could follow them in an emergency. Most Richmond Hill offices we onboard have backups that look fine on paper but have never been tested.'
         },
         {
-          q: 'Do you provide proactive monitoring for Richmond Hill offices?',
-          a: 'Yes. Our managed plans include 24/7 endpoint and network monitoring. We catch and address issues before they turn into downtime — so your team rarely needs to call us with an emergency.'
+          q: 'Can you secure Microsoft 365 for a Richmond Hill clinic or professional office?',
+          a: 'Yes. We separate the admin role from a regular user mailbox, enforce MFA across the tenant, restrict legacy authentication, and add conditional access policies sized for the office — so a Yonge Street accounting practice or a Hillcrest clinic gets the same security a much larger office would have, without the friction of an enterprise rollout.'
         },
         {
-          q: 'Can you speed up slow laptops and desktops for our Richmond Hill team?',
-          a: 'Yes. We tune startup processes, apply OS patches, remove risky legacy software, and standardize device configurations for better day-to-day performance.'
+          q: 'Our Wi-Fi and Teams calls are dropping as we grow — can you fix that?',
+          a: 'Yes. Most Richmond Hill offices we audit grew from 5 staff to 15+ on the same Wi-Fi setup, and the network is now under-provisioned. We redo the access-point design, separate staff and guest traffic, and add quality-of-service rules so Teams and VoIP calls stay clean even when the office is full.'
         },
         {
-          q: 'How do you verify backups actually work for Richmond Hill businesses?',
-          a: 'We run scheduled restore tests on a regular basis and document the recovery steps so you have proof your data is recoverable before an emergency ever happens.'
+          q: 'Are you a managed service provider in Richmond Hill for outsourced IT?',
+          a: 'Yes. We act as the outsourced IT department for Richmond Hill offices that do not want to hire in-house. The plan covers endpoint protection, monitoring, patching, backup, Microsoft 365 administration, vendor coordination, and a quarterly review where the office owner gets a written summary of what changed, what is at risk, and what we are fixing next.'
         }
       ],
       geo: {
@@ -523,14 +587,34 @@ export class LocationComponent implements OnInit, OnDestroy {
         'https://clutch.co/profile/ctrlshift-it-services',
         'https://www.goodfirms.co/company/ctrlshift-it-services'
       ],
-      supportContext: 'Richmond Hill businesses along the Hillcrest Mall area, the Yonge Street business strip, and the Leslie Street office parks tend to rely heavily on Microsoft 365, cloud-based file access, and multi-device setups. Professional services firms, clinics, and growing local offices in York Region need proactive maintenance to prevent slow devices, phishing incidents, and backup gaps before they become emergencies.',
+      supportContext: 'Richmond Hill offices are usually growing — adding staff, opening a second location, or moving out of a home-office setup into a real office along Yonge, Hillcrest, or the Bayview / Leslie corridor — and the IT setup has not kept pace. Endpoint protection is a mix of free antivirus and expired licences, backups have never been restore-tested, and the Microsoft 365 tenant is still running on basic passwords with the admin role attached to someone\'s personal mailbox. CtrlShift IT Services fixes those three layers first because they are where Richmond Hill offices actually get hurt — ransomware on an unprotected laptop, a lost mailbox that backup cannot recover, and a phished admin account that opens the whole tenant.',
       supportContextPoints: [
-        'Device maintenance and patch management for Richmond Hill professional offices',
-        'Microsoft 365 security hardening (MFA, conditional access) for Yonge Street businesses',
-        'Backup strategy and scheduled restore testing for Leslie Street and Hillcrest area offices',
-        'Network reliability troubleshooting for offices experiencing call and meeting drops',
-        'Proactive 24/7 monitoring to prevent downtime for Richmond Hill clinics and law practices'
-      ]
+        'Managed endpoint protection on every business device — replacing free or expired antivirus',
+        'Backup strategy and real restore testing for Microsoft 365, OneDrive, and SharePoint',
+        'Microsoft 365 security baseline — MFA, conditional access, admin-role separation',
+        'Network re-design for offices that have grown past their original Wi-Fi setup',
+        'Quick on-site dispatch via Highway 7 / 404 to Yonge, Hillcrest, Bayview / Leslie, and Elgin Mills',
+        'Documented IT — written network map, vendor list, and quarterly review for the practice owner'
+      ],
+      neighborhoodFocus: {
+        heading: 'Yonge Corridor, Hillcrest & the Bayview / Leslie Cluster',
+        body: 'Richmond Hill business activity sits in three bands: the Yonge Street corridor between Highway 7 and Elgin Mills, the Hillcrest area and Hillcrest Mall surrounds, and the Bayview / Leslie office cluster reachable from Highway 7 and the 404. We design endpoint protection, backup, and Microsoft 365 security around what offices in those bands actually look like — growing professional practices and clinics, not enterprise headquarters.'
+      },
+      citySpecificChallenges: [
+        {
+          title: 'Endpoint Protection Gaps',
+          description: 'Most Richmond Hill offices we onboard have at least one device with expired antivirus, a personal laptop on the staff Wi-Fi, or a free product that does not actually respond to ransomware. We deploy managed EDR on every business device and document the personal devices touching company data.'
+        },
+        {
+          title: 'Backups Nobody Has Restored',
+          description: 'A green tick on a backup dashboard does not mean the data comes back. We schedule real restore tests for Microsoft 365 mailboxes, OneDrive, and SharePoint, and write down the recovery steps before an emergency ever happens.'
+        }
+      ],
+      localTestimonial: {
+        quote: 'We grew from six to fourteen staff over two years and our IT was held together by a friend-of-a-friend. CtrlShift IT Services replaced our patchy antivirus with proper endpoint protection on every laptop, actually restore-tested our Microsoft 365 backup, and locked down our admin account properly. The first quarterly review was the first time anyone had explained our setup in writing.',
+        author: 'Practice Manager',
+        company: 'Growing professional practice, Yonge / Highway 7 area (Richmond Hill)'
+      }
     }
   };
 

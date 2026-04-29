@@ -74,18 +74,54 @@
   </div>
 </section>
 
+<!-- ===== LOCAL SECTION (Conditional) ===== -->
+<section class="it-support-local py-5" *ngIf="content.localSection">
+  <div class="container">
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-7 d-flex">
+        <article class="surface-card p-4 p-lg-5 w-100 h-100">
+          <span class="faq-badge mb-3 d-inline-block">{{content.city}} IT Support</span>
+          <h2 class="h3 fw-bold mb-3">{{content.localSection.heading}}</h2>
+          <p class="text-muted mb-0">{{content.localSection.body}}</p>
+        </article>
+      </div>
+      <div class="col-lg-5 d-flex" *ngIf="content.localScenario">
+        <article class="surface-card surface-card--accent p-4 p-lg-5 w-100 h-100">
+          <div class="small fw-bold text-primary text-uppercase mb-2">{{content.localScenario.headline}}</div>
+          <ul class="list-unstyled mb-0 small">
+            <li class="mb-3">
+              <div class="fw-bold">Situation</div>
+              <div class="text-muted">{{content.localScenario.situation}}</div>
+            </li>
+            <li class="mb-3">
+              <div class="fw-bold">What we did</div>
+              <div class="text-muted">{{content.localScenario.response}}</div>
+            </li>
+            <li class="mb-0">
+              <div class="fw-bold">Outcome</div>
+              <div class="text-muted">{{content.localScenario.outcome}}</div>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== HUB LINK (spoke→hub) ===== -->
 <section class="it-support-hub-link py-5">
   <div class="container">
     <div class="hub-link-card p-4 p-lg-5 rounded-4 d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-4">
       <div class="flex-grow-1">
-        <h2 class="h4 fw-bold mb-2">Need Proactive IT Management?</h2>
+        <h2 class="h4 fw-bold mb-2">Want IT Issues Prevented, Not Just Fixed?</h2>
         <p class="text-muted mb-0">
-          Businesses needing proactive monitoring, patching, and 24/7 system oversight should explore our
-          <a [routerLink]="content.hubPath" class="fw-semibold text-decoration-underline">{{content.hubLabel}}</a>.
-          Our fully managed plan prevents issues before they interrupt your team — at a flat monthly rate with no surprise invoices.
+          {{content.whatIsSection}}
         </p>
-        <p class="text-muted mt-2 mb-0">{{content.whatIsSection}}</p>
+        <p class="text-muted mt-2 mb-0">
+          See our
+          <a [routerLink]="content.hubPath" class="fw-semibold text-decoration-underline">{{content.hubLinkAnchor || content.hubLabel}}</a>
+          page for proactive monitoring, endpoint protection, tested backups, and Microsoft 365 security on a flat monthly rate.
+        </p>
       </div>
       <a [routerLink]="content.hubPath" class="btn btn-primary rounded-pill px-5 py-3 fw-bold flex-shrink-0">
         {{content.hubLabel}} <i class="bi bi-arrow-right ms-2"></i>

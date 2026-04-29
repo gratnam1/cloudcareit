@@ -192,10 +192,10 @@ export class LocationComponent implements OnInit, OnDestroy {
           description: 'We harden Microsoft 365 to meet the strict data residency and security standards required for Toronto legal and financial firms.'
         }
       ],
-      localTestimonial: {
-        quote: 'CtrlShift IT Services transformed our hybrid office setup. We now have seamless, secure access between our downtown office and home workstations without the usual VPN headaches.',
-        author: 'Managing Partner',
-        company: 'Downtown Toronto Law Firm'
+      localExample: {
+        label: 'Common local situation',
+        heading: 'Hybrid office access for a downtown Toronto team',
+        body: 'Example: a professional office with staff split between downtown workstations and home setups may run into VPN friction, inconsistent device access, and Microsoft 365 security gaps. CtrlShift IT Services would typically start by reviewing identity, device access, conditional access, and endpoint protection so the team can work securely without relying on fragile one-off workarounds.'
       }
     },
 
@@ -397,10 +397,10 @@ export class LocationComponent implements OnInit, OnDestroy {
           description: 'Many Vaughan businesses struggle with ISP reliability. We implement failover and traffic shaping to ensure your phones and cloud apps never lag.'
         }
       ],
-      localTestimonial: {
-        quote: 'The team at CtrlShift IT Services handled our entire network move in Woodbridge flawlessly. They documented everything and improved our Wi-Fi reliability significantly compared to our previous provider.',
-        author: 'Office Manager',
-        company: 'Vaughan Medical Practice'
+      localExample: {
+        label: 'Common local situation',
+        heading: 'Office network move in Woodbridge',
+        body: 'Example: a growing office moving into or between Woodbridge locations may need its network documented, Wi-Fi coverage reviewed, firewall rules cleaned up, and staff devices reconnected with minimal disruption. CtrlShift IT Services would typically start by mapping the current setup, planning the cutover, and documenting the new network so future support is easier.'
       }
     },
 

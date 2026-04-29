@@ -2018,7 +2018,10 @@ export const SECURITY_STARTER_GUIDES: ReadonlyArray<SecurityStarterGuide> = [
         description: 'We align tooling with the business size so protection is monitored and maintainable.'
       }
     ],
-    relatedLinks: MICROSOFT_365_RELATED_LINKS
+    relatedLinks: [
+      ...MICROSOFT_365_RELATED_LINKS,
+      { title: 'Cyber insurance readiness support', path: '/cyber-insurance-readiness-vaughan' }
+    ]
   },
   {
     slug: 'mdr-vs-edr',

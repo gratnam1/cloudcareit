@@ -27,8 +27,9 @@
       </div>
 
       <div class="col-lg-5">
-        <aside class="sl-features-card p-4 p-lg-5">
-          <h2 class="h5 fw-bold text-white mb-3">What's Included</h2>
+        <aside class="sl-features-card service-glow-card p-4 p-lg-5">
+          <div class="sl-bracket-label mb-3">[ What's Included ]</div>
+          <h2 class="h5 fw-bold text-white mb-3">A typical Vaughan engagement covers</h2>
           <ul class="list-unstyled mb-0">
             <li class="d-flex gap-2 mb-2" *ngFor="let f of content.features">
               <i class="bi bi-check-circle-fill text-primary flex-shrink-0 mt-1"></i>
@@ -41,11 +42,11 @@
   </div>
 </header>
 
-<!-- ===== CONTENT SECTIONS ===== -->
+<!-- ===== INTRO / SECTIONS ===== -->
 <section class="sl-sections py-5">
   <div class="container">
     <!-- Local Case Study (Conditional) -->
-    <div *ngIf="content.localCaseStudy" class="sl-case-study-card p-4 p-lg-5 mb-5 rounded-4 border-start border-primary border-4 bg-light">
+    <div *ngIf="content.localCaseStudy" class="sl-case-study-card service-glow-card p-4 p-lg-5 mb-5 rounded-4 border-start border-primary border-4">
       <div class="row align-items-center g-4">
         <div class="col-md-9">
           <div class="small fw-bold text-primary text-uppercase mb-2">Local Project Outcome</div>
@@ -61,7 +62,7 @@
 
     <div class="row g-4">
       <div class="col-lg-6" *ngFor="let s of content.sections">
-        <article class="sl-section-card p-4 p-lg-5 h-100 rounded-4">
+        <article class="sl-section-card service-glow-card p-4 p-lg-5 h-100 rounded-4">
           <h2 class="h4 fw-bold mb-3">{{s.heading}}</h2>
           <p class="text-muted mb-0">{{s.body}}</p>
         </article>
@@ -73,7 +74,7 @@
       <h3 class="h4 fw-bold mb-4 text-center">Our {{content.serviceType}} Delivery for {{content.city}}</h3>
       <div class="row g-4 justify-content-center">
         <div class="col-md-4" *ngFor="let method of content.serviceDeliveryMethod">
-          <div class="surface-card p-4 h-100 rounded-4 text-center border-bottom border-primary border-4">
+          <div class="surface-card service-glow-card p-4 h-100 rounded-4 text-center border-bottom border-primary border-4">
             <h4 class="h6 fw-bold mb-2">{{method.title}}</h4>
             <p class="small text-muted mb-0">{{method.details}}</p>
           </div>
@@ -83,10 +84,172 @@
   </div>
 </section>
 
+<!-- ===== FOCUS GRID (What we protect / Cloud decisions we help with) ===== -->
+<section *ngIf="content.focusCards?.length" class="sl-block sl-focus py-5">
+  <div class="container">
+    <div class="sl-block-head mb-5">
+      <p class="sl-bracket-label mb-3">[ {{content.focusLabel}} ]</p>
+      <h2 class="sl-block-title fw-bold mb-3">{{content.focusHeading}}</h2>
+      <p class="sl-block-intro mb-0" *ngIf="content.focusIntro">{{content.focusIntro}}</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let card of content.focusCards">
+        <article class="sl-focus-card service-glow-card p-4 p-lg-4 h-100 rounded-4">
+          <div class="sl-icon-tile mb-3">
+            <i class="bi" [ngClass]="card.icon"></i>
+          </div>
+          <h3 class="h6 fw-bold mb-2">{{card.title}}</h3>
+          <p class="small text-muted mb-0">{{card.body}}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCENARIOS (Common Vaughan situations) ===== -->
+<section *ngIf="content.scenarios?.length" class="sl-block sl-scenarios py-5">
+  <div class="container">
+    <div class="sl-block-head mb-5">
+      <p class="sl-bracket-label mb-3">[ {{content.scenariosLabel}} ]</p>
+      <h2 class="sl-block-title fw-bold mb-3">{{content.scenariosHeading}}</h2>
+      <p class="sl-block-intro mb-0" *ngIf="content.scenariosIntro">{{content.scenariosIntro}}</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6" *ngFor="let s of content.scenarios">
+        <article class="sl-scenario-card service-glow-card p-4 p-lg-4 h-100 rounded-4">
+          <div class="sl-scenario-label mb-2">{{s.label}}</div>
+          <p class="small text-muted mb-0">{{s.body}}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTROL / READINESS MAP ===== -->
+<section *ngIf="content.mapRows?.length" class="sl-block sl-map py-5">
+  <div class="container">
+    <div class="sl-block-head mb-5">
+      <p class="sl-bracket-label mb-3">[ {{content.mapLabel}} ]</p>
+      <h2 class="sl-block-title fw-bold mb-3">{{content.mapHeading}}</h2>
+      <p class="sl-block-intro mb-0" *ngIf="content.mapIntro">{{content.mapIntro}}</p>
+    </div>
+
+    <div class="sl-map-shell service-glow-card p-3 p-lg-4 rounded-4">
+      <div class="sl-map-head d-none d-lg-grid" *ngIf="content.mapColumns">
+        <div class="sl-map-col-area">{{content.mapColumns.area}}</div>
+        <div class="sl-map-col-risk">{{content.mapColumns.risk}}</div>
+        <div class="sl-map-col-check">{{content.mapColumns.check}}</div>
+      </div>
+
+      <div class="sl-map-rows">
+        <div class="sl-map-row" *ngFor="let row of content.mapRows">
+          <div class="sl-map-area">
+            <div class="sl-icon-tile sl-icon-tile-sm">
+              <i class="bi" [ngClass]="row.icon"></i>
+            </div>
+            <div class="sl-map-area-text">
+              <div class="sl-map-cell-label d-lg-none">{{content.mapColumns?.area}}</div>
+              <div class="sl-map-area-name">{{row.area}}</div>
+            </div>
+          </div>
+          <div class="sl-map-risk">
+            <div class="sl-map-cell-label d-lg-none">{{content.mapColumns?.risk}}</div>
+            <p class="mb-0">{{row.risk}}</p>
+          </div>
+          <div class="sl-map-check">
+            <div class="sl-map-cell-label d-lg-none">{{content.mapColumns?.check}}</div>
+            <p class="mb-0">{{row.check}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS TIMELINE ===== -->
+<section *ngIf="content.processSteps?.length" class="sl-block sl-process py-5">
+  <div class="container">
+    <div class="sl-block-head mb-5">
+      <p class="sl-bracket-label mb-3">[ {{content.processLabel}} ]</p>
+      <h2 class="sl-block-title fw-bold mb-3">{{content.processHeading}}</h2>
+      <p class="sl-block-intro mb-0" *ngIf="content.processIntro">{{content.processIntro}}</p>
+    </div>
+
+    <ol class="sl-timeline">
+      <li class="sl-timeline-item" *ngFor="let step of content.processSteps">
+        <div class="sl-timeline-rail" aria-hidden="true">
+          <span class="sl-timeline-node">{{step.step}}</span>
+        </div>
+        <div class="sl-timeline-card service-glow-card p-4 p-lg-4 rounded-4">
+          <h3 class="h6 fw-bold mb-2">{{step.title}}</h3>
+          <p class="small text-muted mb-0">{{step.body}}</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== DELIVERABLES ===== -->
+<section *ngIf="content.deliverables?.length" class="sl-block sl-deliverables py-5">
+  <div class="container">
+    <div class="sl-block-head mb-5">
+      <p class="sl-bracket-label mb-3">[ {{content.deliverablesLabel}} ]</p>
+      <h2 class="sl-block-title fw-bold mb-3">{{content.deliverablesHeading}}</h2>
+      <p class="sl-block-intro mb-0" *ngIf="content.deliverablesIntro">{{content.deliverablesIntro}}</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let d of content.deliverables">
+        <article class="sl-deliverable-card service-glow-card p-4 p-lg-4 h-100 rounded-4">
+          <div class="sl-icon-tile mb-3">
+            <i class="bi" [ngClass]="d.icon"></i>
+          </div>
+          <h3 class="h6 fw-bold mb-2">{{d.title}}</h3>
+          <p class="small text-muted mb-0">{{d.body}}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RELATED LINKS / CONTEXTUAL CALLOUT ===== -->
+<section *ngIf="content.relatedLinks?.length || content.contextualLink" class="sl-block sl-related py-5">
+  <div class="container">
+    <div class="sl-block-head mb-5" *ngIf="content.relatedLinks?.length">
+      <p class="sl-bracket-label mb-3">[ {{content.relatedLabel}} ]</p>
+      <h2 class="sl-block-title fw-bold mb-3">{{content.relatedHeading}}</h2>
+      <p class="sl-block-intro mb-0" *ngIf="content.relatedIntro">{{content.relatedIntro}}</p>
+    </div>
+
+    <div class="row g-4" *ngIf="content.relatedLinks?.length">
+      <div class="col-md-6 col-lg-4" *ngFor="let link of content.relatedLinks">
+        <a class="sl-related-card service-glow-card p-4 p-lg-4 h-100 rounded-4 d-flex flex-column"
+          [routerLink]="link.path">
+          <div class="sl-related-label">Related</div>
+          <h3 class="h6 fw-bold mt-2 mb-2">{{link.label}}</h3>
+          <p class="small text-muted mb-0 flex-grow-1">{{link.description}}</p>
+          <div class="sl-related-arrow mt-3">
+            <span>Open</span>
+            <i class="bi bi-arrow-right ms-2"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div *ngIf="content.contextualLink" class="sl-context-callout service-glow-card p-4 p-lg-5 rounded-4 mt-5">
+      <p class="mb-0">
+        {{content.contextualLink.text}}
+        See our
+        <a [routerLink]="content.contextualLink.path" class="fw-semibold text-decoration-underline">
+          {{content.contextualLink.label}}</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- ===== HUB LINK (spoke→hub) ===== -->
 <section class="sl-hub-link py-5">
   <div class="container">
-    <div class="hub-link-card p-4 p-lg-5 rounded-4 d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-4">
+    <div class="hub-link-card service-glow-card p-4 p-lg-5 rounded-4 d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-4">
       <div class="flex-grow-1">
         <h2 class="h4 fw-bold mb-2">Need Full IT Management in {{content.city}}?</h2>
         <p class="text-muted mb-0">
@@ -108,7 +271,7 @@
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-8">
-        <div class="faq-shell p-4 p-lg-5 rounded-4">
+        <div class="faq-shell service-glow-card p-4 p-lg-5 rounded-4">
           <span class="faq-badge mb-3 d-inline-block">FAQ</span>
           <h2 class="fw-bold mb-4">{{content.serviceType}} {{content.city}}: Common Questions</h2>
           <div class="faq-list">
@@ -121,14 +284,14 @@
       </div>
 
       <div class="col-lg-4">
-        <aside class="cta-shell p-4 p-lg-5 rounded-4 h-100">
+        <aside class="cta-shell service-glow-card p-4 p-lg-5 rounded-4 h-100">
           <div class="cta-label mb-2">Free Assessment</div>
           <h3 class="fw-bold mb-2">{{content.serviceType}} in {{content.city}}</h3>
-          <p class="mb-4">Tell us your current setup and your top security or cloud challenge — we'll recommend the right solution in one quick call.</p>
+          <p class="mb-4">Tell us your current setup and your top security or cloud challenge — we'll recommend the right next step in one short call.</p>
           <ul class="list-unstyled mb-4">
             <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-primary"></i> Security-first approach</li>
-            <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-primary"></i> Flat-rate, no surprise invoices</li>
-            <li class="d-flex gap-2"><i class="bi bi-check-circle-fill text-primary"></i> 30-day risk-free trial</li>
+            <li class="d-flex gap-2 mb-2"><i class="bi bi-check-circle-fill text-primary"></i> Plain-English findings, no acronym soup</li>
+            <li class="d-flex gap-2"><i class="bi bi-check-circle-fill text-primary"></i> Local Vaughan / York Region team</li>
           </ul>
           <a class="btn btn-primary rounded-pill w-100 py-3 fw-bold" routerLink="/it-assessment">
             Book Free Assessment

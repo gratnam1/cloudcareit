@@ -1,11 +1,13 @@
 # SEO Location Pages — Phase 2
 
 **Site:** https://ctrlshiftit.ca
-**Branch:** `seo-location-pages-phase-2`
+**Branch:** `seo-location-pages-phase-2` → follow-up on `fix/vaughan-toronto-local-example`
 **Date:** 2026-04-29
 **Scope:** Differentiate the high-risk templated managed-IT city pages (Mississauga, Thornhill, Richmond Hill) and sharpen the IT-support pages (Vaughan, Mississauga) so they read as reactive helpdesk pages, not duplicates of the managed-IT subscription pages.
 
 This phase is **strictly scoped** to location-page differentiation. No service-page rewrites, no industry-page changes, no redesign, no new routes. The 3 unrouted IT-support cities (Toronto, Thornhill, Richmond Hill) are deliberately untouched — that decision belongs to a later phase.
+
+> **2026-04-29 update:** All `localTestimonial` blocks across all five managed-IT city pages have been converted to `localExample` blocks. Mississauga, Thornhill, and Richmond Hill were converted in PR #133; Toronto and Vaughan were converted in PR #134 (branch `fix/vaughan-toronto-local-example`). No `localTestimonial` blocks remain anywhere in `location.component.ts`.
 
 ---
 
@@ -13,13 +15,13 @@ This phase is **strictly scoped** to location-page differentiation. No service-p
 
 | URL | Status |
 |---|---|
-| `/managed-it-services-mississauga` | Rewritten content + neighborhood, challenges, testimonial added |
-| `/managed-it-services-thornhill` | Rewritten content + neighborhood, challenges, testimonial added |
-| `/managed-it-services-richmond-hill` | Rewritten content + neighborhood, challenges, testimonial added |
+| `/managed-it-services-mississauga` | Rewritten content + neighborhood, challenges, localExample added |
+| `/managed-it-services-thornhill` | Rewritten content + neighborhood, challenges, localExample added |
+| `/managed-it-services-richmond-hill` | Rewritten content + neighborhood, challenges, localExample added |
+| `/managed-it-services-toronto` | localTestimonial → localExample (PR #134); neighborhoodFocus + citySpecificChallenges already present |
+| `/managed-it-services-vaughan` | localTestimonial → localExample (PR #134); neighborhoodFocus + citySpecificChallenges already present; painPoints/industries/services still generic — see §9 |
 | `/it-support-vaughan` | Repositioned as reactive helpdesk; local section + scenario added; FAQ rewritten |
 | `/it-support-mississauga` | Repositioned as reactive helpdesk; local section + scenario added; FAQ rewritten |
-
-Other location pages (`/managed-it-services-vaughan`, `/managed-it-services-toronto`) were intentionally left alone — they already had `localTestimonial`, `neighborhoodFocus`, and `citySpecificChallenges` per the Phase 1 audit.
 
 ### Files modified
 
@@ -40,12 +42,12 @@ For Mississauga, Thornhill, and Richmond Hill (which were missing all three opti
 |---|---|---|---|
 | `neighborhoodFocus` | Square One, Hurontario & the Airport Corridor | Promenade, Yonge & Bathurst / Centre Street Practices | Yonge Corridor, Hillcrest & the Bayview / Leslie Cluster |
 | `citySpecificChallenges` (2 cards) | Multi-floor Wi-Fi & VoIP drift / Microsoft 365 access after turnover | Microsoft 365 set up years ago / Onboarding & offboarding gaps | Endpoint protection gaps / Backups nobody has restored |
-| `localTestimonial` | Operations Manager — multi-floor professional services office, Square One area (anonymized, qualitative outcome) | Practice Owner — small accounting practice, Yonge Street corridor (anonymized) | Practice Manager — growing professional practice, Yonge / Highway 7 area (anonymized) |
+| `localExample` | Two-floor office near Square One — Wi-Fi handoff + M365 access | Small accounting or legal practice off Yonge — M365 tenant, MFA, admin separation | Growing professional practice on the Yonge / Highway 7 corridor — endpoint, backup, M365 |
 | `intro` / `mainHeading` / `metaDescription` | Rewritten to focus on multi-floor offices, airport-area sites, VoIP, M365 access | Rewritten to focus on small professional practices, plaza Wi-Fi, M365 security, onboarding/offboarding | Rewritten to focus on growing offices, endpoint protection, tested backups, M365 security |
 | `painPoints`, `industries`, `services` | Reworked around Square One, Meadowvale, Hurontario, Dixie–Eglinton, airport, multi-floor, VoIP, M365 | Reworked around Promenade, Yonge, Bathurst/Centre, plaza offices, accounting/legal/clinics | Reworked around Yonge corridor, Hillcrest, Bayview/Leslie, Highway 7/404, endpoint, backup |
 | `supportContext` / `supportContextPoints` | Rewritten with Mississauga-specific framing | Rewritten with Thornhill-specific framing | Rewritten with Richmond Hill-specific framing |
 
-All testimonials are anonymized. No client names, no fabricated metrics, no fake percentage outcomes — outcomes are described qualitatively (e.g., "calls have been clean since", "stopped repeating", "the first quarterly review was the first time anyone had explained our setup in writing").
+All `localExample` blocks use hypothetical language ("Example: …", "CtrlShift IT Services would typically start by…"). No quote marks, no author names, no company bylines, no fabricated metrics.
 
 ### Sections added — IT-support pages
 
@@ -137,7 +139,7 @@ Two issues remain in the `LocalBusiness` JSON-LD per the Phase 1 audit. Neither 
 
 `npm run build` was run after the changes. The build pipeline is `ng build && node tools/purge-css.mjs`.
 
-Result: **success.** Application bundle generation completed in ~10s, 80 static routes were prerendered (this includes all 5 managed-IT city routes and both routed IT-support city routes), and the post-build CSS purge ran cleanly (233.7 KiB → 76.8 KiB, 67% saved). No Angular template type-check errors. No new TypeScript errors. The `location-component` lazy chunk grew slightly to reflect the added city data; nothing else changed materially in the bundle map. The only console message during the build was a pre-existing Node `[DEP0169] url.parse()` deprecation warning that is upstream of this change set and unrelated to the rewrite.
+Result: **success.** Application bundle generation completed in ~9s, 80 static routes were prerendered (this includes all 5 managed-IT city routes and both routed IT-support city routes), and the post-build CSS purge ran cleanly (233.7 KiB → 76.9 KiB, 67% saved). No Angular template type-check errors. No new TypeScript errors. The only console message during the build was a pre-existing Node `[DEP0169] url.parse()` deprecation warning that is upstream of this change set and unrelated to the rewrite.
 
 `package.json` does not currently expose `lint` or `typecheck` scripts. `ng lint` is not configured in `angular.json` either. So no separate lint/typecheck step was run beyond what `ng build` itself enforces (TypeScript compilation + Angular template type-checking, which both run during the build).
 
@@ -147,11 +149,88 @@ Result: **success.** Application bundle generation completed in ~10s, 80 static 
 
 | Criterion | Result |
 |---|---|
-| Mississauga, Thornhill, Richmond Hill no longer feel like thin copies of Vaughan/Toronto | Met — all three now have `localTestimonial`, `neighborhoodFocus`, `citySpecificChallenges`, plus rewritten intro / pain points / industries / services / FAQ / supportContext |
+| Mississauga, Thornhill, Richmond Hill no longer feel like thin copies of Vaughan/Toronto | Met — all three now have `localExample`, `neighborhoodFocus`, `citySpecificChallenges`, plus rewritten intro / pain points / industries / services / FAQ / supportContext |
 | Pricing FAQ no longer verbatim across all city pages | Met — each city's pricing answer is now distinct |
 | IT-support pages clearly differentiated from managed-IT pages | Met — repositioned as reactive helpdesk, hub-link card now reads "Want IT issues prevented, not just fixed?" with explicit anchor-text link to managed-IT page |
-| No fake testimonials | Met — testimonials are anonymized to role + office type, with qualitative outcomes only |
+| No fake testimonials | Met — all five managed-IT city pages use `localExample` with hypothetical language; no `localTestimonial` blocks remain |
 | No unsupported claims | Met — no fabricated metrics, no invented client names, no specific percentage improvements |
 | No broad redesign | Met — only the data layer for the city entries was rewritten; one new optional `<section>` was added to the IT-support template (gated by `*ngIf` so unused city entries are unaffected) |
 | No unrelated refactors | Met — `service-landing`, industry pages, the Vaughan/Toronto managed-IT entries, and the orphan IT-support content keys are all untouched |
 | Existing dark theme and component structure preserved | Met — only minor additive CSS for the new IT-support local-section block; existing tokens and classes reused where possible |
+
+---
+
+## 9. Final verification — 2026-04-29
+
+This verification checked:
+
+- `src/app/pages/location/location.component.ts`
+- `src/app/pages/location/location.component.html`
+- `src/app/pages/it-support/it-support-location.component.ts`
+- `src/app/pages/it-support/it-support-location.component.html`
+- `docs/seo-templated-pages-audit.md`
+- `docs/seo-location-pages-phase-2.md`
+
+### Managed-IT city pages
+
+All five managed-IT city pages use `localExample` data blocks with hypothetical/example wording. No city content entry uses a quote-style `localTestimonial` data block.
+
+| Page | localExample | neighborhoodFocus | citySpecificChallenges | Non-verbatim pricing FAQ | City-specific painPoints | City-specific services | City-specific supportContext |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `/managed-it-services-vaughan` | Yes | Yes | Yes | Yes | Yes | Partial | Yes |
+| `/managed-it-services-toronto` | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| `/managed-it-services-mississauga` | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| `/managed-it-services-thornhill` | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+| `/managed-it-services-richmond-hill` | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
+
+Note: Vaughan's service list is shorter and more generic than the other four, but it is not a duplicate of the other city service lists and the page has city-specific pain points, challenges, support context, and local example content.
+
+### IT-support city pages
+
+Both routed IT-support city pages are positioned as responsive troubleshooting/helpdesk pages, include local sections and local scenarios, use safe hypothetical scenario language, and link to the matching managed-IT page with explicit anchor text.
+
+| Page | Reactive/helpdesk positioning | localSection | localScenario | Safe hypothetical wording | Hypothetical disclaimer | Managed-IT internal link | hubLinkAnchor | Non-copy-pasted FAQs |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `/it-support-vaughan` | Yes | Yes | Yes | Yes | Yes | Yes, `/managed-it-services-vaughan` | Yes | Yes |
+| `/it-support-mississauga` | Yes | Yes | Yes | Yes | Yes | Yes, `/managed-it-services-mississauga` | Yes | Yes |
+
+The shared template renders the scenario disclaimer as: "Example only — not a specific client engagement."
+
+### Intent split
+
+- Managed-IT pages are positioned as proactive monthly support: monitoring, patching, endpoint protection, backup, vendor coordination, Microsoft 365 administration, and flat monthly pricing.
+- IT-support pages are positioned as responsive troubleshooting/helpdesk support: ticket-based fixes, Microsoft 365 issue resolution, Wi-Fi/VoIP troubleshooting, overflow helpdesk, and one-off support before a managed-IT subscription is needed.
+
+### What is complete
+
+- Fake quote-style testimonial content has been removed from the five managed-IT city data entries.
+- All five managed-IT city pages have `localExample`, `neighborhoodFocus`, `citySpecificChallenges`, city-specific pain points, non-verbatim pricing FAQs, and city-specific support context.
+- Toronto, Mississauga, Thornhill, and Richmond Hill have strongly city-specific service lists.
+- Vaughan has the required fields and local context, with a shorter service list that is acceptable for Phase 2 but less differentiated than the other cities.
+- `/it-support-vaughan` and `/it-support-mississauga` have reactive/helpdesk positioning, local sections, hypothetical local scenarios, explicit disclaimers, internal links to matching managed-IT pages, `hubLinkAnchor`, and differentiated FAQs.
+
+### What is incomplete
+
+- No requested routed Phase 2 page is missing a required verification item.
+- Vaughan managed-IT services remain less richly differentiated than the other four managed-IT city pages.
+- Existing out-of-scope risks remain from the Phase 1 audit: identical corporate-level `sameAs` arrays, shared `LocalBusiness` structure, shared hero CTA copy, and unrouted IT-support content keys for Toronto, Thornhill, and Richmond Hill.
+
+### Pages still needing edits
+
+- None for the requested Phase 2 verification scope.
+- Future phases may still need decisions on `/it-support-toronto`, `/it-support-thornhill`, and `/it-support-richmond-hill` because content keys exist but public routes were intentionally not created in Phase 2.
+- Vaughan managed-IT could be tightened later if the goal is to make its service list as locally specific as Mississauga, Thornhill, and Richmond Hill.
+
+### Remaining risks
+
+- `location.component.html` still contains the legacy conditional renderer for `content.localTestimonial`; no current city data uses it. Keeping it is not a live fake-testimonial issue, but it could be reused accidentally in the future.
+- The identical `sameAs` arrays are still corporate-level profiles across city pages. This should not be "fixed" without real city-specific citations.
+- Shared template elements still create some unavoidable structural similarity across city pages.
+
+### Build result
+
+`npm run build` passed on 2026-04-29. Angular built successfully, prerendered 80 static routes, and `tools/purge-css.mjs` completed successfully. The only warning was the existing Node `[DEP0169] url.parse()` deprecation warning.
+
+### Recommended next action
+
+Close Phase 2 as verified. Do not start Phase 3 until a separate scope is approved; the likely next decision is whether to ship, delete, or consolidate the unrouted IT-support city content.

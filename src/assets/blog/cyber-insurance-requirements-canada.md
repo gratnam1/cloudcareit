@@ -27,3 +27,5 @@ Human error remains the #1 cause of breaches. Policies often require documented,
 
 ## How CtrlShift Helps
 CtrlShift IT Services aligns your IT environment precisely with Canadian cyber insurance requirements. We implement the necessary security frameworks, provide the required documentation, and ensure you remain compliant year-round.
+
+If you are preparing for a renewal or questionnaire, review our [cyber insurance readiness support for Vaughan businesses](/cyber-insurance-readiness-vaughan) for practical help with MFA, EDR, backup, Microsoft 365, firewall, and documentation checks.

@@ -1,83 +1,261 @@
-<section class="service-detail-page py-5">
-  <div class="container py-5">
-    <div class="mb-4">
-      <a class="service-back-link text-decoration-none" routerLink="/">← Back to Home</a>
-    </div>
+<main class="insurance-readiness-page">
+  <section class="insurance-hero">
+    <div class="container">
+      <a class="insurance-back-link" routerLink="/">
+        <i class="bi bi-arrow-left" aria-hidden="true"></i>
+        Back to Home
+      </a>
 
-    <div class="row g-4 align-items-stretch">
-      <div class="col-lg-7">
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 h-100">
-          <h1 class="fw-bold display-6 mb-3">Cyber Insurance Readiness for Vaughan SMBs</h1>
-          <p class="text-muted lead mb-4">
-            Reduce renewal friction by aligning technical controls, evidence quality, and remediation priorities before the insurer questionnaire arrives.
+      <div class="insurance-hero-grid">
+        <div class="insurance-hero-copy">
+          <span class="insurance-eyebrow">
+            <i class="bi bi-shield-check" aria-hidden="true"></i>
+            IT readiness for insurance questionnaires
+          </span>
+          <h1>Cyber Insurance Readiness for Vaughan Small Businesses</h1>
+          <p class="insurance-lead">
+            CtrlShift IT Services helps Vaughan and GTA businesses understand, verify, and improve the technical controls commonly requested during cyber insurance applications and renewals.
           </p>
-          <p class="text-muted mb-4">
-            Need implementation support after assessment? Continue with
-            <a routerLink="/security-firewall">Managed Security and Firewall</a>
-            and
-            <a routerLink="/managed-it-services-vaughan">Managed IT Services Vaughan</a>
-            for execution.
+          <p class="insurance-hero-note">
+            This is IT and security readiness support, not insurance brokerage, legal advice, or a guarantee of coverage. We help your team gather technical facts, close practical gaps, and prepare clearer broker conversations.
           </p>
 
-          <h2 class="h5 fw-bold mb-3">Renewal Readiness Framework</h2>
-          <ul class="text-muted">
-            <li>Control gap review mapped to common SME cyber insurance requirements</li>
-            <li>MFA and privileged-access posture validation across critical accounts</li>
-            <li>Remote access review, including Tailscale and legacy VPN exposure risk</li>
-            <li>Huntress AI-assisted detection and managed response readiness evaluation</li>
-            <li>Backup coverage and restore evidence verification against business needs</li>
-            <li>Free quarterly vulnerability scan reporting for insurer-facing evidence</li>
-            <li>Incident response escalation matrix and ownership definition</li>
-            <li>Prioritized remediation roadmap aligned to renewal timeline</li>
+          <div class="insurance-actions">
+            <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow" routerLink="/free-security-assessment">
+              Book a Security Review
+              <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold" routerLink="/services/security-baseline-assessment">
+              View Baseline Assessment
+            </a>
+          </div>
+
+          <ul class="insurance-trust-chips" aria-label="Readiness areas">
+            <li>MFA</li>
+            <li>EDR</li>
+            <li>Backups</li>
+            <li>Microsoft 365</li>
+            <li>Firewall exposure</li>
           </ul>
-
-          <h2 class="h5 fw-bold mt-4 mb-3">Evidence Package Depth</h2>
-          <ol class="text-muted ps-3 mb-0">
-            <li>Collect and organize existing policy evidence and technical artifacts.</li>
-            <li>Identify material control gaps that can trigger exclusions or premium pressure.</li>
-            <li>Execute targeted remediation for high-impact controls first.</li>
-            <li>Produce a renewal-ready summary package for broker and insurer discussions.</li>
-          </ol>
-
-          <div class="d-flex gap-3 flex-wrap mt-4">
-            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/" fragment="consultation">
-              Book Readiness Assessment
-            </a>
-            <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/security-firewall">
-              Review Security Service
-            </a>
-          </div>
         </div>
+
+        <aside class="insurance-hero-panel" aria-label="Cyber insurance readiness signals">
+          <div class="panel-header">
+            <div>
+              <span>Readiness signal panel</span>
+              <strong>Questionnaire controls</strong>
+            </div>
+            <i class="bi bi-ui-checks-grid" aria-hidden="true"></i>
+          </div>
+          <ul class="readiness-signal-list">
+            <li *ngFor="let signal of readinessSignals">
+              <span class="signal-icon"><i class="bi {{ signal.icon }}" aria-hidden="true"></i></span>
+              <span class="signal-label">{{ signal.label }}</span>
+              <strong>{{ signal.status }}</strong>
+            </li>
+          </ul>
+          <h2>Map insurer questions to real controls</h2>
+          <p>
+            We translate insurer questions into plain-English technical checks across identity, endpoints, backups, remote access, and documentation.
+          </p>
+          <ul class="panel-summary">
+            <li><span>Output</span><strong>Gap list</strong></li>
+            <li><span>Priority</span><strong>Risk + budget</strong></li>
+            <li><span>Use</span><strong>Broker discussion</strong></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="insurance-section" aria-labelledby="asks-title">
+    <div class="container">
+      <div class="insurance-section-head">
+        <span class="insurance-eyebrow">Common questionnaire topics</span>
+        <h2 id="asks-title">What Cyber Insurance Applications Usually Ask About</h2>
+        <p>
+          Most small-business questionnaires are looking for practical proof that basic security controls are in place, monitored, and repeatable.
+        </p>
       </div>
 
-      <div class="col-lg-5">
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 h-100">
-          <h3 class="fw-bold mb-3">Common High-Risk Gaps</h3>
-          <p class="text-muted">
-            Incomplete MFA coverage, weak privileged-access controls, and untested backup restoration are the most common issues that complicate renewals.
+      <div class="control-card-grid">
+        <article class="insurance-card" *ngFor="let area of controlAreas">
+          <i class="bi {{ area.icon }}" aria-hidden="true"></i>
+          <h3>{{ area.title }}</h3>
+          <p>{{ area.text }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="insurance-section" aria-labelledby="mapping-title">
+    <div class="container">
+      <div class="insurance-section-head">
+        <span class="insurance-eyebrow">Control mapping</span>
+        <h2 id="mapping-title">From Insurance Question to Technical Action</h2>
+        <p>
+          The goal is to replace guesswork with a practical list of what exists, what is missing, and what should be improved first.
+        </p>
+      </div>
+
+      <div class="mapping-board" aria-label="Cyber insurance control mapping">
+        <article class="mapping-card" *ngFor="let item of controlMappings">
+          <div class="mapping-card-head">
+            <span class="mapping-icon"><i class="bi {{ item.icon }}" aria-hidden="true"></i></span>
+            <div>
+              <span>{{ item.area }}</span>
+              <h3>{{ item.question }}</h3>
+            </div>
+          </div>
+          <div class="mapping-columns">
+            <div>
+              <span>What it means</span>
+              <p>{{ item.meaning }}</p>
+            </div>
+            <div>
+              <span>What we check</span>
+              <p>{{ item.action }}</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="insurance-section" aria-labelledby="local-title">
+    <div class="container">
+      <article class="local-panel">
+        <div>
+          <span class="insurance-eyebrow">Vaughan and GTA small-business context</span>
+          <h2 id="local-title">Built for Offices That Need Practical Answers</h2>
+          <p>
+            Professional offices, clinics, accounting and legal firms, construction and trades offices, and small Microsoft 365 teams are often asked for security evidence during renewal after years of informal IT habits.
           </p>
+          <p>
+            Common situation: a Vaughan professional office renewing cyber insurance may be asked whether MFA is enforced, endpoint protection is monitored, backups are tested, and admin accounts are separated. CtrlShift IT Services would typically start by checking Microsoft 365, endpoint protection, backup evidence, and firewall exposure, then document the gaps in plain English.
+          </p>
+        </div>
+        <ul class="local-list" aria-label="Local business examples">
+          <li><i class="bi bi-building" aria-hidden="true"></i>Professional offices</li>
+          <li><i class="bi bi-heart-pulse" aria-hidden="true"></i>Clinics</li>
+          <li><i class="bi bi-calculator" aria-hidden="true"></i>Accounting and legal firms</li>
+          <li><i class="bi bi-tools" aria-hidden="true"></i>Construction and trades offices</li>
+          <li><i class="bi bi-microsoft" aria-hidden="true"></i>Small Microsoft 365 teams</li>
+        </ul>
+      </article>
+    </div>
+  </section>
 
-          <div class="border rounded-4 p-3 bg-light mb-3">
-            <div class="fw-bold mb-2">Assessment outputs</div>
-            <ul class="text-muted small mb-0">
-              <li>Control status summary with evidence references</li>
-              <li>Remediation plan by urgency and ownership</li>
-              <li>Renewal timeline support checklist</li>
-            </ul>
-          </div>
+  <section class="insurance-section" aria-labelledby="process-title">
+    <div class="container">
+      <div class="insurance-section-head">
+        <span class="insurance-eyebrow">Readiness process</span>
+        <h2 id="process-title">A Practical Review Before Renewal Pressure</h2>
+      </div>
 
-          <div class="border rounded-4 p-3 bg-light">
-            <div class="fw-bold mb-1">Renewal intake</div>
-            <div class="text-muted small">Share your renewal date and insurer questionnaire. We will prioritize technical and documentation gaps by policy impact.</div>
-          </div>
+      <ol class="insurance-process timeline-process" aria-label="Cyber insurance readiness process">
+        <li class="process-step" *ngFor="let step of processSteps">
+          <span>{{ step.label }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
+        </li>
+      </ol>
+    </div>
+  </section>
 
-          <div class="mt-4">
-            <a class="btn btn-dark rounded-pill w-100 py-3 fw-bold" routerLink="/" fragment="consultation">
-              Start Assessment
-            </a>
+  <section class="insurance-section" aria-labelledby="deliverables-title">
+    <div class="container">
+      <div class="insurance-section-head">
+        <span class="insurance-eyebrow">Deliverables</span>
+        <h2 id="deliverables-title">What Your Business Receives</h2>
+        <p>
+          The output is designed for business owners and operations managers who need clear next steps, not a pile of unexplained technical screenshots.
+        </p>
+      </div>
+
+      <div class="deliverables-grid">
+        <article class="deliverable-card" *ngFor="let item of deliverables">
+          <i class="bi {{ item.icon }}" aria-hidden="true"></i>
+          <div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
           </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="insurance-section" aria-labelledby="not-title">
+    <div class="container">
+      <article class="trust-box">
+        <div>
+          <span class="insurance-eyebrow">Important boundaries</span>
+          <h2 id="not-title">What This Service Is Not</h2>
+          <p>
+            CtrlShift IT Services helps with technical facts, evidence, and IT control improvements. Final requirements and decisions come from your insurer and broker.
+          </p>
+        </div>
+        <div class="trust-boundary-card">
+          <i class="bi bi-shield-exclamation" aria-hidden="true"></i>
+          <ul>
+            <li>Not insurance advice</li>
+            <li>Not legal advice</li>
+            <li>Not a guarantee of approval</li>
+            <li>Not a replacement for your broker</li>
+            <li>Not a promise that every requirement can be met immediately</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="insurance-section" aria-labelledby="links-title">
+    <div class="container">
+      <div class="insurance-section-head">
+        <span class="insurance-eyebrow">Useful next reading</span>
+        <h2 id="links-title">Related Services and Security Guides</h2>
+      </div>
+      <div class="related-links" aria-label="Related internal links">
+        <a *ngFor="let link of relatedLinks" [routerLink]="link.route">{{ link.label }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="insurance-section" aria-labelledby="faq-title" id="faq">
+    <div class="container">
+      <div class="insurance-section-head">
+        <span class="insurance-eyebrow">FAQ</span>
+        <h2 id="faq-title">Cyber Insurance Readiness Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" *ngFor="let item of faqs">
+          <summary>{{ item.question }}</summary>
+          <p>{{ item.answer }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="insurance-final-cta">
+    <div class="container">
+      <div class="final-card">
+        <div>
+          <span class="insurance-eyebrow">Assessment and remediation planning</span>
+          <h2>Prepare the Technical Side Before the Questionnaire Becomes Urgent</h2>
+          <p>
+            Share your renewal timeline, insurer questions, or broker requests. We will help you understand the IT controls, evidence, and fixes that matter most.
+          </p>
+        </div>
+        <div class="insurance-actions">
+          <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow" routerLink="/free-security-assessment">
+            Start with a Security Review
+          </a>
+          <a class="btn btn-outline-light rounded-pill px-4 py-3 fw-bold" routerLink="/managed-it-services">
+            Review Managed IT Services
+          </a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>

@@ -79,6 +79,7 @@ export const MANAGED_IT_PAGE: ServiceLandingPage = {
     { label: 'Managed IT Services Vaughan', route: '/managed-it-services-vaughan' },
     { label: 'Security Baseline Assessment', route: '/services/security-baseline-assessment' },
     { label: 'Microsoft 365 Support', route: '/microsoft-365' },
+    { label: 'Cyber insurance readiness assessment', route: '/cyber-insurance-readiness-vaughan' },
   ],
   finalCta: {
     eyebrow: 'Stabilize the office',
@@ -165,6 +166,7 @@ export const SECURITY_FIREWALL_PAGE: ServiceLandingPage = {
     { label: 'Crisis Recovery', route: '/crisis-recovery' },
     { label: 'Security Baseline Assessment', route: '/services/security-baseline-assessment' },
     { label: 'Microsoft 365 Security Checklist', route: '/guides/security/microsoft-365-security/microsoft-365-checklist' },
+    { label: 'Cyber insurance IT control review', route: '/cyber-insurance-readiness-vaughan' },
   ],
   finalCta: {
     eyebrow: 'Security review',
@@ -251,6 +253,7 @@ export const MICROSOFT_365_PAGE: ServiceLandingPage = {
     { label: 'Managed IT Services', route: '/managed-it-services' },
     { label: 'MFA Rollout Guide', route: '/guides/security/microsoft-365-security/mfa-rollout-small-business' },
     { label: 'Security and Firewall', route: '/security-firewall' },
+    { label: 'Cyber insurance readiness support', route: '/cyber-insurance-readiness-vaughan' },
   ],
   finalCta: {
     eyebrow: 'Tenant review',

@@ -88,17 +88,18 @@
       <div class="col-lg-5 d-flex" *ngIf="content.localScenario">
         <article class="surface-card surface-card--accent p-4 p-lg-5 w-100 h-100">
           <div class="small fw-bold text-primary text-uppercase mb-2">{{content.localScenario.headline}}</div>
-          <ul class="list-unstyled mb-0 small">
+          <p class="text-muted small mb-0 fst-italic">Example only — not a specific client engagement.</p>
+          <ul class="list-unstyled mb-0 small mt-3">
             <li class="mb-3">
-              <div class="fw-bold">Situation</div>
+              <div class="fw-bold">How this usually shows up</div>
               <div class="text-muted">{{content.localScenario.situation}}</div>
             </li>
             <li class="mb-3">
-              <div class="fw-bold">What we did</div>
+              <div class="fw-bold">How we'd typically start</div>
               <div class="text-muted">{{content.localScenario.response}}</div>
             </li>
             <li class="mb-0">
-              <div class="fw-bold">Outcome</div>
+              <div class="fw-bold">What that typically looks like</div>
               <div class="text-muted">{{content.localScenario.outcome}}</div>
             </li>
           </ul>

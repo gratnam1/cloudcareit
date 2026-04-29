@@ -79,10 +79,10 @@ const CONTENT: Record<string, ItSupportContent> = {
       body: 'Most Vaughan IT support tickets we handle come from three areas: the Vaughan Metropolitan Centre and Highway 7 corridor (modern offices, busy Wi-Fi, hybrid teams), Concord industrial-and-office hybrids where the back-of-house and front-office share networking, and Woodbridge / Maple professional practices where a small team needs reliable Microsoft 365 and a phone they can actually call. We dispatch on-site for anything we cannot fix remotely.',
     },
     localScenario: {
-      headline: 'Local Scenario — Vaughan Metropolitan Centre',
-      situation: 'A 12-person professional services office near the VMC raised a ticket: Microsoft Teams calls were dropping mid-meeting and several staff were getting repeated MFA prompts every hour even after signing in.',
-      response: 'We triaged remotely the same day, found a misconfigured conditional access policy and a Wi-Fi access-point that had been failing over to the wrong band, fixed both, and documented what changed.',
-      outcome: 'Calls and sign-ins stabilised by the next morning. The office stayed on responsive support for a few months and eventually moved onto our managed IT services in Vaughan plan once they wanted the same kind of issue prevented before it surfaced.',
+      headline: 'Common local situation — Vaughan Metropolitan Centre',
+      situation: 'A small professional services office near the VMC notices Microsoft Teams calls dropping mid-meeting and staff getting repeated MFA prompts even after signing in.',
+      response: 'CtrlShift IT Services would typically start with remote triage the same day — checking the Microsoft 365 conditional access policy and the Wi-Fi access-point handoff between bands — then correct the misconfiguration and document what changed.',
+      outcome: 'After that kind of fix, the next step is usually to monitor calls and sign-ins for stability, then decide whether the office needs ongoing managed IT support instead of one-off troubleshooting. Offices that want the underlying issue prevented rather than reacted to next time would normally then move onto our managed IT services in Vaughan plan.',
     },
   },
   toronto: {
@@ -196,10 +196,10 @@ const CONTENT: Record<string, ItSupportContent> = {
       body: 'Most Mississauga IT support tickets we handle come from three patterns: multi-floor offices in Square One / City Centre and along the Hurontario corridor where Wi-Fi handoff fails between floors, airport-area sites along Dixie and Eglinton where a back-of-house warehouse network shares the same circuit as the front-office VoIP, and Meadowvale professional services offices where Microsoft 365 sign-ins, Outlook, and Teams calls misbehave because the tenant was set up years ago and never tuned. We dispatch on-site for anything we cannot resolve remotely.',
     },
     localScenario: {
-      headline: 'Local Scenario — Airport Corporate Centre',
-      situation: 'A 20-person logistics-and-office site near the Airport Corporate Centre raised a ticket: Microsoft Teams calls in the front office were unusable every afternoon, while warehouse devices kept saturating the same circuit with bulk uploads.',
-      response: 'We did not redesign the whole network. We separated voice and warehouse traffic on the existing firewall, fixed two access points that were dropping their VLAN, and added quality-of-service rules so Teams traffic took priority on the upload path.',
-      outcome: 'Call quality stabilised the same week. The office stayed on responsive support for a couple of months and then moved to our managed IT services in Mississauga plan once they wanted endpoint protection and Microsoft 365 access locked down across all 20 staff.',
+      headline: 'Common local situation — Airport Corporate Centre',
+      situation: 'A logistics-and-office site near the Airport Corporate Centre finds Microsoft Teams calls in the front office becoming unusable in the afternoon, while warehouse devices saturate the same circuit with bulk uploads.',
+      response: 'CtrlShift IT Services would typically not redesign the whole network. The usual starting point is separating voice and warehouse traffic on the existing firewall, checking the access-point VLANs, and adding quality-of-service rules so Microsoft Teams traffic gets priority on the upload path.',
+      outcome: 'After that kind of fix, the next step is usually to monitor call quality and network usage, then decide whether endpoint protection, tested backups, and Microsoft 365 access controls should be managed on an ongoing basis. Offices that want endpoint protection, tested backups, and Microsoft 365 access tightened beyond the immediate fix would normally then move onto our managed IT services in Mississauga plan.',
     },
   },
 

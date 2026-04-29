@@ -1,3 +1,17 @@
+.quiz-container {
+  background: rgba(8, 13, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.question-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.question-item p {
+  color: #f1f5f9;
+}
+
 .industry-btn {
   background: rgba(255, 255, 255, 0.05);
   color: #fff;
@@ -48,4 +62,26 @@
 .form-check-input:checked {
   background-color: #6366f1;
   border-color: #6366f1;
+}
+
+.btn-hero-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btn-hero-primary:hover {
+  color: #fff;
+  opacity: 0.92;
+  transform: translateY(-2px);
+}
+
+.text-gradient {
+  background: linear-gradient(130deg, #67e8f9 0%, #06b6d4 50%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

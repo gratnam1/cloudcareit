@@ -210,31 +210,27 @@
   }
 }
 @media (min-width: 1200px) {
-  .hero-dark-modern > .container { max-width: 1500px !important; }
-  .glass-card-interactive { max-width: 700px; }
+  .glass-card-interactive { max-width: 560px; }
   .glass-stat-val { font-size: 1.6rem; }
   .glass-stat-lbl { font-size: 0.75rem; }
   .glass-stats { padding: 1rem 0; }
 }
 @media (min-width: 1400px) {
-  .hero-dark-modern > .container { max-width: 1800px !important; }
-  .glass-card-interactive { max-width: 860px; }
+  .glass-card-interactive { max-width: 620px; }
   .glass-stat-val { font-size: 2rem; }
   .glass-stat-lbl { font-size: 0.85rem; }
   .glass-stats { padding: 1.25rem 0; }
   .glass-stat-divider { height: 56px; }
 }
 @media (min-width: 1600px) {
-  .hero-dark-modern > .container { max-width: 2100px !important; }
-  .glass-card-interactive { max-width: 1020px; }
+  .glass-card-interactive { max-width: 680px; }
   .glass-stat-val { font-size: 2.3rem; }
   .glass-stat-lbl { font-size: 0.92rem; }
   .glass-stats { padding: 1.5rem 0; }
   .glass-stat-divider { height: 64px; }
 }
 @media (min-width: 1920px) {
-  .hero-dark-modern > .container { max-width: 2500px !important; }
-  .glass-card-interactive { max-width: 1200px; }
+  .glass-card-interactive { max-width: 760px; }
   .glass-stat-val { font-size: 2.8rem; }
   .glass-stat-lbl { font-size: 1.05rem; }
   .glass-stats { padding: 1.75rem 0; }

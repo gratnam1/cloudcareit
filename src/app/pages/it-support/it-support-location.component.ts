@@ -10,6 +10,7 @@ type ItSupportContent = {
   canonicalPath: string;
   hubPath: string;
   hubLabel: string;
+  hubLinkAnchor?: string;
   city: string;
   region: string;
   mainHeading: string;
@@ -18,58 +19,71 @@ type ItSupportContent = {
   whatIsSection: string;
   services: string[];
   faq: FaqItem[];
+  localSection?: { heading: string; body: string };
+  localScenario?: { headline: string; situation: string; response: string; outcome: string };
 };
 
 const CONTENT: Record<string, ItSupportContent> = {
   vaughan: {
-    title: 'IT Support Vaughan | CtrlShift IT Services',
+    title: 'IT Support Vaughan | Responsive Helpdesk & Troubleshooting | CtrlShift IT Services',
     canonicalPath: '/it-support-vaughan',
     hubPath: '/managed-it-services-vaughan',
     hubLabel: 'Managed IT Services Vaughan',
+    hubLinkAnchor: 'managed IT services in Vaughan',
     city: 'Vaughan',
     region: 'York Region',
     mainHeading: 'IT Support in Vaughan',
     intro:
-      'Fast, reliable IT support for Vaughan businesses — remote-first with on-site dispatch across Concord, Woodbridge, and the Vaughan Metropolitan Centre. Whether you need break-fix help or fully outsourced IT support in Vaughan, CtrlShift IT Services keeps your staff productive with managed IT services designed for growing York Region businesses.',
+      'Responsive IT support for Vaughan offices — when something breaks today, you need it fixed today. We handle helpdesk tickets, troubleshooting, and Microsoft 365 issues for businesses across Concord, Woodbridge, Maple, and the Vaughan Metropolitan Centre, without locking you into a full managed-IT subscription. If you already have a managed-IT provider, we can act as overflow support; if you do not, this is the page to start with.',
     metaDescription:
-      'IT support for Vaughan businesses — fast remote and on-site help in Concord, Woodbridge, and Maple. Security-first, flat-rate support from CtrlShift IT Services.',
+      'Responsive IT support and helpdesk for Vaughan businesses — troubleshooting, Microsoft 365 issue resolution, and Wi-Fi / network fixes across Concord, Woodbridge, Maple, and the Vaughan Metropolitan Centre.',
     whatIsSection:
-      'IT support covers day-to-day helpdesk requests, break-fix troubleshooting, and user account management. Businesses looking for a managed service provider in Vaughan should explore our Managed IT Services in Vaughan — a fully managed plan with flat-rate pricing and proactive monitoring that prevents issues before they interrupt your team.',
+      'This page is for Vaughan offices that need responsive helpdesk and troubleshooting — break-fix, recurring issue cleanup, Microsoft 365 issue resolution, and Wi-Fi / device support — not a full monthly managed-IT subscription. If you instead want proactive monitoring, endpoint protection, backup, and vendor coordination on a flat monthly rate, see our managed IT services in Vaughan page below.',
     services: [
-      'Helpdesk support — password resets, account issues, device problems',
-      'Remote support for Microsoft 365 and Google Workspace',
-      'On-site visits for hardware, networking, and printer issues',
-      'User onboarding and offboarding',
-      'Virus removal and endpoint cleanup',
-      'Office Wi-Fi troubleshooting and optimization',
-      'Outsourced IT support for Vaughan businesses without in-house IT staff',
+      'Helpdesk and ticket-based support — password resets, account lockouts, device problems',
+      'Microsoft 365 issue resolution — Outlook sync, Teams call quality, mailbox access, MFA failures',
+      'Wi-Fi and network troubleshooting — dead zones, slow uploads, dropping access points',
+      'On-site visits for hardware, printers, and meeting-room equipment that will not behave',
+      'User and device support — onboarding, offboarding, lost-laptop response, password resets',
+      'Virus, ransomware, and account-compromise cleanup on individual devices',
+      'Overflow helpdesk for Vaughan offices that already have an in-house IT person',
     ],
     faq: [
       {
-        q: 'What is the difference between IT support and managed IT services in Vaughan?',
-        a: 'IT support is reactive — you call when something breaks. Managed IT services are proactive — we monitor, patch, and maintain your systems 24/7 to prevent issues before they happen. For growing Vaughan businesses, managed IT services deliver better value and fewer interruptions.',
+        q: 'How is this IT support page different from your managed IT services Vaughan page?',
+        a: 'IT support is reactive — you call us when something breaks and we fix it, on a per-ticket or hourly basis. Managed IT services are a flat monthly subscription that includes proactive monitoring, endpoint protection, patching, backup, and vendor coordination so most issues never surface in the first place. If you mostly need someone to call when something goes wrong, this page is the right starting point. If you want IT problems prevented rather than reacted to, see our managed IT services in Vaughan page.',
       },
       {
-        q: 'How quickly can you respond to IT issues in Vaughan?',
-        a: 'Remote support starts immediately via our ticketing system. On-site visits to Concord, Woodbridge, Maple, and the Vaughan Metropolitan Centre are typically same-day or next-business-day depending on severity.',
+        q: 'How quickly can you respond to a Vaughan IT issue?',
+        a: 'Remote triage starts as soon as a ticket lands. For straightforward problems — password resets, Outlook sync, Teams call issues — most Vaughan offices are back to working the same morning. On-site visits to Concord, Woodbridge, Maple, and the Vaughan Metropolitan Centre are typically same-day or next-business-day depending on severity and where the office is.',
       },
       {
-        q: 'Do you support small offices in Vaughan with only a few employees?',
-        a: 'Yes. We work with offices from 3 to 50+ staff. Small teams get the same fast response and security-first approach without paying for services they don\'t need.',
+        q: 'Can you fix a recurring Microsoft 365 problem at our Vaughan office?',
+        a: 'Yes — and recurring Microsoft 365 issues are usually the most common reason Vaughan offices reach out. Repeated MFA prompts, Outlook profiles that keep corrupting, conditional access rules that lock out the wrong users, mailboxes refusing to send: most of these come back to a misconfigured tenant. We diagnose the underlying setting, fix it once, and document what changed so the issue stops repeating.',
       },
       {
-        q: 'Can you help fix recurring IT problems at our Vaughan office?',
-        a: 'Yes. We identify root causes of recurring issues — whether it\'s a misconfigured network, an outdated device policy, or a software conflict — and fix them properly so your team stops dealing with the same problems repeatedly.',
+        q: 'Do you fix Wi-Fi and network problems on a one-off basis?',
+        a: 'Yes. We troubleshoot dead zones, dropping access points, slow uploads, and Teams or VoIP calls that fall apart under load — without requiring a full network redesign. If a deeper redesign is genuinely needed, we will tell you and quote it separately rather than billing endless ticket time.',
       },
       {
-        q: 'Are you a managed service provider in Vaughan?',
-        a: 'Yes. CtrlShift IT Services is a managed service provider serving Vaughan businesses with proactive monitoring, patch management, security hardening, and helpdesk support — all under a predictable flat monthly rate.',
+        q: 'Can you act as overflow IT support for a Vaughan office that already has an in-house person?',
+        a: 'Yes. Plenty of Vaughan offices have one IT person who is at capacity — we take overflow tickets, after-hours work, or specialist tasks (Microsoft 365 security, Wi-Fi surveys, conditional access) so the in-house person is not the bottleneck.',
       },
       {
-        q: 'Do you offer outsourced IT support in Vaughan?',
-        a: 'Yes. We serve as a fully outsourced IT department for Vaughan businesses without in-house staff — handling helpdesk requests, vendor coordination, device management, and security so you can focus on running your business.',
+        q: 'When should we move from IT support to managed IT services?',
+        a: 'Once a Vaughan office is logging more than a handful of tickets a month, or once a single ransomware incident, mailbox loss, or compromised account would be material to the business, the maths usually flips toward our managed IT services in Vaughan plan — flat monthly pricing, proactive monitoring, and endpoint protection on every device, instead of paying per ticket while a problem builds up in the background.',
       },
     ],
+    localSection: {
+      heading: 'Where We Help Vaughan Teams',
+      body: 'Most Vaughan IT support tickets we handle come from three areas: the Vaughan Metropolitan Centre and Highway 7 corridor (modern offices, busy Wi-Fi, hybrid teams), Concord industrial-and-office hybrids where the back-of-house and front-office share networking, and Woodbridge / Maple professional practices where a small team needs reliable Microsoft 365 and a phone they can actually call. We dispatch on-site for anything we cannot fix remotely.',
+    },
+    localScenario: {
+      headline: 'Local Scenario — Vaughan Metropolitan Centre',
+      situation: 'A 12-person professional services office near the VMC raised a ticket: Microsoft Teams calls were dropping mid-meeting and several staff were getting repeated MFA prompts every hour even after signing in.',
+      response: 'We triaged remotely the same day, found a misconfigured conditional access policy and a Wi-Fi access-point that had been failing over to the wrong band, fixed both, and documented what changed.',
+      outcome: 'Calls and sign-ins stabilised by the next morning. The office stayed on responsive support for a few months and eventually moved onto our managed IT services in Vaughan plan once they wanted the same kind of issue prevented before it surfaced.',
+    },
   },
   toronto: {
     title: 'IT Support Toronto | CtrlShift IT Services',
@@ -128,53 +142,65 @@ const CONTENT: Record<string, ItSupportContent> = {
   },
 
   mississauga: {
-    title: 'IT Support Mississauga | CtrlShift IT Services',
+    title: 'IT Support Mississauga | Helpdesk, Microsoft 365 & Wi-Fi Fixes | CtrlShift IT Services',
     canonicalPath: '/it-support-mississauga',
     hubPath: '/managed-it-services-mississauga',
     hubLabel: 'Managed IT Services Mississauga',
+    hubLinkAnchor: 'managed IT services in Mississauga',
     city: 'Mississauga',
     region: 'Peel Region',
     mainHeading: 'IT Support in Mississauga',
     intro:
-      'Responsive IT support for Mississauga businesses — fast remote resolution and on-site technicians available across Square One, Meadowvale, Airport Corporate Centre, and Heartland. Whether you need break-fix help or fully outsourced IT support in Mississauga, CtrlShift IT Services keeps your team productive with managed IT services tailored to Peel Region businesses.',
+      'Responsive IT support for Mississauga offices when something has already gone wrong — Microsoft 365 sign-in failures, Teams calls dropping in a multi-floor office, an access point that has stopped serving one floor, or a laptop nobody can log into. We handle helpdesk and troubleshooting across Square One / City Centre, Meadowvale, the Hurontario corridor, the Dixie–Eglinton belt, and the Airport Corporate Centre, without putting you on a full managed-IT subscription before you are ready for one.',
     metaDescription:
-      'Responsive IT support for Mississauga offices near Square One, Meadowvale, Heartland, and Airport Corporate Centre.',
+      'Responsive IT support for Mississauga offices — helpdesk, Microsoft 365 issue resolution, and Wi-Fi / VoIP troubleshooting across Square One, Meadowvale, Hurontario, Dixie–Eglinton, and the Airport Corporate Centre.',
     whatIsSection:
-      'IT support handles day-to-day helpdesk requests, break-fix incidents, and user account management. Businesses looking for a managed service provider in Mississauga should explore our Managed IT Services in Mississauga — a fully managed plan with proactive monitoring that reduces downtime before it starts.',
+      'This page is for Mississauga offices that need responsive helpdesk and troubleshooting — break-fix, recurring issue cleanup, Microsoft 365 issue resolution, and Wi-Fi / VoIP support — not a flat-rate monthly managed-IT subscription. If you want proactive monitoring, endpoint protection on every device, tested backups, and vendor coordination on a flat monthly rate, see our managed IT services in Mississauga page below.',
     services: [
-      'Helpdesk support — password resets, account issues, device problems',
-      'Remote support for Microsoft 365 and Google Workspace',
-      'On-site visits for hardware, networking, and printer issues',
-      'User onboarding and offboarding',
-      'Virus removal and endpoint cleanup',
-      'Office Wi-Fi troubleshooting across large Mississauga floorplans',
+      'Helpdesk and ticket-based support — password resets, account lockouts, device issues',
+      'Microsoft 365 issue resolution — Outlook sync, Teams call quality, mailbox access, MFA failures',
+      'Multi-floor Wi-Fi troubleshooting in Square One, City Centre, and Hurontario towers',
+      'VoIP and Teams call-quality fixes on shared warehouse-and-office circuits',
+      'On-site visits for printers, hardware, and meeting-room equipment',
+      'User and device support — onboarding, offboarding, lost-laptop response',
+      'Overflow helpdesk for Mississauga offices with an in-house IT person at capacity',
     ],
     faq: [
       {
-        q: 'What is the difference between IT support and managed IT services in Mississauga?',
-        a: 'IT support is reactive — you call when something breaks. Managed IT services are proactive — we monitor and maintain your systems continuously to prevent incidents. For Mississauga businesses with growing teams, managed IT services reduce downtime and lower the total cost of IT disruptions.',
+        q: 'How is this IT support page different from your managed IT services Mississauga page?',
+        a: 'IT support is reactive — you raise a ticket, we fix the issue, you pay per ticket or hourly. Managed IT services are a flat monthly subscription that includes proactive monitoring, endpoint protection, patching, backup, and vendor coordination so most issues never surface. If you mostly need someone to call when Microsoft 365 or Wi-Fi misbehaves, this page is the right starting point. If you want issues prevented rather than reacted to, see our managed IT services in Mississauga page.',
       },
       {
-        q: 'How quickly can you respond to IT issues in Mississauga?',
-        a: 'Remote support starts within minutes through our ticketing system. On-site dispatch to Square One, Meadowvale, Airport Corporate Centre, and Heartland is typically same-day for critical issues.',
+        q: 'How quickly can you respond to an IT issue in Mississauga?',
+        a: 'Remote triage starts as soon as a ticket lands. Most Microsoft 365, password, and Outlook problems are resolved the same morning. On-site dispatch to Square One / City Centre, Meadowvale, Hurontario, the Dixie–Eglinton corridor, and the Airport Corporate Centre is typically same-day for urgent issues, with timing depending on severity and where the office sits relative to the 401/403/427.',
       },
       {
-        q: 'Can you support a larger Mississauga office with multiple departments?',
-        a: 'Yes. We handle multi-department environments, complex printer and scanner setups, large wireless networks, and mixed Microsoft 365 / Google Workspace environments across a single point of contact.',
+        q: 'Can you fix Microsoft Teams calls dropping in our Mississauga office?',
+        a: 'Yes — this is one of the more common Mississauga tickets we see, especially in airport-area sites where voice traffic shares a circuit with warehouse devices and bulk uploads. We test the live call path, check the access-point handoff between floors or between the office and the warehouse, and add quality-of-service rules so Teams traffic gets priority. Most cases are fixed in a single visit without redoing the whole network.',
       },
       {
-        q: 'Do you offer on-site IT support near Square One in Mississauga?',
-        a: 'Yes. We dispatch on-site technicians throughout Mississauga including the Square One area, Hurontario corridor, Meadowvale, and the Highway 401/403 business districts.',
+        q: 'Can you troubleshoot Wi-Fi only on the second floor of our City Centre office?',
+        a: 'Yes. We can isolate a single-floor or single-zone Wi-Fi issue without re-surveying the whole building. Common causes are a failed access point, a wrongly placed AP, or a roaming setting that does not work across floors. We diagnose the actual cause first and quote the fix specifically, rather than selling a full redesign you do not need.',
       },
       {
-        q: 'Do you offer outsourced IT support in Mississauga?',
-        a: 'Yes. CtrlShift IT Services acts as a fully outsourced IT support provider for Mississauga businesses without an internal IT team. We handle helpdesk, security, device management, and vendor coordination under a single flat monthly plan.',
+        q: 'Do you act as overflow IT support for Mississauga offices that already have an in-house person?',
+        a: 'Yes. Many growing Mississauga offices have one internal IT person at capacity. We take overflow tickets, after-hours work, and specialist tasks — Microsoft 365 security, conditional access, VoIP fixes, multi-floor Wi-Fi — so the in-house person is not the only bottleneck when something urgent comes in.',
       },
       {
-        q: 'Are you a managed service provider in Mississauga?',
-        a: 'Yes. As a managed service provider serving Mississauga, CtrlShift IT Services delivers proactive monitoring, patch management, security hardening, and helpdesk support under a predictable flat monthly agreement — so you can plan IT costs and prevent most issues before they affect your team.',
+        q: 'When does it make sense to switch from IT support to managed IT services?',
+        a: 'Once a Mississauga office is logging more than a handful of tickets a month, or once losing a single mailbox, getting an admin account phished, or having ransomware on one laptop would materially hurt the business, the maths usually tips toward our managed IT services in Mississauga plan — flat monthly pricing, endpoint protection on every device, tested backups, and Microsoft 365 access tightened before something goes wrong.',
       },
     ],
+    localSection: {
+      heading: 'Where We Help Mississauga Teams',
+      body: 'Most Mississauga IT support tickets we handle come from three patterns: multi-floor offices in Square One / City Centre and along the Hurontario corridor where Wi-Fi handoff fails between floors, airport-area sites along Dixie and Eglinton where a back-of-house warehouse network shares the same circuit as the front-office VoIP, and Meadowvale professional services offices where Microsoft 365 sign-ins, Outlook, and Teams calls misbehave because the tenant was set up years ago and never tuned. We dispatch on-site for anything we cannot resolve remotely.',
+    },
+    localScenario: {
+      headline: 'Local Scenario — Airport Corporate Centre',
+      situation: 'A 20-person logistics-and-office site near the Airport Corporate Centre raised a ticket: Microsoft Teams calls in the front office were unusable every afternoon, while warehouse devices kept saturating the same circuit with bulk uploads.',
+      response: 'We did not redesign the whole network. We separated voice and warehouse traffic on the existing firewall, fixed two access points that were dropping their VLAN, and added quality-of-service rules so Teams traffic took priority on the upload path.',
+      outcome: 'Call quality stabilised the same week. The office stayed on responsive support for a couple of months and then moved to our managed IT services in Mississauga plan once they wanted endpoint protection and Microsoft 365 access locked down across all 20 staff.',
+    },
   },
 
   thornhill: {

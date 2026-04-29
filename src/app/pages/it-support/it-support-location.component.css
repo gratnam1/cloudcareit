@@ -22,8 +22,21 @@
   background: #fff; border: 1px solid #e2e8f0; color: #1e293b; font-size: 0.92rem;
 }
 
+/* ===== LOCAL SECTION ===== */
+.it-support-local { background: #fff; }
+.it-support-local .surface-card {
+  background: #f8f9fb;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  color: #0f172a;
+}
+.it-support-local .surface-card--accent {
+  background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+  border-color: rgba(99,102,241,0.25);
+}
+
 /* ===== HUB LINK ===== */
-.it-support-hub-link { background: #fff; }
+.it-support-hub-link { background: #f8f9fb; }
 .hub-link-card {
   background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
   border: 1px solid rgba(99,102,241,0.2);

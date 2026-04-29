@@ -1,5 +1,19 @@
 /* ===== INDUSTRY PAGE — Dark Tech Theme ===== */
 
+/* ---- Section kicker badge ---- */
+.section-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+}
+
 /* ---- Hero ---- */
 .industry-hero {
   position: relative;
@@ -132,6 +146,12 @@
   border-color: rgba(245, 158, 11, 0.3);
 }
 
+/* ---- Quiz section ---- */
+.quiz-section-container {
+  background: #060a14;
+  position: relative;
+}
+
 /* ---- Compliance section ---- */
 .compliance-section {
   background: #080d1a;
@@ -158,7 +178,8 @@
   border-color: rgba(16, 185, 129, 0.32);
 }
 
-.compliance-card h5 {
+.compliance-card h5,
+.compliance-card h6 {
   color: #f1f5f9;
   font-weight: 700;
 }

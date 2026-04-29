@@ -1,4 +1,4 @@
-<div class="quiz-container p-4 p-md-5 rounded-4 border border-white border-opacity-10 bg-white bg-opacity-5">
+<div class="quiz-container p-4 p-md-5 rounded-4">
   
   <!-- Step 1: Industry Selection -->
   <div *ngIf="currentStep === 'select'" class="animate-fade-in">
@@ -23,7 +23,7 @@
     </div>
 
     <div class="questions-list">
-      <div *ngFor="let q of currentQuestions" class="question-item p-3 mb-3 rounded-3 bg-white bg-opacity-5 border border-white border-opacity-5">
+      <div *ngFor="let q of currentQuestions" class="question-item p-3 mb-3 rounded-3">
         <div class="d-flex justify-content-between align-items-center">
           <p class="text-white mb-0 pe-3">{{q.text}}</p>
           <div class="form-check form-switch">

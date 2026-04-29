@@ -158,6 +158,13 @@
             </figure>
           </div>
 
+          <!-- Local Example Scenario (Conditional, hypothetical) -->
+          <div *ngIf="content.localExample" class="local-example mt-4 pt-4 border-top">
+            <div class="small fw-bold text-primary text-uppercase mb-2">{{content.localExample.label}}</div>
+            <div class="fw-bold mb-2">{{content.localExample.heading}}</div>
+            <p class="text-muted small mb-0">{{content.localExample.body}}</p>
+          </div>
+
           <h4 class="h6 fw-bold mt-4 mb-2">Nearby Service Areas</h4>
 
           <p class="text-muted small mb-3">Compare local coverage pages across nearby cities in the GTA.</p>

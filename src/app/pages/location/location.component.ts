@@ -30,6 +30,7 @@ type LocationContent = {
   supportContext?: string;
   supportContextPoints?: string[];
   localTestimonial?: { quote: string; author: string; company: string };
+  localExample?: { label: string; heading: string; body: string };
   citySpecificChallenges?: { title: string; description: string }[];
   neighborhoodFocus?: { heading: string; body: string };
 };
@@ -298,10 +299,10 @@ export class LocationComponent implements OnInit, OnDestroy {
           description: 'Mississauga offices hire and rotate fast — and shared mailboxes, SharePoint sites, and admin roles get left behind. We baseline MFA and conditional access and document onboarding/offboarding so departing staff actually lose access the day they leave.'
         }
       ],
-      localTestimonial: {
-        quote: 'Our two-floor office near Square One had constant Wi-Fi handoff issues and Teams calls were dropping every afternoon. CtrlShift IT Services re-surveyed our access points, separated our guest and staff networks, and tightened our Microsoft 365 access. Calls have been clean since, and we finally have written documentation of how the network is set up.',
-        author: 'Operations Manager',
-        company: 'Multi-floor professional services office, Square One area'
+      localExample: {
+        label: 'Common local situation',
+        heading: 'Two-floor office near Square One',
+        body: 'Example: a small professional office spread across two floors near Square One often sees Wi-Fi handoff problems between floors and Microsoft Teams calls dropping in the afternoon. CtrlShift IT Services would typically start by re-surveying access points on both floors, separating guest and staff traffic, and tightening Microsoft 365 access — then document the network in writing so the next change is faster than the last one.'
       }
     },
 
@@ -503,10 +504,10 @@ export class LocationComponent implements OnInit, OnDestroy {
           description: 'Locums, contract accountants, and former staff routinely keep access to shared mailboxes and SharePoint folders for months. We replace the verbal handover with a written checklist that runs the same day someone leaves.'
         }
       ],
-      localTestimonial: {
-        quote: 'We are a small accounting practice off Yonge in Thornhill — five staff plus seasonal contractors — and we had no real Microsoft 365 security and no offboarding process. CtrlShift IT Services fixed our MFA, separated the admin account from a regular user, and built us a one-page checklist we now follow every time a contractor finishes. The recurring Outlook lockouts also stopped after they cleaned up our conditional access rules.',
-        author: 'Practice Owner',
-        company: 'Small accounting practice, Yonge Street corridor (Thornhill)'
+      localExample: {
+        label: 'Common local situation',
+        heading: 'Small accounting or legal practice off Yonge',
+        body: 'Example: a small accounting or legal practice off Yonge in Thornhill — five-or-so staff plus seasonal contractors — often inherits a Microsoft 365 tenant set up years ago without MFA and with the admin role attached to a regular user mailbox. CtrlShift IT Services would typically start by separating the admin account, enforcing MFA, and adding a one-page onboarding/offboarding checklist the practice can run every time a contractor finishes.'
       }
     },
 
@@ -610,10 +611,10 @@ export class LocationComponent implements OnInit, OnDestroy {
           description: 'A green tick on a backup dashboard does not mean the data comes back. We schedule real restore tests for Microsoft 365 mailboxes, OneDrive, and SharePoint, and write down the recovery steps before an emergency ever happens.'
         }
       ],
-      localTestimonial: {
-        quote: 'We grew from six to fourteen staff over two years and our IT was held together by a friend-of-a-friend. CtrlShift IT Services replaced our patchy antivirus with proper endpoint protection on every laptop, actually restore-tested our Microsoft 365 backup, and locked down our admin account properly. The first quarterly review was the first time anyone had explained our setup in writing.',
-        author: 'Practice Manager',
-        company: 'Growing professional practice, Yonge / Highway 7 area (Richmond Hill)'
+      localExample: {
+        label: 'Common local situation',
+        heading: 'Growing professional practice on the Yonge / Highway 7 corridor',
+        body: 'Example: a professional practice that has grown well past its original IT setup along Yonge near Highway 7 typically still runs on patchy antivirus, an untested Microsoft 365 backup, and an admin account that doubles as a regular user mailbox. CtrlShift IT Services would typically start by deploying managed endpoint protection on every device, restore-testing the backup, and locking down the admin account properly — then walk the practice owner through a written summary at the first quarterly review.'
       }
     }
   };

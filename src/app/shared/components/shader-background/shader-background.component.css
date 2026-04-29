@@ -1,0 +1,51 @@
+:host {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+  contain: layout paint size;
+}
+
+.shader-background-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.shader-background-canvas--unsupported {
+  display: none;
+}
+
+.shader-background-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(1, 3, 10, 0.72) 0%, rgba(1, 3, 10, 0.28) 46%, rgba(1, 3, 10, 0.58) 100%),
+    linear-gradient(180deg, rgba(1, 3, 10, 0.56) 0%, rgba(1, 3, 10, 0.16) 48%, rgba(1, 3, 10, 0.82) 100%);
+}
+
+@media (max-width: 767.98px) {
+  :host {
+    opacity: 0.68;
+  }
+
+  .shader-background-canvas {
+    opacity: 0.72;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host,
+  .shader-background-canvas,
+  .shader-background-overlay {
+    transition: none;
+  }
+}

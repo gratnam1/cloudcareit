@@ -90,62 +90,74 @@
 
       <!-- RIGHT: Architecture Visual -->
       <div class="col-lg-5 col-xl-6 order-2 d-lg-flex">
-        <div #card class="glass-card-interactive ms-0 ms-lg-auto hero-parallax-target w-100">
-
-          <!-- Network topology SVG (draw-path only on stroke outlines for dash reveal) -->
-          <svg id="blueprint-svg" viewBox="0 0 160 140" aria-hidden="true">
-            <title>Secure IT Architecture</title>
-            <!-- Central shield node -->
-            <circle cx="80" cy="70" r="18" class="arch-node-primary" />
-            <path d="M80 57 L87 65 L80 83 L73 65 Z" class="arch-shield" />
-            <!-- Satellite nodes -->
-            <circle cx="28" cy="35" r="10" class="arch-node" />
-            <circle cx="132" cy="35" r="10" class="arch-node" />
-            <circle cx="28" cy="105" r="10" class="arch-node" />
-            <circle cx="132" cy="105" r="10" class="arch-node" />
-            <circle cx="80" cy="18" r="8" class="arch-node-accent" />
-            <!-- Connection lines -->
-            <line x1="80" y1="52" x2="80" y2="26" class="draw-path arch-line" />
-            <line x1="62" y1="60" x2="38" y2="42" class="draw-path arch-line" />
-            <line x1="98" y1="60" x2="122" y2="42" class="draw-path arch-line" />
-            <line x1="65" y1="80" x2="38" y2="98" class="draw-path arch-line" />
-            <line x1="95" y1="80" x2="122" y2="98" class="draw-path arch-line" />
-            <!-- Orbit ring -->
-            <circle cx="80" cy="70" r="32" class="draw-path arch-orbit" stroke-dasharray="4 6" />
-            <!-- Node labels -->
-            <text x="28" y="39" class="arch-label" text-anchor="middle">MDR</text>
-            <text x="132" y="39" class="arch-label" text-anchor="middle">FW</text>
-            <text x="28" y="109" class="arch-label" text-anchor="middle">M365</text>
-            <text x="132" y="109" class="arch-label" text-anchor="middle">VPN</text>
-            <text x="80" y="22" class="arch-label" text-anchor="middle">SOC</text>
-          </svg>
-
-          <h2 class="text-white fw-light mb-0 mt-2">CTRL<b>SHIFT</b></h2>
-          <p class="text-primary-light small tracking-widest uppercase mt-1 mb-3">Security-First Managed IT Protection Architecture</p>
-
-          <div class="glass-stats">
-            <div class="glass-stat">
-              <span class="glass-stat-val">15+</span>
-              <span class="glass-stat-lbl">Yrs Exp</span>
-            </div>
-            <div class="glass-stat-divider"></div>
-            <div class="glass-stat">
-              <span class="glass-stat-val">&lt;15m</span>
-              <span class="glass-stat-lbl">Response</span>
-            </div>
-            <div class="glass-stat-divider"></div>
-            <div class="glass-stat">
-              <span class="glass-stat-val">24/7</span>
-              <span class="glass-stat-lbl">Monitor</span>
+        <div #card class="hero-visual-stage glass-card-interactive hero-parallax-target ms-0 ms-lg-auto w-100">
+          <div class="hero-visual-frame" aria-hidden="true"></div>
+          <div class="hero-signal-map" aria-hidden="true">
+            <app-shader-background></app-shader-background>
+            <!-- Network topology SVG (draw-path only on stroke outlines for dash reveal) -->
+            <svg id="blueprint-svg" viewBox="0 0 160 140" aria-hidden="true">
+              <title>Secure IT Architecture</title>
+              <!-- Central shield node -->
+              <circle cx="80" cy="70" r="18" class="arch-node-primary" />
+              <path d="M80 57 L87 65 L80 83 L73 65 Z" class="arch-shield" />
+              <!-- Satellite nodes -->
+              <circle cx="28" cy="35" r="10" class="arch-node" />
+              <circle cx="132" cy="35" r="10" class="arch-node" />
+              <circle cx="28" cy="105" r="10" class="arch-node" />
+              <circle cx="132" cy="105" r="10" class="arch-node" />
+              <circle cx="80" cy="18" r="8" class="arch-node-accent" />
+              <!-- Connection lines -->
+              <line x1="80" y1="52" x2="80" y2="26" class="draw-path arch-line" />
+              <line x1="62" y1="60" x2="38" y2="42" class="draw-path arch-line" />
+              <line x1="98" y1="60" x2="122" y2="42" class="draw-path arch-line" />
+              <line x1="65" y1="80" x2="38" y2="98" class="draw-path arch-line" />
+              <line x1="95" y1="80" x2="122" y2="98" class="draw-path arch-line" />
+              <!-- Orbit ring -->
+              <circle cx="80" cy="70" r="32" class="draw-path arch-orbit" stroke-dasharray="4 6" />
+              <!-- Node labels -->
+              <text x="28" y="39" class="arch-label" text-anchor="middle">MDR</text>
+              <text x="132" y="39" class="arch-label" text-anchor="middle">FW</text>
+              <text x="28" y="109" class="arch-label" text-anchor="middle">M365</text>
+              <text x="132" y="109" class="arch-label" text-anchor="middle">VPN</text>
+              <text x="80" y="22" class="arch-label" text-anchor="middle">SOC</text>
+            </svg>
+            <div class="hero-signal-map-label">
+              <span>Live Security Signal Map</span>
+              <span>Endpoint · Identity · Network</span>
             </div>
           </div>
 
-          <!-- Certifications row -->
-          <div class="hero-cert-row mt-3">
-            <span class="hero-cert-chip"><i class="bi bi-microsoft"></i> Microsoft</span>
-            <span class="hero-cert-chip"><i class="bi bi-shield-check"></i> Huntress</span>
-            <span class="hero-cert-chip"><i class="bi bi-google"></i> Google Workspace</span>
-            <span class="hero-cert-chip"><i class="bi bi-router"></i> Fortinet</span>
+          <div class="hero-console-body">
+            <div class="hero-console-title">
+              <h2 class="text-white fw-light mb-0">CTRL<b>SHIFT</b></h2>
+              <p class="text-primary-light small tracking-widest uppercase mt-1 mb-0">Security-First Managed IT Protection Architecture</p>
+            </div>
+
+            <div class="glass-stats">
+              <div class="glass-stat">
+                <span class="glass-stat-val">15+</span>
+                <span class="glass-stat-lbl">Yrs Exp</span>
+              </div>
+              <div class="glass-stat-divider"></div>
+              <div class="glass-stat">
+                <span class="glass-stat-val">&lt;15m</span>
+                <span class="glass-stat-lbl">Response</span>
+              </div>
+              <div class="glass-stat-divider"></div>
+              <div class="glass-stat">
+                <span class="glass-stat-val">24/7</span>
+                <span class="glass-stat-lbl">Monitor</span>
+              </div>
+            </div>
+
+            <!-- Certifications row -->
+            <div class="hero-cert-row">
+              <span class="hero-cert-chip"><i class="bi bi-microsoft"></i> Microsoft</span>
+              <span class="hero-cert-chip"><i class="bi bi-shield-check"></i> Huntress</span>
+              <span class="hero-cert-chip"><i class="bi bi-google"></i> Google Workspace</span>
+              <span class="hero-cert-chip"><i class="bi bi-router"></i> Fortinet</span>
+            </div>
+
           </div>
 
         </div>

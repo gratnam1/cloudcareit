@@ -1,11 +1,12 @@
 import { Component, AfterViewInit, Input, inject, PLATFORM_ID, ElementRef, ViewChild, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule, isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ShaderBackgroundComponent } from '../../../shared/components/shader-background/shader-background.component';
 
 @Component({
   selector: 'app-hero-section',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ShaderBackgroundComponent],
   templateUrl: './hero-section.component.html',
   styleUrl: './hero-section.component.css'
 })

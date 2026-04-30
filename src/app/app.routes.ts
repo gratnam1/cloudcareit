@@ -131,7 +131,7 @@ export const routes: Routes = [
       import('./pages/services/seo-visibility/seo-visibility.component').then(
         (m) => m.SeoVisibilityComponent
       ),
-    title: 'SEO Services Vaughan'
+    title: 'SEO Visibility Services Vaughan'
   },
   {
     path: 'lead-generation',

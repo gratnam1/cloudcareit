@@ -4,30 +4,37 @@
       <a class="baseline-back-link baseline-reveal" routerLink="/"><i class="bi bi-arrow-left" aria-hidden="true"></i>Back to Home</a>
       <div class="baseline-hero-grid">
         <div class="baseline-hero-copy baseline-reveal">
-          <span class="baseline-kicker"><i class="bi bi-shield-check" aria-hidden="true"></i> Security baseline for Ontario offices</span>
-          <h1>Identify Your Top Security Risks in 48 Hours</h1>
+          <span class="baseline-kicker"><i class="bi bi-shield-check" aria-hidden="true"></i> Security baseline for small businesses</span>
+          <h1>Security Baseline Assessment for Small Businesses</h1>
           <p class="baseline-lead">
-            We review identity exposure, endpoint protection coverage, Microsoft 365 security gaps, backup readiness, and ransomware risk - then deliver a prioritized remediation summary your team can actually act on.
+            A practical review of Microsoft 365 identity, endpoints, backups, firewall and remote access, and email security for small offices in the GTA. You get a plain-English findings summary and a prioritized action plan you can act on with us, your existing IT provider, or on your own.
+          </p>
+          <p class="baseline-sublead">
+            Built for businesses with roughly 5–50 staff that want to understand their security gaps before committing to managed IT, renewing cyber insurance, or hardening Microsoft 365.
           </p>
           <div class="baseline-hero-actions">
             <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow baseline-primary-cta" routerLink="/" fragment="consultation">
-              Book Free Security Baseline Assessment
+              Request a Security Baseline Assessment
               <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+            </a>
+            <a class="baseline-secondary-cta" routerLink="/cyber-insurance-readiness-vaughan">
+              Renewing cyber insurance? <span>See readiness review<i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></span>
             </a>
           </div>
           <ul class="baseline-badges" aria-label="Assessment coverage areas">
             <li><i class="bi bi-microsoft" aria-hidden="true"></i>Microsoft 365 Security</li>
             <li><i class="bi bi-pc-display" aria-hidden="true"></i>Endpoint Protection</li>
             <li><i class="bi bi-database-check" aria-hidden="true"></i>Backup Readiness</li>
-            <li><i class="bi bi-clipboard2-check" aria-hidden="true"></i>Cyber-Insurance Alignment</li>
+            <li><i class="bi bi-router" aria-hidden="true"></i>Firewall &amp; Remote Access</li>
+            <li><i class="bi bi-clipboard2-check" aria-hidden="true"></i>Cyber-Insurance Readiness</li>
           </ul>
         </div>
 
-        <aside class="risk-snapshot baseline-reveal" aria-label="Risk snapshot preview">
+        <aside class="risk-snapshot baseline-reveal" aria-label="Baseline snapshot preview">
           <div class="snapshot-header">
             <div>
-              <span>48-hour review</span>
-              <h2>Risk Snapshot</h2>
+              <span>Baseline snapshot</span>
+              <h2>What we score</h2>
             </div>
             <i class="bi bi-activity" aria-hidden="true"></i>
           </div>
@@ -37,23 +44,28 @@
           <ul class="snapshot-rows">
             <li>
               <i class="bi bi-person-lock" aria-hidden="true"></i>
-              <span>Identity</span>
-              <strong>Review Required</strong>
+              <span>Microsoft 365 identity</span>
+              <strong>MFA &amp; admin roles</strong>
             </li>
             <li>
               <i class="bi bi-pc-display-horizontal" aria-hidden="true"></i>
-              <span>Endpoints</span>
-              <strong>Coverage Check</strong>
+              <span>Endpoint protection</span>
+              <strong>EDR coverage</strong>
             </li>
             <li>
               <i class="bi bi-database-check" aria-hidden="true"></i>
               <span>Backups</span>
-              <strong>Restore Validation</strong>
+              <strong>Restore readiness</strong>
             </li>
             <li>
-              <i class="bi bi-key" aria-hidden="true"></i>
-              <span>Admin Access</span>
-              <strong>Exposure Review</strong>
+              <i class="bi bi-router" aria-hidden="true"></i>
+              <span>Firewall / remote access</span>
+              <strong>Exposure check</strong>
+            </li>
+            <li>
+              <i class="bi bi-clipboard2-check" aria-hidden="true"></i>
+              <span>Cyber-insurance readiness</span>
+              <strong>Questionnaire fit</strong>
             </li>
           </ul>
         </aside>
@@ -65,46 +77,49 @@
     <div class="container">
       <div class="baseline-section-head baseline-reveal">
         <span class="baseline-kicker">Assessment scope</span>
-        <h2 id="analysis-title">What We Analyze During the Assessment</h2>
+        <h2 id="analysis-title">What we analyze during the assessment</h2>
+        <p class="baseline-section-intro">
+          Five areas where small business security usually breaks down. We look at how each is configured today, what risk it carries, and what the practical next step looks like.
+        </p>
       </div>
       <ol class="risk-stack" aria-label="Security risk stack layers">
         <li class="baseline-stack-layer risk-stack-layer risk-stack-layer--identity">
           <i class="bi bi-shield-lock" aria-hidden="true"></i>
           <div>
-            <h3>Identity Protection</h3>
-            <p>We look for weak MFA coverage, risky sign-in paths, exposed admin accounts, and legacy authentication gaps.</p>
+            <h3>Identity protection</h3>
+            <p>MFA coverage, admin role separation, conditional access, legacy authentication, and guest/external access in Microsoft 365.</p>
           </div>
           <span>Review</span>
         </li>
         <li class="baseline-stack-layer risk-stack-layer risk-stack-layer--endpoint">
           <i class="bi bi-pc-display" aria-hidden="true"></i>
           <div>
-            <h3>Endpoint Protection</h3>
-            <p>We confirm whether company devices have active protection, update hygiene, encryption, and response coverage.</p>
+            <h3>Endpoint protection</h3>
+            <p>EDR / antivirus coverage, patch level, disk encryption, local admin rights, and how alerts are actually handled.</p>
           </div>
           <span>Coverage</span>
         </li>
         <li class="baseline-stack-layer risk-stack-layer risk-stack-layer--email">
           <i class="bi bi-envelope-exclamation" aria-hidden="true"></i>
           <div>
-            <h3>Email Security</h3>
-            <p>We review phishing exposure, mailbox protections, domain authentication, and Microsoft 365 email controls.</p>
+            <h3>Email security</h3>
+            <p>SPF, DKIM, DMARC alignment, anti-impersonation, attachment and link policies, and how staff report suspicious mail.</p>
           </div>
           <span>Exposure</span>
         </li>
         <li class="baseline-stack-layer risk-stack-layer risk-stack-layer--backup">
           <i class="bi bi-database-check" aria-hidden="true"></i>
           <div>
-            <h3>Backup Readiness</h3>
-            <p>We check whether critical data has recoverable backups and whether restoration evidence is available.</p>
+            <h3>Backup readiness</h3>
+            <p>What is backed up (M365, file server, SaaS), how often, and whether anyone has tested a real restore in the last year.</p>
           </div>
           <span>Restore</span>
         </li>
         <li class="baseline-stack-layer risk-stack-layer risk-stack-layer--access">
           <i class="bi bi-diagram-3" aria-hidden="true"></i>
           <div>
-            <h3>Access Control</h3>
-            <p>We identify shared accounts, over-permissioned users, and missing access baselines that increase incident impact.</p>
+            <h3>Access &amp; remote work</h3>
+            <p>Firewall rules, VPN/remote access, exposed services, shared accounts, onboarding/offboarding, and Wi-Fi exposure.</p>
           </div>
           <span>Control</span>
         </li>
@@ -116,7 +131,10 @@
     <div class="container">
       <div class="baseline-section-head baseline-reveal">
         <span class="baseline-kicker">Checklist review</span>
-        <h2 id="review-title">What We Review</h2>
+        <h2 id="review-title">What we review</h2>
+        <p class="baseline-section-intro">
+          Concrete configuration checks across the controls that matter most for small offices and that show up most often on cyber insurance questionnaires.
+        </p>
       </div>
       <div class="baseline-check-grid">
         <article class="baseline-check-card baseline-reveal"><i class="bi bi-check2-circle" aria-hidden="true"></i><span>MFA enforcement gaps</span></article>
@@ -126,7 +144,221 @@
         <article class="baseline-check-card baseline-reveal"><i class="bi bi-cloud-check" aria-hidden="true"></i><span>Backup recoverability verification</span></article>
         <article class="baseline-check-card baseline-reveal"><i class="bi bi-envelope-exclamation" aria-hidden="true"></i><span>Phishing exposure risk</span></article>
         <article class="baseline-check-card baseline-reveal"><i class="bi bi-lock" aria-hidden="true"></i><span>Device encryption status</span></article>
+        <article class="baseline-check-card baseline-reveal"><i class="bi bi-router" aria-hidden="true"></i><span>Firewall &amp; remote access exposure</span></article>
+        <article class="baseline-check-card baseline-reveal"><i class="bi bi-people" aria-hidden="true"></i><span>Onboarding &amp; offboarding hygiene</span></article>
+        <article class="baseline-check-card baseline-reveal"><i class="bi bi-arrow-repeat" aria-hidden="true"></i><span>Patching &amp; device hygiene</span></article>
         <article class="baseline-check-card baseline-reveal"><i class="bi bi-file-earmark-check" aria-hidden="true"></i><span>Cyber-insurance readiness blockers</span></article>
+        <article class="baseline-check-card baseline-reveal"><i class="bi bi-telephone" aria-hidden="true"></i><span>Incident response contacts</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="baseline-section" aria-labelledby="triggers-title">
+    <div class="container">
+      <div class="baseline-section-head baseline-reveal">
+        <span class="baseline-kicker">When this makes sense</span>
+        <h2 id="triggers-title">Practical triggers for a baseline assessment</h2>
+        <p class="baseline-section-intro">
+          Most assessments we run are kicked off by one of these moments. If any of them sound familiar, this is usually the right time.
+        </p>
+      </div>
+      <div class="baseline-trigger-grid">
+        <article class="baseline-trigger-card baseline-reveal">
+          <div class="trigger-icon"><i class="bi bi-clipboard2-check" aria-hidden="true"></i></div>
+          <h3>Before a cyber insurance renewal</h3>
+          <p>You have a renewal coming up and want to know which questionnaire controls (MFA, EDR, backups, admin separation) you can honestly tick.</p>
+        </article>
+        <article class="baseline-trigger-card baseline-reveal">
+          <div class="trigger-icon"><i class="bi bi-envelope-exclamation" aria-hidden="true"></i></div>
+          <h3>After a phishing attempt</h3>
+          <p>Someone clicked a link, paid a fake invoice, or had their account taken over — and you want a structured second look at identity and email security.</p>
+        </article>
+        <article class="baseline-trigger-card baseline-reveal">
+          <div class="trigger-icon"><i class="bi bi-handshake" aria-hidden="true"></i></div>
+          <h3>Before hiring (or replacing) an MSP</h3>
+          <p>You want an independent baseline of where things stand today before signing a managed IT contract or transitioning IT providers.</p>
+        </article>
+        <article class="baseline-trigger-card baseline-reveal">
+          <div class="trigger-icon"><i class="bi bi-people" aria-hidden="true"></i></div>
+          <h3>After staff turnover</h3>
+          <p>Senior staff or technical contacts have left and nobody is fully sure which Microsoft 365, SaaS, or VPN accounts and admin rights are still active.</p>
+        </article>
+        <article class="baseline-trigger-card baseline-reveal">
+          <div class="trigger-icon"><i class="bi bi-truck" aria-hidden="true"></i></div>
+          <h3>Before moving offices</h3>
+          <p>An office move is a natural time to clean up firewall rules, network exposure, Wi-Fi configuration, and remote access before everything gets reconnected.</p>
+        </article>
+        <article class="baseline-trigger-card baseline-reveal">
+          <div class="trigger-icon"><i class="bi bi-house-laptop" aria-hidden="true"></i></div>
+          <h3>After adding remote / hybrid staff</h3>
+          <p>Remote work changed how people access systems and where data lives. The original security baseline likely no longer matches the way the team actually works.</p>
+        </article>
+        <article class="baseline-trigger-card baseline-reveal">
+          <div class="trigger-icon"><i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i></div>
+          <h3>Backups have never been restore-tested</h3>
+          <p>You believe you have backups, but no one has ever performed a real restore — so it isn't clear whether recovery would actually work.</p>
+        </article>
+        <article class="baseline-trigger-card baseline-reveal">
+          <div class="trigger-icon"><i class="bi bi-folder2-open" aria-hidden="true"></i></div>
+          <h3>Microsoft 365 permissions have drifted</h3>
+          <p>SharePoint sites, OneDrive sharing, and Teams memberships have grown organically over years and nobody is sure who can see what.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="baseline-section baseline-control-map" aria-labelledby="control-map-title">
+    <div class="container">
+      <div class="baseline-section-head baseline-reveal">
+        <span class="baseline-kicker">Baseline control map</span>
+        <h2 id="control-map-title">The control map we walk through with you</h2>
+        <p class="baseline-section-intro">
+          The visual centerpiece of every assessment. For each area we look at the common risk, the specific things CtrlShift checks, and the typical next step. No vendor pitch — just a practical reference.
+        </p>
+      </div>
+
+      <div class="control-map baseline-reveal" role="table" aria-label="Baseline control map">
+        <div class="control-map-head" role="rowgroup">
+          <div class="control-map-row control-map-row--head" role="row">
+            <div role="columnheader">Area reviewed</div>
+            <div role="columnheader">Common risk</div>
+            <div role="columnheader">What CtrlShift checks</div>
+            <div role="columnheader">Typical next step</div>
+          </div>
+        </div>
+        <div class="control-map-body" role="rowgroup">
+          <div class="control-map-row" role="row">
+            <div class="control-area" role="cell">
+              <div class="control-area-icon"><i class="bi bi-person-lock" aria-hidden="true"></i></div>
+              <div class="control-area-text">
+                <div class="control-cell-label">Area</div>
+                <h3>Microsoft 365 identity</h3>
+              </div>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Common risk</div>
+              <p>MFA gaps, drifted admin roles, legacy auth still enabled.</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">What we check</div>
+              <p>MFA coverage, conditional access, admin separation, guest access.</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Typical next step</div>
+              <p><span class="control-step-pill control-step-pill--harden">Harden tenant</span></p>
+            </div>
+          </div>
+
+          <div class="control-map-row" role="row">
+            <div class="control-area" role="cell">
+              <div class="control-area-icon"><i class="bi bi-pc-display" aria-hidden="true"></i></div>
+              <div class="control-area-text">
+                <div class="control-cell-label">Area</div>
+                <h3>Endpoint protection</h3>
+              </div>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Common risk</div>
+              <p>Unmanaged laptops, missing EDR, patch drift across devices.</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">What we check</div>
+              <p>EDR coverage, alert handling, encryption, patch level, local admin.</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Typical next step</div>
+              <p><span class="control-step-pill control-step-pill--deploy">Deploy / standardize EDR</span></p>
+            </div>
+          </div>
+
+          <div class="control-map-row" role="row">
+            <div class="control-area" role="cell">
+              <div class="control-area-icon"><i class="bi bi-database-check" aria-hidden="true"></i></div>
+              <div class="control-area-text">
+                <div class="control-cell-label">Area</div>
+                <h3>Backups</h3>
+              </div>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Common risk</div>
+              <p>Backup is configured, but restore has never been tested.</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">What we check</div>
+              <p>Backup scope, retention, evidence, and SaaS coverage (M365 / Workspace).</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Typical next step</div>
+              <p><span class="control-step-pill control-step-pill--validate">Run restore test</span></p>
+            </div>
+          </div>
+
+          <div class="control-map-row" role="row">
+            <div class="control-area" role="cell">
+              <div class="control-area-icon"><i class="bi bi-router" aria-hidden="true"></i></div>
+              <div class="control-area-text">
+                <div class="control-cell-label">Area</div>
+                <h3>Firewall &amp; remote access</h3>
+              </div>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Common risk</div>
+              <p>Exposed services, weak VPN, leftover rules from prior IT.</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">What we check</div>
+              <p>Firewall rules, VPN/RDP exposure, admin credentials, Wi-Fi setup.</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Typical next step</div>
+              <p><span class="control-step-pill control-step-pill--close">Close risky paths</span></p>
+            </div>
+          </div>
+
+          <div class="control-map-row" role="row">
+            <div class="control-area" role="cell">
+              <div class="control-area-icon"><i class="bi bi-envelope-check" aria-hidden="true"></i></div>
+              <div class="control-area-text">
+                <div class="control-cell-label">Area</div>
+                <h3>Email security</h3>
+              </div>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Common risk</div>
+              <p>Spoofing, phishing, brand impersonation, invoice fraud.</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">What we check</div>
+              <p>SPF / DKIM / DMARC, anti-impersonation, link &amp; attachment policies.</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Typical next step</div>
+              <p><span class="control-step-pill control-step-pill--tighten">Tighten mail security</span></p>
+            </div>
+          </div>
+
+          <div class="control-map-row" role="row">
+            <div class="control-area" role="cell">
+              <div class="control-area-icon"><i class="bi bi-clipboard2-check" aria-hidden="true"></i></div>
+              <div class="control-area-text">
+                <div class="control-cell-label">Area</div>
+                <h3>Cyber insurance readiness</h3>
+              </div>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Common risk</div>
+              <p>Questionnaire answers don't match what is actually configured.</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">What we check</div>
+              <p>Map current controls to common insurer questions and required evidence.</p>
+            </div>
+            <div class="control-cell" role="cell">
+              <div class="control-cell-label">Typical next step</div>
+              <p><span class="control-step-pill control-step-pill--document">Document evidence</span></p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -135,30 +367,65 @@
     <div class="container">
       <div class="baseline-section-head baseline-reveal">
         <span class="baseline-kicker">Process</span>
-        <h2 id="process-title">How the Assessment Works</h2>
+        <h2 id="process-title">How the assessment works</h2>
+        <p class="baseline-section-intro">
+          Six steps designed to be light on your team — most of the time is configuration review on our side, not interviews.
+        </p>
       </div>
-      <ol class="baseline-process" aria-label="Security baseline assessment process">
+      <ol class="baseline-process baseline-process-vertical" aria-label="Security baseline assessment process">
         <li class="baseline-process-step">
           <span>01</span>
-          <h3>Access Review</h3>
-          <p>We securely review identity, endpoint, and Microsoft 365 security configuration.</p>
+          <h3>Intake &amp; goals</h3>
+          <p>Short scoping call to understand the business, what is keeping the owner up at night, and what triggered the assessment.</p>
         </li>
         <li class="baseline-process-step">
           <span>02</span>
-          <h3>Risk Scoring</h3>
-          <p>We identify exposure areas commonly linked to ransomware, account takeover, and failed recovery.</p>
+          <h3>Access &amp; scope review</h3>
+          <p>Confirm which Microsoft 365 tenant, endpoints, backup tool, and firewall we will review, and how access will work.</p>
         </li>
         <li class="baseline-process-step">
           <span>03</span>
-          <h3>Findings Summary</h3>
-          <p>You receive a clear risk overview written for business owners and technical contacts.</p>
+          <h3>Microsoft 365 &amp; identity checks</h3>
+          <p>Tenant review: admin roles, MFA, conditional access, mail flow, sharing, and licensing fit.</p>
         </li>
         <li class="baseline-process-step">
           <span>04</span>
-          <h3>Remediation Roadmap</h3>
-          <p>We outline practical improvements based on priority, effort, and business impact.</p>
+          <h3>Endpoint, backup &amp; firewall review</h3>
+          <p>Inventory device coverage, validate backups and restore evidence, and walk through firewall and remote access exposure.</p>
+        </li>
+        <li class="baseline-process-step">
+          <span>05</span>
+          <h3>Findings summary &amp; action plan</h3>
+          <p>A short, plain-English document grouping issues as fix-now / soon / later — mapped to risk, not vendor stack.</p>
+        </li>
+        <li class="baseline-process-step">
+          <span>06</span>
+          <h3>Optional managed IT / security handoff</h3>
+          <p>You can implement the plan yourself, hand it to your existing IT provider, or move to one of our managed IT plans.</p>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <section class="baseline-section" aria-labelledby="receive-title">
+    <div class="container">
+      <div class="baseline-section-head baseline-reveal">
+        <span class="baseline-kicker">Deliverables</span>
+        <h2 id="receive-title">What you receive</h2>
+        <p class="baseline-section-intro">
+          Concrete artifacts you can keep, share with insurers, or hand to any IT provider — not a verbal walkthrough.
+        </p>
+      </div>
+      <div class="baseline-card-grid deliverables-grid">
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i><h3>Plain-English findings summary</h3><p>What was reviewed and what we found, written for an owner or office manager.</p></article>
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-list-check" aria-hidden="true"></i><h3>Prioritized remediation checklist</h3><p>Issues grouped as fix-now, soon, and later — each with the risk it reduces.</p></article>
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-microsoft" aria-hidden="true"></i><h3>Microsoft 365 hardening notes</h3><p>Specific tenant changes for identity, mail flow, sharing, and admin roles.</p></article>
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-pc-display" aria-hidden="true"></i><h3>Endpoint protection gap list</h3><p>Devices missing EDR, encryption, or current patches, and how to close the gap.</p></article>
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-database-check" aria-hidden="true"></i><h3>Backup &amp; restore readiness notes</h3><p>What is currently protected, what is not, and how a real restore would play out.</p></article>
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-router" aria-hidden="true"></i><h3>Firewall &amp; remote access observations</h3><p>Findings on firewall rules, VPN, exposed services, and Wi-Fi configuration.</p></article>
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-file-earmark-medical" aria-hidden="true"></i><h3>Cyber-insurance readiness notes</h3><p>Where current controls map to common insurer questionnaires and required evidence.</p></article>
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-journal-text" aria-hidden="true"></i><h3>Next-step roadmap</h3><p>A short, prioritized roadmap an owner can use to plan the next quarter of IT work.</p></article>
+      </div>
     </div>
   </section>
 
@@ -167,11 +434,11 @@
       <div class="insurance-panel baseline-reveal">
         <div class="insurance-copy">
           <span class="baseline-kicker">Readiness review</span>
-          <h2 id="insurance-title">Common Cyber-Insurance Blockers We Look For</h2>
+          <h2 id="insurance-title">Common cyber-insurance blockers we look for</h2>
           <p>
             We do not promise coverage or compliance. We help you identify technical gaps that often create friction during cyber-insurance applications, renewals, or claim reviews.
-            If your assessment is for an insurance renewal, review our
-            <a routerLink="/cyber-insurance-readiness-vaughan">cyber insurance readiness assessment</a>.
+            If your assessment is for an insurance renewal, see our
+            <a routerLink="/cyber-insurance-readiness-vaughan">cyber insurance readiness review for Vaughan businesses</a>.
           </p>
         </div>
         <ul class="insurance-status-list" aria-label="Common cyber-insurance blockers">
@@ -185,33 +452,133 @@
     </div>
   </section>
 
-  <section class="baseline-section" aria-labelledby="audience-title">
+  <section class="baseline-section baseline-trust-section" aria-labelledby="trust-title">
     <div class="container">
-      <div class="baseline-section-head baseline-reveal">
-        <span class="baseline-kicker">Ontario professional offices</span>
-        <h2 id="audience-title">Built for Professional Offices Handling Sensitive Data</h2>
-      </div>
-      <div class="baseline-card-grid audience-grid">
-        <article class="baseline-info-card baseline-reveal"><i class="bi bi-hospital" aria-hidden="true"></i><h3>Medical clinics</h3><p>Medical clinics handling PHIPA-sensitive workflows</p></article>
-        <article class="baseline-info-card baseline-reveal"><i class="bi bi-calculator" aria-hidden="true"></i><h3>Accounting firms</h3><p>Accounting firms managing CRA-sensitive documents</p></article>
-        <article class="baseline-info-card baseline-reveal"><i class="bi bi-briefcase" aria-hidden="true"></i><h3>Law firms</h3><p>Law firms protecting confidential client records</p></article>
-        <article class="baseline-info-card baseline-reveal"><i class="bi bi-rulers" aria-hidden="true"></i><h3>Engineering teams</h3><p>Engineering and consulting teams with project/IP data</p></article>
+      <div class="baseline-trust-card baseline-reveal">
+        <div class="trust-header">
+          <div class="trust-icon" aria-hidden="true"><i class="bi bi-info-circle"></i></div>
+          <div>
+            <span class="baseline-kicker">What this assessment is — and isn't</span>
+            <h2 id="trust-title">Honest scope, no overpromising</h2>
+          </div>
+        </div>
+        <ul class="trust-list">
+          <li>
+            <span class="trust-pill trust-pill--no">Not</span>
+            <p>legal advice, regulatory opinion, or a substitute for counsel on PIPEDA, PHIPA, or industry rules.</p>
+          </li>
+          <li>
+            <span class="trust-pill trust-pill--no">Not</span>
+            <p>compliance certification or attestation against any specific framework or audit standard.</p>
+          </li>
+          <li>
+            <span class="trust-pill trust-pill--no">Not</span>
+            <p>a guarantee of cyber insurance coverage, premium reduction, or claim approval.</p>
+          </li>
+          <li>
+            <span class="trust-pill trust-pill--no">Not</span>
+            <p>a guarantee that breaches, ransomware, or phishing incidents will be prevented.</p>
+          </li>
+          <li>
+            <span class="trust-pill trust-pill--yes">Is</span>
+            <p>a practical, plain-English review of small business IT and security controls, with prioritized next steps you can act on.</p>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section class="baseline-section" aria-labelledby="receive-title">
+  <section class="baseline-section" aria-labelledby="audience-title">
     <div class="container">
       <div class="baseline-section-head baseline-reveal">
-        <span class="baseline-kicker">Deliverables</span>
-        <h2 id="receive-title">What You Receive</h2>
+        <span class="baseline-kicker">Built for</span>
+        <h2 id="audience-title">Who this is for</h2>
+        <p class="baseline-section-intro">
+          Small businesses with roughly 5–50 staff that handle sensitive data and want a practical, no-nonsense view of where their security stands today.
+        </p>
       </div>
-      <div class="baseline-card-grid deliverables-grid">
-        <article class="baseline-info-card baseline-reveal"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i><h3>Risk exposure summary</h3></article>
-        <article class="baseline-info-card baseline-reveal"><i class="bi bi-list-check" aria-hidden="true"></i><h3>Priority remediation actions</h3></article>
-        <article class="baseline-info-card baseline-reveal"><i class="bi bi-database-check" aria-hidden="true"></i><h3>Backup readiness confirmation</h3></article>
-        <article class="baseline-info-card baseline-reveal"><i class="bi bi-person-lock" aria-hidden="true"></i><h3>Identity protection observations</h3></article>
-        <article class="baseline-info-card baseline-reveal"><i class="bi bi-file-earmark-medical" aria-hidden="true"></i><h3>Cyber-insurance alignment notes</h3></article>
+      <div class="baseline-card-grid audience-grid">
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-hospital" aria-hidden="true"></i><h3>Medical &amp; dental clinics</h3><p>Clinics handling PHIPA-sensitive workflows and practice-management systems.</p></article>
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-calculator" aria-hidden="true"></i><h3>Accounting firms</h3><p>Accounting and bookkeeping firms managing CRA-sensitive client documents.</p></article>
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-briefcase" aria-hidden="true"></i><h3>Law firms</h3><p>Law firms protecting confidential client records and matter files.</p></article>
+        <article class="baseline-info-card baseline-reveal"><i class="bi bi-rulers" aria-hidden="true"></i><h3>Engineering &amp; consulting</h3><p>Engineering and consulting teams with project, IP, and client data on the line.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="baseline-section baseline-related-section" aria-labelledby="related-title">
+    <div class="container">
+      <div class="baseline-section-head baseline-reveal">
+        <span class="baseline-kicker">Related services</span>
+        <h2 id="related-title">Where to go next</h2>
+        <p class="baseline-section-intro">
+          Pages and guides that pair naturally with a security baseline assessment.
+        </p>
+      </div>
+      <div class="baseline-related-grid">
+        <a class="baseline-related-card baseline-reveal" routerLink="/cybersecurity-services-vaughan">
+          <div class="related-label">Service</div>
+          <h3>Cybersecurity services Vaughan</h3>
+          <p>Local Vaughan cybersecurity engagements built around the same control map.</p>
+          <span class="related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="baseline-related-card baseline-reveal" routerLink="/cyber-insurance-readiness-vaughan">
+          <div class="related-label">Service</div>
+          <h3>Cyber insurance readiness</h3>
+          <p>Map current controls to common insurer questionnaires before renewal.</p>
+          <span class="related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="baseline-related-card baseline-reveal" routerLink="/security-firewall">
+          <div class="related-label">Service</div>
+          <h3>Security &amp; firewall services</h3>
+          <p>Broader commercial security, firewall, and email protection support.</p>
+          <span class="related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="baseline-related-card baseline-reveal" routerLink="/microsoft-365">
+          <div class="related-label">Service</div>
+          <h3>Microsoft 365 management</h3>
+          <p>Microsoft 365 administration, security, and licensing for small business.</p>
+          <span class="related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="baseline-related-card baseline-reveal" routerLink="/managed-it-services">
+          <div class="related-label">Service</div>
+          <h3>Managed IT services</h3>
+          <p>Ongoing managed IT with security and cloud admin baked in, not bolted on.</p>
+          <span class="related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="baseline-related-card baseline-reveal" routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist">
+          <div class="related-label">Guide</div>
+          <h3>Microsoft 365 security checklist</h3>
+          <p>A practical Microsoft 365 hardening checklist for small business.</p>
+          <span class="related-arrow">Read <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="baseline-related-card baseline-reveal" routerLink="/guides/security/endpoint-security/edr-vs-antivirus">
+          <div class="related-label">Guide</div>
+          <h3>EDR vs antivirus</h3>
+          <p>How modern endpoint protection differs from traditional antivirus.</p>
+          <span class="related-arrow">Read <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="baseline-related-card baseline-reveal" routerLink="/guides/security/microsoft-365-security/microsoft-365-backup-small-business">
+          <div class="related-label">Guide</div>
+          <h3>Microsoft 365 backup for small business</h3>
+          <p>Why third-party Microsoft 365 backup matters and how to think about it.</p>
+          <span class="related-arrow">Read <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="baseline-section baseline-faq-section" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="baseline-section-head baseline-reveal">
+        <span class="baseline-kicker">FAQ</span>
+        <h2 id="faq-title">Common questions about the assessment</h2>
+      </div>
+      <div class="baseline-faq-shell baseline-reveal">
+        <details class="baseline-faq-item" *ngFor="let item of faqs; let i = index" [attr.open]="i === 0 ? '' : null">
+          <summary>{{ item.question }}</summary>
+          <p>{{ item.answer }}</p>
+        </details>
       </div>
     </div>
   </section>
@@ -220,14 +587,14 @@
     <div class="container">
       <div class="baseline-final-card baseline-reveal">
         <div>
-          <span class="baseline-kicker">Free baseline review</span>
-          <h2>Understand Your Security Gaps Before They Become Incidents</h2>
+          <span class="baseline-kicker">Practical baseline review</span>
+          <h2>Understand your security gaps before they become incidents</h2>
           <p>
-            Get a practical security baseline review before ransomware, account takeover, or backup failure becomes a business problem.
+            Get a structured small-business security baseline review — Microsoft 365, endpoints, backups, firewall, email, and cyber insurance readiness — written in plain English you can actually act on.
           </p>
         </div>
         <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow baseline-primary-cta" routerLink="/" fragment="consultation">
-          Book Free Security Baseline Assessment
+          Request a Security Baseline Assessment
           <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
         </a>
       </div>

@@ -1,83 +1,617 @@
-<section class="service-detail-page py-5">
-  <div class="container py-5">
-    <div class="mb-4">
-      <a class="service-back-link text-decoration-none" routerLink="/">← Back to Home</a>
-    </div>
-
-    <div class="row g-4 align-items-stretch">
-      <div class="col-lg-7">
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 h-100">
-          <h1 class="fw-bold display-6 mb-3">SEO and Local Visibility Services</h1>
-          <p class="text-muted lead mb-4">
-            Rank for buyer-intent searches in Vaughan and surrounding markets with technical SEO discipline, high-depth service pages, and location-aware content architecture.
+<main class="seo-page">
+  <section class="seo-hero">
+    <div class="container">
+      <a class="seo-back-link seo-reveal" routerLink="/"><i class="bi bi-arrow-left" aria-hidden="true"></i>Back to Home</a>
+      <div class="seo-hero-grid">
+        <div class="seo-hero-copy seo-reveal">
+          <span class="seo-kicker"><i class="bi bi-search" aria-hidden="true"></i> SEO visibility for small businesses</span>
+          <h1>SEO Visibility Services for Small Businesses</h1>
+          <p class="seo-lead">
+            Practical search visibility for service-based small businesses in Vaughan and the GTA — technical SEO cleanup, local SEO, Google Business Profile, content depth, internal linking, and measurement. Plain-English findings and a prioritized roadmap you can act on with us, your existing marketing team, or on your own.
           </p>
-          <p class="text-muted mb-4">
-            Need implementation support on site performance and UX? Pair this with
-            <a routerLink="/web-development">Web Development</a>
-            and
-            <a routerLink="/lead-generation">Lead Generation</a>
-            for end-to-end growth execution.
+          <p class="seo-sublead">
+            Built for small businesses with roughly 5–50 staff that already have a website and need it to actually generate qualified, local search traffic — not vanity rankings.
           </p>
-
-          <h2 class="h5 fw-bold mb-3">SEO Operating Model</h2>
-          <ul class="text-muted">
-            <li>Technical crawl and indexability audit with priority-fix sequencing</li>
-            <li>Service-page architecture tuned for intent, relevance, and conversion flow</li>
-            <li>Location page depth improvements to reduce thin, templated city content</li>
-            <li>Internal linking model to strengthen topical clusters and crawl paths</li>
-            <li>Schema and metadata optimization for rich results and stronger CTR</li>
-            <li>Google Business Profile alignment with on-site service messaging</li>
-            <li>Core Web Vitals and page speed improvements affecting local rankings</li>
-            <li>Performance tracking tied to qualified traffic and lead outcomes</li>
+          <div class="seo-hero-actions">
+            <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow seo-primary-cta" routerLink="/" fragment="consultation">
+              Request a Visibility Review
+              <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+            </a>
+            <a class="seo-secondary-cta" routerLink="/blog/seo-visibility-guide">
+              Want the playbook first? <span>Read the local SEO guide<i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></span>
+            </a>
+          </div>
+          <ul class="seo-badges" aria-label="SEO visibility coverage areas">
+            <li><i class="bi bi-gear" aria-hidden="true"></i>Technical SEO</li>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i>Local SEO</li>
+            <li><i class="bi bi-google" aria-hidden="true"></i>Google Business Profile</li>
+            <li><i class="bi bi-file-earmark-text" aria-hidden="true"></i>Content depth</li>
+            <li><i class="bi bi-diagram-3" aria-hidden="true"></i>Internal linking</li>
           </ul>
-
-          <h2 class="h5 fw-bold mt-4 mb-3">Content Depth Strategy</h2>
-          <ol class="text-muted ps-3 mb-0">
-            <li>Map service-intent keyword themes by commercial stage and city.</li>
-            <li>Publish pages with distinct proof, process, and objection handling blocks.</li>
-            <li>Support core pages with expert blog content and trust-building case studies.</li>
-            <li>Iterate monthly based on ranking movement, conversions, and content gaps.</li>
-          </ol>
-
-          <div class="d-flex gap-3 flex-wrap mt-4">
-            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/" fragment="consultation">
-              Request SEO Audit
-            </a>
-            <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/blog">
-              Review SEO Content
-            </a>
-          </div>
         </div>
+
+        <aside class="visibility-snapshot seo-reveal" aria-label="Visibility snapshot preview">
+          <div class="snapshot-header">
+            <div>
+              <span>Visibility snapshot</span>
+              <h2>What we score</h2>
+            </div>
+            <i class="bi bi-bar-chart" aria-hidden="true"></i>
+          </div>
+          <div class="snapshot-meter" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <ul class="snapshot-rows">
+            <li>
+              <i class="bi bi-gear-wide-connected" aria-hidden="true"></i>
+              <span>Technical SEO</span>
+              <strong>Crawl &amp; index health</strong>
+            </li>
+            <li>
+              <i class="bi bi-geo-alt" aria-hidden="true"></i>
+              <span>Local SEO</span>
+              <strong>City relevance</strong>
+            </li>
+            <li>
+              <i class="bi bi-google" aria-hidden="true"></i>
+              <span>Google Business Profile</span>
+              <strong>Completeness</strong>
+            </li>
+            <li>
+              <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
+              <span>Content gaps</span>
+              <strong>Page depth</strong>
+            </li>
+            <li>
+              <i class="bi bi-diagram-3" aria-hidden="true"></i>
+              <span>Internal links</span>
+              <strong>Discoverability</strong>
+            </li>
+            <li>
+              <i class="bi bi-cloud-arrow-up" aria-hidden="true"></i>
+              <span>Indexing health</span>
+              <strong>Search Console fit</strong>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-section seo-stack-section" aria-labelledby="scope-title">
+    <div class="container">
+      <div class="seo-section-head seo-reveal">
+        <span class="seo-kicker">Visibility scope</span>
+        <h2 id="scope-title">What we look at across your search footprint</h2>
+        <p class="seo-section-intro">
+          Five areas where small business search visibility usually breaks down. We look at how each works today, what's holding back qualified visits, and what the practical next step is.
+        </p>
+      </div>
+      <ol class="visibility-stack" aria-label="SEO visibility stack layers">
+        <li class="seo-stack-layer visibility-stack-layer visibility-stack-layer--technical">
+          <i class="bi bi-gear-wide-connected" aria-hidden="true"></i>
+          <div>
+            <h3>Technical SEO foundation</h3>
+            <p>Crawlability, indexing, sitemap and robots hygiene, render mode, canonical and metadata accuracy, and Core Web Vitals basics.</p>
+          </div>
+          <span>Cleanup</span>
+        </li>
+        <li class="seo-stack-layer visibility-stack-layer visibility-stack-layer--local">
+          <i class="bi bi-geo-alt" aria-hidden="true"></i>
+          <div>
+            <h3>Local SEO &amp; city relevance</h3>
+            <p>City and neighborhood signals, location pages, NAP consistency across the web, and how your site is interpreted for local intent.</p>
+          </div>
+          <span>Strengthen</span>
+        </li>
+        <li class="seo-stack-layer visibility-stack-layer visibility-stack-layer--gbp">
+          <i class="bi bi-google" aria-hidden="true"></i>
+          <div>
+            <h3>Google Business Profile</h3>
+            <p>Categories, services, attributes, hours, photos, posts, products, and review signals that drive Maps and local pack visibility.</p>
+          </div>
+          <span>Improve</span>
+        </li>
+        <li class="seo-stack-layer visibility-stack-layer visibility-stack-layer--content">
+          <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
+          <div>
+            <h3>Content depth &amp; intent</h3>
+            <p>Service page depth, FAQs, buyer-intent coverage, content uniqueness across templated pages, and clarity for both readers and Google.</p>
+          </div>
+          <span>Deepen</span>
+        </li>
+        <li class="seo-stack-layer visibility-stack-layer visibility-stack-layer--links">
+          <i class="bi bi-diagram-3" aria-hidden="true"></i>
+          <div>
+            <h3>Internal linking &amp; structure</h3>
+            <p>Navigation, footer, contextual links, orphaned pages, breadcrumbs, and how authority flows from your homepage to the pages that need it.</p>
+          </div>
+          <span>Connect</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="seo-section" aria-labelledby="improve-title">
+    <div class="container">
+      <div class="seo-section-head seo-reveal">
+        <span class="seo-kicker">What we improve</span>
+        <h2 id="improve-title">Concrete visibility checks across your site</h2>
+        <p class="seo-section-intro">
+          Practical items we look at across small business websites. None of these are tricks — they are the unglamorous, reliable signals that compound into qualified search visibility.
+        </p>
+      </div>
+      <div class="seo-check-grid">
+        <article class="seo-check-card seo-reveal"><i class="bi bi-check2-circle" aria-hidden="true"></i><span>Technical SEO basics</span></article>
+        <article class="seo-check-card seo-reveal"><i class="bi bi-google" aria-hidden="true"></i><span>Google Business Profile setup</span></article>
+        <article class="seo-check-card seo-reveal"><i class="bi bi-pin-map" aria-hidden="true"></i><span>Local landing pages</span></article>
+        <article class="seo-check-card seo-reveal"><i class="bi bi-layout-text-window" aria-hidden="true"></i><span>Content structure &amp; depth</span></article>
+        <article class="seo-check-card seo-reveal"><i class="bi bi-diagram-3" aria-hidden="true"></i><span>Internal linking model</span></article>
+        <article class="seo-check-card seo-reveal"><i class="bi bi-tags" aria-hidden="true"></i><span>Title &amp; meta cleanup</span></article>
+        <article class="seo-check-card seo-reveal"><i class="bi bi-braces" aria-hidden="true"></i><span>Schema basics</span></article>
+        <article class="seo-check-card seo-reveal"><i class="bi bi-cloud-arrow-up" aria-hidden="true"></i><span>Indexing &amp; sitemap hygiene</span></article>
+        <article class="seo-check-card seo-reveal"><i class="bi bi-speedometer2" aria-hidden="true"></i><span>Page speed &amp; Core Web Vitals</span></article>
+        <article class="seo-check-card seo-reveal"><i class="bi bi-star" aria-hidden="true"></i><span>Review &amp; reputation signals</span></article>
+        <article class="seo-check-card seo-reveal"><i class="bi bi-signpost-split" aria-hidden="true"></i><span>Breadcrumbs &amp; navigation</span></article>
+        <article class="seo-check-card seo-reveal"><i class="bi bi-image" aria-hidden="true"></i><span>Image &amp; alt-text discipline</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-section" aria-labelledby="triggers-title">
+    <div class="container">
+      <div class="seo-section-head seo-reveal">
+        <span class="seo-kicker">When this makes sense</span>
+        <h2 id="triggers-title">Practical signals it's time for a visibility review</h2>
+        <p class="seo-section-intro">
+          Most engagements we run are kicked off by one of these moments. If any of them sound familiar, this is usually the right time to take a structured look.
+        </p>
+      </div>
+      <div class="seo-trigger-grid">
+        <article class="seo-trigger-card seo-reveal">
+          <div class="trigger-icon"><i class="bi bi-graph-down" aria-hidden="true"></i></div>
+          <h3>Your site exists but doesn't bring leads</h3>
+          <p>Traffic is flat or declining and the contact form barely fires. Visibility for the queries that actually generate inquiries is unclear.</p>
+        </article>
+        <article class="seo-trigger-card seo-reveal">
+          <div class="trigger-icon"><i class="bi bi-cloud-slash" aria-hidden="true"></i></div>
+          <h3>Pages index inconsistently</h3>
+          <p>Search Console shows pages discovered but not indexed, or coverage that flips week to week. New content takes weeks to appear in search.</p>
+        </article>
+        <article class="seo-trigger-card seo-reveal">
+          <div class="trigger-icon"><i class="bi bi-files" aria-hidden="true"></i></div>
+          <h3>Location pages feel too similar</h3>
+          <p>You have city pages for several markets, but they read like the same page with the city swapped — and Google is treating them that way.</p>
+        </article>
+        <article class="seo-trigger-card seo-reveal">
+          <div class="trigger-icon"><i class="bi bi-google" aria-hidden="true"></i></div>
+          <h3>Google Business Profile is under-used</h3>
+          <p>The profile exists, but categories, services, photos, and posts are sparse, and reviews are not actively requested or responded to.</p>
+        </article>
+        <article class="seo-trigger-card seo-reveal">
+          <div class="trigger-icon"><i class="bi bi-file-earmark-x" aria-hidden="true"></i></div>
+          <h3>Service pages are thin</h3>
+          <p>Each service has a short page with a few bullets. Buyers can't tell what is actually involved, and Google has nothing meaningful to rank.</p>
+        </article>
+        <article class="seo-trigger-card seo-reveal">
+          <div class="trigger-icon"><i class="bi bi-trophy" aria-hidden="true"></i></div>
+          <h3>Competitors outrank you locally</h3>
+          <p>Search the queries you care about and the same handful of competitors keep appearing — usually with better content depth, GBP, and reviews.</p>
+        </article>
+        <article class="seo-trigger-card seo-reveal">
+          <div class="trigger-icon"><i class="bi bi-exclamation-triangle" aria-hidden="true"></i></div>
+          <h3>Search Console shows coverage issues</h3>
+          <p>Soft 404s, redirect errors, duplicate canonical conflicts, or blocked-by-robots warnings have been there for months without anyone resolving them.</p>
+        </article>
+        <article class="seo-trigger-card seo-reveal">
+          <div class="trigger-icon"><i class="bi bi-pencil-square" aria-hidden="true"></i></div>
+          <h3>You publish content, but nothing ranks</h3>
+          <p>Blog posts go up regularly but never gain traction, and there is no clear internal-linking or topic-cluster strategy tying them to your services.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-section seo-visibility-map" aria-labelledby="map-title">
+    <div class="container">
+      <div class="seo-section-head seo-reveal">
+        <span class="seo-kicker">SEO visibility map</span>
+        <h2 id="map-title">The visibility map we walk through with you</h2>
+        <p class="seo-section-intro">
+          The visual centerpiece of every review. For each area we look at the common issue, what CtrlShift specifically checks, and the typical next step. No vendor pitch — just a practical reference.
+        </p>
       </div>
 
-      <div class="col-lg-5">
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 h-100">
-          <h3 class="fw-bold mb-3">Signals We Prioritize First</h3>
-          <p class="text-muted">
-            We focus first on indexing health, page intent alignment, and location-level content quality because these usually move rankings faster than cosmetic tweaks.
-          </p>
-
-          <div class="border rounded-4 p-3 bg-light mb-3">
-            <div class="fw-bold mb-2">Reporting cadence</div>
-            <ul class="text-muted small mb-0">
-              <li>Monthly position and visibility summary</li>
-              <li>Page-level conversion and engagement review</li>
-              <li>Next sprint priorities by expected impact</li>
-            </ul>
+      <div class="visibility-map seo-reveal" role="table" aria-label="SEO visibility map">
+        <div class="visibility-map-head" role="rowgroup">
+          <div class="visibility-map-row visibility-map-row--head" role="row">
+            <div role="columnheader">Area reviewed</div>
+            <div role="columnheader">Common issue</div>
+            <div role="columnheader">What CtrlShift checks</div>
+            <div role="columnheader">Typical next step</div>
+          </div>
+        </div>
+        <div class="visibility-map-body" role="rowgroup">
+          <div class="visibility-map-row" role="row">
+            <div class="map-area" role="cell">
+              <div class="map-area-icon"><i class="bi bi-gear-wide-connected" aria-hidden="true"></i></div>
+              <div class="map-area-text">
+                <div class="map-cell-label">Area</div>
+                <h3>Technical SEO</h3>
+              </div>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Common issue</div>
+              <p>Crawl and indexing issues, missing or incorrect canonicals, drifted titles and meta descriptions.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">What we check</div>
+              <p>Sitemap, canonicals, title and meta accuracy, robots, render mode, route coverage.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Typical next step</div>
+              <p><span class="map-step-pill map-step-pill--cleanup">Clean technical issues</span></p>
+            </div>
           </div>
 
-          <div class="border rounded-4 p-3 bg-light">
-            <div class="fw-bold mb-1">SEO intake</div>
-            <div class="text-muted small">Share top service keywords, competitor examples, and target cities. We will prioritize fixes by ranking and lead-pipeline impact.</div>
+          <div class="visibility-map-row" role="row">
+            <div class="map-area" role="cell">
+              <div class="map-area-icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></div>
+              <div class="map-area-text">
+                <div class="map-cell-label">Area</div>
+                <h3>Local SEO</h3>
+              </div>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Common issue</div>
+              <p>Weak city relevance, near-duplicate location pages, NAP inconsistency across the web.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">What we check</div>
+              <p>Location-page content, internal links, GBP consistency, and core local-citation hygiene.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Typical next step</div>
+              <p><span class="map-step-pill map-step-pill--strengthen">Strengthen local signals</span></p>
+            </div>
           </div>
 
-          <div class="mt-4">
-            <a class="btn btn-dark rounded-pill w-100 py-3 fw-bold" routerLink="/" fragment="consultation" href="/#consultation">
-              Get Recommendation
-            </a>
+          <div class="visibility-map-row" role="row">
+            <div class="map-area" role="cell">
+              <div class="map-area-icon"><i class="bi bi-file-earmark-text" aria-hidden="true"></i></div>
+              <div class="map-area-text">
+                <div class="map-cell-label">Area</div>
+                <h3>Content depth</h3>
+              </div>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Common issue</div>
+              <p>Thin service pages, repeated boilerplate, no FAQ, no buyer-intent coverage.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">What we check</div>
+              <p>Section depth, FAQs, buyer-intent alignment, page uniqueness across the site.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Typical next step</div>
+              <p><span class="map-step-pill map-step-pill--deepen">Improve content usefulness</span></p>
+            </div>
+          </div>
+
+          <div class="visibility-map-row" role="row">
+            <div class="map-area" role="cell">
+              <div class="map-area-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
+              <div class="map-area-text">
+                <div class="map-cell-label">Area</div>
+                <h3>Internal linking</h3>
+              </div>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Common issue</div>
+              <p>Orphaned pages, weak navigation, no consistent footer or related-content links.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">What we check</div>
+              <p>Navigation, footer, related-content blocks, breadcrumb usage, anchor relevance.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Typical next step</div>
+              <p><span class="map-step-pill map-step-pill--connect">Improve discoverability</span></p>
+            </div>
+          </div>
+
+          <div class="visibility-map-row" role="row">
+            <div class="map-area" role="cell">
+              <div class="map-area-icon"><i class="bi bi-google" aria-hidden="true"></i></div>
+              <div class="map-area-text">
+                <div class="map-cell-label">Area</div>
+                <h3>Google Business Profile</h3>
+              </div>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Common issue</div>
+              <p>Weak local presence, sparse categories and services, few photos, low review velocity.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">What we check</div>
+              <p>Categories, services, attributes, hours, photos, posts, products, and reviews.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Typical next step</div>
+              <p><span class="map-step-pill map-step-pill--improve">Improve GBP completeness</span></p>
+            </div>
+          </div>
+
+          <div class="visibility-map-row" role="row">
+            <div class="map-area" role="cell">
+              <div class="map-area-icon"><i class="bi bi-braces" aria-hidden="true"></i></div>
+              <div class="map-area-text">
+                <div class="map-cell-label">Area</div>
+                <h3>Schema</h3>
+              </div>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Common issue</div>
+              <p>Unclear page meaning to search engines, missing or invalid structured data.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">What we check</div>
+              <p>Service, FAQ, Breadcrumb, and LocalBusiness schema coverage and validity.</p>
+            </div>
+            <div class="map-cell" role="cell">
+              <div class="map-cell-label">Typical next step</div>
+              <p><span class="map-step-pill map-step-pill--add">Add safe structured data</span></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="seo-section" aria-labelledby="process-title">
+    <div class="container">
+      <div class="seo-section-head seo-reveal">
+        <span class="seo-kicker">Process</span>
+        <h2 id="process-title">How a visibility engagement works</h2>
+        <p class="seo-section-intro">
+          Seven steps designed to fit a small marketing budget — most of the work is review and prioritization on our side, not endless meetings on yours.
+        </p>
+      </div>
+      <ol class="seo-process seo-process-vertical" aria-label="SEO visibility process">
+        <li class="seo-process-step">
+          <span>01</span>
+          <h3>Visibility audit</h3>
+          <p>Structured review of the site, target queries, current rankings, and competitor visibility for the keywords that actually drive inquiries.</p>
+        </li>
+        <li class="seo-process-step">
+          <span>02</span>
+          <h3>Search Console, sitemap &amp; indexing review</h3>
+          <p>Check coverage, sitemap accuracy, indexing anomalies, robots.txt, canonicals, and any soft 404 / redirect / duplicate-content warnings.</p>
+        </li>
+        <li class="seo-process-step">
+          <span>03</span>
+          <h3>Page-quality &amp; content-depth review</h3>
+          <p>Audit service pages, blog posts, and templated location pages for thin content, near-duplicates, weak intent coverage, and missing FAQs.</p>
+        </li>
+        <li class="seo-process-step">
+          <span>04</span>
+          <h3>Local SEO &amp; Google Business Profile review</h3>
+          <p>Walk through GBP completeness, location-page strength, NAP consistency, and any obvious local-citation gaps for your service area.</p>
+        </li>
+        <li class="seo-process-step">
+          <span>05</span>
+          <h3>Internal-link &amp; schema plan</h3>
+          <p>Map internal links between hub, service, location, and blog pages, and identify safe structured data improvements (Service, FAQ, Breadcrumb).</p>
+        </li>
+        <li class="seo-process-step">
+          <span>06</span>
+          <h3>Prioritized fixes</h3>
+          <p>Group findings as fix-now / soon / later — mapped to expected visibility impact, not effort. We focus on the changes most likely to actually move the needle.</p>
+        </li>
+        <li class="seo-process-step">
+          <span>07</span>
+          <h3>Reporting &amp; next steps</h3>
+          <p>Plain-English summary of what changed, what to monitor in Search Console and GBP over the next 90 days, and where to focus the next sprint.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="seo-section" aria-labelledby="receive-title">
+    <div class="container">
+      <div class="seo-section-head seo-reveal">
+        <span class="seo-kicker">Deliverables</span>
+        <h2 id="receive-title">What you receive</h2>
+        <p class="seo-section-intro">
+          Concrete artifacts you can keep and hand to any developer, marketing team, or future agency — not a verbal walkthrough.
+        </p>
+      </div>
+      <div class="seo-card-grid deliverables-grid">
+        <article class="seo-info-card seo-reveal"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i><h3>Visibility audit summary</h3><p>What we reviewed and what we found, written for an owner or marketing lead — not in SEO jargon.</p></article>
+        <article class="seo-info-card seo-reveal"><i class="bi bi-list-check" aria-hidden="true"></i><h3>Priority issue list</h3><p>Issues grouped as fix-now, soon, and later — each tied to the visibility risk it creates.</p></article>
+        <article class="seo-info-card seo-reveal"><i class="bi bi-tags" aria-hidden="true"></i><h3>Title &amp; meta recommendations</h3><p>Specific page-level title and meta description rewrites that match buyer intent and keep within length budgets.</p></article>
+        <article class="seo-info-card seo-reveal"><i class="bi bi-pin-map" aria-hidden="true"></i><h3>Local SEO recommendations</h3><p>Practical changes to location pages, NAP consistency, and local content to strengthen city relevance.</p></article>
+        <article class="seo-info-card seo-reveal"><i class="bi bi-google" aria-hidden="true"></i><h3>Google Business Profile improvements</h3><p>A concrete list of GBP fields, photos, services, posts, and review actions to complete first.</p></article>
+        <article class="seo-info-card seo-reveal"><i class="bi bi-file-earmark-plus" aria-hidden="true"></i><h3>Content-gap plan</h3><p>The handful of pages that are missing or thin and would most likely earn qualified search visibility.</p></article>
+        <article class="seo-info-card seo-reveal"><i class="bi bi-diagram-3" aria-hidden="true"></i><h3>Internal-linking recommendations</h3><p>Where to add links between service, location, and blog pages so authority flows where it should.</p></article>
+        <article class="seo-info-card seo-reveal"><i class="bi bi-gear" aria-hidden="true"></i><h3>Technical SEO notes</h3><p>Rendering, crawl, indexing, sitemap, canonical, and schema findings — paired with the practical fix.</p></article>
+        <article class="seo-info-card seo-reveal"><i class="bi bi-journal-text" aria-hidden="true"></i><h3>Next-step roadmap</h3><p>A short, prioritized roadmap an owner can use to plan the next quarter of visibility work.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-section" aria-labelledby="blockers-title">
+    <div class="container">
+      <div class="blockers-panel seo-reveal">
+        <div class="blockers-copy">
+          <span class="seo-kicker">Visibility blockers</span>
+          <h2 id="blockers-title">Common search-visibility blockers we look for</h2>
+          <p>
+            We do not promise rankings. We help you identify the technical, local, and content-depth gaps that most often hold back qualified search visibility for small businesses.
+            Pair this with our
+            <a routerLink="/web-development">web development</a>
+            and
+            <a routerLink="/lead-generation">lead generation</a>
+            services if implementation and conversion are also part of the plan.
+          </p>
+        </div>
+        <ul class="blockers-status-list" aria-label="Common SEO visibility blockers">
+          <li class="status-warning"><i class="bi bi-exclamation-triangle" aria-hidden="true"></i><span>Pages discovered but not indexed</span><strong>Indexing</strong></li>
+          <li class="status-warning"><i class="bi bi-files" aria-hidden="true"></i><span>Near-duplicate location pages</span><strong>Local depth</strong></li>
+          <li class="status-info"><i class="bi bi-info-circle" aria-hidden="true"></i><span>Sparse Google Business Profile</span><strong>GBP gap</strong></li>
+          <li class="status-info"><i class="bi bi-tags" aria-hidden="true"></i><span>Generic, repeated title and meta tags</span><strong>Metadata drift</strong></li>
+          <li class="status-check"><i class="bi bi-diagram-3" aria-hidden="true"></i><span>Orphaned blog and service pages</span><strong>Linking gap</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-section seo-trust-section" aria-labelledby="trust-title">
+    <div class="container">
+      <div class="seo-trust-card seo-reveal">
+        <div class="trust-header">
+          <div class="trust-icon" aria-hidden="true"><i class="bi bi-info-circle"></i></div>
+          <div>
+            <span class="seo-kicker">What this engagement is — and isn't</span>
+            <h2 id="trust-title">Honest scope, no overpromising</h2>
+          </div>
+        </div>
+        <ul class="trust-list">
+          <li>
+            <span class="trust-pill trust-pill--no">Not</span>
+            <p>a guaranteed first-page ranking, traffic forecast, or lead-volume promise. Google controls ranking and indexing, not us.</p>
+          </li>
+          <li>
+            <span class="trust-pill trust-pill--no">Not</span>
+            <p>fake reviews, bought reviews, review gating, or any other manipulation of review or reputation signals.</p>
+          </li>
+          <li>
+            <span class="trust-pill trust-pill--no">Not</span>
+            <p>black-hat backlink schemes, private blog networks, paid link placement, or anything that violates Google's spam policies.</p>
+          </li>
+          <li>
+            <span class="trust-pill trust-pill--no">Not</span>
+            <p>an instant SEO win. Visibility takes time, and most meaningful movement is measured over months, not days.</p>
+          </li>
+          <li>
+            <span class="trust-pill trust-pill--yes">Is</span>
+            <p>a practical, plain-English review of small business search visibility, paired with prioritized improvements, clean implementation, and honest measurement.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-section" aria-labelledby="audience-title">
+    <div class="container">
+      <div class="seo-section-head seo-reveal">
+        <span class="seo-kicker">Built for</span>
+        <h2 id="audience-title">Who this is for</h2>
+        <p class="seo-section-intro">
+          Service-based small businesses with roughly 5–50 staff in the GTA that depend on Google for new inquiries and want a practical view of where their search visibility stands today.
+        </p>
+      </div>
+      <div class="seo-card-grid audience-grid">
+        <article class="seo-info-card seo-reveal"><i class="bi bi-hospital" aria-hidden="true"></i><h3>Medical &amp; dental clinics</h3><p>Local clinics that depend on neighborhood-level search visibility to fill new-patient slots.</p></article>
+        <article class="seo-info-card seo-reveal"><i class="bi bi-calculator" aria-hidden="true"></i><h3>Accounting &amp; legal firms</h3><p>Professional services firms that need credible, depth-driven service pages to win competitive local searches.</p></article>
+        <article class="seo-info-card seo-reveal"><i class="bi bi-rulers" aria-hidden="true"></i><h3>Trades &amp; home services</h3><p>Service businesses competing on local intent — where Google Business Profile and city pages move the needle.</p></article>
+        <article class="seo-info-card seo-reveal"><i class="bi bi-briefcase" aria-hidden="true"></i><h3>B2B &amp; consulting</h3><p>Small B2B teams whose buyers research service providers via search and want to land on pages that match real intent.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-section seo-related-section" aria-labelledby="related-title">
+    <div class="container">
+      <div class="seo-section-head seo-reveal">
+        <span class="seo-kicker">Related work</span>
+        <h2 id="related-title">Where to go next</h2>
+        <p class="seo-section-intro">
+          Pages and guides that pair naturally with an SEO visibility engagement.
+        </p>
+      </div>
+      <div class="seo-related-grid">
+        <a class="seo-related-card seo-reveal" routerLink="/web-development">
+          <div class="related-label">Service</div>
+          <h3>Web development</h3>
+          <p>Implementation support for small business websites — fast, structured, and built to be findable.</p>
+          <span class="related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="seo-related-card seo-reveal" routerLink="/lead-generation">
+          <div class="related-label">Service</div>
+          <h3>Lead generation</h3>
+          <p>Turn improved visibility into qualified inquiries with conversion-focused pages and tracking.</p>
+          <span class="related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="seo-related-card seo-reveal" routerLink="/managed-it-services">
+          <div class="related-label">Service</div>
+          <h3>Managed IT services</h3>
+          <p>The day-to-day IT and security support layer behind small offices we work with on visibility.</p>
+          <span class="related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="seo-related-card seo-reveal" routerLink="/">
+          <div class="related-label">Overview</div>
+          <h3>CtrlShift IT Services</h3>
+          <p>Managed IT, security, and visibility support for GTA small businesses — all in one place.</p>
+          <span class="related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="seo-related-card seo-reveal" routerLink="/blog/seo-visibility-guide">
+          <div class="related-label">Guide</div>
+          <h3>Local SEO for small businesses</h3>
+          <p>The deeper local-SEO playbook — what actually moves visibility for service-based small businesses.</p>
+          <span class="related-arrow">Read <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="seo-related-card seo-reveal" routerLink="/blog/web-development-gta">
+          <div class="related-label">Guide</div>
+          <h3>Web development for GTA SMBs</h3>
+          <p>How small business websites should be structured to be both fast for users and findable in search.</p>
+          <span class="related-arrow">Read <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="seo-related-card seo-reveal" routerLink="/guides">
+          <div class="related-label">Hub</div>
+          <h3>IT &amp; security guides</h3>
+          <p>Practical small business guides covering Microsoft 365, endpoint protection, networking, and more.</p>
+          <span class="related-arrow">Browse <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="seo-related-card seo-reveal" routerLink="/blog">
+          <div class="related-label">Blog</div>
+          <h3>Articles &amp; updates</h3>
+          <p>Plain-English articles on small business IT, security, and digital visibility from the CtrlShift team.</p>
+          <span class="related-arrow">Browse <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-section seo-faq-section" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="seo-section-head seo-reveal">
+        <span class="seo-kicker">FAQ</span>
+        <h2 id="faq-title">Common questions about SEO visibility</h2>
+      </div>
+      <div class="seo-faq-shell seo-reveal">
+        <details class="seo-faq-item" *ngFor="let item of faqs; let i = index" [attr.open]="i === 0 ? '' : null">
+          <summary>{{ item.question }}</summary>
+          <p>{{ item.answer }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo-final-cta">
+    <div class="container">
+      <div class="seo-final-card seo-reveal">
+        <div>
+          <span class="seo-kicker">Practical visibility review</span>
+          <h2>Understand your visibility gaps before they cost you another quarter</h2>
+          <p>
+            Get a structured small-business SEO visibility review — technical SEO, local SEO, Google Business Profile, content depth, internal links, and indexing health — written in plain English you can actually act on.
+          </p>
+        </div>
+        <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow seo-primary-cta" routerLink="/" fragment="consultation">
+          Request a Visibility Review
+          <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>

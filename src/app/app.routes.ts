@@ -155,7 +155,7 @@ export const routes: Routes = [
       import('./pages/services/security-baseline-assessment/security-baseline-assessment.component').then(
         (m) => m.SecurityBaselineAssessmentComponent
       ),
-    title: 'Security Baseline Assessment'
+    title: 'Security Baseline Assessment for SMBs'
   },
   {
     path: 'managed-it-for-medical-clinics-vaughan',

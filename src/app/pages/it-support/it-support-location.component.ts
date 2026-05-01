@@ -21,24 +21,176 @@ type ItSupportContent = {
   faq: FaqItem[];
   localSection?: { heading: string; body: string };
   localScenario?: { headline: string; situation: string; response: string; outcome: string };
+  // Premium Vaughan-specific sections
+  trustBadges?: { icon: string; label: string; desc: string }[];
+  heroTriage?: { icon: string; label: string; done: boolean }[];
+  whatWeFixCards?: { icon: string; title: string; body: string; link?: string }[];
+  processSteps?: { num: string; title: string; body: string }[];
+  comparisonSection?: {
+    note: string;
+    itSupport: { label: string; tag: string; bullets: string[]; cta: string; ctaPath: string };
+    managedIt: { label: string; tag: string; bullets: string[]; cta: string; ctaPath: string };
+  };
+  localAreas?: { name: string; tag: string; blurb: string }[];
+  afterCallDeliverables?: { icon: string; title: string; body: string }[];
+  contextualLinks?: { path: string; label: string; icon: string }[];
+  preCta?: { headline: string; subheading: string };
 };
 
 const CONTENT: Record<string, ItSupportContent> = {
   vaughan: {
-    title: 'IT Support Vaughan | Responsive Helpdesk & Troubleshooting | CtrlShift IT Services',
+    title: 'IT Support Vaughan | CtrlShift IT Services',
     canonicalPath: '/it-support-vaughan',
     hubPath: '/managed-it-services-vaughan',
     hubLabel: 'Managed IT Services Vaughan',
     hubLinkAnchor: 'managed IT services in Vaughan',
     city: 'Vaughan',
     region: 'York Region',
-    mainHeading: 'IT Support in Vaughan',
+    mainHeading: 'IT Support in Vaughan for Small Businesses',
     intro:
-      'Responsive IT support for Vaughan offices — when something breaks today, you need it fixed today. We handle helpdesk tickets, troubleshooting, and Microsoft 365 issues for businesses across Concord, Woodbridge, Maple, and the Vaughan Metropolitan Centre, without locking you into a full managed-IT subscription. If you already have a managed-IT provider, we can act as overflow support; if you do not, this is the page to start with.',
+      'Fast helpdesk, Microsoft 365 troubleshooting, Wi-Fi fixes, and on-site support for Vaughan offices that need issues resolved — without committing to a full managed IT contract.',
     metaDescription:
-      'Responsive IT support and helpdesk for Vaughan businesses — troubleshooting, Microsoft 365 issue resolution, and Wi-Fi / network fixes across Concord, Woodbridge, Maple, and the Vaughan Metropolitan Centre.',
+      'Fast IT support in Vaughan for Microsoft 365, Wi-Fi, devices, user issues, and on-site or remote troubleshooting for small businesses.',
     whatIsSection:
       'This page is for Vaughan offices that need responsive helpdesk and troubleshooting — break-fix, recurring issue cleanup, Microsoft 365 issue resolution, and Wi-Fi / device support — not a full monthly managed-IT subscription. If you instead want proactive monitoring, endpoint protection, backup, and vendor coordination on a flat monthly rate, see our managed IT services in Vaughan page below.',
+    trustBadges: [
+      { icon: 'bi-clock-history', label: 'Remote support starts fast', desc: 'Most remote issues triaged within 15 minutes of your call or ticket.' },
+      { icon: 'bi-geo-alt', label: 'On-site visits in Vaughan when needed', desc: 'Same-day or next-business-day dispatch across Concord, Woodbridge, Maple, and the VMC.' },
+      { icon: 'bi-tools', label: 'Microsoft 365, Wi-Fi, devices, and users', desc: 'Full stack helpdesk — not just one specialty.' },
+    ],
+    heroTriage: [
+      { icon: 'bi-chat-left-text', label: 'Issue reported', done: true },
+      { icon: 'bi-search', label: 'Remote triage', done: true },
+      { icon: 'bi-wrench-adjustable', label: 'Fix applied', done: false },
+      { icon: 'bi-file-earmark-text', label: 'Notes sent', done: false },
+    ],
+    whatWeFixCards: [
+      {
+        icon: 'bi-microsoft',
+        title: 'Microsoft 365 issues',
+        body: 'Mailbox access failures, license conflicts, admin console errors, and Teams policies that stopped working.',
+        link: '/microsoft-365',
+      },
+      {
+        icon: 'bi-envelope-check',
+        title: 'Outlook and Teams',
+        body: 'Stuck email sync, corrupted profiles, call drops, calendar conflicts, and shared mailbox permission errors.',
+      },
+      {
+        icon: 'bi-wifi',
+        title: 'Wi-Fi and network instability',
+        body: 'Dead zones, dropping access points, slow uploads, and VoIP breakdowns on shared office circuits.',
+        link: '/office-networking',
+      },
+      {
+        icon: 'bi-printer',
+        title: 'Printers and meeting rooms',
+        body: 'Network printers that work sometimes, meeting room AV that refuses to connect, and shared device chaos.',
+      },
+      {
+        icon: 'bi-person-plus',
+        title: 'User setup and offboarding',
+        body: 'New account provisioning, device setup, clean user exits, and permission cleanup in Microsoft 365.',
+      },
+      {
+        icon: 'bi-laptop',
+        title: 'Device troubleshooting',
+        body: 'Slow laptops, blue screens, software conflicts, failed OS updates, and hardware-level diagnostics.',
+      },
+      {
+        icon: 'bi-shield-lock',
+        title: 'MFA and login problems',
+        body: 'Repeated MFA prompts, account lockouts, conditional access misconfigurations, and tenant sign-in failures.',
+        link: '/guides/security/microsoft-365-security/mfa-rollout-small-business',
+      },
+      {
+        icon: 'bi-headset',
+        title: 'Overflow IT support',
+        body: 'After-hours help, specialist tasks, and capacity relief for Vaughan offices with an in-house IT person at capacity.',
+      },
+    ],
+    processSteps: [
+      { num: '01', title: 'Tell us what broke', body: 'Ticket, call, or email. Tell us the symptoms, any error message, and which users are affected.' },
+      { num: '02', title: 'Remote triage starts', body: 'We connect and diagnose before changing anything. Most Vaughan offices are back to working in the same session.' },
+      { num: '03', title: 'Fix or isolate the issue', body: 'We apply the fix, or isolate the root cause if something deeper is underneath the symptom.' },
+      { num: '04', title: 'On-site visit if needed', body: 'When physical access is required — hardware, printers, cabling, access points — we dispatch to your Vaughan office.' },
+      { num: '05', title: 'Plain-English notes to you', body: 'After every call, you get a summary of what changed, what caused it, and what to watch for next.' },
+      { num: '06', title: 'Prevention only if warranted', body: 'If the same issue is recurring, we flag the pattern and explain your options — without pushing an engagement you do not need.' },
+    ],
+    comparisonSection: {
+      note: "Not sure which fits? Once you're logging more than a few tickets per month, or one incident could materially hurt your business, the math usually tips toward managed IT.",
+      itSupport: {
+        label: 'IT Support',
+        tag: 'Fix issues as they happen',
+        bullets: [
+          'Best for urgent or occasional issues',
+          'Per-ticket, hourly, or support block',
+          'Helpdesk, Microsoft 365, Wi-Fi, and device fixes',
+          'No contract required',
+          'Remote or on-site, as needed',
+        ],
+        cta: 'Book IT Support',
+        ctaPath: '/it-assessment',
+      },
+      managedIt: {
+        label: 'Managed IT Services',
+        tag: 'Prevent issues before they happen',
+        bullets: [
+          'Best for ongoing coverage and prevention',
+          'Flat monthly plan — predictable cost',
+          'Monitoring, endpoint protection, patching, and backups',
+          'Vendor coordination included',
+          'Proactive security hardening',
+        ],
+        cta: 'View Managed IT Plans',
+        ctaPath: '/managed-it-services-vaughan',
+      },
+    },
+    localAreas: [
+      {
+        name: 'Vaughan Metropolitan Centre',
+        tag: 'VMC & Highway 7',
+        blurb: 'Modern towers, hybrid teams, and rapid headcount changes. Typical tickets: Teams call drops, conditional access failures, Wi-Fi handoff between floors, and new-user provisioning.',
+      },
+      {
+        name: 'Concord',
+        tag: 'Industrial & Office Hybrid',
+        blurb: 'Warehouses and front offices sharing the same network. Typical tickets: Wi-Fi dead zones on the floor, VoIP breaking under bulk uploads, printer connectivity, and device sprawl.',
+      },
+      {
+        name: 'Woodbridge',
+        tag: 'Professional Offices & Clinics',
+        blurb: 'Professional services, clinics, and real estate offices. Typical tickets: Outlook profile corruption, shared calendar issues, MFA prompt loops, and user account access.',
+      },
+      {
+        name: 'Maple',
+        tag: 'Local Offices & Retail',
+        blurb: 'Small teams needing reliable remote and on-site support. Typical tickets: Remote access failures, device performance, basic Microsoft 365 administration, and connectivity.',
+      },
+      {
+        name: 'Highway 7 / 400 Corridor',
+        tag: 'Multi-Tenant & Logistics',
+        blurb: 'Mixed device environments with multiple users and vendors. Typical tickets: Network reliability, Teams quality on shared circuits, vendor-caused changes, and device management.',
+      },
+    ],
+    afterCallDeliverables: [
+      { icon: 'bi-file-earmark-text', title: 'Plain-English summary', body: 'What changed, what was fixed, and what was deliberately left in place and why.' },
+      { icon: 'bi-search', title: 'Root cause notes', body: 'Where possible, we document what caused the issue — not just what was patched.' },
+      { icon: 'bi-arrow-right-circle', title: 'Recommended next steps', body: 'If your team has a follow-up action, we note it clearly before closing the ticket.' },
+      { icon: 'bi-shield-exclamation', title: 'Security observations', body: 'If we spot a misconfiguration, risky permission, or open exposure during the fix, we flag it.' },
+      { icon: 'bi-diagram-3', title: 'Escalation path', body: 'If the issue points toward managed IT, backup, or cybersecurity work, we explain the connection and your options.' },
+    ],
+    contextualLinks: [
+      { path: '/microsoft-365', label: 'Microsoft 365 Support', icon: 'bi-microsoft' },
+      { path: '/office-networking', label: 'Office Wi-Fi & Networking', icon: 'bi-wifi' },
+      { path: '/cybersecurity-services-vaughan', label: 'Cybersecurity Services', icon: 'bi-shield-lock' },
+      { path: '/managed-it-services-vaughan', label: 'Managed IT Services Vaughan', icon: 'bi-gear' },
+      { path: '/guides/security/microsoft-365-security/microsoft-365-checklist', label: 'M365 Security Checklist', icon: 'bi-list-check' },
+    ],
+    preCta: {
+      headline: "Not sure if this is a one-time issue or a bigger pattern?",
+      subheading: "Send us the symptoms. We'll tell you whether it looks like a quick fix, a support block, or a managed IT problem — no pressure, no sales pitch.",
+    },
     services: [
       'Helpdesk and ticket-based support — password resets, account lockouts, device problems',
       'Microsoft 365 issue resolution — Outlook sync, Teams call quality, mailbox access, MFA failures',
@@ -54,24 +206,24 @@ const CONTENT: Record<string, ItSupportContent> = {
         a: 'IT support is reactive — you call us when something breaks and we fix it, on a per-ticket or hourly basis. Managed IT services are a flat monthly subscription that includes proactive monitoring, endpoint protection, patching, backup, and vendor coordination so most issues never surface in the first place. If you mostly need someone to call when something goes wrong, this page is the right starting point. If you want IT problems prevented rather than reacted to, see our managed IT services in Vaughan page.',
       },
       {
-        q: 'How quickly can you respond to a Vaughan IT issue?',
-        a: 'Remote triage starts as soon as a ticket lands. For straightforward problems — password resets, Outlook sync, Teams call issues — most Vaughan offices are back to working the same morning. On-site visits to Concord, Woodbridge, Maple, and the Vaughan Metropolitan Centre are typically same-day or next-business-day depending on severity and where the office is.',
+        q: 'Do you provide one-time IT support in Vaughan?',
+        a: 'Yes. You can engage us for a single ticket, a one-off project, or a block of pre-paid hours — there is no requirement to sign up for ongoing managed IT services. If after working together it makes sense to move to a managed plan, we will tell you, but we will not push that conversation before you are ready.',
       },
       {
-        q: 'Can you fix a recurring Microsoft 365 problem at our Vaughan office?',
-        a: 'Yes — and recurring Microsoft 365 issues are usually the most common reason Vaughan offices reach out. Repeated MFA prompts, Outlook profiles that keep corrupting, conditional access rules that lock out the wrong users, mailboxes refusing to send: most of these come back to a misconfigured tenant. We diagnose the underlying setting, fix it once, and document what changed so the issue stops repeating.',
+        q: 'Can you help if we already have an internal IT person?',
+        a: 'Yes. Many Vaughan offices have one IT person who is at capacity. We take overflow tickets, after-hours work, and specialist tasks — Microsoft 365 security, Wi-Fi surveys, conditional access configuration — so the in-house person is not the only bottleneck when something urgent lands.',
       },
       {
-        q: 'Do you fix Wi-Fi and network problems on a one-off basis?',
+        q: 'Do you fix Microsoft 365 and Teams issues?',
+        a: 'Yes — and recurring Microsoft 365 issues are the most common reason Vaughan offices reach out. Repeated MFA prompts, Outlook profiles that keep corrupting, conditional access rules that lock out the wrong users: most of these come back to a misconfigured tenant. We diagnose the underlying setting, fix it once, and document what changed so the issue stops repeating.',
+      },
+      {
+        q: 'Can you help with Wi-Fi and network issues on a one-off basis?',
         a: 'Yes. We troubleshoot dead zones, dropping access points, slow uploads, and Teams or VoIP calls that fall apart under load — without requiring a full network redesign. If a deeper redesign is genuinely needed, we will tell you and quote it separately rather than billing endless ticket time.',
       },
       {
-        q: 'Can you act as overflow IT support for a Vaughan office that already has an in-house person?',
-        a: 'Yes. Plenty of Vaughan offices have one IT person who is at capacity — we take overflow tickets, after-hours work, or specialist tasks (Microsoft 365 security, Wi-Fi surveys, conditional access) so the in-house person is not the bottleneck.',
-      },
-      {
-        q: 'When should we move from IT support to managed IT services?',
-        a: 'Once a Vaughan office is logging more than a handful of tickets a month, or once a single ransomware incident, mailbox loss, or compromised account would be material to the business, the maths usually flips toward our managed IT services in Vaughan plan — flat monthly pricing, proactive monitoring, and endpoint protection on every device, instead of paying per ticket while a problem builds up in the background.',
+        q: 'When should we switch from break-fix support to managed IT services?',
+        a: 'Once a Vaughan office is logging more than a handful of tickets a month, or once a single ransomware incident, mailbox loss, or compromised account would be material to the business, the maths usually flips toward our managed IT services in Vaughan plan — flat monthly pricing, proactive monitoring, and endpoint protection on every device, instead of paying per ticket while a problem builds in the background.',
       },
     ],
     localSection: {

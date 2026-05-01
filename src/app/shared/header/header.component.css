@@ -35,6 +35,19 @@
   transform: translateY(-1px);
 }
 
+/* Button-based nav triggers */
+.nav-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  /* nav-link already handles padding via Bootstrap */
+}
+.nav-btn:focus-visible {
+  outline: 2px solid rgba(99, 102, 241, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 .navbar .btn-dark {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   border: none;
@@ -45,7 +58,7 @@
   box-shadow: 0 8px 20px rgba(99, 102, 241, 0.25);
 }
 
-/* Navbar CTA — fits the glass bar, escalates on hover */
+/* Navbar CTA */
 .nav-cta-btn {
   display: inline-flex;
   align-items: center;
@@ -82,6 +95,7 @@
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
+/* Standard dropdowns (Industries, Guides) */
 .dropdown-menu {
   border-radius: 12px;
   border: 1px solid rgba(99, 102, 241, 0.2);
@@ -141,14 +155,148 @@
   color: rgba(203, 213, 225, 0.7);
 }
 
+/* ===== Services Mega-Menu ===== */
+
+/* Remove positional containment from the <li> so the dropdown escapes it */
+.services-nav-item {
+  position: static !important;
+}
+
+.services-mega-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-radius: 0 0 16px 16px;
+  border: none;
+  border-top: 1px solid rgba(99, 102, 241, 0.15);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+  padding: 0;
+  background: rgba(6, 10, 22, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.mega-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 1.75rem;
+}
+
+.mega-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 1.75rem;
+}
+
+.mega-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-group-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(165, 180, 252, 0.55);
+  margin: 0 0 0.6rem 0.5rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.mega-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.18s ease;
+  margin-bottom: 0.05rem;
+}
+.mega-link:hover {
+  background: rgba(99, 102, 241, 0.12);
+}
+.mega-link:focus-visible {
+  outline: 2px solid rgba(99, 102, 241, 0.5);
+  outline-offset: 2px;
+}
+
+.mega-link-icon {
+  font-size: 0.95rem;
+  color: #818cf8;
+  margin-top: 0.18rem;
+  flex-shrink: 0;
+}
+
+.mega-link-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-link-label {
+  font-size: 0.855rem;
+  font-weight: 500;
+  color: rgba(248, 250, 252, 0.88);
+  line-height: 1.3;
+}
+
+.mega-link-desc {
+  font-size: 0.75rem;
+  color: rgba(165, 180, 252, 0.55);
+  line-height: 1.35;
+  margin-top: 0.1rem;
+}
+
+/* ===== Mobile ===== */
 @media (max-width: 991.98px) {
   .navbar-collapse {
     padding: 1rem 0;
   }
+
+  /* Standard dropdowns */
   .dropdown-menu {
     border: 0;
     box-shadow: none;
     padding: 0.35rem 0 0.35rem 1rem;
   }
   .nav-item { margin: 0.25rem 0; }
+
+  /* Mega-menu — revert to inline flow */
+  .services-nav-item {
+    position: relative !important;
+  }
+  .services-mega-dropdown {
+    position: static;
+    width: auto;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .mega-inner {
+    padding: 0.35rem 0 0.35rem 1rem;
+    max-width: none;
+  }
+  .mega-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .mega-group {
+    margin-bottom: 0.75rem;
+  }
+  .mega-group-title {
+    font-size: 0.65rem;
+    margin-left: 0;
+  }
+  .mega-link {
+    padding: 0.35rem 0.4rem;
+  }
+  .mega-link-desc {
+    display: none; /* hide descriptions on mobile to reduce clutter */
+  }
 }

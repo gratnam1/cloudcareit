@@ -20,88 +20,198 @@
     </button>
     <div class="navbar-collapse collapse" id="navbarNav" [class.show]="menuOpen">
       <ul class="navbar-nav ms-auto align-items-center">
+
+        <!-- Services mega-menu -->
+        <li class="nav-item dropdown services-nav-item" [class.show]="servicesOpen">
+          <button
+            class="nav-link nav-btn dropdown-toggle"
+            type="button"
+            [attr.aria-expanded]="servicesOpen"
+            aria-controls="servicesMenu"
+            aria-haspopup="true"
+            (click)="toggleServices($event)"
+          >
+            Services
+          </button>
+          <div class="dropdown-menu services-mega-dropdown" id="servicesMenu" [class.show]="servicesOpen" role="menu">
+            <div class="mega-inner">
+              <div class="mega-grid">
+
+                <!-- Group 1: Core IT -->
+                <div class="mega-group">
+                  <p class="mega-group-title">Core IT</p>
+                  <a class="mega-link" routerLink="/managed-it-services" (click)="closeNavMenus()">
+                    <i class="bi bi-laptop mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Managed IT Services</span>
+                      <span class="mega-link-desc">Full-service IT support for your team</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/it-support-vaughan" (click)="closeNavMenus()">
+                    <i class="bi bi-headset mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">IT Support Vaughan</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/it-support-mississauga" (click)="closeNavMenus()">
+                    <i class="bi bi-headset mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">IT Support Mississauga</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/microsoft-365" (click)="closeNavMenus()">
+                    <i class="bi bi-grid-3x3-gap mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Microsoft 365</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/office-networking" (click)="closeNavMenus()">
+                    <i class="bi bi-router mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Office Networking</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Group 2: Security -->
+                <div class="mega-group">
+                  <p class="mega-group-title">Security</p>
+                  <a class="mega-link" routerLink="/cybersecurity-services-vaughan" (click)="closeNavMenus()">
+                    <i class="bi bi-shield-lock mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Cybersecurity Services</span>
+                      <span class="mega-link-desc">Enterprise-grade protection for SMBs</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/security-firewall" (click)="closeNavMenus()">
+                    <i class="bi bi-shield-fill-exclamation mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Security &amp; Firewall</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/services/security-baseline-assessment" (click)="closeNavMenus()">
+                    <i class="bi bi-clipboard2-check mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Security Baseline Assessment</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/cyber-insurance-readiness-vaughan" (click)="closeNavMenus()">
+                    <i class="bi bi-patch-check mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Cyber Insurance Readiness</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/guides/security/endpoint-security" (click)="closeNavMenus()">
+                    <i class="bi bi-pc-display mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Endpoint Security Guide</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Group 3: Cloud & Recovery -->
+                <div class="mega-group">
+                  <p class="mega-group-title">Cloud &amp; Recovery</p>
+                  <a class="mega-link" routerLink="/cloud-services-vaughan" (click)="closeNavMenus()">
+                    <i class="bi bi-cloud-arrow-up mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Cloud Services Vaughan</span>
+                      <span class="mega-link-desc">Scalable cloud solutions for business</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/aws-infrastructure" (click)="closeNavMenus()">
+                    <i class="bi bi-server mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">AWS Infrastructure</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/google-workspace" (click)="closeNavMenus()">
+                    <i class="bi bi-google mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Google Workspace</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/crisis-recovery" (click)="closeNavMenus()">
+                    <i class="bi bi-arrow-counterclockwise mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Crisis Recovery</span>
+                    </span>
+                  </a>
+                </div>
+
+                <!-- Group 4: Growth & Web -->
+                <div class="mega-group">
+                  <p class="mega-group-title">Growth &amp; Web</p>
+                  <a class="mega-link" routerLink="/web-development" (click)="closeNavMenus()">
+                    <i class="bi bi-code-square mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Web Development</span>
+                      <span class="mega-link-desc">Sites that convert visitors to clients</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/seo-visibility" (click)="closeNavMenus()">
+                    <i class="bi bi-graph-up-arrow mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">SEO Visibility</span>
+                    </span>
+                  </a>
+                  <a class="mega-link" routerLink="/lead-generation" (click)="closeNavMenus()">
+                    <i class="bi bi-funnel mega-link-icon" aria-hidden="true"></i>
+                    <span class="mega-link-text">
+                      <span class="mega-link-label">Lead Generation</span>
+                    </span>
+                  </a>
+                </div>
+
+              </div><!-- /.mega-grid -->
+            </div><!-- /.mega-inner -->
+          </div><!-- /.services-mega-dropdown -->
+        </li>
+
         <!-- Industries dropdown -->
         <li class="nav-item dropdown" [class.show]="industriesOpen">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
+          <button
+            class="nav-link nav-btn dropdown-toggle"
+            type="button"
             [attr.aria-expanded]="industriesOpen"
+            aria-controls="industriesMenu"
+            aria-haspopup="true"
             (click)="toggleIndustries($event)"
           >
             Industries
-          </a>
-          <ul class="dropdown-menu border-0 shadow" [class.show]="industriesOpen">
-            <li><a class="dropdown-item" routerLink="/it-support-law-firms-toronto" (click)="closeNavMenus()">Law Firms</a></li>
-            <li><a class="dropdown-item" routerLink="/it-support-accounting-firms-gta" (click)="closeNavMenus()">Accounting Firms</a></li>
-            <li><a class="dropdown-item" routerLink="/it-support-medical-clinics-ontario" (click)="closeNavMenus()">Medical Clinics</a></li>
-            <li><a class="dropdown-item" routerLink="/it-support-engineering-firms-toronto" (click)="closeNavMenus()">Engineering Firms</a></li>
-            <li><a class="dropdown-item" routerLink="/it-support-small-businesses-gta" (click)="closeNavMenus()">Small Businesses</a></li>
+          </button>
+          <ul class="dropdown-menu border-0 shadow" id="industriesMenu" [class.show]="industriesOpen">
+            <li><a class="dropdown-item" routerLink="/it-support-law-firms-toronto" (click)="closeNavMenus()">
+              <i class="bi bi-briefcase me-2 text-indigo" aria-hidden="true"></i>Law Firms
+            </a></li>
+            <li><a class="dropdown-item" routerLink="/it-support-accounting-firms-gta" (click)="closeNavMenus()">
+              <i class="bi bi-calculator me-2 text-indigo" aria-hidden="true"></i>Accounting Firms
+            </a></li>
+            <li><a class="dropdown-item" routerLink="/it-support-medical-clinics-ontario" (click)="closeNavMenus()">
+              <i class="bi bi-hospital me-2 text-indigo" aria-hidden="true"></i>Medical Clinics
+            </a></li>
+            <li><a class="dropdown-item" routerLink="/it-support-engineering-firms-toronto" (click)="closeNavMenus()">
+              <i class="bi bi-gear me-2 text-indigo" aria-hidden="true"></i>Engineering Firms
+            </a></li>
+            <li><a class="dropdown-item" routerLink="/it-support-small-businesses-gta" (click)="closeNavMenus()">
+              <i class="bi bi-shop me-2 text-indigo" aria-hidden="true"></i>Small Businesses
+            </a></li>
           </ul>
         </li>
-        <!-- Locations dropdown -->
-        <li class="nav-item dropdown" [class.show]="locationsOpen">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
-            [attr.aria-expanded]="locationsOpen"
-            (click)="toggleLocations($event)"
-          >
-            Locations
-          </a>
-          <ul class="dropdown-menu border-0 shadow" [class.show]="locationsOpen">
-            <li><a class="dropdown-item" routerLink="/managed-it-services-vaughan" (click)="closeNavMenus()">Vaughan</a></li>
-            <li><a class="dropdown-item" routerLink="/managed-it-services-toronto" (click)="closeNavMenus()">Toronto</a></li>
-            <li><a class="dropdown-item" routerLink="/managed-it-services-mississauga" (click)="closeNavMenus()">Mississauga</a></li>
-            <li><a class="dropdown-item" routerLink="/managed-it-services-thornhill" (click)="closeNavMenus()">Thornhill</a></li>
-            <li><a class="dropdown-item" routerLink="/managed-it-services-richmond-hill" (click)="closeNavMenus()">Richmond Hill</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link px-3" routerLink="/" fragment="services" (click)="closeNavMenus()">Services</a></li>
-        <!-- Free Tools dropdown -->
-        <li class="nav-item dropdown" [class.show]="toolsOpen">
-          <a
-            class="nav-link dropdown-toggle px-3"
-            href="#"
-            role="button"
-            [attr.aria-expanded]="toolsOpen"
-            (click)="toggleTools($event)"
-          >
-            Free Tools
-          </a>
-          <ul class="dropdown-menu border-0 shadow" [class.show]="toolsOpen">
-            <li>
-              <a class="dropdown-item" routerLink="/" fragment="risk-calculator" (click)="closeNavMenus()">
-                <i class="bi bi-calculator me-2 text-indigo"></i>Downtime & ROI Calculator
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="/free-security-assessment" (click)="closeNavMenus()">
-                <i class="bi bi-shield-check me-2 text-indigo"></i>Instant Domain Scanner
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" routerLink="/office-it-relocation" (click)="closeNavMenus()">
-                <i class="bi bi-truck me-2 text-indigo"></i>Office Move Checklist
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link px-3" routerLink="/about" (click)="closeNavMenus()">About</a></li>
-        <li class="nav-item"><a class="nav-link px-3" routerLink="/blog" (click)="closeNavMenus()">Blog</a></li>
+
         <!-- Guides dropdown -->
         <li class="nav-item dropdown" [class.show]="guidesOpen">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            role="button"
+          <button
+            class="nav-link nav-btn dropdown-toggle"
+            type="button"
             [attr.aria-expanded]="guidesOpen"
+            aria-controls="guidesMenu"
+            aria-haspopup="true"
             (click)="toggleGuides($event)"
           >
             Guides
-          </a>
-          <ul class="dropdown-menu border-0 shadow guides-dropdown" [class.show]="guidesOpen">
+          </button>
+          <ul class="dropdown-menu border-0 shadow guides-dropdown" id="guidesMenu" [class.show]="guidesOpen">
             <li>
               <a class="dropdown-item dropdown-item-header" routerLink="/guides" (click)="closeNavMenus()">
                 All Guides
@@ -112,6 +222,11 @@
               <a class="dropdown-item" routerLink="/guides/security" (click)="closeNavMenus()">
                 <i class="bi bi-shield-lock me-2 text-indigo" aria-hidden="true"></i>Security
                 <span class="nav-badge nav-badge-live ms-2">Live</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/guides/security/microsoft-365-security/microsoft-365-checklist" (click)="closeNavMenus()">
+                <i class="bi bi-grid-3x3-gap me-2 text-indigo" aria-hidden="true"></i>M365 Security Checklist
               </a>
             </li>
             <li>
@@ -126,17 +241,15 @@
                 <span class="nav-badge nav-badge-soon ms-2">Soon</span>
               </span>
             </li>
-            <li>
-              <span class="dropdown-item dropdown-item-soon">
-                <i class="bi bi-robot me-2" aria-hidden="true"></i>AI Automation
-                <span class="nav-badge nav-badge-soon ms-2">Soon</span>
-              </span>
-            </li>
           </ul>
         </li>
+
+        <li class="nav-item"><a class="nav-link px-3" routerLink="/blog" (click)="closeNavMenus()">Blog</a></li>
+        <li class="nav-item"><a class="nav-link px-3" routerLink="/about" (click)="closeNavMenus()">About</a></li>
+
         <li class="nav-item ms-lg-3">
           <a class="nav-cta-btn rounded-pill px-4 fw-bold" routerLink="/it-assessment" (click)="closeNavMenus()">
-            <i class="bi bi-clipboard2-check me-1"></i>Free IT Assessment
+            <i class="bi bi-clipboard2-check me-1" aria-hidden="true"></i>Free IT Assessment
           </a>
         </li>
       </ul>

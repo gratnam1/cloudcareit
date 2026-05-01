@@ -16,10 +16,9 @@ export class HeaderComponent implements AfterViewInit {
   private platformId = inject(PLATFORM_ID);
 
   menuOpen = false;
-  locationsOpen = false;
+  servicesOpen = false;
   industriesOpen = false;
   guidesOpen = false;
-  toolsOpen = false;
 
   constructor() {
     this.router.events
@@ -38,57 +37,44 @@ export class HeaderComponent implements AfterViewInit {
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
     if (!this.menuOpen) {
-      this.locationsOpen = false;
+      this.servicesOpen = false;
       this.industriesOpen = false;
       this.guidesOpen = false;
-      this.toolsOpen = false;
     }
   }
 
-  toggleLocations(event: Event): void {
+  toggleServices(event: Event): void {
     event.preventDefault();
-    this.locationsOpen = !this.locationsOpen;
+    this.servicesOpen = !this.servicesOpen;
     this.industriesOpen = false;
     this.guidesOpen = false;
-    this.toolsOpen = false;
   }
 
   toggleIndustries(event: Event): void {
     event.preventDefault();
     this.industriesOpen = !this.industriesOpen;
-    this.locationsOpen = false;
+    this.servicesOpen = false;
     this.guidesOpen = false;
-    this.toolsOpen = false;
   }
 
   toggleGuides(event: Event): void {
     event.preventDefault();
     this.guidesOpen = !this.guidesOpen;
-    this.locationsOpen = false;
+    this.servicesOpen = false;
     this.industriesOpen = false;
-    this.toolsOpen = false;
-  }
-
-  toggleTools(event: Event): void {
-    event.preventDefault();
-    this.toolsOpen = !this.toolsOpen;
-    this.locationsOpen = false;
-    this.industriesOpen = false;
-    this.guidesOpen = false;
   }
 
   closeNavMenus(): void {
     this.menuOpen = false;
-    this.locationsOpen = false;
+    this.servicesOpen = false;
     this.industriesOpen = false;
     this.guidesOpen = false;
-    this.toolsOpen = false;
   }
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
     if (!isPlatformBrowser(this.platformId)) return;
-    
+
     const target = event.target as Node | null;
     const nav = this.document.querySelector('.navbar');
     if (!target || !nav) return;
@@ -105,7 +91,7 @@ export class HeaderComponent implements AfterViewInit {
   private setupNavbarScroll(): void {
     const nav = this.document.querySelector('.navbar');
     if (!nav || !this.document.defaultView) return;
-    
+
     const onScroll = (): void => {
       const scrolled = (this.document.defaultView?.scrollY ?? 0) > 20;
       nav.classList.toggle('scrolled', scrolled);

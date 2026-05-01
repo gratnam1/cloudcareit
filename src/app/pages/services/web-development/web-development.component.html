@@ -1,88 +1,531 @@
-<section class="service-detail-page py-5">
-  <div class="container py-5">
-    <div class="mb-4">
-      <a class="service-back-link text-decoration-none" routerLink="/">← Back to Home</a>
-    </div>
+<main class="wd-page">
 
-    <div class="row g-4 align-items-stretch">
-      <div class="col-lg-7">
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 h-100">
-          <h1 class="fw-bold display-6 mb-3">Web Development for Growth-Focused Service Firms</h1>
-          <p class="text-muted lead mb-4">
-            Build fast, secure, conversion-oriented websites that support sales conversations, not just visual branding. We prioritize performance, clarity, and measurable funnel outcomes.
+  <!-- ========== HERO ========== -->
+  <section class="wd-hero">
+    <div class="container">
+      <a class="wd-back-link wd-reveal" routerLink="/"><i class="bi bi-arrow-left" aria-hidden="true"></i>Back to Home</a>
+      <div class="wd-hero-grid">
+        <div class="wd-hero-copy wd-reveal">
+          <span class="wd-kicker"><i class="bi bi-code-square" aria-hidden="true"></i> Web development for small businesses</span>
+          <h1>Web Development for Small Business Websites</h1>
+          <p class="wd-lead">
+            Build a faster, clearer small-business website with service pages, technical SEO basics, conversion paths, and practical inquiry capture — designed for service businesses in Vaughan and the GTA that need their site to work harder than it looks.
           </p>
-          <p class="text-muted mb-4">
-            Need full digital growth operations after launch? Pair this service with
-            <a routerLink="/seo-visibility">SEO and Visibility</a>
-            and
-            <a routerLink="/lead-generation">Lead Generation</a>.
+          <p class="wd-sublead">
+            For businesses with roughly 5–50 staff that need a professional website built around service-page depth, local SEO foundations, strong CTAs, and a structure that supports ongoing visibility and lead generation.
           </p>
-
-          <h2 class="h5 fw-bold mb-3">Build Architecture</h2>
-          <ul class="text-muted">
-            <li>Component-based frontend implementation with maintainable content structure</li>
-            <li>Mobile-first layout and interaction model for service-intent users</li>
-            <li>Core Web Vitals optimization for loading, responsiveness, and stability</li>
-            <li>Security-first deployment posture and dependency hygiene</li>
-            <li>Structured page hierarchy for SEO crawlability and topical depth</li>
-            <li>Reusable CTA and lead-capture patterns aligned to service intent</li>
-            <li>Analytics instrumentation for calls, forms, and high-intent actions</li>
-            <li>Post-launch maintenance workflow and change management process</li>
+          <div class="wd-hero-actions">
+            <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow wd-primary-cta" routerLink="/" fragment="consultation">
+              Request a Website Review
+              <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+            </a>
+            <a class="wd-secondary-cta" routerLink="/blog/web-development-gta">
+              How to structure a small business site? <span>Read the GTA web guide<i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></span>
+            </a>
+          </div>
+          <ul class="wd-badges" aria-label="Web development service coverage areas">
+            <li><i class="bi bi-layout-text-window" aria-hidden="true"></i>Service pages</li>
+            <li><i class="bi bi-search" aria-hidden="true"></i>SEO basics</li>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i>Location pages</li>
+            <li><i class="bi bi-cursor" aria-hidden="true"></i>CTAs &amp; forms</li>
+            <li><i class="bi bi-lightning" aria-hidden="true"></i>Performance</li>
+            <li><i class="bi bi-graph-up" aria-hidden="true"></i>Analytics</li>
           </ul>
-
-          <h2 class="h5 fw-bold mt-4 mb-3">Conversion and Measurement Plan</h2>
-          <ol class="text-muted ps-3 mb-0">
-            <li>Define primary conversion events and user intent paths by service line.</li>
-            <li>Build page templates around decision-stage objections and trust signals.</li>
-            <li>Implement tracking for source, page depth, and conversion quality.</li>
-            <li>Iterate monthly based on funnel performance, not assumptions.</li>
-          </ol>
-
-          <p class="text-muted mt-4 mb-0">
-            After the site foundation is in place, dedicated
-            <a routerLink="/seo-visibility">SEO visibility services</a>
-            help improve crawlability, service-page depth, and local search presence — turning a launched site into a discoverable one.
-          </p>
-
-          <div class="d-flex gap-3 flex-wrap mt-4">
-            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/" fragment="consultation">
-              Request Website Audit
-            </a>
-            <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/seo-visibility">
-              Improve SEO Depth
-            </a>
-          </div>
         </div>
+
+        <aside class="wd-foundation-snapshot wd-reveal" aria-label="Website foundation snapshot panel">
+          <div class="wd-snapshot-header">
+            <div>
+              <span>Website foundation snapshot</span>
+              <h2>Typical site gaps</h2>
+            </div>
+            <i class="bi bi-code-square" aria-hidden="true"></i>
+          </div>
+          <div class="wd-snapshot-meter" aria-hidden="true">
+            <span class="meter-fill"></span><span class="meter-fill"></span><span class="meter-amber"></span><span class="meter-amber"></span><span></span><span></span>
+          </div>
+          <ul class="wd-snapshot-rows">
+            <li>
+              <i class="bi bi-diagram-3" aria-hidden="true"></i>
+              <span>Page structure</span>
+              <strong>In place</strong>
+            </li>
+            <li>
+              <i class="bi bi-layout-text-window" aria-hidden="true"></i>
+              <span>Service pages</span>
+              <strong>Needs depth</strong>
+            </li>
+            <li>
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <span>SEO basics</span>
+              <strong>Partial</strong>
+            </li>
+            <li>
+              <i class="bi bi-lightning" aria-hidden="true"></i>
+              <span>Performance</span>
+              <strong>Acceptable</strong>
+            </li>
+            <li>
+              <i class="bi bi-cursor" aria-hidden="true"></i>
+              <span>CTAs &amp; forms</span>
+              <strong>Needs work</strong>
+            </li>
+            <li>
+              <i class="bi bi-graph-up" aria-hidden="true"></i>
+              <span>Analytics</span>
+              <strong>Not set up</strong>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE BUILD / IMPROVE ========== -->
+  <section class="wd-section" aria-labelledby="improve-title">
+    <div class="container">
+      <div class="wd-section-head wd-reveal">
+        <span class="wd-kicker">What we build and improve</span>
+        <h2 id="improve-title">Practical website improvements for service businesses</h2>
+        <p class="wd-section-intro">
+          Ten areas where small business websites typically underperform. None of these involve templates, gimmicks, or guaranteed rankings — they are structural improvements to how your site supports credibility, local search, and inquiries.
+        </p>
+      </div>
+      <div class="wd-check-grid">
+        <article class="wd-check-card wd-reveal"><i class="bi bi-layout-text-window" aria-hidden="true"></i><span>Service pages</span></article>
+        <article class="wd-check-card wd-reveal"><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Location pages</span></article>
+        <article class="wd-check-card wd-reveal"><i class="bi bi-file-earmark-text" aria-hidden="true"></i><span>Landing pages</span></article>
+        <article class="wd-check-card wd-reveal"><i class="bi bi-search" aria-hidden="true"></i><span>Technical SEO basics</span></article>
+        <article class="wd-check-card wd-reveal"><i class="bi bi-lightning" aria-hidden="true"></i><span>Performance &amp; Core Web Vitals</span></article>
+        <article class="wd-check-card wd-reveal"><i class="bi bi-cursor" aria-hidden="true"></i><span>CTAs &amp; contact forms</span></article>
+        <article class="wd-check-card wd-reveal"><i class="bi bi-graph-up" aria-hidden="true"></i><span>Analytics &amp; tracking</span></article>
+        <article class="wd-check-card wd-reveal"><i class="bi bi-card-text" aria-hidden="true"></i><span>Content structure</span></article>
+        <article class="wd-check-card wd-reveal"><i class="bi bi-shield-check" aria-hidden="true"></i><span>Security basics</span></article>
+        <article class="wd-check-card wd-reveal"><i class="bi bi-arrow-repeat" aria-hidden="true"></i><span>Maintainable structure</span></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHEN THIS MAKES SENSE ========== -->
+  <section class="wd-section" aria-labelledby="triggers-title">
+    <div class="container">
+      <div class="wd-section-head wd-reveal">
+        <span class="wd-kicker">When this makes sense</span>
+        <h2 id="triggers-title">Practical signals it's time for a website improvement</h2>
+        <p class="wd-section-intro">
+          Most engagements start with one of these moments. If any of them sound familiar, the issue is usually in the structure, content depth, or technical setup of the site — not how much was originally spent building it.
+        </p>
+      </div>
+      <div class="wd-trigger-grid">
+        <article class="wd-trigger-card wd-reveal">
+          <div class="wd-trigger-icon"><i class="bi bi-cursor-x" aria-hidden="true"></i></div>
+          <h3>Site looks decent but doesn't convert</h3>
+          <p>The site is professional-looking but visitors browse and leave without inquiring. There's no clear next step and no friction-reducing path to contact.</p>
+        </article>
+        <article class="wd-trigger-card wd-reveal">
+          <div class="wd-trigger-icon"><i class="bi bi-file-earmark-x" aria-hidden="true"></i></div>
+          <h3>Service pages are thin or generic</h3>
+          <p>Each service gets a short paragraph and a bullet list. Buyers can't tell what's actually involved and your page looks the same as every competitor's.</p>
+        </article>
+        <article class="wd-trigger-card wd-reveal">
+          <div class="wd-trigger-icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></div>
+          <h3>Location pages are just city-name swaps</h3>
+          <p>The same page template is reused with only the city name changed. Google treats near-duplicate pages as low-quality and may suppress them in local search.</p>
+        </article>
+        <article class="wd-trigger-card wd-reveal">
+          <div class="wd-trigger-icon"><i class="bi bi-search" aria-hidden="true"></i></div>
+          <h3>Google isn't indexing pages consistently</h3>
+          <p>Some pages are missing from search results. Titles, meta descriptions, and sitemaps aren't properly configured and crawlability hasn't been reviewed.</p>
+        </article>
+        <article class="wd-trigger-card wd-reveal">
+          <div class="wd-trigger-icon"><i class="bi bi-question-circle" aria-hidden="true"></i></div>
+          <h3>Visitors can't tell what you offer</h3>
+          <p>The homepage is vague. Services aren't clearly explained. Buyers can't figure out whether you're the right fit without calling to ask basic questions.</p>
+        </article>
+        <article class="wd-trigger-card wd-reveal">
+          <div class="wd-trigger-icon"><i class="bi bi-ui-checks" aria-hidden="true"></i></div>
+          <h3>Forms and CTAs are weak or buried</h3>
+          <p>There's a generic "Contact us" form buried at the bottom. No service-specific inquiry path. No clear prompt on service pages to take the next step.</p>
+        </article>
+        <article class="wd-trigger-card wd-reveal">
+          <div class="wd-trigger-icon"><i class="bi bi-pencil-square" aria-hidden="true"></i></div>
+          <h3>Content is hard to update</h3>
+          <p>Updating a service description or adding a new team member requires a developer, takes weeks, or risks breaking the layout — so it doesn't get done.</p>
+        </article>
+        <article class="wd-trigger-card wd-reveal">
+          <div class="wd-trigger-icon"><i class="bi bi-hourglass" aria-hidden="true"></i></div>
+          <h3>Site is slow or visually outdated</h3>
+          <p>Pages load slowly on mobile. The design looks dated. Core Web Vitals scores are poor and the site no longer reflects the quality of the business itself.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WEBSITE FOUNDATION MAP ========== -->
+  <section class="wd-section wd-map-section" aria-labelledby="map-title">
+    <div class="container">
+      <div class="wd-section-head wd-reveal">
+        <span class="wd-kicker">Website foundation map</span>
+        <h2 id="map-title">The six areas we walk through with you</h2>
+        <p class="wd-section-intro">
+          For each area we identify the common problem, what CtrlShift specifically improves, and the typical next step. A practical reference — not a vendor pitch.
+        </p>
       </div>
 
-      <div class="col-lg-5">
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 h-100">
-          <h3 class="fw-bold mb-3">Quality Gates Before Launch</h3>
-          <p class="text-muted">
-            Every build is reviewed for speed, accessibility, analytics integrity, and conversion clarity before it goes live.
-          </p>
+      <div class="wd-foundation-map wd-reveal" role="table" aria-label="Website foundation map">
+        <div class="wd-map-head" role="rowgroup">
+          <div class="wd-map-row wd-map-row--head" role="row">
+            <div role="columnheader">Website area</div>
+            <div role="columnheader">Common problem</div>
+            <div role="columnheader">What CtrlShift improves</div>
+            <div role="columnheader">Typical next step</div>
+          </div>
+        </div>
+        <div class="wd-map-body" role="rowgroup">
 
-          <div class="border rounded-4 p-3 bg-light mb-3">
-            <div class="fw-bold mb-2">Launch package</div>
-            <ul class="text-muted small mb-0">
-              <li>Performance benchmark and optimization checklist</li>
-              <li>Conversion tracking map and analytics verification</li>
-              <li>Technical SEO readiness checklist</li>
-            </ul>
+          <div class="wd-map-row" role="row">
+            <div class="wd-map-area" role="cell">
+              <div class="wd-map-area-icon wd-area--service"><i class="bi bi-layout-text-window" aria-hidden="true"></i></div>
+              <div class="wd-map-area-text">
+                <div class="wd-map-cell-label">Website area</div>
+                <h3>Service pages</h3>
+              </div>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Common problem</div>
+              <p>Thin, generic copy — a short paragraph and bullet list that looks the same as every competitor and doesn't explain what the service actually involves.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">What we improve</div>
+              <p>Buyer-focused depth with clear scope, process, trust signals, and intent-matched CTAs so each service page converts the right visitors.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Typical next step</div>
+              <p><span class="wd-step-pill wd-step--service">Improve page quality</span></p>
+            </div>
           </div>
 
-          <div class="border rounded-4 p-3 bg-light">
-            <div class="fw-bold mb-1">Project intake</div>
-            <div class="text-muted small">Send your current website URL and target services. We will prioritize the changes most likely to improve lead quality and conversion rates.</div>
+          <div class="wd-map-row" role="row">
+            <div class="wd-map-area" role="cell">
+              <div class="wd-map-area-icon wd-area--location"><i class="bi bi-geo-alt" aria-hidden="true"></i></div>
+              <div class="wd-map-area-text">
+                <div class="wd-map-cell-label">Website area</div>
+                <h3>Location pages</h3>
+              </div>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Common problem</div>
+              <p>City-name swaps on identical templates. Search engines identify near-duplicate content, reducing visibility for the local queries these pages target.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">What we improve</div>
+              <p>Unique local sections, area-specific service context, and internal links that differentiate each location page from the others.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Typical next step</div>
+              <p><span class="wd-step-pill wd-step--location">Reduce template risk</span></p>
+            </div>
           </div>
 
-          <div class="mt-4">
-            <a class="btn btn-dark rounded-pill w-100 py-3 fw-bold" routerLink="/" fragment="consultation" href="/#consultation">
-              Get Recommendation
-            </a>
+          <div class="wd-map-row" role="row">
+            <div class="wd-map-area" role="cell">
+              <div class="wd-map-area-icon wd-area--seo"><i class="bi bi-search" aria-hidden="true"></i></div>
+              <div class="wd-map-area-text">
+                <div class="wd-map-cell-label">Website area</div>
+                <h3>Technical SEO</h3>
+              </div>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Common problem</div>
+              <p>Missing or mismatched title tags, no canonical URLs, broken sitemap, missing schema markup — foundations that affect how Google crawls and indexes your pages.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">What we improve</div>
+              <p>Route-level meta review, canonical setup, sitemap and schema audit, and corrections that improve crawlability and indexation. Pairs with <a routerLink="/seo-visibility">SEO visibility</a> for full depth.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Typical next step</div>
+              <p><span class="wd-step-pill wd-step--seo">Improve crawlability</span></p>
+            </div>
           </div>
+
+          <div class="wd-map-row" role="row">
+            <div class="wd-map-area" role="cell">
+              <div class="wd-map-area-icon wd-area--conversion"><i class="bi bi-cursor" aria-hidden="true"></i></div>
+              <div class="wd-map-area-text">
+                <div class="wd-map-cell-label">Website area</div>
+                <h3>Conversion path</h3>
+              </div>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Common problem</div>
+              <p>Weak or generic CTAs, no service-specific inquiry forms, and no clear next step from service page to contact. Leads are left to figure out the process themselves.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">What we improve</div>
+              <p>Clear, specific CTAs on each page, simplified inquiry forms with qualifying questions, and a direct path from visitor intent to contact. Connects to <a routerLink="/lead-generation">lead generation</a> work.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Typical next step</div>
+              <p><span class="wd-step-pill wd-step--conversion">Improve lead capture</span></p>
+            </div>
+          </div>
+
+          <div class="wd-map-row" role="row">
+            <div class="wd-map-area" role="cell">
+              <div class="wd-map-area-icon wd-area--perf"><i class="bi bi-lightning" aria-hidden="true"></i></div>
+              <div class="wd-map-area-text">
+                <div class="wd-map-cell-label">Website area</div>
+                <h3>Performance</h3>
+              </div>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Common problem</div>
+              <p>Slow page load on mobile, unoptimized images, render-blocking scripts, and poor Core Web Vitals scores that hurt both user experience and search ranking signals.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">What we improve</div>
+              <p>Optimize asset loading, reduce render-blocking dependencies, and tune page structure for better LCP, CLS, and INP scores across mobile and desktop.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Typical next step</div>
+              <p><span class="wd-step-pill wd-step--perf">Improve user experience</span></p>
+            </div>
+          </div>
+
+          <div class="wd-map-row" role="row">
+            <div class="wd-map-area" role="cell">
+              <div class="wd-map-area-icon wd-area--analytics"><i class="bi bi-graph-up" aria-hidden="true"></i></div>
+              <div class="wd-map-area-text">
+                <div class="wd-map-cell-label">Website area</div>
+                <h3>Analytics</h3>
+              </div>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Common problem</div>
+              <p>No analytics configured, no event tracking, no way to know which pages, CTAs, or traffic sources are generating the inquiries that matter to the business.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">What we improve</div>
+              <p>Add an event and conversion tracking plan so you can see which pages convert, which traffic sources matter, and where to focus future content or SEO effort.</p>
+            </div>
+            <div class="wd-map-cell" role="cell">
+              <div class="wd-map-cell-label">Typical next step</div>
+              <p><span class="wd-step-pill wd-step--analytics">Understand what works</span></p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ========== PROCESS ========== -->
+  <section class="wd-section" aria-labelledby="process-title">
+    <div class="container">
+      <div class="wd-section-head wd-reveal">
+        <span class="wd-kicker">Process</span>
+        <h2 id="process-title">How a web development engagement works</h2>
+        <p class="wd-section-intro">
+          Seven steps designed around small business realities — most of the planning and review happens on our side, not in lengthy meetings on yours.
+        </p>
+      </div>
+      <ol class="wd-process wd-process-vertical" aria-label="Web development engagement process">
+        <li class="wd-process-step">
+          <span>01</span>
+          <h3>Discovery and website goals</h3>
+          <p>Understand your services, target buyers, current website gaps, and what the site needs to do — whether that's generate inquiries, support a sales process, or improve local search visibility.</p>
+        </li>
+        <li class="wd-process-step">
+          <span>02</span>
+          <h3>Sitemap and page plan</h3>
+          <p>Map out the complete page structure: which service pages to build or improve, which location pages are needed, and how pages link together to support both SEO and conversion.</p>
+        </li>
+        <li class="wd-process-step">
+          <span>03</span>
+          <h3>Design and content structure</h3>
+          <p>Define the layout hierarchy for each page — section order, key messages, trust signals, FAQ placement, and CTA positioning — before writing a word of copy or building anything.</p>
+        </li>
+        <li class="wd-process-step">
+          <span>04</span>
+          <h3>Build and technical SEO setup</h3>
+          <p>Implement the pages with performance-optimized structure, route-level meta tags, canonical URLs, sitemap, structured data, and schema markup configured from the start.</p>
+        </li>
+        <li class="wd-process-step">
+          <span>05</span>
+          <h3>Forms, CTA, and tracking setup</h3>
+          <p>Add service-specific inquiry forms with qualifying questions, clear CTAs on each page, and Google Analytics event tracking so every form submission and key click is measured.</p>
+        </li>
+        <li class="wd-process-step">
+          <span>06</span>
+          <h3>Review, launch, and post-launch checks</h3>
+          <p>Full pre-launch checklist covering speed, accessibility, SEO basics, form delivery, analytics verification, and conversion clarity before the site goes live.</p>
+        </li>
+        <li class="wd-process-step">
+          <span>07</span>
+          <h3>Optional SEO visibility and lead-generation handoff</h3>
+          <p>Once the foundation is in place, the site is ready to benefit from dedicated <a routerLink="/seo-visibility">SEO visibility work</a> and a structured <a routerLink="/lead-generation">lead-generation review</a> — or both together.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== DELIVERABLES ========== -->
+  <section class="wd-section" aria-labelledby="deliverables-title">
+    <div class="container">
+      <div class="wd-section-head wd-reveal">
+        <span class="wd-kicker">Deliverables</span>
+        <h2 id="deliverables-title">What you receive</h2>
+        <p class="wd-section-intro">
+          Concrete artifacts you can keep and act on with any developer, content team, or on your own — not just a verbal walkthrough or design mockup.
+        </p>
+      </div>
+      <div class="wd-card-grid wd-deliverables-grid">
+        <article class="wd-info-card wd-reveal"><i class="bi bi-diagram-3" aria-hidden="true"></i><h3>Sitemap and page structure</h3><p>A clear map of every page — service, location, landing, and supporting — with how they link together.</p></article>
+        <article class="wd-info-card wd-reveal"><i class="bi bi-layout-text-window" aria-hidden="true"></i><h3>Conversion-focused page layouts</h3><p>Page section plans for each key page with CTA placement, trust-signal positioning, and buyer-intent framing.</p></article>
+        <article class="wd-info-card wd-reveal"><i class="bi bi-file-earmark-text" aria-hidden="true"></i><h3>Service-page content framework</h3><p>A content framework for each service page — structure, key buyer questions to answer, and tone guidance.</p></article>
+        <article class="wd-info-card wd-reveal"><i class="bi bi-search" aria-hidden="true"></i><h3>Technical SEO basics</h3><p>Configured title tags, meta descriptions, canonical URLs, sitemap, and schema markup reviewed for each route.</p></article>
+        <article class="wd-info-card wd-reveal"><i class="bi bi-cursor" aria-hidden="true"></i><h3>Forms and CTA setup</h3><p>Service-specific inquiry forms with qualifying questions and clear, intent-matched CTAs on every page.</p></article>
+        <article class="wd-info-card wd-reveal"><i class="bi bi-graph-up" aria-hidden="true"></i><h3>Analytics and tracking plan</h3><p>An event tracking plan for form submissions, CTA clicks, and key pages so you know what's working.</p></article>
+        <article class="wd-info-card wd-reveal"><i class="bi bi-list-check" aria-hidden="true"></i><h3>Launch checklist</h3><p>Pre-launch checklist covering speed, SEO basics, form delivery, analytics, accessibility, and conversion clarity.</p></article>
+        <article class="wd-info-card wd-reveal"><i class="bi bi-arrow-right-circle" aria-hidden="true"></i><h3>Post-launch recommendations</h3><p>A short list of follow-up improvements — content additions, SEO next steps, and analytics review cadence.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRUST / DISCLAIMER ========== -->
+  <section class="wd-section wd-trust-section" aria-labelledby="trust-title">
+    <div class="container">
+      <div class="wd-trust-card wd-reveal">
+        <div class="wd-trust-header">
+          <div class="wd-trust-icon" aria-hidden="true"><i class="bi bi-info-circle"></i></div>
+          <div>
+            <span class="wd-kicker">What this engagement is — and isn't</span>
+            <h2 id="trust-title">Honest scope, no overpromising</h2>
+          </div>
+        </div>
+        <ul class="wd-trust-list">
+          <li>
+            <span class="wd-trust-pill wd-trust-pill--no">Not</span>
+            <p>guaranteed search rankings, guaranteed lead volume, or guaranteed revenue. A stronger website foundation reduces friction and improves visibility conditions — it does not override market demand.</p>
+          </li>
+          <li>
+            <span class="wd-trust-pill wd-trust-pill--no">Not</span>
+            <p>fake reviews, bought reviews, review gating, fabricated testimonials, or invented portfolio results. We do not misrepresent results to win business.</p>
+          </li>
+          <li>
+            <span class="wd-trust-pill wd-trust-pill--no">Not</span>
+            <p>black-hat SEO tactics: keyword stuffing, private blog networks, cloaking, link schemes, or anything that violates Google's quality guidelines.</p>
+          </li>
+          <li>
+            <span class="wd-trust-pill wd-trust-pill--no">Not</span>
+            <p>cheap template websites with no customization, copy-paste service pages, or build-and-disappear engagements with no post-launch support or guidance.</p>
+          </li>
+          <li>
+            <span class="wd-trust-pill wd-trust-pill--yes">Is</span>
+            <p>a practical, plain-English web development engagement — service pages, technical SEO basics, CTAs, forms, analytics setup, and a launch checklist — with a stronger foundation that can support both <a routerLink="/seo-visibility">SEO visibility</a> and <a routerLink="/lead-generation">lead generation</a> over time.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="wd-section" aria-labelledby="related-title">
+    <div class="container">
+      <div class="wd-section-head wd-reveal">
+        <span class="wd-kicker">Related work</span>
+        <h2 id="related-title">Where to go next</h2>
+        <p class="wd-section-intro">
+          Pages and guides that pair naturally with a web development engagement.
+        </p>
+      </div>
+      <div class="wd-related-grid">
+        <a class="wd-related-card wd-reveal" routerLink="/seo-visibility">
+          <div class="wd-related-label">Service</div>
+          <h3>SEO visibility</h3>
+          <p>Make sure the traffic reaching your newly improved service pages is qualified and locally relevant — the next step after the foundation is in place.</p>
+          <span class="wd-related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="wd-related-card wd-reveal" routerLink="/lead-generation">
+          <div class="wd-related-label">Service</div>
+          <h3>Lead generation</h3>
+          <p>Once the site structure is strong, a lead-generation review improves CTAs, forms, local SEO alignment, and the conversion path from visitor to inquiry.</p>
+          <span class="wd-related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="wd-related-card wd-reveal" routerLink="/managed-it-services">
+          <div class="wd-related-label">Service</div>
+          <h3>Managed IT services</h3>
+          <p>Day-to-day IT and security support for the small offices we also help with website foundations, SEO visibility, and lead generation.</p>
+          <span class="wd-related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="wd-related-card wd-reveal" routerLink="/">
+          <div class="wd-related-label">Overview</div>
+          <h3>CtrlShift IT Services</h3>
+          <p>Managed IT, security, and digital visibility support for GTA small businesses — all in one place.</p>
+          <span class="wd-related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="wd-related-card wd-reveal" routerLink="/blog/web-development-gta">
+          <div class="wd-related-label">Guide</div>
+          <h3>Web development for GTA SMBs</h3>
+          <p>How to structure a small business website to be fast, findable, and set up for conversion — practical guidance for service businesses.</p>
+          <span class="wd-related-arrow">Read <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="wd-related-card wd-reveal" routerLink="/blog/seo-visibility-guide">
+          <div class="wd-related-label">Guide</div>
+          <h3>Local SEO for small businesses</h3>
+          <p>How to improve search visibility for local queries — the traffic layer that your improved website foundation needs to perform.</p>
+          <span class="wd-related-arrow">Read <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="wd-related-card wd-reveal" routerLink="/guides">
+          <div class="wd-related-label">Hub</div>
+          <h3>IT &amp; security guides</h3>
+          <p>Practical small business guides covering Microsoft 365, endpoint protection, networking, and more from the CtrlShift team.</p>
+          <span class="wd-related-arrow">Browse <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="wd-related-card wd-reveal" routerLink="/blog">
+          <div class="wd-related-label">Blog</div>
+          <h3>Articles &amp; updates</h3>
+          <p>Plain-English articles on small business IT, security, and digital visibility from the CtrlShift team.</p>
+          <span class="wd-related-arrow">Browse <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="wd-section wd-faq-section" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="wd-section-head wd-reveal">
+        <span class="wd-kicker">FAQ</span>
+        <h2 id="faq-title">Common questions about web development services</h2>
+      </div>
+      <div class="wd-faq-shell wd-reveal">
+        <details class="wd-faq-item" *ngFor="let item of faqs; let i = index" [attr.open]="i === 0 ? '' : null">
+          <summary>{{ item.question }}</summary>
+          <p>{{ item.answer }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section class="wd-final-cta">
+    <div class="container">
+      <div class="wd-final-card wd-reveal">
+        <div>
+          <span class="wd-kicker">Practical website foundation review</span>
+          <h2>Build a website that supports SEO, inquiries, and growth</h2>
+          <p>
+            Get a structured web development review — service pages, technical SEO basics, CTAs, forms, analytics setup, and a clear plan for what to build or improve — written in plain English you can act on.
+          </p>
+        </div>
+        <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow wd-primary-cta" routerLink="/" fragment="consultation">
+          Request a Website Review
+          <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>

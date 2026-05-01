@@ -123,7 +123,7 @@ export const routes: Routes = [
       import('./pages/services/web-development/web-development.component').then(
         (m) => m.WebDevelopmentComponent
       ),
-    title: 'Web Development Vaughan'
+    title: 'Web Development for Small Businesses | CtrlShift IT Services'
   },
   {
     path: 'seo-visibility',

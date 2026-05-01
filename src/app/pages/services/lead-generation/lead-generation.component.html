@@ -1,83 +1,531 @@
-<section class="service-detail-page py-5">
-  <div class="container py-5">
-    <div class="mb-4">
-      <a class="service-back-link text-decoration-none" routerLink="/">← Back to Home</a>
-    </div>
+<main class="lg-page">
 
-    <div class="row g-4 align-items-stretch">
-      <div class="col-lg-7">
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 h-100">
-          <h1 class="fw-bold display-6 mb-3">B2B Lead Generation Systems</h1>
-          <p class="text-muted lead mb-4">
-            Build a predictable pipeline from local search, landing pages, and structured follow-up workflows. We focus on lead quality and conversion accountability, not vanity metrics.
+  <!-- ========== HERO ========== -->
+  <section class="lg-hero">
+    <div class="container">
+      <a class="lg-back-link lg-reveal" routerLink="/"><i class="bi bi-arrow-left" aria-hidden="true"></i>Back to Home</a>
+      <div class="lg-hero-grid">
+        <div class="lg-hero-copy lg-reveal">
+          <span class="lg-kicker"><i class="bi bi-funnel" aria-hidden="true"></i> Lead generation for small businesses</span>
+          <h1>Lead Generation Systems for Small Businesses</h1>
+          <p class="lg-lead">
+            Turn your website into a practical lead-generation system — service-page clarity, stronger CTAs, forms that qualify, local SEO alignment, and follow-up workflows. Built for service businesses in Vaughan and the GTA that need their site to actually convert visitors into inquiries.
           </p>
-          <p class="text-muted mb-4">
-            For best results, this service is usually paired with
-            <a routerLink="/seo-visibility">SEO and Visibility</a>
-            and
-            <a routerLink="/web-development">Web Development</a>
-            to tighten top-of-funnel to close-loop execution.
+          <p class="lg-sublead">
+            For small businesses with roughly 5–50 staff that already have a website and need a clearer path from visitor to qualified inquiry — without paid ads, purchased lists, or cold outreach.
           </p>
-
-          <h2 class="h5 fw-bold mb-3">Pipeline Design Components</h2>
-          <ul class="text-muted">
-            <li>Offer strategy aligned to target buyer stage and service profitability</li>
-            <li>Landing page architecture for intent matching and frictionless conversion</li>
-            <li>Form and call capture optimization with qualification logic</li>
-            <li>Email and callback sequences to reduce lead decay</li>
-            <li>Attribution setup across source, campaign, and page-level touchpoints</li>
-            <li>Sales handoff workflow with response-time expectations</li>
-            <li>Retargeting readiness and campaign hygiene review</li>
-            <li>Monthly funnel review tied to closed-opportunity quality</li>
+          <div class="lg-hero-actions">
+            <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow lg-primary-cta" routerLink="/" fragment="consultation">
+              Request a Lead-Generation Review
+              <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+            </a>
+            <a class="lg-secondary-cta" routerLink="/blog/seo-visibility-guide">
+              Start with local SEO? <span>Read the visibility guide<i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></span>
+            </a>
+          </div>
+          <ul class="lg-badges" aria-label="Lead generation service coverage areas">
+            <li><i class="bi bi-layout-text-window" aria-hidden="true"></i>Service pages</li>
+            <li><i class="bi bi-cursor" aria-hidden="true"></i>CTAs &amp; forms</li>
+            <li><i class="bi bi-geo-alt" aria-hidden="true"></i>Local SEO</li>
+            <li><i class="bi bi-file-earmark-text" aria-hidden="true"></i>Landing pages</li>
+            <li><i class="bi bi-reply" aria-hidden="true"></i>Follow-up workflows</li>
+            <li><i class="bi bi-graph-up" aria-hidden="true"></i>Tracking &amp; measurement</li>
           </ul>
-
-          <h2 class="h5 fw-bold mt-4 mb-3">Follow-Up and Attribution Discipline</h2>
-          <ol class="text-muted ps-3 mb-0">
-            <li>Map your existing lead journey from first click to booked call.</li>
-            <li>Instrument conversion events and classify lead quality consistently.</li>
-            <li>Implement follow-up cadence so inbound leads are not lost in delays.</li>
-            <li>Report pipeline contribution by source and service line.</li>
-          </ol>
-
-          <div class="d-flex gap-3 flex-wrap mt-4">
-            <a class="btn btn-primary rounded-pill px-4 fw-bold shadow hover-scale" routerLink="/" fragment="consultation">
-              Request Funnel Audit
-            </a>
-            <a class="btn btn-outline-dark rounded-pill px-4 fw-bold" routerLink="/seo-visibility">
-              Improve Organic Pipeline
-            </a>
-          </div>
         </div>
+
+        <aside class="lg-flow-snapshot lg-reveal" aria-label="Lead flow snapshot panel">
+          <div class="lg-snapshot-header">
+            <div>
+              <span>Lead flow snapshot</span>
+              <h2>The conversion path</h2>
+            </div>
+            <i class="bi bi-funnel" aria-hidden="true"></i>
+          </div>
+          <div class="lg-snapshot-meter" aria-hidden="true">
+            <span class="meter-fill"></span><span class="meter-fill"></span><span class="meter-fill"></span><span class="meter-amber"></span><span></span>
+          </div>
+          <ul class="lg-snapshot-rows">
+            <li>
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <span>Traffic source</span>
+              <strong>Search &amp; local</strong>
+            </li>
+            <li>
+              <i class="bi bi-layout-text-window" aria-hidden="true"></i>
+              <span>Landing / service page</span>
+              <strong>Intent match</strong>
+            </li>
+            <li>
+              <i class="bi bi-shield-check" aria-hidden="true"></i>
+              <span>Trust signals</span>
+              <strong>Proof &amp; clarity</strong>
+            </li>
+            <li>
+              <i class="bi bi-ui-checks" aria-hidden="true"></i>
+              <span>Form / CTA</span>
+              <strong>Low friction</strong>
+            </li>
+            <li>
+              <i class="bi bi-reply-all" aria-hidden="true"></i>
+              <span>Follow-up workflow</span>
+              <strong>Speed to response</strong>
+            </li>
+            <li>
+              <i class="bi bi-graph-up" aria-hidden="true"></i>
+              <span>Tracking &amp; measurement</span>
+              <strong>What's working</strong>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE IMPROVE ========== -->
+  <section class="lg-section" aria-labelledby="improve-title">
+    <div class="container">
+      <div class="lg-section-head lg-reveal">
+        <span class="lg-kicker">What we improve</span>
+        <h2 id="improve-title">Practical lead-generation improvements across your website</h2>
+        <p class="lg-section-intro">
+          Ten areas where small business websites typically lose qualified inquiries. None of these involve cold outreach, purchased lists, or paid ads — they are structural improvements to how your site converts the visitors you already attract.
+        </p>
+      </div>
+      <div class="lg-check-grid">
+        <article class="lg-check-card lg-reveal"><i class="bi bi-layout-text-window" aria-hidden="true"></i><span>Service-page clarity</span></article>
+        <article class="lg-check-card lg-reveal"><i class="bi bi-cursor" aria-hidden="true"></i><span>CTA placement &amp; copy</span></article>
+        <article class="lg-check-card lg-reveal"><i class="bi bi-ui-checks" aria-hidden="true"></i><span>Forms &amp; inquiry paths</span></article>
+        <article class="lg-check-card lg-reveal"><i class="bi bi-file-earmark-text" aria-hidden="true"></i><span>Landing-page structure</span></article>
+        <article class="lg-check-card lg-reveal"><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Local SEO alignment</span></article>
+        <article class="lg-check-card lg-reveal"><i class="bi bi-shield-check" aria-hidden="true"></i><span>Trust signals &amp; proof</span></article>
+        <article class="lg-check-card lg-reveal"><i class="bi bi-graph-up" aria-hidden="true"></i><span>Analytics &amp; event tracking</span></article>
+        <article class="lg-check-card lg-reveal"><i class="bi bi-reply-all" aria-hidden="true"></i><span>Follow-up workflow plan</span></article>
+        <article class="lg-check-card lg-reveal"><i class="bi bi-funnel" aria-hidden="true"></i><span>Lead quality &amp; filtering</span></article>
+        <article class="lg-check-card lg-reveal"><i class="bi bi-pencil-square" aria-hidden="true"></i><span>Conversion-focused copy</span></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHEN THIS MAKES SENSE ========== -->
+  <section class="lg-section" aria-labelledby="triggers-title">
+    <div class="container">
+      <div class="lg-section-head lg-reveal">
+        <span class="lg-kicker">When this makes sense</span>
+        <h2 id="triggers-title">Practical signals it's time for a lead-generation review</h2>
+        <p class="lg-section-intro">
+          Most engagements start with one of these moments. If any of them sound familiar, it usually means your website structure, CTAs, or follow-up process is where the breakdown is — not your traffic volume.
+        </p>
+      </div>
+      <div class="lg-trigger-grid">
+        <article class="lg-trigger-card lg-reveal">
+          <div class="lg-trigger-icon"><i class="bi bi-graph-down" aria-hidden="true"></i></div>
+          <h3>Your site gets visits but few inquiries</h3>
+          <p>Traffic is there but the contact form barely fires. Visitors land, browse, and leave without a clear next step to take.</p>
+        </article>
+        <article class="lg-trigger-card lg-reveal">
+          <div class="lg-trigger-icon"><i class="bi bi-cursor-x" aria-hidden="true"></i></div>
+          <h3>Pages have weak or buried CTAs</h3>
+          <p>Users land on a service page and find no clear call to action — or a generic "Contact us" buried at the bottom below a wall of text.</p>
+        </article>
+        <article class="lg-trigger-card lg-reveal">
+          <div class="lg-trigger-icon"><i class="bi bi-file-earmark-x" aria-hidden="true"></i></div>
+          <h3>Service pages are too thin or generic</h3>
+          <p>Each service gets a short paragraph and a bullet list. Buyers can't tell what is actually involved, and you look like every competitor.</p>
+        </article>
+        <article class="lg-trigger-card lg-reveal">
+          <div class="lg-trigger-icon"><i class="bi bi-google" aria-hidden="true"></i></div>
+          <h3>GBP sends traffic but leads are low quality</h3>
+          <p>Google Business Profile drives clicks but the inquiries are unqualified — wrong service, wrong location, or wrong budget range.</p>
+        </article>
+        <article class="lg-trigger-card lg-reveal">
+          <div class="lg-trigger-icon"><i class="bi bi-reply" aria-hidden="true"></i></div>
+          <h3>No clear follow-up process</h3>
+          <p>Inquiries come in and get a slow or inconsistent response. Potential buyers move on before anyone calls or emails back.</p>
+        </article>
+        <article class="lg-trigger-card lg-reveal">
+          <div class="lg-trigger-icon"><i class="bi bi-ui-checks" aria-hidden="true"></i></div>
+          <h3>Forms don't ask the right questions</h3>
+          <p>Your contact form collects a name and email. You get vague messages and spend time qualifying people who were never a fit.</p>
+        </article>
+        <article class="lg-trigger-card lg-reveal">
+          <div class="lg-trigger-icon"><i class="bi bi-megaphone" aria-hidden="true"></i></div>
+          <h3>Campaigns drive clicks but not qualified calls</h3>
+          <p>You run ads or publish content and drive real traffic, but very little converts — often because the landing page doesn't match expectations.</p>
+        </article>
+        <article class="lg-trigger-card lg-reveal">
+          <div class="lg-trigger-icon"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></div>
+          <h3>SEO content attracts readers, not buyers</h3>
+          <p>Pages rank and attract traffic but visitors don't convert. Content is informational but lacks a clear path to inquiry or a buyer-intent signal.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LEAD-GENERATION FLOW MAP ========== -->
+  <section class="lg-section lg-flowmap-section" aria-labelledby="flowmap-title">
+    <div class="container">
+      <div class="lg-section-head lg-reveal">
+        <span class="lg-kicker">Lead-generation flow map</span>
+        <h2 id="flowmap-title">The conversion path we walk through with you</h2>
+        <p class="lg-section-intro">
+          For each stage we identify the common failure point, what CtrlShift specifically improves, and the typical next step. A practical reference — not a vendor pitch.
+        </p>
       </div>
 
-      <div class="col-lg-5">
-        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5 h-100">
-          <h3 class="fw-bold mb-3">What We Qualify Early</h3>
-          <p class="text-muted">
-            We define ideal lead profile, deal size expectations, and service fit early so campaign spend targets revenue opportunities, not low-value traffic.
-          </p>
+      <div class="lg-flow-map lg-reveal" role="table" aria-label="Lead-generation flow map">
+        <div class="lg-flow-map-head" role="rowgroup">
+          <div class="lg-flow-map-row lg-flow-map-row--head" role="row">
+            <div role="columnheader">Stage</div>
+            <div role="columnheader">Common failure point</div>
+            <div role="columnheader">What CtrlShift improves</div>
+            <div role="columnheader">Typical next step</div>
+          </div>
+        </div>
+        <div class="lg-flow-map-body" role="rowgroup">
 
-          <div class="border rounded-4 p-3 bg-light mb-3">
-            <div class="fw-bold mb-2">Core outputs</div>
-            <ul class="text-muted small mb-0">
-              <li>Lead qualification criteria and CRM field map</li>
-              <li>Campaign-to-conversion attribution dashboard baseline</li>
-              <li>Monthly optimization backlog by expected ROI</li>
-            </ul>
+          <div class="lg-flow-map-row" role="row">
+            <div class="lg-map-area" role="cell">
+              <div class="lg-map-area-icon lg-stage--traffic"><i class="bi bi-search" aria-hidden="true"></i></div>
+              <div class="lg-map-area-text">
+                <div class="lg-map-cell-label">Stage</div>
+                <h3>Traffic</h3>
+              </div>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Common failure point</div>
+              <p>Visitors land on the wrong page, or the right page lacks context for the search intent that brought them.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">What we improve</div>
+              <p>Align visitors to the right service page and match content to the actual search query intent that drove the click.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Typical next step</div>
+              <p><span class="lg-step-pill lg-step--traffic">Build landing paths</span></p>
+            </div>
           </div>
 
-          <div class="border rounded-4 p-3 bg-light">
-            <div class="fw-bold mb-1">Pipeline intake</div>
-            <div class="text-muted small">Share average deal size, sales cycle length, and current lead sources. We will build a practical acquisition and follow-up roadmap.</div>
+          <div class="lg-flow-map-row" role="row">
+            <div class="lg-map-area" role="cell">
+              <div class="lg-map-area-icon lg-stage--trust"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+              <div class="lg-map-area-text">
+                <div class="lg-map-cell-label">Stage</div>
+                <h3>Trust</h3>
+              </div>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Common failure point</div>
+              <p>No proof, no process explanation, no FAQs. The offer is unclear and the buyer has no reason to trust the business.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">What we improve</div>
+              <p>Add proof elements, process clarity, FAQs, and service depth so buyers understand the offer before contacting.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Typical next step</div>
+              <p><span class="lg-step-pill lg-step--trust">Improve buyer confidence</span></p>
+            </div>
           </div>
 
-          <div class="mt-4">
-            <a class="btn btn-dark rounded-pill w-100 py-3 fw-bold" routerLink="/" fragment="consultation" href="/#consultation">
-              Get Recommendation
-            </a>
+          <div class="lg-flow-map-row" role="row">
+            <div class="lg-map-area" role="cell">
+              <div class="lg-map-area-icon lg-stage--conversion"><i class="bi bi-cursor" aria-hidden="true"></i></div>
+              <div class="lg-map-area-text">
+                <div class="lg-map-cell-label">Stage</div>
+                <h3>Conversion</h3>
+              </div>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Common failure point</div>
+              <p>CTA is weak, generic, or buried. Form asks too little or too much. The path to contact has too many steps.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">What we improve</div>
+              <p>Simplify forms, sharpen CTA copy and placement, and reduce the number of steps between intent and inquiry.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Typical next step</div>
+              <p><span class="lg-step-pill lg-step--conversion">Reduce friction</span></p>
+            </div>
           </div>
+
+          <div class="lg-flow-map-row" role="row">
+            <div class="lg-map-area" role="cell">
+              <div class="lg-map-area-icon lg-stage--qualification"><i class="bi bi-funnel" aria-hidden="true"></i></div>
+              <div class="lg-map-area-text">
+                <div class="lg-map-cell-label">Stage</div>
+                <h3>Qualification</h3>
+              </div>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Common failure point</div>
+              <p>Form captures anyone. Too many vague or low-fit inquiries arrive, making it hard to prioritize and respond efficiently.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">What we improve</div>
+              <p>Add qualifying questions, service-fit signals, and routing logic so you receive better-fit inquiries from the start.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Typical next step</div>
+              <p><span class="lg-step-pill lg-step--qualification">Improve lead quality</span></p>
+            </div>
+          </div>
+
+          <div class="lg-flow-map-row" role="row">
+            <div class="lg-map-area" role="cell">
+              <div class="lg-map-area-icon lg-stage--followup"><i class="bi bi-reply-all" aria-hidden="true"></i></div>
+              <div class="lg-map-area-text">
+                <div class="lg-map-cell-label">Stage</div>
+                <h3>Follow-up</h3>
+              </div>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Common failure point</div>
+              <p>Slow or inconsistent response to inbound inquiries. No defined process. Good leads go cold waiting for a response.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">What we improve</div>
+              <p>Define a simple email and phone follow-up sequence with response-time targets so no inquiry is lost to delay.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Typical next step</div>
+              <p><span class="lg-step-pill lg-step--followup">Reduce lost opportunities</span></p>
+            </div>
+          </div>
+
+          <div class="lg-flow-map-row" role="row">
+            <div class="lg-map-area" role="cell">
+              <div class="lg-map-area-icon lg-stage--measurement"><i class="bi bi-graph-up" aria-hidden="true"></i></div>
+              <div class="lg-map-area-text">
+                <div class="lg-map-cell-label">Stage</div>
+                <h3>Measurement</h3>
+              </div>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Common failure point</div>
+              <p>No analytics, no event tracking, no way to know which page, CTA, or source is actually generating inquiries.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">What we improve</div>
+              <p>Add an analytics and event tracking plan so you can see which changes move the needle and where to focus next.</p>
+            </div>
+            <div class="lg-map-cell" role="cell">
+              <div class="lg-map-cell-label">Typical next step</div>
+              <p><span class="lg-step-pill lg-step--measurement">Measure what works</span></p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ========== PROCESS ========== -->
+  <section class="lg-section" aria-labelledby="process-title">
+    <div class="container">
+      <div class="lg-section-head lg-reveal">
+        <span class="lg-kicker">Process</span>
+        <h2 id="process-title">How a lead-generation engagement works</h2>
+        <p class="lg-section-intro">
+          Seven steps designed around small business realities — most of the review and planning happens on our side, not in endless meetings on yours.
+        </p>
+      </div>
+      <ol class="lg-process lg-process-vertical" aria-label="Lead-generation engagement process">
+        <li class="lg-process-step">
+          <span>01</span>
+          <h3>Discovery and offer review</h3>
+          <p>Understand your services, target buyers, deal size, current inquiry sources, and what a qualified lead actually looks like for your business.</p>
+        </li>
+        <li class="lg-process-step">
+          <span>02</span>
+          <h3>Website and service-page review</h3>
+          <p>Review service pages for depth, buyer-intent fit, CTA clarity, form quality, and how well each page matches the query that brings traffic to it.</p>
+        </li>
+        <li class="lg-process-step">
+          <span>03</span>
+          <h3>SEO and local visibility alignment</h3>
+          <p>Check how well your pages are positioned for local search intent — especially for service-area and city-level queries. Connects to our <a routerLink="/seo-visibility">SEO visibility service</a>.</p>
+        </li>
+        <li class="lg-process-step">
+          <span>04</span>
+          <h3>Conversion path and form review</h3>
+          <p>Walk through the full conversion path from arrival to inquiry: CTA placement, form questions, qualification logic, and the friction points that lose leads.</p>
+        </li>
+        <li class="lg-process-step">
+          <span>05</span>
+          <h3>Follow-up workflow planning</h3>
+          <p>Define a simple, practical follow-up sequence — email and phone touchpoints with response-time expectations — so inquiries don't go cold.</p>
+        </li>
+        <li class="lg-process-step">
+          <span>06</span>
+          <h3>Prioritized implementation plan</h3>
+          <p>Group improvements as fix-now, soon, and later — mapped to expected inquiry impact, not effort. Focus on the changes most likely to move the needle.</p>
+        </li>
+        <li class="lg-process-step">
+          <span>07</span>
+          <h3>Measurement and iteration</h3>
+          <p>Set up an analytics and event tracking baseline so you can see what changed, which source generates the best inquiries, and where to focus next.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== DELIVERABLES ========== -->
+  <section class="lg-section" aria-labelledby="deliverables-title">
+    <div class="container">
+      <div class="lg-section-head lg-reveal">
+        <span class="lg-kicker">Deliverables</span>
+        <h2 id="deliverables-title">What you receive</h2>
+        <p class="lg-section-intro">
+          Concrete artifacts you can keep and act on with any developer, marketing team, or on your own — not just a verbal walkthrough.
+        </p>
+      </div>
+      <div class="lg-card-grid lg-deliverables-grid">
+        <article class="lg-info-card lg-reveal"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i><h3>Lead-generation audit summary</h3><p>What we reviewed and found — written for an owner or marketing lead, not in marketing jargon.</p></article>
+        <article class="lg-info-card lg-reveal"><i class="bi bi-layout-text-window" aria-hidden="true"></i><h3>Service-page improvement plan</h3><p>Specific changes to service pages: depth, structure, intent fit, and buyer-facing clarity.</p></article>
+        <article class="lg-info-card lg-reveal"><i class="bi bi-cursor" aria-hidden="true"></i><h3>CTA and form recommendations</h3><p>Concrete rewrites and placement changes for CTAs and form fields — with qualifying question suggestions.</p></article>
+        <article class="lg-info-card lg-reveal"><i class="bi bi-file-earmark-text" aria-hidden="true"></i><h3>Landing-page structure recommendations</h3><p>How to structure landing pages for specific services or campaigns so visitors arrive in the right context.</p></article>
+        <article class="lg-info-card lg-reveal"><i class="bi bi-geo-alt" aria-hidden="true"></i><h3>Local SEO alignment notes</h3><p>How your pages align with local and city-level search intent — and what to tighten for better-qualified traffic.</p></article>
+        <article class="lg-info-card lg-reveal"><i class="bi bi-graph-up" aria-hidden="true"></i><h3>Tracking and measurement plan</h3><p>An analytics and event tracking plan so you know which CTAs and pages are generating qualified inquiries.</p></article>
+        <article class="lg-info-card lg-reveal"><i class="bi bi-reply-all" aria-hidden="true"></i><h3>Follow-up workflow outline</h3><p>A simple, practical follow-up sequence with response-time targets to reduce lead decay after first contact.</p></article>
+        <article class="lg-info-card lg-reveal"><i class="bi bi-list-check" aria-hidden="true"></i><h3>Prioritized roadmap</h3><p>A short, actionable roadmap grouped by expected inquiry impact — so you know what to tackle first.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TRUST / DISCLAIMER ========== -->
+  <section class="lg-section lg-trust-section" aria-labelledby="trust-title">
+    <div class="container">
+      <div class="lg-trust-card lg-reveal">
+        <div class="lg-trust-header">
+          <div class="lg-trust-icon" aria-hidden="true"><i class="bi bi-info-circle"></i></div>
+          <div>
+            <span class="lg-kicker">What this engagement is — and isn't</span>
+            <h2 id="trust-title">Honest scope, no overpromising</h2>
+          </div>
+        </div>
+        <ul class="lg-trust-list">
+          <li>
+            <span class="lg-trust-pill lg-trust-pill--no">Not</span>
+            <p>guaranteed lead volume, guaranteed revenue, or guaranteed inquiry rates. Structural improvements reduce friction — they do not override market demand.</p>
+          </li>
+          <li>
+            <span class="lg-trust-pill lg-trust-pill--no">Not</span>
+            <p>cold outreach, purchased lead lists, email scraping, spam, or any form of unsolicited contact on your behalf.</p>
+          </li>
+          <li>
+            <span class="lg-trust-pill lg-trust-pill--no">Not</span>
+            <p>fake reviews, bought reviews, review gating, or reputation manipulation of any kind.</p>
+          </li>
+          <li>
+            <span class="lg-trust-pill lg-trust-pill--no">Not</span>
+            <p>black-hat traffic, cloaking, keyword stuffing, private blog networks, or anything that violates Google's search quality guidelines.</p>
+          </li>
+          <li>
+            <span class="lg-trust-pill lg-trust-pill--yes">Is</span>
+            <p>a practical, plain-English review of your lead-generation structure — service pages, CTAs, forms, local SEO alignment, follow-up workflow, and measurement — with a prioritized improvement plan you can act on.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RELATED SERVICES ========== -->
+  <section class="lg-section" aria-labelledby="related-title">
+    <div class="container">
+      <div class="lg-section-head lg-reveal">
+        <span class="lg-kicker">Related work</span>
+        <h2 id="related-title">Where to go next</h2>
+        <p class="lg-section-intro">
+          Pages and guides that pair naturally with a lead-generation engagement.
+        </p>
+      </div>
+      <div class="lg-related-grid">
+        <a class="lg-related-card lg-reveal" routerLink="/seo-visibility">
+          <div class="lg-related-label">Service</div>
+          <h3>SEO visibility</h3>
+          <p>Make sure the traffic reaching your service pages is qualified and locally relevant before optimising conversion.</p>
+          <span class="lg-related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="lg-related-card lg-reveal" routerLink="/web-development">
+          <div class="lg-related-label">Service</div>
+          <h3>Web development</h3>
+          <p>Implementation support for the landing pages, forms, and structural improvements in your lead-generation plan.</p>
+          <span class="lg-related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="lg-related-card lg-reveal" routerLink="/managed-it-services">
+          <div class="lg-related-label">Service</div>
+          <h3>Managed IT services</h3>
+          <p>The day-to-day IT and security support layer behind small offices we also help with visibility and lead generation.</p>
+          <span class="lg-related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="lg-related-card lg-reveal" routerLink="/">
+          <div class="lg-related-label">Overview</div>
+          <h3>CtrlShift IT Services</h3>
+          <p>Managed IT, security, and digital visibility support for GTA small businesses — all in one place.</p>
+          <span class="lg-related-arrow">Open <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="lg-related-card lg-reveal" routerLink="/blog/seo-visibility-guide">
+          <div class="lg-related-label">Guide</div>
+          <h3>Local SEO for small businesses</h3>
+          <p>How to improve the search visibility that drives the traffic arriving at your service pages.</p>
+          <span class="lg-related-arrow">Read <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="lg-related-card lg-reveal" routerLink="/blog/web-development-gta">
+          <div class="lg-related-label">Guide</div>
+          <h3>Web development for GTA SMBs</h3>
+          <p>How to structure a small business website to be fast, findable, and set up for conversion.</p>
+          <span class="lg-related-arrow">Read <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="lg-related-card lg-reveal" routerLink="/guides">
+          <div class="lg-related-label">Hub</div>
+          <h3>IT &amp; security guides</h3>
+          <p>Practical small business guides covering Microsoft 365, endpoint protection, networking, and more.</p>
+          <span class="lg-related-arrow">Browse <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+        <a class="lg-related-card lg-reveal" routerLink="/blog">
+          <div class="lg-related-label">Blog</div>
+          <h3>Articles &amp; updates</h3>
+          <p>Plain-English articles on small business IT, security, and digital visibility from the CtrlShift team.</p>
+          <span class="lg-related-arrow">Browse <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="lg-section lg-faq-section" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="lg-section-head lg-reveal">
+        <span class="lg-kicker">FAQ</span>
+        <h2 id="faq-title">Common questions about lead-generation services</h2>
+      </div>
+      <div class="lg-faq-shell lg-reveal">
+        <details class="lg-faq-item" *ngFor="let item of faqs; let i = index" [attr.open]="i === 0 ? '' : null">
+          <summary>{{ item.question }}</summary>
+          <p>{{ item.answer }}</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section class="lg-final-cta">
+    <div class="container">
+      <div class="lg-final-card lg-reveal">
+        <div>
+          <span class="lg-kicker">Practical lead-generation review</span>
+          <h2>Turn your existing traffic into qualified inquiries</h2>
+          <p>
+            Get a structured lead-generation review — service pages, CTAs, forms, local SEO alignment, follow-up workflow, and tracking — written in plain English you can act on.
+          </p>
+        </div>
+        <a class="btn btn-primary rounded-pill px-4 py-3 fw-bold shadow lg-primary-cta" routerLink="/" fragment="consultation">
+          Request a Lead-Generation Review
+          <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>

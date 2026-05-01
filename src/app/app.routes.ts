@@ -139,7 +139,7 @@ export const routes: Routes = [
       import('./pages/services/lead-generation/lead-generation.component').then(
         (m) => m.LeadGenerationComponent
       ),
-    title: 'B2B Lead Generation for Small Business'
+    title: 'Lead Generation Systems for Small Business | Vaughan'
   },
   {
     path: 'cyber-insurance-readiness-vaughan',

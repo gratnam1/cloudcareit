@@ -35,7 +35,6 @@ const LEGACY_REDIRECTS: Record<string, string> = {
   '/managed-it-services/thornhill': '/managed-it-services-thornhill',
   '/managed-it-services/richmond-hill': '/managed-it-services-richmond-hill',
 
-  '/it-support-vaughan': '/managed-it-services-vaughan',
   '/it-support-toronto': '/managed-it-services-toronto',
   '/it-support-mississauga': '/managed-it-services-mississauga',
   '/it-support-thornhill': '/managed-it-services-thornhill',

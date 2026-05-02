@@ -2,6 +2,7 @@ import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core
 import {
   provideRouter,
   withComponentInputBinding,
+  withEnabledBlockingInitialNavigation,
   withInMemoryScrolling
 } from '@angular/router';
 import { routes } from './app.routes';
@@ -14,6 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(
       routes,
       withComponentInputBinding(),
+      withEnabledBlockingInitialNavigation(),
       withInMemoryScrolling({
         anchorScrolling: 'enabled',
         scrollPositionRestoration: 'enabled'

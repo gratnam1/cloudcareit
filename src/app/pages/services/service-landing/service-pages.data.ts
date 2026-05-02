@@ -504,9 +504,10 @@ export const MICROSOFT_365_PAGE: ServiceLandingPage = {
   ],
   scenario: {
     title: 'Tenant drift after fast growth',
-    problem: 'A 35-user office had inconsistent MFA, unmanaged Teams guests, too many admins, and rising license cost.',
-    fix: 'We mapped roles, staged Conditional Access, cleaned guest settings, reviewed sharing, and standardized license assignment.',
-    outcome: 'Leadership could see the tenant rules clearly, staff kept collaborating, and risky exceptions were reduced.',
+    clientType: 'Professional services · 35 staff · Vaughan',
+    problem: 'Inconsistent MFA, unmanaged Teams guests, too many admin accounts, and rising license costs — accumulated over two years of fast hiring.',
+    fix: 'We mapped roles, staged Conditional Access, cleaned guest settings, reviewed sharing defaults, and standardized license assignment across all departments.',
+    outcome: 'Leadership could see the tenant rules clearly, staff kept collaborating without disruption, and risky exceptions were reduced to zero.',
   },
   faq: [
     { question: 'Can you fix Microsoft 365 without disrupting email?', answer: 'Yes. Risky changes are staged and tested, especially mail flow, MFA, and Conditional Access policies.' },

@@ -22,6 +22,7 @@ export interface ServiceScenario {
   problem: string;
   fix: string;
   outcome: string;
+  clientType?: string;
 }
 
 export interface ServiceFaq {

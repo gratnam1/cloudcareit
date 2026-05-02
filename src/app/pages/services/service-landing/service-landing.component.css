@@ -1090,13 +1090,64 @@
 
 .scenario-grid span,
 .service-related span {
+  align-items: center;
   color: #a78bfa;
-  display: block;
+  display: flex;
   font-size: 0.74rem;
   font-weight: 900;
+  gap: 0.35rem;
   letter-spacing: 0.08em;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
+}
+
+.scenario-grid span i {
+  font-size: 0.72rem;
+}
+
+/* Scenario box color-coding */
+.scenario-problem {
+  background: rgba(239, 68, 68, 0.06) !important;
+  border-color: rgba(239, 68, 68, 0.26) !important;
+}
+
+.scenario-problem span {
+  color: #fca5a5 !important;
+}
+
+.scenario-fix {
+  background: rgba(59, 130, 246, 0.07) !important;
+  border-color: rgba(59, 130, 246, 0.26) !important;
+}
+
+.scenario-fix span {
+  color: #93c5fd !important;
+}
+
+.scenario-outcome {
+  background: rgba(16, 185, 129, 0.07) !important;
+  border-color: rgba(16, 185, 129, 0.26) !important;
+}
+
+.scenario-outcome span {
+  color: #6ee7b7 !important;
+}
+
+/* Client profile tag */
+.scenario-client-tag {
+  align-items: center;
+  color: rgba(226, 232, 240, 0.5);
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 0.4rem;
+  letter-spacing: 0.02em;
+  margin-top: 0.55rem;
+}
+
+.scenario-client-tag i {
+  font-size: 0.75rem;
+  opacity: 0.75;
 }
 
 .service-faq-list {
@@ -1183,8 +1234,7 @@
 }
 
 .service-microsoft-365 .service-hero-copy .service-eyebrow,
-.service-microsoft-365 .service-hero-copy h1,
-.service-microsoft-365 .service-trust-chips {
+.service-microsoft-365 .service-hero-copy h1 {
   display: none;
 }
 
@@ -1467,6 +1517,66 @@
 
 .service-microsoft-365 .tenant-legend {
   display: none;
+}
+
+/* Hero overlay — h1 + primary CTA + scroll cue over bottom of orbital */
+.tenant-hero-overlay {
+  display: none;
+}
+
+.service-microsoft-365 .tenant-hero-overlay {
+  background: linear-gradient(to top, rgba(3, 7, 25, 1) 0%, rgba(3, 7, 25, 0.82) 42%, transparent 75%);
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+  left: 0;
+  padding: 5rem clamp(2rem, 5vw, 6rem) 2.25rem;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: 22;
+}
+
+.service-microsoft-365 .tenant-map.has-active-tenant ~ .tenant-hero-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.service-microsoft-365 .tenant-hero-overlay {
+  transition: opacity 0.25s ease;
+}
+
+.service-microsoft-365 .tenant-hero-overlay h1 {
+  color: #fff;
+  font-size: clamp(1.65rem, 2.8vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.18;
+  margin: 0;
+  max-width: 22ch;
+  pointer-events: auto;
+}
+
+.service-microsoft-365 .tenant-hero-overlay .btn {
+  pointer-events: auto;
+}
+
+/* Animated scroll chevron */
+.tenant-scroll-cue {
+  align-items: center;
+  animation: scroll-cue-bounce 2s ease-in-out infinite;
+  color: rgba(165, 180, 252, 0.7);
+  display: flex;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  pointer-events: none;
+}
+
+@keyframes scroll-cue-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6px); opacity: 1; }
 }
 
 .service-microsoft-365 .tenant-center {

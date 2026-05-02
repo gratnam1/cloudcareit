@@ -229,6 +229,17 @@
             <span><i class="bi bi-folder-check" aria-hidden="true"></i> Collaboration</span>
             <span><i class="bi bi-database-check" aria-hidden="true"></i> Recovery</span>
           </div>
+
+          <div class="tenant-hero-overlay" aria-hidden="true">
+            <h1>{{ page.title }}</h1>
+            <a class="btn btn-primary rounded-pill px-4 py-2 fw-bold shadow" [routerLink]="page.primaryCta.route" [fragment]="page.primaryCta.fragment">
+              {{ page.primaryCta.label }}
+              <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+            </a>
+            <div class="tenant-scroll-cue">
+              <i class="bi bi-chevron-down" aria-hidden="true"></i>
+            </div>
+          </div>
         </aside>
 
         <div class="m365-orbit-kicker service-reveal" *ngIf="page.tenantHardening">
@@ -400,18 +411,22 @@
         <div>
           <span class="service-eyebrow">Example scenario</span>
           <h2 id="scenario-title">{{ page.scenario.title }}</h2>
+          <span class="scenario-client-tag" *ngIf="page.scenario.clientType">
+            <i class="bi bi-building" aria-hidden="true"></i>
+            {{ page.scenario.clientType }}
+          </span>
         </div>
         <div class="scenario-grid">
-          <div>
-            <span>Problem</span>
+          <div class="scenario-problem">
+            <span><i class="bi bi-exclamation-triangle" aria-hidden="true"></i> Problem</span>
             <p>{{ page.scenario.problem }}</p>
           </div>
-          <div>
-            <span>Fix</span>
+          <div class="scenario-fix">
+            <span><i class="bi bi-tools" aria-hidden="true"></i> Fix</span>
             <p>{{ page.scenario.fix }}</p>
           </div>
-          <div>
-            <span>Outcome</span>
+          <div class="scenario-outcome">
+            <span><i class="bi bi-check-circle" aria-hidden="true"></i> Outcome</span>
             <p>{{ page.scenario.outcome }}</p>
           </div>
         </div>

@@ -22,11 +22,39 @@ export interface ServiceScenario {
   problem: string;
   fix: string;
   outcome: string;
+  clientType?: string;
 }
 
 export interface ServiceFaq {
   question: string;
   answer: string;
+}
+
+export interface TenantHardeningControl {
+  key: string;
+  label: string;
+  category: string;
+  icon: string;
+  description: string;
+  relatedKeys?: string[];
+  energy?: number;
+  status?: 'hardened' | 'review' | 'planned';
+  tasks?: string[];
+  whatWeDo?: string;
+  outcome?: string;
+  risk?: string;
+  riskText?: string;
+  deliverable?: string;
+  deliverableText?: string;
+  effort?: string;
+  businessImpact?: string;
+}
+
+export interface RiskControlMapItem {
+  risk: string;
+  controls: string;
+  icon: string;
+  text: string;
 }
 
 export interface ServiceLandingPage {
@@ -43,6 +71,13 @@ export interface ServiceLandingPage {
     caption: string;
     nodes: string[];
   };
+  tenantHardening?: {
+    title: string;
+    metric: string;
+    caption: string;
+    controls: TenantHardeningControl[];
+  };
+  riskControlMap?: RiskControlMapItem[];
   handleTitle: string;
   handleIntro: string;
   serviceCards: ServiceCard[];

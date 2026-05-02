@@ -616,15 +616,40 @@
 }
 
 .tenant-detail-meta strong {
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.26);
   border-radius: 999px;
-  color: #a7f3d0;
   font-size: 0.68rem;
   font-weight: 900;
   letter-spacing: 0.08em;
-  padding: 0.35rem 0.55rem;
+  padding: 0.3rem 0.6rem;
   text-transform: uppercase;
+}
+
+.td-status {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.3rem;
+}
+
+.td-status i {
+  font-size: 0.62rem;
+}
+
+.td-status--hardened {
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #6ee7b7;
+}
+
+.td-status--review {
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.32);
+  color: #fcd34d;
+}
+
+.td-status--planned {
+  background: rgba(148, 163, 184, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  color: #94a3b8;
 }
 
 .tenant-detail h2 {
@@ -1604,11 +1629,45 @@
 }
 
 /* What we do section */
+.service-microsoft-365 .td-what-we-do {
+  border-left: 2px solid rgba(99, 102, 241, 0.55);
+  padding-left: 1rem;
+}
+
 .service-microsoft-365 .td-what-we-do p {
-  color: rgba(226, 232, 240, 0.78);
+  color: rgba(226, 232, 240, 0.82);
   font-size: 0.95rem;
   line-height: 1.65;
   margin: 0.6rem 0 0;
+}
+
+/* In-panel CTA */
+.service-microsoft-365 .td-panel-cta {
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.service-microsoft-365 .td-cta-link {
+  align-items: center;
+  border: 1px solid rgba(129, 140, 248, 0.3);
+  border-radius: 0.65rem;
+  color: #a5b4fc;
+  display: inline-flex;
+  font-size: 0.85rem;
+  font-weight: 600;
+  gap: 0.45rem;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.service-microsoft-365 .td-cta-link:hover,
+.service-microsoft-365 .td-cta-link:focus-visible {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(129, 140, 248, 0.55);
+  color: #c7d2fe;
+  outline: none;
 }
 
 /* Risk card */
@@ -1638,12 +1697,30 @@
 }
 
 /* Outcome */
+.service-microsoft-365 .td-outcome-card {
+  align-items: flex-start;
+  background: rgba(16, 185, 129, 0.09);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  border-radius: 0.85rem;
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 0.6rem;
+  padding: 0.85rem 1rem;
+}
+
+.service-microsoft-365 .td-outcome-card > i {
+  color: #6ee7b7;
+  flex-shrink: 0;
+  font-size: 1rem;
+  margin-top: 0.1rem;
+}
+
 .service-microsoft-365 .td-outcome-text {
   color: #a7f3d0;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
   line-height: 1.4;
-  margin: 0.5rem 0 0;
+  margin: 0;
 }
 
 /* Deliverable card */

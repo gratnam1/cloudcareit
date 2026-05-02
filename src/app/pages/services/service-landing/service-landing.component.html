@@ -93,7 +93,14 @@
                 <div class="tenant-detail-title-block">
                   <div class="tenant-detail-meta">
                     <span>{{ control.category }}</span>
-                    <strong>{{ control.status || 'review' }}</strong>
+                    <strong [class]="'td-status td-status--' + (control.status || 'review')">
+                      <i class="bi"
+                        [class.bi-shield-check]="(control.status || 'review') === 'hardened'"
+                        [class.bi-search]="(control.status || 'review') === 'review'"
+                        [class.bi-calendar3]="(control.status || 'review') === 'planned'"
+                        aria-hidden="true"></i>
+                      {{ control.status || 'review' }}
+                    </strong>
                   </div>
                   <h2 id="tenant-hardening-title">{{ control.label }}</h2>
                 </div>
@@ -129,6 +136,13 @@
                       </li>
                     </ul>
                   </div>
+
+                  <div class="td-panel-cta">
+                    <a routerLink="/contact" fragment="assessment" class="td-cta-link">
+                      <span>Request a tenant review</span>
+                      <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
                 </div>
 
                 <!-- Right sidebar: risk + outcome + deliverable + priority + connected -->
@@ -150,7 +164,10 @@
                       <i class="bi bi-arrow-up-right-circle" aria-hidden="true"></i>
                       Outcome
                     </span>
-                    <p class="td-outcome-text">{{ control.outcome }}</p>
+                    <div class="td-outcome-card">
+                      <i class="bi bi-check-lg" aria-hidden="true"></i>
+                      <p class="td-outcome-text">{{ control.outcome }}</p>
+                    </div>
                   </div>
 
                   <div class="td-deliverable" *ngIf="control.deliverable">

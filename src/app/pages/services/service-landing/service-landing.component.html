@@ -85,6 +85,7 @@
             </div>
 
             <div class="tenant-detail" *ngIf="activeTenantControl as control" (click)="$event.stopPropagation()">
+              <!-- Header -->
               <div class="tenant-detail-header">
                 <div class="tenant-detail-icon">
                   <i class="bi {{ control.icon }}" aria-hidden="true"></i>
@@ -101,23 +102,68 @@
                 </button>
               </div>
 
-              <p class="tenant-detail-desc">{{ control.description }}</p>
-
+              <!-- Main body: left content + right sidebar -->
               <div class="tenant-detail-body">
-                <div class="tenant-detail-tasks" *ngIf="control.tasks?.length">
-                  <span class="tenant-section-label">
-                    <i class="bi bi-check2-all" aria-hidden="true"></i>
-                    What we check
-                  </span>
-                  <ul>
-                    <li *ngFor="let task of control.tasks">
-                      <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-                      {{ task }}
-                    </li>
-                  </ul>
+
+                <!-- Left: description + what we do + tasks -->
+                <div class="tenant-detail-main">
+                  <p class="tenant-detail-desc">{{ control.description }}</p>
+
+                  <div class="td-what-we-do" *ngIf="control.whatWeDo">
+                    <span class="tenant-section-label">
+                      <i class="bi bi-tools" aria-hidden="true"></i>
+                      What we do
+                    </span>
+                    <p>{{ control.whatWeDo }}</p>
+                  </div>
+
+                  <div class="tenant-detail-tasks" *ngIf="control.tasks?.length">
+                    <span class="tenant-section-label">
+                      <i class="bi bi-check2-all" aria-hidden="true"></i>
+                      What we check
+                    </span>
+                    <ul>
+                      <li *ngFor="let task of control.tasks">
+                        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                        {{ task }}
+                      </li>
+                    </ul>
+                  </div>
                 </div>
 
+                <!-- Right sidebar: risk + outcome + deliverable + priority + connected -->
                 <div class="tenant-detail-sidebar">
+
+                  <div class="td-risk" *ngIf="control.risk">
+                    <span class="tenant-section-label">
+                      <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
+                      Risk addressed
+                    </span>
+                    <div class="td-risk-card">
+                      <strong>{{ control.risk }}</strong>
+                      <p>{{ control.riskText }}</p>
+                    </div>
+                  </div>
+
+                  <div class="td-outcome" *ngIf="control.outcome">
+                    <span class="tenant-section-label">
+                      <i class="bi bi-arrow-up-right-circle" aria-hidden="true"></i>
+                      Outcome
+                    </span>
+                    <p class="td-outcome-text">{{ control.outcome }}</p>
+                  </div>
+
+                  <div class="td-deliverable" *ngIf="control.deliverable">
+                    <span class="tenant-section-label">
+                      <i class="bi bi-file-earmark-check" aria-hidden="true"></i>
+                      Deliverable
+                    </span>
+                    <div class="td-deliverable-card">
+                      <strong>{{ control.deliverable }}</strong>
+                      <p>{{ control.deliverableText }}</p>
+                    </div>
+                  </div>
+
                   <div class="td-energy">
                     <div class="td-energy-hd">
                       <span>
@@ -145,6 +191,7 @@
                       </button>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>

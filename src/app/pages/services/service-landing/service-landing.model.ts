@@ -39,6 +39,12 @@ export interface TenantHardeningControl {
   energy?: number;
   status?: 'hardened' | 'review' | 'planned';
   tasks?: string[];
+  whatWeDo?: string;
+  outcome?: string;
+  risk?: string;
+  riskText?: string;
+  deliverable?: string;
+  deliverableText?: string;
 }
 
 export interface RiskControlMapItem {

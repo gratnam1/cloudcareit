@@ -403,7 +403,7 @@
 }
 
 .tenant-orbit-track {
-  animation: tenant-orbit-spin 60s linear infinite;
+  animation: none;
   height: min(48rem, 82vh);
   left: 50%;
   position: absolute;
@@ -484,7 +484,7 @@
 
 .tenant-node-content {
   align-items: center;
-  animation: tenant-node-counter-spin 60s linear infinite;
+  animation: none;
   display: inline-flex;
   height: 100%;
   justify-content: center;
@@ -1113,7 +1113,7 @@
 }
 
 .service-microsoft-365 .service-hero {
-  padding-top: clamp(1.75rem, 4vw, 3.25rem);
+  padding: 0;
 }
 
 .service-microsoft-365 .service-back-link {
@@ -1174,7 +1174,8 @@
 }
 
 .service-microsoft-365 .tenant-hardening-panel {
-  min-height: min(820px, calc(100vh - 5.5rem));
+  height: calc(100dvh - 5.5rem);
+  min-height: 560px;
   order: 1;
   position: relative;
   width: 100%;
@@ -1186,8 +1187,9 @@
 }
 
 .service-microsoft-365 .tenant-map {
+  height: 100%;
   margin: 0;
-  min-height: min(790px, calc(100vh - 5.5rem));
+  min-height: 560px;
   width: 100%;
 }
 
@@ -1477,6 +1479,11 @@
   font-size: 0.75rem;
 }
 
+.service-microsoft-365 .tenant-orbit-track {
+  height: min(calc(100dvh - 8rem), 90vmin);
+  width: min(calc(100dvh - 8rem), 90vmin);
+}
+
 .service-microsoft-365 .tenant-map-orbits {
   animation: none;
   background:
@@ -1484,14 +1491,14 @@
     conic-gradient(from 120deg, rgba(34, 211, 238, 0.72), rgba(99, 102, 241, 0.18), rgba(139, 92, 246, 0.62), rgba(16, 185, 129, 0.44), rgba(34, 211, 238, 0.72)) border-box;
   border: 1px solid transparent;
   border-radius: 999px;
-  box-shadow: 0 0 42px rgba(34, 211, 238, 0.08), inset 0 0 34px rgba(99, 102, 241, 0.06);
+  box-shadow: 0 0 60px rgba(34, 211, 238, 0.08), inset 0 0 50px rgba(99, 102, 241, 0.06);
   display: block;
-  height: 660px;
+  height: min(calc(100dvh - 12rem), 80vmin);
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 660px;
+  width: min(calc(100dvh - 12rem), 80vmin);
 }
 
 .service-microsoft-365 .tenant-map-orbits::before {
@@ -1503,15 +1510,18 @@
 }
 
 .service-microsoft-365 .tenant-node {
-  background: rgba(0, 0, 0, 0.92);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(5, 12, 40, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   color: rgba(248, 250, 252, 0.82);
-  height: 3rem;
+  height: 3.5rem;
   min-height: 0;
   min-width: 0;
   padding: 0;
-  width: 3rem;
+  width: 3.5rem;
 }
 
 .service-microsoft-365 .tenant-node::before {
@@ -1561,6 +1571,104 @@
 
 .service-microsoft-365 .tenant-node.is-related .tenant-node-content > span {
   color: rgba(248, 250, 252, 0.78);
+}
+
+/* Hide page sections whose content has moved into the detail card overlay */
+.service-microsoft-365 .tenant-risk-section,
+.service-microsoft-365 .service-section:has(.service-card-grid),
+.service-microsoft-365 .service-section:has(.service-problem-grid),
+.service-microsoft-365 .service-section:has(.service-deliverable-grid) {
+  display: none;
+}
+
+/* Bottom strip: re-add padding since hero is now full-height */
+.service-microsoft-365 .service-hero-copy {
+  padding: 2rem 0 2.5rem;
+}
+
+/* Detail card body: two-column */
+.service-microsoft-365 .tenant-detail-body {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 20rem;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.service-microsoft-365 .tenant-detail-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+  overflow-y: auto;
+}
+
+/* What we do section */
+.service-microsoft-365 .td-what-we-do p {
+  color: rgba(226, 232, 240, 0.78);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0.6rem 0 0;
+}
+
+/* Risk card */
+.service-microsoft-365 .td-risk-card {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.24);
+  border-radius: 0.85rem;
+  margin-top: 0.6rem;
+  padding: 0.9rem 1rem;
+}
+
+.service-microsoft-365 .td-risk-card strong {
+  color: #fca5a5;
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.service-microsoft-365 .td-risk-card p {
+  color: rgba(226, 232, 240, 0.75);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Outcome */
+.service-microsoft-365 .td-outcome-text {
+  color: #a7f3d0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0.5rem 0 0;
+}
+
+/* Deliverable card */
+.service-microsoft-365 .td-deliverable-card {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(129, 140, 248, 0.22);
+  border-radius: 0.85rem;
+  margin-top: 0.6rem;
+  padding: 0.9rem 1rem;
+}
+
+.service-microsoft-365 .td-deliverable-card strong {
+  color: #c7d2fe;
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.35rem;
+}
+
+.service-microsoft-365 .td-deliverable-card p {
+  color: rgba(226, 232, 240, 0.72);
+  font-size: 0.83rem;
+  line-height: 1.5;
+  margin: 0;
 }
 
 @media (max-width: 1199px) {
@@ -1635,14 +1743,16 @@
 
   .service-microsoft-365 .tenant-detail {
     bottom: 1rem;
+    gap: 1rem;
     left: 1rem;
+    padding: 1.5rem;
     right: 1rem;
     top: 1rem;
-    padding: 1.5rem;
   }
 
   .service-microsoft-365 .tenant-detail-body {
     grid-template-columns: 1fr;
+    overflow-y: auto;
   }
 
   .service-microsoft-365 .tenant-detail-sidebar {
@@ -1653,7 +1763,7 @@
   }
 
   .service-microsoft-365 .tenant-detail-tasks ul {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -1769,6 +1879,36 @@
   .service-microsoft-365 .tenant-detail-icon {
     height: 2.75rem;
     width: 2.75rem;
+  }
+
+  /* Reset full-height panel at mobile — orbital becomes a grid */
+  .service-microsoft-365 .tenant-hardening-panel {
+    height: auto;
+    min-height: 0;
+  }
+
+  .service-microsoft-365 .tenant-map {
+    height: auto;
+    min-height: 0;
+  }
+
+  .service-microsoft-365 .service-hero-copy {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 0 2rem;
+  }
+
+  .service-microsoft-365 .service-actions {
+    flex-wrap: wrap;
+    grid-column: 1;
+    justify-content: flex-start;
+  }
+
+  /* Sections shown again at mobile since orbital is disabled */
+  .service-microsoft-365 .tenant-risk-section,
+  .service-microsoft-365 .service-section:has(.service-card-grid),
+  .service-microsoft-365 .service-section:has(.service-problem-grid),
+  .service-microsoft-365 .service-section:has(.service-deliverable-grid) {
+    display: block;
   }
 
   .tenant-detail-meta {

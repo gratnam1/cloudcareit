@@ -45,6 +45,8 @@ export interface TenantHardeningControl {
   riskText?: string;
   deliverable?: string;
   deliverableText?: string;
+  effort?: string;
+  businessImpact?: string;
 }
 
 export interface RiskControlMapItem {

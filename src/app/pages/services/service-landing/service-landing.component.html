@@ -101,6 +101,10 @@
                         aria-hidden="true"></i>
                       {{ control.status || 'review' }}
                     </strong>
+                    <span class="td-effort" *ngIf="control.effort">
+                      <i class="bi bi-clock" aria-hidden="true"></i>
+                      {{ control.effort }}
+                    </span>
                   </div>
                   <h2 id="tenant-hardening-title">{{ control.label }}</h2>
                 </div>
@@ -115,6 +119,11 @@
                 <!-- Left: description + what we do + tasks -->
                 <div class="tenant-detail-main">
                   <p class="tenant-detail-desc">{{ control.description }}</p>
+
+                  <div class="td-business-impact" *ngIf="control.businessImpact">
+                    <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
+                    <p>{{ control.businessImpact }}</p>
+                  </div>
 
                   <div class="td-what-we-do" *ngIf="control.whatWeDo">
                     <span class="tenant-section-label">
@@ -450,3 +459,4 @@
     </div>
   </section>
 </main>
+ 

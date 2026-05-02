@@ -206,6 +206,8 @@ export const MICROSOFT_365_PAGE: ServiceLandingPage = {
         relatedKeys: ['mfa', 'conditional-access', 'licensing'],
         energy: 94,
         status: 'review',
+        effort: '2–3 hrs',
+        businessImpact: 'Stale accounts and over-privileged admins are the most common entry point in SMB breaches — one compromised admin account can expose the entire tenant.',
         tasks: [
           'Audit stale and inactive accounts',
           'Review admin role assignments',
@@ -230,6 +232,8 @@ export const MICROSOFT_365_PAGE: ServiceLandingPage = {
         relatedKeys: ['entra-id', 'conditional-access', 'backup'],
         energy: 91,
         status: 'hardened',
+        effort: '1–2 hrs',
+        businessImpact: 'Accounts without MFA are 99% more likely to be compromised — even a weak password becomes low-risk when a second factor is in place.',
         tasks: [
           'Confirm MFA enrollment for all users',
           'Review break-glass account exclusions',
@@ -253,6 +257,8 @@ export const MICROSOFT_365_PAGE: ServiceLandingPage = {
         relatedKeys: ['entra-id', 'mfa', 'teams'],
         energy: 86,
         status: 'review',
+        effort: '2–4 hrs',
+        businessImpact: 'Without Conditional Access policies, a stolen password from any device or location is an open door — sign-in rules are what make MFA enforceable.',
         tasks: [
           'Audit all policies for coverage gaps',
           'Check overly broad policy exclusions',
@@ -276,6 +282,8 @@ export const MICROSOFT_365_PAGE: ServiceLandingPage = {
         relatedKeys: ['mfa', 'backup'],
         energy: 88,
         status: 'hardened',
+        effort: '2–3 hrs',
+        businessImpact: 'Email is the top attack vector for small offices — misconfigured SPF/DKIM/DMARC and unchecked forwarding rules are the two most common gaps we find.',
         tasks: [
           'Verify SPF, DKIM, and DMARC records',
           'Audit mailbox forwarding and redirects',
@@ -299,6 +307,8 @@ export const MICROSOFT_365_PAGE: ServiceLandingPage = {
         relatedKeys: ['onedrive', 'teams', 'backup'],
         energy: 78,
         status: 'review',
+        effort: '3–4 hrs',
+        businessImpact: 'A single broadly-shared folder can expose sensitive client or financial files to dozens of people outside your intended audience — often without anyone noticing.',
         tasks: [
           'Map external sharing permissions',
           'Review sensitive site access',
@@ -322,6 +332,8 @@ export const MICROSOFT_365_PAGE: ServiceLandingPage = {
         relatedKeys: ['sharepoint', 'teams', 'backup'],
         energy: 72,
         status: 'review',
+        effort: '1–2 hrs',
+        businessImpact: 'Personal drives are the least-managed part of most Microsoft 365 tenants — public sharing links created years ago are frequently still active and forgotten.',
         tasks: [
           'Review sharing link defaults',
           'Check sync client restrictions',
@@ -345,6 +357,8 @@ export const MICROSOFT_365_PAGE: ServiceLandingPage = {
         relatedKeys: ['sharepoint', 'onedrive', 'conditional-access'],
         energy: 68,
         status: 'planned',
+        effort: '2–3 hrs',
+        businessImpact: 'Guest access in Teams often gives external contacts more file visibility than anyone intended — abandoned channels and unchecked guests are a quiet exposure risk.',
         tasks: [
           'Audit guest access policies',
           'Review meeting recording defaults',
@@ -368,6 +382,8 @@ export const MICROSOFT_365_PAGE: ServiceLandingPage = {
         relatedKeys: ['entra-id', 'teams'],
         energy: 58,
         status: 'planned',
+        effort: '1–2 hrs',
+        businessImpact: 'Most small offices are paying for 20–30% more licenses than they actively use — a quick audit typically surfaces savings and clears up overlapping subscriptions.',
         tasks: [
           'Identify unassigned license seats',
           'Match licenses to actual user roles',
@@ -391,6 +407,8 @@ export const MICROSOFT_365_PAGE: ServiceLandingPage = {
         relatedKeys: ['exchange', 'sharepoint', 'onedrive', 'mfa'],
         energy: 82,
         status: 'review',
+        effort: '1–2 hrs',
+        businessImpact: "Microsoft's retention policies are not a backup — deleted emails and files can be permanently lost if a third-party backup is not configured, tested, and verified.",
         tasks: [
           'Confirm backup coverage scope',
           'Review retention policy settings',
@@ -1045,3 +1063,4 @@ export const SERVICE_PAGES = {
   crisisRecovery: CRISIS_RECOVERY_PAGE,
   aiIntegration: AI_INTEGRATION_PAGE,
 } as const;
+

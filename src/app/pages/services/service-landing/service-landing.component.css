@@ -652,6 +652,24 @@
   color: #94a3b8;
 }
 
+.td-effort {
+  align-items: center;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.22);
+  border-radius: 999px;
+  color: rgba(103, 232, 249, 0.85);
+  display: inline-flex;
+  font-size: 0.68rem;
+  font-weight: 700;
+  gap: 0.28rem;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.6rem;
+}
+
+.td-effort i {
+  font-size: 0.6rem;
+}
+
 .tenant-detail h2 {
   color: #fff;
   font-size: clamp(1.35rem, 2vw, 1.9rem);
@@ -1312,7 +1330,7 @@
 .service-microsoft-365 .tenant-detail-body {
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1fr 17rem;
+  grid-template-columns: 1fr 20rem;
   min-height: 0;
 }
 
@@ -1626,6 +1644,31 @@
   gap: 1.5rem;
   min-width: 0;
   overflow-y: auto;
+}
+
+/* Business impact callout */
+.service-microsoft-365 .td-business-impact {
+  align-items: flex-start;
+  background: rgba(59, 130, 246, 0.07);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 0.75rem;
+  display: flex;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+}
+
+.service-microsoft-365 .td-business-impact > i {
+  color: #60a5fa;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  margin-top: 0.18rem;
+}
+
+.service-microsoft-365 .td-business-impact p {
+  color: rgba(186, 214, 254, 0.88);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* What we do section */

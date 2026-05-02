@@ -355,6 +355,419 @@
 .hero-automation .hero-visual-system span:nth-child(3) { right: 28%; top: 58%; }
 .hero-automation .hero-visual-system span:nth-child(4) { right: 0; top: 38%; }
 
+.tenant-hardening-panel {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 760px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.tenant-hardening-panel::before {
+  display: none;
+}
+
+.tenant-map {
+  min-height: 690px;
+  margin: 0.75rem 0 0;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.tenant-map-orbits {
+  display: none;
+}
+
+.tenant-map-orbits::before,
+.tenant-map-orbits::after {
+  display: none;
+}
+
+.tenant-map-orbits::after {
+  display: none;
+}
+
+.tenant-map-orbits {
+  animation: none;
+}
+
+.tenant-map::before,
+.tenant-map::after {
+  display: none;
+}
+
+.tenant-map::after {
+  display: none;
+}
+
+.tenant-orbit-track {
+  animation: tenant-orbit-spin 60s linear infinite;
+  height: min(48rem, 82vh);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  width: min(48rem, 82vh);
+  z-index: 10;
+}
+
+.tenant-center {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  color: #fff;
+  display: grid;
+  gap: 0.35rem;
+  justify-items: center;
+  left: 50%;
+  min-height: 7.2rem;
+  padding: 1rem;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(11rem, 42%);
+  z-index: 3;
+}
+
+.tenant-center::before,
+.tenant-center::after {
+  display: none;
+}
+
+.tenant-center::after {
+  animation: none;
+}
+
+.tenant-center i {
+  color: #60a5fa;
+  font-size: 1.75rem;
+}
+
+.tenant-center strong {
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.tenant-center span {
+  color: rgba(226, 232, 240, 0.68);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.tenant-node {
+  align-items: center;
+  background: rgba(2, 6, 23, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 999px;
+  color: rgba(241, 245, 249, 0.9);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 0.45rem;
+  justify-content: center;
+  min-height: 2.55rem;
+  min-width: 6.2rem;
+  padding: 0.55rem 0.72rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  z-index: 4;
+}
+
+.tenant-node-content {
+  align-items: center;
+  animation: tenant-node-counter-spin 60s linear infinite;
+  display: inline-flex;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.tenant-node::before {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
+  border-radius: 999px;
+  content: '';
+  height: calc(2.3rem + (var(--tenant-energy, 70) * 0.018rem));
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease;
+  width: calc(2.3rem + (var(--tenant-energy, 70) * 0.018rem));
+  z-index: -1;
+}
+
+.tenant-node i {
+  color: #67e8f9;
+  font-size: 1rem;
+}
+
+.tenant-node-content > span {
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.tenant-node:hover,
+.tenant-node:focus-visible,
+.tenant-node.is-active {
+  background: rgba(99, 102, 241, 0.24);
+  border-color: rgba(129, 140, 248, 0.72);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.14), 0 16px 38px rgba(2, 6, 23, 0.38);
+  color: #fff;
+  outline: none;
+}
+
+.tenant-node.is-active::before,
+.tenant-node.is-related::before {
+  opacity: 1;
+}
+
+.tenant-node.is-related {
+  animation: tenant-related-pulse 1.25s ease-in-out infinite;
+  border-color: rgba(103, 232, 249, 0.72);
+}
+
+@keyframes tenant-orbit-breathe {
+  0%, 100% {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.025);
+  }
+}
+
+@keyframes tenant-center-ping {
+  0% {
+    opacity: 0.58;
+    transform: scale(0.96);
+  }
+  80%, 100% {
+    opacity: 0;
+    transform: scale(1.14);
+  }
+}
+
+@keyframes tenant-related-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(34, 211, 238, 0.08);
+  }
+}
+
+@keyframes tenant-orbit-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes tenant-node-counter-spin {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.tenant-detail {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  left: 50%;
+  max-width: min(35rem, 48vw);
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  top: calc(50% + 7.15rem);
+  transform: translateX(-50%);
+  width: max-content;
+  z-index: 30;
+}
+
+.tenant-detail-meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.tenant-detail-meta span,
+.tenant-legend span {
+  color: #a5b4fc;
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tenant-detail-meta strong {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.26);
+  border-radius: 999px;
+  color: #a7f3d0;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.55rem;
+  text-transform: uppercase;
+}
+
+.tenant-detail h2 {
+  color: #fff;
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  font-weight: 800;
+  margin: 0.35rem 0 0.45rem;
+}
+
+.tenant-detail p {
+  color: rgba(226, 232, 240, 0.78);
+  line-height: 1.6;
+  max-width: 52ch;
+  margin: 0;
+}
+
+.tenant-energy {
+  display: grid;
+  gap: 0.45rem;
+  grid-template-columns: 1fr auto;
+  margin: 0.95rem auto 0;
+  max-width: 34rem;
+  text-align: left;
+}
+
+.tenant-energy span,
+.tenant-energy strong {
+  color: rgba(226, 232, 240, 0.72);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tenant-energy strong {
+  color: #fff;
+}
+
+.tenant-energy div {
+  background: rgba(148, 163, 184, 0.14);
+  border-radius: 999px;
+  grid-column: 1 / -1;
+  height: 0.38rem;
+  overflow: hidden;
+}
+
+.tenant-energy div > i {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #22d3ee);
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+}
+
+.tenant-energy span i {
+  color: rgba(248, 250, 252, 0.68);
+  margin-right: 0.25rem;
+}
+
+.tenant-legend {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: -2.75rem;
+  position: relative;
+  z-index: 31;
+}
+
+.tenant-legend span {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: rgba(226, 232, 240, 0.82);
+  gap: 0.35rem;
+  padding: 0.45rem 0.65rem;
+}
+
+.tenant-legend i {
+  color: #22d3ee;
+}
+
+.tenant-risk-section {
+  padding-top: 0;
+}
+
+.tenant-risk-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.tenant-risk-card {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.86), rgba(8, 13, 30, 0.94));
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 1.1rem;
+  min-height: 100%;
+  padding: 1rem;
+}
+
+.tenant-risk-icon {
+  align-items: center;
+  background: rgba(99, 102, 241, 0.16);
+  border: 1px solid rgba(129, 140, 248, 0.34);
+  border-radius: 0.85rem;
+  color: #93c5fd;
+  display: inline-flex;
+  height: 2.65rem;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  width: 2.65rem;
+}
+
+.tenant-risk-copy {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.92rem;
+  font-weight: 900;
+}
+
+.tenant-risk-copy span {
+  color: #f8fafc;
+}
+
+.tenant-risk-copy i {
+  color: #818cf8;
+  font-size: 1.15rem;
+}
+
+.tenant-risk-copy strong {
+  color: #67e8f9;
+}
+
+.tenant-risk-card p {
+  color: rgba(226, 232, 240, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0.75rem 0 0;
+}
+
 .service-section-head {
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   max-width: 780px;
@@ -699,9 +1112,314 @@
   background: linear-gradient(135deg, rgba(20, 184, 166, 0.26), rgba(99, 102, 241, 0.18));
 }
 
+.service-microsoft-365 .service-hero {
+  padding-top: clamp(1.75rem, 4vw, 3.25rem);
+}
+
+.service-microsoft-365 .service-back-link {
+  display: none;
+}
+
+.service-microsoft-365 .service-hero-grid {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 3vw, 2.75rem);
+  min-height: 0;
+  position: relative;
+}
+
+.service-microsoft-365 .service-hero-copy {
+  align-items: end;
+  display: grid;
+  gap: 1rem 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.45fr);
+  max-width: none;
+  order: 2;
+  position: relative;
+  z-index: 20;
+}
+
+.service-microsoft-365 .service-hero-copy .service-eyebrow,
+.service-microsoft-365 .service-hero-copy h1,
+.service-microsoft-365 .service-trust-chips {
+  display: none;
+}
+
+.service-microsoft-365 .m365-orbit-kicker {
+  left: clamp(1rem, 4vw, 4rem);
+  order: 0;
+  position: absolute;
+  top: clamp(0.25rem, 1.5vw, 1rem);
+  z-index: 30;
+}
+
+.service-microsoft-365 .service-lead {
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  grid-column: 1;
+  max-width: 62ch;
+  margin: 0;
+}
+
+.service-microsoft-365 .service-actions {
+  align-self: end;
+  grid-column: 2;
+  justify-content: flex-end;
+  margin-top: 0;
+}
+
+.service-microsoft-365 .service-trust-chips {
+  margin-top: 1.25rem;
+  max-width: 34rem;
+}
+
+.service-microsoft-365 .tenant-hardening-panel {
+  min-height: min(820px, calc(100vh - 5.5rem));
+  order: 1;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+.service-microsoft-365 .tenant-hardening-panel .hero-panel-header {
+  display: none;
+}
+
+.service-microsoft-365 .tenant-map {
+  margin: 0;
+  min-height: min(790px, calc(100vh - 5.5rem));
+  width: 100%;
+}
+
+.service-microsoft-365 .tenant-detail {
+  align-items: center;
+  background: rgba(5, 10, 30, 0.48);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 1.25rem;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 0 40px rgba(99, 102, 241, 0.12);
+  display: grid;
+  left: 50%;
+  max-width: none;
+  padding: 1.45rem;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(20rem, 34vw);
+}
+
+.service-microsoft-365 .tenant-detail-icon {
+  align-items: center;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.85), rgba(34, 211, 238, 0.7));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.35);
+  color: #fff;
+  display: inline-flex;
+  height: 3.45rem;
+  justify-content: center;
+  justify-self: center;
+  margin: -3.25rem 0 0.55rem;
+  width: 3.45rem;
+}
+
+.service-microsoft-365 .tenant-detail-icon i {
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.service-microsoft-365 .tenant-detail h2 {
+  font-size: 1.08rem;
+}
+
+.service-microsoft-365 .tenant-detail p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.service-microsoft-365 .tenant-detail-links {
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+}
+
+.service-microsoft-365 .tenant-detail-links span {
+  align-items: center;
+  color: rgba(226, 232, 240, 0.72);
+  display: inline-flex;
+  flex-basis: 100%;
+  font-size: 0.68rem;
+  font-weight: 900;
+  gap: 0.3rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.service-microsoft-365 .tenant-detail-links button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(248, 250, 252, 0.9);
+  font-size: 0.76rem;
+  padding: 0.35rem 0.5rem;
+}
+
+.service-microsoft-365 .tenant-detail-links button:hover,
+.service-microsoft-365 .tenant-detail-links button:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.service-microsoft-365 .tenant-legend {
+  display: none;
+}
+
+.service-microsoft-365 .tenant-center {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  display: grid;
+  min-height: 0;
+  width: min(13rem, 42%);
+  z-index: 25;
+}
+
+.service-microsoft-365 .tenant-map.has-active-tenant .tenant-center {
+  display: none;
+}
+
+.service-microsoft-365 .tenant-center i {
+  align-items: center;
+  background: linear-gradient(135deg, #6366f1, #3b82f6 52%, #22d3ee);
+  border-radius: 999px;
+  box-shadow: 0 0 34px rgba(59, 130, 246, 0.28);
+  color: #dbeafe;
+  display: inline-flex;
+  font-size: 2rem;
+  height: 4.2rem;
+  justify-content: center;
+  justify-self: center;
+  position: relative;
+  width: 4.2rem;
+}
+
+.service-microsoft-365 .tenant-center i::after {
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: inherit;
+  content: '';
+  height: 2rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2rem;
+  z-index: -1;
+}
+
+.service-microsoft-365 .tenant-center strong {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+  margin-top: 0.55rem;
+}
+
+.service-microsoft-365 .tenant-center span {
+  color: rgba(226, 232, 240, 0.72);
+  font-size: 0.75rem;
+}
+
+.service-microsoft-365 .tenant-map-orbits {
+  animation: none;
+  background:
+    linear-gradient(#050816, #050816) padding-box,
+    conic-gradient(from 120deg, rgba(34, 211, 238, 0.72), rgba(99, 102, 241, 0.18), rgba(139, 92, 246, 0.62), rgba(16, 185, 129, 0.44), rgba(34, 211, 238, 0.72)) border-box;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  box-shadow: 0 0 42px rgba(34, 211, 238, 0.08), inset 0 0 34px rgba(99, 102, 241, 0.06);
+  display: block;
+  height: 660px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 660px;
+}
+
+.service-microsoft-365 .tenant-map-orbits::before {
+  display: none;
+}
+
+.service-microsoft-365 .tenant-map-orbits::after {
+  display: none;
+}
+
+.service-microsoft-365 .tenant-node {
+  background: rgba(0, 0, 0, 0.92);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  color: rgba(248, 250, 252, 0.82);
+  height: 3rem;
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  width: 3rem;
+}
+
+.service-microsoft-365 .tenant-node::before {
+  height: calc(3.4rem + (var(--tenant-energy, 70) * 0.02rem));
+  width: calc(3.4rem + (var(--tenant-energy, 70) * 0.02rem));
+}
+
+.service-microsoft-365 .tenant-node-content > i {
+  color: currentColor;
+  font-size: 1.08rem;
+}
+
+.service-microsoft-365 .tenant-node-content > span {
+  color: rgba(248, 250, 252, 0.58);
+  font-size: 0.78rem;
+  font-weight: 900;
+  left: 50%;
+  letter-spacing: 0;
+  line-height: 1.1;
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.service-microsoft-365 .tenant-node:hover,
+.service-microsoft-365 .tenant-node:focus-visible {
+  background: rgba(255, 255, 255, 0.54);
+  border-color: rgba(255, 255, 255, 0.74);
+  color: #020617;
+}
+
+.service-microsoft-365 .tenant-node.is-active {
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08), 0 0 34px rgba(255, 255, 255, 0.2);
+  color: #020617;
+}
+
+.service-microsoft-365 .tenant-node.is-active .tenant-node-content > span {
+  color: #fff;
+}
+
+.service-microsoft-365 .tenant-node.is-related {
+  border-color: rgba(255, 255, 255, 0.72);
+}
+
+.service-microsoft-365 .tenant-node.is-related .tenant-node-content > span {
+  color: rgba(248, 250, 252, 0.78);
+}
+
 @media (max-width: 1199px) {
   .service-card-grid,
   .service-problem-grid,
+  .tenant-risk-grid,
   .service-deliverable-grid,
   .service-process,
   .diagram-map .service-diagram-list,
@@ -732,6 +1450,45 @@
   .service-final-card .service-actions {
     justify-content: flex-start;
   }
+
+  .service-microsoft-365 .service-hero-grid {
+    min-height: 0;
+  }
+
+  .service-microsoft-365 .service-hero-copy {
+    align-items: start;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .service-microsoft-365 .service-lead {
+    max-width: none;
+  }
+
+  .service-microsoft-365 .service-actions {
+    grid-column: 1;
+    grid-row: auto;
+    justify-content: flex-start;
+  }
+
+  .service-microsoft-365 .tenant-hardening-panel {
+    min-height: 760px;
+    position: relative;
+  }
+
+  .service-microsoft-365 .tenant-hardening-panel .hero-panel-header {
+    display: none;
+  }
+
+  .service-microsoft-365 .tenant-map {
+    margin-left: 0;
+    min-height: 690px;
+    width: 100%;
+  }
+
+  .service-microsoft-365 .tenant-detail {
+    max-width: min(35rem, 80vw);
+  }
 }
 
 @media (max-width: 767px) {
@@ -743,6 +1500,7 @@
 
   .service-card-grid,
   .service-problem-grid,
+    .tenant-risk-grid,
     .service-deliverable-grid,
     .service-process,
     .scenario-grid,
@@ -761,6 +1519,92 @@
 
   .service-hero-panel {
     min-height: 0;
+  }
+
+  .tenant-map {
+    display: grid;
+    gap: 0.65rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 0;
+  }
+
+  .tenant-map-orbits,
+  .tenant-map::before,
+  .tenant-map::after {
+    display: none;
+  }
+
+  .tenant-center,
+  .tenant-node,
+  .tenant-node:hover,
+  .tenant-node:focus-visible,
+  .tenant-node.is-active {
+    left: auto;
+    opacity: 1 !important;
+    position: static;
+    right: auto;
+    top: auto;
+    transform: none !important;
+  }
+
+  .tenant-center {
+    grid-column: 1 / -1;
+    min-height: 0;
+    width: auto;
+  }
+
+  .tenant-detail {
+    grid-column: 1 / -1;
+    left: auto;
+    max-width: none;
+    padding-top: 1rem;
+    position: static;
+    text-align: left;
+    top: auto;
+    transform: none;
+    width: auto;
+  }
+
+  .service-microsoft-365 .tenant-map-orbits {
+    display: none;
+  }
+
+  .service-microsoft-365 .tenant-detail {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    left: auto;
+    padding: 1rem 0 0;
+    position: static;
+    text-align: left;
+    top: auto;
+    transform: none;
+    width: auto;
+  }
+
+  .service-microsoft-365 .tenant-detail-icon {
+    display: none;
+  }
+
+  .tenant-detail-meta {
+    justify-content: space-between;
+  }
+
+  .tenant-legend {
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+
+  .tenant-node {
+    border-radius: 0.85rem;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .tenant-node:hover,
+  .tenant-node:focus-visible,
+  .tenant-node.is-active {
+    transform: none;
   }
 
   .diagram-layers .service-diagram-item {
@@ -789,5 +1633,13 @@
   .service-process-step {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .tenant-map-orbits,
+  .tenant-orbit-track,
+  .tenant-node-content,
+  .tenant-center::after,
+  .tenant-node.is-related {
+    animation: none !important;
   }
 }

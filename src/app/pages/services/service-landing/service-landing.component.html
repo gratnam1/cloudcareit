@@ -41,6 +41,176 @@
         </div>
 
         <aside
+          *ngIf="page.tenantHardening as tenantHardening; else defaultHeroVisual"
+          class="service-hero-panel tenant-hardening-panel service-reveal"
+          aria-labelledby="tenant-hardening-title"
+          (click)="clearActiveTenantControl()"
+        >
+          <div class="hero-panel-header">
+            <span>{{ tenantHardening.metric }}</span>
+            <i class="bi bi-shield-lock" aria-hidden="true"></i>
+          </div>
+
+          <div
+            class="tenant-map"
+            [class.has-active-tenant]="activeTenantControl"
+            aria-label="Interactive Microsoft 365 tenant hardening map"
+          >
+            <div class="tenant-map-orbits" aria-hidden="true"></div>
+
+            <div class="tenant-center">
+              <i class="bi bi-microsoft" aria-hidden="true"></i>
+              <strong>Microsoft 365 Tenant</strong>
+              <span>Identity · Mail · Data · Recovery</span>
+            </div>
+
+            <div class="tenant-orbit-track" aria-hidden="false">
+              <button
+                *ngFor="let control of tenantHardening.controls; index as i"
+                type="button"
+                class="tenant-node"
+                [class.is-active]="activeTenantControl?.key === control.key"
+                [class.is-related]="isRelatedTenantControl(control)"
+                [style.--tenant-energy.%]="getTenantEnergy(control)"
+                [ngStyle]="getTenantNodeStyle(control, i, tenantHardening.controls.length)"
+                [attr.aria-pressed]="activeTenantControl?.key === control.key"
+                [attr.aria-label]="control.label + ': ' + control.description"
+                (click)="$event.stopPropagation(); setActiveTenantControl(control)"
+              >
+                <div class="tenant-node-content">
+                  <i class="bi {{ control.icon }}" aria-hidden="true"></i>
+                  <span>{{ control.label }}</span>
+                </div>
+              </button>
+            </div>
+
+            <div class="tenant-detail" *ngIf="activeTenantControl as control" (click)="$event.stopPropagation()">
+              <!-- Header -->
+              <div class="tenant-detail-header">
+                <div class="tenant-detail-icon">
+                  <i class="bi {{ control.icon }}" aria-hidden="true"></i>
+                </div>
+                <div class="tenant-detail-title-block">
+                  <div class="tenant-detail-meta">
+                    <span>{{ control.category }}</span>
+                    <strong>{{ control.status || 'review' }}</strong>
+                  </div>
+                  <h2 id="tenant-hardening-title">{{ control.label }}</h2>
+                </div>
+                <button type="button" class="tenant-detail-close" aria-label="Close panel" (click)="$event.stopPropagation(); clearActiveTenantControl()">
+                  <i class="bi bi-x-lg" aria-hidden="true"></i>
+                </button>
+              </div>
+
+              <!-- Main body: left content + right sidebar -->
+              <div class="tenant-detail-body">
+
+                <!-- Left: description + what we do + tasks -->
+                <div class="tenant-detail-main">
+                  <p class="tenant-detail-desc">{{ control.description }}</p>
+
+                  <div class="td-what-we-do" *ngIf="control.whatWeDo">
+                    <span class="tenant-section-label">
+                      <i class="bi bi-tools" aria-hidden="true"></i>
+                      What we do
+                    </span>
+                    <p>{{ control.whatWeDo }}</p>
+                  </div>
+
+                  <div class="tenant-detail-tasks" *ngIf="control.tasks?.length">
+                    <span class="tenant-section-label">
+                      <i class="bi bi-check2-all" aria-hidden="true"></i>
+                      What we check
+                    </span>
+                    <ul>
+                      <li *ngFor="let task of control.tasks">
+                        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                        {{ task }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Right sidebar: risk + outcome + deliverable + priority + connected -->
+                <div class="tenant-detail-sidebar">
+
+                  <div class="td-risk" *ngIf="control.risk">
+                    <span class="tenant-section-label">
+                      <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
+                      Risk addressed
+                    </span>
+                    <div class="td-risk-card">
+                      <strong>{{ control.risk }}</strong>
+                      <p>{{ control.riskText }}</p>
+                    </div>
+                  </div>
+
+                  <div class="td-outcome" *ngIf="control.outcome">
+                    <span class="tenant-section-label">
+                      <i class="bi bi-arrow-up-right-circle" aria-hidden="true"></i>
+                      Outcome
+                    </span>
+                    <p class="td-outcome-text">{{ control.outcome }}</p>
+                  </div>
+
+                  <div class="td-deliverable" *ngIf="control.deliverable">
+                    <span class="tenant-section-label">
+                      <i class="bi bi-file-earmark-check" aria-hidden="true"></i>
+                      Deliverable
+                    </span>
+                    <div class="td-deliverable-card">
+                      <strong>{{ control.deliverable }}</strong>
+                      <p>{{ control.deliverableText }}</p>
+                    </div>
+                  </div>
+
+                  <div class="td-energy">
+                    <div class="td-energy-hd">
+                      <span>
+                        <i class="bi bi-lightning-charge" aria-hidden="true"></i>
+                        Hardening priority
+                      </span>
+                      <strong>{{ getTenantEnergy(control) }}%</strong>
+                    </div>
+                    <div class="td-energy-bar"><i [style.width.%]="getTenantEnergy(control)"></i></div>
+                  </div>
+
+                  <div class="tenant-detail-links" *ngIf="activeRelatedTenantControls.length">
+                    <span class="tenant-section-label">
+                      <i class="bi bi-link-45deg" aria-hidden="true"></i>
+                      Connected controls
+                    </span>
+                    <div class="td-connected-grid">
+                      <button
+                        *ngFor="let relatedControl of activeRelatedTenantControls"
+                        type="button"
+                        (click)="$event.stopPropagation(); setActiveTenantControl(relatedControl)"
+                      >
+                        <i class="bi {{ relatedControl.icon }}" aria-hidden="true"></i>
+                        {{ relatedControl.label }}
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tenant-legend" aria-label="Microsoft 365 hardening control groups">
+            <span><i class="bi bi-person-lock" aria-hidden="true"></i> Identity</span>
+            <span><i class="bi bi-envelope-check" aria-hidden="true"></i> Mail</span>
+            <span><i class="bi bi-folder-check" aria-hidden="true"></i> Collaboration</span>
+            <span><i class="bi bi-database-check" aria-hidden="true"></i> Recovery</span>
+          </div>
+        </aside>
+
+        <div class="m365-orbit-kicker service-reveal" *ngIf="page.tenantHardening">
+          <span class="service-eyebrow">{{ page.eyebrow }}</span>
+        </div>
+
+        <ng-template #defaultHeroVisual>
+        <aside
           class="service-hero-panel service-reveal"
           [ngClass]="{
             'hero-roadmap': page.infographic.type === 'roadmap',
@@ -68,6 +238,31 @@
             <span *ngFor="let node of page.heroVisual.nodes">{{ node }}</span>
           </div>
         </aside>
+        </ng-template>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-section tenant-risk-section" aria-labelledby="tenant-risk-title" *ngIf="page.riskControlMap?.length">
+    <div class="container">
+      <div class="service-section-head service-reveal">
+        <span class="service-eyebrow">Risk to control map</span>
+        <h2 id="tenant-risk-title">Common Microsoft 365 risks and the controls that reduce them</h2>
+        <p>Small business tenants usually fail in patterns. We connect each visible symptom to the Microsoft 365 controls that need attention.</p>
+      </div>
+
+      <div class="tenant-risk-grid">
+        <article class="tenant-risk-card service-reveal" *ngFor="let item of page.riskControlMap">
+          <div class="tenant-risk-icon">
+            <i class="bi {{ item.icon }}" aria-hidden="true"></i>
+          </div>
+          <div class="tenant-risk-copy">
+            <span>{{ item.risk }}</span>
+            <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+            <strong>{{ item.controls }}</strong>
+          </div>
+          <p>{{ item.text }}</p>
+        </article>
       </div>
     </div>
   </section>
